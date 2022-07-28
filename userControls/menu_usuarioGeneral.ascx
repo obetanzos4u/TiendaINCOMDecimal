@@ -1,0 +1,36 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true"  CodeFile="menu_usuarioGeneral.ascx.cs" Inherits="menu_usuarioGeneral" %>
+
+
+
+<nav class="nav navIncom ">
+    <div class="nav-wrapper blue-grey">
+         
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger" ><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down  ">
+            <li><a href="/usuario/mi-cuenta/mi-cuenta.aspx"><i class="material-icons left">cloud</i>Mi cuenta </a></li>
+            <li><a href="/usuario/mi-cuenta/cotizaciones.aspx"><i class="material-icons left">assignment</i> Cotizaciones</a></li>
+            <li><a href="/usuario/mi-cuenta/pedidos.aspx"><i class="material-icons left">assignment_turned_in</i> Pedidos</a></li>
+            <li><a href="/usuario/mi-cuenta/direcciones-de-facturacion.aspx"><i class="material-icons left">playlist_add_check</i> Direcciones de facturación</a></li>
+            <li><a href="/usuario/mi-cuenta/direcciones-de-envio.aspx"><i class="material-icons left">local_shipping</i> Direcciones de envío</a></li>
+            <li><a href="/usuario/mi-cuenta/contactos.aspx"><i class="material-icons left">people</i> Contactos</a></li>
+        </ul>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="/usuario/mi-cuenta/mi-cuenta.aspx" class="grey-text text-darken-3"><i class="material-icons left">cloud</i>Mi cuenta </a></li>
+            <li><a href="/usuario/mi-cuenta/cotizaciones.aspx" class="grey-text text-darken-3"><i class="material-icons left">assignment</i> Cotizaciones</a></li>
+            <li><a href="/usuario/mi-cuenta/pedidos.aspx" class="grey-text text-darken-3"><i class="material-icons left">assignment_turned_in</i> Pedidos</a></li>
+            <li><a href="/usuario/mi-cuenta/direcciones-de-facturacion.aspx" class="grey-text text-darken-3">
+                <i class="material-icons left">playlist_add_check</i> Direcc. de facturación</a></li>
+            <li><a href="/usuario/mi-cuenta/direcciones-de-envio.aspx" class="grey-text text-darken-3"><i class="material-icons left">local_shipping</i> Direcciones de envío</a></li>
+            <li><a href="/usuario/mi-cuenta/contactos.aspx" class="grey-text text-darken-3"><i class="material-icons left">people</i> Contactos</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script type="text/javascript">
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, null);
+  });
+</script>

@@ -1,0 +1,72 @@
+﻿body {
+    font-family: Verdana,sans-serif;
+    color: #545454;
+    text-rendering: optimizeLegibility;
+    margin: 0px;
+}
+
+label {
+    font-size: 0.8rem;
+   /*display: table; */
+    padding: 5px 0px;
+}
+
+.p {
+}
+
+.container {
+    margin: 0px auto;
+    padding: 5px 1%;
+    background: white;
+}
+
+.row {
+    margin: 5px 0px;
+    padding: 5px 10px;
+}
+
+.col {
+}
+
+.bg-red {
+    background: #f24640 !important;
+}
+
+.bg-grey {
+    color: #565656 !important;
+    background: #ececec !important;
+}
+
+.btn {
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25882352941176473);
+    padding: 7px 19px;
+    border: none;
+    background: #0b79d0;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.txt {
+    padding: 5px 10px;
+    font-size: 1rem;
+}
+
+.msgTrue {
+    color: #4caf4f;
+    display: block;
+    background: #ceffce;
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.msgFalse {
+    color: #cc1212;
+    display: block;
+    background: #ffcece;
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: bold;
+}

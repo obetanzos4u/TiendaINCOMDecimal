@@ -1,0 +1,56 @@
+ <div style="background:#37474f !important; text-align:center; padding:20px 20px;">
+     <img style="height: 60px;" src="{dominio}/img/webUI/incom_retail_logo_header_white.png" />
+ </div>
+ <table>
+     <tr>
+         <td style="width:50%;"></td>
+         <td>
+             <table style="font-family:Helvetica, Arial; color:#242d31; width:600px;">
+                 <tr>
+                     <td>
+                         <h1>Pedido cancelado </h1>
+                         <h2>Hola! {nombre} ({usuario_email}), se ha enviado la solicitud de cancelación</h2>
+                         <br>
+                         <p>Número Operación: <strong>{numero_operacion}</strong></p>
+                         <p>Nombre de Operación: <strong>{nombre_operacion}</strong></p>
+                         <p><strong>Productos:</strong></p>
+                         <p>{productos}</p><br>
+
+                         <h2>Motivo de cancelación:</h2>
+                         <p>
+                             {motivoCancelacion}
+                         </p><p>---------------------------</p>
+                         <p style="text-align:center;">Recuerda que las cancelaciones estan sujetas a los  
+                             <a title="Términos y condiciones de compra" href="{dominio}/informacion/terminos-y-condiciones-de-compra.aspx">Términos y condiciones de compra</a>
+                             y <a   title="Devoluciones y Garantía" href="{dominio}/informacion/devoluciones-y-garantias.aspx">Politica de devoluciones</a>
+                       <br>  <br> Un asesor se pondrá en contacto contigo, puedes revisar tu pedido en el siguiente enlace. <br>  <br> </p>
+                         <div style="text-align:center;">
+                             <a href="{url_operacion}" style="text-decoration:none; font-weight:bold;font-size:22px; padding:12px 20px; color:#fff; background:#039be5 ;">
+                                 Ver pedido
+                             </a>
+                         </div>
+                         <br>
+                         <p style="font-size:17px; text-align:center;">
+                             Si necesitas ayuda no dudes en contactarnos.
+                             <br> <a href="https://www.incom.mx/informacion/ubicacion-y-sucursales.aspx#contacto">Estamos para ayudarte</a>
+                         </p>
+
+                     </td>
+                 </tr>
+                 <tr>
+                     <td><br></td>
+                 </tr>
+
+                 <tr>
+                     <td>
+                         <hr>
+                         <p style="text-align:center;">No olvides consultar nuestro <a href="www.incom.mx/informacion/aviso-de-privacidad.aspx">Aviso de privacidad</a> y
+                             <a href="www.incom.mx/informacion/terminos-y-condiciones-de-compra.aspx">Términos y condiciones de compra</a>.</p>
+
+                     </td>
+                 </tr>
+             </table>
+         </td>
+         <td style="width:50%;"></td>
+     </tr>
+ </table>

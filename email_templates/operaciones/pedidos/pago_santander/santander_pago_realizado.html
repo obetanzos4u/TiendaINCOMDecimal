@@ -1,0 +1,50 @@
+ <div style="background:#37474f !important; text-align:center; padding:20px 20px;">
+     <img style="height: 60px;" src="{dominio}/img/webUI/incom_retail_logo_header_white.png" />
+ </div>
+ <table>
+     <tr>
+         <td style="width:50%;"></td>
+         <td>
+             <table style="font-family:Helvetica, Arial; color:#242d31; width:600px;">
+                 <tr>
+                     <td>
+                         <h1>Nuevo pago realizado por PayPal: {numero_operacion} </h1>
+                         <p>El usuario <strong>{usuario_email}</strong> ha realizado un pago.</p>
+                         <br>
+                         <p>Usuario: <strong>{usuario_email}</strong></p>
+                         <p>Nombre cliente de operacion: <strong>{cliente_nombre}</strong></p>
+                         <p>Número Operación: <strong>{numero_operacion}</strong></p>
+                         <p>Nombre de Operación: <strong>{nombre_operacion}</strong></p>
+
+                         <p><strong>Monto pagado por PayPal:</strong> </p>
+                         <p style="padding: 15px 10px; background: #f3f3f3;">Total: <strong>{totalPayPal}</strong></p>
+
+                         <p><strong>Monto total de la operación en Incom.mx:</strong></p>
+                         <p style="padding: 15px 10px; background: #f3f3f3;">Total: <strong>{totalOperacion}</strong>
+                         </p>
+
+                         <p><strong>Productos:</strong></p>
+                         <p>{productos}</p><br>
+                         <div style="text-align:center;float:left; margin-right: 15px;"><a href="{url_paypal}" style="text-decoration:none; font-weight:bold; padding:12px 20px; color:#fff; background:#039be5 ;">Ver pago en PayPal.com</a></div>
+                         <div style="text-align:center;float:left;">
+                             <a href="{url_operacion}" style="text-decoration:none; font-weight:bold; padding:12px 20px; color:#fff; background:#039be5 ;">Ver operación Incom.mx*</a></div>
+                         <br> <br>
+                         <p style="font-size:12px; text-align:center;">* Debes iniciar sesión y contar con los permisos necesarios para poder visualizarla.</p>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td><br></td>
+                 </tr>
+
+                 <tr>
+                     <td>
+
+
+
+                     </td>
+                 </tr>
+             </table>
+         </td>
+         <td style="width:50%;"></td>
+     </tr>
+ </table>

@@ -1,0 +1,52 @@
+ <div style="background:#37474f !important; text-align:center; padding:20px 20px;">
+     <img style="height: 60px;" src="{urlDominio}/img/webUI/incom_retail_logo_header_white.png" />
+ </div>
+ <table>
+     <tr>
+         <td style="width:50%;"></td>
+         <td>
+             <table style="font-family:Helvetica, Arial; color:#242d31; width:600px;">
+                 <tr>
+                     <td>
+                         <h1>Comprobante de pago </h1>
+                         <p>Hola <strong>{cliente_nombre}</strong>  ({usuario_email}),<br> esto es el recibo de pago para el pedido: <strong> {nombre_operacion}</strong>
+                         </p>
+                         <br>
+                          <p>Número Operación: <strong>{numero_operacion}</strong></p>
+                             
+
+                         <p><strong>Monto pagado vía 3D Secure:</strong> </p>
+
+                        <p style="padding: 15px 10px; background: #f3f3f3;">Total: <strong>{totalPagado}</strong>
+                         </p>
+                             <p><strong>Monto de la operación:</strong> </p>
+                          <p style="padding: 10px 10px; background: #f3f3f3;">Total: <strong>{totalOperacion}</strong>
+                         </p>
+                         <p style="font-size:20px;color:#039be5">Estatus: <strong>{estatus}</strong></p> 
+
+                         <p><strong>Productos:</strong></p>
+                         <p>{productos}</p><br>
+                      
+                         <div style="text-align:center;float:left;">
+                             <a href="{url_operacion}" style="text-decoration:none; font-weight:bold; padding:12px 20px; color:#fff; background:#039be5 ;">Ver operación Incom.mx*</a></div>
+                         <br> <br>
+                         <p style="font-size:18px; text-align:center;">¡Gracias!</p>
+                         <p style="font-size:14px; text-align:center;">Incom agradece tu compra, en unos momentos un asesor se comunicará contigo</p>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td><br></td>
+                 </tr>
+
+                 <tr>
+                     <td>
+
+
+
+                     </td>
+                 </tr>
+             </table>
+         </td>
+         <td style="width:50%;"></td>
+     </tr>
+ </table>

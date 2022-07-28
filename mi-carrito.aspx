@@ -1,0 +1,319 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" Async="true" CodeFile="mi-carrito.aspx.cs" MasterPageFile="~/general.master" Inherits="mi_carrito" %>
+
+<%@ Register Src="~/userControls/moneda.ascx" TagName="moneda" TagPrefix="uc_mon" %>
+<%@ Register Src="~/userControls/uc_precio_detalles.ascx" TagName="preciosDetalles" TagPrefix="uc1" %>
+
+
+
+<asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
+    <asp:HiddenField ID="hf_UserLogin" runat="server" />
+    <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="container" runat="server">
+        <ContentTemplate>
+            <div class="row">
+                <div class="col l8 xl8" style="padding: 1rem 0">
+                    <div style="display: flex; justify-content: center; align-items: center">
+                        <h1 style="user-select: none">Carrito de compras
+                        <asp:LinkButton ID="btn_guardarPlantilla" data-tooltip="Guarda este listado de productos para cotizaciones" OnClick="btn_guardarPlantilla_Click" CssClass="tooltipped" runat="server">
+                            <i class="material-icons">save</i>
+                        </asp:LinkButton>
+                        </h1>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0;">
+                        <p style="margin: 0; padding: 0.25rem 0">¿Qué deseas hacer con tu carrito?</p>
+                        <div style="display: flex; justify-content: center; align-items: center">
+                            <a class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align modal-trigger" style="margin: 0 0.5rem" href="#modal1">Cotizar
+                            <i class="material-icons right">content_paste</i>
+                            </a>
+                            <a class="waves-effect waves-light  btn  green  blue-grey-text text-lighten-5 modal-trigger" href="#modalPedido" style="margin: 0 0.5rem" runat="server">Comprar
+                            <i class="material-icons right">shopping_basket</i>
+                            </a>
+                        </div>
+                    </div>
+                    <div style="padding: 0 1rem">
+                        <strong>Aviso: </strong>
+                        <span>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.
+                            <a target="_blank" href="/documents/INCOM-MEDIDAS-COVID.pdf">Consulta nuestro protocolo COVID</a>
+                        </span>
+                        <p style="padding: 0.25rem 0; margin: 0">Los tiempos de entrega pueden cambiar sin previo aviso.</p>
+                        <i>Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</i>
+                    </div>
+                </div>
+                <div class="col s12 l4 xl4 right-align">
+                    <div style="padding: 1rem 0; text-align: left">
+                        Moneda de visualización:
+                        <div style="padding: 0 0.8rem 0 0">
+                            <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
+                        </div>
+                    </div>
+                    <div style="padding: 1rem 0.75rem; font-size: 1.1rem; text-align: left" class="grey lighten-4">
+                        <div style="padding: 0 0 0.5rem 0">
+                            <strong>Detalles: </strong>
+                        </div>
+                        <div style="padding: 0 0.5rem">
+                            <div style="display: block">
+                                <span style="font-size: 1rem">Envío:</span><span><asp:Label ID="lbl_envio_nota" runat="server"></asp:Label></span></>
+                            <asp:HyperLink ID="link_API_desglose_envio" Target="_blank" Visible="false" runat="server" CssClass="sendLogo"><i class="material-icons">launch</i></asp:HyperLink>
+                                <strong>
+                                    <asp:Label ID="lbl_envio" runat="server"></asp:Label>
+                                </strong>
+                            </div>
+                            <div style="display: block">
+                                <span style="font-size: 1rem">Subtotal:</span><strong>
+                                    <asp:Label ID="lbl_subTotal" runat="server"></asp:Label></strong>
+                            </div>
+                            <div style="display: block">
+                                <span style="font-size: 1rem">Impuestos:</span><strong>
+                                    <asp:Label ID="lbl_impuestos" runat="server"></asp:Label></strong>
+                            </div>
+                            <div style="display: block">
+                                <span class="orange-text text-darken-3" style="font-weight: bold; font-size: 1rem">Total: </span><strong>
+                                    <asp:Label ID="lbl_total" runat="server"></asp:Label></strong>
+                                <asp:Label ID="lbl_moneda" CssClass="orange-text" runat="server"></asp:Label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content_msg_exito_operacion" visible="false" class="row center-align" runat="server">
+                <h1 class="blue-text" id="">Tu 
+                    <asp:Literal ID="lt_tipo_operacion" Text="Operación " runat="server"></asp:Literal>
+                    se ha realizado con éxito</h1>
+                <h2>En 3 segundos serás redireccionado a tu operación</h2>
+                <i class="material-icons large">check</i>
+            </div>
+
+            <div class="row">
+                <asp:ListView ID="lv_productosCarritos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
+                    <LayoutTemplate>
+                        <div class="row">
+                            <table class="bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Producto</th>
+                                        <th class="text-center">Descripción</th>
+                                        <th class="text-center">Precio unitario</th>
+                                        <th class="text-center">Cantidad</th>
+                                        <th class="text-center">Total sin impuestos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <div runat="server" id="itemPlaceholder"></div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </LayoutTemplate>
+                    <ItemTemplate>
+                        <tr>
+                            <td style="width: 10%;">
+                                <asp:HyperLink ID="link_imgProducto" Target="_blank" runat="server">
+                                    <asp:Image ID="imgProducto" CssClass="responsive-img" runat="server" />
+                                </asp:HyperLink>
+                            </td>
+                            <td style="vertical-align: top; width: 50%;">
+                                <asp:HiddenField ID="hf_idProductoCarrito" Value='<%#Eval("id") %>' runat="server" />
+                                <h2 style="margin-top: 5px;">
+                                    <asp:Literal ID="lt_numeroParte" Text='<%#Eval("numero_parte") %>' runat="server"></asp:Literal>
+                                    - <%#Eval("marca") %>
+                                    <asp:HyperLink Target="_blank" ID="link_producto" runat="server">
+                                       <i class="material-icons">launch</i>
+                                    </asp:HyperLink>
+                                </h2>
+                                <%#Eval("descripcion") %><br />
+                                <div id="warning_envios_medidas" style="color: red;" runat="server" visible="false"></div>
+                                <strong>
+                                    <asp:UpdatePanel UpdateMode="Always" runat="server">
+                                        <ContentTemplate>
+                                            <asp:LinkButton OnClick="btn_eliminarProducto_Click" ID="btn_eliminarProducto" CssClass="btn btn-s deep-orange text-darken-1"
+                                                OnClientClick="btnLoading(this);" ClientIDMode="Static"
+                                                runat="server">Eliminar</asp:LinkButton>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </strong>
+                            </td>
+                            <td style="vertical-align: top; width: 15%;" class="text-center">$<asp:Label ID="lbl_precio_unitario" runat="server"></asp:Label>
+                                <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
+                            </td>
+                            <td style="vertical-align: top; padding: 0.5rem 0.8rem 0 0;">
+                                <asp:UpdatePanel UpdateMode="Always" runat="server">
+                                    <ContentTemplate>
+                                        <asp:TextBox ID="txt_cantidadCarrito" onchange="txtLoading(this);" AutoPostBack="true" Text='<%#Eval("cantidad") %>' OnTextChanged="txt_cantidadCarrito_TextChanged" runat="server"></asp:TextBox>
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="txt_cantidadCarrito" EventName="TextChanged" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                            </td>
+                            <td style="vertical-align: top; width: 15%;" class="text-center">$<asp:Label ID="lbl_precio_total" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                    <EmptyDataTemplate>
+                        <div class="row center-align">
+                            <h2 class="center-align">No has agregado productos a tu carrito</h2>
+                            <h3>¡Más de 1,500 productos te esperan!</h3>
+                            <a class="btn blue waves-effect waves-light" href="/productos">Navegar</a>
+                        </div>
+                    </EmptyDataTemplate>
+                </asp:ListView>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
+    <!--- INICIO Modal agregar número telefónico, solo se muestra si no ah agregado uno a su cuenta principal --->
+
+
+    <%--    <div id="modal_NumerosContacto" class="modal">
+        <div class="modal-content">
+            <h3>Ayudanos a contactarte.</h3>
+            <p>Asocia un número fijo/oficina y/o celular principal</p>
+            <asp:UpdatePanel ID="up_contacto" UpdateMode="Always" runat="server">
+                <ContentTemplate>           <p>
+                        <span>Teléfono celular</span>
+                        <asp:TextBox ID="txt_celular"  AutoPostBack="true" OnTextChanged="txt_celular_TextChangedAsync" 
+                            ClientIDMode="Static" placeholder="Teléfono celular" runat="server"></asp:TextBox>
+                    </p>
+                    <p>
+                        <span>Teléfono fijo/oficina</span>
+                        <asp:TextBox ID="txt_telefono_fijo" AutoPostBack="true" OnTextChanged="txt_telefono_fijo_TextChangedAsync" 
+                            ClientIDMode="Static" placeholder="Teléfono fijo/oficina" runat="server"></asp:TextBox>
+                    </p>
+         
+                    <p>
+                        
+                            <asp:Label ID="lbl_text_result_saved_tel" runat="server"  ></asp:Label> 
+                     
+                    </p>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        </div>
+    </div>--%>
+
+
+    <!--- FIN Modal agregar número telefónico, solo se muestra si no ah agregado uno a su cuenta principal --->
+
+
+    <!--- INICIO Modal cotización --->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <p id="ContentAlertCrearCotizacion" runat="server">
+            </p>
+            <h3>Nombre de tu cotización</h3>
+            <p>
+                <strong>Ingresa un nombre</strong> de referencia para que <strong>identifiques tu cotización fácilmente.</strong>, ejemplos:
+                <br />
+                <i>Material para instalación tienda, Proyecto Aeropuerto, Material para la casa.</i>
+            </p>
+            <p>
+                <asp:TextBox ID="txtNombrecotizacion" ClientIDMode="Static" placeholder="Ingresa un nombre de cotización" runat="server"></asp:TextBox>
+
+            </p>
+            <p>
+                <label>
+                    <asp:CheckBox ID="chk_cotizacion_sin_envio" runat="server" />
+                    <span>No requiero envio</span>
+                </label>
+            </p>
+            <p style="display: none;">
+                <label>Teléfono *</label>
+                <asp:TextBox Visible="true" ID="txtTelefonoCotizacion" placeholder="Teléfono (Obligatorio)" runat="server"></asp:TextBox>
+            </p>
+            <p>
+                <asp:LinkButton ID="btn_crearCotizacion" OnClick="btn_crearCotizacion_Click" OnClientClick="btnLoading(this);" ClientIDMode="Static"
+                    CssClass="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5" runat="server">
+                Crear Cotizacion
+                <i class="material-icons right">send</i>
+                </asp:LinkButton>
+            </p>
+            <script>
+                /* Script que ayuda a crear la operación al teclear la tecla "enter"  */
+                var input = document.getElementById("txtNombrecotizacion");
+                input.addEventListener("keyup", function (event) {
+                    event.preventDefault();
+                    if (event.keyCode === 13) {
+                        document.getElementById("btn_crearCotizacion").click();
+                    }
+                });
+
+            </script>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Cancelar</a>
+        </div>
+    </div>
+
+    <!--- FIN Modal Cotización --->
+
+
+    <!--- INICIO Modal Pedido --->
+    <div id="modalPedido" class="modal">
+        <div class="modal-content">
+            <h3>Nombre de tu pedido</h3>
+            <p id="ContentAlertCrearPedido" runat="server">
+            </p>
+            <p>
+                <strong>Ingresa un nombre</strong> de referencia para que <strong>identifiques tu pedido fácilmente.</strong>, ejemplos:
+                <br />
+                <i>Material para instalación tienda, Proyecto Aeropuerto, Material para la casa.</i>
+            </p>
+            <p>
+                <asp:TextBox ID="txtNombrePedido" ClientIDMode="Static" placeholder="Ingresa un nombre de pedido" runat="server"></asp:TextBox>
+            </p>
+            <p style="display: none;">
+                <label>Teléfono *</label>
+                <asp:TextBox Visible="false" ID="txtTelefonoPedido" placeholder="Teléfono (Obligatorio)" runat="server"></asp:TextBox>
+            </p>
+            <p>
+                <p>
+                    <label>
+                        <asp:CheckBox ID="chk_pedido_sin_envio" runat="server" />
+                        <span>No requiero envio</span>
+                    </label>
+                </p>
+                <asp:LinkButton ID="btn_comprar" ClientIDMode="Static" OnClick="btn_comprar_Click" OnClientClick="btnLoading(this);"
+                    CssClass="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5" runat="server">
+                Crear Pedido
+                <i class="material-icons right">send</i>
+                </asp:LinkButton>
+            </p>
+            <script>
+                /* Script que ayuda a crear la operación al teclear la tecla "enter"  */
+                var input = document.getElementById("txtNombrePedido");
+                input.addEventListener("keyup", function (event) {
+                    event.preventDefault();
+                    if (event.keyCode === 13) {
+                        document.getElementById("btn_comprar").click();
+                    }
+                });
+
+            </script>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Cancelar</a>
+        </div>
+    </div>
+
+    <!--- FIN Modal Pedido --->
+    <script> document.addEventListener("DOMContentLoaded", function (event) {
+            $('.modal').modal({
+                ready: function (modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+                    $("#txtNombrecotizacion").focus();
+                }
+            }
+            );
+
+            $('#modalPedido').modal({
+                ready: function (modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+                    $("#txtNombrePedido").focus();
+                }
+            }
+            );
+
+        });
+    </script>
+</asp:Content>
+
+

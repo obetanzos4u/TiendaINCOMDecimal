@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/basic.master" CodeFile="generalProducto.master.cs" Inherits="generalProducto" %>
+<%@ Register src="~/userControls/header_general.ascx" TagName="headerGen" TagPrefix="uc_header" %>
+<%@ Register Src="~/userControls/uc_footerTienda.ascx" TagName="footerGen" TagPrefix="uc_footer" %>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="top" runat="Server">
+  
+
+    <uc_header:headerGen ID="menuPricipal" runat="server"></uc_header:headerGen>
+        <div class="container">
+    <div class="row">
+        <div class="col s12 m12 l12 xl12">
+                  <asp:ContentPlaceHolder ID="contenido" runat="server" />
+        </div>
+    </div>
+        </div>
+       <uc_footer:footerGen ID="footerGeneralTienda" runat="server"></uc_footer:footerGen>
+    
+</asp:Content>

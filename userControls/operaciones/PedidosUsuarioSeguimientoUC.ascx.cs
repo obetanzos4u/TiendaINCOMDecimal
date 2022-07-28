@@ -1,0 +1,141 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System.Web.UI.UserControl
+{
+    public string numero_operacion
+    {
+        get { return hf_numero_operacion.Value; }   // get method
+        set { hf_numero_operacion.Value = value; }  // set method
+    }
+
+    protected void Page_PreRender(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            CargarAsesores();
+            ObtenerAsignacion();
+        }
+    }
+    async protected void ObtenerAsignacion()
+    {
+
+        var pedidoDatos = PedidosEF.ObtenerDatos(numero_operacion);
+
+        if(pedidoDatos.idUsuarioSeguimiento == null)
+        {
+            BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.warning, "Aviso", 
+                "No se ha asignado un asesor.");
+            return;
+        }
+        else
+        {
+            ddl_UsuarioSeguimiento.SelectedValue = pedidoDatos.idUsuarioSeguimiento.ToString();
+            btn_asignarAsesor.Text = "Re Asignar";
+            BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.info, "Asesor ya asignado",
+            "Un asesor ya se ha asignado a este pedido.");
+            return;
+        }
+
+    }
+        async protected void CargarAsesores() {
+        var Usuarios = await UsuariosEF.ObtenerUsuariosVendedores();
+
+        // Filtrado para mostrar solo nombre y apellido
+        var List = Usuarios.Select(x => new ListItem { 
+            Text = x.nombre + " " + x.apellido_paterno,
+            Value = x.id.ToString() 
+        })
+            .OrderBy(o => o.Text)
+            .ToList();
+
+     
+
+        ddl_UsuarioSeguimiento.DataSource = List;
+        ddl_UsuarioSeguimiento.DataTextField = "Text";
+        ddl_UsuarioSeguimiento.DataValueField = "Value";
+        ddl_UsuarioSeguimiento.DataBind();
+        //ddl_UsuarioSeguimiento.Items.Add(new ListItem(txt_box1.Text),);
+
+        ddl_UsuarioSeguimiento.Items.Insert(0, new ListItem("- Selecciona", ""));
+        ddl_UsuarioSeguimiento.DataBind();
+
+    }
+
+ 
+
+    protected async void btn_asignarAsesor_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+          if(ddl_UsuarioSeguimiento.SelectedValue == "")
+            {
+                BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.warning,
+             "Aviso", "No haz seleccionado un asesor");
+                return;
+            }
+            var pedidoDatos = PedidosEF.ObtenerDatos(numero_operacion);
+            var DatosUsuario = UsuariosEF.Obtener(int.Parse(ddl_UsuarioSeguimiento.SelectedValue));
+
+            var ResultAsignación = await PedidosEF.ActualizarAsesorAsigando(numero_operacion, DatosUsuario.id);
+
+            if(ResultAsignación.result == false)
+            {
+                BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.danger,"Error", ResultAsignación.message);
+                return;
+            }
+
+            DateTime fechaSolicitud = utilidad_fechas.obtenerCentral();
+            string asunto = "Incom.mx, Seguimiento de tu compra: " + pedidoDatos.nombre_pedido + " " + pedidoDatos.usuario_cliente + " ";
+            string mensaje = string.Empty;
+
+            string filePathHTML = "/email_templates/operaciones/pedidos/pedido_seguimiento.html";
+
+            Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
+
+            string dominio = Request.Url.GetLeftPart(UriPartial.Authority);
+            string id_operacion_encritado = seguridad.Encriptar(pedidoDatos.id.ToString());
+            string url_operacion= dominio + "/usuario/cliente/mi-cuenta/pedidos/resumen/" + id_operacion_encritado;
+
+
+            datosDiccRemplazo.Add("{dominio}", dominio);  
+            datosDiccRemplazo.Add("{nombre}", pedidoDatos.cliente_nombre);
+            datosDiccRemplazo.Add("{usuario_email}", pedidoDatos.usuario_cliente);
+            datosDiccRemplazo.Add("{numero_operacion}", numero_operacion);
+            datosDiccRemplazo.Add("{nombre_operacion}", pedidoDatos.nombre_pedido);
+            datosDiccRemplazo.Add("{FechaPedido}", pedidoDatos.fecha_creacion.ToString());
+            
+
+            datosDiccRemplazo.Add("{nombreAsesor}", DatosUsuario.nombre + " " + DatosUsuario.apellido_paterno);
+            datosDiccRemplazo.Add("{emailAsesor}", DatosUsuario.email);
+            datosDiccRemplazo.Add("{asesor_img}", DatosUsuario.email.Split('@')[0]);
+            datosDiccRemplazo.Add("{url_operacion}", url_operacion);
+
+            mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
+
+
+            // emailTienda email = new emailTienda(asunto, $"cmiranda@it4u.com.mx", mensaje, "retail@incom.mx");
+            emailTienda email = new emailTienda(asunto, $"iamado@2rent.mx, tpavia@incom.mx, jhernandez@incom.mx,  ralbert@incom.mx, pjuarez@incom.mx, fgarcia@incom.mx, {pedidoDatos.email}", mensaje, "retail@incom.mx");
+            email.general();
+
+            BootstrapCSS.Message(up_seguimientoUsuarioPedido, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.success,
+             "Asignación correcta", "Asignación realizada con éxito.");
+
+
+        }
+        catch (Exception ex) {
+            BootstrapCSS.Message(up_seguimientoUsuarioPedido, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.danger,
+                "Error", "Ocurrio un error al asignar, contacta a desarrollo. Ex: "+ ex.Message);
+        }
+        finally
+        {
+            up_seguimientoUsuarioPedido.Update();
+        }
+   
+    }
+}

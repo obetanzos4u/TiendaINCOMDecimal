@@ -1,0 +1,102 @@
+<div style="background:#37474f !important; text-align:center; padding:20px 20px;">
+    <img style="height: 60px;" src="{dominio}/img/webUI/incom_retail_logo_header_white.png" />
+</div>
+<table>
+    <tr>
+        <td style="width:50%;"></td>
+        <td>
+            <table style="font-family:Helvetica, Arial; color:#242d31; width:600px;">
+                <tr>
+                    <td>
+                        <h1 style="margin-bottom: 2px;">Nueva cotización creada </h1>
+                        <p style="margin-top: 2px;">El {FechaCotizacion}</p>
+                        <h2>Hola! {nombre} ({usuario_email}), gracias por cotizar con nosotros.</h2>
+                        <br>
+                        <p>Número Operación: <strong>{numero_operacion}</strong></p>
+                        <p>Nombre de Operación: <strong>{nombre_operacion}</strong></p>
+                        <h2>Productos:</h2>
+                        <p>{productos}</p>
+
+                        <hr>
+
+
+                        <h2>Envío</h2>
+                        {DireccionEnvio}
+                        <br></p>
+                        <span style="font-size: 12px">* El costo de envío puede ser re calculado el cual tu asesor
+                            informará</span>
+                        <h2>Contácto</h2>
+                        {InfoDeContacto}
+                        <br></p>
+                        <br>
+                        <hr>
+                        <div>
+                            <img src="https://www.incom.mx/img/asesores/asesora.jpg" style="width: 90px; float:left;">
+                            <p style="margin-left: 10px; display: inline-block;">Tu solicitud será atendida por uno de
+                                nuestros asesores.<br>
+                                <strong> En unos momentos se comunicará contigo.</strong>
+                            </p>
+                            
+                                <hr>
+                                <br><br>
+                                <h3 style="text-align:center;">Para visualizar más información de tu pedido da click en
+                                    el siguiente enlace:</h3>
+                                <div style="text-align:center;">
+                                    <a href="{url_operacion}"
+                                        style="text-decoration:none; font-weight:bold;font-size:22px; padding:12px 20px; color:#fff; background:#039be5 ;">
+                                        Ver cotización
+                                    </a>
+                                </div>
+                                <br>
+                                <p style="font-size:17px; text-align:center;">
+                                    Si necesitas ayuda no dudes en contactarnos.
+
+                                </p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><br>
+                        <hr>
+                        <p style="text-align:center;"> Paga de manera segura por algunos de nuestros medios:
+                            <a href="{url_operacion}"><img
+                                    src="https://www.incom.mx/img/webUI/metodos_de_pago.gif" /></a>
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <hr>
+                        <p style="font-size: 20px;text-align:center;">Empresa orgullosamente mexicana.</p><br>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="text-align: center">
+                            <strong>INSUMOS COMERCIALES DE OCCIDENTE S.A. DE C.V. ®</strong><br>
+                            Plutarco Elías Calles 276, Colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de México.
+                        </p>
+                        <p style="text-align: center"><strong>Horario de atención:</strong><br> Lunes a Jueves de 8:00 a
+                            19:00 hrs • Viernes de 8:00 a 17:00 </p>
+                        <p style="text-align:center;">No olvides consultar nuestro <a
+                                href="{dominio}/informacion/aviso-de-privacidad.aspx">Aviso de privacidad</a> y
+                            <a href="{dominio}/informacion/terminos-y-condiciones-de-compra.aspx">Términos y condiciones
+                                de compra</a>.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td style="width:50%;"></td>
+    </tr>
+</table>
+<style>
+    .dtDatos td tr {
+        padding: 15px;
+
+
+    }
+</style>

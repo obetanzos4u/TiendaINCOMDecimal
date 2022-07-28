@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+/// <summary>
+/// Descripción breve de EnviosProductoModel
+/// </summary>
+public class OperacionProductoModel {
+
+    public string Numero_Operacion { get; set; }
+    public string Numero_Parte { get; set; }
+    public decimal? PesoKg { get; set; }
+    public decimal? LargoCm { get; set; }
+    public decimal? AnchoCm { get; set; }
+    public decimal? AltoCm { get; set; }
+    public decimal? Cantidad { get; set; }
+
+    public bool RotacionVertical { get; set; }
+    public bool RotacionHorizontal { get; set; }
+    public bool DisponibleParaEnvioGratuito { get; set; }
+
+ 
+}

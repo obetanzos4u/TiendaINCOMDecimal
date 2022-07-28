@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /temp/
+Disallow: /email_templates/
+Disallow: /herramientas/
+Disallow: /usuario/
+Disallow: /img/asesores

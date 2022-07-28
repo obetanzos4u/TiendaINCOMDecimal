@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="basic.master.cs" Inherits="bulmaCSS_basic" %>
+
+ 
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script defer  src="https://www.googletagmanager.com/gtag/js?id=UA-23255752-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-23255752-4');
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="/bulmaCSS/muldaMods.js?v=0.44"></script>
+
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=60944fbd6056180012824652&product=inline-share-buttons" async="async"></script>
+
+    <style>
+        .simplescrollup__button {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            transition: 1s all;
+            z-index: 10000;
+                background: #ffdd57;
+    padding: 5px 10px;
+        }
+
+        .simplescrollup__button--show {
+            transform: translateX(0);
+        }
+
+        .simplescrollup__button--hide {
+            transform: translateX(100px);
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+
+
+        <asp:ContentPlaceHolder ID="body" runat="server">
+        </asp:ContentPlaceHolder>
+
+    </form>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" defer src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b103649d8169d82"></script>
+    <a href="#up" class="simplescrollup__button simplescrollup__button--hide">Subir</a>
+
+    <script defer src="/js/simplescrollup.js"></script>
+</body>
+</html>

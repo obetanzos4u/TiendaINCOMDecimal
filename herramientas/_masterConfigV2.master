@@ -1,0 +1,11 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/bootstrap/basic.master" CodeFile="_masterConfigV2.master.cs" Inherits="gnCliente" %>
+ 
+
+
+<asp:Content runat="server" ContentPlaceHolderID="body">
+
+    
+
+    <asp:ContentPlaceHolder ID="contenido" runat="server" />
+
+</asp:Content>

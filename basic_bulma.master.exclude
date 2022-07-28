@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="basic_bulma.master.cs" Inherits="basic_bulma" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script defer src="/js/bulmaMods.js"></script>
+    <style>
+        /* MODS para BULMA */
+        .select {width:100% !important;}
+        select[multiple] {width:100% !important;}
+        .select select:not([multiple]) {  width: 100%;}
+        /* FIN MODS para BULMA */
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+          
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <asp:ListView ID="ListView1" runat="server">
+                    <ItemTemplate>
+
+                    </ItemTemplate>
+                    <EmptyDataTemplate>
+
+                    </EmptyDataTemplate>
+                </asp:ListView>
+            </asp:ContentPlaceHolder>
+        
+    </form>
+</body>
+</html>
