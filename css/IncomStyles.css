@@ -2,46 +2,64 @@
     INCOM styled in 2022 
     Static styles
 */
+/* Font family */
+body {
+    font-family: "Montserrat";
+}
+
 /* Flex section */
 .is-flex {
     display: flex;
 }
+
 .is-flex-row {
     flex-direction: row;
 }
+
 .is-flex-col {
     flex-direction: column;
 }
+
 .is-justify-start {
     justify-content: flex-start;
 }
+
 .is-justify-end {
     justify-content: flex-end;
 }
+
 .is-justify-center {
     justify-content: center;
 }
+
 .is-justify-between {
     justify-content: space-between;
 }
+
 .is-justify-around {
     justify-content: space-around;
 }
+
 .is-justify-evenly {
     justify-content: space-evenly;
 }
+
 .is-items-start {
     align-items: flex-start;
 }
+
 .is-items-end {
     align-items: flex-end;
 }
+
 .is-items-center {
     align-items: center;
 }
+
 .is-items-baseline {
     align-items: baseline;
 }
+
 .is-items-stretch {
     align-items: stretch;
 }
@@ -50,24 +68,31 @@
 .is-grid {
     display: grid;
 }
+
 .is-col-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
 }
+
 .is-col-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr))
 }
+
 .is-col-4 {
     grid-template-columns: repeat(4, minmax(4, 1fr));
 }
+
 .is-gap-0 {
     gap: 0;
 }
+
 .is-gap-2 {
     gap: 0.5rem;
 }
+
 .is-gap-4 {
     gap: 1rem;
 }
+
 .is-col-footer {
     grid-template-columns: repeat(3, minmax(0, 1fr))
 }
@@ -76,44 +101,66 @@
 .is-text-white {
     color: rgb(255, 255, 255);
 }
+
+.is-text-black {
+    color: rgb(0, 0, 0);
+}
+
 .is-bg-footer {
-    background-color: rgb(0, 56, 86);
+    background-color: #0C3766;
+}
+
+.is-bg-button {
+    background-color: #004eea;
+}
+
+.is-bg-white {
+    background-color: rgb(255, 0, 0);
 }
 
 /* Padding and margin section */
 .is-p-0 {
     padding: 0;
 }
+
 .is-px-0 {
     padding-left: 0;
     padding-right: 0;
 }
+
 .is-py-0 {
     padding-top: 0;
     padding-bottom: 0;
 }
+
 .is-p-2 {
     padding: 0.5rem;
 }
+
 .is-px-2 {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
+
 .is-py-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
+
 .is-p-4 {
     padding: 1rem;
 }
+
 .is-px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
 .is-py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+
 .is-p-8 {
     padding: 2rem;
 }
@@ -127,130 +174,214 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
+
 .is-m-0 {
     margin: 0;
 }
+
 .is-mx-0 {
     margin-left: 0;
     margin-right: 0;
 }
+
 .is-my-0 {
     margin-top: 0;
     margin-bottom: 0;
 }
+
 .is-m-2 {
     margin: 0.5rem;
 }
+
 .is-mx-2 {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
+
 .is-my-2 {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
+
 .is-m-4 {
     margin: 1rem;
 }
+
 .is-mx-4 {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
 .is-my-4 {
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.is-space-x-6 {
+    margin-left: 1.5rem;
 }
 
 /* Width and Height section */
 .is-container {
     width: 100%;
 }
+
 .is-w-0 {
     width: 0;
 }
+
+.is-w-6 {
+    width: 1.5rem;
+}
+
 .is-w-auto {
     width: auto;
 }
+
 .is-w-1_2 {
     width: 50%;
 }
+
 .is-w-1_4 {
     width: 25%;
 }
+
 .is-w-3_4 {
     width: 75%;
 }
+
 .is-w-1_5 {
     width: 20%;
 }
+
 .is-w-2_5 {
     width: 40%;
 }
+
 .is-w-3_5 {
     width: 60%;
 }
+
 .is-w-4_5 {
     width: 80%;
 }
+
 .is-w-full {
     width: 100%;
 }
+
 .is-w-screen {
     width: 100vh;
 }
+
 .is-w-min {
     width: min-content;
 }
+
 .is-w-max {
     width: max-content;
 }
+
 .is-w-fit {
     width: fit-content;
 }
+
 .is-max-w-full {
     max-width: 100%;
+}
+
+.is-h-6 {
+    height: 1.5rem;
+}
+
+.is-h-8 {
+    height: 2rem;
+}
+
+.is-h-full {
+    height: 100%;
 }
 
 /* Font family */
 .is-font-light {
     font-weight: 300;
 }
+
 .is-font-normal {
     font-weight: 400;
 }
+
 .is-font-medium {
     font-weight: 500;
 }
+
 .is-font-semibold {
     font-weight: 600;
 }
+
 .is-font-bold {
     font-weight: 700;
 }
+
 .is-text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
 }
+
 .is-text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem
 }
+
 .is-text-base {
     font-size: 1rem;
     line-height: 1.75rem;
 }
+
 .is-text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
 }
+
 .is-text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+}
+
+/* Borders */
+.is-outline-none {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.is-rounded-sm {
+    border-radius: 0.125rem;
+}
+
+.is-rounded {
+    border-radius: 0.25rem;
+}
+
+.is-rounded-md {
+    border-radius: 0.375rem;
+}
+
+.is-rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.is-rounded-xl {
+    border-radius: 0.75rem;
+}
+
+.is-rounded-2xl {
+    border-radius: 1rem;
 }
 /* Utilities */
 .is-select-none {
     user-select: none;
 }
+
 .is-select-all {
     user-select: all;
 }
@@ -260,25 +391,30 @@
     .is-w-1_2 {
         width: 100%;
     }
+
     .is-col-2 {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }
+
 @media (min-width: 769px) and (max-width: 1024px) {
     .is-col-2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
 @media (min-width: 1025px) and (max-width: 1536px) {
     .is-col-2 {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
+
 @media (min-width: 1537px) and (max-width: 1920px) {
     .is-col-2 {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
+
 @media (min-width: 1921px) {
     .is-col-2 {
         grid-template-columns: repeat(5, minmax(0, 1fr));

@@ -7,6 +7,7 @@
     <meta name="google-signin-client_id" content="735817781293-gj8bqpplf0jt9au330hcejcp06js20di.apps.googleusercontent.com">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
