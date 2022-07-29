@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TiendaINCOMDecimal", ".", "{7ACBB57C-B698-4F6E-836E-ACF6A155660A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62631"
+		Debug.AspNetCompiler.PhysicalPath = "..\TiendaINCOMDecimal\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62631\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62631"
+		Release.AspNetCompiler.PhysicalPath = "..\TiendaINCOMDecimal\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62631\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62631"
+		SlnRelativePath = "..\TiendaINCOMDecimal\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7ACBB57C-B698-4F6E-836E-ACF6A155660A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ACBB57C-B698-4F6E-836E-ACF6A155660A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8A29F8A-492A-4185-847C-C6D3BBB0BA1C}
+	EndGlobalSection
+EndGlobal
