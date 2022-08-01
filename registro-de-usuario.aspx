@@ -5,7 +5,7 @@
         <div class="is-flex is-justify-center is-items-center is-w-full">
             <div class="is-w-1_2">
                 <div class="borderTest">
-                    <h2 class="is-font-bold is-select-none is-px-2">Registro de usuario</h2>
+                    <h2 class="is-font-semibold is-select-none is-px-2">Registro de usuario</h2>
                     <div class="is-px-4 is-py-0">
                         <div class="is-flex is-flex-col is-justify-center is-items-center is-py-2">
                             <p class="is-font-medium is-select-none">Iniciar sesión con Google</p>
@@ -18,7 +18,11 @@
                             <div class="is-grid is-col-2 is-gap-4">
                                 <div>
                                     <label for="txt_email">Email</label>
-                                    <asp:TextBox ID="txt_email" ClientIDMode="Static" runat="server" CssClass="borderTest"></asp:TextBox>
+                                    <asp:TextBox ID="txt_email" ClientIDMode="Static" runat="server"></asp:TextBox>
+                                </div>
+                                <div>
+                                    <label for="txt_phone">Teléfono</label>
+                                    <asp:TextBox ID="txt_phone" ClientIDMode="Static" runat="server"></asp:TextBox>
                                 </div>
                                 <div>
                                     <div>
@@ -28,16 +32,16 @@
                                 </div>
                                 <div>
                                     <div>
-                                        <label for="<%= txt_apellido_paterno.ClientID %>">Apellido paterno</label>
+                                        <label for="<%= txt_apellido_paterno.ClientID %>">Apellidos</label>
                                         <asp:TextBox ID="txt_apellido_paterno" ClientIDMode="Static" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
-                                <div>
+<%--                                <div>
                                     <div>
                                         <label for="<%= txt_apellido_materno.ClientID %>">Apellido materno</label>
                                         <asp:TextBox ID="txt_apellido_materno" ClientIDMode="Static" runat="server"></asp:TextBox>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <div>
                                     <div>
                                         <label for="txt_password">Contraseña</label>

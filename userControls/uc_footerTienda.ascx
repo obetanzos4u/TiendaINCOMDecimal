@@ -4,9 +4,9 @@
     <div class="is-bg-footer is-text-white">
         <div class="is-grid is-col-footer is-gap-4 is-px-8">
             <div class="is-flex is-flex-col is-justify-start is-items-start">
-                <p class="is-text-xl is-font-bold">Contáctanos</p>
-                <p class="is-text-lg is-font-semibold">Llámanos al <a href="tel:5552436900">(55) 5243 - 6900</a></p>
-                <div class="is-text-xs">
+                <p class="is-text-xl is-font-semibold">Contáctanos</p>
+                <p class="is-text-lg is-font-medium">Llámanos al <a href="tel:5552436900">(55) 5243 - 6900</a></p>
+                <div class="is-font-light is-text-sm">
                     <p class="is-m-0">Plutarco Elías Calles 276, colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de México.</p>
                     <p class="is-m-0">Horario de atención: Lunes a Jueves de 8:00 a 19:00 hrs • Viernes de 8:00 a 17:00 hrs</p>
                 </div>
@@ -21,11 +21,10 @@
                     <a href="https://www.youtube.com/user/incommx" target="_blank" class="is-w-6 is-space-x-6">
                         <img title="Youtube Incom" alt="Youtube Incom" loading="lazy" src="/img/webUI/rs/Youtube.svg" />
                     </a>
-                    <a href="https://www.linkedin.com/company/incom-mx" target="_blank" class="is-w-6 is-space-x-6">
+                    <a href="https://www.linkedin.com/company/incom-mx" target="_blank" class="is-w-6 is-space-x-6 borderTest is-bg-white">
                         <img title="LinkedIn Incom" alt="LinkedIn Incom" loading="lazy" src="/img/webUI/rs/LinkedIn.svg" />
                     </a>
                 </div>
-                <%--<asp:HyperLink ID="link_contacto" ToolTip="Contácto" CssClass="btn blue waves-effect waves-light" href="/informacion/ubicacion-y-sucursales.aspx#contacto" runat="server">Contáctanos</asp:HyperLink>--%>
             </div>
             <div class="is-flex is-flex-col is-justify-start is-items-start">
                 <p class="is-text-xl is-font-bold">Regístrate a nuestro boletín:</p>
@@ -34,7 +33,7 @@
                     <button type="submit" class="is-text-white is-rounded" style="background-color: #004EEA; padding: 0.5rem 1.5rem; height: 100%; border: 0">Registro</button>
                 </div>
             </div>
-            <div>
+            <div class="is-font-normal is-text-base">
                 <ul>
                     <li>
                         <a title="Términos y Condiciones de compra" href="/informacion/terminos-y-condiciones-de-compra.aspx" target="_blank" class="is-text-white">Términos y condiciones de compra</a>
@@ -49,7 +48,7 @@
                         <a title="Aviso de Privacidad" href="/informacion/aviso-de-privacidad.aspx" target="_blank" class="is-text-white">Aviso de privacidad</a>
                     </li>
                     <li>
-                        <a title="Cuentas bancarias" href="/informacion/cuentas-bancarias.aspx" target="_blank" class="is-text-white">Cuentas Bancarias</a>
+                        <a title="Cuentas bancarias" href="/informacion/cuentas-bancarias.aspx" target="_blank" class="is-text-white">Cuentas bancarias</a>
                     </li>
                     <li>
                         <a title="Código de ética" href="/documents/CODIGO_DE_ETICA.pdf" target="_blank" class="is-text-white">Código de ética</a>

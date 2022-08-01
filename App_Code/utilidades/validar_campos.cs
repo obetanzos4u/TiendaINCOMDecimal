@@ -16,12 +16,13 @@ public class validarCampos
     /// <summary>
     /// Valida y recibe: Nombre, Apellidos (Paterno, Materno)
     /// </summary>
-    static public bool nombres(TextBox txt_nombre, TextBox txt_apellido_paterno, TextBox txt_apellido_materno, Control t)
+    //static public bool nombres(TextBox txt_nombre, TextBox txt_apellido_paterno, TextBox txt_apellido_materno, Control t)
+    static public bool nombres(TextBox txt_nombre, TextBox txt_apellido_paterno, Control t)
         {
 
         if (txt_nombre.Text.Length < 2 || txt_nombre.Text.Length > 100) { materializeCSS.crear_toast(t, "El campo nombre no cumple con los requerimientos de longitud.", false); return false; };
         if (txt_apellido_paterno.Text.Length > 20) { materializeCSS.crear_toast(t, "El campo apellido paterno excede con los requerimientos de longitud.", false); return false; };
-        if (txt_apellido_materno.Text.Length > 20) { materializeCSS.crear_toast(t, "El campo apellido materno excede con los requerimientos de longitud.", false); return false; };
+        //if (txt_apellido_materno.Text.Length > 20) { materializeCSS.crear_toast(t, "El campo apellido materno excede con los requerimientos de longitud.", false); return false; };
 
         return true;
         }
@@ -59,6 +60,20 @@ public class validarCampos
     /// <summary>
     /// Valida y recibe: Telefono y Celular (Máx 50)
     /// </summary>
+    /// 
+    static public bool telefonos(TextBox telefono, Control t)
+    {
+        if (telefono.Text.Length > 10)
+        {
+            materializeCSS.crear_toast(t, "El campo teléfono excede con los requerimientos de longitud.", false);
+            return false;
+        }
+        if (telefono.Text.Length > 10 && telefono.Text.Length < 8)
+        {
+            materializeCSS.crear_toast(t, "El campo teléfono no cumple con los requerimientos", false);
+        }
+        return true;
+    }
     static public bool telefonos(TextBox telefono, TextBox celular, Control t)
         {
 
