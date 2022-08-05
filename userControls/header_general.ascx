@@ -8,6 +8,7 @@
 
 <!-- sidenav MÓVIL -->
 <ul id='menu_usuario_movil' class="sidenav">
+    <li><a href="/"><i class="material-icons">home</i>Inicio</a></li>
     <li>
         <div class="divider"></div>
     </li>
@@ -91,7 +92,7 @@
                     alt="Logo Incom" title="Incom,  La ferretera de las telecomunicaciones" class="responsive-img header_logo_img" />
             </a>
             <a title="Carrito de productos"
-                class="btn white black-text show-on-medium-and-down hide-on-med-and-up rigght_position" href="/mi-carrito.aspx">
+                class="btn white black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">
                 <i class="material-icons  ">shopping_cart
                 </i>
             </a>
@@ -126,8 +127,8 @@
                         <div id="carrito_de_compra">
                             <div style="display: flex; flex-direction: column;">
                                 <uc_carrito:btnCarrito ID="carrito" runat="server"></uc_carrito:btnCarrito>
-                                <p>Carrito</p>
-                            </div>
+                                                                <p>Carrito</p>
+                                  </div>
                         </div>
                     </div>
 
@@ -398,7 +399,7 @@
             height: 35px;
         }
 
-        #text_tipoDeCambio::after {
+        #txt_tipoDeCambio::after {
             content: "TC: 1 USD = ";
         }
 
