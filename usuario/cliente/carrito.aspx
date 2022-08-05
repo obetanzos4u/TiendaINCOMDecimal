@@ -39,7 +39,7 @@
 
             <ItemTemplate>
                 <tr>
-                    <td style="width: 250px">
+                    <td style="width: 250px; display: block">
                         <asp:Image ID="img_carrito_producto" class="img-fluid img-thumbnail" runat="server" />
                     </td>
                     <td>

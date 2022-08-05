@@ -1,19 +1,17 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="menu_Carrito.ascx.cs"  Inherits="menuCarrito" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="menu_Carrito.ascx.cs" Inherits="menuCarrito" %>
 
 
 
 <asp:UpdatePanel ID="upTotalProductos" RenderMode="Inline" UpdateMode="Conditional" style="line-height: initial;" runat="server">
     <ContentTemplate>
-        <asp:HyperLink ID="btn_toggle_desgloseCarrito" NavigateUrl="/mi-carrito.aspx" ClientIDMode="Static"   title='Carrito de productos'
+        <asp:HyperLink ID="btn_toggle_desgloseCarrito" NavigateUrl="/mi-carrito.aspx" ClientIDMode="Static" title='Carrito de productos'
             class="hide-on-med-and-down btn_toggle_desgloseCarrito btn_desgloseCarrito_style" runat="server">
-     <i class='material-icons left'>shopping_cart</i> 
-     Carrito</asp:HyperLink>
+            <img style="border: 2px solid red; width:35px" src="../img/webUI/newdesign/Carrito.svg"/>
+        </asp:HyperLink>
         <asp:Button ID="buttonDesglose" ClientIDMode="Static" runat="server" CssClass="hide"
             OnClick="carritoDesglose" />
-                <asp:Button ID="btnTotalProductosCarrito" ClientIDMode="Static" runat="server" CssClass="hide" Text="2"
+        <asp:Button ID="btnTotalProductosCarrito" ClientIDMode="Static" runat="server" CssClass="hide" Text="2"
             OnClick="cargarMenu" />
-
-
     </ContentTemplate>
     <Triggers>
 
@@ -60,38 +58,49 @@
         </Triggers>
     </asp:UpdatePanel>
 </div>
- 
+
 
 
 <style>
-    .btn_desgloseCarrito_style{
-    font-size: 1rem;
-    color: #0f0f0f;
-    display: block;
-    padding: 3px 15px;
-    background: #ffffff;
-    cursor: pointer;
-    border-radius: 13px;
-    font-weight: 700;
-    float: right;
+    .icon_shop {
+        display: flex;
+        flex-direction: column;
+        /*border: 1px solid green;*/
     }
+
+    .btn_desgloseCarrito_style {
+        font-size: 1rem;
+        color: #0f0f0f;
+        display: block;
+        padding: 3px 15px;
+        background: #ffffff;
+        cursor: pointer;
+        border-radius: 13px;
+        font-weight: 700;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
     .desgloseCantidades {
-           color: #000000;
-    font-weight: 600;
+        color: #000000;
+        font-weight: 600;
     }
+
     .desgloseCarrito {
-       z-index: 99999;
-    position: fixed;
-    right: 65px;
-    width: 500px;
-    top: 415px;
-    background: #fff;
-    color: black;
-    line-height: initial;
-    top: 56px;
-    box-shadow: rgba(0, 0, 0, 0.29) 0px 0px 4px 0px;
-    padding: 15px 12px;
-}
+        z-index: 99999;
+        position: fixed;
+        right: 65px;
+        width: 500px;
+        top: 415px;
+        background: #fff;
+        color: black;
+        line-height: initial;
+        top: 56px;
+        box-shadow: rgba(0, 0, 0, 0.29) 0px 0px 4px 0px;
+        padding: 15px 12px;
+    }
+
         .desgloseCarrito td, th {
             padding: 2px 6px;
             line-height: 22px;

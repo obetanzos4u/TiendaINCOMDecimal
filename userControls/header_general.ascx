@@ -8,7 +8,6 @@
 
 <!-- sidenav MÓVIL -->
 <ul id='menu_usuario_movil' class="sidenav">
-    <li><a href="/"><i class="material-icons">home</i>Inicio</a></li>
     <li>
         <div class="divider"></div>
     </li>
@@ -54,10 +53,10 @@
             </li>
         </ul>
     </li>
-    <li><a class="subheader">Aprende</a></li>
+    <%--    <li><a class="subheader">Aprende</a></li>
     <li><a href="/glosario/A">Enciclopédico</a> </li>
     <li><a href="/enseñanza/infografías">Infografías</a> </li>
-    <li><a title='Blog Incom' target='_blank' href='https://blog.incom.mx'>Blog</a> </li>
+    <li><a title='Blog Incom' target='_blank' href='https://blog.incom.mx'>Blog</a> </li>--%>
     <asp:LoginView ID="LoginView3" runat="server">
         <LoggedInTemplate>
             <li>
@@ -72,7 +71,7 @@
 </ul>
 
 <uc_bar:adminBar ID="botonAsesores" runat="server"></uc_bar:adminBar>
-<div class="row z-depth-1 header yellow" style="margin-bottom: 0px;">
+<div class="row z-depth-1 header white" style="margin-bottom: 0px;">
     <div style="background: white; overflow: hidden; color: #353635;">
         <uc_bar:modAsesor ID="barraAsesores" Visible="false" runat="server"></uc_bar:modAsesor>
     </div>
@@ -88,12 +87,13 @@
 
             </div>
             <a title="Incom Retail" class="content_header_logo" href='<%= HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) %>'>
-                <img src='<%=ResolveUrl("~/img/webUI/incom_retail_logo_header_big.png") %>'
+                <img src='<%=ResolveUrl("~/img/webUI/incom_logo_mini.png") %>'
                     alt="Logo Incom" title="Incom,  La ferretera de las telecomunicaciones" class="responsive-img header_logo_img" />
             </a>
             <a title="Carrito de productos"
-                class="btn white black-text show-on-medium-and-down hide-on-med-and-up" style="float: right" href="/mi-carrito.aspx">
-                <i class="material-icons  ">shopping_cart</i>
+                class="btn white black-text show-on-medium-and-down hide-on-med-and-up rigght_position" href="/mi-carrito.aspx">
+                <i class="material-icons  ">shopping_cart
+                </i>
             </a>
         </div>
         <div class="menu_right_contenedor  ">
@@ -116,20 +116,32 @@
                     </asp:LoginView>
                 </div>
             </div>
-            <div class="menu_middle">
-                <uc_buscador:buscador ID="buscador" Visible="true" runat="server"></uc_buscador:buscador>
-                <div class="hide-on-med-and-down content_tipoDeCambio">
-                    <span id="txt_tipoDeCambio"></span><strong><span>
-                        <%= operacionesConfiguraciones.obtenerTipoDeCambio() %> MXN </span></strong>
+            <div class="header_toolbar">
+                <div class="menu_middle">
+                    <uc_buscador:buscador ID="buscador" Visible="true" runat="server"></uc_buscador:buscador>
+                </div>
+                <div class="sesion_nav">
+                    <span class="sesion_btn">Mi cuenta</span>
+                    <div>
+                        <div id="carrito_de_compra">
+                            <div style="display: flex; flex-direction: column;">
+                                <uc_carrito:btnCarrito ID="carrito" runat="server"></uc_carrito:btnCarrito>
+                                <p>Carrito</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hide-on-med-and-down content_tipoDeCambio">
+                        <span class="title_tipoDeCambio">Tipo de cambio</span>
+                        <span id="txt_tipoDeCambio"></span>
+                        <strong><span><%= operacionesConfiguraciones.obtenerTipoDeCambio() %> MXN </span></strong>
+                    </div>
                 </div>
             </div>
-            <div class="menu_bottom hide-on-med-and-down">
-                <uc_menu:menuPrincipal ID="menuCat" runat="server"></uc_menu:menuPrincipal>
-                <uc_carrito:btnCarrito ID="carrito" runat="server"></uc_carrito:btnCarrito>
-            </div>
+            <uc_menu:menuPrincipal ID="menuCat" runat="server"></uc_menu:menuPrincipal>
         </div>
     </div>
-    <div style="padding: 6px 5px; overflow: hidden;">
+    <%--    <div style="padding: 6px 5px; overflow: hidden;">
         <div class="hide-on-med-and-down" style="float: left; padding-left: 15px;">
             <a href="/glosario/A" class="incom-sub-button-header">Enciclopédico</a>
             <a href="/enseñanza/infografías" class="incom-sub-button-header">Infografías</a>
@@ -138,7 +150,7 @@
         <div style="float: right;">
             <uc_Envio:DireccionEnvio ID="DireccionDeEnvio" runat="server"></uc_Envio:DireccionEnvio>
         </div>
-    </div>
+    </div>--%>
     <!-- <div id="Content_aviso_header" style="text-align: center; padding: 6px 5px; background: #ffffff; overflow: hidden;">
         <strong>Aviso: </strong>
         <span  class="hide"> La empresa suspenderá labores del 24 de dic al 2 de Enero.</span>
@@ -216,6 +228,7 @@
         background: #fff;
     }
 
+
     .content_header_logo {
         float: left;
         margin: 0px 80px 0px 0px;
@@ -223,6 +236,33 @@
 
     .header_logo_img {
         max-height: 4rem;
+    }
+
+    .header_toolbar {
+        border: 1px solid #00B4CC;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 4rem;
+        padding: .5rem;
+    }
+
+    .sesion_nav {
+        border: 1px solid #6b6129;
+        display: flex;
+        flex-direction: row;
+        height: 3rem;
+    }
+
+    .sesion_btn {
+        margin: auto;
+        font-weight: 800;
+    }
+
+    .shop_button {
+        border: 1px #01568D solid;
+        width: 80px;
+        display: block;
     }
 
     .menu_top {
@@ -238,18 +278,18 @@
 
     .menu_bottom {
         margin-top: 2px;
-        width: 100%;
+        width: auto;
         overflow: hidden;
     }
 
 
-    .btn_buscador {
+    /*    .btn_buscador {
         position: absolute;
         top: 0px;
         right: -22px;
-        width: 51px;
-        height: 32px;
-        border-radius: 0px 8px 8px 0px;
+        width: 66px;
+        height: 2rem;
+        border-radius: 0px 6px 6px 0px;
         border: none;
         background: #245c93;
         vertical-align: middle;
@@ -258,25 +298,39 @@
         background-size: 29px;
         background-repeat: no-repeat, repeat;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);
+    }*/
+
+    .btn_buscador {
+        position: relative;
+        width: 4rem;
+        height: 2rem;
+        border-radius: 0px 6px 6px 0px;
+        background: #01568D;
+        background-image: url(/img/webUI/search_icon_bg.png);
+        background-position: center center, center center;
+        background-repeat: no-repeat, repeat;
+        background-size: 24px;
     }
 
     #txt_buscadorProducto {
-        border: 1px #d4d4d4 solid !important;
-        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3803921568627451);
-        border-radius: 8px;
+        border: 2px #01568D solid !important;
+        /*        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3803921568627451);*/
+        border-radius: 6px;
         background: #fff;
-        font-size: 1.2rem;
+        font-size: 1.2rem !important;
         height: 2rem;
-        width: 100%;
+        width: 60vw;
         padding: 0px 10px;
     }
 
-    .BuscadorContainer {
+    /*    .BuscadorContainer {
+        border: solid 1px red;
         position: relative;
         float: left;
-        width: 300px;
+        width: 500px;
+        height: 2rem;
         margin-top: 3px;
-    }
+    }*/
 
     .login_btn {
         color: #242c33;
@@ -293,14 +347,31 @@
         display: block;
     }
 
-    #txt_tipoDeCambio::after {
-        content: "Tipo de Cambio: 1 USD = ";
+    .title_tipoDeCambio {
+        display: block;
+        height: 1.5rem;
     }
 
-    .content_tipoDeCambio {
-        float: right;
-        line-height: 40px;
-        height: 40px;
+    #txt_tipoDeCambio::before {
+        content: "1 USD = ";
+    }
+
+    .title_tipoDeCambio {
+        border: 1px solid green;
+    }
+
+    #text_tipoDeCambio {
+        display: inline;
+    }
+
+    /*    .content_tipoDeCambio {
+  line-height: 40px;
+    height: 40px;
+    }*/
+
+    .right_position {
+        display: flex;
+        margin-left: auto;
     }
 
     @media only screen and (max-width:1200px) {
@@ -327,7 +398,7 @@
             height: 35px;
         }
 
-        #txt_tipoDeCambio::after {
+        #text_tipoDeCambio::after {
             content: "TC: 1 USD = ";
         }
 
@@ -378,11 +449,25 @@
         }
 
         .BuscadorContainer {
-            margin-top: 12px;
+            position: relative;
+            display: flex;
+        }
+
+        #txt_buscadorProducto {
+            border: 1px solid #00B4CC;
+            border-right: none;
+            padding: 5px;
+            height: 2rem;
+            border-radius: 6px 0 0 6px;
+            outline: none;
+            color: #9DBFAF;
+            font-size: 1rem;
         }
 
         .btn_buscador {
-            height: 39px;
+            width: 6rem;
+            height: 3rem;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
         }
-    }
 </style>
