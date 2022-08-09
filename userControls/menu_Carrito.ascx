@@ -6,7 +6,7 @@
     <ContentTemplate>
         <asp:HyperLink ID="btn_toggle_desgloseCarrito" NavigateUrl="/mi-carrito.aspx" ClientIDMode="Static" title='Carrito de productos'
             class="hide-on-med-and-down btn_toggle_desgloseCarrito btn_desgloseCarrito_style" runat="server">
-            <img style="border: 2px solid red; width:35px" src="../img/webUI/newdesign/Carrito.svg"/>
+            <img class="icon_carrito" src="../img/webUI/newdesign/Carrito.svg"/>
         </asp:HyperLink>
         <asp:Button ID="buttonDesglose" ClientIDMode="Static" runat="server" CssClass="hide"
             OnClick="carritoDesglose" />
@@ -108,5 +108,9 @@
             text-align: left;
             vertical-align: middle;
             border-radius: 2px;
+        }
+
+        .icon_carrito {
+            width: 1.75rem;
         }
 </style>
