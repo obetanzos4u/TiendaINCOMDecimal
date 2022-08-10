@@ -67,7 +67,7 @@ public class EnviosIncomReglas
         tipoOperacion = _tipoOperacion;
         Productos = _Productos;
         MontoTotalSinImpuestosMXN = _MontoTotalSinImpuestosMXN;
-        AplicaEnvioGratis = true;
+        AplicaEnvioGratis = false;
         Calcular();
     }
     private void Calcular()

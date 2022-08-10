@@ -3,9 +3,9 @@
     Static styles
 */
 /* Font family */
-body {
+/*body {
     font-family: "Montserrat";
-}
+}*/
 
 /* Flex section */
 .is-flex {
@@ -114,6 +114,10 @@ body {
     background-color: #0C3766;
 }
 
+.is-bg-gray {
+    background-color: #D9D9D9;
+}
+
 .is-bg-button {
     background-color: #004eea;
 }
@@ -130,6 +134,9 @@ body {
     background-color: #0c3766;
 }
 
+.is-bg-blue {
+    background-color: #0066cc;
+}
 
 /* Padding and margin section */
 .is-p-0 {
@@ -404,6 +411,7 @@ body {
     .is-w-1_2 {
         width: 100%;
     }
+
     .is-col-2 {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }

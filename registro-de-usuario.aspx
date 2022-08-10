@@ -4,8 +4,8 @@
     <div class="is-container">
         <div class="is-flex is-justify-center is-items-center is-w-full">
             <div class="is-w-1_2">
-                <div class="borderTest">
-                    <h2 class="is-font-semibold is-select-none is-px-2">Registro de usuario</h2>
+                <div>
+                    <h2 class="is-font-semibold is-select-none is-px-2">Crear cuenta</h2>
                     <div class="is-px-4 is-py-0">
                         <div class="is-flex is-flex-col is-justify-center is-items-center is-py-2">
                             <p class="is-font-medium is-select-none">Iniciar sesión con Google</p>
@@ -14,29 +14,29 @@
                         </div>
                         <hr />
                         <div class="is-flex is-flex-col is-justify-center is-items-center">
-                            <p class="is-font-medium is-select-none">Registro manual</p>
+                            <p class="is-font-medium is-select-none">Iniciar sesión con tu correo</p>
                             <div class="is-grid is-col-2 is-gap-4">
                                 <div>
-                                    <label for="txt_email">Email</label>
+                                    <label for="txt_email" class="is-text-base is-select-none">Correo electrónico</label>
                                     <asp:TextBox ID="txt_email" ClientIDMode="Static" runat="server"></asp:TextBox>
                                 </div>
                                 <div>
-                                    <label for="txt_phone">Teléfono</label>
+                                    <label for="txt_phone" class="is-text-base is-select-none">Teléfono</label>
                                     <asp:TextBox ID="txt_phone" ClientIDMode="Static" runat="server"></asp:TextBox>
                                 </div>
                                 <div>
                                     <div>
-                                        <label for="txt_nombre">Nombre(s)</label>
+                                        <label for="txt_nombre" class="is-text-base is-select-none">Nombre(s)</label>
                                         <asp:TextBox ID="txt_nombre" ClientIDMode="Static" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <label for="<%= txt_apellido_paterno.ClientID %>">Apellidos</label>
+                                        <label for="<%= txt_apellido_paterno.ClientID %>" class="is-text-base is-select-none">Apellidos</label>
                                         <asp:TextBox ID="txt_apellido_paterno" ClientIDMode="Static" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
-<%--                                <div>
+                                <%--                                <div>
                                     <div>
                                         <label for="<%= txt_apellido_materno.ClientID %>">Apellido materno</label>
                                         <asp:TextBox ID="txt_apellido_materno" ClientIDMode="Static" runat="server"></asp:TextBox>
@@ -44,35 +44,47 @@
                                 </div>--%>
                                 <div>
                                     <div>
-                                        <label for="txt_password">Contraseña</label>
+                                        <label for="txt_password" class="is-text-base is-select-none">Contraseña</label>
                                         <asp:TextBox ID="txt_password" ClientIDMode="Static" TextMode="Password" runat="server"></asp:TextBox>
+                                        <%--<span toggle="#txt_password" class="field-icon toggle-password"><span class="material-icons">visibility</span></span>--%>
+                                    </div>
+                                    <%--                                    <div>
+                                        <label for="txt_password">Contraseña</label>
                                         <span toggle="#txt_password">
                                             <span class="material-icons">visibility</span>
                                         </span>
-                                    </div>
+                                        <asp:TextBox ID="txt_password" ClientIDMode="Static" TextMode="Password" runat="server"></asp:TextBox>
+                                    </div>--%>
                                 </div>
                                 <div>
                                     <div>
-                                        <label for="txt_password_confirma">Confirmar contraseña</label>
+                                        <label for="txt_password_confirma" class="is-text-base is-select-none">Confirmar contraseña</label>
                                         <asp:TextBox ID="txt_password_confirma" ClientIDMode="Static" TextMode="Password" runat="server"></asp:TextBox>
-                                        <span toggle="#txt_password_confirma">
+                                        <%--<span toggle="#txt_password_confirma">
                                             <span class="material-icons">visibility</span>
-                                        </span>
+                                        </span>--%>
                                     </div>
                                 </div>
                             </div>
-                            <div class="is-w-full is-flex is-flex-col is-justify-center is-items-center is-text-xs">
+                            <div>
+                                <p class="is-p-0 is-m-0 is-text-sm is-font-normal" style="color: rgba(0,0,0,0.4)">Utiliza 8 o más caracteres con una combinación de mayúsculas, minúsculas, números y símbolos.</p>
+                            </div>
+                            <%--                            <div class="is-w-full is-flex is-flex-col is-justify-center is-items-center is-text-xs is-py-2">
                                 <a href="/informacion/aviso-de-privacidad.aspx" target="_blank">Aviso de privacidad</a>
                                 <a href="/informacion/terminos-y-condiciones-de-compra.aspx" target="_blank">Términos y condiciones de compra</a>
-                            </div>
-                            <div>
+                            </div>--%>
+                            <%--                            <div>
                                 <asp:CheckBox ID="chk_politica_privacidad" runat="server" />
                                 <span>Acepto los términos y condiciones de compra. Acepto el aviso de privacidad.</span>
+                            </div>--%>
+                            <div class="is-w-full is-flex is-justify-center is-items-center is-py-4">
+                                <label>
+                                    <asp:CheckBox ID="chk_politica_privacidad" runat="server" />
+                                    <span>Acepto los <a href="/informacion/terminos-y-condiciones-de-compra.aspx" target="_blank">Términos y condiciones de compra</a> y el <a href="/informacion/aviso-de-privacidad.aspx" target="_blank">Aviso de privacidad</a></span>
+                                </label>
                             </div>
-                            <div>
-                                <div>
-                                    <asp:LinkButton ID="btn_registrar" OnClick="btn_registrar_ClickAsync" OnClientClick="btnLoading(this);" runat="server"></asp:LinkButton>
-                                </div>
+                            <div class="is-py-8">
+                                <asp:LinkButton ID="btn_registrar" OnClick="btn_registrar_ClickAsync" OnClientClick="btnLoading(this);" class="is-text-white is-px-4 is-py-2 is-bg-blue is-rounded" runat="server">Crear cuenta</asp:LinkButton>
                             </div>
                         </div>
                     </div>
