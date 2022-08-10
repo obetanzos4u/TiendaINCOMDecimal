@@ -106,6 +106,10 @@
     color: rgb(0, 0, 0);
 }
 
+.is-text-title {
+    color: #f9f7f7;
+}
+
 .is-bg-footer {
     background-color: #0C3766;
 }
@@ -119,7 +123,15 @@
 }
 
 .is-bg-white {
-    background-color: rgb(255, 0, 0);
+    background-color: #FFFFFF;
+}
+
+.is-bg-icons {
+    background-color: #01568d;
+}
+
+.is-bg-titles {
+    background-color: #0c3766;
 }
 
 .is-bg-blue {

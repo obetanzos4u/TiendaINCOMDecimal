@@ -8,7 +8,7 @@
                 <p class="is-text-lg is-font-medium">Llámanos al <a href="tel:5552436900">(55) 5243 - 6900</a></p>
                 <div class="is-font-light is-text-sm">
                     <p class="is-m-0">Plutarco Elías Calles 276, colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de México.</p>
-                    <p class="is-m-0">Horario de atención: Lunes a Jueves de 8:00 a 19:00 hrs • Viernes de 8:00 a 17:00 hrs</p>
+                    <p class="is-m-0">Horario de atención: Lunes a Jueves de 8:00 a 19:00 hrs • Viernes de 8:00 a 17:00 hrs.</p>
                 </div>
                 <div class="is-flex is-justify-start is-items-center is-w-1_2 is-py-4">
                     <a href="https://www.facebook.com/incommexico/" target="_blank" class="is-w-6">
@@ -21,8 +21,11 @@
                     <a href="https://www.youtube.com/user/incommx" target="_blank" class="is-w-6 is-space-x-6">
                         <img title="Youtube Incom" alt="Youtube Incom" loading="lazy" src="/img/webUI/rs/Youtube.svg" />
                     </a>
-                    <a href="https://www.linkedin.com/company/incom-mx" target="_blank" class="is-w-6 is-space-x-6 borderTest is-bg-white">
+                    <a href="https://www.linkedin.com/company/incom-mx" target="_blank" class="is-w-6 is-space-x-6" >
                         <img title="LinkedIn Incom" alt="LinkedIn Incom" loading="lazy" src="/img/webUI/rs/LinkedIn.svg" />
+                    </a>
+                     <a href="https://www.tiktok.com/@incom_mx" target="_blank" class="is-w-6 is-space-x-6">
+                        <img title="Tiktok Incom" alt="Tiktok Incom" loading="lazy" src="/img/webUI/rs/Tiktok.svg" />
                     </a>
                 </div>
             </div>
