@@ -33,6 +33,7 @@ public partial class registro_de_usuario : System.Web.UI.Page
             usuario.apellido_paterno = txt_apellido_paterno.Text;
             //usuario.apellido_materno =  txt_apellido_materno.Text; 
             usuario.email = txt_email.Text;
+            usuario.celular = txt_phone.Text;
             usuario.password = txt_password.Text;
             usuario.rango = 1;
             usuario.tipo_de_usuario = "cliente";
@@ -49,7 +50,7 @@ public partial class registro_de_usuario : System.Web.UI.Page
 
             if (existenciaUsuario.exception == false && existenciaUsuario.result == true)
             {
-                materializeCSS.crear_toast(this, "El email (usuario) ya existe", false);
+                materializeCSS.crear_toast(this, "El usuario se encuentra registrado.", false);
                 return;
             }
 
@@ -126,7 +127,7 @@ public partial class registro_de_usuario : System.Web.UI.Page
         bool email = validarCampos.email(txt_email.Text, this);
         if (email == false) { return false; }
 
-        bool phone = validarCampos.telefonos(txt_phone, txt_phone, this);
+        bool phone = validarCampos.telefonos(txt_phone, this);
         if (phone == false) { return false; }
 
         bool password = validarCampos.passsword(txt_password, txt_password_confirma, this);
