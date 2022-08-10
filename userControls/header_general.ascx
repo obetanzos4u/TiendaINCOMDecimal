@@ -130,7 +130,7 @@
                     <asp:LoginView ID="LoginView1" runat="server">
                         <LoggedInTemplate>
                             <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="login_btn" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx"
-                                runat="server"> Mi cuenta </asp:HyperLink>
+                                runat="server">Mi cuenta</asp:HyperLink>
                             <asp:LoginStatus ID="LoginStatus1" class="login_btn" ToolTip="Sesión de usuario" runat="server" LoginText="Iniciar Sesión"
                                 LogoutText="Cerrar Sesión" OnLoggedOut="LoginStatus1_LoggedOut" />
                         </LoggedInTemplate>
@@ -359,6 +359,7 @@
     .btn_cuenta {
         margin: auto;
         font-weight: 800;
+        font-size: 0.75rem;
     }
 
     #carrito_de_compra {
@@ -371,6 +372,7 @@
     .txt_carrito {
         font-weight: 600;
         margin:0;
+        font-size: 0.75rem;
     }
 
     .shop_button {
@@ -520,6 +522,12 @@
         margin-left: auto;
     }
 
+    .menuContainer {
+            display: flex;
+            justify-content: center;
+            float: initial !important;
+        }
+
     @media only screen and (max-width:1200px) {
         .menu_middle {
             margin: auto;
@@ -560,7 +568,7 @@
         }
 
         .menuContainer {
-            margin: 0 auto;
+            margin: 0rem auto;
             float: initial !important;
         }
 
