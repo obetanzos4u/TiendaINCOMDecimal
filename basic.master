@@ -188,12 +188,14 @@
             }
 
             .menuContainer {
-                font-weight: bolder;
+                font-weight: 600;
                 height: 31px !important;
                 line-height: 17px !important;
                 box-shadow: none;
                 float: left !important;
-                width: auto;
+                width: 100vw;
+                display: flex;
+                justify-content: center;
             }
 
                 .menuContainer i {

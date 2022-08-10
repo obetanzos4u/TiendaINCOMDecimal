@@ -242,7 +242,7 @@
     .menuContainer ul a {
         -webkit-transition: background-color .3s;
         transition: background-color .3s;
-        font-size: 1rem;
+        font-size: 1.5rem;
         color: #0f0f0f;
         display: block;
         padding: 5px 15px;
