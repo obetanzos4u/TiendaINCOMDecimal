@@ -119,7 +119,8 @@ FROM productos_Datos
         liMenuPrincipal.ClientIDMode = System.Web.UI.ClientIDMode.Static;
         HtmlGenericControl aMenuPrincipal = new HtmlGenericControl("a");
 
-        aMenuPrincipal.InnerHtml = "Marcas <i id='menu_ico_marcas' class='material-icons right'>arrow_drop_down</i>";
+        //aMenuPrincipal.InnerHtml = "Marcas <i id='menu_ico_marcas' class='material-icons right'>arrow_drop_down</i>";
+        aMenuPrincipal.InnerHtml = "Marcas <img src='../img/webUI/newdesign/Flecha.svg'/>";
         aMenuPrincipal.Attributes.Add("href", "#");
         aMenuPrincipal.ID = "menu-incom-marcas-btn";
         aMenuPrincipal.ClientIDMode = System.Web.UI.ClientIDMode.Static;

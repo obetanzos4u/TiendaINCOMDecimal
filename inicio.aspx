@@ -34,7 +34,7 @@
     </script>
     <div class="container">
         <div class="row center-align margin-b-2x"  >
-            <h1 class="center-align margin-b-2x">INCOM® La ferretera de las telecomunicaciones®</h1>
+            <%--<h1 class="center-align margin-b-2x">INCOM® La ferretera de las telecomunicaciones®</h1>--%>
            
         </div>
           <div class="row margin-b-2x">
