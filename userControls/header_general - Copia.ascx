@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="header_general.ascx.cs" Inherits="menuPrincipal" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="header_general - Copia.ascx.cs" Inherits="menuPrincipal" %>
 <%@ Register Src="~/userControls/menu_principal.ascx" TagName="menuPrincipal" TagPrefix="uc_menu" %>
 <%@ Register Src="~/userControls/uc_asesores_modalidad_clientes_bar.ascx" TagName="modAsesor" TagPrefix="uc_bar" %>
 <%@ Register Src="~/userControls/uc_admin_bar_button.ascx" TagName="adminBar" TagPrefix="uc_bar" %>
@@ -44,11 +44,10 @@
     <li><a class="subheader">Tienda</a></li>
 
     <li class="no-padding">
-        <%--        <img src="../img/webUI/newdesign/Flecha.svg" />--%>
         <ul class="collapsible collapsible-accordion">
             <li>
                 <a class="collapsible-header">Productos</a>
-
+                
                 <div class="collapsible-body">
                     <ul id="menu_movil_categorias" runat="server">
                     </ul>
@@ -74,29 +73,17 @@
 </ul>
 
 <uc_bar:adminBar ID="botonAsesores" runat="server"></uc_bar:adminBar>
-<%--<div class="row z-depth-1 header white" style="margin-bottom: 0px;">--%>
 <div>
     <div style="background: white; overflow: hidden; color: #353635">
         <uc_bar:modAsesor ID="barraAsesores" Visible="false" runat="server"></uc_bar:modAsesor>
     </div>
     <section class="over-header">
         <div class="center">
-            <a class="btn_tuerca">
-                <img class="icon_tuerca" src="../img/webUI/newdesign/Tuerca.svg" alt="boton de tuerca o ajustes" />
-            </a>
+        <a class="btn_tuerca">
+            <img class="icon_tuerca" src="../img/webUI/newdesign/Tuerca.svg" alt="boton de tuerca o ajustes"/>
+        </a>
             <button class="btn_asesores" type="button">Asesores</button>
         </div>
-
-        <%--        <span style="color: rgb(190 18 60) !important;">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                style="enable-background: new 0 0 24 24; width: 24px; height: 24px;">
-                <symbol id="path">
-                <path
-                    d="M14.6 2.9c.8.2 1.6.5 2.3 1l2-1.2 2.7 2.7-1.2 2c.4.7.7 1.5 1 2.3l2.3.5v3.9l-2.3.5c-.2.8-.5 1.6-1 2.3l1.2 2-2.7 2.7-2-1.2c-.7.4-1.5.7-2.3 1l-.5 2.3h-3.9l-.5-2.3c-.8-.2-1.6-.5-2.3-1l-2 1.2-2.7-2.7 1.2-2c-.4-.7-.7-1.5-1-2.3L.7 14v-3.9L3 9.6c.2-.8.5-1.6 1-2.3l-1.2-2 2.7-2.7 2 1.2c.7-.4 1.5-.7 2.3-1l.5-2.3h3.9l.4 2.4zm-2.3 5c-2.3 0-4.2 1.9-4.2 4.2 0 2.3 1.9 4.2 4.2 4.2 2.3 0 4.2-1.9 4.2-4.2 0-2.3-1.9-4.2-4.2-4.2z" />
-                </symbol>        
-    </svg>
-        </span>--%>
     </section>
     <div id="content_header" class="col s12 m12 l12" style="padding: 5px 0px;">
         <section class="title_container">
@@ -107,8 +94,7 @@
             <div class="content_menuMovil show-on-medium-and-down hide-on-med-and-up" style="display: inline;">
                 <!-- Dropdown Trigger -->
                 <a id="btn_menu_usuario_movil" data-target='menu_usuario_movil' href="#" class="sidenav-trigger">
-                    <%--<i class="material-icons" style="font-size: 3rem;">menu</i>--%>
-                    <img class="icon_menu" src="../img/webUI/newdesign/Menu.svg" />Menu
+                    <img class="icon_menu" src="../img/webUI/newdesign/Menu.svg"/>Menu
                 </a>
 
 
@@ -125,7 +111,6 @@
         </div>
         <div class="menu_right_contenedor  ">
             <div class="menu_top hide-on-med-and-down ">
-                <!--- corregir posicionamiento icono   --->
                 <!--- <i class="material-icons left">perm_identity</i> --->
                 <!--- Desktop --->
                 <div class="hide-on-med-and-down " style="display: inline;">
@@ -150,8 +135,8 @@
                 </div>
                 <div class="sesion_nav">
                     <div class="cuenta_container">
-                        <img class="icon_cuenta" src="../img/webUI/newdesign/Cuenta.svg" />
-                        <span class="btn_cuenta">Mi cuenta</span>
+                     <img class="icon_cuenta" src="../img/webUI/newdesign/Cuenta.svg"  />
+                     <span class="btn_cuenta">Mi cuenta</span>
                     </div>
 
                     <div>
@@ -166,7 +151,7 @@
                     <div class="content_tipoDeCambio">
                         <span class="title_tipoDeCambio">Tipo de cambio</span>
                         <span id="txt_tipoDeCambio"></span>
-                        <strong><span class="cantidad_tipoDeCambio"><%= operacionesConfiguraciones.obtenerTipoDeCambio() %> MXN </span></strong>
+                        <strong><span class="cantidad_tipoDeCambio" ><%= operacionesConfiguraciones.obtenerTipoDeCambio() %> MXN </span></strong>
                     </div>
                 </div>
             </div>
@@ -224,7 +209,6 @@
     });
 
 </script>
-
 <style>
     .menuContainer a {
         color: #202831 !important;
@@ -232,13 +216,13 @@
 
     a.incom-sub-button-header {
         font-weight: 600;
-        padding: 2px 9px;
-        color: black;
+        padding: 2px 9px;        
+        color: black;        
     }
 
-        a.incom-sub-button-header:hover {
+        a.incom-sub-button-header:hover {       
             border-radius: 5px;
-            color: white;
+            color: white;               
             background: #245c93;
         }
 
@@ -248,14 +232,14 @@
         font-size: 1.5rem;
         display: block;
         padding: 5px 15px;
-        border-radius: 13px;
+        border-radius: 13px;        
         cursor: pointer;
         color: #0f0f0f;
         background: #ffffff;
     }
 
     .over-header {
-        height: 2rem;
+        height:2rem;
         padding: 0.25rem;
         align-items: center;
     }
@@ -266,7 +250,7 @@
         margin: 0;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content:flex-start;
     }
 
     .btn_tuerca {
@@ -284,7 +268,7 @@
         width: 4rem;
         margin: 4px;
         border: none;
-        border-radius: 9px;
+        border-radius: 9px;    
         color: #FFFFFF;
         background-color: #01568D;
     }
@@ -292,8 +276,8 @@
     .title_container {
         font-size: 2rem;
         margin: 0;
-        background-color: #F9F7F7;
-    }
+        background-color: #F9F7F7;    
+    }    
 
     .title_header {
         font-size: 1.5rem;
@@ -301,7 +285,7 @@
         width: fit-content;
         margin: auto;
         display: flex;
-        align-items: center;
+        align-items: center;    
         color: #0C3766;
     }
 
@@ -313,9 +297,9 @@
     }
 
     .header_toolbar {
-        height: 7rem;
+        height: 4rem;
         padding: .5rem 5rem .5rem 2rem;
-        margin: auto 0rem 1.25rem 0rem;
+        margin: auto 0rem 1.25rem 0rem;        
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -323,7 +307,7 @@
     }
 
     .logotipo_home {
-        height: 5rem;
+        height: 3.5rem;
         width: auto;
         margin-top: 0;
     }
@@ -339,41 +323,37 @@
         background: #fff;
     }
 
-        #txt_buscadorProducto::placeholder {
-            font-style: italic;
-        }
+    #txt_buscadorProducto::placeholder {
+        font-style: italic;
+    }
 
     .btn_buscador {
         height: 2rem;
         width: 6rem;
         margin-top: 1rem;
-        border-radius: 0px 6px 6px 0px;
-        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);
+        border-radius: 0px 6px 6px 0px;        
         position: relative;
         background-image: url(/img/webUI/search_icon_bg.png);
         background-position: center center, center center;
         background-repeat: no-repeat, repeat;
         background-size: 24px;
-        background-color: white;
         background: #01568D;
     }
 
-    .content_header_logo {
+    <!-- .content_header_logo {
         margin: 0px 80px 0px 0px;
         float: left;
-    }
+    } -->
 
-    .header_logo_img {
+    <!-- .header_logo_img {
         max-height: 4rem;
-    }
+    } -->
 
     .sesion_nav {
-        height: 3rem;
-        margin-top: 0.75rem;
         display: flex;
-        flex-direction: row;
+        justify-items: center;
     }
-
+    
     .cuenta_container {
         width: 7rem;
         border-right: 2px solid black;
@@ -400,13 +380,13 @@
 
     .txt_carrito {
         font-weight: 600;
-        margin: 0;
+        margin:0;
     }
 
-    .shop_button {
+    <!-- .shop_button {
         width: 80px;
         display: block;
-    }
+    } -->
 
     .menu_top {
         text-align: right;
@@ -416,9 +396,7 @@
 
     .menu_middle {
         height: fit-content;
-        width: 100vw;
-        margin-left: 2rem;
-        align-items: flex-start;
+        width: 100vw; 
     }
 
     .menu_bottom {
@@ -443,7 +421,7 @@
     }
 
     .title_tipoDeCambio {
-        font-size: 1rem;
+        font-size: 0.75rem;
         font-weight: 600;
         height: 1.5rem;
         text-align: center;
@@ -451,32 +429,32 @@
     }
 
     #txt_tipoDeCambio {
-        font-size: 1rem;
-        font-weight: 600;
+        font-size: 0.75rem;
+        font-weight:600;
     }
 
-        #txt_tipoDeCambio::before {
-            content: "1 USD = ";
-        }
+    #txt_tipoDeCambio::before {
+        content: "1 USD = ";
+    }
 
     .icon_menu {
         filter: invert(18%) sepia(89%) saturate(2251%) hue-rotate(186deg) brightness(96%) contrast(99%);
     }
 
     .cantidad_tipoDeCambio {
-        font-size: 1rem;
+        font-size: .75rem;
         font-weight: 600;
     }
 
-    .content_tipoDeCambio {
-        width: 12rem;
+   .content_tipoDeCambio{
+        width: 9rem;
         padding-left: 1rem;
         border-left: 2px solid black;
-    }
+   }
 
     .right_position {
         margin-left: auto;
-        display: flex;
+        display: flex; 
     }
 
     @media only screen and (max-width:1200px) {
@@ -493,14 +471,14 @@
 
         .content_header_logo {
             margin: 0px 2rem 0px 0px;
-            float: inherit;
+            float: inherit;      
         }
 
         .menu_top {
             height: 35px;
             text-align: right;
             margin-top: 0px;
-            overflow: hidden;
+            overflow: hidden; 
         }
 
         #txt_tipoDeCambio::after {
@@ -571,6 +549,7 @@
             border-radius: 6px 0 0 6px;
             outline: none;
             color: #9DBFAF;
+            
         }
 
         .btn_buscador {
@@ -579,18 +558,14 @@
             border-radius: 0 6px 6px 0;
             border: none;
             cursor: pointer;
-            background-image: url(/img/webUI/search_icon_bg.png);
-            background-size: 2rem;
-            background-position: center center, center center;
-            background-repeat: no-repeat, repeat;
         }
 
         #txt_buscadorProducto {
-            height: 2rem;
+            height: 2rem;   
             padding: 0px 10px;
             margin-left: 2rem;
             border: 3px #01568D solid !important;
-        }
+    }
 
         .header_toolbar {
             padding-right: 1rem;
