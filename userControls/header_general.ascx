@@ -144,7 +144,9 @@
                 </div>
             </div>
             <div class="header_toolbar">
-                <img src="../img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="logotipo_home" />
+                <a title="Incom Retail" class="content_header_logo" href="http://localhost:63722/">
+                    <img src="../img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="logotipo_home" />
+                </a>
                 <div class="menu_middle">
                     <uc_buscador:buscador ID="buscador" Visible="true" runat="server"></uc_buscador:buscador>
                 </div>
