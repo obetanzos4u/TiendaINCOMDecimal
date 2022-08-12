@@ -42,7 +42,8 @@ public class menusCategorias : System.Web.UI.Page
         HtmlGenericControl L1_Title = new HtmlGenericControl("a");
         L1_Title.Attributes.Add("href", "#");
         L1_Title.Attributes.Add("title", "Productos");
-        L1_Title.InnerHtml = "Productos<i id='menu_ico_productos' class='material-icons right'>arrow_drop_down</i>";
+        //L1_Title.InnerHtml = "Productos<i id='menu_ico_productos' class='material-icons right'>arrow_drop_down</i>";
+        L1_Title.InnerHtml = "Productos <img id='menu_ico_productos' class='material-icons right' src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem; height: 1rem; margin-left: 1rem'/>";
 
         HtmlGenericControl L1_Cont = new HtmlGenericControl("div");
         L1_Cont.Attributes.Add("class", "  menu-items  ");
@@ -69,7 +70,8 @@ public class menusCategorias : System.Web.UI.Page
         HtmlGenericControl L2_Title = new HtmlGenericControl("a");
         L2_Title.Attributes.Add("href", "#");
         L2_Title.Attributes.Add("title", "Biblioteca");
-        L2_Title.InnerHtml = "Biblioteca<i id='menu_ico_productos' class='material-icons right'>arrow_drop_down</i>";
+        //L2_Title.InnerHtml = "Biblioteca<i id='menu_ico_productos' class='material-icons right'>arrow_drop_down</i>";
+        L2_Title.InnerHtml = "Biblioteca <img id='menu_ico_productos 'src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem  '>";
 
         HtmlGenericControl L3_Cont = new HtmlGenericControl("div");
         L3_Cont.Attributes.Add("class", "  menu-items  ");

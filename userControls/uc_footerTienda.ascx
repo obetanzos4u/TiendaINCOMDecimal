@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="is-flex is-flex-col is-justify-start is-items-start">
-                <p class="is-text-xl is-font-bold">Regístrate a nuestro boletín:</p>
+                <p class="is-text-xl is-font-bold is-mx-2">Regístrate a nuestro boletín:</p>
                 <div class="is-flex is-justify-center is-items-center is-w-full is-px-4">
                     <input type="email" id="newsletter_email" name="newsletter_email" placeholder="Correo electrónico" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); padding-left: 0.5rem; height: 100%; border-radius: 0.25rem; margin: 0" />
                     <button type="submit" class="is-text-white is-rounded" style="background-color: #004EEA; padding: 0.5rem 1.5rem; height: 100%; border: 0">Registro</button>

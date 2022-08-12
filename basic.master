@@ -188,7 +188,7 @@
             }
 
             .menuContainer {
-                font-weight: 600;
+                font-weight: 500;
                 height: 31px !important;
                 line-height: 17px !important;
                 box-shadow: none;
@@ -228,7 +228,7 @@
                 color: #656565 !important;
                 padding: 0px 10px;
                 text-transform: uppercase;
-                font-weight: 600;
+                font-weight: 500;
             }
 
 

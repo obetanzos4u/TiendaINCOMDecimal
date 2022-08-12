@@ -44,9 +44,11 @@
     <li><a class="subheader">Tienda</a></li>
 
     <li class="no-padding">
+<%--        <img src="../img/webUI/newdesign/Flecha.svg" />--%>
         <ul class="collapsible collapsible-accordion">
             <li>
-                <a class="collapsible-header">Productos<img src="../img/webUI/newdesign/Flecha.svg" /></a>
+                <a class="collapsible-header">Productos</a>
+                
                 <div class="collapsible-body">
                     <ul id="menu_movil_categorias" runat="server">
                     </ul>
@@ -142,7 +144,7 @@
                 </div>
             </div>
             <div class="header_toolbar">
-                <img src="../img/webUI/incom_logo_mini.png" alt="Logotipo INCOM" class="logotipo_home" />
+                <img src="../img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="logotipo_home" />
                 <div class="menu_middle">
                     <uc_buscador:buscador ID="buscador" Visible="true" runat="server"></uc_buscador:buscador>
                 </div>
@@ -307,7 +309,7 @@
         margin: auto;
         width: fit-content;
         align-items: center;
-        font-weight: 900;
+        font-weight: 400;
         color: #0C3766;
     }
 
@@ -333,8 +335,9 @@
     }
 
     .logotipo_home {
-        height: 3rem;
+        height: 3.5rem;
         width: auto;
+        margin-top: 0;
     }
 
     .sesion_nav {
@@ -358,7 +361,7 @@
 
     .btn_cuenta {
         margin: auto;
-        font-weight: 800;
+        font-weight: 600;
     }
 
     #carrito_de_compra {
