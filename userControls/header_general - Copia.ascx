@@ -297,7 +297,7 @@
     }
 
     .header_toolbar {
-        height: 4rem;
+        height: 7rem;
         padding: .5rem 5rem .5rem 2rem;
         margin: auto 0rem 1.25rem 0rem;        
         display: flex;
@@ -329,29 +329,32 @@
 
     .btn_buscador {
         height: 2rem;
-        width: 6rem;
         margin-top: 1rem;
         border-radius: 0px 6px 6px 0px;        
         position: relative;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);
         background-image: url(/img/webUI/search_icon_bg.png);
         background-position: center center, center center;
         background-repeat: no-repeat, repeat;
         background-size: 24px;
-        background: #01568D;
+        background: white;
     }
 
-    <!-- .content_header_logo {
+/*    .content_header_logo {
         margin: 0px 80px 0px 0px;
         float: left;
-    } -->
+    }
 
-    <!-- .header_logo_img {
+    .header_logo_img {
         max-height: 4rem;
-    } -->
+    } */
 
     .sesion_nav {
+        height: 4rem;
+        margin-top: 2rem;
         display: flex;
-        justify-items: center;
+        flex-direction: row;
+
     }
     
     .cuenta_container {
@@ -383,10 +386,10 @@
         margin:0;
     }
 
-    <!-- .shop_button {
+    .shop_button {
         width: 80px;
         display: block;
-    } -->
+    } 
 
     .menu_top {
         text-align: right;
@@ -396,7 +399,9 @@
 
     .menu_middle {
         height: fit-content;
-        width: 100vw; 
+        width: 100vw;
+        margin-left: 2rem;
+        align-items: flex-start;    
     }
 
     .menu_bottom {

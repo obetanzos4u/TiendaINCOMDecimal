@@ -43,7 +43,7 @@ public class menusCategorias : System.Web.UI.Page
         L1_Title.Attributes.Add("href", "#");
         L1_Title.Attributes.Add("title", "Productos");
         //L1_Title.InnerHtml = "Productos<i id='menu_ico_productos' class='material-icons right'>arrow_drop_down</i>";
-        L1_Title.InnerHtml = "Productos <img id='menu_ico_productos' class='material-icons right' src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem; height: 1rem; margin-left: 1rem'/>";
+        L1_Title.InnerHtml = "Productos <img id='menu_ico_productos' class='material-icons right' src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem; height: 1rem; margin-left: 0.5rem'/>";
 
         HtmlGenericControl L1_Cont = new HtmlGenericControl("div");
         L1_Cont.Attributes.Add("class", "  menu-items  ");
@@ -57,33 +57,33 @@ public class menusCategorias : System.Web.UI.Page
 
     }
 
-    public Control obtenerMenuCategorias2(string usuario)
-    {
+    //public Control obtenerMenuCategorias2(string usuario)
+    //{
 
-        Panel test = new Panel();
+    //    Panel test = new Panel();
 
-        //Contenedor principal L1
-        HtmlGenericControl li = new HtmlGenericControl("li");
-        li.Attributes.Add("class", "menu-categorias");
+    //    //Contenedor principal L2
+    //    HtmlGenericControl li = new HtmlGenericControl("li");
+    //    li.Attributes.Add("class", "menu-categorias");
 
-        //Contenedor L3
-        HtmlGenericControl L2_Title = new HtmlGenericControl("a");
-        L2_Title.Attributes.Add("href", "#");
-        L2_Title.Attributes.Add("title", "Biblioteca");
-        //L2_Title.InnerHtml = "Biblioteca<i id='menu_ico_productos' class='material-icons right'>arrow_drop_down</i>";
-        L2_Title.InnerHtml = "Biblioteca <img id='menu_ico_productos 'src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem  '>";
+    //    //Contenedor L3
+    //    HtmlGenericControl L2_Title = new HtmlGenericControl("a");
+    //    L2_Title.Attributes.Add("href", "#");
+    //    L2_Title.Attributes.Add("title", "Biblioteca");
+    //    //L2_Title.InnerHtml = "Biblioteca<i id='menu_ico_productos' class='material-icons right'>arrow_drop_down</i>";
+    //    L2_Title.InnerHtml = "Biblioteca <img id='menu_ico_productos 'src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem  '>";
 
-        HtmlGenericControl L3_Cont = new HtmlGenericControl("div");
-        L3_Cont.Attributes.Add("class", "  menu-items  ");
-        L3_Cont.Attributes.Add("style", "display:none;");
-        L3_Cont = nivel1(L3_Cont);
+    //    HtmlGenericControl L3_Cont = new HtmlGenericControl("div");
+    //    L3_Cont.Attributes.Add("class", "  menu-items  ");
+    //    L3_Cont.Attributes.Add("style", "display:none;");
+    //    L3_Cont = nivel1(L3_Cont);
 
-        li.Controls.Add(L2_Title);
-        li.Controls.Add(L3_Cont);
+    //    li.Controls.Add(L2_Title);
+    //    li.Controls.Add(L3_Cont);
 
-        return li;
+    //    return li;
 
-    }
+    //}
 
     private HtmlGenericControl nivel1(HtmlGenericControl li) 
         {
@@ -111,8 +111,8 @@ public class menusCategorias : System.Web.UI.Page
                 HtmlGenericControl itemL1 = new HtmlGenericControl("div");
                 itemL1.Attributes.Add("class", "menu-l1 col l2 m4 s12");
 
-                HtmlGenericControl itemL2 = new HtmlGenericControl("div");
-                itemL2.Attributes.Add("class", "menu-l1 col l2 m4 s12");
+                //HtmlGenericControl itemL2 = new HtmlGenericControl("div");
+                //itemL2.Attributes.Add("class", "menu-l1 col l2 m4 s12");
 
                 HyperLink itemL1_Title = new HyperLink();
                 itemL1_Title.Text = nombre;
@@ -121,12 +121,12 @@ public class menusCategorias : System.Web.UI.Page
 
                 itemL1.Controls.Add(itemL1_Title);
 
-                HyperLink itemL2_Title = new HyperLink();
-                itemL2_Title.Text = nombre;
-                itemL2_Title.NavigateUrl = GetRouteUrl("categorias", new System.Web.Routing.RouteValueDictionary { { "identificador", identificador }, { "nombre", limpiarURL(nombre) } });
-                itemL2_Title.ToolTip = nombre;
+                //HyperLink itemL2_Title = new HyperLink();
+                //itemL2_Title.Text = nombre;
+                //itemL2_Title.NavigateUrl = GetRouteUrl("categorias", new System.Web.Routing.RouteValueDictionary { { "identificador", identificador }, { "nombre", limpiarURL(nombre) } });
+                //itemL2_Title.ToolTip = nombre;
 
-                itemL2.Controls.Add(itemL2_Title);
+                //itemL2.Controls.Add(itemL2_Title);
 
 
                 DataTable nivel2 = ObtenerSubniveles(identificador, 2);
@@ -222,9 +222,9 @@ public class menusCategorias : System.Web.UI.Page
         }
 
 
-    }
+        }
 
-    public static string limpiarURL(string url)
+        public static string limpiarURL(string url)
 	{
 		string urlLimpia = url.Replace(" ", "-").Replace(".", "").Replace(",", "").Replace("/", "-");
 

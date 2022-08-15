@@ -30,8 +30,8 @@ public partial class menuPrincipal : System.Web.UI.UserControl
 
         menuCat = obtener.obtenerMenuCategorias("");
 
-        Control menuCat2 = new Control();
-        menuCat2 = obtener.obtenerMenuCategorias2("");
+        //Control menuCat2 = new Control();
+        //menuCat2 = obtener.obtenerMenuCategorias2("");
 
 
         //HtmlGenericControl home = new HtmlGenericControl("li");
@@ -42,6 +42,15 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         ofertas.ClientIDMode = ClientIDMode.Static;
         ofertas.InnerHtml = "<a title='Ofertas'  href='https://www.incom.mx/productos/Outlet-OUTLET1'>Ofertas <img src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem'></a>";
 
+        HtmlGenericControl biblioteca = new HtmlGenericControl("li");
+        biblioteca.ID = "content-menu-incom-outlet";
+        biblioteca.ClientIDMode = ClientIDMode.Static;
+        biblioteca.InnerHtml = "<a title='Biblioteca'  href='/'>Biblioteca <img src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem'></a>";
+
+        HtmlGenericControl catalogos = new HtmlGenericControl("li");
+        catalogos.ID = "content-menu-incom-outlet";
+        catalogos.ClientIDMode = ClientIDMode.Static;
+        catalogos.InnerHtml = "<a title='Catalogos'  href='/'>Catálogos <img src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem'></a>";
         //  HtmlGenericControl blog = new HtmlGenericControl("li");
         //  blog.InnerHtml = "<a title='Blog Incom' target='_blank'  href='https://blog.incom.mx'>Blog</a>";
 
@@ -53,7 +62,10 @@ public partial class menuPrincipal : System.Web.UI.UserControl
 
         contenedorMenu.Controls.Add(ofertas);
 
-        contenedorMenu.Controls.Add(menuCat2);
+        //contenedorMenu.Controls.Add(menuCat2);
+        contenedorMenu.Controls.Add(biblioteca);
+
+        contenedorMenu.Controls.Add(catalogos);
 
         contenedorMenu.DataBind();
     }
