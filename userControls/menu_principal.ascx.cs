@@ -33,7 +33,6 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         //Control menuCat2 = new Control();
         //menuCat2 = obtener.obtenerMenuCategorias2("");
 
-
         //HtmlGenericControl home = new HtmlGenericControl("li");
         //home.InnerHtml = "<a title='página principal' class='hide-on-med-and-down'  href='" + request.url.getleftpart(uripartial.authority) + "'>inicio</a>";
 

@@ -102,28 +102,28 @@
         <section class="title_container">
             <p class="title_header">INCOM&reg; La ferretera de las telecomunicaciones®</p>
         </section>
-        <div class="menu_left_contenedor  ">
+        <div class="container_mobile_header  ">
             <!--- Movil --->
             <div class="content_menuMovil show-on-medium-and-down hide-on-med-and-up" style="display: inline;">
                 <!-- Dropdown Trigger -->
                 <a id="btn_menu_usuario_movil" data-target='menu_usuario_movil' href="#" class="sidenav-trigger">
                     <%--<i class="material-icons" style="font-size: 3rem;">menu</i>--%>
-                    <img class="icon_menu" src="../img/webUI/newdesign/Menu.svg" />Menu
+                    <img class="icon_menu" src="../img/webUI/newdesign/Menu.svg" />
                 </a>
-
-
             </div>
+            <a title="Incom Retail" class="content_mobile_logo" href="http://localhost:63722/">
+                <img src="../img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="mobile_logo" />
+            </a>
             <%--            <a title="Incom Retail" class="content_header_logo" href='<%= HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) %>'>
                 <img src='<%=ResolveUrl("~/img/webUI/incom_logo_mini.png") %>'
                     alt="Logo Incom" title="Incom,  La ferretera de las telecomunicaciones" class="responsive-img header_logo_img" />
             </a>--%>
             <a title="Carrito de productos"
-                class="btn white black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">
-                <i class="material-icons  ">shopping_cart
-                </i>
+                class="black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">
+                <img class="btn-mi-carrito" title="Carrito de productos" src="../img/webUI/newdesign/Carrito.svg" />
             </a>
         </div>
-        <div class="menu_right_contenedor  ">
+        <div class="menu_right_contenedor">
             <div class="menu_top hide-on-med-and-down ">
                 <!--- corregir posicionamiento icono   --->
                 <!--- <i class="material-icons left">perm_identity</i> --->
@@ -202,25 +202,25 @@
         var instances = M.Sidenav.init(elems, null);
 
 
-        /* INICIO 20210419 RC - Oculta la sección de avisos al bajar el scroll en determinada altura */
-        /*    window.addEventListener('scroll', function (e) {
-                var scroll = window.scrollY;
-    
-    
-                var delayInMilliseconds = 1000; //1 second
-    
-                setTimeout(function () {
-               //     console.log(scroll);
-                    if (scroll > 500) {
-                        $('#Content_aviso_header').hide();
-                    }
-                    else {
-                        $('#Content_aviso_header').show();
-                    }
-                }, delayInMilliseconds)
-               
-            }); */
-        /* FIN 20210419 RC - Oculta la sección de avisos al bajar el scroll en determinada altura */
+        /*         INICIO 20210419 RC - Oculta la sección de avisos al bajar el scroll en determinada altura */
+        window.addEventListener('scroll', function (e) {
+            var scroll = window.scrollY;
+
+
+            var delayInMilliseconds = 1000; //1 second
+
+            setTimeout(function () {
+                //     console.log(scroll);
+                if (scroll > 500) {
+                    $('#Content_aviso_header').hide();
+                }
+                else {
+                    $('#Content_aviso_header').show();
+                }
+            }, delayInMilliseconds)
+
+        });
+        /*         FIN 20210419 RC - Oculta la sección de avisos al bajar el scroll en determinada altura */
 
 
     });
@@ -262,18 +262,18 @@
         margin: auto;
     }
 
-    .menuContainer ul li  {
-    height: 2.25rem;
-    text-align: center;
-    }
+        .menuContainer ul li {
+            height: 2.25rem;
+            text-align: center;
+        }
 
-    .menuContainer ul :nth-child(2n +2) {
-        border-left: 3px solid #CCD1D1;
-    }
+        .menuContainer ul :nth-child(2n +2) {
+            border-left: 3px solid #CCD1D1;
+        }
 
-    .menuContainer ul :nth-child(3) {
-        border-left: 3px solid #CCD1D1;
-    }
+        .menuContainer ul :nth-child(3) {
+            border-left: 3px solid #CCD1D1;
+        }
 
     .over-header {
         height: 2rem;
@@ -343,8 +343,12 @@
         box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2.6px;
     }
 
+    .mobile_logo {
+        display: none;
+    }
+
     .logotipo_home {
-        height: 5rem;
+        height: 4.5rem;
         width: auto;
         margin-top: 0;
     }
@@ -380,7 +384,7 @@
     }
 
     .content_header_logo {
-        margin: 0px 80px 0px 0px;
+        margin: 0rem;
         float: left;
     }
 
@@ -390,7 +394,7 @@
 
     .sesion_nav {
         height: 3rem;
-        margin-top: 0.75rem;
+        margin-top: 1.75rem;
         display: flex;
         flex-direction: row;
     }
@@ -458,7 +462,7 @@
     }
 
     #btn_menu_usuario_movil {
-        display: block;
+        display: inline;
         overflow: hidden;
         color: #000;
     }
@@ -482,6 +486,8 @@
 
     .icon_menu {
         filter: invert(18%) sepia(89%) saturate(2251%) hue-rotate(186deg) brightness(96%) contrast(99%);
+        width: 3rem;
+        height: auto;
     }
 
     .cantidad_tipoDeCambio {
@@ -500,29 +506,56 @@
         display: flex;
     }
 
-    @media only screen and (max-width:1200px) {
+    .btn-mi-carrito {
+        color: black;
+        width: 2.5rem;
+        height: auto;
+    }
+
+    /*    @media only screen and (max-width:1200px) {
         .menu_middle {
             margin: auto;
         }
-    }
+    }*/
 
-    @media only screen and (max-width:995px) {
-
-        .menu_left_contenedor {
-            text-align: center;
-        }
-
-        .content_header_logo {
-            margin: 0px 2rem 0px 0px;
-            float: inherit;
-        }
-
+    @media only screen and (max-width:700px) {
         .menu_top {
             height: 35px;
             text-align: right;
             margin-top: 0px;
             overflow: hidden;
         }
+    }
+
+    @media only screen and (max-width:1000px) {
+
+        .container_mobile_header {
+            text-align: center;
+            height: 5rem;
+            border: 2px solid red;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.5rem 1rem;
+        }
+
+        .content_header_logo {
+            margin: 0px 2rem 0px 0px;
+            float: inherit;
+            display: none;
+        }
+
+        .mobile_logo {
+            display: inline;
+            width: auto;
+            height: 4rem;
+        }
+        /*        .menu_top {
+            height: 35px;
+            text-align: right;
+            margin-top: 0px;
+            overflow: hidden;
+        }*/
 
         #txt_tipoDeCambio::after {
             content: "TC: 1 USD = ";
@@ -562,6 +595,15 @@
         }
     }
 
+    @media only screen and (max-width:1000px) {
+        .sesion_nav {
+            display: none
+        }
+
+        .content_header_logo {
+            display: none;
+        }
+    }
 
     @media only screen and (max-width:600px) {
         .menu_middle {
@@ -581,7 +623,13 @@
 
         .buscador_container {
             display: flex;
+            margin-top: 1.25rem;
         }
+
+        .content_header_logo {
+            padding-top: 0.5rem;
+        }
+
 
         #txt_buscadorProducto {
             font-size: 1rem;
