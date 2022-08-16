@@ -288,7 +288,7 @@
                 }
 
                 .btn_buscador {
-                    height: 2.65rem !important;
+                    height: 3rem !important;
                 }
 
                 #content-menu-incom-marcas, #content-menu-incom-outlet {

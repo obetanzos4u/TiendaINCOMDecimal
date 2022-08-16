@@ -334,7 +334,7 @@
     }
 
     .header_toolbar {
-        height: 7rem;
+        height: 6rem;
         padding: .5rem 5rem .5rem 2rem;
         margin: auto 0rem 1.25rem 0rem;
         display: flex;
@@ -373,7 +373,7 @@
         width: 6rem;
         margin-top: 1rem;
         border-radius: 0px 6px 6px 0px;
-        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);
+        /*        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);*/
         position: relative;
         background-image: url(/img/webUI/search_icon_bg.png);
         background-position: center center, center center;
@@ -442,7 +442,6 @@
     .menu_middle {
         height: fit-content;
         width: 100vw;
-        margin-left: 2rem;
         align-items: flex-start;
     }
 
@@ -524,6 +523,10 @@
             text-align: right;
             margin-top: 0px;
             overflow: hidden;
+        }
+
+        .buscador_container {
+            margin-top: 0 !important;
         }
     }
 
@@ -614,6 +617,19 @@
             width: 91%;
             position: fixed;
         }
+
+        .buscador_container {
+            display: flex;
+            margin-top: 0rem !important;
+        }
+
+        #txt_buscadorProducto {
+            height: 2rem;
+            padding: 0px 10px;
+            margin-left: 0rem !important;
+            width: 100vw;
+            z-index: 2;
+        }
     }
 
     @media only screen and (max-height:1000px) {
@@ -623,7 +639,7 @@
 
         .buscador_container {
             display: flex;
-            margin-top: 1.25rem;
+            margin-top: 1.5rem;
         }
 
         .content_header_logo {
