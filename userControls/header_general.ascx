@@ -249,11 +249,30 @@
         transition: background-color .3s;
         font-size: 1.5rem;
         display: block;
-        padding: 5px 15px;
-        border-radius: 13px;
+        padding: 0.5rem;
         cursor: pointer;
         color: #0f0f0f;
         background: #ffffff;
+        margin: auto 1rem;
+    }
+
+    .menuContainer ul {
+        justify-content: center;
+        display: flex;
+        margin: auto;
+    }
+
+    .menuContainer ul li  {
+    height: 2.25rem;
+    text-align: center;
+    }
+
+    .menuContainer ul :nth-child(2n +2) {
+        border-left: 3px solid #CCD1D1;
+    }
+
+    .menuContainer ul :nth-child(3) {
+        border-left: 3px solid #CCD1D1;
     }
 
     .over-header {

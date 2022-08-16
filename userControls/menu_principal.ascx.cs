@@ -45,7 +45,7 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         HtmlGenericControl biblioteca = new HtmlGenericControl("li");
         biblioteca.ID = "content-menu-incom-outlet";
         biblioteca.ClientIDMode = ClientIDMode.Static;
-        biblioteca.InnerHtml = "<a title='Biblioteca'  href='/'>Biblioteca <img src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem'></a>";
+        biblioteca.InnerHtml = "<a title='Biblioteca'  href='/'>Biblioteca <img src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem;'></a>";
 
         HtmlGenericControl catalogos = new HtmlGenericControl("li");
         catalogos.ID = "content-menu-incom-outlet";
