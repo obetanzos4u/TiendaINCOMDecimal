@@ -40,9 +40,9 @@
                     </div>
                 </div>
 
-                <div id="Content_AsesorSeguimiento" runat="server" visible="false" class="card mb-4">
+                <div id="Content_AsesorSeguimiento" runat="server" visible="false" class="card mb-4 borderTest">
                     <div class="card-body  border-top border-3">
-                        <h4 class="card-title">Seguimiento asesor </h4>
+                        <h4 class="card-title">Seguimiento asesor</h4>
                         <h6 id="H1" runat="server" class="card-subtitle mb-2 text-muted"></h6>
                         <p id="P1" runat="server" class="card-text"></p>
                         <p id="P2" runat="server">

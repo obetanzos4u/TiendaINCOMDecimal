@@ -22,7 +22,7 @@
             </li>
             <li>
                 <a href="/usuario/mi-cuenta/pedidos.aspx" class="grey-text text-darken-3">
-                    <i class="material-icons left">assignment_turned_in</i> Pedidos</a>
+                    <i class="material-icons left">assignment_turned_in</i>Pedidos</a>
             </li>
             <li>
                 <a href="/usuario/mi-cuenta/cotizaciones.aspx" class="grey-text text-darken-3">
@@ -73,21 +73,22 @@
 
 </ul>
 
-<uc_bar:adminBar ID="botonAsesores" runat="server"></uc_bar:adminBar>
+<%--<uc_bar:adminBar ID="botonAsesores" runat="server"></uc_bar:adminBar>--%>
 <%--<div class="row z-depth-1 header white" style="margin-bottom: 0px;">--%>
 <div>
-    <div style="background: white; overflow: hidden; color: #353635">
-        <uc_bar:modAsesor ID="barraAsesores" Visible="false" runat="server"></uc_bar:modAsesor>
-    </div>
-    <section class="over-header">
-        <div class="center">
-            <a class="btn_tuerca">
-                <img class="icon_tuerca" src="../img/webUI/newdesign/Tuerca.svg" alt="boton de tuerca o ajustes" />
-            </a>
-            <button class="btn_asesores" type="button">Asesores</button>
+    <section class="is-w-full is-flex is-justify-between is-items-center is-px-2">
+        <div>
+            <uc_bar:adminBar ID="botonAsesores" runat="server"></uc_bar:adminBar>
         </div>
+        <div class="is-flex is-justify-center is-items-center">
+            <uc_bar:modAsesor ID="barraAsesores" Visible="false" runat="server"></uc_bar:modAsesor>
+        </div>
+        <%--        <a class="btn_tuerca">
+            <img class="icon_tuerca" src="../img/webUI/newdesign/Tuerca.svg" alt="boton de tuerca o ajustes" />
+        </a>--%>
 
-        <%--        <span style="color: rgb(190 18 60) !important;">
+
+        <%--<span style="color: rgb(190 18 60) !important;">
             <svg xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 style="enable-background: new 0 0 24 24; width: 24px; height: 24px;">
@@ -100,7 +101,7 @@
     </section>
     <div id="content_header" class="col s12 m12 l12" style="padding: 5px 0px;">
         <section class="title_container">
-            <p class="title_header">INCOM&reg; La ferretera de las telecomunicaciones®</p>
+            <p class="title_header">INCOM&reg; La ferretera de las telecomunicaciones&reg;</p>
         </section>
         <div class="container_mobile_header  ">
             <!--- Movil --->
@@ -118,9 +119,9 @@
                 <img src='<%=ResolveUrl("~/img/webUI/incom_logo_mini.png") %>'
                     alt="Logo Incom" title="Incom,  La ferretera de las telecomunicaciones" class="responsive-img header_logo_img" />
             </a>--%>
-            <a title="Carrito de productos"
-                class="black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">
+            <a title="Carrito de productos" class="black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">
                 <img class="btn-mi-carrito" title="Carrito de productos" src="../img/webUI/newdesign/Carrito.svg" />
+                <p>Prueba</p>
             </a>
         </div>
         <div class="menu_right_contenedor">
@@ -128,11 +129,11 @@
                 <!--- corregir posicionamiento icono   --->
                 <!--- <i class="material-icons left">perm_identity</i> --->
                 <!--- Desktop --->
-                <div class="hide-on-med-and-down " style="display: inline;">
+                <%--                <div class="hide-on-med-and-down " style="display: inline;">
                     <asp:LoginView ID="LoginView1" runat="server">
                         <LoggedInTemplate>
                             <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="login_btn" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx"
-                                runat="server"> Mi cuenta </asp:HyperLink>
+                                runat="server">Mi cuenta</asp:HyperLink>
                             <asp:LoginStatus ID="LoginStatus1" class="login_btn" ToolTip="Sesión de usuario" runat="server" LoginText="Iniciar Sesión"
                                 LogoutText="Cerrar Sesión" OnLoggedOut="LoginStatus1_LoggedOut" />
                         </LoggedInTemplate>
@@ -141,7 +142,7 @@
                             <a class="login_btn" href="#" onclick="LoginAjaxOpenModal();">Iniciar Sesión</a>
                         </AnonymousTemplate>
                     </asp:LoginView>
-                </div>
+                </div>--%>
             </div>
             <div class="header_toolbar">
                 <a title="Incom Retail" class="content_header_logo" href="http://localhost:63722/">
@@ -152,16 +153,42 @@
                 </div>
                 <div class="sesion_nav">
                     <div class="cuenta_container">
-                        <img class="icon_cuenta" src="../img/webUI/newdesign/Cuenta.svg" />
-                        <span class="btn_cuenta">Mi cuenta</span>
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <LoggedInTemplate>
+                                <div class="user-menu">
+                                    <div class="is-flex is-flex-col is-justify-center is-items-center is-px-2">
+                                        <%--<img  class="icon_cuenta" src="https://ui-avatars.com/api/?name=Hugo+Carre%C3%B1o&background=000&color=fff&rounded=true&format=svg" />--%>
+                                        <asp:Image ID="profile_photo" Style="width: 2.50rem;" runat="server" />
+                                        <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="is-text-black" Style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 7.5rem; text-transform: capitalize;" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx" runat="server"></asp:HyperLink>
+                                    </div>
+                                    <ul style="list-style: none;">
+                                        <li>
+                                            <asp:LoginStatus ID="LoginStatus1" class="is-text-black" runat="server" LoginText="Iniciar Sesión" LogoutText="Cerrar sesión" OnLoggedOut="LoginStatus1_LoggedOut" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </LoggedInTemplate>
+                            <AnonymousTemplate>
+                                <%--<a title="Crear cuenta" class="login_btn " href='<%= ResolveUrl("~/registro-de-usuario.aspx") %>'>Crear cuenta</a>--%>
+                                <a class="btn_cuenta is-text-black is-flex is-flex-col is-justify-center is-items-center" href="#" onclick="LoginAjaxOpenModal();">
+                                    <img class="icon_cuenta" src="../img/webUI/newdesign/Cuenta.svg" />
+                                    <span>Iniciar sesión</span>
+                                </a>
+                                <%--<a class="login_btn" href="#" onclick="LoginAjaxOpenModal();">Iniciar Sesión</a>--%>
+                            </AnonymousTemplate>
+                        </asp:LoginView>
                     </div>
 
                     <div>
                         <div id="carrito_de_compra">
-                            <div style="display: flex; flex-direction: column;">
+                            <a title="Carrito de productos" href="/mi-carrito.aspx" style="display: flex; flex-direction: column;">
+                                <img class="btn-mi-carrito" title="Carrito de productos" src="../img/webUI/newdesign/Carrito.svg" />
+                                <span class="txt_carrito is-text-black">Carrito</span>
+                            </a>
+                            <%--<div style="display: flex; flex-direction: column;">
                                 <uc_carrito:btnCarrito ID="carrito" runat="server"></uc_carrito:btnCarrito>
                                 <p class="txt_carrito">Carrito</p>
-                            </div>
+                            </div>--%>
                         </div>
                     </div>
 
@@ -400,7 +427,7 @@
     }
 
     .cuenta_container {
-        width: 7rem;
+        width: 8.5rem;
         border-right: 2px solid black;
         display: flex;
         flex-direction: column;
@@ -408,7 +435,7 @@
     }
 
     .icon_cuenta {
-        width: 1.75rem;
+        width: 2.50rem;
     }
 
     .btn_cuenta {

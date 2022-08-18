@@ -9,21 +9,21 @@ using System.Web.UI.WebControls;
 
 public partial class menuPrincipal : System.Web.UI.UserControl
 {
-
-
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        
-
-        if (!IsPostBack) {
+        if (!IsPostBack)
+        {
             CrearMenuMovilCategorias();
-            if (HttpContext.Current.User.Identity.IsAuthenticated) {
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
                 LoginStatus2.Visible = false;
                 usuarios usuarioLogin = (usuarios)HttpContext.Current.Session["datosUsuario"];
                 usuarios userActivo = usuarios.modoAsesor();
                 HyperLink link_miCuenta = (HyperLink)LoginView1.FindControl("miCuenta");
-                link_miCuenta.Text = "Cuenta, " + userActivo.nombre + "";
+                Image userImage = (Image)LoginView1.FindControl("profile_photo");
+                userImage.ImageUrl = $"https://ui-avatars.com/api/?name={userActivo.nombre}+{userActivo.apellido_paterno}&background=000&color=fff&rounded=true&format=svg";
+                link_miCuenta.Text = "Hola " + userActivo.nombre.ToLowerInvariant();
+                link_miCuenta.ToolTip = "Hola " + userActivo.nombre.ToUpper();
                 if (usuarioLogin.tipo_de_usuario == "usuario") barraAsesores.Visible = true;
             }
         }
@@ -31,7 +31,6 @@ public partial class menuPrincipal : System.Web.UI.UserControl
 
     protected void CrearMenuMovilCategorias()
     {
-
         var categorias = CategoriasEF.obtenerNivel_1();
         usuarios datosUsuario = usuarios.modoAsesor();
         string[] usuario_rol_categorias = datosUsuario.rol_categorias;
@@ -40,39 +39,26 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         foreach (var cat in categorias)
         {
             var roles = cat.rol_categoria.Replace(" ", "").Split(',');
-
             if (privacidad.validarCategoria(roles, usuario_rol_categorias))
             {
-
                 var url = GetRouteUrl("categorias", new System.Web.Routing.RouteValueDictionary {
                     { "identificador", cat.identificador }, { "nombre", menusCategorias.limpiarURL(cat.nombre) } }); ;
                 menu_movil_categorias.InnerHtml += $"<li><a href='{url}'>{cat.nombre}</a></li>";
             }
         }
-
     }
-    
+
     protected void LoginStatus1_LoggedOut(Object sender, System.EventArgs e)
     {
         string script = @"  var auth2 = gapi.auth2.getAuthInstance();
                                         auth2.signOut().then(function () {
                                           console.log('User signed out.');
                                         });";
-
-
         ScriptManager.RegisterStartupScript(this, typeof(Control), "LoginOutGoogle", script, true);
         Session.Clear();
-		Session.Abandon();
-		Session.RemoveAll();
-		FormsAuthentication.SignOut();
-		FormsAuthentication.RedirectToLoginPage();
-
-      
-       
-     
+        Session.Abandon();
+        Session.RemoveAll();
+        FormsAuthentication.SignOut();
+        FormsAuthentication.RedirectToLoginPage();
     }
 }
-
-
-
- 

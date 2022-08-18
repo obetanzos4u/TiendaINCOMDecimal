@@ -1,49 +1,46 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_asesores_modalidad_clientes_bar.ascx.cs" Inherits="uc_asesores_modalidad_clientes_bar" %>
 
-
 <!-- Dropdown Structure -->
-<div style="padding: 8px 10px;     float: left;"><a class=' btn blue btn-asesores' href='#' style="float: left; margin-right: 15px;" data-target='dropdown1'>Asesores</a>
+<div class="user-menu">
+    <%--<button type="button" id="btn-asesor" class="is-text-white is-bg-blue is-px-2 is-rounded-2xl" style="outline-width: 0; border: 0; cursor: pointer;" data-target="advisorDropdown">Asesor</button>--%>
+    <asp:Label ID="lbl_modalidad_asesores" class="is-bg-blue is-text-white is-px-2 is-rounded" runat="server">
+        <asp:CheckBox ID="chk_modalidad_asesores" AutoPostBack="true" Text="Modo asesor" CssClass="is-text-white" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
+    </asp:Label>
+<%--    <label class="is-text-white is-bg-blue is-px-4 is-rounded-2xl">
+    </label>--%>
+    <ul style="list-style: none;">
+        <li>
+            <asp:HyperLink ID="myBtnCambiarAsesorModal" ClientIDMode="Static" Style="cursor: pointer;" runat="server">Cambiar</asp:HyperLink>
+        </li>
+        <li>
+            <asp:HyperLink ID="link_" NavigateUrl="~/usuario/mi-cuenta/cotizaciones-busqueda.aspx" runat="server">Buscar operaciones asesores</asp:HyperLink>
+        </li>
+        <li>
+            <asp:HyperLink ID="btn_agregar_usuario" NavigateUrl="~/usuario/mi-cuenta/registro-de-usuario-asesor.aspx" runat="server">Registrar Cliente</asp:HyperLink>
+        </li>
+        <li>
+            <asp:CheckBox ID="chk_salir_modalidad_asesores" AutoPostBack="true" Text="Salir" CssClass="is-text-white" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
+        </li>
+    </ul>
 </div>
-<ul id='dropdown1' class='dropdown-content'>
+<%--<ul id="advisorDropdown" class='dropdown-content'>
     <li>
-        <asp:HyperLink ID="btn_agregar_usuario"
-            NavigateUrl="~/usuario/mi-cuenta/registro-de-usuario-asesor.aspx" runat="server">
-    Registrar Cliente<i  style="line-height: 36px !important;" class="left material-icons">person_add</i>
-        </asp:HyperLink></li>
+        <asp:HyperLink ID="btn_agregar_usuario" NavigateUrl="~/usuario/mi-cuenta/registro-de-usuario-asesor.aspx" runat="server">Registrar Cliente</asp:HyperLink>
+    </li>
     <li>
-        <asp:HyperLink ID="link_"
-            NavigateUrl="~/usuario/mi-cuenta/cotizaciones-busqueda.aspx" runat="server">
-    Buscar operaciones asesores<i  style="line-height: 36px !important;" class="left material-icons">search</i>
-        </asp:HyperLink></li>
-   <!-- <li class="divider"></li>  
-        <li><a href="#!">three</a></li>  
-       <li><a href="#!"><i class="material-icons">view_module</i>Deshabilitado</a></li> -->
+        <asp:HyperLink ID="link_" NavigateUrl="~/usuario/mi-cuenta/cotizaciones-busqueda.aspx" runat="server">Buscar operaciones asesores</asp:HyperLink>
+    </li>
+</ul>--%>
 
-</ul>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-
-        var options = {
-            constrainWidth : false,
-            coverTrigger: true,
-        
-        };
-    var elems = document.querySelectorAll('.btn-asesores');
-    var instances = M.Dropdown.init(elems, options);
-  });
-</script>
-
-<div class="switch" style="display: inline; float: left; padding: 8px 10px;  margin-right: 25px;">
+<%--<div class="switch is-flex is-justify-center is-items-center is-px-4 borderTest">
+    <p>Modo asesor: </p>
     <label>
-        Off
-                <asp:CheckBox ID="chk_modalidad_asesores" AutoPostBack="true" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
+        <asp:CheckBox ID="chk_modalidad_asesores" AutoPostBack="true" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
         <span class="lever"></span>
-        On
     </label>
-</div>
+</div>--%>
 <asp:Label ID="lbl_cliente" runat="server" Text=""></asp:Label>
 &nbsp;&nbsp;
-<asp:HyperLink ID="myBtnCambiarAsesorModal" ClientIDMode="Static" Style="color: #84c7c1; cursor: pointer;" runat="server">CAMBIAR</asp:HyperLink>
 
 
 <div id="myModal" class="modal-incom">
@@ -61,6 +58,16 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var options = {
+            constrainWidth: false,
+            coverTrigger: true,
+        };
+        var elems = document.querySelectorAll('#btn-asesor');
+        var instances = M.Dropdown.init(elems, options);
+    });
+</script>
 <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -172,31 +179,30 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
 
-    // Get the modal
-    var modal = document.getElementById('myModal');
+        // Get the modal
+        var modal = document.getElementById('myModal');
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtnCambiarAsesorModal");
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtnCambiarAsesorModal");
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
             modal.style.display = "none";
         }
-        }
 
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     });
 </script>

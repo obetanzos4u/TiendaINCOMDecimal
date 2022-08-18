@@ -1,22 +1,14 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_admin_bar_button.ascx.cs" Inherits="uc_admin_bar_button" %>
 
-
 <ul id="adminBar" visible="false" runat="server" class="adminBar  side-nav sidenav no-autoinit">
     <li>
         <div class="user-view">
             <div class="background">
                 <img src="/img/webUI/bg_sideBarAdmin.jpg" />
             </div>
-            <a href="#!user">
-                <asp:Image ID="img_usuario" class="circle" runat="server" />
-            </a>
-            <a href="#!name">
-                <asp:Label ID="lbl_nombre" class="white-text name" runat="server"></asp:Label>
-            </a>
-            <a href="#!email">
-                <asp:Label ID="lbl_usuario_email" class="white-text email" runat="server"></asp:Label>
-
-            </a>
+            <asp:Image ID="img_usuario" class="circle" runat="server" />
+            <asp:Label ID="lbl_nombre" class="white-text name is-select-none" runat="server"></asp:Label>
+            <asp:Label ID="lbl_usuario_email" class="white-text email" runat="server"></asp:Label>
         </div>
     </li>
 

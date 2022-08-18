@@ -6,27 +6,35 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 
-public partial class uc_admin_bar_button : System.Web.UI.UserControl {
+public partial class uc_admin_bar_button : System.Web.UI.UserControl
+{
     string numero_parte { get; set; }
 
-    protected void Page_Init(object sender, EventArgs e) {
+    protected void Page_Init(object sender, EventArgs e)
+    {
 
     }
-    protected void Page_Load(object sender, EventArgs e) {
+    protected void Page_Load(object sender, EventArgs e)
+    {
 
-        if (!IsPostBack) {
+        if (!IsPostBack)
+        {
 
             mostrarBar();
             PermisosMenu();
-        } else {
+        }
+        else
+        {
 
         }
 
 
     }
 
-    protected void PermisosMenu(){
+    protected void PermisosMenu()
+    {
 
         var establecer_tipo_de_cambio = privacidadPaginas.validarPermisoSeccion("establecer_tipo_de_cambio", usuarios.userLogin().id);
         var reportes_operaciones_xls = privacidadPaginas.validarPermisoSeccion("reportes_operaciones_xls", usuarios.userLogin().id);
@@ -44,8 +52,8 @@ public partial class uc_admin_bar_button : System.Web.UI.UserControl {
         var admin_pedidos = privacidadPaginas.validarPermisoSeccion("admin_pedidos", usuarios.userLogin().id);
         var cargar_info_productos_tienda = privacidadPaginas.validarPermisoSeccion("cargar_info_productos_tienda", usuarios.userLogin().id);
 
-        
-      
+
+
 
 
 
@@ -66,16 +74,16 @@ public partial class uc_admin_bar_button : System.Web.UI.UserControl {
 
         if (cargar_info_productos_tienda.result == false) link_cargaXLS.Visible = false;
     }
-    private void mostrarBar() {
-
-        string dominio = Request.Url.GetLeftPart(UriPartial.Authority)+"/";
+    private void mostrarBar()
+    {
+        string dominio = Request.Url.GetLeftPart(UriPartial.Authority) + "/";
         usuarios usuarioLogin = usuarios.userLogin();
 
-        if(usuarioLogin!= null && usuarioLogin.rango >= 2) {
+        if (usuarioLogin != null && usuarioLogin.rango >= 2)
+        {
             content_btn_admin.Visible = true;
             adminBar.Visible = true;
-            img_usuario.ImageUrl = dominio + "/img/asesores/" + usuarioLogin.email.Replace("@incom.mx", "") + ".jpg";
-
+            img_usuario.ImageUrl = dominio + "/img/asesores/" + Regex.Replace(usuarioLogin.email, "@.*", "") + ".jpg";
             lbl_nombre.Text = usuarioLogin.nombre + " " + usuarioLogin.apellido_paterno;
             lbl_usuario_email.Text = usuarioLogin.email;
             link_XLS_export.NavigateUrl = dominio + "herramientas/reportes/reportes-export.aspx";
@@ -91,19 +99,13 @@ public partial class uc_admin_bar_button : System.Web.UI.UserControl {
             link_precios_fantasma.NavigateUrl = dominio + "herramientas/cargar-precios-fantasma.aspx";
             link_cargar_multimedia.NavigateUrl = dominio + "herramientas/cargar-imagenes.aspx";
             link_cargar_productos_cantidad_maxima_venta.NavigateUrl = dominio + "herramientas/cargar-bloqueo-productos-disponible.aspx";
-
             link_admin_pedidos.NavigateUrl = dominio + "herramientas/reporte-pedidos.aspx";
             link_fast_admin_precios.NavigateUrl = dominio + "herramientas/admin-precios.aspx";
-
-
-        } else {
+        }
+        else
+        {
             content_btn_admin.Visible = false;
             adminBar.Visible = false;
-            }
-      
-
-
-        
+        }
     }
-
 }

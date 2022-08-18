@@ -406,6 +406,30 @@
     user-select: all;
 }
 
+/* User menu */
+.user-menu {
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .user-menu > ul {
+        display: none;
+    }
+
+    .user-menu:hover ul {
+        display: block;
+        background-color: #fefefe;
+        margin: 0;
+        padding: 0.5rem 0.5rem;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    }
+
+    .user-menu > ul > li:hover {
+        background-color: #D9D9D9;
+    }
+
 /* Responsive */
 @media (max-width: 768px) {
     .is-w-1_2 {
