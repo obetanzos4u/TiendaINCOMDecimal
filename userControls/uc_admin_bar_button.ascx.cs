@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
+using System.Net;
+using System.IO;
 
 public partial class uc_admin_bar_button : System.Web.UI.UserControl
 {
@@ -84,6 +86,22 @@ public partial class uc_admin_bar_button : System.Web.UI.UserControl
             content_btn_admin.Visible = true;
             adminBar.Visible = true;
             img_usuario.ImageUrl = dominio + "/img/asesores/" + Regex.Replace(usuarioLogin.email, "@.*", "") + ".jpg";
+
+            WebRequest wrGetURL;
+            wrGetURL = WebRequest.Create(img_usuario.ImageUrl);
+
+            Stream objStream;
+            try
+            {
+                objStream = wrGetURL.GetResponse().GetResponseStream();
+            }
+            catch (Exception ex)
+            {
+                usuarios userActivo = usuarios.modoAsesor();
+                img_usuario.ImageUrl = $"https://ui-avatars.com/api/?name={userActivo.nombre}+{userActivo.apellido_paterno}&background=fff&color=000&rounded=true&format=svg";
+            }
+
+
             lbl_nombre.Text = usuarioLogin.nombre + " " + usuarioLogin.apellido_paterno;
             lbl_usuario_email.Text = usuarioLogin.email;
             link_XLS_export.NavigateUrl = dominio + "herramientas/reportes/reportes-export.aspx";

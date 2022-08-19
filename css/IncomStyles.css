@@ -134,8 +134,76 @@
     background-color: #0c3766;
 }
 
+.is-bg-black {
+    background-color: #000000;
+}
+
+.is-bg-white {
+    background-color: #ffffff;
+}
+
 .is-bg-blue {
     background-color: #0066cc;
+}
+
+.is-bg-richBlack {
+    background-color: #001219;
+}
+
+.is-bg-blueSapphire {
+    background-color: #005F73;
+}
+
+.is-bg-viridianGreen {
+    background-color: #0A9396
+}
+
+.is-bg-middleBlueGreen {
+    background-color: #94D2BD;
+}
+
+.is-bg-mediumChampagne {
+    background-color: #E9D8A6;
+}
+
+.is-bg-gamboge {
+    background-color: #EE9B00;
+}
+
+.is-bg-alloyOrange {
+    background-color: #CA6702;
+}
+
+.is-bg-rust {
+    background-color: #BB3E03;
+}
+
+.is-bg-rufous {
+    background-color: #AE2012;
+}
+
+.is-bg-rubyRed {
+    background-color: #9B2226;
+}
+
+.is-opacity-0 {
+    opacity: 0;
+}
+
+.is-opacity-25 {
+    opacity: 0.25;
+}
+
+.is-opacity-50 {
+    opacity: 50;
+}
+
+.is-opacity-75 {
+    opacity: 75;
+}
+
+.is-opacity-100 {
+    opacity: 1;
 }
 
 /* Padding and margin section */
@@ -248,6 +316,10 @@
 
 .is-w-0 {
     width: 0;
+}
+
+.is-w-1 {
+    width: 0.25rem;
 }
 
 .is-w-6 {
@@ -429,6 +501,30 @@
     .user-menu > ul > li:hover {
         background-color: #D9D9D9;
     }
+
+/* Scrollbar */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: blue orange;
+}
+
+    /* Chrome, Edge and Safari */
+    *::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: #FEFEFE;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #01568D;
+    }
+
+html {
+    overflow-x: hidden;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
