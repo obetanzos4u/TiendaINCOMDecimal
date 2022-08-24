@@ -392,7 +392,9 @@
     }
 
         #txt_buscadorProducto::placeholder {
-            font-style: italic;
+            font-style: normal;
+            font-size: 1.5rem;
+            padding-left: 0.5rem;
         }
 
     .btn_buscador {
@@ -436,7 +438,7 @@
     }
 
     .icon_cuenta {
-        width: 2.50rem;
+        width: 2.1rem;
     }
 
     .btn_cuenta {
@@ -524,6 +526,7 @@
 
     .content_tipoDeCambio {
         width: 12rem;
+        padding-top: 8px;
         padding-left: 1rem;
         border-left: 2px solid black;
     }
