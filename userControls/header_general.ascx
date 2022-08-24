@@ -382,12 +382,12 @@
 
     #txt_buscadorProducto {
         font-size: 1rem;
-        width: 60vw;
+        width: 40vw;
         height: 3rem;
         margin-top: 1rem;
-        border-radius: 6px;
+        margin-left: 3rem;
+        border-radius: 6px 0px 0px 6px;
         border: 2px #01568D solid !important;
-        /*box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3803921568627451);*/
         background: #fff;
     }
 
@@ -396,13 +396,13 @@
         }
 
     .btn_buscador {
-        height: 4rem;
+        height: 3.25rem;
         width: 6rem;
         margin-top: 1rem;
         border-radius: 0px 6px 6px 0px;
         /*        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);*/
         position: absolute;
-        background-image: url(/img/webUI/search_icon_bg.png);
+        background-image: url("search-icon.svg");
         background-position: center center, center center;
         background-repeat: no-repeat, repeat;
         background-size: 24px;
@@ -417,6 +417,7 @@
 
     .header_logo_img {
         max-height: 4rem;
+        display: flex;
     }
 
     .sesion_nav {
@@ -691,7 +692,7 @@
             border-radius: 0 6px 6px 0;
             border: none;
             cursor: pointer;
-            background-image: url(/img/webUI/search_icon_bg.png);
+            background-image: url(../img/webUI/newdesign/Flecha.svg);
             background-size: 2rem;
             background-position: center center, center center;
             background-repeat: no-repeat, repeat;
