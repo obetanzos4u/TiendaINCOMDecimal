@@ -383,7 +383,7 @@
     #txt_buscadorProducto {
         font-size: 1rem;
         width: 40vw;
-        height: 3rem;
+        height: 2rem;
         margin-top: 1rem;
         margin-left: 3rem;
         border-radius: 6px 0px 0px 6px;
@@ -398,18 +398,20 @@
         }
 
     .btn_buscador {
-        height: 3.25rem;
-        width: 6rem;
+        height: 2.25rem;
+        width: 4rem;
         margin-top: 1rem;
         border-radius: 0px 6px 6px 0px;
         /*        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);*/
         position: absolute;
-        background-image: url("search-icon.svg");
-        background-position: center center, center center;
-        background-repeat: no-repeat, repeat;
-        background-size: 24px;
-        background-color: white;
         background: #01568D;
+    }
+
+    .icon_busqueda {
+        width: 26px;
+        height: auto;
+        margin: 0.25rem 0.25rem 0.25rem 1rem;
+        justify-content: center;
     }
 
     .content_header_logo {
