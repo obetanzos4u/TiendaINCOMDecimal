@@ -396,12 +396,12 @@
         }
 
     .btn_buscador {
-        height: 2rem;
+        height: 4rem;
         width: 6rem;
         margin-top: 1rem;
         border-radius: 0px 6px 6px 0px;
         /*        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);*/
-        position: relative;
+        position: absolute;
         background-image: url(/img/webUI/search_icon_bg.png);
         background-position: center center, center center;
         background-repeat: no-repeat, repeat;
