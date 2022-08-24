@@ -409,10 +409,35 @@
 
     @-moz-document url-prefix() {
             
+        .logotipo_home {
+        height: 3.9rem;
+        width: auto;
+        margin-top: 0;
+    }
+
+        #txt_buscadorProducto {
+        font-size: 1rem;
+        width: 40vw;
+        height: 1rem;
+        margin-top: 0.5rem;
+        margin-left: 3rem;
+        color: black;
+        border-radius: 6px 0px 0px 6px;
+        border: 2px #01568D solid !important;
+        background: #fff;
+    }
+
+        #txt_buscadorProducto::placeholder {
+        font-style: normal;
+        font-size: 1.5rem;
+        padding-left: 0.5rem;
+        color: black;
+        }
+
         .btn_buscador {
-        height: 2.25rem;
+        height: 2.4rem;
         width: 4rem;
-        margin-top: 2rem;
+        margin-top: 0.5rem;
         border-radius: 0px 6px 6px 0px;
         /*        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);*/
         position:initial;
