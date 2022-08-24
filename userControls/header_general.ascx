@@ -384,7 +384,7 @@
         font-size: 1rem;
         width: 40vw;
         height: 2rem;
-        margin-top: 1rem;
+        margin-top: 2rem;
         margin-left: 3rem;
         border-radius: 6px 0px 0px 6px;
         border: 2px #01568D solid !important;
@@ -400,11 +400,19 @@
     .btn_buscador {
         height: 2.25rem;
         width: 4rem;
-        margin-top: 1rem;
+        margin-top: 2rem;
         border-radius: 0px 6px 6px 0px;
         /*        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);*/
         position: absolute;
         background: #01568D;
+    }
+
+    /*Este es el cuerpo del boton de búsqueda*/
+
+    .button_buscadorProductos {
+        width: 3rem;
+        height: 2rem; 
+        background-color: #ff6a00;
     }
 
     .icon_busqueda {
@@ -426,7 +434,7 @@
 
     .sesion_nav {
         height: 3rem;
-        margin-top: 1.75rem;
+        margin-top: 1rem;
         display: flex;
         flex-direction: row;
     }
@@ -560,6 +568,7 @@
 
         .buscador_container {
             margin-top: 0 !important;
+            position: relative;
         }
     }
 
@@ -602,6 +611,7 @@
             font-style: italic;
             width: 95%;
             margin-top: 0px;
+            position: relative;
         }
 
         #txt_buscadorProducto {
@@ -673,6 +683,7 @@
         .buscador_container {
             display: flex;
             margin-top: 1.5rem;
+            position: relative;
         }
 
         .content_header_logo {
