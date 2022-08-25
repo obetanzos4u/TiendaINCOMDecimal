@@ -119,9 +119,10 @@
                 <img src='<%=ResolveUrl("~/img/webUI/incom_logo_mini.png") %>'
                     alt="Logo Incom" title="Incom,  La ferretera de las telecomunicaciones" class="responsive-img header_logo_img" />
             </a>--%>
-            <a title="Carrito de productos" class="black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">
+            <%--<a title="Carrito de productos" class="black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">--%>
+            <a title="Carrito de productos" class="carrito_productos_movil show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">
                 <img class="btn-mi-carrito" title="Carrito de productos" src="../img/webUI/newdesign/Carrito.svg" />
-                <p>Prueba</p>
+                <p class="text_carrito_compra">Carrito</p>
             </a>
         </div>
         <div class="menu_right_contenedor">
@@ -398,12 +399,11 @@
         }
 
     .btn_buscador {
-        height: 2.25rem;
+        height: 2.4rem;
         width: 4rem;
         margin-top: 2rem;
         border-radius: 0px 6px 6px 0px;
         /*        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);*/
-        position: absolute;
         background: #01568D;
     }
 
@@ -419,7 +419,7 @@
         font-size: 1rem;
         width: 40vw;
         height: 1rem;
-        margin-top: 0.5rem;
+        margin-top: 2rem;
         margin-left: 3rem;
         color: black;
         border-radius: 6px 0px 0px 6px;
@@ -437,7 +437,7 @@
         .btn_buscador {
         height: 2.4rem;
         width: 4rem;
-        margin-top: 0.5rem;
+        margin-top: 2rem;
         border-radius: 0px 6px 6px 0px;
         /*        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);*/
         position:initial;
@@ -597,6 +597,10 @@
     }*/
 
     @media only screen and (max-width:700px) {
+        .title_header {
+            font-size:12px;
+        }
+        
         .menu_top {
             height: 35px;
             text-align: right;
@@ -608,6 +612,11 @@
             margin-top: 0 !important;
             position: relative;
         }
+
+        .btn-mi-carrito {
+        color: black;
+        height: auto;
+    }
     }
 
     @media only screen and (max-width:1000px) {
@@ -615,10 +624,9 @@
         .container_mobile_header {
             text-align: center;
             height: 5rem;
-            border: 2px solid red;
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+  /*          align-items: baseline;*/
             padding: 0.5rem 1rem;
         }
 
@@ -677,9 +685,7 @@
         .menu_middle {
             margin: auto;
         }
-    }
 
-    @media only screen and (max-width:1000px) {
         .sesion_nav {
             display: none
         }
@@ -687,9 +693,26 @@
         .content_header_logo {
             display: none;
         }
+
+        .buscador_container {
+            margin-top: 0px;
+        }
+
+        .menu_middle {
+            width: none;
+        }
+
+        .text_carrito_compra {
+            margin: 0;
+            color: black;
+        }
+
+               .carrito_productos_movil {
+            margin-right: 1rem;
+        }
     }
 
-    @media only screen and (max-width:600px) {
+    @media only screen and (max-width:600px) {     
         .menu_middle {
             overflow: initial;
         }
@@ -720,7 +743,6 @@
 
         .buscador_container {
             display: flex;
-            margin-top: 1.5rem;
             position: relative;
         }
 
@@ -757,6 +779,7 @@
             padding: 0px 10px;
             margin-left: 2rem;
             border: 3px #01568D solid !important;
+            width: 450px;
         }
 
         .header_toolbar {
@@ -767,7 +790,7 @@
         @media only screen and (max-width:1400px) {
 
         .header_toolbar {
-            padding: .5rem 0rem .5rem 2rem;
+            padding: .5rem 0rem .5rem 1rem;
         }
 
         #txt_buscadorProducto {
