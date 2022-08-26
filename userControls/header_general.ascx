@@ -815,6 +815,10 @@
         .btn-mi-carrito {
         color: black;
         height: auto;
-    }
+        }
+
+        .menuContainer {
+            display: none;
+        }
     }
 </style>
