@@ -457,7 +457,7 @@
     .icon_busqueda {
         width: 24px;
         height: auto;
-        margin: 0.5rem 0.25rem 0.25rem 1rem;
+        margin: 0.4rem 0.25rem 0.25rem 1rem;
         justify-content: center;
     }
 
