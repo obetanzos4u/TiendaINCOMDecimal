@@ -407,7 +407,7 @@
         background: #01568D;
     }
 
-    @-moz-document url-prefix() {
+    /*@-moz-document url-prefix() {
             
         .logotipo_home {
         height: 3.9rem;
@@ -438,12 +438,13 @@
         height: 2.4rem;
         width: 4rem;
         margin-top: 2rem;
-        border-radius: 0px 6px 6px 0px;
+        border-radius: 0px 6px 6px 0px;*/
         /*        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);*/
-        position:initial;
+        /*position:initial;
         background: #01568D;
     }
-    }
+    }*/
+
 
     /*Este es el cuerpo del boton de búsqueda*/
 
@@ -596,38 +597,6 @@
         }
     }*/
 
-    @media only screen and (max-width:700px) {
-        .title_header {
-            font-size:12px;
-        }
-        
-        .menu_top {
-            height: 35px;
-            text-align: right;
-            margin-top: 0px;
-            overflow: hidden;
-        }
-
-        .buscador_container {
-            margin-top: 0 !important;
-            position: relative;
-        }
-        
-        #txt_buscadorProducto {
-            margin-top: 0rem;
-        }
-
-        .btn_buscador {
-            margin-top: 0rem;
-            padding: 0.25rem 3rem 0.25rem 0rem;
-            height: 2.95rem !important;
-        }
-
-        .btn-mi-carrito {
-        color: black;
-        height: auto;
-    }
-    }
 
     @media only screen and (max-width:1000px) {
 
@@ -797,7 +766,7 @@
         }
     }
 
-        @media only screen and (max-width:1400px) {
+    @media only screen and (max-width:1980px) {
 
         .header_toolbar {
             padding: .5rem 0rem .5rem 1rem;
@@ -807,8 +776,45 @@
             margin-left: 2rem;
         }
 
-        @media only screen and (max-width:1400px) {
-        #txt_buscadorProducto {
-            margin-left: 1rem;
+        .logotipo_home {
+        height: 3.85rem;
+        width: auto;
+        margin-top: 0;
         }
+
+         @media only screen and (max-width:700px) {
+        .title_header {
+            font-size:12px;
+        }
+        
+        .menu_top {
+            height: 35px;
+            text-align: right;
+            margin-top: 0px;
+            overflow: hidden;
+        }
+
+        .buscador_container {
+            margin-top: 0 !important;
+            position: relative;
+        }
+        
+        #txt_buscadorProducto {
+            margin-top: 0rem !important;
+            height: 1.5rem;
+            z-index: 1;
+        }
+
+        .btn_buscador {
+            margin-top: 0rem;
+            padding: 0.25rem 3rem 0.25rem 0rem;
+            height: 2.95rem !important;
+            margin-right: 2rem;
+        }
+
+        .btn-mi-carrito {
+        color: black;
+        height: auto;
+    }
+    }
 </style>
