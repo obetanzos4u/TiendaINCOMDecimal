@@ -506,7 +506,7 @@
 /* Firefox */
 * {
     scrollbar-width: thin;
-    scrollbar-color: blue orange;
+    scrollbar-color: #212121 #dedede;
 }
 
     /* Chrome, Edge and Safari */

@@ -842,6 +842,10 @@
             height: 2.45rem;
             margin-top: 0rem;
         }
+
+        .menuContainer ul a {
+            font-size: 1.2rem;
+        }
     }
 
 
