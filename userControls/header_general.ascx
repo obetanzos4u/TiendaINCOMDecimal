@@ -122,7 +122,7 @@
             <%--<a title="Carrito de productos" class="black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">--%>
             <a title="Carrito de productos" class="carrito_productos_movil show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">
                 <img class="btn-mi-carrito" title="Carrito de productos" src="../img/webUI/newdesign/Carrito.svg" />
-                <p class="text_carrito_compra">Carrito</p>
+<%--                <p class="text_carrito_compra">Carrito</p>--%>
             </a>
         </div>
         <div class="menu_right_contenedor">
