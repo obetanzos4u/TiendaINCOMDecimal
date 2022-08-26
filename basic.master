@@ -307,8 +307,6 @@
                         margin: 0;
                     }
 
-                #txt_buscadorProducto {
-                    height: 2.5rem !important;
                 }
 
 

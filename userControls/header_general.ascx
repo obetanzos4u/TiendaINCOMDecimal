@@ -480,7 +480,7 @@
 
     .cuenta_container {
         width: 8.5rem;
-        border-right: 2px solid black;
+        border-right: 1px solid #787878;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -549,7 +549,7 @@
         font-size: 1rem;
         font-weight: 600;
         height: 1.5rem;
-        text-align: center;
+        text-align: start;
         display: block;
     }
 
@@ -577,7 +577,7 @@
         width: 12rem;
         padding-top: 8px;
         padding-left: 1rem;
-        border-left: 2px solid black;
+        border-left: 1px solid #787878;
     }
 
     .right_position {
@@ -783,6 +783,68 @@
         }
     }
 
+    @media only screen and (max-width:1200px) {
+
+        .title_tipoDeCambio{
+            font-size: 0.75rem;
+        }
+
+        .content_tipoDeCambio {
+            padding-top: 0.5rem;
+        }
+
+        #txt_tipoDeCambio {
+            font-size:0.75rem;
+        }
+
+        .cantidad_tipoDeCambio {
+            font-size: 0.75rem;
+        }
+
+        .txt_carrito {
+            font-size: 0.75rem;
+        }
+
+        .btn_cuenta {
+            font-size: 0.75rem;
+        }
+
+        .icon_cuenta {
+            height: 36px;
+        }
+
+        .btn-mi-carrito {
+            height: 36px;
+        }
+
+        #carrito_de_compra {
+            width: 4.5rem; 
+        }
+        
+        .cuenta_container {
+            width: 6rem;
+            margin-left: 1rem;
+        }
+    }
+
+    @media only screen and (max-width:999px) {
+        
+        .buscador_container {
+            margin: 0px auto 0px auto;
+            justify-content: center;
+        }
+
+        #txt_buscadorProducto {
+            margin-top: 0rem;
+        }
+
+        .btn_buscador {
+            height: 2.45rem;
+            margin-top: 0rem;
+        }
+    }
+
+
              @media only screen and (max-width:700px) {
         .title_header {
             font-size:12px;
@@ -802,15 +864,20 @@
         
         #txt_buscadorProducto {
             margin-top: 0rem !important;
-            height: 1.5rem;
+            height: 2rem;
             z-index: 1;
         }
 
         .btn_buscador {
             margin-top: 0rem;
             padding: 0.25rem 3rem 0.25rem 0rem;
-            height: 2.95rem !important;
+            height: 2.45rem !important;
             margin-right: 2rem;
+            border: none;
+        }
+
+        .icon_busqueda {
+            width: 20px;
         }
 
         .btn-mi-carrito {
