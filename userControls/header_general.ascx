@@ -777,12 +777,13 @@
         }
 
         .logotipo_home {
-        height: 3.85rem;
-        width: auto;
-        margin-top: 0;
+            height: 3.85rem;
+            width: auto;
+            margin-top: 0;
         }
+    }
 
-         @media only screen and (max-width:700px) {
+             @media only screen and (max-width:700px) {
         .title_header {
             font-size:12px;
         }
