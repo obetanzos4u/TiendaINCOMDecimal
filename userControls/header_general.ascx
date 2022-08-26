@@ -612,6 +612,16 @@
             margin-top: 0 !important;
             position: relative;
         }
+        
+        #txt_buscadorProducto {
+            margin-top: 0rem;
+        }
+
+        .btn_buscador {
+            margin-top: 0rem;
+            padding: 0.25rem 3rem 0.25rem 0rem;
+            height: 2.95rem !important;
+        }
 
         .btn-mi-carrito {
         color: black;
