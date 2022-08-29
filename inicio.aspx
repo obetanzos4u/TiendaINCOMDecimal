@@ -49,15 +49,15 @@
     <div class="row center-align">
  
       
-        <h2>Navega entre más de 2,000 productos</h2>
+        <p class="txt_productos_destacados">Productos desatacados</p>
 
     </div>
 
-    <div class="row">
+    <div class="categorias_container">
         <uc_cat:categoriasTodas runat="server"></uc_cat:categoriasTodas>
 
     </div>
-    <div class="row ">
+   <%-- <div class="row ">
         <div class="col s12 l6 x6">
             <h2>Acerca de Incom ®</h2>
             <p>
@@ -92,10 +92,8 @@
         </div>
     </div>
 
-
-
     <div class="row">
             <uc1:sliderCatalogos runat="server"></uc1:sliderCatalogos>
         </div>
-    </div>
+    </div>--%>
 </asp:Content>

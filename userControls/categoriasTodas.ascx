@@ -9,11 +9,12 @@
     </LayoutTemplate>
     <ItemTemplate>
 
-       <div id="item_categoria" runat="server" class="col s12 m6 l3 xl2 center animated fadeIn">
+<%--       <div id="item_categoria" runat="server" class="col s12 m6 l3 xl2 center animated fadeIn">--%>
+        <div id="item_categoria" runat="server" class="this">
            <asp:HyperLink ID="link_cat" runat="server"> 
                <asp:Image ID="img_categoria" class="responsive-img IncomWebpToJpg hoverable"  loading=lazy runat="server" />
-             
-                  <h2 style="text-align:center !important; color: rgba(0, 0, 0, 0.87); font-size:1.5rem; margin: 0.77rem 0 1.724rem 0;"><%# Eval("nombre") %></h2>
+<%--             
+                  <h2 style="text-align:center !important; color: rgba(0, 0, 0, 0.87); font-size:1.5rem; margin: 0.77rem 0 1.724rem 0;"><%# Eval("nombre") %></h2>--%>
            </asp:HyperLink>
         
        </div> 
