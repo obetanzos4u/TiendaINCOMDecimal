@@ -422,7 +422,7 @@
 
     </script>
 
-    <!-- begin olark code -->
+<%--    <!-- begin olark code -->
     <script defer>
             ; (function (o, l, a, r, k, y) {
                 if (o.olark) return;
@@ -436,7 +436,7 @@
             })(window, document, "static.olark.com/jsclient/loader.js");
             /* Add configuration calls below this comment */
             olark.identify('4840-873-10-5813');</script>
-    <!-- end olark code -->
+    <!-- end olark code -->--%>
 
     <script> 
           <!-- Este código ayudará a reemplazar las imagenes con la clase .IncomWebpToJpg y reemplazará el src .webp por .jpg -->
@@ -457,8 +457,8 @@
 
                 // Png
                 var imagesWebpPng = document.querySelectorAll(".imagesWebpPng");
-
-                imagesWebpPng.forEach(imgWebp => {
+                ++
+                imagesWebpPng.ForEach(imgWebp => {
                     let src = imgWebp.getAttribute("src");
 
                     src = src.replace(".webp", ".png");
