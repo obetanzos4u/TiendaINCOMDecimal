@@ -7,9 +7,15 @@
     font-family: "Montserrat";
 }*/
 
+/* Display section */
+
 /* Flex section */
 .is-flex {
     display: flex;
+}
+
+.is-flex-wrap {
+    flex-wrap: wrap;
 }
 
 .is-flex-row {
@@ -81,6 +87,26 @@
     grid-template-columns: repeat(4, minmax(4, 1fr));
 }
 
+.is-col-10 {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.is-auto-cols-auto {
+    grid-auto-columns: auto;
+}
+
+.is-auto-cols-min {
+    grid-auto-columns: min-content;
+}
+
+.is-auto-cols-max {
+    grid-auto-columns: max-content;
+}
+
+.is-cols-fr {
+    grid-auto-columns: minmax(0, 1fr)
+}
+
 .is-gap-0 {
     gap: 0;
 }
@@ -97,6 +123,24 @@
     grid-template-columns: repeat(3, minmax(0, 1fr))
 }
 
+/* Block */
+
+.is-block {
+    display: block;
+}
+
+.is-inline-block {
+    display: inline-block;
+}
+
+/* Hidden */
+
+.is-hidden {
+    display: none;
+}
+
+/* End display section */
+
 /* Colors */
 .is-text-white {
     color: rgb(255, 255, 255);
@@ -112,6 +156,34 @@
 
 .is-bg-footer {
     background-color: #0C3766;
+}
+
+.is-bg-gray-100 {
+    background-color: #f1f5f9;
+}
+
+.is-bg-gray-200 {
+    background-color: #e5e7eb;
+}
+
+.is-bg-gray-300 {
+    background-color: #d1d5db;
+}
+
+.is-bg-gray-400 {
+    background-color: #9ca3af;
+}
+
+.is-bg-gray-500 {
+    background-color: #6b7280;
+}
+
+.is-bg-gray-600 {
+    background-color: #4b5563;
+}
+
+.is-bg-gray-900 {
+    background-color: #111827;
 }
 
 .is-bg-gray {
@@ -140,6 +212,10 @@
 
 .is-bg-white {
     background-color: #ffffff;
+}
+
+.is-bg-blue-500 {
+    background-color: #3b82f6;
 }
 
 .is-bg-blue {
@@ -211,6 +287,14 @@
     padding: 0;
 }
 
+.is-pl-0 {
+    padding-left: 0;
+}
+
+.is-pr-0 {
+    padding-right: 0;
+}
+
 .is-px-0 {
     padding-left: 0;
     padding-right: 0;
@@ -221,8 +305,38 @@
     padding-bottom: 0;
 }
 
+.is-p-1 {
+    padding: 0.25rem;
+}
+
+.is-pl-1 {
+    padding-left: 0.25rem;
+}
+
+.is-pr-2 {
+    padding-right: 0.25rem;
+}
+
+.is-px-1 {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+.is-py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
 .is-p-2 {
     padding: 0.5rem;
+}
+
+.is-pl-2 {
+    padding-left: 0.5rem;
+}
+
+.is-pr-2 {
+    padding-right: 0.5rem;
 }
 
 .is-px-2 {
@@ -239,6 +353,14 @@
     padding: 1rem;
 }
 
+.is-pl-4 {
+    padding-left: 1rem;
+}
+
+.is-pr-4 {
+    padding-right: 1rem;
+}
+
 .is-px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -251,6 +373,14 @@
 
 .is-p-8 {
     padding: 2rem;
+}
+
+.is-pl-8 {
+    padding-left: 2rem;
+}
+
+.is-pr-8 {
+    padding-right: 2rem;
 }
 
 .is-px-8 {
@@ -332,6 +462,10 @@
 
 .is-w-1_2 {
     width: 50%;
+}
+
+.is-w-1_3 {
+    width: 33.33333%;
 }
 
 .is-w-1_4 {
@@ -440,7 +574,41 @@
     line-height: 1.75rem;
 }
 
+.is-italic {
+    font-style: italic;
+}
+
+.is-non-italic {
+    font-style: normal;
+}
+
+.is-text-center {
+    text-align: center;
+}
+
+.is-resize-none {
+    resize: none;
+}
+
 /* Borders */
+.is-border {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.is-border-2 {
+    border-width: 2px;
+    border-style: solid;
+}
+
+.is-border-black {
+    border-color: rgb(0, 0, 0);
+}
+
+.is-border-white {
+    border-color: rgba(255, 255, 255, 1);
+}
+
 .is-outline-none {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -469,6 +637,21 @@
 .is-rounded-2xl {
     border-radius: 1rem;
 }
+
+.is-rounded-full {
+    border-radius: 9999px;
+}
+
+.is-rounded-t {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.is-rounded-t-lg {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
 /* Utilities */
 .is-select-none {
     user-select: none;
@@ -476,6 +659,26 @@
 
 .is-select-all {
     user-select: all;
+}
+
+.is-cursor-default {
+    cursor: default;
+}
+
+.is-cursor-pointer {
+    cursor: pointer;
+}
+
+.is-cursor-not-allowed {
+    cursor: not-allowed;
+}
+
+.is-active {
+    border-bottom: 0.25rem solid #3b82f6;
+}
+
+.is-non-active {
+    border-bottom: 0.25rem solid transparent;
 }
 
 /* User menu */
@@ -519,12 +722,50 @@
     }
 
     *::-webkit-scrollbar-thumb {
-        background-color: #01568D;
+        background-color: #000000;
     }
 
-html {
-    overflow-x: hidden;
+/* Hover section */
+.hover\:is-bg-gray-300:hover {
+    background-color: #9ca3af;
 }
+
+.hover\:is-bg-blue-600:hover {
+    background-color: #2563eb;
+}
+
+.hover\:is-text-white:hover {
+    color: rgb(255, 255, 255);
+}
+
+
+/* Custom classes for specific uses */
+
+.is-custom-input-file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+    .is-custom-input-file + label {
+        font-size: 1rem;
+        font-weight: 500;
+        color: black;
+        background-color: white;
+        display: inline-block;
+        cursor: pointer;
+        padding: 1rem 3rem;
+        outline: 1px dotted #3b82f6;
+        outline: -webkit-focus-ring-color auto 1px;
+    }
+
+        .is-custom-input-file:focus + label,
+        .is-custom-input-file + label:hover {
+            background-color: #f0f9ff;
+        }
 
 /* Responsive */
 @media (max-width: 768px) {
