@@ -591,12 +591,61 @@
         height: auto;
     }
 
-    /*    @media only screen and (max-width:1200px) {
-        .menu_middle {
-            margin: auto;
-        }
-    }*/
+    .title_categorias {
+        justify-content: center;
+        display: flex;
+        font-weight: 600;
+        font-size: 2rem;
+        margin: 0;
+        height: 4rem;
+        align-items: center;
+    }
 
+    .main_container {
+        height: 600px;
+        width: 100vw; 
+        border: 1px solid #ff6a00;
+        margin: 4rem 0;
+    }
+
+    .main_container {
+      display: grid; 
+      grid-auto-columns: 1fr; 
+      grid-template-columns: 1fr 0.9fr 1.3fr 0.8fr; 
+      grid-template-rows: 1.9fr 0.7fr 0.7fr 0.7fr; 
+      gap: 1em 1em; 
+      grid-template-areas: 
+        "Banner Banner Banner Anuncios"
+        "Banner Banner Banner USP1"
+        "Banner Banner Banner USP2"
+        "Banner Banner Banner USP3"; 
+    }
+    #slider_home_principal{ grid-area: Banner; }
+    .anuncios { grid-area: Anuncios; }
+    .USP1 { grid-area: USP1; }
+    .USP2 { grid-area: USP2; }
+    .USP3 { grid-area: USP3; }
+
+    #slider_home_principal {
+        height: 600px;
+        background-color: #245c93;
+    }
+
+    .anuncios {
+        background-color: #787878;
+    }
+    
+    .USP1 {
+        background-color: #c3bb9f;
+    }
+
+    .USP2 {
+        background-color: #202831;
+    }
+
+    .USP3 {
+        background-color: #be9393;
+    }
     
     @media only screen and (max-width:1980px) {
 
@@ -884,7 +933,7 @@
     }
 
 
-             @media only screen and (max-width:700px) {
+    @media only screen and (max-width:700px) {
         .title_header {
             font-size:12px;
         }
@@ -929,5 +978,42 @@
         .menuContainer {
             display: none;
         }
+
+        .categorias_container {
+            margin: 1rem;
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
+            grid-template-rows: 1fr 1fr 1fr; 
+            gap: 1rem 1rem; 
+            grid-template-areas: 
+            ". . . ."
+            ". . . ."
+            ". . . ."; 
+        }
+
+      .main_container {
+      display: inline-block;
+      margin: 0;
+    }
+
+    .anuncios {
+      display: none;
+    }
+
+    .USP1 {
+        display: none;
+    }
+
+    .USP2 {
+        display: none;
+    }
+
+    .USP3 {
+        display: none;
+    }
+
+    .title_categorias {
+        font-size: 1.5rem;
+    }
     }
 </style>

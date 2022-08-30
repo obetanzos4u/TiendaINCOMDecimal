@@ -2,34 +2,35 @@
 
 
  
-            <div style="text-align: right; overflow: hidden;">
+<%--            <div style="text-align: right; overflow: hidden;">
                 <span class="btn-ocultar-mostrarSliderHome">Mostrar/Ocultar avisos</span>
 
-            </div>  <div id="slider_home_principal">  
-<div id="bxsliderHome" class="bxslider homeSlider" runat="server">
-   </div>
-</div>
+            </div>  --%>
+            <div id="slider_home_principal">  
+                <div id="bxsliderHome" class="bxslider homeSlider" runat="server">
+                </div>
+            </div>
 <script>
 
 
-    function validarslider() {
-    var btnToggle = document.querySelector(".btn-ocultar-mostrarSliderHome");
-    btnToggle.addEventListener("click", function () {
+    //function validarslider() {
+    //var btnToggle = document.querySelector(".btn-ocultar-mostrarSliderHome");
+    //btnToggle.addEventListener("click", function () {
 
-        toggleSlider();
-    }, false); 
+    //    toggleSlider();
+    //}, false); 
 
-    var sliderHomeVisible = localStorage.getItem('sliderHomeVisible');
+    //var sliderHomeVisible = localStorage.getItem('sliderHomeVisible');
 
 
-    if (sliderHomeVisible == "hide") {
-        $('#slider_home_principal').hide();
+    //if (sliderHomeVisible == "hide") {
+    //    $('#slider_home_principal').hide();
 
-    } else {
-        $('#slider_home_principal').show();
-    }
+    //} else {
+    //    $('#slider_home_principal').show();
+    //}
 
-    }
+    //}
 
 
     function toggleSlider() {

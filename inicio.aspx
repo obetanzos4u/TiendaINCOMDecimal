@@ -2,7 +2,7 @@
 <%@ Register Src="~/userControls/ui/homeSlider.ascx" TagName="sliderHome" TagPrefix="uc1" %>
 <%@ Register Src="~/userControls/categoriasTodas.ascx" TagName="categoriasTodas" TagPrefix="uc_cat" %>
 <%@ Register Src="~/userControls/ui/catalogosSlider.ascx" TagName="sliderCatalogos" TagPrefix="uc1" %>
-<%@ Register Src="~/userControls/productosVisitadosFullWidth.ascx" TagName="visitados" TagPrefix="productos" %>
+<%--<%@ Register Src="~/userControls/productosVisitadosFullWidth.ascx" TagName="visitados" TagPrefix="productos" %>--%>
 
 
 
@@ -32,19 +32,26 @@
     ]
  }
     </script>
-    <div class="container">
-        <div class="row center-align margin-b-2x"  >
-            <%--<h1 class="center-align margin-b-2x">INCOM® La ferretera de las telecomunicaciones®</h1>--%>
-           
-        </div>
-          <div class="row margin-b-2x">
+    <div class="main_container">
+<%--        <div class="row center-align margin-b-2x"  >
+            <h1 class="center-align margin-b-2x">INCOM® La ferretera de las telecomunicaciones®</h1>
+        </div>--%>
+<%--        <div class="row margin-b-2x" style="border: 1px solid blue; height: 1rem;">
               <productos:visitados ID="ProductosVisitados"  runat="server"></productos:visitados>
+        </div>--%>
 
-        </div>
-
-     
         <uc1:sliderHome ID="uc_SliderHome" runat="server"></uc1:sliderHome>
-        </div>
+
+        <section class="anuncios">Anuncios</section>
+        <section class="USP1"> Propuestas Única de Venta USP</section>
+        <section class="USP2">Propuestas Única de Venta USP 2</section>
+        <section class="USP3">Propuestas Única de Venta USP 3</section>
+
+    </div>
+
+        <section class="title_categorias">
+            <p >Productos Destacados</p>
+        </section>
 
     <div class="row center-align">
  
@@ -53,7 +60,13 @@
 
     </div>
 
+    <section class="title_categorias">
+        <p >Categorías</p>
+    </section>
+    
+
     <div class="categorias_container">
+        
         <uc_cat:categoriasTodas runat="server"></uc_cat:categoriasTodas>
 
     </div>

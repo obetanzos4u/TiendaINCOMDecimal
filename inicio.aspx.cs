@@ -20,10 +20,10 @@ public partial class inicio : System.Web.UI.Page
             Page.Title = "INCOM ® productos de telecomunicaciones y fibra óptica en México";
             Page.MetaDescription = "Somos distribuidores con más de 18 años en Fibra óptica, cableado estructurado, CATV, identificación, telefonía, redes externas aéreas y subterráneas.";
 
-            ProductosVisitados.cantidadCargar = 15;
-            ProductosVisitados.slidesToShow = 5;
-            ProductosVisitados.verticalMode = false;
-            ProductosVisitados.obtenerProductos();
+            //ProductosVisitados.cantidadCargar = 15;
+            //ProductosVisitados.slidesToShow = 5;
+            //ProductosVisitados.verticalMode = false;
+            //ProductosVisitados.obtenerProductos();
 
 
             // INICIO SEO TAGS - 
