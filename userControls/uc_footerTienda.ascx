@@ -12,20 +12,20 @@
                 </div>
                 <div class="is-flex is-justify-start is-items-center is-w-1_2 is-py-4">
                     <a href="https://www.facebook.com/incommexico/" target="_blank" class="is-w-6">
-                        <img title="Facebook Incom" alt="Facebook Incom" loading="lazy" src="/img/webUI/rs/Facebook.svg" /></a>
+                        <img title="Facebook Incom" alt="Facebook Incom" loading="lazy" src="/img/webUI/rs/Facebook.svg" class="is-w-6"/></a>
                     <a href="https://www.instagram.com/incom_mx/" target="_blank" class="is-w-6 is-space-x-6">
-                        <img title="Instagram Incom" alt="Instagram Incom" loading="lazy" src="/img/webUI/rs/Instagram.svg" /></a>
+                        <img title="Instagram Incom" alt="Instagram Incom" loading="lazy" src="/img/webUI/rs/Instagram.svg" class="is-w-6"/></a>
                     <a href="https://twitter.com/incom_mx" target="_blank" class="is-w-6 is-space-x-6">
-                        <img title="Twitter Incom" alt="Twitter Incom" loading="lazy" src="/img/webUI/rs/Twitter.svg" />
+                        <img title="Twitter Incom" alt="Twitter Incom" loading="lazy" src="/img/webUI/rs/Twitter.svg" class="is-w-6"/>
                     </a>
                     <a href="https://www.youtube.com/user/incommx" target="_blank" class="is-w-6 is-space-x-6">
-                        <img title="Youtube Incom" alt="Youtube Incom" loading="lazy" src="/img/webUI/rs/Youtube.svg" />
+                        <img title="Youtube Incom" alt="Youtube Incom" loading="lazy" src="/img/webUI/rs/Youtube.svg" class="is-w-6"/>
                     </a>
                     <a href="https://www.linkedin.com/company/incom-mx" target="_blank" class="is-w-6 is-space-x-6" >
-                        <img title="LinkedIn Incom" alt="LinkedIn Incom" loading="lazy" src="/img/webUI/rs/LinkedIn.svg" />
+                        <img title="LinkedIn Incom" alt="LinkedIn Incom" loading="lazy" src="/img/webUI/rs/LinkedIn.svg" class="is-w-6"/>
                     </a>
                      <a href="https://www.tiktok.com/@incom_mx" target="_blank" class="is-w-6 is-space-x-6">
-                        <img title="Tiktok Incom" alt="Tiktok Incom" loading="lazy" src="/img/webUI/rs/Tiktok.svg" />
+                        <img title="Tiktok Incom" alt="Tiktok Incom" loading="lazy" src="/img/webUI/rs/Tiktok.svg" class="is-w-6"/>
                     </a>
                 </div>
             </div>
