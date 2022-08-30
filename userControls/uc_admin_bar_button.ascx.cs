@@ -94,11 +94,18 @@ public partial class uc_admin_bar_button : System.Web.UI.UserControl
             try
             {
                 objStream = wrGetURL.GetResponse().GetResponseStream();
+                HttpWebResponse response = (HttpWebResponse)wrGetURL.GetResponse();
+                if (response.ContentType != "image/jpeg")
+                {
+                    usuarios userActivo = usuarios.modoAsesor();
+                    img_usuario.ImageUrl = $"https://ui-avatars.com/api/?name={userActivo.nombre}+{userActivo.apellido_paterno}&background=fff&color=000&rounded=true&format=svg";
+                }
             }
             catch (Exception ex)
             {
                 usuarios userActivo = usuarios.modoAsesor();
                 img_usuario.ImageUrl = $"https://ui-avatars.com/api/?name={userActivo.nombre}+{userActivo.apellido_paterno}&background=fff&color=000&rounded=true&format=svg";
+                Console.WriteLine(ex.Message);
             }
 
 

@@ -17,7 +17,7 @@ public partial class herramientas_admin_precios : System.Web.UI.Page {
     protected void Page_Load(object sender, EventArgs e) {
 
         if (!IsPostBack) {
-            Title = "Admin precios";
+            Title = "Gestor de precios";
         }
     }
 
@@ -197,7 +197,6 @@ public partial class herramientas_admin_precios : System.Web.UI.Page {
         foreach (string Column in ProductoBase)
         {
             dtPeview.Columns.Add(Column, typeof(string));
-
         }
         dtPeview.Columns.Add(new DataColumn("#", typeof(Int32)));
 
