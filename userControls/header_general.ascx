@@ -605,7 +605,7 @@
         height: 600px;
         width: 100vw; 
         border: 1px solid #ff6a00;
-        margin: 4rem 0;
+        margin-top: 4rem;
     }
 
     .main_container {
@@ -667,7 +667,8 @@
             display: flex;
             flex-direction: row;
             height: auto;
-            display: grid; 
+            display: grid;
+            margin-bottom: 2rem;
             grid-auto-columns: 1fr; 
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
             grid-template-rows: 1fr 1fr; 
@@ -675,10 +676,6 @@
             grid-template-areas: 
             ". . . . . ."
             ". . . . . ."; 
-        }
-
-        .this {
-            
         }
     }
 

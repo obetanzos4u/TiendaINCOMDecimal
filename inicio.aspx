@@ -32,7 +32,7 @@
     ]
  }
     </script>
-    <div class="main_container">
+    <div class="main_container is-px-xl">
 <%--        <div class="row center-align margin-b-2x"  >
             <h1 class="center-align margin-b-2x">INCOM® La ferretera de las telecomunicaciones®</h1>
         </div>--%>
