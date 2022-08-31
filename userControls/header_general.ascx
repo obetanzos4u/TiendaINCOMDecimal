@@ -595,7 +595,7 @@
         justify-content: center;
         display: flex;
         font-weight: 600;
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-bottom: 2rem;
         height: 4rem;
         align-items: center;

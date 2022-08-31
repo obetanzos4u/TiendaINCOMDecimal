@@ -349,7 +349,7 @@
                 font-size: 1rem;
                 border: none;
                 outline: none;
-                background-color: #656565;
+                background-color: #949494;
                 color: white;
                 cursor: pointer;
                 padding: 1rem 1.2rem;
