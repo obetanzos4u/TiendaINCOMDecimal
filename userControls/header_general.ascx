@@ -596,7 +596,7 @@
         display: flex;
         font-weight: 600;
         font-size: 2rem;
-        margin: 0;
+        margin-bottom: 2rem;
         height: 4rem;
         align-items: center;
     }
@@ -667,7 +667,6 @@
             display: flex;
             flex-direction: row;
             height: auto;
-            margin: 2rem;
             display: grid; 
             grid-auto-columns: 1fr; 
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 

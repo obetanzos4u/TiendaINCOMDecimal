@@ -65,7 +65,7 @@
     </section>
     
 
-    <div class="categorias_container">
+    <div class="categorias_container is-px-xl">
         
         <uc_cat:categoriasTodas runat="server"></uc_cat:categoriasTodas>
 
