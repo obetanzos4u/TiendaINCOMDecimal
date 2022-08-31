@@ -145,9 +145,9 @@
                     </asp:LoginView>
                 </div>--%>
             </div>
-            <div class="header_toolbar">
+            <div class="header_toolbar is-py-xl">
                 <a title="Incom Retail" class="content_header_logo" href="http://localhost:63722/">
-                    <img src="../img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="logotipo_home" />
+                    <img src="../img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="logotipo_home is-space-x-7" />
                 </a>
                 <div class="menu_middle">
                     <uc_buscador:buscador ID="buscador" Visible="true" runat="server"></uc_buscador:buscador>
@@ -363,7 +363,7 @@
 
     .header_toolbar {
         height: 6rem;
-        padding: .5rem 5rem .5rem 2rem;
+/*        padding: .5rem 5rem .5rem 2rem;*/
         margin: auto 0rem 1.25rem 0rem;
         display: flex;
         flex-direction: row;
@@ -648,10 +648,10 @@
     }
     
     @media only screen and (max-width:2400px) {
-
+/*
         .header_toolbar {
             padding: .5rem 0rem .5rem 1rem;
-        }
+        }*/
 
         #txt_buscadorProducto {
             margin-left: 2rem;
@@ -854,9 +854,9 @@
             width: 450px;
         }
 
-        .header_toolbar {
+/*        .header_toolbar {
             padding-right: 1rem;
-        }
+        }*/
     }
 
     @media only screen and (max-width:1200px) {
