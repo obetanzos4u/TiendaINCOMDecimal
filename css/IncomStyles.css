@@ -801,12 +801,23 @@
         display: flex;
     }
 
+    .is-justify-center-xl {
+        justify-content: center;
+    }
+
     .is-flex-col-xl {
         flex-direction: column;
     }
 
     .is-w-full-xl {
         width: 100%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .is-px-xl {
+        padding-left: 10rem;
+        padding-right: 10rem;
     }
 }
 

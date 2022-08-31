@@ -36,7 +36,7 @@
                     <button type="submit" class="is-text-white is-rounded" style="background-color: #004EEA; padding: 0.5rem 1.5rem; height: 100%; border: 0; border-radius: 0rem 0.4rem 0.4rem 0rem;">Registro</button>
                 </div>
             </div>
-            <div class="is-font-normal is-text-base">
+            <div class="is-flex-xl is-justify-center-xl is-font-normal is-text-base">
                 <ul>
                     <li>
                         <a title="Términos y Condiciones de compra" href="/informacion/terminos-y-condiciones-de-compra.aspx" target="_blank" class="is-text-white">Términos y condiciones de compra</a>
