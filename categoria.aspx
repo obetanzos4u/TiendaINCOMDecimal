@@ -12,7 +12,6 @@
                 <div class="nav-wrapper  blue-grey  lighten-1">
                     <div id="navegacion" runat="server" style="" class=" col l12 ">
                         <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
-
                     </div>
                 </div>
             </nav>
