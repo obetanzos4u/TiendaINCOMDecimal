@@ -1,10 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_footerTienda.ascx.cs" Inherits="uc_footerTienda" %>
 
 <footer class="is-text-white">
-    <div class="is-bg-footer is-text-white">
-        <div class="is-grid is-col-footer is-gap-4 is-px-8">
-            <div class="is-flex is-flex-col is-justify-start is-items-start">
-                <p class="is-text-xl is-font-semibold">Contáctanos</p>
+    <div class="is-py-2-mx is-py-2 is-bg-footer is-text-white">
+        <div class="is-grid-mx is-col-footer is-gap-4 is-px-8">
+            <div class="is-flex-mx is-flex-col-xl is-justify-start is-items-start">
+                <p class="is-text-mx is-font-semibold">Contáctanos</p>
                 <p class="is-text-lg is-font-medium">Llámanos al <a href="tel:5552436900">(55) 5243 - 6900</a></p>
                 <div class="is-font-light is-text-sm">
                     <p class="is-m-0">Plutarco Elías Calles 276, colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de México.</p>
