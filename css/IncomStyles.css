@@ -402,10 +402,17 @@
     margin-right: 0;
 }
 
+.is-mx-1 {
+    margin-left: 0;
+    padding-left: 0;
+}
+
 .is-my-0 {
     margin-top: 0;
     margin-bottom: 0;
 }
+
+
 
 .is-m-2 {
     margin: 0.5rem;
@@ -768,6 +775,13 @@
         }
 
 /* Responsive */
+
+@media (max-width: 700px) {
+   .is-flex-mx {
+       display: flex;
+   }
+}
+
 @media (max-width: 768px) {
     .is-w-1_2 {
         width: 100%;
@@ -778,13 +792,21 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (min-width: 1000px) {
     .is-grid-xl {
         display: grid;
     }
 
-    is-flex-xl {
+    .is-flex-xl {
         display: flex;
+    }
+
+    .is-flex-col-xl {
+        flex-direction: column;
+    }
+
+    .is-w-full-xl {
+        width: 100%;
     }
 }
 

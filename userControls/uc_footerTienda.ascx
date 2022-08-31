@@ -1,10 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_footerTienda.ascx.cs" Inherits="uc_footerTienda" %>
 
 <footer class="is-text-white">
-    <div class="is-py-2-mx is-py-2 is-bg-footer is-text-white">
-        <div class="is-grid-mx is-col-footer is-gap-4 is-px-8">
-            <div class="is-flex-mx is-flex-col-xl is-justify-start is-items-start">
-                <p class="is-text-mx is-font-semibold">Contáctanos</p>
+        <div class="is-py-2-mx is-py-2 is-bg-footer is-text-white">
+            <div class="is-grid-xl is-col-footer is-gap-4 is-px-8">
+                <div class="is-flex-xl is-flex-col-xl is-justify-start is-items-start">
+                <p class="is-text-xl is-font-semibold">Contáctanos</p>
                 <p class="is-text-lg is-font-medium">Llámanos al <a href="tel:5552436900">(55) 5243 - 6900</a></p>
                 <div class="is-font-light is-text-sm">
                     <p class="is-m-0">Plutarco Elías Calles 276, colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de México.</p>
@@ -30,8 +30,8 @@
                 </div>
             </div>
             <div class="is-flex is-flex-col is-justify-start is-items-start">
-                <p class="is-text-xl is-font-bold is-mx-2">Regístrate a nuestro boletín:</p>
-                <div class="is-flex is-justify-center is-items-center is-w-full is-px-4">
+                <p class="is-mx-1 is-text-xl is-font-bold">Regístrate a nuestro boletín:</p>
+                <div class="is-mx-1 is-flex is-justify-center is-items-center is-w-full-xl is-px-4">
                     <input type="email" id="newsletter_email" name="newsletter_email" placeholder="Correo electrónico" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); padding-left: 0.5rem; height: 100%; border-radius: 0.25rem; margin: 0" />
                     <button type="submit" class="is-text-white is-rounded" style="background-color: #004EEA; padding: 0.5rem 1.5rem; height: 100%; border: 0">Registro</button>
                 </div>
