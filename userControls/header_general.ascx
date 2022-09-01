@@ -760,7 +760,7 @@
         background-color: #be9393;
     }
     
-    @media only screen and (max-width:2400px) {
+    @media only screen and (max-width:3000px) {
 /*
         .header_toolbar {
             padding: .5rem 0rem .5rem 1rem;
