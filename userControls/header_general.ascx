@@ -8,32 +8,40 @@
 
 <!-- sidenav MÓVIL -->
 <ul id='menu_usuario_movil' class="sidenav">
-    <li><a href="/"><i class="material-icons">home</i>Inicio</a></li>
+    <li>
+        <a class="home_menu" href="/">
+        <img id="home-icon" alt="icono de casita" src="../img/webUI/newdesign/home-icon.svg" />
+        Inicio
+        </a>
+    </li>
     <li>
         <div class="divider"></div>
     </li>
-    #region Botones de usuario
+<%--    #region Botones de usuario--%>
     <asp:LoginView ID="LoginView2" runat="server">
         <LoggedInTemplate>
             <li>
-                <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class=" " NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx"
-                    runat="server"> <i class="material-icons left">perm_identity</i>Mi cuenta
+                <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="micuenta_menu" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx"
+                    runat="server">
+                    <img id="user-icon" alt="icono cuenta de usuario" src="../img/webUI/newdesign/mi_cuenta.svg"/>
+                    Mi cuenta
                 </asp:HyperLink>
             </li>
             <li>
-                <a href="/usuario/mi-cuenta/pedidos.aspx" class="grey-text text-darken-3">
-                    <i class="material-icons left">assignment_turned_in</i>Pedidos</a>
+                <a id="item-mis_compras" href="/usuario/mi-cuenta/pedidos.aspx" class="grey-text text-darken-3">
+                <img id="shopping-bag" alt="Bolsa de compras" src="../img/webUI/newdesign/Shopping-bag.jpg"/>Mis compras</a>
             </li>
             <li>
                 <a href="/usuario/mi-cuenta/cotizaciones.aspx" class="grey-text text-darken-3">
-                    <i class="material-icons left">assignment</i> Cotizaciones</a>
+                <img id="ticket-icon" alt="icono de ticket de cotización" src="../img/webUI/newdesign/cotizacion-icon.svg" />    
+                    Pedidos cotizados</a>
             </li>
         </LoggedInTemplate>
         <AnonymousTemplate>
             <li><a title="Crear cuenta" class=" " href='<%= ResolveUrl("~/registro-de-usuario.aspx") %>'>Crear cuenta</a>    </li>
         </AnonymousTemplate>
     </asp:LoginView>
-    #endregion
+<%--    #endregion--%>
 
     <li>
         <asp:LoginStatus ID="LoginStatus2" ToolTip="Sesión de usuario" runat="server" LoginText="Iniciar Sesión" LogoutText="" OnLoggedOut="LoginStatus1_LoggedOut" />
@@ -41,32 +49,54 @@
     <li>
         <div class="divider"></div>
     </li>
-    <li><a class="subheader">Tienda</a></li>
+<%--    <li><a class="subheader">Tienda</a></li>--%>
 
     <li class="no-padding">
         <%--        <img src="../img/webUI/newdesign/Flecha.svg" />--%>
         <ul class="collapsible collapsible-accordion">
             <li>
-                <a class="collapsible-header">Productos</a>
-
+                <a class="collapsible-header">
+                    <img id="products_menu_icon" alt="Icono de cesto con herramientas" src="../img/webUI/newdesign/productos_icon.svg"/>
+                    <p>Productos</p>
+                </a>
                 <div class="collapsible-body">
                     <ul id="menu_movil_categorias" runat="server">
                     </ul>
                 </div>
             </li>
+            <li>
+                <div class="divider">
+                </div>
+            </li>
         </ul>
     </li>
-    <li><a class="subheader">Aprende</a></li>
-    <li><a href="/glosario/A">Enciclopédico</a> </li>
-    <li><a href="/enseñanza/infografías">Infografías</a> </li>
-    <li><a title='Blog Incom' target='_blank' href='https://blog.incom.mx'>Blog</a> </li>
+<%--    <li><a class="subheader">Aprende</a></li>--%>
+    <li>
+        <a class="menu-book" href="/glosario/A">
+            <img id="book-icon" alt="Icono de un libro" src="../img/webUI/newdesign/biblioteca-icon.svg"/>
+            <p>Enciclopédico</p>
+        </a>
+    </li>
+    <li>
+        <a class="menu-infography" href="/enseñanza/infografías">
+          <img id="infography-icon" alt="icono de infografia" src="../img/webUI/newdesign/infography-icon.svg" />
+          <p>Infografías</p>  
+        </a>
+
+    </li>
+    <li>
+        <a class="menu-blog" title='Blog Incom' target='_blank' href='https://blog.incom.mx'>
+            <img id="blog-icon" alt="icono de RSS o blog" src="../img/webUI/newdesign/blog-icon.svg"/>
+            <p>Blog</p>
+        </a>
+    </li>
     <asp:LoginView ID="LoginView3" runat="server">
         <LoggedInTemplate>
             <li>
                 <div class="divider"></div>
             </li>
             <li>
-                <asp:LoginStatus ID="LoginStatus3" class=" " runat="server" LoginText="" LogoutText="<i class='material-icons left'>close</i>Cerrar Sesión" OnLoggedOut="LoginStatus1_LoggedOut" />
+                <asp:LoginStatus ID="LoginStatus3" class="cerrar_sesion-menu" runat="server" LoginText="" LogoutText="<i class='material-icons left'>close</i>Cerrar Sesión" OnLoggedOut="LoginStatus1_LoggedOut" />
             </li>
         </LoggedInTemplate>
     </asp:LoginView>
@@ -471,6 +501,81 @@
         display: flex;
     }
 
+    .home_menu {
+        display: flex !important;
+    }
+
+    #home-icon {
+        width: 26px;
+        margin-right: 26px;
+    }
+
+    #item-mis_compras{
+        display: flex;
+        text-align:center;
+    }
+
+    #ticket-icon {
+        width: 20px;
+        margin-right: 30px;
+    }
+
+    #shopping-bag {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 1rem 32px 0 0;
+    }
+
+    .collapsible-header {
+        padding: 0 28px !important;
+        display: flex !important;
+    }
+
+    .collapsible-header > p {
+        margin-left: 30px;
+    }
+
+    #products_menu_icon {
+        width: 26px;
+        padding-left: 4px;
+    }
+
+    .menu-infography {
+    display: flex !important;
+    align-items: center;
+    }
+    
+    #infography-icon {
+        width: 26px;
+        margin-right: 26px;
+    }
+
+    .menu-book {
+        display: flex !important;
+        align-items: center;
+        margin-right: 30px;
+    }
+
+    #book-icon {
+        width: 24px;
+        margin-right: 28px;
+    }
+
+    .menu-blog {
+    display: flex !important;
+    align-items: center;
+    }
+
+    #blog-icon {
+        width: 25px;
+        padding-left: 4px;
+        margin-right: 28px;
+    }
+
+    .cerrar_sesion-menu {
+        margin-top: 1rem;
+    }
+
     .sesion_nav {
         height: 3rem;
         margin-top: 1rem;
@@ -486,8 +591,17 @@
         align-items: center;
     }
 
+    .micuenta_menu {
+        display: flex !important;
+    }
+
     .icon_cuenta {
         width: 2.1rem;
+    }
+
+    #user-icon {
+        width: 22px;
+        margin-right: 30px;
     }
 
     .btn_cuenta {
@@ -603,8 +717,7 @@
 
     .main_container {
         height: 600px;
-        width: 100vw; 
-        border: 1px solid #ff6a00;
+        width: 100%; 
         margin-top: 4rem;
     }
 

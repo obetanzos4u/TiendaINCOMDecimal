@@ -39,7 +39,7 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         HtmlGenericControl ofertas = new HtmlGenericControl("li");
         ofertas.ID = "content-menu-incom-outlet";
         ofertas.ClientIDMode = ClientIDMode.Static;
-        ofertas.InnerHtml = "<a title='Ofertas'  href='https://www.incom.mx/productos/Outlet-OUTLET1'>Ofertas <img src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem'></a>";
+        ofertas.InnerHtml = "<a title='Ofertas'  href='https://www.incom.mx/productos/Outlet-OUTLET1'>Ofertas</a>";
 
         HtmlGenericControl biblioteca = new HtmlGenericControl("li");
         biblioteca.ID = "content-menu-incom-outlet";
@@ -54,6 +54,7 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         //  blog.InnerHtml = "<a title='Blog Incom' target='_blank'  href='https://blog.incom.mx'>Blog</a>";
 
         //contenedorMenu.Controls.Add(home);
+
         //contenedorMenu.Controls.Add(blog);
 
         contenedorMenu.Controls.Add(menuCat);
