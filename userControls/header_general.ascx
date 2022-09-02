@@ -603,7 +603,7 @@
 
     .main_container {
         height: 600px;
-        width: 100vw; 
+        width: 100%; 
         border: 1px solid #ff6a00;
         margin-top: 4rem;
     }

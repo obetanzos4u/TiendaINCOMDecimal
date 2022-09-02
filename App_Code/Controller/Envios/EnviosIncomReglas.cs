@@ -20,6 +20,8 @@ public class EnviosIncomReglas
     private bool AplicaEnvioGratis;
     private readonly string numero_operacion;
     readonly decimal? MontoTotalSinImpuestosMXN;
+    readonly decimal? MontoTotalConImpuestosMXN;
+    readonly decimal? IVA = (decimal)1.16;
     readonly List<ProductoEnvioCalculoModel> Productos;
     private string ProductosNoAplicanEnvioGratis;
     public json_respuestas Resultado { get { return _Resultado; } }
@@ -41,10 +43,12 @@ public class EnviosIncomReglas
                 if (monedaPedido == "USD")
                 {
                     MontoTotalSinImpuestosMXN = (PedidosEF.ObtenerMontoTotalProductos(numero_operacion)) * operacionesConfiguraciones.obtenerTipoDeCambio();
+                    MontoTotalConImpuestosMXN = (PedidosEF.ObtenerMontoTotalProductos(numero_operacion)) * operacionesConfiguraciones.obtenerTipoDeCambio() * IVA;
                 }
                 else
                 {
                     MontoTotalSinImpuestosMXN = PedidosEF.ObtenerMontoTotalProductos(numero_operacion);
+                    MontoTotalConImpuestosMXN = PedidosEF.ObtenerMontoTotalProductos(numero_operacion) * IVA;
                 }
                 break;
             case "cotizacion":
@@ -52,10 +56,12 @@ public class EnviosIncomReglas
                 if (monedaCotizacion == "USD")
                 {
                     MontoTotalSinImpuestosMXN = (CotizacionesEF.ObtenerMontoTotalProductos(numero_operacion)) * operacionesConfiguraciones.obtenerTipoDeCambio();
+                    MontoTotalConImpuestosMXN = (CotizacionesEF.ObtenerMontoTotalProductos(numero_operacion)) * operacionesConfiguraciones.obtenerTipoDeCambio() * IVA;
                 }
                 else
                 {
                     MontoTotalSinImpuestosMXN = CotizacionesEF.ObtenerMontoTotalProductos(numero_operacion);
+                    MontoTotalConImpuestosMXN = CotizacionesEF.ObtenerMontoTotalProductos(numero_operacion) * IVA;
                 }
                 break;
         }
@@ -67,7 +73,8 @@ public class EnviosIncomReglas
         tipoOperacion = _tipoOperacion;
         Productos = _Productos;
         MontoTotalSinImpuestosMXN = _MontoTotalSinImpuestosMXN;
-        AplicaEnvioGratis = false;
+        MontoTotalConImpuestosMXN = _MontoTotalSinImpuestosMXN * IVA;
+        AplicaEnvioGratis = true;
         Calcular();
     }
     private void Calcular()
@@ -119,7 +126,7 @@ public class EnviosIncomReglas
             _Resultado = new json_respuestas(false, $"Tienes productos que no aplican para tu envío gratuito ({ProductosNoAplicanEnvioGratis}).", false, null);
             return;
         }
-        if (MontoTotalSinImpuestosMXN < 3000)
+        if (MontoTotalConImpuestosMXN < 3000)
         {
             _Resultado = new json_respuestas(false, "El monto de tu pedido es menor a la promoción de envíos gratuitos, agrega más productos para el envío gratis.", false, null);
             return;
@@ -143,7 +150,7 @@ public class EnviosIncomReglas
     }
     private void ActualizarCotizacion()
     {
-        if (AplicaEnvioGratis == true && MontoTotalSinImpuestosMXN >= MontoEnvioGratuitoMXN)
+        if (AplicaEnvioGratis == true && MontoTotalConImpuestosMXN >= MontoEnvioGratuitoMXN)
         {
             cotizaciones.actualizarEnvio(0, "Gratuito", numero_operacion, "Tu operación aplica para envío gratis.");
             bool resultadoTotales = cotizacionesProductos.actualizarTotalStatic(numero_operacion);
@@ -159,8 +166,7 @@ public class EnviosIncomReglas
     private void ActualizarPedido()
     {
 
-
-        if (AplicaEnvioGratis == true && MontoTotalSinImpuestosMXN >= MontoEnvioGratuitoMXN)
+        if (AplicaEnvioGratis == true && MontoTotalConImpuestosMXN >= MontoEnvioGratuitoMXN) //MontoTotalSinImpuestosMXN
         {
             pedidosDatos.actualizarEnvio(0, "Gratuito", numero_operacion, "Tu operación aplica para envío gratis.");
             bool resultadoTotales = pedidosProductos.actualizarTotalStatic(numero_operacion);

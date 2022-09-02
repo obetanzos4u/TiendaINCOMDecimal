@@ -22,20 +22,18 @@ public class menusCategorias : System.Web.UI.Page
 
     protected void dbConexion()
     {
-
         con = new SqlConnection(conexiones.conexionTienda());
         cmd = new SqlCommand();
         cmd.Connection = con;
-
     }
 
-     public Control obtenerMenuCategorias(string usuario) {
-
-
+    public Control obtenerMenuCategorias(string usuario)
+    {
         Panel test = new Panel();
-        
+
         //Contenedor principal L1
         HtmlGenericControl li = new HtmlGenericControl("li");
+        li.Attributes.Add("id", "menuProductos");
         li.Attributes.Add("class", "menu-categorias");
 
         //Contenedor L2
@@ -46,8 +44,9 @@ public class menusCategorias : System.Web.UI.Page
         L1_Title.InnerHtml = "Productos <img id='menu_ico_productos' class='material-icons right' src='../img/webUI/newdesign/Flecha.svg' style='width: 1rem; height: 1rem; margin-left: 0.5rem'/>";
 
         HtmlGenericControl L1_Cont = new HtmlGenericControl("div");
-        L1_Cont.Attributes.Add("class", "  menu-items  ");
-        L1_Cont.Attributes.Add("style", "display:none;");
+        L1_Cont.Attributes.Add("id", "menuProductosContenido");
+        L1_Cont.Attributes.Add("class", "menu-items");
+        L1_Cont.Attributes.Add("style", "display: none;");
         L1_Cont = nivel1(L1_Cont);
 
         li.Controls.Add(L1_Title);
@@ -85,12 +84,12 @@ public class menusCategorias : System.Web.UI.Page
 
     //}
 
-    private HtmlGenericControl nivel1(HtmlGenericControl li) 
-        {
+    private HtmlGenericControl nivel1(HtmlGenericControl li)
+    {
         usuarios datosUsuario = usuarios.modoAsesor();
         string[] usuario_rol_categorias = datosUsuario.rol_categorias;
 
-        
+
         DataTable nivel1 = obtenerNivel1();
 
         foreach (DataRow r in nivel1.Rows)
@@ -102,21 +101,21 @@ public class menusCategorias : System.Web.UI.Page
             string[] rol_categorias = r["rol_categoria"].ToString().Split(',');
             // FIN de asignación de valores básicos
 
-           
 
-           // Si encontro incidencia, proseguimos con el Nivel 1 y también procederemos a permitir el nivel 2
+
+            // Si encontro incidencia, proseguimos con el Nivel 1 y también procederemos a permitir el nivel 2
             if (privacidad.validarCategoria(rol_categorias, usuario_rol_categorias))
             {
-
                 HtmlGenericControl itemL1 = new HtmlGenericControl("div");
-                itemL1.Attributes.Add("class", "menu-l1 col l2 m4 s12");
+                itemL1.Attributes.Add("class", "menu-l1"); //col l2 m4 s12
+                itemL1.Attributes.Add("id", identificador);
 
                 //HtmlGenericControl itemL2 = new HtmlGenericControl("div");
                 //itemL2.Attributes.Add("class", "menu-l1 col l2 m4 s12");
 
                 HyperLink itemL1_Title = new HyperLink();
                 itemL1_Title.Text = nombre;
-                itemL1_Title.NavigateUrl =  GetRouteUrl("categorias", new System.Web.Routing.RouteValueDictionary { { "identificador", identificador }, { "nombre", limpiarURL(nombre) } }) ;
+                itemL1_Title.NavigateUrl = GetRouteUrl("categorias", new System.Web.Routing.RouteValueDictionary { { "identificador", identificador }, { "nombre", limpiarURL(nombre) } });
                 itemL1_Title.ToolTip = nombre;
 
                 itemL1.Controls.Add(itemL1_Title);
@@ -129,34 +128,37 @@ public class menusCategorias : System.Web.UI.Page
                 //itemL2.Controls.Add(itemL2_Title);
 
 
-                DataTable nivel2 = ObtenerSubniveles(identificador, 2);
+                 DataTable nivel2 = ObtenerSubniveles(identificador, 2);
 
                 // Validamos si este nivel tiene nivel 2
                 if (nivel2.Rows.Count >= 1)
                 {
 
                     HtmlGenericControl L2_Cont = new HtmlGenericControl("ul");
+                    L2_Cont.Attributes.Add("id", "SUB-" + identificador);
+                    L2_Cont.Attributes.Add("style", "display: none;");
 
                     foreach (DataRow r2 in nivel2.Rows)
                     {
                         int idL2 = int.Parse(r2["id"].ToString());
-						string identificadorL2 = r2["identificador"].ToString();
-						string nombreL2 = r2["nombre"].ToString();
+                        string identificadorL2 = r2["identificador"].ToString();
+                        string nombreL2 = r2["nombre"].ToString();
                         string[] rol_categoriasL2 = r2["rol_categoria"].ToString().Split(',');
 
                         // Validamos si dicha categoría L2 esta admitida
-                                if (privacidad.validarCategoria(rol_categoriasL2, usuario_rol_categorias)){
-                                    HtmlGenericControl li_L2 = new HtmlGenericControl("li");
-                                    HyperLink a_TitleL2 = new HyperLink();
+                        if (privacidad.validarCategoria(rol_categoriasL2, usuario_rol_categorias))
+                        {
+                            HtmlGenericControl li_L2 = new HtmlGenericControl("li");
+                            HyperLink a_TitleL2 = new HyperLink();
 
-									
-									a_TitleL2.NavigateUrl = GetRouteUrl("categoriasL2", new System.Web.Routing.RouteValueDictionary { { "identificador", identificadorL2 }, { "l1", limpiarURL(nombre) },{ "nombre", limpiarURL(nombreL2) } });
-									a_TitleL2.Text = nombreL2;
-                                     a_TitleL2.ToolTip = nombreL2;
-                                    li_L2.Controls.Add(a_TitleL2);
 
-                                    L2_Cont.Controls.Add(li_L2);
-                                }         
+                            a_TitleL2.NavigateUrl = GetRouteUrl("categoriasL2", new System.Web.Routing.RouteValueDictionary { { "identificador", identificadorL2 }, { "l1", limpiarURL(nombre) }, { "nombre", limpiarURL(nombreL2) } });
+                            a_TitleL2.Text = nombreL2;
+                            a_TitleL2.ToolTip = nombreL2;
+                            li_L2.Controls.Add(a_TitleL2);
+
+                            L2_Cont.Controls.Add(li_L2);
+                        }
                     }
 
                     itemL1.Controls.Add(L2_Cont);
@@ -170,9 +172,11 @@ public class menusCategorias : System.Web.UI.Page
         return li;
     }
 
-    public DataTable obtenerNivel1() {
+    public DataTable obtenerNivel1()
+    {
         dbConexion();
-        using (con) {
+        using (con)
+        {
 
             StringBuilder sel = new StringBuilder();
             sel.Append("SELECT ");
@@ -220,15 +224,13 @@ public class menusCategorias : System.Web.UI.Page
             da.Fill(ds);
             return ds.Tables[0];
         }
+    }
 
-
-        }
-
-        public static string limpiarURL(string url)
-	{
-		string urlLimpia = url.Replace(" ", "-").Replace(".", "").Replace(",", "").Replace("/", "-");
+    public static string limpiarURL(string url)
+    {
+        string urlLimpia = url.Replace(" ", "-").Replace(".", "").Replace(",", "").Replace("/", "-");
 
 
         return urlLimpia;
-	}
+    }
 }
