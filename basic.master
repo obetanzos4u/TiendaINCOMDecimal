@@ -7,7 +7,7 @@
     <meta name="google-signin-client_id" content="735817781293-gj8bqpplf0jt9au330hcejcp06js20di.apps.googleusercontent.com">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -194,7 +194,7 @@
                 line-height: 17px !important;
                 box-shadow: none;
                 float: left !important;
-                width: 100vw;
+                width: 100%;
                 display: flex;
                 justify-content: center;
             }
@@ -307,20 +307,19 @@
                     .breadcrumb:before {
                         margin: 0;
                     }
+            }
 
-                }
 
+            /****** INICIO Seccion cotizaciones y pedidos */
 
-                /****** INICIO Seccion cotizaciones y pedidos */
+            .cotizacionesProductos_min {
+                height: auto;
+            }
 
-                .cotizacionesProductos_min {
-                    height: auto;
-                }
-
-                .operacionListadoProductos {
-                    display: none;
-                }
-                /****** FIN Seccion cotizaciones y pedidos */
+            .operacionListadoProductos {
+                display: none;
+            }
+            /****** FIN Seccion cotizaciones y pedidos */
             }
 
             /* FIN - 20210414 RC - Ajustes para header, menu en movil, cotizaciones, pedidos y móvil */
@@ -356,9 +355,9 @@
                 border-radius: 120px;
             }
 
-            #btn_toTop:hover {
-                background-color: #555;
-            }
+                #btn_toTop:hover {
+                    background-color: #555;
+                }
 
             #img_toTop {
                 width: 1.25rem;
@@ -429,7 +428,7 @@
 
     </script>
 
-<%--    <!-- begin olark code -->
+    <%--    <!-- begin olark code -->
     <script defer>
             ; (function (o, l, a, r, k, y) {
                 if (o.olark) return;
@@ -465,14 +464,14 @@
                 // Png
                 var imagesWebpPng = document.querySelectorAll(".imagesWebpPng");
                 ++
-                imagesWebpPng.ForEach(imgWebp => {
-                    let src = imgWebp.getAttribute("src");
+                    imagesWebpPng.ForEach(imgWebp => {
+                        let src = imgWebp.getAttribute("src");
 
-                    src = src.replace(".webp", ".png");
-                    imgWebp.removeAttribute("src");
+                        src = src.replace(".webp", ".png");
+                        imgWebp.removeAttribute("src");
 
-                    imgWebp.setAttribute("src", src);
-                });
+                        imgWebp.setAttribute("src", src);
+                    });
 
 
                 // Al visualizar producto

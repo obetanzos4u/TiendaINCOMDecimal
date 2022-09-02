@@ -9,16 +9,11 @@ using System.Web.UI.WebControls;
 
 public partial class menuPrincipal : System.Web.UI.UserControl
 {
-
-
     protected void Page_PreRender(object sender, EventArgs e)
     {
-
         if (!IsPostBack) {
             cargarMenu();
-            
         }
-
     }
     protected void cargarMenu( )
     {
@@ -69,11 +64,4 @@ public partial class menuPrincipal : System.Web.UI.UserControl
 
         contenedorMenu.DataBind();
     }
-
-    
- 
-
-
-
-  
 }
