@@ -34,17 +34,23 @@
             <li>
                 <a href="/usuario/mi-cuenta/cotizaciones.aspx" class="grey-text text-darken-3">
                 <img id="ticket-icon" alt="icono de ticket de cotización" src="../img/webUI/newdesign/cotizacion-icon.svg" />    
-                    Pedidos cotizados</a>
+                    Pedidos cotizados
+                </a>
             </li>
         </LoggedInTemplate>
         <AnonymousTemplate>
-            <li><a title="Crear cuenta" class=" " href='<%= ResolveUrl("~/registro-de-usuario.aspx") %>'>Crear cuenta</a>    </li>
+            <li>
+                <a title="Crear cuenta" class="crear_cuenta_menu" href='<%= ResolveUrl("~/registro-de-usuario.aspx") %>'>
+                    <img id="crear_cuenta-icon" alt="botón de crear cuenta" src="../img/webUI/newdesign/add_user_icon.svg" />
+                    <p>Crear cuenta</p>
+                </a>    
+            </li>
         </AnonymousTemplate>
     </asp:LoginView>
 <%--    #endregion--%>
 
     <li>
-        <asp:LoginStatus ID="LoginStatus2" ToolTip="Sesión de usuario" runat="server" LoginText="Iniciar Sesión" LogoutText="" OnLoggedOut="LoginStatus1_LoggedOut" />
+        <asp:LoginStatus ID="LoginStatus2" ToolTip="Sesión de usuario" runat="server" LoginText="<img src='../img/webUI/newdesign/mi_cuenta.svg' alt='botón de inicio de sesión' class='inicio_sesion-icon'/>Iniciar Sesión" LogoutText=" " OnLoggedOut="LoginStatus1_LoggedOut" />
     </li>
     <li>
         <div class="divider"></div>
@@ -510,6 +516,25 @@
         margin-right: 26px;
     }
 
+    .crear_cuenta_menu {
+        display: flex !important;
+        align-items: center;
+    }
+
+    .crear_cuenta_menu > p {
+        margin-left: 30px;
+    }
+
+    #crear_cuenta-icon {
+        width: 24px;
+        display: flex;
+        margin: 0;
+    }
+
+    .inicio_sesion-icon {
+        margin-right: 30px;
+    }
+
     #item-mis_compras{
         display: flex;
         text-align:center;
@@ -602,6 +627,10 @@
     #user-icon {
         width: 22px;
         margin-right: 30px;
+    }
+
+    .inicio_sesion-icon {
+        width: 22px;
     }
 
     .btn_cuenta {
