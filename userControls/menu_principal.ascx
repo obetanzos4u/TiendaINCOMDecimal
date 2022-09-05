@@ -12,10 +12,9 @@
         //menuProductosContenido.style.height = "24rem"; // revisar si entra en clase
         //menuProductosContenido.style.overflow = "auto"; // revisar si entra en clase
     });
-    //menuProductos.addEventListener("mouseout", () => {
-    //    menuProductosContenido.style.transition = "all 18s";
-    //    menuProductosContenido.style.display = "none";
-    //});
+    menuProductos.addEventListener("mouseout", () => {
+        menuProductosContenido.style.display = "none";
+    });
 
     menuProductosContenido.childNodes.forEach((item) => {
         item.addEventListener("mouseover", () => {

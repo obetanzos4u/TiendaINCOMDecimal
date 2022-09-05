@@ -790,7 +790,7 @@
     .USP1 {
         background-color: #c3bb9f;
     }
-
+    F¿
     .USP2 {
         background-color: #202831;
     }
@@ -1076,7 +1076,7 @@
         }
 
         .menuContainer ul a {
-            font-size: 0.75rem;
+            font-size: 1.25rem;
         }
     }
 
