@@ -150,6 +150,20 @@
             }
         </style>
         <style>
+
+            #menuProductos {
+
+            }
+
+            #menuProductosContenido {
+                height: auto;
+                overflow: auto;
+            }
+
+            #contenedorMenu {
+  
+            }
+
             .modal, .dropdown-content {
                 z-index: 99999 !important;
             }
@@ -179,8 +193,8 @@
                 position: absolute;
                 background: white;
                 z-index: 999;
-                left: 5%;
-                width: 90%;
+/*                left: 5%;*/
+                width: 80%;
             }
 
 
@@ -204,21 +218,44 @@
                     line-height: inherit !important;
                 }
 
-            .menu-categorias > div > div > ul {
+/*            .menu-categorias > div > div > ul {
                 display: grid;
+                background-color: #d94e4e;
+                width: 400px;
+                left: 30%;
+                position: relative;
+                top: -2rem;
+                margin-bottom: 3rem;
+                display: table;
+                height: fit-content;
+            }*/
+            
+            .menu-l1 {
+                width: 900px;
+                margin-right: 3rem;
+                font-weight: 400 !important;
+            }
+
+            .menu-l1 > ul {
+                display: grid;
+                background-color: #d94e4e;
+                width: auto;
+                left: 30%;
+                position: relative;
+                top: -2rem;
             }
 
             .menu-items {
-                left: 1%;
+                /*left: 1%;*/
                 border-top: 3px solid transparent;
                 -moz-border-image: -moz-linear-gradient(right, #3acfd5 0%, #3a4ed5 100%);
                 -webkit-border-image: -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
                 border-image: linear-gradient(to right, #2d8bff 0%, #1a65d6 100%);
                 border-image-slice: 1;
                 /* border-top: solid 4px #2677cc; */
-                margin-top: 8px;
+/*                margin-top: 8px;*/
                 z-index: 999;
-                width: 98%;
+                width: 50%;
                 display: none;
                 background: white;
                 padding: 20px;
@@ -244,17 +281,18 @@
                 .menuContainer > div > ul > li:hover {
                     background: #e03535;
                 }
-
+/*
             .menu-items > div {
                 margin-top: 1rem;
-            }
+            }*/
 
                 .menu-items > div > ul > li {
                     width: 100%;
                 }
 
                 .menu-items > div > a {
-                    font-weight: bold;
+                    font-weight: 400;
+                    font-size: 14px;
                     color: #777777;
                     border-bottom: solid 1px #777777;
                     display: block;
@@ -309,6 +347,17 @@
                     }
             }
 
+            @media (max-width: 1000px) {
+
+                .menu-items {
+                    width: 60%;
+                    height: auto;
+                }
+
+                #menuProductosContenido {
+                    height: auto;
+                }
+            }
 
             /****** INICIO Seccion cotizaciones y pedidos */
 

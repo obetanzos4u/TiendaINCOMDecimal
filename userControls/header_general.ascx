@@ -326,9 +326,19 @@
         margin: auto;
     }
 
+/*        .menuContainer ul li {
+            height: 2.25rem;
+            text-align: left;
+        }*/
+
+        .menu-items > ul > ul > ul {
+            left: 100%;
+        }
+
         .menuContainer ul li {
             height: 2.25rem;
-            text-align: center;
+            text-align: left;
+            left: 100%;
         }
 
         .menuContainer ul :nth-child(2n +2) {
@@ -1066,7 +1076,7 @@
         }
 
         .menuContainer ul a {
-            font-size: 1.2rem;
+            font-size: 0.75rem;
         }
     }
 
