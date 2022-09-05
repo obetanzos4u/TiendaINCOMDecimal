@@ -194,7 +194,7 @@
                 background: white;
                 z-index: 999;
 /*                left: 5%;*/
-                width: 80%;
+                width: 600px;
             }
 
 
@@ -231,8 +231,7 @@
             }*/
             
             .menu-l1 {
-                width: 900px;
-                margin-right: 3rem;
+                width: 550px;
                 font-weight: 400 !important;
             }
 
@@ -242,23 +241,32 @@
                 width: auto;
                 left: 30%;
                 position: relative;
-                top: -2rem;
+                top: -2.10rem;
             }
+
+            .menu-l1 > a {
+                font-size: 1rem !important;
+            }
+
+            .menu-l1 > ul > li > a{
+                font-size: 1rem !important;
+            }
+            
 
             .menu-items {
                 /*left: 1%;*/
                 border-top: 3px solid transparent;
                 -moz-border-image: -moz-linear-gradient(right, #3acfd5 0%, #3a4ed5 100%);
-                -webkit-border-image: -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
-                border-image: linear-gradient(to right, #2d8bff 0%, #1a65d6 100%);
+                -webkit-border-image: -webkit-linear-gradient(top, #01568D  0%, #01568D  100%);
+/*                border-image: linear-gradient(to right, #2d8bff 0%, #1a65d6 100%);*/
                 border-image-slice: 1;
                 /* border-top: solid 4px #2677cc; */
 /*                margin-top: 8px;*/
                 z-index: 999;
-                width: 50%;
+                width: auto;
                 display: none;
                 background: white;
-                padding: 20px;
+                padding: 1rem;
                 box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.16);
             }
 
@@ -294,15 +302,15 @@
                     font-weight: 400;
                     font-size: 14px;
                     color: #777777;
-                    border-bottom: solid 1px #777777;
+                    border-bottom: solid 1px #96969633;
                     display: block;
                 }
 
             .menu-l1 > ul > li > a {
                 color: #656565 !important;
                 display: block;
-                padding: 5px 5px;
-                line-height: 17px;
+                /*padding: 5px 5px;*/
+                /*line-height: 10px;*/
             }
 
                 .menu-l1 > ul > li > a:hover {
@@ -350,7 +358,7 @@
             @media (max-width: 1000px) {
 
                 .menu-items {
-                    width: 60%;
+                    width: auto;
                     height: auto;
                 }
 

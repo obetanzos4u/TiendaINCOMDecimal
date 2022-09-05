@@ -317,7 +317,7 @@
         cursor: pointer;
         color: #0f0f0f;
         background: #ffffff;
-        margin: auto 1rem;
+/*        margin: auto 1rem;*/
     }
 
     .menuContainer ul {
@@ -341,13 +341,13 @@
             left: 100%;
         }
 
-        .menuContainer ul :nth-child(2n +2) {
+/*        .menuContainer ul :nth-child(2n +2) {
             border-left: 3px solid #CCD1D1;
-        }
+        }*/
 
-        .menuContainer ul :nth-child(3) {
+/*        .menuContainer ul :nth-child(3) {
             border-left: 3px solid #CCD1D1;
-        }
+        }*/
 
     .over-header {
         height: 2rem;
