@@ -982,7 +982,7 @@
             border-right: none;
             border-radius: 6px 0 0 6px;
             outline: none;
-            color: #9DBFAF;
+            color: #000000;
             margin-left: 0;
         }
 
