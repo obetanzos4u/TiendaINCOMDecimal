@@ -7,26 +7,51 @@
 <%@ Register Src="~/userControls/uc_producto_btn_SoloVisualizar.ascx" TagName="link" TagPrefix="uc_visualizarProducto" %>
 
 <style>
+    <!--
     @media (min-width: 700px) {
         #contentResultados {
             margin: auto 0px !important;
             display: grid;
             grid-gap: 5px;
             grid-template-columns: 170px auto;
-            grid-template-areas: 'sidebar content'
+            grid-template-areas: 'sidebar content';
         }
 
         .contentResultados-sidedar {
             grid-area: sidebar;
-            position: fixed;
+            position: relative;
             width: min-content;
-            left: 0px;
+            left: 0;
+            height: fit-content;
+            border: 1px solid #B7B7B7;
+            border-radius: 8px;
         }
 
+        /*El área del filtro tomo distancia del borde izquierdo y por eso se agrego padding a este elemento, que es el contenedor de los resultados de los productos*/
         .contentResultados-content {
             grid-area: content;
+            padding-left: 3rem;
         }
-    }
+
+        .producto-main_container {
+            margin: auto 0px !important;
+            border: 1px solid #0094ff;
+        }
+
+        .main-cateorias {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            left: 13rem;
+            top: 6rem;
+            height: fit-content;
+        }
+
+        .title_nav_cat {
+            height: fit-content;
+        }
+    } -->
 </style>
 <script>
 
@@ -85,9 +110,9 @@
 
     } 
 </script>
-<div class="row" style="margin: auto 0px !important;">
-
-    <div class="col s12 m12 l12 xl12 " style="margin: auto 0px !important; min-height: 330px;">
+<div class="producto-main_container row">
+    <!--Clases anteriores de este componente col s12 m12 l12 xl12 style="margin: auto 0px !important; min-height: 330px;" -->
+    <div class="producto-main_wrap">
         <div runat="server" id="content_resultado_busqueda_text" visible="false" style="position: sticky; top: 100px; background: white; z-index: 99; overflow: auto; height: 53px;">
             <h2 style="margin: 0px; line-height: 50px;">Resultado de la búsqueda de: <span class="blue-text">
                 <asp:HyperLink ID="linkTerminoBusqueda" runat="server"></asp:HyperLink>
@@ -97,7 +122,7 @@
         <div class="row" style="margin: auto 0px !important;" id="cont_ordenar" runat="server">
 
 
-            <div class="col s12 m5 l4" visible="false" runat="server">
+            <div class="col s12 m5 l4" visible="false" runat="server" style="border: 1px solid blue">
                 <label>Busca por: Nombre de cotización ó Número de operación</label>
                 <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización ó Número de operación" AutoPostBack="true" OnTextChanged="cargarProductos" runat="server"></asp:TextBox>
             </div>
@@ -110,65 +135,55 @@
 
 
                 <div runat="server" id="Div1" class="input-field fixInput">
-                    <label style="position: initial;">Filtrar por categoria</label>
+                    <label class="label-filtro_producto" style="position: initial;">Filtrar por categoria</label>
                     <asp:DropDownList ID="ddl_filtroCategorias" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                     </asp:DropDownList>
-
-
-
                 </div>
+
                 <div runat="server" id="cont_filtros" class="input-field fixInput">
-                    <label style="position: initial;">Filtrar por marca</label>
+                    <label class="label-filtro_producto" style="position: initial;">Filtrar por marca</label>
                     <asp:DropDownList ID="ddl_filtroMarcas" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                     </asp:DropDownList>
                     <asp:RadioButtonList ID="rd_filtroMarcas" Visible="false" OnSelectedIndexChanged="orden" AutoPostBack="true" RepeatDirection="Vertical" CssClass="ulFlow"
                         RepeatLayout="UnorderedList" runat="server">
                         <asp:ListItem Text="Todas las marcas" Value=""></asp:ListItem>
                     </asp:RadioButtonList>
-
-
                 </div>
 
                 <div class="input-field fixInput hide">
-                    <label style="position: initial;">Ordenar por</label>
+                    <label class="label-filtro_producto" style="position: initial;">Ordenar por</label>
                     <asp:DropDownList ID="ddl_ordenBy" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                         <asp:ListItem Value="orden" Text="Automático"></asp:ListItem>
                         <asp:ListItem Value="numero_parte" Text="Número de Parte"></asp:ListItem>
                         <asp:ListItem Value="marca" Text="Marca"></asp:ListItem>
                         <asp:ListItem Value="precio1" Text="Precio"></asp:ListItem>
                     </asp:DropDownList>
-
                 </div>
+
                 <div class="input-field  fixInput hide">
-                    <label style="position: initial;">Ordenar por</label>
+                    <label class="label-filtro_producto" style="position: initial;">Ordenar por</label>
                     <asp:DropDownList ID="ddl_ordenTipo" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                         <asp:ListItem Value="ASC" Text="Ascendente"></asp:ListItem>
                         <asp:ListItem Value="DESC" Text="Descendente"></asp:ListItem>
                     </asp:DropDownList>
-
                 </div>
 
                 <div class="input-field fixInput">
-                    <label style="position: initial;">Moneda</label>
+                    <label class="label-filtro_producto" style="position: initial;">Moneda</label>
                     <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
-
-
                 </div>
-
-
-               
 
                 <div class="fixInput  hide-on-small-only hide-on-med-only">
                     <productos:visitados ID="ProductosVisitados" runat="server"></productos:visitados>
                 </div>
 
             </div>
-            <div class="contentResultados-content">
 
+            <div class="contentResultados-content">
 
                 <asp:ListView ID="lv_productos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                     <LayoutTemplate>
-                        <div class="row">
+                        <div class="row listado-categorias">
                             <asp:DataPager ID="dp_1" class="dataPager_productos" runat="server" Visible="true" PagedControlID="lv_productos"
                                 PageSize="50" QueryStringField="PageId">
                                 <Fields>
@@ -182,7 +197,7 @@
                             </asp:DataPager>
 
                         </div>
-                        <div class="row">
+                        <div class="row results-products" >
                             <div runat="server" id="itemPlaceholder"></div>
                         </div>
                         <div class="row">
@@ -197,7 +212,6 @@
                                         LastPageText=" Última »" NextPageText=" Siguiente »" ShowLastPageButton="False" ShowPreviousPageButton="False" />
                                 </Fields>
                             </asp:DataPager>
-
                         </div>
 
                     </LayoutTemplate>
@@ -258,23 +272,19 @@
                                             Ver Disponibilidad</a>
                                         <asp:Label runat="server" ID="lbl_puntajeBusqueda" Visible="false"></asp:Label>
                                     </div>
-
-
-
-
                                 </div>
 
                             </div>
                         </div>
                     </ItemTemplate>
-                    <EmptyDataTemplate>
+<%--                    <EmptyDataTemplate>
                         <div class="row center-align" style="height: 150px;">
                             <div class="col col s12">
                                 <h3>Intenta con otro término de búsqueda</h3>
                             </div>
                         </div>
                        
-                    </EmptyDataTemplate>
+                    </EmptyDataTemplate>--%>
                 </asp:ListView>
 
             </div>
@@ -431,6 +441,15 @@
         /*    width: 50vh !important;*/
     }
 
+
+    .label-filtro_producto {
+        color: #000000 !important;
+        z-index: 1;
+        font-size: 0.8rem !important;
+        font-family: 'Monserrat', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+        font-weight: 600;
+    }
+
     .ddlDefault {
         height: 2rem;
         padding: 3px;
@@ -447,10 +466,12 @@
         }
 
     .slick img {
-            width: 100%;
+        width: 100%;
         color: #eee;
         font-family: monospace;
     }
+
+
 </style>
 
 

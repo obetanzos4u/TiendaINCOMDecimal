@@ -5,19 +5,22 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
    
-        <div class="row ">
-            <h1 id="titulo_categoria" runat="server"></h1>
-            <h2 id="descripcion_categoria" visible="false" runat="server"></h2>
-            <nav id="nav_categorias_breadcrumb">
-                <div class="nav-wrapper  blue-grey  lighten-1">
+        <div class="row" style="border: 1px solid #0094ff">
+
+            <div id="nav_categorias_breadcrumb">
+                <div class="nav-wrapper">
                     <div id="navegacion" runat="server" style="" class=" col l12 ">
                         <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
                     </div>
                 </div>
-            </nav>
+            </div>
+
+            <h1 id="titulo_categoria" runat="server"></h1>
+            <h2 id="descripcion_categoria" visible="false" runat="server"></h2>
+
         </div>
 
-    <div class="row">
+    <div class="row main-cateorias">
         <uc_cat:categorias runat="server"></uc_cat:categorias>
     </div>
 
