@@ -56,7 +56,7 @@ public partial class menuPrincipal : System.Web.UI.UserControl
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_ELECTRICO.pdf' target='_blank' title='Soluciones eléctricas'>Eléctrico</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_FERRETERIA.pdf' target='_blank' title='Ferretería'>Ferretería</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_BLOQUEO.pdf' target='_blank' title='Bloqueo'>Seguridad industrial</a></li>" +
-                    "<li><a href='/documents/pdf/CATALOGO_2RENT.pdf' target='_blank' title='2Rent Venta y Renta'>Venta y renta'</a></li>" +
+                    "<li><a href='/documents/pdf/CATALOGO_2RENT.pdf' target='_blank' title='2Rent Venta y Renta'>Venta y renta</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_MAQUINAS_PARA_SOPLADO_FREMCO.pdf' target='_blank' title='Fremco'>Sopladoras Fremco</a></li>" +
                     "<li><a href='/documents/pdf/INCOM_CATALOGO_SOLUCION_FIBRA_SOPLADA.pdf' target='_blank' title='Solución Fibra Soplada'>Solución fibra soplada</a></li>" +
                     "<li><a href='/documents/promos/CATALOGO_INCOM_LIQUIDACION.pdf' target='_blank' title='Liquidación'>Liquidación</a></li>" +
