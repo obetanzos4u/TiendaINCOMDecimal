@@ -44,7 +44,7 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         HtmlGenericControl catalogos = new HtmlGenericControl("li");
         catalogos.ID = "content-menu-incom-catalogos";
         catalogos.ClientIDMode = ClientIDMode.Static;
-        catalogos.InnerHtml = "<a title = 'Catalogos'  href = '/' >Catálogos<img alt = 'Flecha de desplazamiento para ver menu' id = 'menu_icon_catalogos' src = '../img/webUI/newdesign/Flecha.svg'></a>" +
+        catalogos.InnerHtml = "<a title='Catalogos'  href='#'>Catálogos<img alt ='Flecha de desplazamiento para ver menu' id='menu_icon_catalogos' src ='../img/webUI/newdesign/Flecha.svg'></a>" +
                 "<ul>" +
                     "<li><a href'/documents/pdf/CATALOGO_INCOM_FIBRA_OPTICA.pdf' target='_blank' title='Fibra Óptica'>Fibra óptica</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_AEREO.pdf' target='_blank' title='Aéreo'>Instalación aérea</a></li>" +
