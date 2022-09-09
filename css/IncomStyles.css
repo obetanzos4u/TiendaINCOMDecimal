@@ -664,6 +664,11 @@
     border-top-right-radius: 0.5rem;
 }
 
+.is-rounded-t-2xl {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
 /* Utilities */
 .is-select-none {
     user-select: none;
