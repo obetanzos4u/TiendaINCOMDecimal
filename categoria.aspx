@@ -20,7 +20,8 @@
 
         </div>
 
-    <div class="row main-cateorias">
+    <%--<div class="row main-cateorias">--%>
+    <div class="main-categorias">
         <uc_cat:categorias runat="server"></uc_cat:categorias>
     </div>
 
@@ -28,7 +29,7 @@
             <uc_pro:productos ID="ucProductos" runat="server"></uc_pro:productos>
         </div>
  
-  <div class="row">
+  <div class="main-catalogos">
             <uc1:sliderCatalogos runat="server"></uc1:sliderCatalogos>
         </div>
 </asp:Content>
