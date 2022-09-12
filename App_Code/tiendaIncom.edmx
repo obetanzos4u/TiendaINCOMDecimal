@@ -4,768 +4,767 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="tiendaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="base_cotizaciones_estatus">
-          <Key>
-            <PropertyRef Name="idEstatus" />
-          </Key>
-          <Property Name="idEstatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombreEstatus" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="carrito_productos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="usuario" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="activo" Type="int" Nullable="false" />
-          <Property Name="tipo" Type="int" Nullable="false" />
-          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="marca" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="moneda" Type="nvarchar" MaxLength="5" Nullable="false" />
-          <Property Name="tipo_cambio" Type="money" Nullable="false" />
-          <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
-          <Property Name="unidad" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="precio_unitario" Type="money" Nullable="false" />
-          <Property Name="cantidad" Type="money" Nullable="false" />
-          <Property Name="precio_total" Type="money" Nullable="false" />
-          <Property Name="stock1" Type="float" />
-          <Property Name="stock1_fecha" Type="datetime" />
-          <Property Name="stock2" Type="float" />
-          <Property Name="stock2_fecha" Type="datetime" />
-        </EntityType>
-        <EntityType Name="categorias">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="descripcion" Type="nvarchar" MaxLength="250" />
-          <Property Name="imagen" Type="nvarchar" MaxLength="100" />
-          <Property Name="rol_categoria" Type="nvarchar" MaxLength="250" />
-          <Property Name="productos_Destacados" Type="nvarchar" MaxLength="250" />
-          <Property Name="identificador" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="asociacion" Type="nvarchar" MaxLength="30" />
-          <Property Name="nivel" Type="int" Nullable="false" />
-          <Property Name="orden" Type="int" />
-        </EntityType>
-        <EntityType Name="contactos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_cliente" Type="int" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="apellido_paterno" Type="nvarchar" MaxLength="20" />
-          <Property Name="apellido_materno" Type="nvarchar" MaxLength="20" />
-          <Property Name="email" Type="nvarchar" MaxLength="60" />
-          <Property Name="telefono" Type="nvarchar" MaxLength="50" />
-          <Property Name="celular" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="cotizaciones_datos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_cotizacion" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-          <Property Name="creada_por" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="mod_asesor" Type="int" />
-          <Property Name="id_cliente" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="usuario_cliente" Type="nvarchar" MaxLength="60" />
-          <Property Name="cliente_nombre" Type="nvarchar" MaxLength="20" />
-          <Property Name="cliente_apellido_paterno" Type="nvarchar" MaxLength="20" />
-          <Property Name="cliente_apellido_materno" Type="nvarchar" MaxLength="20" />
-          <Property Name="email" Type="nvarchar" MaxLength="60" />
-          <Property Name="telefono" Type="nvarchar" MaxLength="50" />
-          <Property Name="celular" Type="nvarchar" MaxLength="50" />
-          <Property Name="activo" Type="int" />
-          <Property Name="comentarios" Type="nvarchar" MaxLength="1500" />
-          <Property Name="vigencia" Type="int" />
-          <Property Name="vecesRenovada" Type="int" />
-          <Property Name="conversionPedido" Type="int" />
-          <Property Name="numero_operacion_pedido" Type="nvarchar" MaxLength="20" />
-          <Property Name="tipo_cotizacion" Type="nvarchar" MaxLength="20" />
-          <Property Name="idEstatus" Type="int" />
-          <Property Name="Calculo_Costo_Envio" Type="bit" />
-        </EntityType>
-        <EntityType Name="cotizaciones_datosNumericos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="monedaCotizacion" Type="nvarchar" MaxLength="5" />
-          <Property Name="tipo_cambio" Type="money" Nullable="false" />
-          <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
-          <Property Name="subtotal" Type="money" Nullable="false" />
-          <Property Name="envio" Type="money" Nullable="false" />
-          <Property Name="metodoEnvio" Type="nvarchar" MaxLength="15" />
-          <Property Name="monedaEnvio" Type="nvarchar" MaxLength="5" />
-          <Property Name="impuestos" Type="money" Nullable="false" />
-          <Property Name="nombreImpuestos" Type="nvarchar" MaxLength="5" />
-          <Property Name="total" Type="money" Nullable="false" />
-          <Property Name="descuento" Type="money" />
-          <Property Name="descuento_porcentaje" Type="smallmoney" />
-          <Property Name="EnvioNota" Type="nvarchar" MaxLength="200" />
-        </EntityType>
-        <EntityType Name="cotizaciones_direccionEnvio">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="calle" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="numero" Type="nvarchar" MaxLength="30" />
-          <Property Name="colonia" Type="nvarchar" MaxLength="70" Nullable="false" />
-          <Property Name="delegacion_municipio" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="estado" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="codigo_postal" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="pais" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="referencias" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
-        </EntityType>
-        <EntityType Name="cotizaciones_productos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="usuario" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="orden" Type="int" />
-          <Property Name="activo" Type="int" Nullable="false" />
-          <Property Name="tipo" Type="int" Nullable="false" />
-          <Property Name="alternativo" Type="int" />
-          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="descripcion" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="marca" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="unidad" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="precio_unitario" Type="money" Nullable="false" />
-          <Property Name="cantidad" Type="money" Nullable="false" />
-          <Property Name="precio_total" Type="money" Nullable="false" />
-          <Property Name="stock1" Type="float" />
-          <Property Name="stock1_fecha" Type="datetime" />
-          <Property Name="stock2" Type="float" />
-          <Property Name="stock2_fecha" Type="datetime" />
-        </EntityType>
-        <EntityType Name="direcciones_envio">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_direccion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="id_cliente" Type="int" Nullable="false" />
-          <Property Name="calle" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="numero" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="colonia" Type="nvarchar" MaxLength="70" />
-          <Property Name="delegacion_municipio" Type="nvarchar" MaxLength="60" />
-          <Property Name="estado" Type="nvarchar" MaxLength="35" />
-          <Property Name="codigo_postal" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="pais" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="referencias" Type="nvarchar" MaxLength="100" />
-          <Property Name="direccion_predeterminada" Type="bit" />
-          <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
-          <Property Name="numero_interior" Type="nvarchar" MaxLength="30" />
-        </EntityType>
-        <EntityType Name="direcciones_facturacion">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_cliente" Type="int" Nullable="false" />
-          <Property Name="nombre_direccion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="razon_social" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="rfc" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="calle" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="numero" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="colonia" Type="nvarchar" MaxLength="35" />
-          <Property Name="delegacion_municipio" Type="nvarchar" MaxLength="35" />
-          <Property Name="estado" Type="nvarchar" MaxLength="35" />
-          <Property Name="codigo_postal" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="pais" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
-        </EntityType>
-        <EntityType Name="estados_mexico">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" MaxLength="25" />
-          <Property Name="codigo" Type="nvarchar" MaxLength="5" />
-        </EntityType>
-        <EntityType Name="glosario">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="término" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="términoInglés" Type="nvarchar" MaxLength="100" />
-          <Property Name="descripción" Type="nvarchar" MaxLength="800" Nullable="false" />
-          <Property Name="simbolo" Type="nvarchar" MaxLength="25" />
-          <Property Name="link" Type="nvarchar" MaxLength="250" />
-        </EntityType>
-        <EntityType Name="infografías">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="titulo" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="descripción" Type="nvarchar" MaxLength="400" Nullable="false" />
-          <Property Name="fecha" Type="datetime" Nullable="false" />
-          <Property Name="nombreImagenMiniatura" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="nombreArchivo" Type="nvarchar" MaxLength="250" Nullable="false" />
-        </EntityType>
-        <EntityType Name="paises">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" MaxLength="35" />
-          <Property Name="codigo" Type="nvarchar" MaxLength="5" />
-        </EntityType>
-        <EntityType Name="pedidos_datos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_pedido" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-          <Property Name="creada_por" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="mod_asesor" Type="int" />
-          <Property Name="id_cliente" Type="nvarchar" MaxLength="15" />
-          <Property Name="usuario_cliente" Type="nvarchar" MaxLength="60" />
-          <Property Name="cliente_nombre" Type="nvarchar" MaxLength="20" />
-          <Property Name="cliente_apellido_paterno" Type="nvarchar" MaxLength="20" />
-          <Property Name="cliente_apellido_materno" Type="nvarchar" MaxLength="20" />
-          <Property Name="email" Type="nvarchar" MaxLength="60" />
-          <Property Name="telefono" Type="nvarchar" MaxLength="50" />
-          <Property Name="celular" Type="nvarchar" MaxLength="50" />
-          <Property Name="activo" Type="int" />
-          <Property Name="comentarios" Type="nvarchar" MaxLength="600" />
-          <Property Name="preCotizacion" Type="int" />
-          <Property Name="numero_operacion_cotizacion" Type="nvarchar" MaxLength="20" />
-          <Property Name="Calculo_Costo_Envio" Type="bit" />
-          <Property Name="factura" Type="bit" />
-          <Property Name="OperacionCancelada" Type="bit" />
-          <Property Name="motivoCancelacion" Type="nvarchar" MaxLength="300" />
-          <Property Name="detalleCancelacionAsesor" Type="nvarchar" MaxLength="800" />
-          <Property Name="idUsuarioSeguimiento" Type="int" />
-        </EntityType>
-        <EntityType Name="pedidos_datosNumericos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="monedaPedido" Type="nvarchar" MaxLength="5" />
-          <Property Name="tipo_cambio" Type="money" Nullable="false" />
-          <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
-          <Property Name="subtotal" Type="money" Nullable="false" />
-          <Property Name="envio" Type="money" Nullable="false" />
-          <Property Name="metodoEnvio" Type="nvarchar" MaxLength="15" />
-          <Property Name="monedaEnvio" Type="nvarchar" MaxLength="5" />
-          <Property Name="impuestos" Type="money" Nullable="false" />
-          <Property Name="nombreImpuestos" Type="nvarchar" MaxLength="5" />
-          <Property Name="total" Type="money" Nullable="false" />
-          <Property Name="descuento" Type="money" />
-          <Property Name="descuento_porcentaje" Type="smallmoney" />
-          <Property Name="EnvioNota" Type="nvarchar" MaxLength="200" />
-        </EntityType>
-        <EntityType Name="pedidos_direccionEnvio">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="calle" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="numero" Type="nvarchar" MaxLength="30" />
-          <Property Name="colonia" Type="nvarchar" MaxLength="70" Nullable="false" />
-          <Property Name="delegacion_municipio" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="estado" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="codigo_postal" Type="nvarchar" MaxLength="15" />
-          <Property Name="pais" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="referencias" Type="nvarchar" MaxLength="100" />
-          <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
-          <Property Name="numero_interior" Type="nvarchar" MaxLength="60" />
-          <Property Name="idDireccionEnvio" Type="int" />
-        </EntityType>
-        <EntityType Name="pedidos_direccionFacturacion">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="razon_social" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="rfc" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="calle" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="numero" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="colonia" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="delegacion_municipio" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="estado" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="codigo_postal" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="pais" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
-          <Property Name="idDireccionFacturacion" Type="int" />
-          <Property Name="UsoCFDI" Type="nvarchar" MaxLength="5" />
-        </EntityType>
-        <EntityType Name="pedidos_modificaciones">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="descripcion" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
-          <Property Name="modificada_por" Type="nvarchar" MaxLength="60" Nullable="false" />
-        </EntityType>
-        <EntityType Name="pedidos_pagos_liga_santander">
-          <Key>
-            <PropertyRef Name="idLigasSantander" />
-          </Key>
-          <Property Name="idLigasSantander" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="liga" Type="nvarchar" MaxLength="4000" Nullable="false" />
-          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-          <Property Name="fecha_vigencia" Type="datetime" Nullable="false" />
-          <Property Name="monto" Type="money" />
-          <Property Name="moneda" Type="nvarchar" MaxLength="3" />
-        </EntityType>
-        <EntityType Name="pedidos_pagos_paypal">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idTransacciónPayPal" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="paymentID" Type="nvarchar" MaxLength="25" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="intento" Type="nvarchar" MaxLength="25" />
-          <Property Name="estado" Type="nvarchar" MaxLength="25" />
-          <Property Name="moneda" Type="nvarchar" MaxLength="5" />
-          <Property Name="monto" Type="nvarchar" MaxLength="25" />
-          <Property Name="fecha_primerIntento" Type="datetime" />
-          <Property Name="fecha_actualización" Type="datetime" />
-          <Property Name="aprobadoAsesor" Type="bit" />
-        </EntityType>
-        <EntityType Name="pedidos_pagos_respuesta_santander">
-          <Key>
-            <PropertyRef Name="idRespuestasSantander" />
-          </Key>
-          <Property Name="idRespuestasSantander" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="response" Type="nvarchar" MaxLength="4000" Nullable="false" />
-          <Property Name="estatus" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="fecha_primerIntento" Type="datetime" Nullable="false" />
-          <Property Name="fecha_actualización" Type="datetime" />
-        </EntityType>
-        <EntityType Name="pedidos_pagos_transferencia">
-          <Key>
-            <PropertyRef Name="idRegistroTransferencia" />
-          </Key>
-          <Property Name="idRegistroTransferencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="referencia" Type="nvarchar" MaxLength="400" />
-          <Property Name="fecha_captura" Type="datetime" />
-          <Property Name="confirmacionAsesor" Type="bit" />
-          <Property Name="idUsuario" Type="int" />
-          <Property Name="fecha_confirmacion" Type="datetime" />
-        </EntityType>
-        <EntityType Name="pedidos_productos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="usuario" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="orden" Type="int" />
-          <Property Name="tipo" Type="int" Nullable="false" />
-          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="marca" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="unidad" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="precio_unitario" Type="money" Nullable="false" />
-          <Property Name="cantidad" Type="money" Nullable="false" />
-          <Property Name="precio_total" Type="money" Nullable="false" />
-          <Property Name="stock1" Type="float" />
-          <Property Name="stock1_fecha" Type="datetime" />
-          <Property Name="stock2" Type="float" />
-          <Property Name="stock2_fecha" Type="datetime" />
-        </EntityType>
-        <EntityType Name="pedidos_productos_modificaciones">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="descripcion" Type="nvarchar" MaxLength="150" />
-          <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
-          <Property Name="modificada_por" Type="nvarchar" MaxLength="60" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PedidosClaveUsoCFDI">
-          <Key>
-            <PropertyRef Name="id_CFDI" />
-          </Key>
-          <Property Name="id_CFDI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ClaveUsoCFDI" Type="nvarchar" MaxLength="120" Nullable="false" />
-          <Property Name="Descripción" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="PersonaFisica" Type="bit" />
-          <Property Name="PersonaMoral" Type="bit" />
-        </EntityType>
-        <EntityType Name="permisos_app">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idUsuario" Type="int" Nullable="false" />
-          <Property Name="seccion_pagina" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="permiso" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="precios_fantasma">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="preciosFantasma" Type="money" Nullable="false" />
-          <Property Name="porcentajeFantasma" Type="nvarchar" MaxLength="3" />
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-        </EntityType>
-        <EntityType Name="precios_ListaFija">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_cliente" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="precio" Type="money" Nullable="false" />
-          <Property Name="moneda_fija" Type="nvarchar" MaxLength="5" Nullable="false" />
-        </EntityType>
-        <EntityType Name="precios_multiplicador">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nivel" Type="int" Nullable="false" />
-          <Property Name="nombre_multiplicador" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="multiplicador_valor" Type="money" Nullable="false" />
-        </EntityType>
-        <EntityType Name="precios_rangos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="moneda_rangos" Type="nvarchar" MaxLength="5" Nullable="false" />
-          <Property Name="precio1" Type="money" />
-          <Property Name="max1" Type="money" />
-          <Property Name="precio2" Type="money" />
-          <Property Name="max2" Type="money" />
-          <Property Name="precio3" Type="money" />
-          <Property Name="max3" Type="money" />
-          <Property Name="precio4" Type="money" />
-          <Property Name="max4" Type="money" />
-          <Property Name="precio5" Type="money" />
-          <Property Name="max5" Type="money" />
-        </EntityType>
-        <EntityType Name="productos_comentarios">
-          <Key>
-            <PropertyRef Name="idComentario" />
-          </Key>
-          <Property Name="idComentario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="fechaComentario" Type="datetime" Nullable="false" />
-          <Property Name="idUsuario" Type="int" />
-          <Property Name="comentario" Type="nvarchar" MaxLength="850" Nullable="false" />
-          <Property Name="calificación" Type="tinyint" />
-          <Property Name="visible" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="productos_Datos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="titulo" Type="nvarchar" MaxLength="130" Nullable="false" />
-          <Property Name="descripcion_corta" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="titulo_corto_ingles" Type="nvarchar" MaxLength="250" />
-          <Property Name="especificaciones" Type="nvarchar" MaxLength="4000" />
-          <Property Name="marca" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="categoria_identificador" Type="nvarchar" MaxLength="100" />
-          <Property Name="imagenes" Type="nvarchar" MaxLength="500" />
-          <Property Name="metatags" Type="nvarchar" MaxLength="250" />
-          <Property Name="peso" Type="decimal" Precision="10" Scale="5" />
-          <Property Name="alto" Type="decimal" Precision="10" Scale="5" />
-          <Property Name="ancho" Type="decimal" Precision="10" Scale="5" />
-          <Property Name="profundidad" Type="decimal" Precision="10" Scale="5" />
-          <Property Name="pdf" Type="nvarchar" MaxLength="350" />
-          <Property Name="video" Type="nvarchar" MaxLength="250" />
-          <Property Name="unidad_venta" Type="nvarchar" MaxLength="25" />
-          <Property Name="cantidad" Type="decimal" Precision="16" Scale="2" />
-          <Property Name="unidad" Type="nvarchar" MaxLength="25" />
-          <Property Name="producto_alternativo" Type="nvarchar" MaxLength="150" />
-          <Property Name="productos_relacionados" Type="nvarchar" MaxLength="250" />
-          <Property Name="atributos" Type="nvarchar" MaxLength="3000" />
-          <Property Name="noParte_proveedor" Type="nvarchar" MaxLength="50" />
-          <Property Name="noParte_interno" Type="nvarchar" MaxLength="100" />
-          <Property Name="upc" Type="nvarchar" MaxLength="50" />
-          <Property Name="noParte_Competidor" Type="nvarchar" MaxLength="250" />
-          <Property Name="orden" Type="int" />
-          <Property Name="etiquetas" Type="nvarchar" MaxLength="150" />
-          <Property Name="disponibleVenta" Type="int" Nullable="false" />
-          <Property Name="disponibleEnvio" Type="int" />
-          <Property Name="RotacionHorizontal" Type="bit" />
-          <Property Name="RotacionVertical" Type="bit" />
-          <Property Name="noParte_Sap" Type="nvarchar" MaxLength="100" />
-          <Property Name="avisos" Type="nvarchar" MaxLength="4000" />
-          <Property Name="destacado" Type="int" />
-        </EntityType>
-        <EntityType Name="productos_Roles">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="rol_preciosMultiplicador" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="rol_visibilidad" Type="nvarchar" MaxLength="250" Nullable="false" />
-        </EntityType>
-        <EntityType Name="productos_solo_visualizacion">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="solo_para_Visualizar" Type="bit" Nullable="false" />
-        </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="productos_stock">
-          <Key>
-            <PropertyRef Name="numero_parte" />
-            <PropertyRef Name="cantidad" />
-            <PropertyRef Name="unidad" />
-            <PropertyRef Name="fecha_actualización" />
-          </Key>
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="cantidad" Type="float" Nullable="false" />
-          <Property Name="unidad" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="ubicación" Type="nvarchar" MaxLength="50" />
-          <Property Name="ubicación_pre" Type="nvarchar" MaxLength="50" />
-          <Property Name="fecha_actualización" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="productos_unidades">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="unidad_nombre" Type="nvarchar" MaxLength="25" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProductosBloqueoStock">
-          <Key>
-            <PropertyRef Name="IdBloqueoStock" />
-          </Key>
-          <Property Name="IdBloqueoStock" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="numero_parte" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Disponible" Type="decimal" Precision="16" Scale="2" Nullable="false" />
-        </EntityType>
-        <EntityType Name="usuarios">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fecha_registro" Type="datetime" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="apellido_paterno" Type="nvarchar" MaxLength="20" />
-          <Property Name="apellido_materno" Type="nvarchar" MaxLength="20" />
-          <Property Name="email" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="tipo_de_usuario" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="rango" Type="int" Nullable="false" />
-          <Property Name="departamento" Type="nvarchar" MaxLength="20" />
-          <Property Name="grupoPrivacidad" Type="nvarchar" MaxLength="20" />
-          <Property Name="perfil_cliente" Type="nvarchar" MaxLength="20" />
-          <Property Name="id_cliente" Type="nvarchar" MaxLength="15" />
-          <Property Name="rol_precios_multiplicador" Type="nvarchar" MaxLength="25" />
-          <Property Name="rol_productos" Type="nvarchar" MaxLength="20" />
-          <Property Name="rol_categorias" Type="nvarchar" MaxLength="20" />
-          <Property Name="asesor_base" Type="nvarchar" MaxLength="60" />
-          <Property Name="grupo_asesor" Type="nvarchar" MaxLength="20" />
-          <Property Name="asesor_adicional" Type="nvarchar" MaxLength="250" />
-          <Property Name="grupo_asesores_adicional" Type="nvarchar" MaxLength="250" />
-          <Property Name="grupo_usuario" Type="nvarchar" MaxLength="20" />
-          <Property Name="ultimo_inicio_sesion" Type="datetime" />
-          <Property Name="fecha_nacimiento" Type="datetime" />
-          <Property Name="registrado_por" Type="nvarchar" MaxLength="60" />
-          <Property Name="telefono" Type="nvarchar" MaxLength="50" />
-          <Property Name="celular" Type="nvarchar" MaxLength="50" />
-          <Property Name="cuenta_confirmada" Type="bit" />
-          <Property Name="cuenta_activa" Type="bit" />
-        </EntityType>
-        <EntityType Name="usuarios_ligas_confirmaciones">
-          <Key>
-            <PropertyRef Name="idLiga" />
-          </Key>
-          <Property Name="idLiga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="usuario" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="clave" Type="nvarchar" MaxLength="4000" Nullable="false" />
-          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-          <Property Name="fecha_vigencia" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="usuariosInfo">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idUsuario" Type="int" Nullable="false" />
-          <Property Name="registroMetodo" Type="int" Nullable="false" />
-          <Property Name="registradoIdAsesor" Type="int" />
-          <Property Name="fecha_registro" Type="datetime" />
-        </EntityType>
-        <Association Name="fk_contactos_usuarios">
-          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="contactos" Type="Self.contactos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="contactos">
-              <PropertyRef Name="id_cliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_direccionesenvio_usuarios">
-          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="direcciones_envio" Type="Self.direcciones_envio" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="direcciones_envio">
-              <PropertyRef Name="id_cliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_direccionesFact_usuarios">
-          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="direcciones_facturacion" Type="Self.direcciones_facturacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="direcciones_facturacion">
-              <PropertyRef Name="id_cliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_idUsuario">
-          <End Role="usuarios" Type="Self.usuarios" Multiplicity="0..1" />
-          <End Role="productos_comentarios" Type="Self.productos_comentarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="productos_comentarios">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_permisos_usuarios">
-          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="permisos_app" Type="Self.permisos_app" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usuarios">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="permisos_app">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="tiendaModelStoreContainer">
-          <EntitySet Name="base_cotizaciones_estatus" EntityType="Self.base_cotizaciones_estatus" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="carrito_productos" EntityType="Self.carrito_productos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="categorias" EntityType="Self.categorias" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="contactos" EntityType="Self.contactos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="cotizaciones_datos" EntityType="Self.cotizaciones_datos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="cotizaciones_datosNumericos" EntityType="Self.cotizaciones_datosNumericos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="cotizaciones_direccionEnvio" EntityType="Self.cotizaciones_direccionEnvio" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="cotizaciones_productos" EntityType="Self.cotizaciones_productos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="direcciones_envio" EntityType="Self.direcciones_envio" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="direcciones_facturacion" EntityType="Self.direcciones_facturacion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="estados_mexico" EntityType="Self.estados_mexico" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="glosario" EntityType="Self.glosario" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="infografías" EntityType="Self.infografías" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="paises" EntityType="Self.paises" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pedidos_datos" EntityType="Self.pedidos_datos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pedidos_datosNumericos" EntityType="Self.pedidos_datosNumericos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pedidos_direccionEnvio" EntityType="Self.pedidos_direccionEnvio" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pedidos_direccionFacturacion" EntityType="Self.pedidos_direccionFacturacion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pedidos_modificaciones" EntityType="Self.pedidos_modificaciones" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pedidos_pagos_liga_santander" EntityType="Self.pedidos_pagos_liga_santander" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pedidos_pagos_paypal" EntityType="Self.pedidos_pagos_paypal" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pedidos_pagos_respuesta_santander" EntityType="Self.pedidos_pagos_respuesta_santander" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pedidos_pagos_transferencia" EntityType="Self.pedidos_pagos_transferencia" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pedidos_productos" EntityType="Self.pedidos_productos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pedidos_productos_modificaciones" EntityType="Self.pedidos_productos_modificaciones" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PedidosClaveUsoCFDI" EntityType="Self.PedidosClaveUsoCFDI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="permisos_app" EntityType="Self.permisos_app" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="precios_fantasma" EntityType="Self.precios_fantasma" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="precios_ListaFija" EntityType="Self.precios_ListaFija" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="precios_multiplicador" EntityType="Self.precios_multiplicador" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="precios_rangos" EntityType="Self.precios_rangos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="productos_comentarios" EntityType="Self.productos_comentarios" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="productos_Datos" EntityType="Self.productos_Datos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="productos_Roles" EntityType="Self.productos_Roles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="productos_solo_visualizacion" EntityType="Self.productos_solo_visualizacion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="productos_unidades" EntityType="Self.productos_unidades" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProductosBloqueoStock" EntityType="Self.ProductosBloqueoStock" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="usuarios_ligas_confirmaciones" EntityType="Self.usuarios_ligas_confirmaciones" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="usuariosInfo" EntityType="Self.usuariosInfo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="productos_stock" EntityType="Self.productos_stock" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [productos_stock].[numero_parte] AS [numero_parte], 
-    [productos_stock].[cantidad] AS [cantidad], 
-    [productos_stock].[unidad] AS [unidad], 
-    [productos_stock].[ubicación] AS [ubicación], 
-    [productos_stock].[ubicación_pre] AS [ubicación_pre], 
-    [productos_stock].[fecha_actualización] AS [fecha_actualización]
-    FROM [dbo].[productos_stock] AS [productos_stock]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="fk_contactos_usuarios" Association="Self.fk_contactos_usuarios">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="contactos" EntitySet="contactos" />
-          </AssociationSet>
-          <AssociationSet Name="fk_direccionesenvio_usuarios" Association="Self.fk_direccionesenvio_usuarios">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="direcciones_envio" EntitySet="direcciones_envio" />
-          </AssociationSet>
-          <AssociationSet Name="fk_direccionesFact_usuarios" Association="Self.fk_direccionesFact_usuarios">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="direcciones_facturacion" EntitySet="direcciones_facturacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_idUsuario" Association="Self.FK_idUsuario">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="productos_comentarios" EntitySet="productos_comentarios" />
-          </AssociationSet>
-          <AssociationSet Name="fk_permisos_usuarios" Association="Self.fk_permisos_usuarios">
-            <End Role="usuarios" EntitySet="usuarios" />
-            <End Role="permisos_app" EntitySet="permisos_app" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="tiendaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="tiendaModelStoreContainer">
+    <EntitySet Name="base_cotizaciones_estatus" EntityType="tiendaModel.Store.base_cotizaciones_estatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="productos_comentarios" EntityType="tiendaModel.Store.productos_comentarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="productos_stock" EntityType="tiendaModel.Store.productos_stock" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pedidos_pagos_paypal" EntityType="tiendaModel.Store.pedidos_pagos_paypal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="glosario" EntityType="tiendaModel.Store.glosario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="infografías" EntityType="tiendaModel.Store.infografías" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="carrito_productos" EntityType="tiendaModel.Store.carrito_productos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="direcciones_envio" EntityType="tiendaModel.Store.direcciones_envio" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="direcciones_facturacion" EntityType="tiendaModel.Store.direcciones_facturacion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="estados_mexico" EntityType="tiendaModel.Store.estados_mexico" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="paises" EntityType="tiendaModel.Store.paises" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pedidos_direccionFacturacion" EntityType="tiendaModel.Store.pedidos_direccionFacturacion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pedidos_modificaciones" EntityType="tiendaModel.Store.pedidos_modificaciones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pedidos_productos" EntityType="tiendaModel.Store.pedidos_productos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pedidos_productos_modificaciones" EntityType="tiendaModel.Store.pedidos_productos_modificaciones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="precios_ListaFija" EntityType="tiendaModel.Store.precios_ListaFija" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="precios_multiplicador" EntityType="tiendaModel.Store.precios_multiplicador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="precios_rangos" EntityType="tiendaModel.Store.precios_rangos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="productos_Roles" EntityType="tiendaModel.Store.productos_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="productos_unidades" EntityType="tiendaModel.Store.productos_unidades" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="permisos_app" EntityType="tiendaModel.Store.permisos_app" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cotizaciones_datos" EntityType="tiendaModel.Store.cotizaciones_datos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cotizaciones_productos" EntityType="tiendaModel.Store.cotizaciones_productos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="productos_Datos" EntityType="tiendaModel.Store.productos_Datos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pedidos_pagos_liga_santander" EntityType="tiendaModel.Store.pedidos_pagos_liga_santander" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pedidos_pagos_respuesta_santander" EntityType="tiendaModel.Store.pedidos_pagos_respuesta_santander" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cotizaciones_datosNumericos" EntityType="tiendaModel.Store.cotizaciones_datosNumericos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cotizaciones_direccionEnvio" EntityType="tiendaModel.Store.cotizaciones_direccionEnvio" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pedidos_direccionEnvio" EntityType="tiendaModel.Store.pedidos_direccionEnvio" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pedidos_datos" EntityType="tiendaModel.Store.pedidos_datos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pedidos_datosNumericos" EntityType="tiendaModel.Store.pedidos_datosNumericos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="contactos" EntityType="tiendaModel.Store.contactos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuarios_ligas_confirmaciones" EntityType="tiendaModel.Store.usuarios_ligas_confirmaciones" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="categorias" EntityType="tiendaModel.Store.categorias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuarios" EntityType="tiendaModel.Store.usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pedidos_pagos_transferencia" EntityType="tiendaModel.Store.pedidos_pagos_transferencia" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuariosInfoes" EntityType="tiendaModel.Store.usuariosInfoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PedidosClaveUsoCFDIs" EntityType="tiendaModel.Store.PedidosClaveUsoCFDIs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductosBloqueoStocks" EntityType="tiendaModel.Store.ProductosBloqueoStocks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StockRegistroFaltaDeStocks" EntityType="tiendaModel.Store.StockRegistroFaltaDeStocks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="productos_solo_visualizacion" EntityType="tiendaModel.Store.productos_solo_visualizacion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="precios_fantasma" EntityType="tiendaModel.Store.precios_fantasma" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="fk_contactos_usuarios" Association="tiendaModel.Store.fk_contactos_usuarios">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="contacto" EntitySet="contactos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_direccionesenvio_usuarios" Association="tiendaModel.Store.fk_direccionesenvio_usuarios">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="direcciones_envio" EntitySet="direcciones_envio" />
+    </AssociationSet>
+    <AssociationSet Name="fk_direccionesFact_usuarios" Association="tiendaModel.Store.fk_direccionesFact_usuarios">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="direcciones_facturacion" EntitySet="direcciones_facturacion" />
+    </AssociationSet>
+    <AssociationSet Name="fk_permisos_usuarios" Association="tiendaModel.Store.fk_permisos_usuarios">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="permisos_app" EntitySet="permisos_app" />
+    </AssociationSet>
+    <AssociationSet Name="FK_idUsuario" Association="tiendaModel.Store.FK_idUsuario">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="productos_comentarios" EntitySet="productos_comentarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="base_cotizaciones_estatus">
+    <Key>
+      <PropertyRef Name="idEstatus" />
+    </Key>
+    <Property Name="idEstatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreEstatus" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="productos_comentarios">
+    <Key>
+      <PropertyRef Name="idComentario" />
+    </Key>
+    <Property Name="idComentario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="fechaComentario" Type="datetime" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="true" />
+    <Property Name="comentario" Type="nvarchar" Nullable="false" MaxLength="850" />
+    <Property Name="calificación" Type="tinyint" Nullable="true" />
+    <Property Name="visible" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="productos_stock">
+    <Key>
+      <PropertyRef Name="numero_parte" />
+      <PropertyRef Name="cantidad" />
+      <PropertyRef Name="unidad" />
+      <PropertyRef Name="fecha_actualización" />
+    </Key>
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="cantidad" Type="float" Nullable="false" />
+    <Property Name="unidad" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="ubicación" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="fecha_actualización" Type="datetime" Nullable="false" />
+    <Property Name="ubicación_pre" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="pedidos_pagos_paypal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTransacciónPayPal" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="intento" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="estado" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="moneda" Type="nvarchar" Nullable="true" MaxLength="5" />
+    <Property Name="monto" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="fecha_primerIntento" Type="datetime" Nullable="true" />
+    <Property Name="fecha_actualización" Type="datetime" Nullable="true" />
+    <Property Name="aprobadoAsesor" Type="bit" Nullable="true" />
+    <Property Name="paymentID" Type="nvarchar" Nullable="true" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="glosario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="término" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="términoInglés" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="descripción" Type="nvarchar" Nullable="false" MaxLength="800" />
+    <Property Name="simbolo" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="link" Type="nvarchar" Nullable="true" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="infografías">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="descripción" Type="nvarchar" Nullable="false" MaxLength="400" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="nombreImagenMiniatura" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="nombreArchivo" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="carrito_productos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="activo" Type="int" Nullable="false" />
+    <Property Name="tipo" Type="int" Nullable="false" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="marca" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="moneda" Type="nvarchar" Nullable="false" MaxLength="5" />
+    <Property Name="tipo_cambio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
+    <Property Name="unidad" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="precio_unitario" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="cantidad" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="precio_total" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="stock1" Type="float" Nullable="true" />
+    <Property Name="stock1_fecha" Type="datetime" Nullable="true" />
+    <Property Name="stock2" Type="float" Nullable="true" />
+    <Property Name="stock2_fecha" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="direcciones_envio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_direccion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="id_cliente" Type="int" Nullable="false" />
+    <Property Name="calle" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="numero" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="colonia" Type="nvarchar" Nullable="true" MaxLength="70" />
+    <Property Name="delegacion_municipio" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="estado" Type="nvarchar" Nullable="true" MaxLength="35" />
+    <Property Name="codigo_postal" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="pais" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="referencias" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="direccion_predeterminada" Type="bit" Nullable="true" />
+    <Property Name="numero_interior" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="ciudad" Type="nvarchar" Nullable="true" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="direcciones_facturacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cliente" Type="int" Nullable="false" />
+    <Property Name="nombre_direccion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="razon_social" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="rfc" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="calle" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="numero" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="colonia" Type="nvarchar" Nullable="true" MaxLength="35" />
+    <Property Name="delegacion_municipio" Type="nvarchar" Nullable="true" MaxLength="35" />
+    <Property Name="estado" Type="nvarchar" Nullable="true" MaxLength="35" />
+    <Property Name="codigo_postal" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="pais" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="ciudad" Type="nvarchar" Nullable="true" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="estados_mexico">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="codigo" Type="nvarchar" Nullable="true" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="paises">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" Nullable="true" MaxLength="35" />
+    <Property Name="codigo" Type="nvarchar" Nullable="true" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="pedidos_direccionFacturacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="razon_social" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="rfc" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="calle" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="numero" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="colonia" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="delegacion_municipio" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="codigo_postal" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="pais" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="ciudad" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="idDireccionFacturacion" Type="int" Nullable="true" />
+    <Property Name="UsoCFDI" Type="nvarchar" Nullable="true" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="pedidos_modificaciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
+    <Property Name="modificada_por" Type="nvarchar" Nullable="false" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="pedidos_productos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="usuario" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="orden" Type="int" Nullable="true" />
+    <Property Name="tipo" Type="int" Nullable="false" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="marca" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="unidad" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="precio_unitario" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="cantidad" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="precio_total" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="stock1" Type="float" Nullable="true" />
+    <Property Name="stock1_fecha" Type="datetime" Nullable="true" />
+    <Property Name="stock2" Type="float" Nullable="true" />
+    <Property Name="stock2_fecha" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="pedidos_productos_modificaciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="descripcion" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
+    <Property Name="modificada_por" Type="nvarchar" Nullable="false" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="precios_ListaFija">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cliente" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="precio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="moneda_fija" Type="nvarchar" Nullable="false" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="precios_multiplicador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nivel" Type="int" Nullable="false" />
+    <Property Name="nombre_multiplicador" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="multiplicador_valor" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="precios_rangos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="moneda_rangos" Type="nvarchar" Nullable="false" MaxLength="5" />
+    <Property Name="precio1" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="max1" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="precio2" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="max2" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="precio3" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="max3" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="precio4" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="max4" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="precio5" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="max5" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="productos_Roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="rol_preciosMultiplicador" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="rol_visibilidad" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="productos_unidades">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unidad_nombre" Type="nvarchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="permisos_app">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="seccion_pagina" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="permiso" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cotizaciones_datos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_cotizacion" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="creada_por" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="mod_asesor" Type="int" Nullable="true" />
+    <Property Name="id_cliente" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="usuario_cliente" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="cliente_nombre" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="cliente_apellido_paterno" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="cliente_apellido_materno" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="telefono" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="celular" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="activo" Type="int" Nullable="true" />
+    <Property Name="comentarios" Type="nvarchar" Nullable="true" MaxLength="1500" />
+    <Property Name="vigencia" Type="int" Nullable="true" />
+    <Property Name="vecesRenovada" Type="int" Nullable="true" />
+    <Property Name="conversionPedido" Type="int" Nullable="true" />
+    <Property Name="numero_operacion_pedido" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="tipo_cotizacion" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="idEstatus" Type="int" Nullable="true" />
+    <Property Name="Calculo_Costo_Envio" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="cotizaciones_productos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="usuario" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="orden" Type="int" Nullable="true" />
+    <Property Name="activo" Type="int" Nullable="false" />
+    <Property Name="tipo" Type="int" Nullable="false" />
+    <Property Name="alternativo" Type="int" Nullable="true" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="marca" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="unidad" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="precio_unitario" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="cantidad" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="precio_total" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="stock1" Type="float" Nullable="true" />
+    <Property Name="stock1_fecha" Type="datetime" Nullable="true" />
+    <Property Name="stock2" Type="float" Nullable="true" />
+    <Property Name="stock2_fecha" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="productos_Datos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="130" />
+    <Property Name="descripcion_corta" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="titulo_corto_ingles" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="especificaciones" Type="nvarchar" Nullable="true" MaxLength="4000" />
+    <Property Name="marca" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="categoria_identificador" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="imagenes" Type="nvarchar" Nullable="true" MaxLength="500" />
+    <Property Name="metatags" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="peso" Type="decimal" Nullable="true" Precision="10" Scale="5" />
+    <Property Name="alto" Type="decimal" Nullable="true" Precision="10" Scale="5" />
+    <Property Name="ancho" Type="decimal" Nullable="true" Precision="10" Scale="5" />
+    <Property Name="profundidad" Type="decimal" Nullable="true" Precision="10" Scale="5" />
+    <Property Name="pdf" Type="nvarchar" Nullable="true" MaxLength="350" />
+    <Property Name="video" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="unidad_venta" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="cantidad" Type="decimal" Nullable="true" Precision="16" Scale="2" />
+    <Property Name="unidad" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="producto_alternativo" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="productos_relacionados" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="atributos" Type="nvarchar" Nullable="true" MaxLength="3000" />
+    <Property Name="noParte_proveedor" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="noParte_interno" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="upc" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="noParte_Competidor" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="orden" Type="int" Nullable="true" />
+    <Property Name="etiquetas" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="disponibleVenta" Type="int" Nullable="false" />
+    <Property Name="disponibleEnvio" Type="int" Nullable="true" />
+    <Property Name="RotacionHorizontal" Type="bit" Nullable="true" />
+    <Property Name="RotacionVertical" Type="bit" Nullable="true" />
+    <Property Name="noParte_Sap" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="avisos" Type="nvarchar" Nullable="true" MaxLength="4000" />
+    <Property Name="destacado" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="pedidos_pagos_liga_santander">
+    <Key>
+      <PropertyRef Name="idLigasSantander" />
+    </Key>
+    <Property Name="idLigasSantander" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="liga" Type="nvarchar" Nullable="false" MaxLength="4000" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_vigencia" Type="datetime" Nullable="false" />
+    <Property Name="monto" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="moneda" Type="nvarchar" Nullable="true" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="pedidos_pagos_respuesta_santander">
+    <Key>
+      <PropertyRef Name="idRespuestasSantander" />
+    </Key>
+    <Property Name="idRespuestasSantander" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="response" Type="nvarchar" Nullable="false" MaxLength="4000" />
+    <Property Name="estatus" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="fecha_primerIntento" Type="datetime" Nullable="false" />
+    <Property Name="fecha_actualización" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="cotizaciones_datosNumericos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="monedaCotizacion" Type="nvarchar" Nullable="true" MaxLength="5" />
+    <Property Name="tipo_cambio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
+    <Property Name="subtotal" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="envio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="metodoEnvio" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="monedaEnvio" Type="nvarchar" Nullable="true" MaxLength="5" />
+    <Property Name="impuestos" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="nombreImpuestos" Type="nvarchar" Nullable="true" MaxLength="5" />
+    <Property Name="total" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="descuento" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="descuento_porcentaje" Type="decimal" Nullable="true" Precision="10" Scale="4" />
+    <Property Name="EnvioNota" Type="nvarchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="cotizaciones_direccionEnvio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="calle" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="numero" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="colonia" Type="nvarchar" Nullable="false" MaxLength="70" />
+    <Property Name="delegacion_municipio" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="codigo_postal" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="pais" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="referencias" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ciudad" Type="nvarchar" Nullable="true" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="pedidos_direccionEnvio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="calle" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="numero" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="colonia" Type="nvarchar" Nullable="false" MaxLength="70" />
+    <Property Name="delegacion_municipio" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="codigo_postal" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="pais" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="referencias" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="ciudad" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="idDireccionEnvio" Type="int" Nullable="true" />
+    <Property Name="numero_interior" Type="nvarchar" Nullable="true" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="pedidos_datos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_pedido" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="creada_por" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="mod_asesor" Type="int" Nullable="true" />
+    <Property Name="id_cliente" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="usuario_cliente" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="cliente_nombre" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="cliente_apellido_paterno" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="cliente_apellido_materno" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="telefono" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="celular" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="activo" Type="int" Nullable="true" />
+    <Property Name="comentarios" Type="nvarchar" Nullable="true" MaxLength="600" />
+    <Property Name="preCotizacion" Type="int" Nullable="true" />
+    <Property Name="numero_operacion_cotizacion" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Calculo_Costo_Envio" Type="bit" Nullable="true" />
+    <Property Name="factura" Type="bit" Nullable="true" />
+    <Property Name="OperacionCancelada" Type="bit" Nullable="true" />
+    <Property Name="motivoCancelacion" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="detalleCancelacionAsesor" Type="nvarchar" Nullable="true" MaxLength="800" />
+    <Property Name="idUsuarioSeguimiento" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="pedidos_datosNumericos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="monedaPedido" Type="nvarchar" Nullable="true" MaxLength="5" />
+    <Property Name="tipo_cambio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
+    <Property Name="subtotal" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="envio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="metodoEnvio" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="monedaEnvio" Type="nvarchar" Nullable="true" MaxLength="5" />
+    <Property Name="impuestos" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="nombreImpuestos" Type="nvarchar" Nullable="true" MaxLength="5" />
+    <Property Name="total" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="descuento" Type="decimal" Nullable="true" Precision="19" Scale="4" />
+    <Property Name="descuento_porcentaje" Type="decimal" Nullable="true" Precision="10" Scale="4" />
+    <Property Name="EnvioNota" Type="nvarchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="contactos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cliente" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="apellido_paterno" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="apellido_materno" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="telefono" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="celular" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="usuarios_ligas_confirmaciones">
+    <Key>
+      <PropertyRef Name="idLiga" />
+    </Key>
+    <Property Name="idLiga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="clave" Type="nvarchar" Nullable="false" MaxLength="4000" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_vigencia" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="categorias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="descripcion" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="imagen" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="rol_categoria" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="productos_Destacados" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="identificador" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="asociacion" Type="nvarchar" Nullable="true" MaxLength="30" />
+    <Property Name="nivel" Type="int" Nullable="false" />
+    <Property Name="orden" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_registro" Type="datetime" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="apellido_paterno" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="apellido_materno" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="tipo_de_usuario" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="rango" Type="int" Nullable="false" />
+    <Property Name="departamento" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="grupoPrivacidad" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="perfil_cliente" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="id_cliente" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="rol_precios_multiplicador" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="rol_productos" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="rol_categorias" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="asesor_base" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="grupo_asesor" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="asesor_adicional" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="grupo_asesores_adicional" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="grupo_usuario" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="ultimo_inicio_sesion" Type="datetime" Nullable="true" />
+    <Property Name="fecha_nacimiento" Type="datetime" Nullable="true" />
+    <Property Name="registrado_por" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="telefono" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="celular" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="cuenta_confirmada" Type="bit" Nullable="true" />
+    <Property Name="cuenta_activa" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="pedidos_pagos_transferencia">
+    <Key>
+      <PropertyRef Name="idRegistroTransferencia" />
+    </Key>
+    <Property Name="idRegistroTransferencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="referencia" Type="nvarchar" Nullable="true" MaxLength="400" />
+    <Property Name="fecha_captura" Type="datetime" Nullable="true" />
+    <Property Name="confirmacionAsesor" Type="bit" Nullable="true" />
+    <Property Name="idUsuario" Type="int" Nullable="true" />
+    <Property Name="fecha_confirmacion" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="usuariosInfoes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="registroMetodo" Type="int" Nullable="false" />
+    <Property Name="registradoIdAsesor" Type="int" Nullable="true" />
+    <Property Name="fecha_registro" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PedidosClaveUsoCFDIs">
+    <Key>
+      <PropertyRef Name="id_CFDI" />
+    </Key>
+    <Property Name="id_CFDI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaveUsoCFDI" Type="nvarchar" Nullable="false" MaxLength="120" />
+    <Property Name="Descripción" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="PersonaFisica" Type="bit" Nullable="true" />
+    <Property Name="PersonaMoral" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ProductosBloqueoStocks">
+    <Key>
+      <PropertyRef Name="IdBloqueoStock" />
+    </Key>
+    <Property Name="IdBloqueoStock" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Disponible" Type="decimal" Nullable="false" Precision="16" Scale="2" />
+  </EntityType>
+  <EntityType Name="StockRegistroFaltaDeStocks">
+    <Key>
+      <PropertyRef Name="Id_SRFS" />
+    </Key>
+    <Property Name="Id_SRFS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroParte" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="productos_solo_visualizacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="solo_para_Visualizar" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="precios_fantasma">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="preciosFantasma" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="porcentajeFantasma" Type="nvarchar" Nullable="true" MaxLength="3" />
+  </EntityType>
+  <Association Name="fk_contactos_usuarios">
+    <End Role="usuario" Type="tiendaModel.Store.usuarios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="contacto" Type="tiendaModel.Store.contactos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contacto">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_direccionesenvio_usuarios">
+    <End Role="usuario" Type="tiendaModel.Store.usuarios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="direcciones_envio" Type="tiendaModel.Store.direcciones_envio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="direcciones_envio">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_direccionesFact_usuarios">
+    <End Role="usuario" Type="tiendaModel.Store.usuarios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="direcciones_facturacion" Type="tiendaModel.Store.direcciones_facturacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="direcciones_facturacion">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_permisos_usuarios">
+    <End Role="usuario" Type="tiendaModel.Store.usuarios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="permisos_app" Type="tiendaModel.Store.permisos_app" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="permisos_app">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_idUsuario">
+    <End Role="usuario" Type="tiendaModel.Store.usuarios" Multiplicity="0..1" />
+    <End Role="productos_comentarios" Type="tiendaModel.Store.productos_comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="productos_comentarios">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="tiendaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1542,667 +1541,676 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="tiendaModelStoreContainer" CdmEntityContainer="tiendaEntities">
-          <EntitySetMapping Name="base_cotizaciones_estatus">
-            <EntityTypeMapping TypeName="tiendaModel.base_cotizaciones_estatus">
-              <MappingFragment StoreEntitySet="base_cotizaciones_estatus">
-                <ScalarProperty Name="nombreEstatus" ColumnName="nombreEstatus" />
-                <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="productos_comentarios">
-            <EntityTypeMapping TypeName="tiendaModel.productos_comentarios">
-              <MappingFragment StoreEntitySet="productos_comentarios">
-                <ScalarProperty Name="visible" ColumnName="visible" />
-                <ScalarProperty Name="calificación" ColumnName="calificación" />
-                <ScalarProperty Name="comentario" ColumnName="comentario" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="fechaComentario" ColumnName="fechaComentario" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="idComentario" ColumnName="idComentario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="productos_stock">
-            <EntityTypeMapping TypeName="tiendaModel.productos_stock">
-              <MappingFragment StoreEntitySet="productos_stock">
-                <ScalarProperty Name="ubicación_pre" ColumnName="ubicación_pre" />
-                <ScalarProperty Name="fecha_actualización" ColumnName="fecha_actualización" />
-                <ScalarProperty Name="ubicación" ColumnName="ubicación" />
-                <ScalarProperty Name="unidad" ColumnName="unidad" />
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="pedidos_pagos_paypal">
-            <EntityTypeMapping TypeName="tiendaModel.pedidos_pagos_paypal">
-              <MappingFragment StoreEntitySet="pedidos_pagos_paypal">
-                <ScalarProperty Name="paymentID" ColumnName="paymentID" />
-                <ScalarProperty Name="aprobadoAsesor" ColumnName="aprobadoAsesor" />
-                <ScalarProperty Name="fecha_actualización" ColumnName="fecha_actualización" />
-                <ScalarProperty Name="fecha_primerIntento" ColumnName="fecha_primerIntento" />
-                <ScalarProperty Name="monto" ColumnName="monto" />
-                <ScalarProperty Name="moneda" ColumnName="moneda" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="intento" ColumnName="intento" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="idTransacciónPayPal" ColumnName="idTransacciónPayPal" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="glosario">
-            <EntityTypeMapping TypeName="tiendaModel.glosario">
-              <MappingFragment StoreEntitySet="glosario">
-                <ScalarProperty Name="link" ColumnName="link" />
-                <ScalarProperty Name="simbolo" ColumnName="simbolo" />
-                <ScalarProperty Name="descripción" ColumnName="descripción" />
-                <ScalarProperty Name="términoInglés" ColumnName="términoInglés" />
-                <ScalarProperty Name="término" ColumnName="término" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="infografías">
-            <EntityTypeMapping TypeName="tiendaModel.infografías">
-              <MappingFragment StoreEntitySet="infografías">
-                <ScalarProperty Name="nombreArchivo" ColumnName="nombreArchivo" />
-                <ScalarProperty Name="nombreImagenMiniatura" ColumnName="nombreImagenMiniatura" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="descripción" ColumnName="descripción" />
-                <ScalarProperty Name="titulo" ColumnName="titulo" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="carrito_productos">
-            <EntityTypeMapping TypeName="tiendaModel.carrito_productos">
-              <MappingFragment StoreEntitySet="carrito_productos">
-                <ScalarProperty Name="stock2_fecha" ColumnName="stock2_fecha" />
-                <ScalarProperty Name="stock2" ColumnName="stock2" />
-                <ScalarProperty Name="stock1_fecha" ColumnName="stock1_fecha" />
-                <ScalarProperty Name="stock1" ColumnName="stock1" />
-                <ScalarProperty Name="precio_total" ColumnName="precio_total" />
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
-                <ScalarProperty Name="unidad" ColumnName="unidad" />
-                <ScalarProperty Name="fecha_tipo_cambio" ColumnName="fecha_tipo_cambio" />
-                <ScalarProperty Name="tipo_cambio" ColumnName="tipo_cambio" />
-                <ScalarProperty Name="moneda" ColumnName="moneda" />
-                <ScalarProperty Name="marca" ColumnName="marca" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="direcciones_envio">
-            <EntityTypeMapping TypeName="tiendaModel.direcciones_envio">
-              <MappingFragment StoreEntitySet="direcciones_envio">
-                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
-                <ScalarProperty Name="numero_interior" ColumnName="numero_interior" />
-                <ScalarProperty Name="direccion_predeterminada" ColumnName="direccion_predeterminada" />
-                <ScalarProperty Name="referencias" ColumnName="referencias" />
-                <ScalarProperty Name="pais" ColumnName="pais" />
-                <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="delegacion_municipio" ColumnName="delegacion_municipio" />
-                <ScalarProperty Name="colonia" ColumnName="colonia" />
-                <ScalarProperty Name="numero" ColumnName="numero" />
-                <ScalarProperty Name="calle" ColumnName="calle" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="nombre_direccion" ColumnName="nombre_direccion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="direcciones_facturacion">
-            <EntityTypeMapping TypeName="tiendaModel.direcciones_facturacion">
-              <MappingFragment StoreEntitySet="direcciones_facturacion">
-                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
-                <ScalarProperty Name="pais" ColumnName="pais" />
-                <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="delegacion_municipio" ColumnName="delegacion_municipio" />
-                <ScalarProperty Name="colonia" ColumnName="colonia" />
-                <ScalarProperty Name="numero" ColumnName="numero" />
-                <ScalarProperty Name="calle" ColumnName="calle" />
-                <ScalarProperty Name="rfc" ColumnName="rfc" />
-                <ScalarProperty Name="razon_social" ColumnName="razon_social" />
-                <ScalarProperty Name="nombre_direccion" ColumnName="nombre_direccion" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="estados_mexico">
-            <EntityTypeMapping TypeName="tiendaModel.estados_mexico">
-              <MappingFragment StoreEntitySet="estados_mexico">
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="paises">
-            <EntityTypeMapping TypeName="tiendaModel.pais">
-              <MappingFragment StoreEntitySet="paises">
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="pedidos_direccionFacturacion">
-            <EntityTypeMapping TypeName="tiendaModel.pedidos_direccionFacturacion">
-              <MappingFragment StoreEntitySet="pedidos_direccionFacturacion">
-                <ScalarProperty Name="UsoCFDI" ColumnName="UsoCFDI" />
-                <ScalarProperty Name="idDireccionFacturacion" ColumnName="idDireccionFacturacion" />
-                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
-                <ScalarProperty Name="pais" ColumnName="pais" />
-                <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="delegacion_municipio" ColumnName="delegacion_municipio" />
-                <ScalarProperty Name="colonia" ColumnName="colonia" />
-                <ScalarProperty Name="numero" ColumnName="numero" />
-                <ScalarProperty Name="calle" ColumnName="calle" />
-                <ScalarProperty Name="rfc" ColumnName="rfc" />
-                <ScalarProperty Name="razon_social" ColumnName="razon_social" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="pedidos_modificaciones">
-            <EntityTypeMapping TypeName="tiendaModel.pedidos_modificaciones">
-              <MappingFragment StoreEntitySet="pedidos_modificaciones">
-                <ScalarProperty Name="modificada_por" ColumnName="modificada_por" />
-                <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="pedidos_productos">
-            <EntityTypeMapping TypeName="tiendaModel.pedidos_productos">
-              <MappingFragment StoreEntitySet="pedidos_productos">
-                <ScalarProperty Name="stock2_fecha" ColumnName="stock2_fecha" />
-                <ScalarProperty Name="stock2" ColumnName="stock2" />
-                <ScalarProperty Name="stock1_fecha" ColumnName="stock1_fecha" />
-                <ScalarProperty Name="stock1" ColumnName="stock1" />
-                <ScalarProperty Name="precio_total" ColumnName="precio_total" />
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
-                <ScalarProperty Name="unidad" ColumnName="unidad" />
-                <ScalarProperty Name="marca" ColumnName="marca" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="orden" ColumnName="orden" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="pedidos_productos_modificaciones">
-            <EntityTypeMapping TypeName="tiendaModel.pedidos_productos_modificaciones">
-              <MappingFragment StoreEntitySet="pedidos_productos_modificaciones">
-                <ScalarProperty Name="modificada_por" ColumnName="modificada_por" />
-                <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="precios_ListaFija">
-            <EntityTypeMapping TypeName="tiendaModel.precios_ListaFija">
-              <MappingFragment StoreEntitySet="precios_ListaFija">
-                <ScalarProperty Name="moneda_fija" ColumnName="moneda_fija" />
-                <ScalarProperty Name="precio" ColumnName="precio" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="precios_multiplicador">
-            <EntityTypeMapping TypeName="tiendaModel.precios_multiplicador">
-              <MappingFragment StoreEntitySet="precios_multiplicador">
-                <ScalarProperty Name="multiplicador_valor" ColumnName="multiplicador_valor" />
-                <ScalarProperty Name="nombre_multiplicador" ColumnName="nombre_multiplicador" />
-                <ScalarProperty Name="nivel" ColumnName="nivel" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="precios_rangos">
-            <EntityTypeMapping TypeName="tiendaModel.precios_rangos">
-              <MappingFragment StoreEntitySet="precios_rangos">
-                <ScalarProperty Name="max5" ColumnName="max5" />
-                <ScalarProperty Name="precio5" ColumnName="precio5" />
-                <ScalarProperty Name="max4" ColumnName="max4" />
-                <ScalarProperty Name="precio4" ColumnName="precio4" />
-                <ScalarProperty Name="max3" ColumnName="max3" />
-                <ScalarProperty Name="precio3" ColumnName="precio3" />
-                <ScalarProperty Name="max2" ColumnName="max2" />
-                <ScalarProperty Name="precio2" ColumnName="precio2" />
-                <ScalarProperty Name="max1" ColumnName="max1" />
-                <ScalarProperty Name="precio1" ColumnName="precio1" />
-                <ScalarProperty Name="moneda_rangos" ColumnName="moneda_rangos" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="productos_Roles">
-            <EntityTypeMapping TypeName="tiendaModel.productos_Roles">
-              <MappingFragment StoreEntitySet="productos_Roles">
-                <ScalarProperty Name="rol_visibilidad" ColumnName="rol_visibilidad" />
-                <ScalarProperty Name="rol_preciosMultiplicador" ColumnName="rol_preciosMultiplicador" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="productos_unidades">
-            <EntityTypeMapping TypeName="tiendaModel.productos_unidades">
-              <MappingFragment StoreEntitySet="productos_unidades">
-                <ScalarProperty Name="unidad_nombre" ColumnName="unidad_nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="permisos_app">
-            <EntityTypeMapping TypeName="tiendaModel.permisos_app">
-              <MappingFragment StoreEntitySet="permisos_app">
-                <ScalarProperty Name="permiso" ColumnName="permiso" />
-                <ScalarProperty Name="seccion_pagina" ColumnName="seccion_pagina" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cotizaciones_datos">
-            <EntityTypeMapping TypeName="tiendaModel.cotizaciones_datos">
-              <MappingFragment StoreEntitySet="cotizaciones_datos">
-                <ScalarProperty Name="Calculo_Costo_Envio" ColumnName="Calculo_Costo_Envio" />
-                <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
-                <ScalarProperty Name="tipo_cotizacion" ColumnName="tipo_cotizacion" />
-                <ScalarProperty Name="numero_operacion_pedido" ColumnName="numero_operacion_pedido" />
-                <ScalarProperty Name="conversionPedido" ColumnName="conversionPedido" />
-                <ScalarProperty Name="vecesRenovada" ColumnName="vecesRenovada" />
-                <ScalarProperty Name="vigencia" ColumnName="vigencia" />
-                <ScalarProperty Name="comentarios" ColumnName="comentarios" />
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="celular" ColumnName="celular" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="cliente_apellido_materno" ColumnName="cliente_apellido_materno" />
-                <ScalarProperty Name="cliente_apellido_paterno" ColumnName="cliente_apellido_paterno" />
-                <ScalarProperty Name="cliente_nombre" ColumnName="cliente_nombre" />
-                <ScalarProperty Name="usuario_cliente" ColumnName="usuario_cliente" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="mod_asesor" ColumnName="mod_asesor" />
-                <ScalarProperty Name="creada_por" ColumnName="creada_por" />
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="nombre_cotizacion" ColumnName="nombre_cotizacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cotizaciones_productos">
-            <EntityTypeMapping TypeName="tiendaModel.cotizaciones_productos">
-              <MappingFragment StoreEntitySet="cotizaciones_productos">
-                <ScalarProperty Name="stock2_fecha" ColumnName="stock2_fecha" />
-                <ScalarProperty Name="stock2" ColumnName="stock2" />
-                <ScalarProperty Name="stock1_fecha" ColumnName="stock1_fecha" />
-                <ScalarProperty Name="stock1" ColumnName="stock1" />
-                <ScalarProperty Name="precio_total" ColumnName="precio_total" />
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
-                <ScalarProperty Name="unidad" ColumnName="unidad" />
-                <ScalarProperty Name="marca" ColumnName="marca" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="alternativo" ColumnName="alternativo" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="orden" ColumnName="orden" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="productos_Datos">
-            <EntityTypeMapping TypeName="tiendaModel.productos_Datos">
-              <MappingFragment StoreEntitySet="productos_Datos">
-                <ScalarProperty Name="destacado" ColumnName="destacado" />
-                <ScalarProperty Name="avisos" ColumnName="avisos" />
-                <ScalarProperty Name="noParte_Sap" ColumnName="noParte_Sap" />
-                <ScalarProperty Name="RotacionVertical" ColumnName="RotacionVertical" />
-                <ScalarProperty Name="RotacionHorizontal" ColumnName="RotacionHorizontal" />
-                <ScalarProperty Name="disponibleEnvio" ColumnName="disponibleEnvio" />
-                <ScalarProperty Name="disponibleVenta" ColumnName="disponibleVenta" />
-                <ScalarProperty Name="etiquetas" ColumnName="etiquetas" />
-                <ScalarProperty Name="orden" ColumnName="orden" />
-                <ScalarProperty Name="noParte_Competidor" ColumnName="noParte_Competidor" />
-                <ScalarProperty Name="upc" ColumnName="upc" />
-                <ScalarProperty Name="noParte_interno" ColumnName="noParte_interno" />
-                <ScalarProperty Name="noParte_proveedor" ColumnName="noParte_proveedor" />
-                <ScalarProperty Name="atributos" ColumnName="atributos" />
-                <ScalarProperty Name="productos_relacionados" ColumnName="productos_relacionados" />
-                <ScalarProperty Name="producto_alternativo" ColumnName="producto_alternativo" />
-                <ScalarProperty Name="unidad" ColumnName="unidad" />
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="unidad_venta" ColumnName="unidad_venta" />
-                <ScalarProperty Name="video" ColumnName="video" />
-                <ScalarProperty Name="pdf" ColumnName="pdf" />
-                <ScalarProperty Name="profundidad" ColumnName="profundidad" />
-                <ScalarProperty Name="ancho" ColumnName="ancho" />
-                <ScalarProperty Name="alto" ColumnName="alto" />
-                <ScalarProperty Name="peso" ColumnName="peso" />
-                <ScalarProperty Name="metatags" ColumnName="metatags" />
-                <ScalarProperty Name="imagenes" ColumnName="imagenes" />
-                <ScalarProperty Name="categoria_identificador" ColumnName="categoria_identificador" />
-                <ScalarProperty Name="marca" ColumnName="marca" />
-                <ScalarProperty Name="especificaciones" ColumnName="especificaciones" />
-                <ScalarProperty Name="titulo_corto_ingles" ColumnName="titulo_corto_ingles" />
-                <ScalarProperty Name="descripcion_corta" ColumnName="descripcion_corta" />
-                <ScalarProperty Name="titulo" ColumnName="titulo" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="pedidos_pagos_liga_santander">
-            <EntityTypeMapping TypeName="tiendaModel.pedidos_pagos_liga_santander">
-              <MappingFragment StoreEntitySet="pedidos_pagos_liga_santander">
-                <ScalarProperty Name="moneda" ColumnName="moneda" />
-                <ScalarProperty Name="monto" ColumnName="monto" />
-                <ScalarProperty Name="fecha_vigencia" ColumnName="fecha_vigencia" />
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="liga" ColumnName="liga" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="idLigasSantander" ColumnName="idLigasSantander" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="pedidos_pagos_respuesta_santander">
-            <EntityTypeMapping TypeName="tiendaModel.pedidos_pagos_respuesta_santander">
-              <MappingFragment StoreEntitySet="pedidos_pagos_respuesta_santander">
-                <ScalarProperty Name="fecha_actualización" ColumnName="fecha_actualización" />
-                <ScalarProperty Name="fecha_primerIntento" ColumnName="fecha_primerIntento" />
-                <ScalarProperty Name="estatus" ColumnName="estatus" />
-                <ScalarProperty Name="response" ColumnName="response" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="idRespuestasSantander" ColumnName="idRespuestasSantander" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cotizaciones_datosNumericos">
-            <EntityTypeMapping TypeName="tiendaModel.cotizaciones_datosNumericos">
-              <MappingFragment StoreEntitySet="cotizaciones_datosNumericos">
-                <ScalarProperty Name="EnvioNota" ColumnName="EnvioNota" />
-                <ScalarProperty Name="descuento_porcentaje" ColumnName="descuento_porcentaje" />
-                <ScalarProperty Name="descuento" ColumnName="descuento" />
-                <ScalarProperty Name="total" ColumnName="total" />
-                <ScalarProperty Name="nombreImpuestos" ColumnName="nombreImpuestos" />
-                <ScalarProperty Name="impuestos" ColumnName="impuestos" />
-                <ScalarProperty Name="monedaEnvio" ColumnName="monedaEnvio" />
-                <ScalarProperty Name="metodoEnvio" ColumnName="metodoEnvio" />
-                <ScalarProperty Name="envio" ColumnName="envio" />
-                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
-                <ScalarProperty Name="fecha_tipo_cambio" ColumnName="fecha_tipo_cambio" />
-                <ScalarProperty Name="tipo_cambio" ColumnName="tipo_cambio" />
-                <ScalarProperty Name="monedaCotizacion" ColumnName="monedaCotizacion" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cotizaciones_direccionEnvio">
-            <EntityTypeMapping TypeName="tiendaModel.cotizaciones_direccionEnvio">
-              <MappingFragment StoreEntitySet="cotizaciones_direccionEnvio">
-                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
-                <ScalarProperty Name="referencias" ColumnName="referencias" />
-                <ScalarProperty Name="pais" ColumnName="pais" />
-                <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="delegacion_municipio" ColumnName="delegacion_municipio" />
-                <ScalarProperty Name="colonia" ColumnName="colonia" />
-                <ScalarProperty Name="numero" ColumnName="numero" />
-                <ScalarProperty Name="calle" ColumnName="calle" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="pedidos_direccionEnvio">
-            <EntityTypeMapping TypeName="tiendaModel.pedidos_direccionEnvio">
-              <MappingFragment StoreEntitySet="pedidos_direccionEnvio">
-                <ScalarProperty Name="numero_interior" ColumnName="numero_interior" />
-                <ScalarProperty Name="idDireccionEnvio" ColumnName="idDireccionEnvio" />
-                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
-                <ScalarProperty Name="referencias" ColumnName="referencias" />
-                <ScalarProperty Name="pais" ColumnName="pais" />
-                <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="delegacion_municipio" ColumnName="delegacion_municipio" />
-                <ScalarProperty Name="colonia" ColumnName="colonia" />
-                <ScalarProperty Name="numero" ColumnName="numero" />
-                <ScalarProperty Name="calle" ColumnName="calle" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="pedidos_datos">
-            <EntityTypeMapping TypeName="tiendaModel.pedidos_datos">
-              <MappingFragment StoreEntitySet="pedidos_datos">
-                <ScalarProperty Name="idUsuarioSeguimiento" ColumnName="idUsuarioSeguimiento" />
-                <ScalarProperty Name="detalleCancelacionAsesor" ColumnName="detalleCancelacionAsesor" />
-                <ScalarProperty Name="motivoCancelacion" ColumnName="motivoCancelacion" />
-                <ScalarProperty Name="OperacionCancelada" ColumnName="OperacionCancelada" />
-                <ScalarProperty Name="factura" ColumnName="factura" />
-                <ScalarProperty Name="Calculo_Costo_Envio" ColumnName="Calculo_Costo_Envio" />
-                <ScalarProperty Name="numero_operacion_cotizacion" ColumnName="numero_operacion_cotizacion" />
-                <ScalarProperty Name="preCotizacion" ColumnName="preCotizacion" />
-                <ScalarProperty Name="comentarios" ColumnName="comentarios" />
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="celular" ColumnName="celular" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="cliente_apellido_materno" ColumnName="cliente_apellido_materno" />
-                <ScalarProperty Name="cliente_apellido_paterno" ColumnName="cliente_apellido_paterno" />
-                <ScalarProperty Name="cliente_nombre" ColumnName="cliente_nombre" />
-                <ScalarProperty Name="usuario_cliente" ColumnName="usuario_cliente" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="mod_asesor" ColumnName="mod_asesor" />
-                <ScalarProperty Name="creada_por" ColumnName="creada_por" />
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="nombre_pedido" ColumnName="nombre_pedido" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="pedidos_datosNumericos">
-            <EntityTypeMapping TypeName="tiendaModel.pedidos_datosNumericos">
-              <MappingFragment StoreEntitySet="pedidos_datosNumericos">
-                <ScalarProperty Name="EnvioNota" ColumnName="EnvioNota" />
-                <ScalarProperty Name="descuento_porcentaje" ColumnName="descuento_porcentaje" />
-                <ScalarProperty Name="descuento" ColumnName="descuento" />
-                <ScalarProperty Name="total" ColumnName="total" />
-                <ScalarProperty Name="nombreImpuestos" ColumnName="nombreImpuestos" />
-                <ScalarProperty Name="impuestos" ColumnName="impuestos" />
-                <ScalarProperty Name="monedaEnvio" ColumnName="monedaEnvio" />
-                <ScalarProperty Name="metodoEnvio" ColumnName="metodoEnvio" />
-                <ScalarProperty Name="envio" ColumnName="envio" />
-                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
-                <ScalarProperty Name="fecha_tipo_cambio" ColumnName="fecha_tipo_cambio" />
-                <ScalarProperty Name="tipo_cambio" ColumnName="tipo_cambio" />
-                <ScalarProperty Name="monedaPedido" ColumnName="monedaPedido" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="contactos">
-            <EntityTypeMapping TypeName="tiendaModel.contacto">
-              <MappingFragment StoreEntitySet="contactos">
-                <ScalarProperty Name="celular" ColumnName="celular" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="apellido_materno" ColumnName="apellido_materno" />
-                <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="usuarios_ligas_confirmaciones">
-            <EntityTypeMapping TypeName="tiendaModel.usuarios_ligas_confirmaciones">
-              <MappingFragment StoreEntitySet="usuarios_ligas_confirmaciones">
-                <ScalarProperty Name="fecha_vigencia" ColumnName="fecha_vigencia" />
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="clave" ColumnName="clave" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
-                <ScalarProperty Name="idLiga" ColumnName="idLiga" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="categorias">
-            <EntityTypeMapping TypeName="tiendaModel.categoria">
-              <MappingFragment StoreEntitySet="categorias">
-                <ScalarProperty Name="orden" ColumnName="orden" />
-                <ScalarProperty Name="nivel" ColumnName="nivel" />
-                <ScalarProperty Name="asociacion" ColumnName="asociacion" />
-                <ScalarProperty Name="identificador" ColumnName="identificador" />
-                <ScalarProperty Name="productos_Destacados" ColumnName="productos_Destacados" />
-                <ScalarProperty Name="rol_categoria" ColumnName="rol_categoria" />
-                <ScalarProperty Name="imagen" ColumnName="imagen" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="usuarios">
-            <EntityTypeMapping TypeName="tiendaModel.usuario">
-              <MappingFragment StoreEntitySet="usuarios">
-                <ScalarProperty Name="cuenta_activa" ColumnName="cuenta_activa" />
-                <ScalarProperty Name="cuenta_confirmada" ColumnName="cuenta_confirmada" />
-                <ScalarProperty Name="celular" ColumnName="celular" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="registrado_por" ColumnName="registrado_por" />
-                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
-                <ScalarProperty Name="ultimo_inicio_sesion" ColumnName="ultimo_inicio_sesion" />
-                <ScalarProperty Name="grupo_usuario" ColumnName="grupo_usuario" />
-                <ScalarProperty Name="grupo_asesores_adicional" ColumnName="grupo_asesores_adicional" />
-                <ScalarProperty Name="asesor_adicional" ColumnName="asesor_adicional" />
-                <ScalarProperty Name="grupo_asesor" ColumnName="grupo_asesor" />
-                <ScalarProperty Name="asesor_base" ColumnName="asesor_base" />
-                <ScalarProperty Name="rol_categorias" ColumnName="rol_categorias" />
-                <ScalarProperty Name="rol_productos" ColumnName="rol_productos" />
-                <ScalarProperty Name="rol_precios_multiplicador" ColumnName="rol_precios_multiplicador" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-                <ScalarProperty Name="perfil_cliente" ColumnName="perfil_cliente" />
-                <ScalarProperty Name="grupoPrivacidad" ColumnName="grupoPrivacidad" />
-                <ScalarProperty Name="departamento" ColumnName="departamento" />
-                <ScalarProperty Name="rango" ColumnName="rango" />
-                <ScalarProperty Name="tipo_de_usuario" ColumnName="tipo_de_usuario" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="apellido_materno" ColumnName="apellido_materno" />
-                <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="pedidos_pagos_transferencia">
-            <EntityTypeMapping TypeName="tiendaModel.pedidos_pagos_transferencia">
-              <MappingFragment StoreEntitySet="pedidos_pagos_transferencia">
-                <ScalarProperty Name="fecha_confirmacion" ColumnName="fecha_confirmacion" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="confirmacionAsesor" ColumnName="confirmacionAsesor" />
-                <ScalarProperty Name="fecha_captura" ColumnName="fecha_captura" />
-                <ScalarProperty Name="referencia" ColumnName="referencia" />
-                <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
-                <ScalarProperty Name="idRegistroTransferencia" ColumnName="idRegistroTransferencia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="usuariosInfoes">
-            <EntityTypeMapping TypeName="tiendaModel.usuariosInfo">
-              <MappingFragment StoreEntitySet="usuariosInfo">
-                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
-                <ScalarProperty Name="registradoIdAsesor" ColumnName="registradoIdAsesor" />
-                <ScalarProperty Name="registroMetodo" ColumnName="registroMetodo" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PedidosClaveUsoCFDIs">
-            <EntityTypeMapping TypeName="tiendaModel.PedidosClaveUsoCFDI">
-              <MappingFragment StoreEntitySet="PedidosClaveUsoCFDI">
-                <ScalarProperty Name="PersonaMoral" ColumnName="PersonaMoral" />
-                <ScalarProperty Name="PersonaFisica" ColumnName="PersonaFisica" />
-                <ScalarProperty Name="Descripción" ColumnName="Descripción" />
-                <ScalarProperty Name="ClaveUsoCFDI" ColumnName="ClaveUsoCFDI" />
-                <ScalarProperty Name="id_CFDI" ColumnName="id_CFDI" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductosBloqueoStocks">
-            <EntityTypeMapping TypeName="tiendaModel.ProductosBloqueoStock">
-              <MappingFragment StoreEntitySet="ProductosBloqueoStock">
-                <ScalarProperty Name="Disponible" ColumnName="Disponible" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="IdBloqueoStock" ColumnName="IdBloqueoStock" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="productos_solo_visualizacion">
-            <EntityTypeMapping TypeName="tiendaModel.productos_solo_visualizacion">
-              <MappingFragment StoreEntitySet="productos_solo_visualizacion">
-                <ScalarProperty Name="solo_para_Visualizar" ColumnName="solo_para_Visualizar" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="precios_fantasma">
-            <EntityTypeMapping TypeName="tiendaModel.precios_fantasma">
-              <MappingFragment StoreEntitySet="precios_fantasma">
-                <ScalarProperty Name="porcentajeFantasma" ColumnName="porcentajeFantasma" />
-                <ScalarProperty Name="preciosFantasma" ColumnName="preciosFantasma" />
-                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tiendaModelStoreContainer" CdmEntityContainer="tiendaEntities">
+    <EntitySetMapping Name="base_cotizaciones_estatus">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.base_cotizaciones_estatus)">
+        <MappingFragment StoreEntitySet="base_cotizaciones_estatus">
+          <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+          <ScalarProperty Name="nombreEstatus" ColumnName="nombreEstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productos_comentarios">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.productos_comentarios)">
+        <MappingFragment StoreEntitySet="productos_comentarios">
+          <ScalarProperty Name="idComentario" ColumnName="idComentario" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="fechaComentario" ColumnName="fechaComentario" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="calificación" ColumnName="calificación" />
+          <ScalarProperty Name="visible" ColumnName="visible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productos_stock">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.productos_stock)">
+        <MappingFragment StoreEntitySet="productos_stock">
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="unidad" ColumnName="unidad" />
+          <ScalarProperty Name="fecha_actualización" ColumnName="fecha_actualización" />
+          <ScalarProperty Name="ubicación" ColumnName="ubicación" />
+          <ScalarProperty Name="ubicación_pre" ColumnName="ubicación_pre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos_pagos_paypal">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_pagos_paypal)">
+        <MappingFragment StoreEntitySet="pedidos_pagos_paypal">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idTransacciónPayPal" ColumnName="idTransacciónPayPal" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="intento" ColumnName="intento" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="fecha_primerIntento" ColumnName="fecha_primerIntento" />
+          <ScalarProperty Name="fecha_actualización" ColumnName="fecha_actualización" />
+          <ScalarProperty Name="aprobadoAsesor" ColumnName="aprobadoAsesor" />
+          <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="glosario">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.glosario)">
+        <MappingFragment StoreEntitySet="glosario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="término" ColumnName="término" />
+          <ScalarProperty Name="términoInglés" ColumnName="términoInglés" />
+          <ScalarProperty Name="descripción" ColumnName="descripción" />
+          <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          <ScalarProperty Name="link" ColumnName="link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="infografías">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.infografías)">
+        <MappingFragment StoreEntitySet="infografías">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="descripción" ColumnName="descripción" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="nombreImagenMiniatura" ColumnName="nombreImagenMiniatura" />
+          <ScalarProperty Name="nombreArchivo" ColumnName="nombreArchivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="carrito_productos">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.carrito_productos)">
+        <MappingFragment StoreEntitySet="carrito_productos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="tipo_cambio" ColumnName="tipo_cambio" />
+          <ScalarProperty Name="fecha_tipo_cambio" ColumnName="fecha_tipo_cambio" />
+          <ScalarProperty Name="unidad" ColumnName="unidad" />
+          <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="precio_total" ColumnName="precio_total" />
+          <ScalarProperty Name="stock1" ColumnName="stock1" />
+          <ScalarProperty Name="stock1_fecha" ColumnName="stock1_fecha" />
+          <ScalarProperty Name="stock2" ColumnName="stock2" />
+          <ScalarProperty Name="stock2_fecha" ColumnName="stock2_fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="direcciones_envio">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.direcciones_envio)">
+        <MappingFragment StoreEntitySet="direcciones_envio">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre_direccion" ColumnName="nombre_direccion" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="delegacion_municipio" ColumnName="delegacion_municipio" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="referencias" ColumnName="referencias" />
+          <ScalarProperty Name="direccion_predeterminada" ColumnName="direccion_predeterminada" />
+          <ScalarProperty Name="numero_interior" ColumnName="numero_interior" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="direcciones_facturacion">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.direcciones_facturacion)">
+        <MappingFragment StoreEntitySet="direcciones_facturacion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="nombre_direccion" ColumnName="nombre_direccion" />
+          <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="delegacion_municipio" ColumnName="delegacion_municipio" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estados_mexico">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.estados_mexico)">
+        <MappingFragment StoreEntitySet="estados_mexico">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paises">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pais)">
+        <MappingFragment StoreEntitySet="paises">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos_direccionFacturacion">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_direccionFacturacion)">
+        <MappingFragment StoreEntitySet="pedidos_direccionFacturacion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="delegacion_municipio" ColumnName="delegacion_municipio" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="idDireccionFacturacion" ColumnName="idDireccionFacturacion" />
+          <ScalarProperty Name="UsoCFDI" ColumnName="UsoCFDI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos_modificaciones">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_modificaciones)">
+        <MappingFragment StoreEntitySet="pedidos_modificaciones">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+          <ScalarProperty Name="modificada_por" ColumnName="modificada_por" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos_productos">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_productos)">
+        <MappingFragment StoreEntitySet="pedidos_productos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="unidad" ColumnName="unidad" />
+          <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="precio_total" ColumnName="precio_total" />
+          <ScalarProperty Name="stock1" ColumnName="stock1" />
+          <ScalarProperty Name="stock1_fecha" ColumnName="stock1_fecha" />
+          <ScalarProperty Name="stock2" ColumnName="stock2" />
+          <ScalarProperty Name="stock2_fecha" ColumnName="stock2_fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos_productos_modificaciones">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_productos_modificaciones)">
+        <MappingFragment StoreEntitySet="pedidos_productos_modificaciones">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+          <ScalarProperty Name="modificada_por" ColumnName="modificada_por" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="precios_ListaFija">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.precios_ListaFija)">
+        <MappingFragment StoreEntitySet="precios_ListaFija">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="moneda_fija" ColumnName="moneda_fija" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="precios_multiplicador">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.precios_multiplicador)">
+        <MappingFragment StoreEntitySet="precios_multiplicador">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="nombre_multiplicador" ColumnName="nombre_multiplicador" />
+          <ScalarProperty Name="multiplicador_valor" ColumnName="multiplicador_valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="precios_rangos">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.precios_rangos)">
+        <MappingFragment StoreEntitySet="precios_rangos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="moneda_rangos" ColumnName="moneda_rangos" />
+          <ScalarProperty Name="precio1" ColumnName="precio1" />
+          <ScalarProperty Name="max1" ColumnName="max1" />
+          <ScalarProperty Name="precio2" ColumnName="precio2" />
+          <ScalarProperty Name="max2" ColumnName="max2" />
+          <ScalarProperty Name="precio3" ColumnName="precio3" />
+          <ScalarProperty Name="max3" ColumnName="max3" />
+          <ScalarProperty Name="precio4" ColumnName="precio4" />
+          <ScalarProperty Name="max4" ColumnName="max4" />
+          <ScalarProperty Name="precio5" ColumnName="precio5" />
+          <ScalarProperty Name="max5" ColumnName="max5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productos_Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.productos_Roles)">
+        <MappingFragment StoreEntitySet="productos_Roles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="rol_preciosMultiplicador" ColumnName="rol_preciosMultiplicador" />
+          <ScalarProperty Name="rol_visibilidad" ColumnName="rol_visibilidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productos_unidades">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.productos_unidades)">
+        <MappingFragment StoreEntitySet="productos_unidades">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="unidad_nombre" ColumnName="unidad_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permisos_app">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.permisos_app)">
+        <MappingFragment StoreEntitySet="permisos_app">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="seccion_pagina" ColumnName="seccion_pagina" />
+          <ScalarProperty Name="permiso" ColumnName="permiso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cotizaciones_datos">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.cotizaciones_datos)">
+        <MappingFragment StoreEntitySet="cotizaciones_datos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre_cotizacion" ColumnName="nombre_cotizacion" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="creada_por" ColumnName="creada_por" />
+          <ScalarProperty Name="mod_asesor" ColumnName="mod_asesor" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="usuario_cliente" ColumnName="usuario_cliente" />
+          <ScalarProperty Name="cliente_nombre" ColumnName="cliente_nombre" />
+          <ScalarProperty Name="cliente_apellido_paterno" ColumnName="cliente_apellido_paterno" />
+          <ScalarProperty Name="cliente_apellido_materno" ColumnName="cliente_apellido_materno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="vecesRenovada" ColumnName="vecesRenovada" />
+          <ScalarProperty Name="conversionPedido" ColumnName="conversionPedido" />
+          <ScalarProperty Name="numero_operacion_pedido" ColumnName="numero_operacion_pedido" />
+          <ScalarProperty Name="tipo_cotizacion" ColumnName="tipo_cotizacion" />
+          <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+          <ScalarProperty Name="Calculo_Costo_Envio" ColumnName="Calculo_Costo_Envio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cotizaciones_productos">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.cotizaciones_productos)">
+        <MappingFragment StoreEntitySet="cotizaciones_productos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="alternativo" ColumnName="alternativo" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="unidad" ColumnName="unidad" />
+          <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="precio_total" ColumnName="precio_total" />
+          <ScalarProperty Name="stock1" ColumnName="stock1" />
+          <ScalarProperty Name="stock1_fecha" ColumnName="stock1_fecha" />
+          <ScalarProperty Name="stock2" ColumnName="stock2" />
+          <ScalarProperty Name="stock2_fecha" ColumnName="stock2_fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productos_Datos">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.productos_Datos)">
+        <MappingFragment StoreEntitySet="productos_Datos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="descripcion_corta" ColumnName="descripcion_corta" />
+          <ScalarProperty Name="titulo_corto_ingles" ColumnName="titulo_corto_ingles" />
+          <ScalarProperty Name="especificaciones" ColumnName="especificaciones" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="categoria_identificador" ColumnName="categoria_identificador" />
+          <ScalarProperty Name="imagenes" ColumnName="imagenes" />
+          <ScalarProperty Name="metatags" ColumnName="metatags" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+          <ScalarProperty Name="alto" ColumnName="alto" />
+          <ScalarProperty Name="ancho" ColumnName="ancho" />
+          <ScalarProperty Name="profundidad" ColumnName="profundidad" />
+          <ScalarProperty Name="pdf" ColumnName="pdf" />
+          <ScalarProperty Name="video" ColumnName="video" />
+          <ScalarProperty Name="unidad_venta" ColumnName="unidad_venta" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="unidad" ColumnName="unidad" />
+          <ScalarProperty Name="producto_alternativo" ColumnName="producto_alternativo" />
+          <ScalarProperty Name="productos_relacionados" ColumnName="productos_relacionados" />
+          <ScalarProperty Name="atributos" ColumnName="atributos" />
+          <ScalarProperty Name="noParte_proveedor" ColumnName="noParte_proveedor" />
+          <ScalarProperty Name="noParte_interno" ColumnName="noParte_interno" />
+          <ScalarProperty Name="upc" ColumnName="upc" />
+          <ScalarProperty Name="noParte_Competidor" ColumnName="noParte_Competidor" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="etiquetas" ColumnName="etiquetas" />
+          <ScalarProperty Name="disponibleVenta" ColumnName="disponibleVenta" />
+          <ScalarProperty Name="disponibleEnvio" ColumnName="disponibleEnvio" />
+          <ScalarProperty Name="RotacionHorizontal" ColumnName="RotacionHorizontal" />
+          <ScalarProperty Name="RotacionVertical" ColumnName="RotacionVertical" />
+          <ScalarProperty Name="noParte_Sap" ColumnName="noParte_Sap" />
+          <ScalarProperty Name="avisos" ColumnName="avisos" />
+          <ScalarProperty Name="destacado" ColumnName="destacado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos_pagos_liga_santander">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_pagos_liga_santander)">
+        <MappingFragment StoreEntitySet="pedidos_pagos_liga_santander">
+          <ScalarProperty Name="idLigasSantander" ColumnName="idLigasSantander" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="liga" ColumnName="liga" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="fecha_vigencia" ColumnName="fecha_vigencia" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos_pagos_respuesta_santander">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_pagos_respuesta_santander)">
+        <MappingFragment StoreEntitySet="pedidos_pagos_respuesta_santander">
+          <ScalarProperty Name="idRespuestasSantander" ColumnName="idRespuestasSantander" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="response" ColumnName="response" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="fecha_primerIntento" ColumnName="fecha_primerIntento" />
+          <ScalarProperty Name="fecha_actualización" ColumnName="fecha_actualización" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cotizaciones_datosNumericos">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.cotizaciones_datosNumericos)">
+        <MappingFragment StoreEntitySet="cotizaciones_datosNumericos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="monedaCotizacion" ColumnName="monedaCotizacion" />
+          <ScalarProperty Name="tipo_cambio" ColumnName="tipo_cambio" />
+          <ScalarProperty Name="fecha_tipo_cambio" ColumnName="fecha_tipo_cambio" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="envio" ColumnName="envio" />
+          <ScalarProperty Name="metodoEnvio" ColumnName="metodoEnvio" />
+          <ScalarProperty Name="monedaEnvio" ColumnName="monedaEnvio" />
+          <ScalarProperty Name="impuestos" ColumnName="impuestos" />
+          <ScalarProperty Name="nombreImpuestos" ColumnName="nombreImpuestos" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="descuento" ColumnName="descuento" />
+          <ScalarProperty Name="descuento_porcentaje" ColumnName="descuento_porcentaje" />
+          <ScalarProperty Name="EnvioNota" ColumnName="EnvioNota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cotizaciones_direccionEnvio">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.cotizaciones_direccionEnvio)">
+        <MappingFragment StoreEntitySet="cotizaciones_direccionEnvio">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="delegacion_municipio" ColumnName="delegacion_municipio" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="referencias" ColumnName="referencias" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos_direccionEnvio">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_direccionEnvio)">
+        <MappingFragment StoreEntitySet="pedidos_direccionEnvio">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="delegacion_municipio" ColumnName="delegacion_municipio" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="codigo_postal" ColumnName="codigo_postal" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="referencias" ColumnName="referencias" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="idDireccionEnvio" ColumnName="idDireccionEnvio" />
+          <ScalarProperty Name="numero_interior" ColumnName="numero_interior" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos_datos">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_datos)">
+        <MappingFragment StoreEntitySet="pedidos_datos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre_pedido" ColumnName="nombre_pedido" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="creada_por" ColumnName="creada_por" />
+          <ScalarProperty Name="mod_asesor" ColumnName="mod_asesor" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="usuario_cliente" ColumnName="usuario_cliente" />
+          <ScalarProperty Name="cliente_nombre" ColumnName="cliente_nombre" />
+          <ScalarProperty Name="cliente_apellido_paterno" ColumnName="cliente_apellido_paterno" />
+          <ScalarProperty Name="cliente_apellido_materno" ColumnName="cliente_apellido_materno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+          <ScalarProperty Name="preCotizacion" ColumnName="preCotizacion" />
+          <ScalarProperty Name="numero_operacion_cotizacion" ColumnName="numero_operacion_cotizacion" />
+          <ScalarProperty Name="Calculo_Costo_Envio" ColumnName="Calculo_Costo_Envio" />
+          <ScalarProperty Name="factura" ColumnName="factura" />
+          <ScalarProperty Name="OperacionCancelada" ColumnName="OperacionCancelada" />
+          <ScalarProperty Name="motivoCancelacion" ColumnName="motivoCancelacion" />
+          <ScalarProperty Name="detalleCancelacionAsesor" ColumnName="detalleCancelacionAsesor" />
+          <ScalarProperty Name="idUsuarioSeguimiento" ColumnName="idUsuarioSeguimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos_datosNumericos">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_datosNumericos)">
+        <MappingFragment StoreEntitySet="pedidos_datosNumericos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="monedaPedido" ColumnName="monedaPedido" />
+          <ScalarProperty Name="tipo_cambio" ColumnName="tipo_cambio" />
+          <ScalarProperty Name="fecha_tipo_cambio" ColumnName="fecha_tipo_cambio" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="envio" ColumnName="envio" />
+          <ScalarProperty Name="metodoEnvio" ColumnName="metodoEnvio" />
+          <ScalarProperty Name="monedaEnvio" ColumnName="monedaEnvio" />
+          <ScalarProperty Name="impuestos" ColumnName="impuestos" />
+          <ScalarProperty Name="nombreImpuestos" ColumnName="nombreImpuestos" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="descuento" ColumnName="descuento" />
+          <ScalarProperty Name="descuento_porcentaje" ColumnName="descuento_porcentaje" />
+          <ScalarProperty Name="EnvioNota" ColumnName="EnvioNota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contactos">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.contacto)">
+        <MappingFragment StoreEntitySet="contactos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
+          <ScalarProperty Name="apellido_materno" ColumnName="apellido_materno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios_ligas_confirmaciones">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.usuarios_ligas_confirmaciones)">
+        <MappingFragment StoreEntitySet="usuarios_ligas_confirmaciones">
+          <ScalarProperty Name="idLiga" ColumnName="idLiga" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="fecha_vigencia" ColumnName="fecha_vigencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categorias">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.categoria)">
+        <MappingFragment StoreEntitySet="categorias">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="rol_categoria" ColumnName="rol_categoria" />
+          <ScalarProperty Name="productos_Destacados" ColumnName="productos_Destacados" />
+          <ScalarProperty Name="identificador" ColumnName="identificador" />
+          <ScalarProperty Name="asociacion" ColumnName="asociacion" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.usuario)">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
+          <ScalarProperty Name="apellido_materno" ColumnName="apellido_materno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="tipo_de_usuario" ColumnName="tipo_de_usuario" />
+          <ScalarProperty Name="rango" ColumnName="rango" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="grupoPrivacidad" ColumnName="grupoPrivacidad" />
+          <ScalarProperty Name="perfil_cliente" ColumnName="perfil_cliente" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="rol_precios_multiplicador" ColumnName="rol_precios_multiplicador" />
+          <ScalarProperty Name="rol_productos" ColumnName="rol_productos" />
+          <ScalarProperty Name="rol_categorias" ColumnName="rol_categorias" />
+          <ScalarProperty Name="asesor_base" ColumnName="asesor_base" />
+          <ScalarProperty Name="grupo_asesor" ColumnName="grupo_asesor" />
+          <ScalarProperty Name="asesor_adicional" ColumnName="asesor_adicional" />
+          <ScalarProperty Name="grupo_asesores_adicional" ColumnName="grupo_asesores_adicional" />
+          <ScalarProperty Name="grupo_usuario" ColumnName="grupo_usuario" />
+          <ScalarProperty Name="ultimo_inicio_sesion" ColumnName="ultimo_inicio_sesion" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="registrado_por" ColumnName="registrado_por" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="cuenta_confirmada" ColumnName="cuenta_confirmada" />
+          <ScalarProperty Name="cuenta_activa" ColumnName="cuenta_activa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos_pagos_transferencia">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_pagos_transferencia)">
+        <MappingFragment StoreEntitySet="pedidos_pagos_transferencia">
+          <ScalarProperty Name="idRegistroTransferencia" ColumnName="idRegistroTransferencia" />
+          <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
+          <ScalarProperty Name="referencia" ColumnName="referencia" />
+          <ScalarProperty Name="fecha_captura" ColumnName="fecha_captura" />
+          <ScalarProperty Name="confirmacionAsesor" ColumnName="confirmacionAsesor" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="fecha_confirmacion" ColumnName="fecha_confirmacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuariosInfoes">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.usuariosInfo)">
+        <MappingFragment StoreEntitySet="usuariosInfoes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="registroMetodo" ColumnName="registroMetodo" />
+          <ScalarProperty Name="registradoIdAsesor" ColumnName="registradoIdAsesor" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PedidosClaveUsoCFDIs">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.PedidosClaveUsoCFDI)">
+        <MappingFragment StoreEntitySet="PedidosClaveUsoCFDIs">
+          <ScalarProperty Name="id_CFDI" ColumnName="id_CFDI" />
+          <ScalarProperty Name="ClaveUsoCFDI" ColumnName="ClaveUsoCFDI" />
+          <ScalarProperty Name="Descripción" ColumnName="Descripción" />
+          <ScalarProperty Name="PersonaFisica" ColumnName="PersonaFisica" />
+          <ScalarProperty Name="PersonaMoral" ColumnName="PersonaMoral" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductosBloqueoStocks">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.ProductosBloqueoStock)">
+        <MappingFragment StoreEntitySet="ProductosBloqueoStocks">
+          <ScalarProperty Name="IdBloqueoStock" ColumnName="IdBloqueoStock" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockRegistroFaltaDeStocks">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.StockRegistroFaltaDeStock)">
+        <MappingFragment StoreEntitySet="StockRegistroFaltaDeStocks">
+          <ScalarProperty Name="Id_SRFS" ColumnName="Id_SRFS" />
+          <ScalarProperty Name="NumeroParte" ColumnName="NumeroParte" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productos_solo_visualizacion">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.productos_solo_visualizacion)">
+        <MappingFragment StoreEntitySet="productos_solo_visualizacion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="solo_para_Visualizar" ColumnName="solo_para_Visualizar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="precios_fantasma">
+      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.precios_fantasma)">
+        <MappingFragment StoreEntitySet="precios_fantasma">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+          <ScalarProperty Name="preciosFantasma" ColumnName="preciosFantasma" />
+          <ScalarProperty Name="porcentajeFantasma" ColumnName="porcentajeFantasma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -2216,7 +2224,7 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>
