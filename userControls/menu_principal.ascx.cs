@@ -44,7 +44,7 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         HtmlGenericControl catalogos = new HtmlGenericControl("li");
         catalogos.ID = "content-menu-incom-catalogos";
         catalogos.ClientIDMode = ClientIDMode.Static;
-        catalogos.InnerHtml = "<a title = 'Catalogos'  href = '/' >Catálogos<img alt = 'Flecha de desplazamiento para ver menu' id = 'menu_icon_catalogos' src = '../img/webUI/newdesign/Flecha.svg'></a>" +
+        catalogos.InnerHtml = "<a title='Catalogos'  href='#'>Catálogos<img alt ='Flecha de desplazamiento para ver menu' id='menu_icon_catalogos' src ='../img/webUI/newdesign/Flecha.svg'></a>" +
                 "<ul>" +
                     "<li><a href'/documents/pdf/CATALOGO_INCOM_FIBRA_OPTICA.pdf' target='_blank' title='Fibra Óptica'>Fibra óptica</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_AEREO.pdf' target='_blank' title='Aéreo'>Instalación aérea</a></li>" +
@@ -56,7 +56,7 @@ public partial class menuPrincipal : System.Web.UI.UserControl
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_ELECTRICO.pdf' target='_blank' title='Soluciones eléctricas'>Eléctrico</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_FERRETERIA.pdf' target='_blank' title='Ferretería'>Ferretería</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_BLOQUEO.pdf' target='_blank' title='Bloqueo'>Seguridad industrial</a></li>" +
-                    "<li><a href='/documents/pdf/CATALOGO_2RENT.pdf' target='_blank' title='2Rent Venta y Renta'>Venta y renta'</a></li>" +
+                    "<li><a href='/documents/pdf/CATALOGO_2RENT.pdf' target='_blank' title='2Rent Venta y Renta'>Venta y renta</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_MAQUINAS_PARA_SOPLADO_FREMCO.pdf' target='_blank' title='Fremco'>Sopladoras Fremco</a></li>" +
                     "<li><a href='/documents/pdf/INCOM_CATALOGO_SOLUCION_FIBRA_SOPLADA.pdf' target='_blank' title='Solución Fibra Soplada'>Solución fibra soplada</a></li>" +
                     "<li><a href='/documents/promos/CATALOGO_INCOM_LIQUIDACION.pdf' target='_blank' title='Liquidación'>Liquidación</a></li>" +

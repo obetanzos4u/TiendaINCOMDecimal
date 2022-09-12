@@ -19,9 +19,9 @@
 .producto_precio {
     font-weight: 600;
     font-size: 0.9rem;
-    color: #05a512;
-    
+    color: #05a512; 
 }
+
 .producto_moneda{
 
 }
@@ -30,6 +30,80 @@
     columns: 1;
     -webkit-columns: 1;
     -moz-columns: 1;
+}
+
+
+/*Ruta de las categorias*/
+
+.contain-nav-wrapper_producto {
+    background-color: #01568D !important;
+    height: 40px;
+    display: flex;
+    top: -2rem;
+    position: relative;
+    align-items: center;
+    padding-top: 0.5rem;
+    align-items: center;
+    padding-top: 0.5rem;
+}
+
+#nav_categorias_breadcrumb {
+    background-color: #01568D !important;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-top: 0.5rem;
+    align-items: center;
+    padding-top: 0.5rem;
+}
+
+.categorias_todas {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30vh;
+    row-gap: 2rem;
+    column-gap: 1rem;
+}
+
+.img-item_categoria {
+    width: 299px;
+}
+
+.img1-item_categoria {
+    width: 240px;
+}
+
+.img2-item_categoria {
+    width: 299px;
+}
+
+.this_categoria {
+    width: 200px;
+    height: 90px;
+    margin: 1.5rem;
+}
+
+.imgage-categoria {
+    width: 300px;
+    height:90px;
+}
+
+.nav-wrapper {
+    height: 100%;
+}
+
+/*Nuevos estilos */
+#item_categoria {
+    margin: auto;
+    border: 3px solid #0b79d0;
+}
+
+@media (min-width: 1600px) {
+
+    #general_categoria-container {
+        padding-left: 7rem;
+        padding-right: 7rem;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -207,7 +281,7 @@ a.aspNetDisabled {
     
     .input-field > label {
         top: -6px !important;
-        font-size: 1.2rem !important;
+        font-size: 1.2rem;
     }
 .input-field.col label {
     left: 1rem;

@@ -148,9 +148,53 @@
             }
         </style>
         <style>
+
+            #titulo_categoria {
+                font-family: "Monserrat"; 
+                color: aqua !important;
+                font-size: 0.8rem;
+            }
+
+            #descripcion_categoria {
+                font-family: "Monserrat"; 
+                color: aqua !important;
+                font-size: 0.8rem;
+            }
+
+            #top_contenido_titulo_categoria {
+                color: #000000;
+                font-family: "Monserrat";
+                font-size: 1rem !important;
+                margin: 1rem;
+                z-index: 1;
+            }
+/*
+            .ruta_productos {
+                color: black;
+                background-color: #01568D;
+                height: 3rem;
+                width: 100%;
+                align-items: center;
+                display: flex;
+            }*/
+
+            #top_contenido_descripcion_categoria {
+/*              font-family: "Monserrat";
+                color: #2d8bff;
+                font-size: 1rem !important;
+                margin-top:0;*/
+                display: none;
+                z-index: 1;
+            }
+
+            #general_categoria-container {
+                margin: 2rem 0px !important; 
+                border: 1px solid red;
+            }
+
             #menuProductosContenido {
                 height: auto;
-                overflow: auto;
+                 overflow-x: hidden;
             }
 
             #contenedorMenu {
@@ -441,17 +485,37 @@
                     display: none;
                 }
 
+                /*Ruta de las categorias*/
                 nav#nav_categorias_breadcrumb {
                     display: table;
                 }
 
                 .breadcrumb {
-                    font-size: 16px;
+                    font-size: 20px;
                 }
 
                     .breadcrumb:before {
                         margin: 0;
                     }
+
+                #titulo_categoria {
+                    font-family: "Monserrat"; 
+                    color: aqua !important;
+                    font-size: 0.8rem;
+                }
+
+                #descripcion_categoria {
+                    font-family: "Monserrat"; 
+                    color: aqua !important;
+                    font-size: 0.8rem;
+                }
+
+                #top_contenido_titulo_categoria {
+                    color: aqua;
+                    font-family: "Monserrat";
+                    font-size: 0.8rem !important;
+                    z-index: 1;
+                }
             }
 
             @media (max-width: 1000px) {

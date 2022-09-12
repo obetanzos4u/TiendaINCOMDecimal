@@ -88,7 +88,7 @@
 
         </div>
         <!-- FIN : Filtros y orden -->
-        <div id="contentResultados" style="margin: auto 0px !important; display: grid; grid-gap: 5px; grid-template-columns: 170px  auto; grid-template-areas: 'sidebar content'">
+        <div id="contentResultados">
             <div style="grid-area: sidebar; position: fixed; width: min-content; left: 0px;">
 
 
@@ -409,6 +409,15 @@
       font-family: monospace;
  
     }
+
+    #contentResultados {
+    margin: 0px !important;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 170px auto;
+    grid-template-areas: 'sidebar content';
+    }
+
  </style>
  
 

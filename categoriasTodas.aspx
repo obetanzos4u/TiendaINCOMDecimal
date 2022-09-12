@@ -7,14 +7,15 @@
         <div class="row">
             <h1 id="titulo_categoria" runat="server">Productos</h1>
             <h2 id="descripcion_categoria" runat="server"></h2>
-       <nav>
-        <div class="nav-wrapper  blue-grey  lighten-1">
+       <div class="contain-nav-wrapper_producto">
+        <div class="nav-wrapper">
             <div id="navegacion" runat="server" style="" class=" col l12">
                 <asp:HyperLink ID="categoriasTodas" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
             </div></div>
-        </nav>
+        </div>
     </div>
-        <div class="row">
+        <%--<div class="row categorias_todas">--%>
+        <div class="categorias_todas">
             <uc_cat:categoriasTodas runat="server"></uc_cat:categoriasTodas>
         </div>
      <div class="row">

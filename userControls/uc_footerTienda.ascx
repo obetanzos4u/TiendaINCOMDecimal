@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_footerTienda.ascx.cs" Inherits="uc_footerTienda" %>
 
-<footer class="is-text-white">
+<footer class="is-text-white is-my-5">
         <div class="is-px-xl is-py-2-mx is-py-2 is-bg-footer is-text-white">
             <div class="is-grid-xl is-col-footer is-gap-4 is-px-8-sm">
                 <div class="is-flex-xl is-flex-col-xl is-justify-start is-items-start">
