@@ -2,35 +2,32 @@
 <%@ Register Src="~/userControls/ui/homeSlider.ascx" TagName="sliderHome" TagPrefix="uc1" %>
 <%@ Register Src="~/userControls/categoriasTodas.ascx" TagName="categoriasTodas" TagPrefix="uc_cat" %>
 <%@ Register Src="~/userControls/ui/catalogosSlider.ascx" TagName="sliderCatalogos" TagPrefix="uc1" %>
+<%@ Register Src="~/userControls/ui/destacadosSlider.ascx" TagName="sliderDestacados" TagPrefix="uc1" %>
 <%--<%@ Register Src="~/userControls/productosVisitadosFullWidth.ascx" TagName="visitados" TagPrefix="productos" %>--%>
-
-
-
-
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
     <script type="application/ld+json">
-{
-"@context": "http://schema.org",
-"@type": "Organization",
-"url": "https://www.incom.mx",
-"name": "Incom",
-"address": {
-     "@type": "PostalAddress",
-    "addressLocality": "Iztacalco",
-    "addressRegion": "Ciudad de México",
-    "postalCode":"08710",
-    "streetAddress": "Plutarco Elias Calles 276"
-},
- "contactPoint": {
- "@type": "ContactPoint",
-   "contactType" : "customer service",
- "telephone": "+1 55 5243 6900"},
+        {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "https://www.incom.mx",
+        "name": "Incom",
+        "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Iztacalco",
+        "addressRegion": "Ciudad de México",
+        "postalCode":"08710",
+        "streetAddress": "Plutarco Elias Calles 276"
+        },
+        "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType" : "customer service",
+        "telephone": "+1 55 5243 6900"},
   
- "sameAs" : [ "http://www.facebook.com/incommexico",
- "http://www.twitter.com/incom_mx"
-    ]
- }
+        "sameAs" : [ "http://www.facebook.com/incommexico",
+        "http://www.twitter.com/incom_mx"
+        ]
+        }
     </script>
     <div class="main_container is-px-xl">
 <%--        <div class="row center-align margin-b-2x"  >
@@ -54,10 +51,7 @@
         </section>
 
     <div class="row center-align">
- 
-      
-        <p class="txt_productos_destacados">Productos desatacados</p>
-
+        <uc1:sliderDestacados ID="uc_SliderDestacados" runat="server" ></uc1:sliderDestacados>
     </div>
 
     <section class="title_categorias">

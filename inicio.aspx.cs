@@ -6,17 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 using System.Web.UI.HtmlControls;
- 
+
 
 public partial class inicio : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack) {
-
- 
-         
-
+        if (!IsPostBack)
+        {
             Page.Title = "INCOM ® productos de telecomunicaciones y fibra óptica en México";
             Page.MetaDescription = "Somos distribuidores con más de 18 años en Fibra óptica, cableado estructurado, CATV, identificación, telefonía, redes externas aéreas y subterráneas.";
 
@@ -41,10 +38,10 @@ public partial class inicio : System.Web.UI.Page
             HtmlMeta og_type = new HtmlMeta();
 
             og_site_name.Attributes.Add("property", "og:site_name");
-            og_site_name.Content = "Incom México"; 
-                
-                og_title.Attributes.Add("property", "og:title");
-            og_title.Content = this.Page.Title; 
+            og_site_name.Content = "Incom México";
+
+            og_title.Attributes.Add("property", "og:title");
+            og_title.Content = this.Page.Title;
 
             og_description.Attributes.Add("property", "og:description");
             og_description.Content = this.Page.MetaDescription;
@@ -88,7 +85,7 @@ public partial class inicio : System.Web.UI.Page
             tw_site.Content = "@incom_mx";
 
             tw_image.Attributes.Add("name", "twitter:image");
-            tw_image.Content = Request.Url.GetLeftPart(UriPartial.Authority)+ "/img/webUI/incom_retail_logo_header_white.png";
+            tw_image.Content = Request.Url.GetLeftPart(UriPartial.Authority) + "/img/webUI/incom_retail_logo_header_white.png";
 
 
 

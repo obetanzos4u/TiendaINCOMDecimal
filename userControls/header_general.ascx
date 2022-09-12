@@ -148,7 +148,7 @@
                     <img class="icon_menu" src="../img/webUI/newdesign/Menu.svg" />
                 </a>
             </div>
-            <a title="Incom Retail" class="content_mobile_logo" href="http://localhost:63722/">
+            <a title="Incom Retail" class="content_mobile_logo" href="<%=Request.Url.GetLeftPart(UriPartial.Authority) %>">
                 <img src="../img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="mobile_logo" />
             </a>
             <%--            <a title="Incom Retail" class="content_header_logo" href='<%= HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) %>'>
@@ -182,7 +182,7 @@
                 </div>--%>
             </div>
             <div class="header_toolbar is-py-xl">
-                <a title="Incom Retail" class="content_header_logo" href="http://localhost:63722/">
+                <a title="Incom Retail" class="content_header_logo" href="<%=Request.Url.GetLeftPart(UriPartial.Authority) %>">
                     <img src="../img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="logotipo_home is-space-x-7" />
                 </a>
                 <div class="menu_middle">

@@ -503,6 +503,7 @@ public partial class productos_Datos
     public Nullable<bool> RotacionVertical { get; set; }
     public string noParte_Sap { get; set; }
     public string avisos { get; set; }
+    public Nullable<int> destacado { get; set; }
 }
 
 public partial class productos_Roles

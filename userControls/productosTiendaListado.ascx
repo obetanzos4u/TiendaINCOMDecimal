@@ -54,15 +54,10 @@
     } -->
 </style>
 <script>
-
     async function producto_agregar_carrito_Service(btn) {
-
         var idLoading = btnLoadingHide(btn);
-
         var numero_parte = document.querySelector("#producto_disponibilidad_numero_parte").textContent;
         var cantidad = document.querySelector("#txt_producto_cantidad_disponibilidad").value;
-
-
         ///AJAX request
         $.ajax(
             {
@@ -81,34 +76,24 @@
                     //before event  
                 },
                 success: function (e) {
-
                     var jsonResultado = JSON.parse(e);
-
-                    console.log(jsonResultado);
-
+                    //console.log(jsonResultado);
                     crear_toast(jsonResultado.message, jsonResultado.result)
                     $("#btnTotalProductosCarrito").click();
-
                     btnLoadingShow(btn, idLoading);
-
                 },
                 error: function (e) {
                     crear_toast("Ocurrio un error intenta más tarde", false);
                     btnLoadingShow(btn, idLoading);
-
                     //errorHandler
                 },
-
                 //  data: formData,
                 ///Options to tell JQuery not to process data or worry about content-type
                 cache: false,
                 contentType: false,
                 processData: false
             });
-
-
-
-    } 
+    }
 </script>
 <div class="producto-main_container row">
     <!--Clases anteriores de este componente col s12 m12 l12 xl12 style="margin: auto 0px !important; min-height: 330px;" -->
@@ -126,14 +111,10 @@
                 <label>Busca por: Nombre de cotización ó Número de operación</label>
                 <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización ó Número de operación" AutoPostBack="true" OnTextChanged="cargarProductos" runat="server"></asp:TextBox>
             </div>
-
-
         </div>
         <!-- FIN : Filtros y orden -->
         <div id="contentResultados">
             <div class="contentResultados-sidedar">
-
-
                 <div runat="server" id="Div1" class="input-field fixInput">
                     <label class="label-filtro_producto" style="position: initial;">Filtrar por categoria</label>
                     <asp:DropDownList ID="ddl_filtroCategorias" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
@@ -149,7 +130,6 @@
                         <asp:ListItem Text="Todas las marcas" Value=""></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
-
                 <div class="input-field fixInput hide">
                     <label class="label-filtro_producto" style="position: initial;">Ordenar por</label>
                     <asp:DropDownList ID="ddl_ordenBy" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
@@ -158,7 +138,6 @@
                         <asp:ListItem Value="marca" Text="Marca"></asp:ListItem>
                         <asp:ListItem Value="precio1" Text="Precio"></asp:ListItem>
                     </asp:DropDownList>
-                </div>
 
                 <div class="input-field  fixInput hide">
                     <label class="label-filtro_producto" style="position: initial;">Ordenar por</label>
@@ -167,23 +146,25 @@
                         <asp:ListItem Value="DESC" Text="Descendente"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
-
                 <div class="input-field fixInput">
                     <label class="label-filtro_producto" style="position: initial;">Moneda</label>
                     <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
                 </div>
 
+
+               
+
                 <div class="fixInput  hide-on-small-only hide-on-med-only">
                     <productos:visitados ID="ProductosVisitados" runat="server"></productos:visitados>
                 </div>
-
             </div>
 
             <div class="contentResultados-content">
 
+
                 <asp:ListView ID="lv_productos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                     <LayoutTemplate>
-                        <div class="row listado-categorias">
+                        <div class="row">
                             <asp:DataPager ID="dp_1" class="dataPager_productos" runat="server" Visible="true" PagedControlID="lv_productos"
                                 PageSize="50" QueryStringField="PageId">
                                 <Fields>
@@ -197,37 +178,30 @@
                             </asp:DataPager>
 
                         </div>
-                        <div class="row results-products" >
+                        <div class="row">
                             <div runat="server" id="itemPlaceholder"></div>
                         </div>
-                        <div class="row">
-                            <asp:DataPager ID="dp_2" class="dataPager_productos" Visible="true" runat="server" style="margin: 13px 0px;" PagedControlID="lv_productos"
-                                PageSize="50" QueryStringField="PageId">
+                        <div class="is-flex is-justify-center is-items-center is-py-4 borderTest">
+                            <asp:DataPager ID="dp_2" class="" Visible="true" runat="server" PagedControlID="lv_productos" PageSize="50" QueryStringField="PageId">
                                 <Fields>
-                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="pagerButton"
-                                        PreviousPageText="Anterior &nbsp;" FirstPageText=" « Primera;" ShowFirstPageButton="False" ShowNextPageButton="False" />
-                                    <asp:NumericPagerField CurrentPageLabelCssClass="pagerButtonCurrentPage" RenderNonBreakingSpacesBetweenControls="false"
-                                        NextPreviousButtonCssClass="pagerButton" NumericButtonCssClass="pagerButton" />
-                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="pagerButton"
-                                        LastPageText=" Última »" NextPageText=" Siguiente »" ShowLastPageButton="False" ShowPreviousPageButton="False" />
+                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="" PreviousPageText="Anterior" FirstPageText="&#10092;&#10092; Primera;" ShowFirstPageButton="False" ShowNextPageButton="False" />
+                                    <asp:NumericPagerField CurrentPageLabelCssClass="pagerButtonCurrentPage" RenderNonBreakingSpacesBetweenControls="false" NextPreviousButtonCssClass="pagerButton" NumericButtonCssClass="pagerButton" />
+                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="pagerButton" LastPageText=" Última »" NextPageText="Siguiente &#10093;&#10093;" ShowLastPageButton="False" ShowPreviousPageButton="False" />
                                 </Fields>
                             </asp:DataPager>
                         </div>
-
                     </LayoutTemplate>
                     <ItemTemplate>
-                        <div id="item_producto" runat="server" class="cajaProductosFCO ">
-                            <div style="padding: 0px !important" class="card ">
-                                <div class='card-image waves-effect waves-block waves-light content_imgProducto_<%# Eval("id") %>'>
+                        <%-- class="cajaProductosFCO borderTest" --%>
+                        <div id="item_producto" runat="server" style="width: 200px; float: left; margin: 0 30px;">
+                            <div style="padding: 0" class="is-cursor-pointer borderTest">
+                                <div class='content_imgProducto_<%# Eval("id") %>'>
+                                    <%-- Cotizar: waves-effect --%>
                                     <asp:Panel ID="contentSlider" runat="server"></asp:Panel>
-
-                                    <asp:HyperLink ID="link_productoIMG" Visible="false" runat="server">
-                                       
-                                    </asp:HyperLink>
-                                    <uc1:btn_addOperacion ID="productoAddOperacion" numero_parte='<%# Eval("numero_parte") %>'
-                                        descripcion_corta='<%# Eval("descripcion_corta") %>' runat="server"></uc1:btn_addOperacion>
-                                        <asp:Label ID="lbl_descuento_porcentaje_fantasma"   Visible="false"
-                                        class="red white-text" style="padding: 2px 5px; position: absolute; top: 24px;" runat="server" ></asp:Label>
+                                    <asp:HyperLink ID="link_productoIMG" Visible="false" runat="server"></asp:HyperLink>
+                                    <%--<uc1:btn_addOperacion ID="productoAddOperacion" numero_parte='<%# Eval("numero_parte") %>' descripcion_corta='<%# Eval("descripcion_corta") %>' runat="server"></uc1:btn_addOperacion>--%>
+                                    <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false"
+                                        class="red white-text" Style="padding: 2px 5px; position: absolute; top: 24px;" runat="server"></asp:Label>
                                 </div>
 
                                 <div class="card-content descripciónProductoListado" style="padding-top: 12px;">
@@ -243,17 +217,17 @@
 
 
                                         <br />
-                                    <asp:Label ID="lbl_preciosFantasma" style="text-decoration:line-through;color: red; font-size: 0.9rem;" Visible="false"  runat="server"></asp:Label>
+                                        <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 0.9rem;" Visible="false" runat="server"></asp:Label>
 
                                         <span class="producto_precio">$</span>
                                         <asp:Label ID="lbl_producto_precio" CssClass="producto_precio" runat="server" Text=""></asp:Label>
                                         <asp:Label ID="lbl_producto_moneda" CssClass="producto_moneda" runat="server" Text=""></asp:Label>
-                                      
+
                                     </p>
                                     <div style="font-size: 14px;"><%# Eval("unidad_venta") %> (<%# Eval("cantidad") %>  <%# Eval("unidad") %>)</div>
-                                   
-                                
-                                   
+
+
+
 
                                     <div>
                                         <span style="inline-size: -webkit-fill-available; white-space: nowrap; overflow: hidden;"
@@ -267,10 +241,10 @@
                                         <asp:Label ID="lbl_disponibilidad_stock" runat="server"></asp:Label>
 
                                         <a id="btn_VerDisponibilidad" visible="false"
-                                            
                                             runat="server" class="waves-effect waves-light btn btn-full-text blue modal-trigger" style="margin-top: 5px;"><i class="material-icons left">done</i>
                                             Ver Disponibilidad</a>
                                         <asp:Label runat="server" ID="lbl_puntajeBusqueda" Visible="false"></asp:Label>
+                                        <asp:Label runat="server" ID="lbl_aviso"></asp:Label>
                                     </div>
                                 </div>
 
@@ -284,7 +258,7 @@
                             </div>
                         </div>
                        
-                    </EmptyDataTemplate>--%>
+                    </EmptyDataTemplate>
                 </asp:ListView>
 
             </div>
@@ -297,17 +271,16 @@
 <uc1:mdl_addOperacion ID="mdl_addOperacion" runat="server"></uc1:mdl_addOperacion>
 
 
- 
+
 <!-- Modal que carga el slide de fotografias de productos -->
-<div id="modal_slideShow_productos" class="modal modal-fixed-footer" style="width: 700px">
+<%--<div id="modal_slideShow_productos" class="modal modal-fixed-footer" style="width: 700px">
     <div class="modal-content">
-      <p class="center-align">
-            <a id="link_productoSlideShow" class="btn blue">
-                Ver detalles del producto   <i class="material-icons right">search</i>
+        <p class="center-align">
+            <a id="link_productoSlideShow" class="btn blue">Ver detalles del producto   <i class="material-icons right">search</i>
 
 
-            </a> 
-</p>
+            </a>
+        </p>
         <div id="sliderProductosModal" class="slick "></div>
 
 
@@ -315,7 +288,7 @@
     <div class="modal-footer">
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
     </div>
-</div>
+</div>--%>
 
 
 
@@ -478,7 +451,7 @@
 
 
 <script>
- 
+
 
 
     $(document).ready(function () {

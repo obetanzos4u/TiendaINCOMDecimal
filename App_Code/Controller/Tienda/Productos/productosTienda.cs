@@ -21,7 +21,6 @@ public class productosTienda {
                 producto.especificaciones,
                 producto.marca,
                 producto.categoria_identificador,
- 
                 producto.imagenes,
                 producto.metatags,
                 producto.peso,
@@ -30,25 +29,21 @@ public class productosTienda {
                 producto.profundidad,
                 producto.pdf,
                 producto.video,
-
                 producto.unidad_venta,
-
                 producto.cantidad,
-
                 producto.unidad,
                 producto.producto_alternativo,
                 producto.productos_relacionados,
                 producto.atributos,
-
                 producto.noParte_proveedor,
-                 producto.noParte_Sap,
-
+                producto.noParte_Sap,
                 producto.noParte_interno,
                 producto.upc,
                 producto.noParte_Competidor,
                (SELECT IIF(producto.orden IS NULL, 999, producto.orden)) as orden,
                 producto.etiquetas,
                 producto.disponibleVenta,
+                producto.avisos,
 
                 roles.rol_visibilidad,
                 roles.rol_preciosMultiplicador,
@@ -230,56 +225,41 @@ WHERE producto.numero_parte  = @numero_parte
                 producto.titulo, 
                 producto.descripcion_corta,
                 producto.marca,
-                producto.categoria_identificador,   
-
-
-   producto.noParte_Sap,
-
-
+                producto.categoria_identificador,
+                producto.noParte_Sap,
                 producto.cantidad,
-
                 producto.unidad,
-
                 producto.imagenes,
                 producto.metatags,
+                producto.avisos,
                 producto.unidad_venta,
                      (SELECT IIF(producto.orden IS NULL, 999, producto.orden)) AS orden,
                 producto.disponibleVenta,
-
                 roles.rol_visibilidad,
                 roles.rol_preciosMultiplicador,
-                
                 preciosFantasma.preciosFantasma,
                 preciosFantasma.porcentajeFantasma,
                 preciosFijos.id_cliente,
                 preciosFijos.moneda_fija,
                 preciosFijos.precio,
-                
                 preciosRangos.moneda_rangos,
                 preciosRangos.precio1,
                 preciosRangos.max1,
-
-
                 preciosRangos.precio2,
                 preciosRangos.max2,
-
                 preciosRangos.precio3,
                 preciosRangos.max3,
-
                 preciosRangos.precio4,
                 preciosRangos.max4,
-
                 preciosRangos.precio5,
                 preciosRangos.max5,
-
                 visualizacion.solo_para_Visualizar
-
                 FROM productos_Datos as producto 
                 FULL OUTER JOIN precios_ListaFija preciosFijos ON producto.numero_parte = preciosFijos.numero_parte
                 FULL OUTER JOIN precios_rangos preciosRangos ON producto.numero_parte = preciosRangos.numero_parte  
                 FULL OUTER JOIN productos_Roles roles ON producto.numero_parte = roles.numero_parte 
                 FULL OUTER JOIN productos_solo_visualizacion visualizacion ON producto.numero_parte = visualizacion.numero_parte 
-                 FULL OUTER JOIN precios_fantasma preciosFantasma ON producto.numero_parte = preciosFantasma.numero_parte 
+                FULL OUTER JOIN precios_fantasma preciosFantasma ON producto.numero_parte = preciosFantasma.numero_parte 
             ");
 
               
@@ -626,7 +606,7 @@ WHERE producto.numero_parte  = @numero_parte
 
 
                 query += " CONTAINS((producto.upc, producto.noParte_interno, producto.noParte_proveedor,  producto.noParte_Sap, producto.titulo_corto_ingles, producto.titulo, " +
-                                       "producto.marca, producto.metatags, producto.numero_parte, producto.descripcion_corta), @SearchString" + i + ") OR";
+                                       "producto.marca, producto.metatags, producto.numero_parte, producto.descripcion_corta, producto.avisos), @SearchString" + i + ") OR";
                 i++;
             }
 
@@ -659,7 +639,7 @@ WHERE producto.numero_parte  = @numero_parte
 
             queryFullTextSearch = IniQuery+ queryObtenerProductoFullTextSearch + " WHERE " + " " +
                 "CONTAINS((producto.upc, producto.noParte_interno, producto.noParte_proveedor, producto.titulo_corto_ingles,   producto.titulo, producto.marca," +
-                " producto.metatags, producto.categoria_identificador, producto.numero_parte,producto.descripcion_corta), @SearchString) " +
+                " producto.metatags, producto.categoria_identificador, producto.numero_parte,producto.descripcion_corta, producto.avisos), @SearchString) " +
                 "  OR  producto.numero_parte LIKE  '%'+ @termino + '%'" +
                 "  OR  producto.noParte_Sap LIKE  '%'+ @termino + '%'; ";
 

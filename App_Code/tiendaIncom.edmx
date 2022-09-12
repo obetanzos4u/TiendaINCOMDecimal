@@ -430,10 +430,10 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="preciosFantasma" Type="money" Nullable="false" />
           <Property Name="porcentajeFantasma" Type="nvarchar" MaxLength="3" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="precios_ListaFija">
           <Key>
@@ -522,6 +522,7 @@
           <Property Name="RotacionVertical" Type="bit" />
           <Property Name="noParte_Sap" Type="nvarchar" MaxLength="100" />
           <Property Name="avisos" Type="nvarchar" MaxLength="4000" />
+          <Property Name="destacado" Type="int" />
         </EntityType>
         <EntityType Name="productos_Roles">
           <Key>
@@ -570,15 +571,6 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
           <Property Name="IdBloqueoStock" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="numero_parte" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Disponible" Type="decimal" Precision="16" Scale="2" Nullable="false" />
-        </EntityType>
-        <EntityType Name="StockRegistroFaltaDeStock">
-          <Key>
-            <PropertyRef Name="Id_SRFS" />
-          </Key>
-          <Property Name="Id_SRFS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NumeroParte" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="IdUsuario" Type="int" Nullable="false" />
-          <Property Name="Fecha" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="usuarios">
           <Key>
@@ -739,7 +731,6 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
           <EntitySet Name="productos_solo_visualizacion" EntityType="Self.productos_solo_visualizacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="productos_unidades" EntityType="Self.productos_unidades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductosBloqueoStock" EntityType="Self.ProductosBloqueoStock" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StockRegistroFaltaDeStock" EntityType="Self.StockRegistroFaltaDeStock" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuarios_ligas_confirmaciones" EntityType="Self.usuarios_ligas_confirmaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuariosInfo" EntityType="Self.usuariosInfo" Schema="dbo" store:Type="Tables" />
@@ -1208,6 +1199,7 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
           <Property Name="RotacionVertical" Type="Boolean" />
           <Property Name="noParte_Sap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="avisos" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="destacado" Type="Int32" />
         </EntityType>
         <EntityType Name="pedidos_pagos_liga_santander">
           <Key>
@@ -1899,6 +1891,7 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
           <EntitySetMapping Name="productos_Datos">
             <EntityTypeMapping TypeName="tiendaModel.productos_Datos">
               <MappingFragment StoreEntitySet="productos_Datos">
+                <ScalarProperty Name="destacado" ColumnName="destacado" />
                 <ScalarProperty Name="avisos" ColumnName="avisos" />
                 <ScalarProperty Name="noParte_Sap" ColumnName="noParte_Sap" />
                 <ScalarProperty Name="RotacionVertical" ColumnName="RotacionVertical" />
@@ -2185,16 +2178,6 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
                 <ScalarProperty Name="Disponible" ColumnName="Disponible" />
                 <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
                 <ScalarProperty Name="IdBloqueoStock" ColumnName="IdBloqueoStock" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="StockRegistroFaltaDeStocks">
-            <EntityTypeMapping TypeName="tiendaModel.StockRegistroFaltaDeStock">
-              <MappingFragment StoreEntitySet="StockRegistroFaltaDeStock">
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="NumeroParte" ColumnName="NumeroParte" />
-                <ScalarProperty Name="Id_SRFS" ColumnName="Id_SRFS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

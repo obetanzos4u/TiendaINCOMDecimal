@@ -23,6 +23,7 @@
     <link type='text/css' rel='stylesheet' href='https://www.incom.mx/css/slick-theme.css' />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.17/dist/css/themes/splide-sea-green.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="/css/SimpleStarRating.css" />
     <link rel="stylesheet" type="text/css" href="/css/selectize.css" />
@@ -75,6 +76,8 @@
     <script defer src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b103649d8169d82"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.17/dist/js/splide.min.js"></script>
     <!-- Login With Google -->
     <script>
         function init() {
@@ -201,7 +204,6 @@
             }
 
             #contenedorMenu {
-  
             }
 
             #menu_ico_productos {
@@ -219,43 +221,43 @@
             #content-menu-incom-biblioteca > ul {
                 border-top: 3px solid transparent;
                 -moz-border-image: -moz-linear-gradient(right, #01568D 0%, #01568D 100%);
-                -webkit-border-image: -webkit-linear-gradient(top, #01568D  0%, #01568D  100%);
+                -webkit-border-image: -webkit-linear-gradient(top, #01568D 0%, #01568D 100%);
                 border-image: linear-gradient(to right, #2d8bff 0%, #1a65d6 100%);
                 border-image-slice: 1;
                 /* border-top: solid 4px #2677cc; */
-/*                margin-top: 8px;*/
-/*                z-index: 999;*/
-/*                display: none;*/
+                /*                margin-top: 8px;*/
+                /*                z-index: 999;*/
+                /*                display: none;*/
                 background: white;
                 color: black;
                 padding: 1rem;
             }
 
-            
 
-            #content-menu-incom-biblioteca > ul > li {
-/*                position: absolute;*/
-                display: flex;
-                flex-direction: column;
-                /*overflow: auto;*/
-                margin: 0;
-                justify-content: center;
-            }
 
-            #content-menu-incom-biblioteca > ul > li a {
-                border-bottom: solid 1px #96969633;
-                font-size:1rem !important;
-            }
+                #content-menu-incom-biblioteca > ul > li {
+                    /*                position: absolute;*/
+                    display: flex;
+                    flex-direction: column;
+                    /*overflow: auto;*/
+                    margin: 0;
+                    justify-content: center;
+                }
 
-            #content-menu-incom-biblioteca > ul:nth-child(2) {
-                display: flex;
-                flex-direction: column;
-                /*overflow: hidden;*/
-                visibility: hidden;
-                z-index: 1;
-                position: absolute;
-                width: 150px;
-            }
+                    #content-menu-incom-biblioteca > ul > li a {
+                        border-bottom: solid 1px #96969633;
+                        font-size: 1rem !important;
+                    }
+
+                #content-menu-incom-biblioteca > ul:nth-child(2) {
+                    display: flex;
+                    flex-direction: column;
+                    /*overflow: hidden;*/
+                    visibility: hidden;
+                    z-index: 1;
+                    position: absolute;
+                    width: 150px;
+                }
 
             #content-menu-incom-biblioteca:hover ul:nth-child(2) {
                 visibility: visible;
@@ -272,7 +274,7 @@
             #content-menu-incom-catalogos > ul {
                 border-top: 3px solid transparent;
                 -moz-border-image: -moz-linear-gradient(right, #01568D 0%, #01568D 100%);
-                -webkit-border-image: -webkit-linear-gradient(top, #01568D  0%, #01568D  100%);
+                -webkit-border-image: -webkit-linear-gradient(top, #01568D 0%, #01568D 100%);
                 border-image: linear-gradient(to right, #2d8bff 0%, #1a65d6 100%);
                 border-image-slice: 1;
                 background: white;
@@ -280,27 +282,27 @@
                 padding: 1rem;
             }
 
-            #content-menu-incom-catalogos > ul > li {
-                display: flex;
-                flex-direction: column;
-                margin: 0;
-                justify-content: center;
-            }
+                #content-menu-incom-catalogos > ul > li {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0;
+                    justify-content: center;
+                }
 
-            #content-menu-incom-catalogos > ul > li a {
-                border-bottom: solid 1px #96969633;
-                font-size:1rem !important;
-            }
+                    #content-menu-incom-catalogos > ul > li a {
+                        border-bottom: solid 1px #96969633;
+                        font-size: 1rem !important;
+                    }
 
-            #content-menu-incom-catalogos > ul:nth-child(2) {
-                display: flex;
-                flex-direction: column;
-                overflow: hidden;
-                visibility: hidden;
-                z-index: 1;
-                position: absolute;
-                width: 240px;
-            }
+                #content-menu-incom-catalogos > ul:nth-child(2) {
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    visibility: hidden;
+                    z-index: 1;
+                    position: absolute;
+                    width: 240px;
+                }
 
             #content-menu-incom-catalogos:hover ul:nth-child(2) {
                 visibility: visible;
@@ -336,7 +338,7 @@
                 position: absolute;
                 background: white;
                 z-index: 999;
-/*                left: 5%;*/
+                /*                left: 5%;*/
                 width: 600px;
             }
 
@@ -365,7 +367,7 @@
                     line-height: inherit !important;
                 }
 
-/*            .menu-categorias > div > div > ul {
+            /*            .menu-categorias > div > div > ul {
                 display: grid;
                 background-color: #d94e4e;
                 width: 400px;
@@ -376,39 +378,39 @@
                 display: table;
                 height: fit-content;
             }*/
-            
+
             .menu-l1 {
                 width: 550px;
                 font-weight: 400 !important;
             }
 
-            .menu-l1 > ul {
-                display: grid;
-                background-color: #d94e4e;
-                width: auto;
-                left: 30%;
-                position: relative;
-                top: -2.10rem;
-            }
+                .menu-l1 > ul {
+                    display: grid;
+                    background-color: #d94e4e;
+                    width: auto;
+                    left: 30%;
+                    position: relative;
+                    top: -2.10rem;
+                }
 
-            .menu-l1 > a {
-                font-size: 1rem !important;
-            }
+                .menu-l1 > a {
+                    font-size: 1rem !important;
+                }
 
-            .menu-l1 > ul > li > a{
-                font-size: 1rem !important;
-            }
-            
+                .menu-l1 > ul > li > a {
+                    font-size: 1rem !important;
+                }
+
 
             .menu-items {
                 /*left: 1%;*/
                 border-top: 3px solid transparent;
                 -moz-border-image: -moz-linear-gradient(right, #01568D 0%, #01568D 100%);
-                -webkit-border-image: -webkit-linear-gradient(top, #01568D  0%, #01568D  100%);
+                -webkit-border-image: -webkit-linear-gradient(top, #01568D 0%, #01568D 100%);
                 border-image: linear-gradient(to right, #2d8bff 0%, #1a65d6 100%);
                 border-image-slice: 1;
                 /* border-top: solid 4px #2677cc; */
-/*                margin-top: 8px;*/
+                /*                margin-top: 8px;*/
                 z-index: 999;
                 width: auto;
                 display: none;
@@ -436,22 +438,22 @@
                 .menuContainer > div > ul > li:hover {
                     background: #e03535;
                 }
-/*
+            /*
             .menu-items > div {
                 margin-top: 1rem;
             }*/
 
-                .menu-items > div > ul > li {
-                    width: 100%;
-                }
+            .menu-items > div > ul > li {
+                width: 100%;
+            }
 
-                .menu-items > div > a {
-                    font-weight: 400;
-                    font-size: 14px;
-                    color: #777777;
-                    border-bottom: solid 1px #96969633;
-                    display: block;
-                }
+            .menu-items > div > a {
+                font-weight: 400;
+                font-size: 14px;
+                color: #777777;
+                border-bottom: solid 1px #96969633;
+                display: block;
+            }
 
             .menu-l1 > ul > li > a {
                 color: #656565 !important;
@@ -533,24 +535,24 @@
                 }
 
                 #menu_ico_productos {
-                width: 0.75rem;
-                height: 0.75rem;
-                margin-left: 0.5rem;
-                margin-top: 0.5rem;
-            }
+                    width: 0.75rem;
+                    height: 0.75rem;
+                    margin-left: 0.5rem;
+                    margin-top: 0.5rem;
+                }
 
                 #menu_icon_biblioteca {
-                width: 0.75rem;
-                height: 0.75rem;
-                margin-left: 0.5rem;
-                margin-top: 0.5rem;
+                    width: 0.75rem;
+                    height: 0.75rem;
+                    margin-left: 0.5rem;
+                    margin-top: 0.5rem;
                 }
 
                 #menu_icon_catalogos {
-                width: 0.75rem;
-                height: 0.75rem;
-                margin-left: 0.5rem;
-                margin-top: 0.5rem;
+                    width: 0.75rem;
+                    height: 0.75rem;
+                    margin-left: 0.5rem;
+                    margin-top: 0.5rem;
                 }
             }
 

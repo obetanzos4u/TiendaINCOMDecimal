@@ -10,17 +10,10 @@ public partial class busqueda : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.QueryString["busqueda"] != null) {
-
+        if (Request.QueryString["busqueda"] != null)
+        {
             string busqueda = Request.QueryString["busqueda"].ToString();
-
-            }
-
-		Title = "Resultados de búsqueda";
-	
-
-     
-
-      
+        }
+        Title = "Resultados de búsqueda";
     }
 }
