@@ -46,11 +46,11 @@
 
     </div>
 
-        <section class="title_categorias">
+        <section class="title_productos-destacados">
             <p >Productos Destacados</p>
         </section>
 
-    <div class="row center-align">
+    <div class="center-align slider-container">
         <uc1:sliderDestacados ID="uc_SliderDestacados" runat="server" ></uc1:sliderDestacados>
     </div>
 

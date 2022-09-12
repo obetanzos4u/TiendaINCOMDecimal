@@ -5,8 +5,8 @@
         <ul id="contenedorDestacados" class="splide__list" runat="server"></ul>
     </div>
     <div class="splide__progress">
-        <div class="splide__progress__bar">
-        </div>
+<%--        <div class="splide__progress__bar">
+        </div>--%>
     </div>
 </section>
 
@@ -23,7 +23,7 @@
             },
             autoplay: true,
             speed: 700,
-            gap: '1rem',
+            gap: '3rem',
             arrows: false,
             pauseOnHover: false,
             lazyLoad: 'nearby',
