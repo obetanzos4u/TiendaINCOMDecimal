@@ -761,6 +761,7 @@
     }
 
     .main_container {
+      margin-bottom: 15vh;
       display: grid; 
       grid-auto-columns: 1fr; 
       grid-template-columns: 1fr 0.9fr 1.3fr 0.8fr; 
@@ -820,7 +821,7 @@
             flex-direction: row;
             height: auto;
             display: grid;
-            margin-bottom: 2rem;
+            margin-bottom: 15vh;
             grid-auto-columns: 1fr; 
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
             grid-template-rows: 1fr 1fr; 
@@ -924,6 +925,7 @@
         }
 
         .categorias_container {
+              margin-bottom: 15vh;
               display: grid; 
               grid-template-columns: 1fr 1fr 1fr 1fr; 
               grid-template-rows: 1fr 1fr 1fr; 

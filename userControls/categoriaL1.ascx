@@ -6,7 +6,7 @@
         <div runat="server" id="itemPlaceholder"></div>
     </LayoutTemplate>
     <ItemTemplate>
-        <div id="item_categoria" runat="server" class="title_nav_cat col s12 m6 l3 xl3 center animated fadeIn" style="border: 3px solid #00ffff">
+        <div id="item_categoria" runat="server" class="title_nav_cat col s12 m4 l3 xl3 center animated fadeIn" style="border: 3px solid #00ffff">
             <asp:HyperLink ID="link_cat" runat="server"> 
              <asp:Image ID="img_categoria" class="imgage-categoria IncomWebpToJpg hoverable tooltipped" data-position="bottom" data-tooltip='<%# Eval("descripcion") %>'
                  loading=lazy runat="server" />

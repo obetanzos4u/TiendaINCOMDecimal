@@ -26,11 +26,13 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="/css/SimpleStarRating.css" />
     <link rel="stylesheet" type="text/css" href="/css/selectize.css" />
-    <style>
+<%--    <style>
+
+        Se comento este componente para que no se muestre por encima de los menus principales cuando se despliegan
         .bx-wrapper .bx-controls-direction a {
             z-index: 998 !important;
         }
-    </style>
+    </style>--%>
 
     <%--<script src="https://cdn.tailwindcss.com"></script>--%>
     <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-23255752-4"></script>
@@ -165,7 +167,6 @@
 
             #top_contenido_titulo_categoria {
                 color: #000000;
-                font-family: "Monserrat";
                 font-size: 1rem !important;
                 margin: 1rem;
                 z-index: 1;
@@ -494,11 +495,12 @@
                 }
 
                 .breadcrumb {
-                    font-size: 20px;
+                    font-size: 1rem;
                 }
 
                     .breadcrumb:before {
                         margin: 0;
+                        vertical-align: middle;
                     }
 
                 #titulo_categoria {
@@ -514,8 +516,6 @@
                 }
 
                 #top_contenido_titulo_categoria {
-                    color: aqua;
-                    font-family: "Monserrat";
                     font-size: 0.8rem !important;
                     z-index: 1;
                 }

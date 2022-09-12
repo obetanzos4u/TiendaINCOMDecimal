@@ -113,7 +113,7 @@ ul.bxslider {
   width: 32px;
   height: 32px;
   text-indent: -9999px;
-  z-index: 9999;
+  z-index: 1 !important;
 }
 .bx-wrapper .bx-controls-direction a.disabled {
   display: none;
@@ -121,7 +121,7 @@ ul.bxslider {
 /* AUTO CONTROLS (START / STOP) */
 .bx-wrapper .bx-controls-auto {
   text-align: center;
-}
+}gbl 
 .bx-wrapper .bx-controls-auto .bx-start {
   display: block;
   text-indent: -9999px;
