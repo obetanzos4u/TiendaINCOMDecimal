@@ -10,31 +10,32 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
-public partial class userControls_productoVisualizar : System.Web.UI.UserControl {
+public partial class userControls_productoVisualizar : System.Web.UI.UserControl
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
 
-    protected void Page_Load(object sender, EventArgs e) {
-
-        if (!IsPostBack) {
-          
         }
     }
 
-    protected async void MostrarMaximoCompra() {
-
+    protected async void MostrarMaximoCompra()
+    {
         string numero_parte = lt_numero_parte.Text;
 
-        var result = await ProductosBloqueoCantidades.ObtenerCantidadMaxima(numero_parte);
+        //var result = await ProductosBloqueoCantidades.ObtenerCantidadMaxima(numero_parte);
 
-        if(result != null)
-        {
-            lbl_msg_maximo_compra.Text = "Últimas piezas disponibles: " + result;
-        }
-        
-
+        //if (result != null)
+        //{
+        //    lbl_msg_maximo_compra.Text = "Últimas piezas disponibles: " + result;
+        //}
     }
-    protected async void guardarHit() {
+    protected async void guardarHit()
+    {
 
-        if (HttpContext.Current.User.Identity.IsAuthenticated && usuarios.userLogin().tipo_de_usuario == "cliente") {
+        if (HttpContext.Current.User.Identity.IsAuthenticated && usuarios.userLogin().tipo_de_usuario == "cliente")
+        {
 
             HttpRequest request = HttpContext.Current.Request;
 
@@ -50,28 +51,34 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
     }
 
 
-    protected void Page_PreRender(object sender, EventArgs e) {
+    protected void Page_PreRender(object sender, EventArgs e)
+    {
 
-        if (!IsPostBack) {
+        if (!IsPostBack)
+        {
             cargarProducto();
             MostrarMaximoCompra();
         }
 
 
     }
-    protected void Page_Unload(object sender, EventArgs e) {
+    protected void Page_Unload(object sender, EventArgs e)
+    {
 
     }
-    protected void cargarProducto() {
+    protected void cargarProducto()
+    {
 
-        if (Page.RouteData.Values["numero_parte"] != null) {
+        if (Page.RouteData.Values["numero_parte"] != null)
+        {
             string route_numero_parte = Page.RouteData.Values["numero_parte"].ToString();
 
             productosTienda obtener = new productosTienda();
             DataTable productos = obtener.obtenerProducto(textTools.recuperarURL_NumeroParte(route_numero_parte));
             usuarios datosUsuario = (usuarios)System.Web.HttpContext.Current.Session["datosUsuario"];
 
-            if(productos.Rows.Count > 1) {
+            if (productos.Rows.Count > 1)
+            {
                 DataTable tblFiltered = productos.AsEnumerable()
                         .Where(row => row.Field<string>("id_cliente") == datosUsuario.id.ToString()
                                 )
@@ -81,7 +88,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
 
                 productos = tblFiltered;
             }
-          
+
             if (productos.Rows.Count < 1 || productos == null)
             {
                 // Response.Status = "404 Not Found";
@@ -89,18 +96,19 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 return;
             }
             string[] rol_visibilidadProducto = productos.Rows[0]["rol_visibilidad"].ToString().Split(',');
-         
+
 
 
             string str_ProductoAvisos = textTools.lineSimple(productos.Rows[0]["avisos"].ToString());
-            if (!string.IsNullOrWhiteSpace(str_ProductoAvisos)) {
+            if (!string.IsNullOrWhiteSpace(str_ProductoAvisos))
+            {
                 string[] ProductoAvisos = str_ProductoAvisos.Split('~');
                 if (ProductoAvisos.Length > 0) Array.ForEach(ProductoAvisos, i => ProductoAvisosListado.InnerHtml += $"<li>{i}</li>");
 
             }
 
-         
-           
+
+
 
 
             ProductoAvisosListado.InnerHtml += "<li>Precio y disponibilidad sujeto a existencias.</li>";
@@ -152,22 +160,26 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             string profundidad = productos.Rows[0]["profundidad"].ToString();
             string etiquetas = productos.Rows[0]["etiquetas"].ToString();
             string upc = productos.Rows[0]["upc"].ToString();
-             
+
             string video = productos.Rows[0]["video"].ToString();
 
-            try {
-                if (video.Contains("youtube")) {
+            try
+            {
+                if (video.Contains("youtube"))
+                {
 
                     int posicion = video.IndexOf("?v=");
 
-                    if (video.Contains("&list")) {
+                    if (video.Contains("&list"))
+                    {
 
                         video = video.Remove(0, posicion + 3);
                         int posicionFinPlay = video.IndexOf("&list");
                         int aEliminar = video.Length - posicionFinPlay;
 
                         video = video.Remove(posicionFinPlay, aEliminar);
-                    } else video = video.Remove(0, posicion + 3);
+                    }
+                    else video = video.Remove(0, posicion + 3);
 
 
 
@@ -177,7 +189,8 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 }
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 devNotificaciones.error("Cortar url videos en producto", ex);
             }
             string url = Request.Url.GetLeftPart(UriPartial.Authority) + GetRouteUrl("productos", new System.Web.Routing.RouteValueDictionary {
@@ -213,42 +226,47 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
 
             decimal? precio = null;
 
-         
+
             // La columna [precio] solo se habilita si el cliente tiene asignado un precio fijo, por lo tanto es el precio a mostrar
-            if (productos.Rows[0]["precio"] != DBNull.Value) {
-                    precio = decimal.Parse(productos.Rows[0]["precio"].ToString());
+            if (productos.Rows[0]["precio"] != DBNull.Value)
+            {
+                precio = decimal.Parse(productos.Rows[0]["precio"].ToString());
 
-                    // Al ser un precio general, debemos mostrar que tiene cierto descuento siempre y cuando el precio para el cliente sea menor que el general
-                    decimal? precioGeneral = procesar.obtenerPrecioGeneralProducto(numero_parte);
+                // Al ser un precio general, debemos mostrar que tiene cierto descuento siempre y cuando el precio para el cliente sea menor que el general
+                decimal? precioGeneral = procesar.obtenerPrecioGeneralProducto(numero_parte);
 
-                    if (precioGeneral != null && precioGeneral > precio) {
+                if (precioGeneral != null && precioGeneral > precio)
+                {
 
-                        lbl_precioGeneral.Visible = true;
-                        lbl_precioGeneralLeyenda.Visible = true;
+                    lbl_precioGeneral.Visible = true;
+                    lbl_precioGeneralLeyenda.Visible = true;
                     decimal PrecioConImpuestos = Impuestos.ObterPrecioConImpuestos((decimal)precioGeneral);
                     lbl_precioGeneral.Text = "$ " + decimal.Parse(PrecioConImpuestos.ToString()).ToString("C2", myNumberFormatInfo) + monedaTienda;
-                    }
-                    // Si es [precio1] esta tomando datos de los tabuladores y precios generales.
-                } else if (productos.Rows[0]["precio1"] != DBNull.Value) {
-                    precio = decimal.Parse(productos.Rows[0]["precio1"].ToString());
-
-
-                    // INICIO - Sirve para mostrar si hay precio de lista, solo NO HAY hay un precio fijo para un cliente en especial
-                    DataTable dtProducoPrecioLista = preciosTienda.obtenerProductoPrecioLista(numero_parte);
-                    if (dtProducoPrecioLista != null) {
-                        string moneda = dtProducoPrecioLista.Rows[0]["moneda_fija"].ToString();
-                        decimal precioDeLista = decimal.Parse(dtProducoPrecioLista.Rows[0]["precio"].ToString());
-                        precioDeLista = procesar.precio_a_MonedaTienda(moneda, precioDeLista);
-
-                        lbl_precioGeneralLeyenda.Visible = true;
-                        lbl_precioGeneralLeyenda.Text = "Tu precio usuario registrado ✓";
-                        lbl_precioLista.Visible = true;
-                    decimal PrecioConImpuestos = Impuestos.ObterPrecioConImpuestos(precioDeLista);
-                        lbl_precioLista.Text = "$ " + decimal.Parse(PrecioConImpuestos.ToString()).ToString("C2", myNumberFormatInfo) + monedaTienda;
-                    }
-
-                    // Fin - Sirve para mostrar si hay precio de lista, solo si NO HAY un precio fijo  para un cliente en especial
                 }
+                // Si es [precio1] esta tomando datos de los tabuladores y precios generales.
+            }
+            else if (productos.Rows[0]["precio1"] != DBNull.Value)
+            {
+                precio = decimal.Parse(productos.Rows[0]["precio1"].ToString());
+
+
+                // INICIO - Sirve para mostrar si hay precio de lista, solo NO HAY hay un precio fijo para un cliente en especial
+                DataTable dtProducoPrecioLista = preciosTienda.obtenerProductoPrecioLista(numero_parte);
+                if (dtProducoPrecioLista != null)
+                {
+                    string moneda = dtProducoPrecioLista.Rows[0]["moneda_fija"].ToString();
+                    decimal precioDeLista = decimal.Parse(dtProducoPrecioLista.Rows[0]["precio"].ToString());
+                    precioDeLista = procesar.precio_a_MonedaTienda(moneda, precioDeLista);
+
+                    lbl_precioGeneralLeyenda.Visible = true;
+                    lbl_precioGeneralLeyenda.Text = "Tu precio usuario registrado ✓";
+                    lbl_precioLista.Visible = true;
+                    decimal PrecioConImpuestos = Impuestos.ObterPrecioConImpuestos(precioDeLista);
+                    lbl_precioLista.Text = "$ " + decimal.Parse(PrecioConImpuestos.ToString()).ToString("C2", myNumberFormatInfo) + monedaTienda;
+                }
+
+                // Fin - Sirve para mostrar si hay precio de lista, solo si NO HAY un precio fijo  para un cliente en especial
+            }
             #region Producto solo para cotizar
             if (solo_para_Visualizar)
             {
@@ -260,7 +278,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 linkVisualizarProducto.Visible = true;
                 linkVisualizarProducto.Establecer_Numero_Parte(numero_parte);
                 sap_producto_disponibilidad.Visible = false;
-          
+
             }
             else
             {
@@ -305,7 +323,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             //#region Seguimiento Promociones, campañas, cupones y descuentos
             //if (Request.QueryString["PromoCode"] != null )//|| usuarios.userLogin().tipo_de_usuario ="cliente")
             //{
-               
+
             //    string PromoCode = Request.QueryString["PromoCode"];
 
             //    var PromoProduct = new PromocionesProductoModel()
@@ -313,7 +331,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             //        numero_parte = numero_parte,
             //        PromoCode = PromoCode,
             //        FechaActualización = utilidad_fechas.obtenerCentral()
-                    
+
             //    };
             //    var ListProductos = new List<PromocionesProductoModel>();
             //    ListProductos.Add(PromoProduct);
@@ -350,12 +368,13 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             cargarNavegacion(productos.Rows[0]["categoria_identificador"].ToString());
 
             procesarCaracteristicas(productos.Rows[0]["atributos"].ToString());
-            try { 
-            procesarDocumentacion(productos.Rows[0]["pdf"].ToString());
-            }
-            catch(Exception ex)
+            try
             {
-                devNotificaciones.error("Error en la documentación PDF en producto: " + numero_parte,ex.Message);
+                procesarDocumentacion(productos.Rows[0]["pdf"].ToString());
+            }
+            catch (Exception ex)
+            {
+                devNotificaciones.error("Error en la documentación PDF en producto: " + numero_parte, ex.Message);
             }
             tbody_dimensiones_empaque.InnerHtml += @"
             <tr>" +
@@ -375,20 +394,20 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 "<td style='white-space: nowrap; width:100%;'>" + productos.Rows[0]["profundidad"].ToString() + " cm</td>" +
             "</tr>";
 
-           string  htmlUPC = @"
+            string htmlUPC = @"
             <tr>" +
-                    "<td style='white-space: nowrap; text-align:right; padding-right:4px;'><strong>Código EAN/UPC/GTIN</strong>:</td>" +
-                    "<td style='white-space: nowrap; width:100%;'>" + upc + "</td>" +
-                "</tr>";
-
-        
-
-        tbody_caracteristicas.InnerHtml += htmlUPC;
+                     "<td style='white-space: nowrap; text-align:right; padding-right:4px;'><strong>Código EAN/UPC/GTIN</strong>:</td>" +
+                     "<td style='white-space: nowrap; width:100%;'>" + upc + "</td>" +
+                 "</tr>";
 
 
-        // INICIO SEO TAGS - 
-        #region SEO Tags
-        this.Page.Title = lt_titulo.Text + " " + lt_numero_parte.Text + ", Marca " + marca;
+
+            tbody_caracteristicas.InnerHtml += htmlUPC;
+
+
+            // INICIO SEO TAGS - 
+            #region SEO Tags
+            this.Page.Title = lt_titulo.Text + " " + lt_numero_parte.Text + ", Marca " + marca;
             this.Page.MetaDescription = titulo + " " + descripcion_corta;
 
 
@@ -468,7 +487,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             // FIN Twitter
 
             // Si el producto esta en cotizalo, se omite generar la microdata de precio
-            if(precio != null)
+            if (precio != null)
             {
                 decimal PrecioMicroDataIVA = Impuestos.ObterPrecioConImpuestos((decimal)precio);
 
@@ -544,10 +563,10 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 lt_microdataProducto.Text = microDataProducto;
             }
 
-           
- 
-           
-         
+
+
+
+
 
             // FIN SEO TAGS 
             #endregion
@@ -568,16 +587,17 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
 
     }
 
-    
+
 
     protected void ProductoNoDisponible()
     {
         contenedor_producto.Visible = false;
         content_ProductoNoDisponible.Visible = true;
 
-        
+
     }
-    protected void documentacionExterna(string _documentacionPDF) {
+    protected void documentacionExterna(string _documentacionPDF)
+    {
 
         HyperLink link = new HyperLink();
         link.CssClass = "waves -effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5";
@@ -589,49 +609,54 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
 
     }
 
-    protected void procesarDocumentacion(string _documentacionPDF) {
+    protected void procesarDocumentacion(string _documentacionPDF)
+    {
         // sí el documento contiene un enlace a ficha externa
-        if (_documentacionPDF.Contains("http") && !_documentacionPDF.Contains("_new")) {
+        if (_documentacionPDF.Contains("http") && !_documentacionPDF.Contains("_new"))
+        {
             documentacionExterna(_documentacionPDF);
             return;
-            }
+        }
 
 
-        if (_documentacionPDF.Contains("_new")) {
+        if (_documentacionPDF.Contains("_new"))
+        {
 
             _documentacionPDF = _documentacionPDF.Replace("_new", "");
             JavaScriptSerializer deserializer = new JavaScriptSerializer();
 
             Dictionary<string, object> D_documentacionPDF = deserializer.Deserialize<Dictionary<string, object>>("{" + _documentacionPDF + "}");
 
-         
+
             foreach (var atributo in D_documentacionPDF)
             {
 
-               
-                    HyperLink link = new HyperLink();
-                    link.CssClass = "waves -effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5";
-                    link.Text = @"<i class='material-icons left'>description</i>";
-                    if (atributo.Key.ToLower() == "ft") { link.Text += " Ficha Técnica"; }
-                    else if (link.Text == "") { link.Text += " Más documentación"; }
-                    else { link.Text = "<i class='material-icons left'>description</i> " + atributo.Key; }
+
+                HyperLink link = new HyperLink();
+                link.CssClass = "waves -effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5";
+                link.Text = @"<i class='material-icons left'>description</i>";
+                if (atributo.Key.ToLower() == "ft") { link.Text += " Ficha Técnica"; }
+                else if (link.Text == "") { link.Text += " Más documentación"; }
+                else { link.Text = "<i class='material-icons left'>description</i> " + atributo.Key; }
 
                 if (atributo.Value.ToString().Contains("http")) link.NavigateUrl = atributo.Value.ToString();
-                else {
-                    if (!archivosManejador.validarExistenciaPDF(atributo.Value.ToString())) {
+                else
+                {
+                    if (!archivosManejador.validarExistenciaPDF(atributo.Value.ToString()))
+                    {
                         continue;
-                        }
+                    }
                     link.NavigateUrl = Request.Url.GetLeftPart(UriPartial.Authority) + archivosManejador.pdfDirectorioWeb + atributo.Value;
-                    } 
+                }
 
-                    link.Target = "_blank";
-                    cont_documentacion.Controls.Add(link);
-
-                
+                link.Target = "_blank";
+                cont_documentacion.Controls.Add(link);
 
 
-           
-               
+
+
+
+
 
             }
 
@@ -676,34 +701,43 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
 
 
     }
-    protected void procesarImagenes(string img, string alt, string title) {
+    protected void procesarImagenes(string img, string alt, string title)
+    {
 
         img = img.Replace(" ", "");
         string[] imagenes = img.Split(',');
 
         string imgHTML = "";
 
-        if (imagenes.Length > 1) {
+        if (imagenes.Length > 1)
+        {
 
-            foreach (string i in imagenes) {
+            foreach (string i in imagenes)
+            {
                 string src = archivosManejador.imagenProductoXL(i);
                 imgHTML += "<a  href='" + src + "'><img  class='IncomWebpToJpg' alt='" + alt + "' title='" + title + "' src='" + src + "'></a>";
             }
             img_producto.InnerHtml = imgHTML;
-        } else if (imagenes.Length == 1) {
+        }
+        else if (imagenes.Length == 1)
+        {
             string src = archivosManejador.imagenProductoXL(imagenes[0]);
             img_producto.InnerHtml = "<a href='" + src + "'><img  class='IncomWebpToJpg' alt='" + alt + "' title='" + title + "' src='" + src + "'></a>";
         }
     }
-    protected void procesarCaracteristicas(string caracteristicas) {
-        try {
-            if (caracteristicas != null && caracteristicas != "") {
+    protected void procesarCaracteristicas(string caracteristicas)
+    {
+        try
+        {
+            if (caracteristicas != null && caracteristicas != "")
+            {
                 JavaScriptSerializer deserializer = new JavaScriptSerializer();
 
                 Dictionary<string, object> D_caracteristicas = deserializer.Deserialize<Dictionary<string, object>>("{" + caracteristicas + "}");
 
                 string caracHTML = "";
-                foreach (var atributo in D_caracteristicas) {
+                foreach (var atributo in D_caracteristicas)
+                {
                     caracHTML += @"
             <tr>" +
                         "<td style='white-space: nowrap; text-align:right; padding-right:4px;'><strong>" + atributo.Key + "</strong>:</td>" +
@@ -716,12 +750,14 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             }
 
         }
-        catch (Exception ex) {
-          //  devNotificaciones.error("Procesar características JSON", ex);
+        catch (Exception ex)
+        {
+            //  devNotificaciones.error("Procesar características JSON", ex);
         }
     }
 
-    protected void cargarNavegacion(string categoriaID) {
+    protected void cargarNavegacion(string categoriaID)
+    {
 
         categorias obtener = new categorias();
         model_categorias categoriaActual = obtener.obtener_CatInfo(categoriaID);
@@ -735,7 +771,8 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
         link_todas_categorias.NavigateUrl = GetRouteUrl("categoriasTodas");
 
 
-        switch (categoriaActual.nivel) {
+        switch (categoriaActual.nivel)
+        {
             case 1:
                 navActual.NavigateUrl = GetRouteUrl("categorias", new System.Web.Routing.RouteValueDictionary {
                     { "identificador", categoriaActual.identificador },
@@ -775,7 +812,8 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                     { "l2",    textTools.limpiarURL_NumeroParte(PadresL3[1].nombre) }
                 });
 
-                HyperLink L2_ = new HyperLink() {
+                HyperLink L2_ = new HyperLink()
+                {
                     CssClass = "breadcrumb",
                     Text = PadresL3[1].nombre.Replace("-", " "),
                     NavigateUrl = GetRouteUrl("categoriasL2", new System.Web.Routing.RouteValueDictionary {

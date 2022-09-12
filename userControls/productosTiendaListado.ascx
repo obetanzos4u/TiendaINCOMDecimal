@@ -7,7 +7,6 @@
 <%@ Register Src="~/userControls/uc_producto_btn_SoloVisualizar.ascx" TagName="link" TagPrefix="uc_visualizarProducto" %>
 
 <style>
-    <!--
     @media (min-width: 700px) {
         #contentResultados {
             margin: auto 0px !important;
@@ -35,7 +34,6 @@
 
         .producto-main_container {
             margin: auto 0px !important;
-            border: 1px solid #0094ff;
         }
 
         .main-cateorias {
@@ -51,7 +49,7 @@
         .title_nav_cat {
             height: fit-content;
         }
-    } -->
+    }
 </style>
 <script>
     async function producto_agregar_carrito_Service(btn) {
@@ -99,15 +97,16 @@
     <!--Clases anteriores de este componente col s12 m12 l12 xl12 style="margin: auto 0px !important; min-height: 330px;" -->
     <div class="producto-main_wrap">
         <div runat="server" id="content_resultado_busqueda_text" visible="false" style="position: sticky; top: 100px; background: white; z-index: 99; overflow: auto; height: 53px;">
-            <h2 style="margin: 0px; line-height: 50px;">Resultado de la búsqueda de: <span class="blue-text">
-                <asp:HyperLink ID="linkTerminoBusqueda" runat="server"></asp:HyperLink>
-                <asp:Literal ID="lt_termino_busqueda" runat="server"></asp:Literal></span></h2>
+            <h2 style="margin: 0px; line-height: 50px;">Resultado de la búsqueda de: 
+                <span class="blue-text">
+                    <asp:HyperLink ID="linkTerminoBusqueda" runat="server"></asp:HyperLink>
+                    <asp:Literal ID="lt_termino_busqueda" runat="server"></asp:Literal>
+                </span>
+            </h2>
         </div>
         <!-- INICIO : Filtros y orden -->
         <div class="row" style="margin: auto 0px !important;" id="cont_ordenar" runat="server">
-
-
-            <div class="col s12 m5 l4" visible="false" runat="server" style="border: 1px solid blue">
+            <div class="col s12 m5 l4" visible="false" runat="server">
                 <label>Busca por: Nombre de cotización ó Número de operación</label>
                 <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización ó Número de operación" AutoPostBack="true" OnTextChanged="cargarProductos" runat="server"></asp:TextBox>
             </div>
@@ -117,16 +116,12 @@
             <div class="contentResultados-sidedar">
                 <div runat="server" id="Div1" class="input-field fixInput">
                     <label class="label-filtro_producto" style="position: initial;">Filtrar por categoria</label>
-                    <asp:DropDownList ID="ddl_filtroCategorias" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
-                    </asp:DropDownList>
+                    <asp:DropDownList ID="ddl_filtroCategorias" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server"></asp:DropDownList>
                 </div>
-
                 <div runat="server" id="cont_filtros" class="input-field fixInput">
                     <label class="label-filtro_producto" style="position: initial;">Filtrar por marca</label>
-                    <asp:DropDownList ID="ddl_filtroMarcas" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
-                    </asp:DropDownList>
-                    <asp:RadioButtonList ID="rd_filtroMarcas" Visible="false" OnSelectedIndexChanged="orden" AutoPostBack="true" RepeatDirection="Vertical" CssClass="ulFlow"
-                        RepeatLayout="UnorderedList" runat="server">
+                    <asp:DropDownList ID="ddl_filtroMarcas" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server"></asp:DropDownList>
+                    <asp:RadioButtonList ID="rd_filtroMarcas" Visible="false" OnSelectedIndexChanged="orden" AutoPostBack="true" RepeatDirection="Vertical" CssClass="ulFlow" RepeatLayout="UnorderedList" runat="server">
                         <asp:ListItem Text="Todas las marcas" Value=""></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
@@ -138,7 +133,7 @@
                         <asp:ListItem Value="marca" Text="Marca"></asp:ListItem>
                         <asp:ListItem Value="precio1" Text="Precio"></asp:ListItem>
                     </asp:DropDownList>
-
+                </div>
                 <div class="input-field  fixInput hide">
                     <label class="label-filtro_producto" style="position: initial;">Ordenar por</label>
                     <asp:DropDownList ID="ddl_ordenTipo" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
@@ -150,21 +145,15 @@
                     <label class="label-filtro_producto" style="position: initial;">Moneda</label>
                     <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
                 </div>
-
-
-               
-
                 <div class="fixInput  hide-on-small-only hide-on-med-only">
                     <productos:visitados ID="ProductosVisitados" runat="server"></productos:visitados>
                 </div>
             </div>
 
             <div class="contentResultados-content">
-
-
                 <asp:ListView ID="lv_productos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                     <LayoutTemplate>
-                        <div class="row">
+                        <%--                        <div class="row">
                             <asp:DataPager ID="dp_1" class="dataPager_productos" runat="server" Visible="true" PagedControlID="lv_productos"
                                 PageSize="50" QueryStringField="PageId">
                                 <Fields>
@@ -177,34 +166,36 @@
                                 </Fields>
                             </asp:DataPager>
 
-                        </div>
+                        </div>--%>
+                        <%-- INICIO Distribución de resultados de la búsqueda --%>
                         <div class="row">
                             <div runat="server" id="itemPlaceholder"></div>
                         </div>
-                        <div class="is-flex is-justify-center is-items-center is-py-4 borderTest">
+                        <%-- FIN Distribución de resultados de la búsqueda --%>
+                        <div class="is-flex is-justify-center is-items-center is-py-4">
                             <asp:DataPager ID="dp_2" class="" Visible="true" runat="server" PagedControlID="lv_productos" PageSize="50" QueryStringField="PageId">
                                 <Fields>
-                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="" PreviousPageText="Anterior" FirstPageText="&#10092;&#10092; Primera;" ShowFirstPageButton="False" ShowNextPageButton="False" />
+                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="is-px-2" PreviousPageText="Anterior" FirstPageText="&#10092;&#10092; Primera;" ShowFirstPageButton="False" ShowNextPageButton="False" />
                                     <asp:NumericPagerField CurrentPageLabelCssClass="pagerButtonCurrentPage" RenderNonBreakingSpacesBetweenControls="false" NextPreviousButtonCssClass="pagerButton" NumericButtonCssClass="pagerButton" />
-                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="pagerButton" LastPageText=" Última »" NextPageText="Siguiente &#10093;&#10093;" ShowLastPageButton="False" ShowPreviousPageButton="False" />
+                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="is-px-2" LastPageText=" Última »" NextPageText="Siguiente &#10093;&#10093;" ShowLastPageButton="False" ShowPreviousPageButton="False" />
                                 </Fields>
                             </asp:DataPager>
                         </div>
                     </LayoutTemplate>
                     <ItemTemplate>
                         <%-- class="cajaProductosFCO borderTest" --%>
-                        <div id="item_producto" runat="server" style="width: 200px; float: left; margin: 0 30px;">
-                            <div style="padding: 0" class="is-cursor-pointer borderTest">
+                        <div id="item_producto" runat="server" style="width: 200px; float: left; margin: 0 30px;" class="borderTest">
+                            <div style="padding: 0">
                                 <div class='content_imgProducto_<%# Eval("id") %>'>
                                     <%-- Cotizar: waves-effect --%>
-                                    <asp:Panel ID="contentSlider" runat="server"></asp:Panel>
-                                    <asp:HyperLink ID="link_productoIMG" Visible="false" runat="server"></asp:HyperLink>
+                                    <asp:HyperLink ID="link_productoIMG" Visible="true" runat="server">
+                                        <asp:Panel ID="contentSlider" runat="server"></asp:Panel>
+                                    </asp:HyperLink>
                                     <%--<uc1:btn_addOperacion ID="productoAddOperacion" numero_parte='<%# Eval("numero_parte") %>' descripcion_corta='<%# Eval("descripcion_corta") %>' runat="server"></uc1:btn_addOperacion>--%>
-                                    <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false"
-                                        class="red white-text" Style="padding: 2px 5px; position: absolute; top: 24px;" runat="server"></asp:Label>
+                                    <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false" class="red white-text" Style="padding: 2px 5px; position: absolute; top: 24px;" runat="server"></asp:Label>
                                 </div>
 
-                                <div class="card-content descripciónProductoListado" style="padding-top: 12px;">
+                                <div class="card-content descripciónProductoListado borderTest" style="padding-top: 12px;">
                                     <h2 class="margin-b-1x margin-t-2x card-title tituloProductoTienda">
                                         <asp:HyperLink ID="link_producto" class=" hoverLinkTituloProducto" Target="_blank" runat="server">   <%# Eval("numero_parte") %> -  <%# Eval("titulo") %> </asp:HyperLink>
                                         <asp:Literal ID="lt_numero_parte" Text='<%# Eval("numero_parte") %>' Visible="false" runat="server"></asp:Literal>
@@ -251,13 +242,13 @@
                             </div>
                         </div>
                     </ItemTemplate>
-<%--                    <EmptyDataTemplate>
+                    <EmptyDataTemplate>
                         <div class="row center-align" style="height: 150px;">
                             <div class="col col s12">
                                 <h3>Intenta con otro término de búsqueda</h3>
                             </div>
                         </div>
-                       
+
                     </EmptyDataTemplate>
                 </asp:ListView>
 
@@ -265,7 +256,6 @@
 
 
         </div>
-
     </div>
 </div>
 <uc1:mdl_addOperacion ID="mdl_addOperacion" runat="server"></uc1:mdl_addOperacion>
@@ -443,8 +433,6 @@
         color: #eee;
         font-family: monospace;
     }
-
-
 </style>
 
 

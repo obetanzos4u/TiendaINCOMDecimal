@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
     <div class="row">
         <uc_pro:producto runat="server"></uc_pro:producto>
-         <uc_pro:comentarios runat="server"></uc_pro:comentarios>
+        <%--<uc_pro:comentarios runat="server"></uc_pro:comentarios>--%>
     </div>
     <div class="row">
         <uc1:sliderCatalogos runat="server"></uc1:sliderCatalogos>
