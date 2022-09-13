@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" Async="true" CodeFile="inicio.aspx.cs" MasterPageFile="~/general.master" Inherits="inicio" %>
+
 <%@ Register Src="~/userControls/ui/homeSlider.ascx" TagName="sliderHome" TagPrefix="uc1" %>
 <%@ Register Src="~/userControls/categoriasTodas.ascx" TagName="categoriasTodas" TagPrefix="uc_cat" %>
 <%@ Register Src="~/userControls/ui/catalogosSlider.ascx" TagName="sliderCatalogos" TagPrefix="uc1" %>
@@ -30,41 +31,39 @@
         }
     </script>
     <div class="main_container is-px-xl">
-<%--        <div class="row center-align margin-b-2x"  >
+        <%--        <div class="row center-align margin-b-2x"  >
             <h1 class="center-align margin-b-2x">INCOM® La ferretera de las telecomunicaciones®</h1>
         </div>--%>
-<%--        <div class="row margin-b-2x" style="border: 1px solid blue; height: 1rem;">
+        <%--        <div class="row margin-b-2x" style="border: 1px solid blue; height: 1rem;">
               <productos:visitados ID="ProductosVisitados"  runat="server"></productos:visitados>
         </div>--%>
 
         <uc1:sliderHome ID="uc_SliderHome" runat="server"></uc1:sliderHome>
-
-        <section class="anuncios">Anuncios</section>
-        <section class="USP1"> Propuestas Única de Venta USP</section>
-        <section class="USP2">Propuestas Única de Venta USP 2</section>
-        <section class="USP3">Propuestas Única de Venta USP 3</section>
-
+        <section class="anuncios" id="anunciosSlider" runat="server"></section>
+        <section class="USP1" id="sliderUSP1" runat="server"></section>
+        <section class="USP2" id="sliderUSP2" runat="server"></section>
+        <section class="USP3" id="sliderUSP3" runat="server"></section>
     </div>
 
-        <section class="title_productos-destacados">
-            <p >Productos Destacados</p>
-        </section>
+    <section class="title_productos-destacados">
+        <p>Productos Destacados</p>
+    </section>
 
     <div class="center-align slider-container">
-        <uc1:sliderDestacados ID="uc_SliderDestacados" runat="server" ></uc1:sliderDestacados>
+        <uc1:sliderDestacados ID="uc_SliderDestacados" runat="server"></uc1:sliderDestacados>
     </div>
 
     <section class="title_categorias">
-        <p >Categorías</p>
+        <p>Categorías</p>
     </section>
-    
+
 
     <div class="categorias_container is-px-xl">
-        
+
         <uc_cat:categoriasTodas runat="server"></uc_cat:categoriasTodas>
 
     </div>
-   <%-- <div class="row ">
+    <%-- <div class="row ">
         <div class="col s12 l6 x6">
             <h2>Acerca de Incom ®</h2>
             <p>

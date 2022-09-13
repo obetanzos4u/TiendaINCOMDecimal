@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 using System.Web.UI.HtmlControls;
-
 
 public partial class inicio : System.Web.UI.Page
 {
@@ -98,7 +98,81 @@ public partial class inicio : System.Web.UI.Page
 
             // FIN Twitter
             // FIN SEO TAGS - 
+            cargarAnuncio();
+            cargarUSP();
         }
+    }
 
+    protected void cargarAnuncio()
+    {
+        DataTable anuncios = configuracion_sliders.obtenerImagenesSlider("sliderAnuncio");
+
+        if (anuncios.Rows.Count > 0)
+        {
+            foreach (DataRow anuncio in anuncios.Rows)
+            {
+                string activo = anuncio["activo"].ToString();
+                if (activo == "1")
+                {
+                    string titulo = anuncio["titulo"].ToString();
+                    string descripcion = anuncio["descripcion"].ToString();
+                    string linkAnuncio = anuncio["link"].ToString();
+                    string nombreArchivo = anuncio["nombreArchivo"].ToString();
+                    HtmlGenericControl divControl = new HtmlGenericControl("div");
+                    HyperLink link = new HyperLink();
+                    Image img = new Image();
+                    img.ImageUrl = "https://via.placeholder.com/" + nombreArchivo;
+                    img.AlternateText = titulo;
+                    link.NavigateUrl = linkAnuncio;
+                    link.Controls.Add(img);
+                    divControl.Controls.Add(link);
+                    anunciosSlider.Controls.Add(divControl);
+                }
+            }
+
+        }
+    }
+
+    protected void cargarUSP()
+    {
+        DataTable usps = configuracion_sliders.obtenerImagenesSlider("sliderUSP");
+
+        if (usps.Rows.Count > 0)
+        {
+            foreach (DataRow usp in usps.Rows)
+            {
+                string activo = usp["activo"].ToString();
+                if (activo == "1")
+                {
+                    string titulo = usp["titulo"].ToString();
+                    string descripcion = usp["descripcion"].ToString();
+                    string nombreArchivo = usp["nombreArchivo"].ToString();
+                    string posicion = usp["posicion"].ToString();
+                    string linkUSP = usp["link"].ToString();
+                    string opciones = usp["opciones"].ToString();
+                    HtmlGenericControl divControl = new HtmlGenericControl("div");
+                    HyperLink link = new HyperLink();
+                    Image img = new Image();
+                    img.ImageUrl = "https://via.placeholder.com/" + nombreArchivo;
+                    img.AlternateText = titulo;
+                    link.NavigateUrl = linkUSP;
+                    link.ToolTip = descripcion;
+                    link.Controls.Add(img);
+                    divControl.Controls.Add(link);
+                    switch (posicion)
+                    {
+                        case "1":
+                            sliderUSP1.Controls.Add(divControl);
+                            break;
+                        case "2":
+                            sliderUSP2.Controls.Add(divControl);
+                            break;
+                        case "3":
+                            sliderUSP3.Controls.Add(divControl);
+                            break;
+                    }
+                }
+            }
+        }
     }
 }
