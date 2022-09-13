@@ -2,10 +2,8 @@
     Inherits="herramientas_xls_import_xls_import" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
-    <h1 class="center-align">XLS IMPORT</h1>
-    <h3 class="center-align">Powered by Marketing development</h3>
+    <h1 class="center-align">Productos XLS</h1>
     <div ID="up_xlsImportt"  class="container" ">
-
             <div class="row">
                 <div class="col s12 m6 l4">
                     <label>Nombre de la tabla destino SQL </label>

@@ -5,7 +5,7 @@
  
  
  <asp:LinkButton ID="btn_buscarProductos" CssClass="btn_buscador" ClientIDMode="Static" ToolTip="Buscar"   OnClick="btn_buscarProductos_Click"  runat="server">
-            <img alt="Icono de lupa o signo de búsqueda" class="icon_busqueda" src="../img/webUI/newdesign/search-icon.svg" />
+            <img alt="Icono de lupa o signo de búsqueda" class="icon_busqueda" src="https://www.incom.mx/img/webUI/newdesign/search-icon.svg" />
  </asp:LinkButton>
 
 </div>

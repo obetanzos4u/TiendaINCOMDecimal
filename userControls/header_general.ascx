@@ -10,7 +10,7 @@
 <ul id='menu_usuario_movil' class="sidenav">
     <li>
         <a class="home_menu" href="/">
-        <img id="home-icon" alt="icono de casita" src="../img/webUI/newdesign/home-icon.svg" />
+        <img id="home-icon" alt="icono de casita" src="https://www.incom.mx/img/webUI/newdesign/home-icon.svg" />
         Inicio
         </a>
     </li>
@@ -23,17 +23,17 @@
             <li>
                 <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="micuenta_menu" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx"
                     runat="server">
-                    <img id="user-icon" alt="icono cuenta de usuario" src="../img/webUI/newdesign/mi_cuenta.svg"/>
+                    <img id="user-icon" alt="icono cuenta de usuario" src="https://www.incom.mx/img/webUI/newdesign/mi_cuenta.svg"/>
                     Mi cuenta
                 </asp:HyperLink>
             </li>
             <li>
                 <a id="item-mis_compras" href="/usuario/mi-cuenta/pedidos.aspx" class="grey-text text-darken-3">
-                <img id="shopping-bag" alt="Bolsa de compras" src="../img/webUI/newdesign/Shopping-bag.jpg"/>Mis compras</a>
+                <img id="shopping-bag" alt="Bolsa de compras" src="https://www.incom.mx/img/webUI/newdesign/Shopping-bag.jpg"/>Mis compras</a>
             </li>
             <li>
                 <a href="/usuario/mi-cuenta/cotizaciones.aspx" class="grey-text text-darken-3">
-                <img id="ticket-icon" alt="icono de ticket de cotización" src="../img/webUI/newdesign/cotizacion-icon.svg" />    
+                <img id="ticket-icon" alt="icono de ticket de cotización" src="https://www.incom.mx/img/webUI/newdesign/cotizacion-icon.svg" />    
                     Pedidos cotizados
                 </a>
             </li>
@@ -41,7 +41,7 @@
         <AnonymousTemplate>
             <li>
                 <a title="Crear cuenta" class="crear_cuenta_menu" href='<%= ResolveUrl("~/registro-de-usuario.aspx") %>'>
-                    <img id="crear_cuenta-icon" alt="botón de crear cuenta" src="../img/webUI/newdesign/add_user_icon.svg" />
+                    <img id="crear_cuenta-icon" alt="botón de crear cuenta" src="https://www.incom.mx/img/webUI/newdesign/add_user_icon.svg" />
                     <p>Crear cuenta</p>
                 </a>    
             </li>
@@ -50,7 +50,7 @@
 <%--    #endregion--%>
 
     <li>
-        <asp:LoginStatus ID="LoginStatus2" ToolTip="Sesión de usuario" runat="server" LoginText="<img src='../img/webUI/newdesign/mi_cuenta.svg' alt='botón de inicio de sesión' class='inicio_sesion-icon'/>Iniciar Sesión" LogoutText=" " OnLoggedOut="LoginStatus1_LoggedOut" />
+        <asp:LoginStatus ID="LoginStatus2" ToolTip="Sesión de usuario" runat="server" LoginText="<img src='https://www.incom.mx/img/webUI/newdesign/mi_cuenta.svg' alt='botón de inicio de sesión' class='inicio_sesion-icon'/>Iniciar Sesión" LogoutText=" " OnLoggedOut="LoginStatus1_LoggedOut" />
     </li>
     <li>
         <div class="divider"></div>
@@ -62,7 +62,7 @@
         <ul class="collapsible collapsible-accordion">
             <li>
                 <a class="collapsible-header">
-                    <img id="products_menu_icon" alt="Icono de cesto con herramientas" src="../img/webUI/newdesign/productos_icon.svg"/>
+                    <img id="products_menu_icon" alt="Icono de cesto con herramientas" src="https://www.incom.mx/img/webUI/newdesign/productos_icon.svg"/>
                     <p>Productos</p>
                 </a>
                 <div class="collapsible-body">
@@ -79,20 +79,20 @@
 <%--    <li><a class="subheader">Aprende</a></li>--%>
     <li>
         <a class="menu-book" href="/glosario/A">
-            <img id="book-icon" alt="Icono de un libro" src="../img/webUI/newdesign/biblioteca-icon.svg"/>
+            <img id="book-icon" alt="Icono de un libro" src="https://www.incom.mx/img/webUI/newdesign/biblioteca-icon.svg"/>
             <p>Enciclopédico</p>
         </a>
     </li>
     <li>
         <a class="menu-infography" href="/enseñanza/infografías">
-          <img id="infography-icon" alt="icono de infografia" src="../img/webUI/newdesign/infography-icon.svg" />
+          <img id="infography-icon" alt="icono de infografia" src="https://www.incom.mx/img/webUI/newdesign/infography-icon.svg" />
           <p>Infografías</p>  
         </a>
 
     </li>
     <li>
         <a class="menu-blog" title='Blog Incom' target='_blank' href='https://blog.incom.mx'>
-            <img id="blog-icon" alt="icono de RSS o blog" src="../img/webUI/newdesign/blog-icon.svg"/>
+            <img id="blog-icon" alt="icono de RSS o blog" src="https://www.incom.mx/img/webUI/newdesign/blog-icon.svg"/>
             <p>Blog</p>
         </a>
     </li>
@@ -145,11 +145,11 @@
                 <!-- Dropdown Trigger -->
                 <a id="btn_menu_usuario_movil" data-target='menu_usuario_movil' href="#" class="sidenav-trigger">
                     <%--<i class="material-icons" style="font-size: 3rem;">menu</i>--%>
-                    <img class="icon_menu" src="../img/webUI/newdesign/Menu.svg" />
+                    <img class="icon_menu" src="https://www.incom.mx/img/webUI/newdesign/Menu.svg" />
                 </a>
             </div>
             <a title="Incom Retail" class="content_mobile_logo" href="<%=Request.Url.GetLeftPart(UriPartial.Authority) %>">
-                <img src="../img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="mobile_logo" />
+                <img src="https://www.incom.mx/img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="mobile_logo" />
             </a>
             <%--            <a title="Incom Retail" class="content_header_logo" href='<%= HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) %>'>
                 <img src='<%=ResolveUrl("~/img/webUI/incom_logo_mini.png") %>'
@@ -157,7 +157,7 @@
             </a>--%>
             <%--<a title="Carrito de productos" class="black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">--%>
             <a title="Carrito de productos" class="carrito_productos_movil show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">
-                <img class="btn-mi-carrito" title="Carrito de productos" src="../img/webUI/newdesign/Carrito.svg" />
+                <img class="btn-mi-carrito" title="Carrito de productos" src="https://www.incom.mx/img/webUI/newdesign/Carrito.svg" />
 <%--                <p class="text_carrito_compra">Carrito</p>--%>
             </a>
         </div>
@@ -183,7 +183,7 @@
             </div>
             <div class="header_toolbar is-py-xl">
                 <a title="Incom Retail" class="content_header_logo" href="<%=Request.Url.GetLeftPart(UriPartial.Authority) %>">
-                    <img src="../img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="logotipo_home is-space-x-7" />
+                    <img src="https://www.incom.mx/img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="logotipo_home is-space-x-7" />
                 </a>
                 <div class="menu_middle">
                     <uc_buscador:buscador ID="buscador" Visible="true" runat="server"></uc_buscador:buscador>
@@ -208,7 +208,7 @@
                             <AnonymousTemplate>
                                 <%--<a title="Crear cuenta" class="login_btn " href='<%= ResolveUrl("~/registro-de-usuario.aspx") %>'>Crear cuenta</a>--%>
                                 <a class="btn_cuenta is-text-black is-flex is-flex-col is-justify-center is-items-center" href="#" onclick="LoginAjaxOpenModal();">
-                                    <img class="icon_cuenta" src="../img/webUI/newdesign/Cuenta.svg" />
+                                    <img class="icon_cuenta" src="https://www.incom.mx/img/webUI/newdesign/Cuenta.svg" />
                                     <span>Iniciar sesión</span>
                                 </a>
                                 <%--<a class="login_btn" href="#" onclick="LoginAjaxOpenModal();">Iniciar Sesión</a>--%>
@@ -219,7 +219,7 @@
                     <div>
                         <div id="carrito_de_compra">
                             <a title="Carrito de productos" href="/mi-carrito.aspx" style="display: flex; flex-direction: column;">
-                                <img class="btn-mi-carrito" title="Carrito de productos" src="../img/webUI/newdesign/Carrito.svg" />
+                                <img class="btn-mi-carrito" title="Carrito de productos" src="https://www.incom.mx/img/webUI/newdesign/Carrito.svg" />
                                 <span class="txt_carrito is-text-black">Carrito</span>
                             </a>
                             <%--<div style="display: flex; flex-direction: column;">
