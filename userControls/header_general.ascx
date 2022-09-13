@@ -749,7 +749,16 @@
         display: flex;
         font-weight: 600;
         font-size: 1.5rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
+        height: 4rem;
+        align-items: center;
+    }
+
+    .title_productos-destacados {
+        justify-content: center;
+        display: flex;
+        font-weight: 600;
+        font-size: 1.5rem;
         height: 4rem;
         align-items: center;
     }
@@ -761,7 +770,7 @@
     }
 
     .main_container {
-      margin-bottom: 15vh;
+      margin-bottom: 8vh;
       display: grid; 
       grid-auto-columns: 1fr; 
       grid-template-columns: 1fr 0.9fr 1.3fr 0.8fr; 
@@ -791,9 +800,9 @@
     .USP1 {
         background-color: #c3bb9f;
     }
-    F¿
+    
     .USP2 {
-        background-color: #202831;
+        background-color: #89abad;
     }
 
     .USP3 {
@@ -825,7 +834,7 @@
             grid-auto-columns: 1fr; 
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
             grid-template-rows: 1fr 1fr; 
-            gap: 2rem 2rem; 
+            gap: 6rem 2rem; 
             grid-template-areas: 
             ". . . . . ."
             ". . . . . ."; 
@@ -1162,7 +1171,7 @@
         display: none;
     }
 
-    .title_categorias {
+    .title_categorias{
         font-size: 1.5rem;
     }
     }
