@@ -1,111 +1,34 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="homeSlider.ascx.cs" Inherits="tienda.homeSlider" %>
 
-
-
-<%--            <div style="text-align: right; overflow: hidden;">
-                <span class="btn-ocultar-mostrarSliderHome">Mostrar/Ocultar avisos</span>
-
-            </div>  --%>
-<div id="slider_home_principal">
-    <div id="bxsliderHome" class="bxslider homeSlider" runat="server">
+<section class="splide" id="slider_home_principal">
+    <div class="splide__track">
+        <ul id="bxsliderHome" class="splide__list" runat="server"></ul>
+        <ul class="splide__pagination"></ul>
     </div>
-</div>
+</section>
+
 <script>
-
-
-    //function validarslider() {
-    //var btnToggle = document.querySelector(".btn-ocultar-mostrarSliderHome");
-    //btnToggle.addEventListener("click", function () {
-
-    //    toggleSlider();
-    //}, false); 
-
-    //var sliderHomeVisible = localStorage.getItem('sliderHomeVisible');
-
-
-    //if (sliderHomeVisible == "hide") {
-    //    $('#slider_home_principal').hide();
-
-    //} else {
-    //    $('#slider_home_principal').show();
-    //}
-
-    //}
-
-
-    function toggleSlider() {
-        var btnToggle = document.querySelector(".btn-ocultar-mostrarSliderHome");
-
-        btnToggle.innerText = 'Mostrar/Ocultar avisos';
-
-
-
-
-        if (localStorage.getItem("sliderHomeVisible") === null) {
-            localStorage.setItem("sliderHomeVisible", "hide");
-        } else {
-
-            var sliderHomeVisible = localStorage.getItem("sliderHomeVisible")
-
-
-            if (sliderHomeVisible == "hide") {
-                $('#slider_home_principal').show();
-
-
-                localStorage.setItem("sliderHomeVisible", "visible");
-
-            } else {
-                $('#slider_home_principal').hide();
-                localStorage.setItem("sliderHomeVisible", "hide");
-
-            }
-        }
-
-    }
-
-
-    function loadSlider() {
-        $('.homeSlider.bxslider').bxSlider({
-            mode: 'fade',
-            captions: false,
-            auto: true,
-            autoStart: true,
-            adaptiveHeight: true,
-            responsive: true,
-            touchEnabled: false,
+    document.addEventListener('DOMContentLoaded', () => {
+        const splide = new Splide('#slider_home_principal', {
+            type: 'loop',
+            drag: 'free',
+            focus: 'center',
+            perPage: 1,
+            autoWidth: true,
+            autoScroll: {
+                speed: -1,
+            },
+            autoplay: true,
+            speed: 700,
+            gap: '1rem',
+            arrows: true,
+            pauseOnHover: false,
+            lazyLoad: 'nearby',
+            keyboard: false,
+            wheel: false,
+            trimSpace: true,
+            updateOnMove: true
         });
-
-    }
-
-    $(function () {
-        $(document).ready(function () {
-
-
-            loadSlider();
-            validarslider();
-            animacion = function () {
-
-                document.querySelector('.btn-ocultar-mostrarSliderHome').classList.toggle('opacity');
-            }
-
-            setInterval(animacion, 500);
-
-
-        });
+        splide.mount();
     });
 </script>
-
-<style>
-    .btn-ocultar-mostrarSliderHome {
-        padding: 5px;
-        color: #2e6acb;
-        margin: 14px 0px;
-        background: whitesmoke;
-        cursor: pointer;
-        transition: opacity 1s;
-    }
-
-        .btn-ocultar-mostrarSliderHome.opacity {
-            opacity: 0.5;
-        }
-</style>
