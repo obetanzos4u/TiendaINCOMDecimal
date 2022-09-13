@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="destacadosSlider.ascx.cs" Inherits="tienda.destacadosSlider" %>
 
-<section class="splide">
+<section class="splide" id="destacados_splide">
     <div class="splide__track">
         <ul id="contenedorDestacados" class="splide__list" runat="server"></ul>
     </div>
@@ -12,7 +12,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const splide = new Splide('.splide', {
+        const splide = new Splide('#destacados_splide', {
             type: 'loop',
             drag: 'free',
             focus: 'center',

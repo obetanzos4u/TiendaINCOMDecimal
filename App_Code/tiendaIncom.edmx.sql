@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/12/2022 17:19:20
+-- Date Created: 09/12/2022 18:57:55
 -- Generated from EDMX file: C:\Users\AlexisRuizSantiago\source\repos\TiendaINCOMDecimalOmar\App_Code\tiendaIncom.edmx
 -- --------------------------------------------------
 
@@ -112,9 +112,6 @@ GO
 IF OBJECT_ID(N'[dbo].[pedidos_productos_modificaciones]', 'U') IS NOT NULL
     DROP TABLE [dbo].[pedidos_productos_modificaciones];
 GO
-IF OBJECT_ID(N'[dbo].[PedidosClaveUsoCFDI]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PedidosClaveUsoCFDI];
-GO
 IF OBJECT_ID(N'[dbo].[permisos_app]', 'U') IS NOT NULL
     DROP TABLE [dbo].[permisos_app];
 GO
@@ -145,17 +142,11 @@ GO
 IF OBJECT_ID(N'[dbo].[productos_unidades]', 'U') IS NOT NULL
     DROP TABLE [dbo].[productos_unidades];
 GO
-IF OBJECT_ID(N'[dbo].[ProductosBloqueoStock]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ProductosBloqueoStock];
-GO
 IF OBJECT_ID(N'[dbo].[usuarios]', 'U') IS NOT NULL
     DROP TABLE [dbo].[usuarios];
 GO
 IF OBJECT_ID(N'[dbo].[usuarios_ligas_confirmaciones]', 'U') IS NOT NULL
     DROP TABLE [dbo].[usuarios_ligas_confirmaciones];
-GO
-IF OBJECT_ID(N'[dbo].[usuariosInfo]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[usuariosInfo];
 GO
 IF OBJECT_ID(N'[tiendaModelStoreContainer].[productos_stock]', 'U') IS NOT NULL
     DROP TABLE [tiendaModelStoreContainer].[productos_stock];

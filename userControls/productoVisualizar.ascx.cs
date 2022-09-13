@@ -24,12 +24,12 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
     {
         string numero_parte = lt_numero_parte.Text;
 
-        //var result = await ProductosBloqueoCantidades.ObtenerCantidadMaxima(numero_parte);
+        var result = await ProductosBloqueoCantidades.ObtenerCantidadMaxima(numero_parte);
 
-        //if (result != null)
-        //{
-        //    lbl_msg_maximo_compra.Text = "Últimas piezas disponibles: " + result;
-        //}
+        if (result != null)
+        {
+            lbl_msg_maximo_compra.Text = "Últimas piezas disponibles: " + result;
+        }
     }
     protected async void guardarHit()
     {
@@ -57,10 +57,8 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
         if (!IsPostBack)
         {
             cargarProducto();
-            MostrarMaximoCompra();
+            //MostrarMaximoCompra();
         }
-
-
     }
     protected void Page_Unload(object sender, EventArgs e)
     {

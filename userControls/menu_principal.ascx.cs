@@ -39,12 +39,12 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         HtmlGenericControl biblioteca = new HtmlGenericControl("li");
         biblioteca.ID = "content-menu-incom-biblioteca";
         biblioteca.ClientIDMode = ClientIDMode.Static;
-        biblioteca.InnerHtml = "<a title='Biblioteca'>Biblioteca <img alt='Flecha de desplazamiento para ver menu' id='menu_icon_biblioteca' src='../img/webUI/newdesign/Flecha.svg'></a><ul><li><a href='https://blog.incom.mx/'>Blog</a></li><li><a href='https://www.incom.mx/ense%C3%B1anza/infograf%C3%ADas'>Infografías</a></li><li><a href='https://www.incom.mx/glosario/a'>Enciclopédico</a></li></ul>";
+        biblioteca.InnerHtml = "<a title='Biblioteca'>Biblioteca <img alt='Flecha de desplazamiento para ver menu' id='menu_icon_biblioteca' src='https://www.incom.mx/img/webUI/newdesign/Flecha.svg'></a><ul><li><a href='https://blog.incom.mx/'>Blog</a></li><li><a href='https://www.incom.mx/ense%C3%B1anza/infograf%C3%ADas'>Infografías</a></li><li><a href='https://www.incom.mx/glosario/a'>Enciclopédico</a></li></ul>";
 
         HtmlGenericControl catalogos = new HtmlGenericControl("li");
         catalogos.ID = "content-menu-incom-catalogos";
         catalogos.ClientIDMode = ClientIDMode.Static;
-        catalogos.InnerHtml = "<a title='Catalogos'  href='#'>Catálogos<img alt ='Flecha de desplazamiento para ver menu' id='menu_icon_catalogos' src ='../img/webUI/newdesign/Flecha.svg'></a>" +
+        catalogos.InnerHtml = "<a title='Catalogos'  href='#'>Catálogos<img alt ='Flecha de desplazamiento para ver menu' id='menu_icon_catalogos' src ='https://www.incom.mx/img/webUI/newdesign/Flecha.svg'></a>" +
                 "<ul>" +
                     "<li><a href'/documents/pdf/CATALOGO_INCOM_FIBRA_OPTICA.pdf' target='_blank' title='Fibra Óptica'>Fibra óptica</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_AEREO.pdf' target='_blank' title='Aéreo'>Instalación aérea</a></li>" +

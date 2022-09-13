@@ -679,7 +679,7 @@
         </style>
         <asp:ContentPlaceHolder ID="top" runat="server" />
         <a onclick="topFunction()" id="btn_toTop" title="ir Arriba de la página">
-            <img id="img_toTop" alt="boton desplazarse hacia arriba en la página" src="img/webUI/newdesign/collapse_arrow.svg" />
+            <img id="img_toTop" alt="boton desplazarse hacia arriba en la página" src="https://www.incom.mx/img/webUI/newdesign/collapse_arrow.svg" />
         </a>
 
     </form>
