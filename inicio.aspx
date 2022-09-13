@@ -45,9 +45,9 @@
         <section class="USP3" id="sliderUSP3" runat="server"></section>
     </div>
 
-    <section class="title_productos-destacados">
-        <p>Productos Destacados</p>
-    </section>
+        <section class="title_productos-destacados">
+            <p >Productos destacados</p>
+        </section>
 
     <div class="center-align slider-container">
         <uc1:sliderDestacados ID="uc_SliderDestacados" runat="server"></uc1:sliderDestacados>
