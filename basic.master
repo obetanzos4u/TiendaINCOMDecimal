@@ -161,7 +161,7 @@
             }
 
             .splide {
-                padding: 3em;
+                padding: 0em 3em 1.5em 3em;
             }
 
             .splide__pagination__page.is-active {
@@ -207,11 +207,11 @@
             @media only screen and (max-width:1600px) {
             
             .slider-container {
-                margin: auto 0rem 8vh 0rem; 
+                margin: 0em 0em 4em 0em;
             }       
             
             .splide {
-                padding: 0em 0em 3em 0em;
+                padding: 0em 0em 1.5em 0em;
             }
 
             .splide__track {

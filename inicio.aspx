@@ -47,7 +47,7 @@
     </div>
 
         <section class="title_productos-destacados">
-            <p >Productos Destacados</p>
+            <p >Productos destacados</p>
         </section>
 
     <div class="center-align slider-container">

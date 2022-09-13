@@ -16,7 +16,7 @@
                <asp:Image ID="img_categoria" class="img1-item_categoria IncomWebpToJpg hoverable"  loading=lazy runat="server" />
               <%-- <asp:Image ID="Image1" class="responsive-img IncomWebpToJpg hoverable"  loading=lazy runat="server" />--%>
                <asp:Image ID="Image1" class="img2-item_categoria IncomWebpToJpg hoverable"  loading=lazy runat="server" />
-<%--       <h2 style="text-align:center !important; color: rgba(0, 0, 0, 0.87); font-size:1.5rem; margin: 0.77rem 0 1.724rem 0;"><%# Eval("nombre") %></h2>--%>
+                    <h2 class="text-this_categria" style="text-align:center !important;"><%# Eval("nombre") %></h2>
            </asp:HyperLink>
         
        </div> 

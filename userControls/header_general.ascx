@@ -766,11 +766,10 @@
     .main_container {
         height: 600px;
         width: 100%; 
-        margin-top: 4rem;
+        margin: 5em auto;
     }
 
     .main_container {
-      margin-bottom: 8vh;
       display: grid; 
       grid-auto-columns: 1fr; 
       grid-template-columns: 1fr 0.9fr 1.3fr 0.8fr; 
@@ -782,6 +781,7 @@
         "Banner Banner Banner USP2"
         "Banner Banner Banner USP3"; 
     }
+
     #slider_home_principal{ grid-area: Banner; }
     .anuncios { grid-area: Anuncios; }
     .USP1 { grid-area: USP1; }
@@ -839,6 +839,12 @@
             ". . . . . ."
             ". . . . . ."; 
         }
+    }
+
+    @media only screen and (max-width:1700px) {
+
+    .img1-item_categoria {
+
     }
 
     @media only screen and (max-width:1000px) {
@@ -938,11 +944,13 @@
               display: grid; 
               grid-template-columns: 1fr 1fr 1fr 1fr; 
               grid-template-rows: 1fr 1fr 1fr; 
-              gap: 2rem 2rem; 
+              gap: 5rem 1rem; 
               grid-template-areas: 
                 ". . . ."
                 ". . . ."
                 ". . . ."; 
+              margin-left: 1rem;
+              margin-right: 1rem;
             }
     }
 
@@ -1020,6 +1028,22 @@
 /*        .header_toolbar {
             padding-right: 1rem;
         }*/
+    }
+
+    @media only screen and (max-width:1320px) {
+        .categorias_container {
+            margin: 1em 1em 5em 1em;
+            display: grid;
+            margin-bottom: 15vh;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 1rem 1rem;
+            grid-template-areas:
+                ". . . ."
+                ". . . ."
+                ". . . .";
+            padding-left: 5%;
+        }
     }
 
     @media only screen and (max-width:1200px) {
@@ -1152,7 +1176,7 @@
 
       .main_container {
       display: inline-block;
-      margin: 0;
+      margin: 0em 0em 4em 0em;
     }
 
     .anuncios {
