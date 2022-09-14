@@ -825,7 +825,7 @@
             margin-top: 0;
         }
 
-        .categorias_container {
+/*        .categorias_container {
             display: flex;
             flex-direction: row;
             height: auto;
@@ -838,6 +838,15 @@
             grid-template-areas: 
             ". . . . . ."
             ". . . . . ."; 
+        }*/
+        
+        .categorias_container {
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            margin-bottom: 10vh;
+            flex-wrap: wrap;
+            justify-content: center;
         }
     }
 
@@ -932,7 +941,7 @@
             margin-right: 1rem;
         }
 
-        .categorias_container {
+/*        .categorias_container {
             margin-bottom: 15vh;
             display: grid; 
             grid-template-columns: 1fr 1fr 1fr 1fr; 
@@ -944,7 +953,7 @@
             ". . . ."; 
             margin-left: 1rem;
             margin-right: 1rem;
-        }
+        }*/
     }
 
     @media only screen and (max-width:600px) {     
@@ -1030,7 +1039,7 @@
         .main_container {
             display: grid; 
             grid-auto-columns: 1fr; 
-            grid-template-columns: 75% 25% !important;
+            grid-template-columns: 74% 25% !important;
             grid-template-rows: 1.9fr 0.7fr 0.7fr 0.7fr; 
             gap: 1em 1em; 
             grid-template-areas: 
@@ -1048,7 +1057,38 @@
 
         #top_contenido_anunciosSlider > div > a > img {
             width: 100%;
-            height: 242px;
+            height: 264px;
+        }
+
+        #top_contenido_sliderUSP1 > div {
+            height: 100%;
+        }
+
+        #top_contenido_sliderUSP1 > div {
+            height: 100%;
+        }
+
+        #top_contenido_sliderUSP1 > div > a > img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #top_contenido_sliderUSP2 > div {
+            height: 100%;
+        }
+
+        #top_contenido_sliderUSP2 > div > a > img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #top_contenido_sliderUSP3 > div {
+            height: 100%;
+        }
+
+        #top_contenido_sliderUSP3 > div > a > img {
+            width: 100%;
+            height: 100%;
         }
     }
 
@@ -1136,7 +1176,7 @@
             margin: 0em 0em 5em 0em;
         }
 
-        .categorias_container {
+/*        .categorias_container {
             margin: 1rem;
             display: grid; 
             grid-template-columns: 1fr 1fr 1fr 1fr; 
@@ -1145,7 +1185,7 @@
             grid-template-areas: 
             ". . . ."
             ". . . ."
-        }
+        }*/
 
         .anuncios {
           display: none;
