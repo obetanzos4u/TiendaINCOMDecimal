@@ -701,26 +701,25 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
     }
     protected void procesarImagenes(string img, string alt, string title)
     {
-
         img = img.Replace(" ", "");
+        alt = alt.Replace("\"","");
+        title = title.Replace("\"","");
         string[] imagenes = img.Split(',');
-
         string imgHTML = "";
 
         if (imagenes.Length > 1)
         {
-
             foreach (string i in imagenes)
             {
                 string src = archivosManejador.imagenProductoXL(i);
-                imgHTML += "<a  href='" + src + "'><img  class='IncomWebpToJpg' alt='" + alt + "' title='" + title + "' src='" + src + "'></a>";
+                imgHTML += "<a  href='" + src + "'><img id='img_producto' class='IncomWebpToJpg' alt='" + alt + "' title='" + title + "' src='" + src + "'></a>";
             }
             img_producto.InnerHtml = imgHTML;
         }
         else if (imagenes.Length == 1)
         {
             string src = archivosManejador.imagenProductoXL(imagenes[0]);
-            img_producto.InnerHtml = "<a href='" + src + "'><img  class='IncomWebpToJpg' alt='" + alt + "' title='" + title + "' src='" + src + "'></a>";
+            img_producto.InnerHtml = "<a href='" + src + "'><img id='img_producto' class='IncomWebpToJpg' alt='" + alt + "' title='" + title + "' src='" + src + "'></a>";
         }
     }
     protected void procesarCaracteristicas(string caracteristicas)
