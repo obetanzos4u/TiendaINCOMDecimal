@@ -841,12 +841,6 @@
         }
     }
 
-    @media only screen and (max-width:1700px) {
-
-    .img1-item_categoria {
-
-    }
-
     @media only screen and (max-width:1000px) {
 
         .container_mobile_header {
@@ -879,7 +873,6 @@
         #txt_tipoDeCambio::after {
             content: "TC: 1 USD = ";
         }
-
 
         .buscador_container {
             font-style: italic;
@@ -940,21 +933,22 @@
         }
 
         .categorias_container {
-              margin-bottom: 15vh;
-              display: grid; 
-              grid-template-columns: 1fr 1fr 1fr 1fr; 
-              grid-template-rows: 1fr 1fr 1fr; 
-              gap: 5rem 1rem; 
-              grid-template-areas: 
-                ". . . ."
-                ". . . ."
-                ". . . ."; 
-              margin-left: 1rem;
-              margin-right: 1rem;
-            }
+            margin-bottom: 15vh;
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
+            grid-template-rows: 1fr 1fr 1fr; 
+            gap: 5rem 1rem; 
+            grid-template-areas: 
+            ". . . ."
+            ". . . ."
+            ". . . ."; 
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
     }
 
     @media only screen and (max-width:600px) {     
+        
         .menu_middle {
             overflow: initial;
         }
@@ -979,6 +973,7 @@
     }
 
     @media only screen and (max-height:1000px) {
+        
         #content_header {
             zoom: 0.8;
         }
@@ -1031,18 +1026,29 @@
     }
 
     @media only screen and (max-width:1320px) {
-        .categorias_container {
-            margin: 1em 1em 5em 1em;
-            display: grid;
-            margin-bottom: 15vh;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            gap: 1rem 1rem;
-            grid-template-areas:
-                ". . . ."
-                ". . . ."
-                ". . . .";
-            padding-left: 5%;
+    
+        .main_container {
+            display: grid; 
+            grid-auto-columns: 1fr; 
+            grid-template-columns: 75% 25% !important;
+            grid-template-rows: 1.9fr 0.7fr 0.7fr 0.7fr; 
+            gap: 1em 1em; 
+            grid-template-areas: 
+            "Banner Anuncios"
+            "Banner USP1"
+            "Banner USP2"
+            "Banner USP3"; 
+        }
+
+        #slider_home_principal{ grid-area: Banner; }
+            .anuncios { grid-area: Anuncios; }
+            .USP1 { grid-area: USP1; }
+            .USP2 { grid-area: USP2; }
+            .USP3 { grid-area: USP3; }
+
+        #top_contenido_anunciosSlider > div > a > img {
+            width: 100%;
+            height: 242px;
         }
     }
 
@@ -1113,14 +1119,62 @@
         .menuContainer ul a {
             font-size: 1.25rem;
         }
+
+        .menuContainer {
+            display: none;
+        }
+
+        #slider_home_principal {
+            height: 50vw;
+            width: 100%;
+        }
+
+        .main_container {
+            height: 50vw;
+            width: 100%;
+            display: inline-block;
+            margin: 0em 0em 5em 0em;
+        }
+
+        .categorias_container {
+            margin: 1rem;
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
+            grid-template-rows: 1fr 1fr; 
+            gap: 1rem 1rem; 
+            grid-template-areas: 
+            ". . . ."
+            ". . . ."
+        }
+
+        .anuncios {
+          display: none;
+        }
+
+        .USP1 {
+            display: none;
+        }
+
+        .USP2 {
+            display: none;
+        }
+
+        .USP3 {
+            display: none;
+        }
+
+        .title_categorias{
+            font-size: 1.5rem;
+        }
     }
 
 
     @media only screen and (max-width:700px) {
+
         .title_header {
-            font-size:12px;
+            font-size: 12px;
         }
-        
+
         .menu_top {
             height: 35px;
             text-align: right;
@@ -1132,7 +1186,7 @@
             margin-top: 0 !important;
             position: relative;
         }
-        
+
         #txt_buscadorProducto {
             margin-top: 0rem !important;
             height: 2rem;
@@ -1154,49 +1208,21 @@
         }
 
         .btn-mi-carrito {
-        color: black;
-        height: auto;
+            color: black;
+            height: auto;
         }
 
-        .menuContainer {
-            display: none;
+        .title_productos-destacados {
+            font-size: 1.2rem;
         }
 
-        .categorias_container {
-            margin: 1rem;
-            display: grid; 
-            grid-template-columns: 1fr 1fr 1fr 1fr; 
-            grid-template-rows: 1fr 1fr 1fr; 
-            gap: 1rem 1rem; 
-            grid-template-areas: 
-            ". . . ."
-            ". . . ."
-            ". . . ."; 
+        .title_categorias {
+            font-size: 1.2rem;
         }
 
-      .main_container {
-      display: inline-block;
-      margin: 0em 0em 4em 0em;
+        .main_container {
+            margin: 0em 0em 3em 0em;
+        }
     }
 
-    .anuncios {
-      display: none;
-    }
-
-    .USP1 {
-        display: none;
-    }
-
-    .USP2 {
-        display: none;
-    }
-
-    .USP3 {
-        display: none;
-    }
-
-    .title_categorias{
-        font-size: 1.5rem;
-    }
-    }
 </style>

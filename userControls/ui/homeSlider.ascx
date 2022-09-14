@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="homeSlider.ascx.cs" Inherits="tienda.homeSlider" %>
 
 <section class="splide" id="slider_home_principal">
-    <div class="splide__track">
-        <ul id="bxsliderHome" class="splide__list" runat="server"></ul>
+    <div class="splide__track splide__track-principal">
+        <ul id="bxsliderHome" class="splide__list splide__list-principal" runat="server"></ul>
         <ul class="splide__pagination"></ul>
     </div>
 </section>
@@ -28,6 +28,14 @@
             wheel: false,
             trimSpace: true,
             updateOnMove: true
+        });
+        new Splide('.splide', {
+            classes: {
+                arrows: 'splide__arrows your-class-arrows',
+                arrow: 'splide__arrow your-class-arrow',
+                prev: 'splide__arrow--prev your-class-prev',
+                next: 'splide__arrow--next your-class-next',
+            },
         });
         splide.mount();
     });

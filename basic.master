@@ -160,7 +160,7 @@
                 margin: auto 5rem 8vh 5rem; 
             }
 
-            .splide {
+            .splide-destacados {
                 padding: 0em 3em 1.5em 3em;
             }
 
@@ -173,7 +173,7 @@
                 border-bottom: 0;
             }
 
-            .splide__track {
+            .splide__track-destacados {
                 border-left: 4px solid #9e9e9e7a;
                 border-right: 4px solid #9e9e9e7a;
             }
@@ -204,19 +204,55 @@
                 text-align: initial;
             }
 
-            @media only screen and (max-width:1600px) {
-            
-            .slider-container {
-                margin: 0em 0em 4em 0em;
-            }       
-            
-            .splide {
-                padding: 0em 0em 1.5em 0em;
+            #slider_home_principal {
+                padding: 0em !important;
             }
 
-            .splide__track {
-                border: 0;
+            .splide__list-principal > li {
+                margin: 0em !important;
+                padding: 0em;
             }
+
+            .splide__arrow {
+                border-radius: 28px
+            }
+
+            .splide__arrow svg {
+                fill: #fff;
+            }
+
+            .splide__arrow:hover:not(:disabled) svg {
+                fill: #004EEA;
+            }
+
+            .splide__arrow:focus {
+                outline: none;
+                background-color: #ffffff2a;
+            }
+
+            .splide__list-principal > li > a > img {
+                width: 100vw;
+                height: 100%;
+                object-fit: fill;
+            }
+
+            #slider_home_principal-track {
+                height: 100%;
+            }
+
+            @media only screen and (max-width:1600px) {
+            
+                .slider-container {
+                    margin: 0em 0em 4em 0em;
+                }       
+            
+                .splide-destacados {
+                    padding: 0em 0em 1.5em 0em;
+                }
+
+                .splide__track {
+                    border: 0;
+                }
             }
 
             #titulo_categoria {

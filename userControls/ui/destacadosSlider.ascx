@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="destacadosSlider.ascx.cs" Inherits="tienda.destacadosSlider" %>
 
-<section class="splide" id="destacados_splide">
-    <div class="splide__track">
+<section class="splide splide-destacados" id="destacados_splide">
+    <div class="splide__track splide__track-destacados">
         <ul id="contenedorDestacados" class="splide__list" runat="server"></ul>
     </div>
     <div class="splide__progress">
@@ -23,7 +23,7 @@
             },
             autoplay: true,
             speed: 700,
-            gap: '3rem',
+            gap: '2rem',
             arrows: false,
             pauseOnHover: false,
             lazyLoad: 'nearby',
