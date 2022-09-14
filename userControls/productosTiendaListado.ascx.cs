@@ -32,7 +32,6 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
     /// </summary>
     protected void obtenerCategorias(DataTable dtProductos)
     {
-
         DataTable dtProductosFiltrado = new DataTable();
         dtProductosFiltrado.Columns.Add(new DataColumn("categoria_identificador", System.Type.GetType("System.String")));
 
@@ -135,10 +134,10 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
     protected void cargarProductos(object sender, EventArgs e)
     {
         string monedaTienda = Session["monedaTienda"].ToString();
-
         usuarios datosUsuario = usuarios.modoAsesor();
         DataTable productos = new DataTable();
         productosTienda obtener = new productosTienda();
+        preciosTienda procesar = new preciosTienda();
 
         if (Page.RouteData.Values["identificador"] != null)
         {
@@ -149,75 +148,67 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
         {
             string terminos = Request.QueryString["busqueda"].ToString();
             if (terminos.Length > 80) terminos = terminos.Substring(0, 100);
-
             productos = obtener.obtenerProductosFullTextSearch_Contains(terminos);
-            content_resultado_busqueda_text.Visible = true;
-
-            linkTerminoBusqueda.Text = terminos;
-            linkTerminoBusqueda.NavigateUrl = Request.Url.GetLeftPart(UriPartial.Authority) + "/productos/buscar?busqueda=" + terminos;
-
-
-
-            HttpRequest request = HttpContext.Current.Request;
-            BI_historialBusqueda.guardarBusqueda(terminos, request);
+            if (productos.Rows.Count > 0)
+            {
+                content_resultado_busqueda_text.Visible = true;
+                linkTerminoBusqueda.Text = terminos;
+                linkTerminoBusqueda.NavigateUrl = Request.Url.GetLeftPart(UriPartial.Authority) + "/productos/buscar?busqueda=" + terminos;
+                HttpRequest request = HttpContext.Current.Request;
+                BI_historialBusqueda.guardarBusqueda(terminos, request);
+            }
         }
 
-        productos.AcceptChanges();
-
-        preciosTienda procesar = new preciosTienda();
-        procesar.monedaTienda = monedaTienda;
-
-        productos = procesar.procesarProductos(productos);
-
-
-
-        if (productos.Rows.Count >= 1)
+        if (productos != null && productos.Rows.Count > 0)
         {
+            cont_categorias.Visible = true;
+            cont_filtros.Visible = true;
+            cont_moneda.Visible = true;
+            productos.AcceptChanges();
+            procesar.monedaTienda = monedaTienda;
+            productos = procesar.procesarProductos(productos);
+
             cargarMarcas(productos);
+            obtenerCategorias(productos);
+
+            if (ddl_filtroMarcas.SelectedValue != "")
+            {
+                DataView dv = new DataView(productos);
+                dv.RowFilter = "marca = '" + ddl_filtroMarcas.SelectedValue + "'";
+                productos = dv.ToTable();
+            }
+
+            if (ddl_filtroCategorias.SelectedValue != "")
+            {
+                DataView dv = new DataView(productos);
+                dv.RowFilter = "categoria_identificador  LIKE '%" + ddl_filtroCategorias.SelectedValue + "%'";
+                productos = dv.ToTable();
+            }
+
+            lv_productos.DataSource = productos;
+            lv_productos.DataBind();
+
+            string filtroCat = Request.QueryString["filtroCategorias"];
+
+            if (!string.IsNullOrWhiteSpace(filtroCat))
+            {
+                ListItem itemCat = ddl_filtroCategorias.Items.FindByValue(filtroCat);
+
+                lt_termino_busqueda.Text += " > " + itemCat.Text;
+            }
         }
-
-
-
-
-        // INICIO - ORDEN de visualización
-        DataView dv = productos.DefaultView;        /*
-        dv.Sort = ddl_ordenBy.SelectedValue  + " " + ddl_ordenTipo.SelectedValue;
-
-        // FIN - ORDEN de visualización
-        */
-
-        obtenerCategorias(productos);
-
-        // Filtro por marca
-        if (ddl_filtroMarcas.SelectedValue != "") dv.RowFilter = "marca = '" + ddl_filtroMarcas.SelectedValue + "'";
-
-        // Filtro por categoria
-        if (ddl_filtroCategorias.SelectedValue != "") dv.RowFilter = "categoria_identificador  LIKE '%" + ddl_filtroCategorias.SelectedValue + "%'";
-
-
-        productos = dv.ToTable();
-
-        if (productos == null || productos.Rows.Count == 0)
+        else if (Page.RouteData.Values["identificador"] != null)
         {
             cont_filtros.Visible = false;
             cont_ordenar.Visible = false;
+            no_productos.Visible = false;
         }
-
-
-
-        lv_productos.DataSource = productos;
-        lv_productos.DataBind();
-
-        string filtroCat = Request.QueryString["filtroCategorias"];
-
-        if (!string.IsNullOrWhiteSpace(filtroCat))
+        else
         {
-            ListItem itemCat = ddl_filtroCategorias.Items.FindByValue(filtroCat);
-
-            lt_termino_busqueda.Text += " > " + itemCat.Text;
+            cont_filtros.Visible = false;
+            cont_ordenar.Visible = false;
+            no_productos.Visible = true;
         }
-
-
     }
     protected void cargarMarcas(DataTable dtProductos)
     {
@@ -498,14 +489,4 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
 
         }
     }
-
-
-
-
-
-
-
-
-
-
 }

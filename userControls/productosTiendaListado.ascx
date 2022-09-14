@@ -114,18 +114,18 @@
         <!-- FIN : Filtros y orden -->
         <div id="contentResultados">
             <div class="contentResultados-sidedar">
-                <div runat="server" id="Div1" class="input-field fixInput">
+                <div runat="server" id="cont_categorias" class="input-field fixInput" visible="false">
                     <label class="label-filtro_producto" style="position: initial;">Filtrar por categoria</label>
                     <asp:DropDownList ID="ddl_filtroCategorias" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server"></asp:DropDownList>
                 </div>
-                <div runat="server" id="cont_filtros" class="input-field fixInput">
+                <div runat="server" id="cont_filtros" class="input-field fixInput" visible="false">
                     <label class="label-filtro_producto" style="position: initial;">Filtrar por marca</label>
                     <asp:DropDownList ID="ddl_filtroMarcas" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server"></asp:DropDownList>
                     <asp:RadioButtonList ID="rd_filtroMarcas" Visible="false" OnSelectedIndexChanged="orden" AutoPostBack="true" RepeatDirection="Vertical" CssClass="ulFlow" RepeatLayout="UnorderedList" runat="server">
                         <asp:ListItem Text="Todas las marcas" Value=""></asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
-                <div class="input-field fixInput hide">
+                <div runat="server" id="cont_ordenarPor" class="input-field fixInput" visible="false">
                     <label class="label-filtro_producto" style="position: initial;">Ordenar por</label>
                     <asp:DropDownList ID="ddl_ordenBy" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                         <asp:ListItem Value="orden" Text="Automático"></asp:ListItem>
@@ -134,14 +134,14 @@
                         <asp:ListItem Value="precio1" Text="Precio"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
-                <div class="input-field  fixInput hide">
+                <div runat="server" id="cont_orden" class="input-field fixInput" visible="false">
                     <label class="label-filtro_producto" style="position: initial;">Ordenar por</label>
                     <asp:DropDownList ID="ddl_ordenTipo" class="browser-default  ddlDefault" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                         <asp:ListItem Value="ASC" Text="Ascendente"></asp:ListItem>
                         <asp:ListItem Value="DESC" Text="Descendente"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
-                <div class="input-field fixInput">
+                <div runat="server" id="cont_moneda" class="input-field fixInput" visible="false">
                     <label class="label-filtro_producto" style="position: initial;">Moneda</label>
                     <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
                 </div>
@@ -150,10 +150,10 @@
                 </div>
             </div>
 
-            <div class="contentResultados-content">
+            <div class="contentResultados-content borderTest">
                 <asp:ListView ID="lv_productos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                     <LayoutTemplate>
-                        <%--                        <div class="row">
+                        <%--<div class="row">
                             <asp:DataPager ID="dp_1" class="dataPager_productos" runat="server" Visible="true" PagedControlID="lv_productos"
                                 PageSize="50" QueryStringField="PageId">
                                 <Fields>
@@ -184,7 +184,7 @@
                     </LayoutTemplate>
                     <ItemTemplate>
                         <%-- class="cajaProductosFCO borderTest" --%>
-                        <div id="item_producto" runat="server" style="width: 200px; float: left; margin: 0 30px;" class="borderTest">
+                        <div id="item_producto" runat="server" style="width: 200px; float: left; margin: 0 30px;">
                             <div style="padding: 0">
                                 <div class='content_imgProducto_<%# Eval("id") %>'>
                                     <%-- Cotizar: waves-effect --%>
@@ -195,7 +195,7 @@
                                     <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false" class="red white-text" Style="padding: 2px 5px; position: absolute; top: 24px;" runat="server"></asp:Label>
                                 </div>
 
-                                <div class="card-content descripciónProductoListado borderTest" style="padding-top: 12px;">
+                                <div class="card-content descripciónProductoListado" style="padding-top: 12px;">
                                     <h2 class="margin-b-1x margin-t-2x card-title tituloProductoTienda">
                                         <asp:HyperLink ID="link_producto" class=" hoverLinkTituloProducto" Target="_blank" runat="server">   <%# Eval("numero_parte") %> -  <%# Eval("titulo") %> </asp:HyperLink>
                                         <asp:Literal ID="lt_numero_parte" Text='<%# Eval("numero_parte") %>' Visible="false" runat="server"></asp:Literal>
@@ -243,18 +243,18 @@
                         </div>
                     </ItemTemplate>
                     <EmptyDataTemplate>
-                        <div class="row center-align" style="height: 150px;">
+                        <%--<div class="row center-align" style="height: 150px;">
                             <div class="col col s12">
                                 <h3>Intenta con otro término de búsqueda</h3>
                             </div>
-                        </div>
-
+                        </div>--%>
                     </EmptyDataTemplate>
                 </asp:ListView>
-
+                <div id="no_productos" class="borderTest" runat="server" visible="false">
+                    <p>No se han encontrado resultados.</p>
+                    <p>Intente con otro término de búsqueda.</p>
+                </div>
             </div>
-
-
         </div>
     </div>
 </div>
