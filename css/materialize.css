@@ -2738,18 +2738,18 @@ video.responsive-video {
   font-size: 24px;
 }
 
-.breadcrumb:before {
-  content: '\E5CC';
-  color: rgba(255, 255, 255, 0.7);
-  vertical-align: middle;
-  display: inline-block;
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 26px;
-  margin: 0 10px 0 8px;
-  -webkit-font-smoothing: antialiased;
-}
+    .breadcrumb:before {
+        content: '\E5CC';
+        color: rgba(255, 255, 255, 0.7);
+        vertical-align: middle !important;
+        display: inline-block;
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 20px !important;
+        margin: 0px 10px 0px 8px !important;
+        -webkit-font-smoothing: antialiased;
+    }
 
 .breadcrumb:first-child:before {
   display: none;

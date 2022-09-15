@@ -16,8 +16,9 @@
     <asp:Literal ID="lt_microdataProducto" runat="server"></asp:Literal>
     <nav>
         <div class="nav-wrapper">
-            <div id="navegacion" runat="server" style="" class="nav col s12 m12 l12 xl12 light-blue darken-1">
-                <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
+            <div id="navegacion" runat="server" style="" class="nav col s12 m12 l12 xl12 is-bg-blue-darky">
+                <%--<asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>--%>
+                <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb-1" runat="server">Productos</asp:HyperLink>
             </div>
         </div>
     </nav>

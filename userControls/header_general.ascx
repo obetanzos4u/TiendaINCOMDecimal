@@ -339,6 +339,7 @@
             height: 2.25rem;
             text-align: left;
             left: 100%;
+            margin-left: 3rem;
         }
 
 /*        .menuContainer ul :nth-child(2n +2) {

@@ -123,8 +123,26 @@
     border: 3px solid #0b79d0;
 }
 
+/*Productos y Categorias*/
+#navegacion {
+    background-color: #01568D;
+}
+
+.breadcrumb-1 {
+    content: '\E5CC';
+    color: rgba(255, 255, 255, 0.7);
+    vertical-align: middle !important;
+    display: inline-block;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px !important;
+    margin: 0px 10px 0px 8px !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+
 @media (max-width: 1800px) {
- 
     .text-this_categria {
         width: 220px;
     }
