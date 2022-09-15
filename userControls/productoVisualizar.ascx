@@ -14,7 +14,7 @@
     <p>El producto no se encuentra <strong>disponible temporalmente</strong>, no tienes los permiso para visualizarlo o este ha sido eliminado</p>
     <p>Intenta más tarde o contáctanos</p>
 </div>
-<div id="contenedor_producto" runat="server">
+<div id="contenedor_producto" runat="server" style="border: 4px solid blue">
     <asp:Literal ID="lt_microdataProducto" runat="server"></asp:Literal>
     <nav>
         <div class="nav-wrapper">
@@ -23,9 +23,12 @@
             </div>
         </div>
     </nav>
-    <div class="row margin-t-6x">
-        <div class="col s12 m6 l5 xl3">
-            <div class="sp-wrap" id="img_producto" runat="server"></div>
+    <div class="row margin-t-6x" >
+        <div class="">
+            <div class="is-productGallery">
+                <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
+                <div class="is-productGallery_featured borderTest" id="selectedImage" runat="server"></div>
+            </div>
             <div class="addthis_inline_share_toolbox"></div>
         </div>
         <div class="col s12 m12 l7 xl9">
@@ -160,12 +163,80 @@
     //document.addEventListener("DOMContentLoaded", function (event) {
     //    $('.sp-wrap').smoothproducts();
     //});
-    const img_productoServer = document.querySelector('#top_contenido_ctl00_img_producto');
-    img_productoServer.addEventListener("mouseenter", () => {
-        let img_producto = document.querySelector('#img_producto');
-        console.log(img_producto);
-    });
-    console.log(img_productoServer);
+    //const img_productoServer = document.querySelector('#top_contenido_ctl00_img_producto');
+    //img_productoServer.addEventListener("mouseenter", () => {
+    //    let img_producto = document.querySelector('#img_producto');
+    //    console.log(img_producto);
+    //});
+    //console.log(img_productoServer);
+    //let options = {
+    //    fillContainer: true,
+    //    offset: {vertical: 0, horizontal: 0}
+    //}
+    //new ImageZoom(document.querySelector("#img_producto"), options);
+    //var defaultOptions = {
+    //    width: 400,
+    //    height: 250,
+    //    zoomWidth: 250,
+    //    offset: {vertical: 0, horizontal: 10}
+    //}
+    //var container = document.getElementById("top_contenido_ctl00_img_producto");
+    //imageZoom = new ImageZoom(container, defaultOptions);
+    //imgContainer = document.querySelector("#top_contenido_ctl00_img_producto");
+    //pane = document.querySelector("#img_producto");
+    //image = new Drift(imgContainer, {
+    //    paneContainer: pane
+    //});
+    //console.log(imgContainer);
+    //console.log(pane);
+    //var root = document.documentElement;
+    //root.className = root.className.replace(/\bno-js\b/g, '') + ' js';
+
+    //// Domready check in vanila javaScript
+    //// Arrays and node lists
+    //var ready = function (fn) {
+
+    //    // Sanity check
+    //    if (typeof fn !== 'function') return;
+
+    //    // If document is already loaded, run method
+    //    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    //        return fn();
+    //    }
+
+    //    // Otherwise, wait until document is loaded
+    //    document.addEventListener('DOMContentLoaded', fn, false);
+
+    //};
+
+    //ready(function () {
+
+    //    root.className = root.className.replace(/\bdombuilding\b/g, '') + ' domready';
+
+    //    var thumbs = document.querySelectorAll('.is-productGallery_thumb');
+    //    var selectedImage = document.querySelector('#selectedImage');
+
+    //    for (var i = 0, len = thumbs.length; i < len; i++) {
+
+    //        thumbs[i].addEventListener('click', function (event) {
+
+    //            var firstChild = this.firstChild;
+    //            var dataOsrc = firstChild.getAttribute('data-osrc');
+    //            // console.log(dataOsrc);
+    //            selectedImage.firstChild.setAttribute('src', dataOsrc);
+    //        }, false);
+
+    //    }
+    //});
+    const thumbs = document.querySelectorAll(".is-productGallery_thumb");
+    for (let i = 0; i < thumbs.length; i++) {
+        thumbs[i].addEventListener('mouseenter', () => {
+            let firstChild = thumbs[i].firstChild;
+            let src = firstChild.getAttribute('src');
+            console.log(firstChild);
+            console.log(src);
+        });
+    }
 </script>
 
 
