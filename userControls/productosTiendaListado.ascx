@@ -28,8 +28,12 @@
 
         /*El área del filtro tomo distancia del borde izquierdo y por eso se agrego padding a este elemento, que es el contenedor de los resultados de los productos*/
         .contentResultados-content {
-            grid-area: content;
             padding-left: 3rem;
+        }
+
+        .contentResultados-content > div {
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .producto-main_container {

@@ -603,7 +603,8 @@
 
                     .breadcrumb:before {
                         margin: 0;
-                        vertical-align: middle;
+                        vertical-align: middle !important;
+                        z-index: 100;
                     }
 
                 #titulo_categoria {

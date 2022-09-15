@@ -16,9 +16,9 @@
 </div>
 <div id="contenedor_producto" runat="server" style="border: 4px solid blue">
     <asp:Literal ID="lt_microdataProducto" runat="server"></asp:Literal>
-    <nav>
+    <div>
         <div class="nav-wrapper">
-            <div id="navegacion" runat="server" style="" class="nav col s12 m12 l12 xl12 light-blue darken-1">
+            <div id="navegacion" runat="server" style="height: 42px; margin: 3em 0em; padding-top: 0.25rem;" class="col s12 m12 l12 xl12 is-bg-blue-darky">
                 <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
             </div>
         </div>

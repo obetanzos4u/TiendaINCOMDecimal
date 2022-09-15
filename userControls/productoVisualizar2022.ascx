@@ -14,13 +14,13 @@
 
 <div id="contenedor_producto" runat="server">
     <asp:Literal ID="lt_microdataProducto" runat="server"></asp:Literal>
-    <nav>
+    <div>
         <div class="nav-wrapper">
-            <div id="navegacion" runat="server" style="" class="nav col s12 m12 l12 xl12 light-blue darken-1">
+            <div id="navegacion" runat="server" style="height: 42px; margin: 3em 0em; padding-top: 0.25rem;" class="col s12 m12 l12 xl12 is-bg-blue-darky">
                 <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
             </div>
         </div>
-    </nav>
+    </div>
     <div class="row margin-t-6x">
         <div class="col s12 m6 l5 xl3">
             <div class="sp-wrap" id="img_producto" runat="server"></div>
