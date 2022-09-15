@@ -5,7 +5,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
    
-        <div class="row" style="border: 1px solid #0094ff">
+        <div class="row">
 
             <div id="nav_categorias_breadcrumb">
                 <div class="nav-wrapper">

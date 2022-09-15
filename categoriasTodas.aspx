@@ -9,7 +9,7 @@
         <div class="contain-nav-wrapper_producto">
             <div class="nav-wrapper">
                 <div id="navegacion" runat="server" style="" class=" col l12">
-                    <asp:HyperLink ID="categoriasTodas" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
+                    <asp:HyperLink ID="categoriasTodas" CssClass="breadcrumb" Style="border: 1px solid red" runat="server">Productos</asp:HyperLink>
                 </div>
             </div>
         </div>
