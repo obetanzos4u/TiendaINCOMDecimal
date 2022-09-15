@@ -31,8 +31,8 @@
 
           
         </div>
-        <div class="col s12 m12 l7 xl9">
-            <h1>
+        <div class="col s12 m12 l7 xl9 is-family-ms">
+            <h1 class="title-product_description is-family-ms is-m-0">
                 <asp:Literal ID="lt_numero_parte" Visible="false" runat="server"></asp:Literal>
                 <asp:Literal ID="lt_titulo" runat="server"></asp:Literal>
             </h1>
