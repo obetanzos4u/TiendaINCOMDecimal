@@ -817,7 +817,7 @@
     overflow: auto;
     display: flex;
     width: 50%;
-    border: 2px solid red
+    border: |px solid red
 }
 
 .is-productGallery_thumbnails {

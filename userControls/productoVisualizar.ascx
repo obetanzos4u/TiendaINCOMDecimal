@@ -14,7 +14,7 @@
     <p>El producto no se encuentra <strong>disponible temporalmente</strong>, no tienes los permiso para visualizarlo o este ha sido eliminado</p>
     <p>Intenta más tarde o contáctanos</p>
 </div>
-<div id="contenedor_producto" runat="server" style="border: 4px solid blue">
+<div id="contenedor_producto" runat="server" style="border: 1px solid blue">
     <asp:Literal ID="lt_microdataProducto" runat="server"></asp:Literal>
     <div>
         <div class="nav-wrapper">
@@ -22,8 +22,8 @@
                 <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
             </div>
         </div>
-    </nav>
-    <div class="row margin-t-6x" >
+    </div>
+    <div class="row margin-t-6x">
         <div class="">
             <div class="is-productGallery">
                 <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
@@ -41,13 +41,22 @@
                 <uc1:metaTagColaborativo ID="metaTagColaborativo" runat="server"></uc1:metaTagColaborativo>
             </p>
             <div class="row">
-                <span>Marca <strong>
-                    <asp:Label ID="lbl_marca" Style="margin: 0px; background: #eeeeee; display: inline; padding: 2px 16px;"
-                        runat="server" Text=""></asp:Label></strong></span> | 
-                Número de parte:  <strong>
+                <span class="is-block">Número de parte:  <strong>
                     <asp:Label ID="lbl_numero_parte" Style="margin: 0px; background: #eeeeee; display: inline; padding: 2px 16px;" runat="server" Text=""></asp:Label></strong>
+                </span>
+                <span class="is-block">Marca <strong>
+                    <asp:Label ID="lbl_marca" Style="margin: 0px; background: #eeeeee; display: inline; padding: 2px 16px;"
+                        runat="server" Text=""></asp:Label></strong>
+                </span>
+                <strong>Unidad de venta: </strong>
+                <asp:Literal ID="lt_unidad_venta" runat="server"></asp:Literal>
+                &nbsp;
+                    (<asp:Literal ID="lt_cantidad" runat="server"></asp:Literal>
+                &nbsp;
+                    <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
+
             </div>
-            <div class="row">
+            <div class="row is-border">
                 <div class="input-field  fixInput ">
                     Moneda:
         <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
@@ -72,29 +81,18 @@
                     <span class=" white-text green darken-1  nota">Incluye <strong>IVA ✓</strong> </span>
                     <br />
 
-                    <strong>Unidad de venta: </strong>
-                    <asp:Literal ID="lt_unidad_venta" runat="server"></asp:Literal>
-                    &nbsp;
-                (<asp:Literal ID="lt_cantidad" runat="server"></asp:Literal>
-                    &nbsp;
-                <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
-            
-                     <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
+                    <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
                 </div>
-
-
+                <div class="row" style="margin: inherit 0px;">
+                    <div class="col s12 m12 l12 xl12">
+                        <asp:Label ID="lbl_msg_maximo_compra" Visible="false" runat="server"></asp:Label>
+                        <uc_addCarrito:add ID="AddCarrito" runat="server"></uc_addCarrito:add>
+                    </div>
+                </div>
             </div>
 
-            <div class="row" style="margin: inherit 0px;">
-                <div class="col s12 m12 l12 xl12">
-                    <asp:Label ID="lbl_msg_maximo_compra" Visible="false" runat="server"></asp:Label>
-                    <uc_addCarrito:add ID="AddCarrito" runat="server"></uc_addCarrito:add>
-                    <SAP:productoStock ID="sap_producto_disponibilidad" Visible="true" runat="server"></SAP:productoStock>
-                    <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>
-
-                </div>
-
-            </div>
+            <SAP:productoStock ID="sap_producto_disponibilidad" Visible="true" runat="server"></SAP:productoStock>
+            <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>
 
             <div class="row">
                 <div class="col s12 m12 l12 xl12">
