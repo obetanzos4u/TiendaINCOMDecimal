@@ -42,10 +42,10 @@
             </p>
             <div class="row">
                 <span class="is-block">Número de parte:  <strong>
-                    <asp:Label ID="lbl_numero_parte" Style="margin: 0px; background: #eeeeee; display: inline; padding: 2px 16px;" runat="server" Text=""></asp:Label></strong>
+                    <asp:Label ID="lbl_numero_parte" Style="margin: 0px; display: inline; padding: 2px 16px;" runat="server" Text=""></asp:Label></strong>
                 </span>
                 <span class="is-block">Marca <strong>
-                    <asp:Label ID="lbl_marca" Style="margin: 0px; background: #eeeeee; display: inline; padding: 2px 16px;"
+                    <asp:Label ID="lbl_marca" Style="margin: 0px; display: inline; padding: 2px 16px;"
                         runat="server" Text=""></asp:Label></strong>
                 </span>
                 <strong>Unidad de venta: </strong>
@@ -54,7 +54,10 @@
                     (<asp:Literal ID="lt_cantidad" runat="server"></asp:Literal>
                 &nbsp;
                     <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
-
+                                    <table class="striped" style="width: 100%;">
+                        <tbody id="tbody_caracteristicas" runat="server">
+                        </tbody>
+                    </table>
             </div>
             <div class="row is-border">
                 <div class="input-field  fixInput ">
@@ -104,12 +107,8 @@
                 </div>
             </div>
             <div class="row">
-
-
-
                 <div id="content_caracteristicas" class="col s12 m12 l12 xl12">
                     <h2>Características</h2>
-
                     <p>
                         <asp:Label ID="lbl_especificaciones" runat="server"></asp:Label>
                     </p>
@@ -127,11 +126,8 @@
                         Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando 
                         <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
                     </p>
-                    <span class="green-text"><strong>Detalles del producto</strong></span>
-                    <table class="striped" style="width: 100%;">
-                        <tbody id="tbody_caracteristicas" runat="server">
-                        </tbody>
-                    </table>
+                    <%--<span class="green-text"><strong>Detalles del producto</strong></span>--%>
+
                     <span class="green-text"><strong>Las siguientes medidas son de empaque</strong></span>
                     <table class="striped" style="width: 100%;">
                         <tbody id="tbody_dimensiones_empaque" runat="server">

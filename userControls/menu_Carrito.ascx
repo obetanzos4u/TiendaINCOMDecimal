@@ -102,7 +102,6 @@
     }
 
         .desgloseCarrito td, th {
-            padding: 2px 6px;
             line-height: 22px;
             display: table-cell;
             text-align: left;

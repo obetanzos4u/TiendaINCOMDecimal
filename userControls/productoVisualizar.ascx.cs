@@ -393,9 +393,9 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             "</tr>";
 
             string htmlUPC = @"
-            <tr>" +
-                     "<td style='white-space: nowrap; text-align:right; padding-right:4px;'><strong>Código EAN/UPC/GTIN</strong>:</td>" +
-                     "<td style='white-space: nowrap; width:100%;'>" + upc + "</td>" +
+            <tr >" +
+                     "<td class='is-bg-white is-p-0'><strong>Código EAN/UPC/GTIN</strong>:</td>" +
+                     "<td class='is-bg-white is-p-0'>" + upc + "</td>" +
                  "</tr>";
 
 
