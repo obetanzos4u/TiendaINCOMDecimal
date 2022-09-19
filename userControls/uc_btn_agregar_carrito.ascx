@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_btn_agregar_carrito.ascx.cs" Inherits="uc_btn_agregar_carrito" %>
 
- <span style="font-size: 18px; font-weight: 500; color: #4caf50;">Cantidad solicitada</span>
+ <span style="font-size: 18px; font-weight: 500; color: #4caf50;">Cantidad</span>
 <asp:UpdatePanel ID="UP_cantidadCarrito" style="overflow: hidden;"  runat="server">
     <ContentTemplate>
         <div style="width: 250px;">
