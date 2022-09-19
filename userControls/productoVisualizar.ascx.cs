@@ -701,27 +701,44 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
     }
     protected void procesarImagenes(string img, string alt, string title)
     {
-
         img = img.Replace(" ", "");
+        alt = alt.Replace("\"", "");
+        title = title.Replace("\"", "");
         string[] imagenes = img.Split(',');
-
+        HtmlGenericControl ul = new HtmlGenericControl("ul");
+        HtmlGenericControl li = new HtmlGenericControl("li");
+        HyperLink link = new HyperLink();
+        Image image = new Image();
+        //ul.Attributes.Add("class", "product_gallery");
         string imgHTML = "";
 
         if (imagenes.Length > 1)
         {
-
             foreach (string i in imagenes)
             {
                 string src = archivosManejador.imagenProductoXL(i);
-                imgHTML += "<a  href='" + src + "'><img  class='IncomWebpToJpg' alt='" + alt + "' title='" + title + "' src='" + src + "'></a>";
+                //image.ImageUrl = src;
+                //image.AlternateText = alt;
+                //image.Attributes.Add("data-zoom", src);
+                //li.Controls.Add(image);
+                //ul.Controls.Add(li);
+                imgHTML += "<li id='img_productoContainer' class='is-productGallery_thumb'><img id='img_producto' alt='" + alt + "' title='" + title + "' src='" + src + "' data-zoom='" + src + "'></li>";
             }
             img_producto.InnerHtml = imgHTML;
+            //img_producto.Controls.Add(ul);
         }
         else if (imagenes.Length == 1)
         {
             string src = archivosManejador.imagenProductoXL(imagenes[0]);
-            img_producto.InnerHtml = "<a href='" + src + "'><img  class='IncomWebpToJpg' alt='" + alt + "' title='" + title + "' src='" + src + "'></a>";
+            //image.ImageUrl = src;
+            //image.AlternateText = alt;
+            //image.Attributes.Add("data-zoom", src);
+            //li.Controls.Add(image);
+            //ul.Controls.Add(li);
+            img_producto.InnerHtml = "<li id='img_productoContainer' class='is-productGallery_thumb'><img id='img_producto' alt='" + alt + "' title='" + title + "' src='" + src + "' data-zoom='" + src + "'></li>";
+            //img_producto.Controls.Add(ul);
         }
+
     }
     protected void procesarCaracteristicas(string caracteristicas)
     {
