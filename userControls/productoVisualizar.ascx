@@ -26,8 +26,11 @@
     <div class="row margin-t-6x">
         <div class="">
             <div class="is-productGallery">
+                <div class="is-productGallery_featured" id="selectedImage" runat="server">
+                    <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Imagen seleccionada" style="position: relative; width: 100%" />
+                    <iframe id="videoProductGallery_selected" src="https://www.youtube.com/embed/" frameborder="0" allow ="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="is-hidden"></iframe>
+                </div>
                 <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
-                <div class="is-productGallery_featured borderTest" id="selectedImage" runat="server"></div>
             </div>
             <div class="addthis_inline_share_toolbox"></div>
         </div>
@@ -154,84 +157,29 @@
 
 </div>
 <script>
-    //document.addEventListener("DOMContentLoaded", function (event) {
-    //    $('.sp-wrap').smoothproducts();
-    //});
-    //const img_productoServer = document.querySelector('#top_contenido_ctl00_img_producto');
-    //img_productoServer.addEventListener("mouseenter", () => {
-    //    let img_producto = document.querySelector('#img_producto');
-    //    console.log(img_producto);
-    //});
-    //console.log(img_productoServer);
-    //let options = {
-    //    fillContainer: true,
-    //    offset: {vertical: 0, horizontal: 0}
-    //}
-    //new ImageZoom(document.querySelector("#img_producto"), options);
-    //var defaultOptions = {
-    //    width: 400,
-    //    height: 250,
-    //    zoomWidth: 250,
-    //    offset: {vertical: 0, horizontal: 10}
-    //}
-    //var container = document.getElementById("top_contenido_ctl00_img_producto");
-    //imageZoom = new ImageZoom(container, defaultOptions);
-    //imgContainer = document.querySelector("#top_contenido_ctl00_img_producto");
-    //pane = document.querySelector("#img_producto");
-    //image = new Drift(imgContainer, {
-    //    paneContainer: pane
-    //});
-    //console.log(imgContainer);
-    //console.log(pane);
-    //var root = document.documentElement;
-    //root.className = root.className.replace(/\bno-js\b/g, '') + ' js';
-
-    //// Domready check in vanila javaScript
-    //// Arrays and node lists
-    //var ready = function (fn) {
-
-    //    // Sanity check
-    //    if (typeof fn !== 'function') return;
-
-    //    // If document is already loaded, run method
-    //    if (document.readyState === 'interactive' || document.readyState === 'complete') {
-    //        return fn();
-    //    }
-
-    //    // Otherwise, wait until document is loaded
-    //    document.addEventListener('DOMContentLoaded', fn, false);
-
-    //};
-
-    //ready(function () {
-
-    //    root.className = root.className.replace(/\bdombuilding\b/g, '') + ' domready';
-
-    //    var thumbs = document.querySelectorAll('.is-productGallery_thumb');
-    //    var selectedImage = document.querySelector('#selectedImage');
-
-    //    for (var i = 0, len = thumbs.length; i < len; i++) {
-
-    //        thumbs[i].addEventListener('click', function (event) {
-
-    //            var firstChild = this.firstChild;
-    //            var dataOsrc = firstChild.getAttribute('data-osrc');
-    //            // console.log(dataOsrc);
-    //            selectedImage.firstChild.setAttribute('src', dataOsrc);
-    //        }, false);
-
-    //    }
-    //});
     const thumbs = document.querySelectorAll(".is-productGallery_thumb");
+    let selectedImg = document.getElementById("productGallery_selected");
+    let selectedVid = document.getElementById("videoProductGallery_selected");
     for (let i = 0; i < thumbs.length; i++) {
-        thumbs[i].addEventListener('mouseenter', () => {
+        thumbs[i].addEventListener("mouseenter", () => {
             let firstChild = thumbs[i].firstChild;
-            let src = firstChild.getAttribute('src');
-            console.log(firstChild);
-            console.log(src);
+            if (thumbs[i].id === "vid_productoContainer") {
+                let src = firstChild.getAttribute("data-video");
+                selectedImg.classList.add("is-hidden");
+                selectedVid.classList.remove("is-hidden");
+                document.getElementById("videoProductGallery_selected").src += src;
+            } else {
+                let src = firstChild.getAttribute("src");
+                selectedVid.classList.add("is-hidden");
+                selectedImg.classList.remove("is-hidden");
+                document.getElementById("productGallery_selected").src = src;
+            }
         });
     }
+    document.addEventListener("DOMContentLoaded", () => {
+        let firstSrc = thumbs[0].firstChild.getAttribute("src");
+        document.getElementById("productGallery_selected").src = firstSrc;
+    });
 </script>
-
 
 <uc1:mdl_addOperacion ID="mdl_addOperacion" runat="server"></uc1:mdl_addOperacion>

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
@@ -361,7 +362,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             lt_cantidad.Text = cantidad;
             lt_unidad.Text = unidad;
 
-            procesarImagenes(productos.Rows[0]["imagenes"].ToString(), titulo, descripcion_corta);
+            procesarImagenesYVideo(productos.Rows[0]["imagenes"].ToString(), titulo, descripcion_corta, video);
 
             cargarNavegacion(productos.Rows[0]["categoria_identificador"].ToString());
 
@@ -699,7 +700,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
 
 
     }
-    protected void procesarImagenes(string img, string alt, string title)
+    protected void procesarImagenesYVideo(string img, string alt, string title, string video)
     {
         img = img.Replace(" ", "");
         alt = alt.Replace("\"", "");
@@ -722,7 +723,12 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 //image.Attributes.Add("data-zoom", src);
                 //li.Controls.Add(image);
                 //ul.Controls.Add(li);
-                imgHTML += "<li id='img_productoContainer' class='is-productGallery_thumb'><img id='img_producto' alt='" + alt + "' title='" + title + "' src='" + src + "' data-zoom='" + src + "'></li>";
+                imgHTML += "<li class='is-productGallery_thumb'><img alt='" + alt + "' title='" + title + "' src='" + src + "' data-zoom='" + src + "' style='width: 44px; height: 44px;' width='44' height='44'></li>";
+            }
+            if (video != "")
+            {
+                string videoSrc = "/img/webUI/newdesign/play.svg";
+                imgHTML += "<li id='vid_productoContainer' class='is-productGallery_thumb'><img id='img_producto' alt='Video thumb' title='Youtube INCOM' src='" + videoSrc + "' style='width: 44px; height: 44px;' width='44' height='44' data-video='" + video + "'></li>";
             }
             img_producto.InnerHtml = imgHTML;
             //img_producto.Controls.Add(ul);
@@ -735,7 +741,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             //image.Attributes.Add("data-zoom", src);
             //li.Controls.Add(image);
             //ul.Controls.Add(li);
-            img_producto.InnerHtml = "<li id='img_productoContainer' class='is-productGallery_thumb'><img id='img_producto' alt='" + alt + "' title='" + title + "' src='" + src + "' data-zoom='" + src + "'></li>";
+            img_producto.InnerHtml = "<li class='is-productGallery_thumb'><img alt='" + alt + "' title='" + title + "' src='" + src + "' data-zoom='" + src + "' style='width: 44px; height: 44px;' width='44' height='44'></li>";
             //img_producto.Controls.Add(ul);
         }
 
