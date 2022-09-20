@@ -9,6 +9,11 @@
 
 /* Display section */
 
+
+.is-family-ms {
+    font-family: "Monserrat";
+}
+
 /* Flex section */
 .is-flex {
     display: flex;

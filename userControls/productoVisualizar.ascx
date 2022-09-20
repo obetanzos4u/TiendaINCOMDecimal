@@ -14,7 +14,7 @@
     <p>El producto no se encuentra <strong>disponible temporalmente</strong>, no tienes los permiso para visualizarlo o este ha sido eliminado</p>
     <p>Intenta más tarde o contáctanos</p>
 </div>
-<div id="contenedor_producto" runat="server" style="border: 4px solid blue">
+<div id="contenedor_producto" runat="server" style="border: 1px solid blue">
     <asp:Literal ID="lt_microdataProducto" runat="server"></asp:Literal>
     <div>
         <div class="nav-wrapper">
@@ -34,8 +34,8 @@
             </div>
             <div class="addthis_inline_share_toolbox"></div>
         </div>
-        <div class="col s12 m12 l7 xl9">
-            <h1>
+        <div class="col s12 m12 l7 xl9 is-family-ms">
+            <h1 class="title-product_description is-family-ms is-m-0">
                 <asp:Literal ID="lt_numero_parte" Visible="false" runat="server"></asp:Literal>
                 <asp:Literal ID="lt_titulo" runat="server"></asp:Literal>
             </h1>
@@ -44,13 +44,25 @@
                 <uc1:metaTagColaborativo ID="metaTagColaborativo" runat="server"></uc1:metaTagColaborativo>
             </p>
             <div class="row">
-                <span>Marca <strong>
-                    <asp:Label ID="lbl_marca" Style="margin: 0px; background: #eeeeee; display: inline; padding: 2px 16px;"
-                        runat="server" Text=""></asp:Label></strong></span> | 
-                Número de parte:  <strong>
-                    <asp:Label ID="lbl_numero_parte" Style="margin: 0px; background: #eeeeee; display: inline; padding: 2px 16px;" runat="server" Text=""></asp:Label></strong>
+                <span class="is-block">Número de parte:  <strong>
+                    <asp:Label ID="lbl_numero_parte" Style="margin: 0px; display: inline; padding: 2px 16px;" runat="server" Text=""></asp:Label></strong>
+                </span>
+                <span class="is-block">Marca <strong>
+                    <asp:Label ID="lbl_marca" Style="margin: 0px; display: inline; padding: 2px 16px;"
+                        runat="server" Text=""></asp:Label></strong>
+                </span>
+                <strong>Unidad de venta: </strong>
+                <asp:Literal ID="lt_unidad_venta" runat="server"></asp:Literal>
+                &nbsp;
+                    (<asp:Literal ID="lt_cantidad" runat="server"></asp:Literal>
+                &nbsp;
+                    <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
+                                    <table class="striped" style="width: 100%;">
+                        <tbody id="tbody_caracteristicas" runat="server">
+                        </tbody>
+                    </table>
             </div>
-            <div class="row">
+            <div class="row is-border">
                 <div class="input-field  fixInput ">
                     Moneda:
         <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
@@ -75,29 +87,18 @@
                     <span class=" white-text green darken-1  nota">Incluye <strong>IVA ✓</strong> </span>
                     <br />
 
-                    <strong>Unidad de venta: </strong>
-                    <asp:Literal ID="lt_unidad_venta" runat="server"></asp:Literal>
-                    &nbsp;
-                (<asp:Literal ID="lt_cantidad" runat="server"></asp:Literal>
-                    &nbsp;
-                <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
-            
-                     <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
+                    <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
                 </div>
-
-
+                <div class="row" style="margin: inherit 0px;">
+                    <div class="col s12 m12 l12 xl12">
+                        <asp:Label ID="lbl_msg_maximo_compra" Visible="false" runat="server"></asp:Label>
+                        <uc_addCarrito:add ID="AddCarrito" runat="server"></uc_addCarrito:add>
+                    </div>
+                </div>
             </div>
 
-            <div class="row" style="margin: inherit 0px;">
-                <div class="col s12 m12 l12 xl12">
-                    <asp:Label ID="lbl_msg_maximo_compra" Visible="false" runat="server"></asp:Label>
-                    <uc_addCarrito:add ID="AddCarrito" runat="server"></uc_addCarrito:add>
-                    <SAP:productoStock ID="sap_producto_disponibilidad" Visible="true" runat="server"></SAP:productoStock>
-                    <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>
-
-                </div>
-
-            </div>
+            <SAP:productoStock ID="sap_producto_disponibilidad" Visible="true" runat="server"></SAP:productoStock>
+            <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>
 
             <div class="row">
                 <div class="col s12 m12 l12 xl12">
@@ -109,12 +110,8 @@
                 </div>
             </div>
             <div class="row">
-
-
-
                 <div id="content_caracteristicas" class="col s12 m12 l12 xl12">
                     <h2>Características</h2>
-
                     <p>
                         <asp:Label ID="lbl_especificaciones" runat="server"></asp:Label>
                     </p>
@@ -132,11 +129,8 @@
                         Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando 
                         <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
                     </p>
-                    <span class="green-text"><strong>Detalles del producto</strong></span>
-                    <table class="striped" style="width: 100%;">
-                        <tbody id="tbody_caracteristicas" runat="server">
-                        </tbody>
-                    </table>
+                    <%--<span class="green-text"><strong>Detalles del producto</strong></span>--%>
+
                     <span class="green-text"><strong>Las siguientes medidas son de empaque</strong></span>
                     <table class="striped" style="width: 100%;">
                         <tbody id="tbody_dimensiones_empaque" runat="server">

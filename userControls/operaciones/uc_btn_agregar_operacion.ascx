@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_btn_agregar_operacion.ascx.cs" Inherits="uc_btn_agregar_operacion" %>
-<%@ Register Src="~/userControls/operaciones/uc_modal_agregar_operacion.ascx" TagName="mdl_addOperacion" TagPrefix="uc1" %>
-<%@ Reference VirtualPath="~/userControls/operaciones/uc_modal_agregar_operacion.ascx"%>
+<%@ register src="~/usercontrols/operaciones/uc_modal_agregar_operacion.ascx" tagname="mdl_addoperacion" tagprefix="uc1" %>
+<%@ reference virtualpath="~/usercontrols/operaciones/uc_modal_agregar_operacion.ascx"%>
 
 <script runat="server">
 
@@ -28,14 +28,14 @@
 
         <asp:HiddenField ID="hf_descripcion_corta" runat="server" />
 
-            <asp:LinkButton ID="btn_MostrarModal"   OnClick="btn_MostrarModal_Click" runat="server" class="btn hover-add-operacion waves-effect waves-light btn blue">
+<%--            <asp:LinkButton ID="btn_MostrarModal"   OnClick="btn_MostrarModal_Click" runat="server" class="btn hover-add-operacion waves-effect waves-light btn blue">
             <i class="material-icons  left">add</i> 
-            </asp:LinkButton>
+            </asp:LinkButton>--%>
         
     </ContentTemplate>
-    <Triggers>
+<%--    <Triggers>
         <asp:AsyncPostBackTrigger ControlID="btn_MostrarModal" EventName="Click" />
-    </Triggers>
+    </Triggers>--%>
 </asp:UpdatePanel>
 
 

@@ -135,6 +135,9 @@
     </svg>
         </span>--%>
     </section>
+    <section class="pleca is-flex is-bg-blue-darky is-py-0 is-justify-center  is-h-8">
+        <span class="text-pleca is-flex is-text-white is-text-center is-items-center">¡ENVÍO GRATIS! &nbsp;&nbsp; Válido en compras en línea desde $3,000 mxn</span>
+    </section> 
     <div id="content_header" class="col s12 m12 l12" style="padding: 5px 0px;">
         <section class="title_container">
             <p class="title_header">INCOM&reg; La ferretera de las telecomunicaciones&reg;</p>

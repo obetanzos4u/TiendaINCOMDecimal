@@ -5,12 +5,10 @@
 
         <asp:Panel ID="content_usuario_logeado" Visible="false" style="display:inline;" runat="server">
             <asp:HiddenField ID="hf_numero_parte" runat="server" />
- 
-
-            <a class="btn green" onclick="consultarDisponibilidad(this);" href="#">Ver disponibilidad</a>
-            <br /> <br />
+<%--            <a class="btn green" onclick="consultarDisponibilidad(this);" href="#">Ver disponibilidad</a>
+            <br /> <br />--%>
             <div id="productoDisponibilidad" ></div>
-            *La disponibilidad puede cambiar sin previo aviso.
+            Precios y disponibilidad sujetos a cambio sin previo aviso.
 
             <script>
 
