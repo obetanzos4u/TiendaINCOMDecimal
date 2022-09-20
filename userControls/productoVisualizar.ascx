@@ -27,11 +27,12 @@
         <div class="">
             <div class="is-productGallery">
                 <div class="is-productGallery_featured" id="selectedImage" runat="server">
-                    <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Imagen seleccionada" style="position: relative; width: 100%" />
-                    <iframe id="videoProductGallery_selected" src="https://www.youtube.com/embed/" frameborder="0" allow ="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="is-hidden"></iframe>
+                    <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Fotografía de producto" style="position: relative; width: 100%" />
+                    <iframe id="videoProductGallery_selected" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="is-hidden"></iframe>
                 </div>
                 <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
             </div>
+            <div id="productZoom"></div>
             <div class="addthis_inline_share_toolbox"></div>
         </div>
         <div class="col s12 m12 l7 xl9 is-family-ms">
@@ -58,9 +59,9 @@
                 &nbsp;
                     <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
                                     <table class="striped" style="width: 100%;">
-                        <tbody id="tbody_caracteristicas" runat="server">
-                        </tbody>
-                    </table>
+                                        <tbody id="tbody_caracteristicas" runat="server">
+                                        </tbody>
+                                    </table>
             </div>
             <div class="row is-border">
                 <div class="input-field  fixInput ">
@@ -160,6 +161,10 @@
     const thumbs = document.querySelectorAll(".is-productGallery_thumb");
     let selectedImg = document.getElementById("productGallery_selected");
     let selectedVid = document.getElementById("videoProductGallery_selected");
+    let drift = new Drift(selectedImg, {
+        paneContainer: document.querySelector("#productZoom"),
+    });
+    console.log(drift);
     for (let i = 0; i < thumbs.length; i++) {
         thumbs[i].addEventListener("mouseenter", () => {
             let firstChild = thumbs[i].firstChild;
@@ -173,12 +178,15 @@
                 selectedVid.classList.add("is-hidden");
                 selectedImg.classList.remove("is-hidden");
                 document.getElementById("productGallery_selected").src = src;
+                drift.setZoomImageURL(src);
+                selectedImg.setAttribute("data-zoom", src);
             }
         });
     }
     document.addEventListener("DOMContentLoaded", () => {
         let firstSrc = thumbs[0].firstChild.getAttribute("src");
         document.getElementById("productGallery_selected").src = firstSrc;
+        selectedImg.setAttribute("data-zoom", firstSrc);
     });
 </script>
 

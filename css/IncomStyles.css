@@ -144,6 +144,19 @@
     display: none;
 }
 
+/* Position */
+.is-fixed {
+    position: fixed;
+}
+
+.is-absolute {
+    position: absolute;
+}
+
+.is-relative {
+    position: relative;
+}
+
 /* End display section */
 
 /* Colors */
