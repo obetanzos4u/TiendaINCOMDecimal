@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true"   MaintainScrollPositionOnPostback="true" Async="true"  CodeFile="categoria.aspx.cs" MasterPageFile="~/generalCategoria.master" Inherits="categoria" %>
 <%@ Register Src="~/userControls/productosTiendaListado.ascx" TagName="productos" TagPrefix="uc_pro" %>
 <%@ Register Src="~/userControls/categoriaL1.ascx" TagName="categorias" TagPrefix="uc_cat" %>
-<%@ Register Src="~/userControls/ui/catalogosSlider.ascx" TagName="sliderCatalogos" TagPrefix="uc1" %>
+<%--<%@ Register Src="~/userControls/ui/catalogosSlider.ascx" TagName="sliderCatalogos" TagPrefix="uc1" %>--%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
    
@@ -29,7 +29,7 @@
             <uc_pro:productos ID="ucProductos" runat="server"></uc_pro:productos>
         </div>
  
-  <div class="main-catalogos">
+<%--   <div class="main-catalogos">
             <uc1:sliderCatalogos runat="server"></uc1:sliderCatalogos>
-        </div>
+        </div> --%>
 </asp:Content>
