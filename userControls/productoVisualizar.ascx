@@ -18,7 +18,7 @@
     <asp:Literal ID="lt_microdataProducto" runat="server"></asp:Literal>
     <div>
         <div class="nav-wrapper">
-            <div id="navegacion" runat="server" style="height: 42px; margin: 3em 0em; padding-top: 0.25rem;" class="col s12 m12 l12 xl12 is-bg-blue-darky">
+            <div id="navegacion" runat="server" style="height: 42px; margin: 1em 0em; padding-top: 0.25rem;" class="col s12 m12 l12 xl12 is-bg-blue-darky">
                 <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
             </div>
         </div>
@@ -58,10 +58,6 @@
                     (<asp:Literal ID="lt_cantidad" runat="server"></asp:Literal>
                 &nbsp;
                     <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
-                                    <table class="striped" style="width: 100%;">
-                                        <tbody id="tbody_caracteristicas" runat="server">
-                                        </tbody>
-                                    </table>
             </div>
             <div class="row is-border">
                 <div class="input-field  fixInput ">
@@ -113,15 +109,19 @@
             <div class="row">
                 <div id="content_caracteristicas" class="col s12 m12 l12 xl12">
                     <h2>Características</h2>
+                    <table class="striped" style="width: 100%;">
+                        <tbody id="tbody_caracteristicas" runat="server">
+                        </tbody>
+                    </table>
                     <p>
                         <asp:Label ID="lbl_especificaciones" runat="server"></asp:Label>
                     </p>
                 </div>
+
                 <div id="content_avisos" class="col s12 m12 l12 xl12">
                     <h2>Avisos:</h2>
                     <ul id="ProductoAvisosListado" class="incom-ul-default" runat="server">
                     </ul>
-
                 </div>
                 <div class="col s12 m12 l12 xl12">
                     <!-- caracteristicas -->

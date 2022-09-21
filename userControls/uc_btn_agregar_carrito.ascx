@@ -10,7 +10,7 @@
             </div>--%>
             <div class="txt_center">
 
-                <asp:TextBox ID="txt_cantidadCarrito" Style="text-align: center; height: 1.5rem; width: -webkit-fill-available; padding: 3px;" class="inline txt_cantidadCarrito" Text="1"
+                <asp:TextBox ID="txt_cantidadCarrito" Style="text-align: center; height: 1.5rem; width: -webkit-fill-available; padding: 3px; border-radius: 12px;" class="inline txt_cantidadCarrito" Text="1"
                     runat="server"></asp:TextBox>
 
             </div>

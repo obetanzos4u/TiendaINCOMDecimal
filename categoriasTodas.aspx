@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Async="true" CodeFile="categoriasTodas.aspx.cs" MasterPageFile="~/generalCategoria.master" Inherits="categorias_pag" %>¿
+﻿<%@ Page Language="C#" AutoEventWireup="true" Async="true" CodeFile="categoriasTodas.aspx.cs" MasterPageFile="~/generalCategoria.master" Inherits="categorias_pag" %>
 <%@ Register Src="~/userControls/categoriasTodas.ascx" TagName="categoriasTodas" TagPrefix="uc_cat" %>
-<%@ Register Src="~/userControls/ui/catalogosSlider.ascx" TagName="sliderCatalogos" TagPrefix="uc1" %>
+<%-- <%@ Register Src="~/userControls/ui/catalogosSlider.ascx" TagName="sliderCatalogos" TagPrefix="uc1" %> --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
     <div class="row">
@@ -14,11 +14,11 @@
             </div>
         </div>
     </div>
-    <%--<div class="row categorias_todas">--%>
-    <div class="categorias_todas">
+    <div class="row categorias_todas">
+        <div class="categorias_todas">
         <uc_cat:categoriasTodas runat="server"></uc_cat:categoriasTodas>
     </div>
-    <div class="row">
+    <%--<div class="row">
         <uc1:sliderCatalogos runat="server"></uc1:sliderCatalogos>
-    </div>
+    </div>--%>
 </asp:Content>
