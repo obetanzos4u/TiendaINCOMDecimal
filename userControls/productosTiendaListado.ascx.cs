@@ -161,6 +161,7 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
 
         if (productos != null && productos.Rows.Count > 0)
         {
+            contentResultados.Visible = true;
             cont_categorias.Visible = true;
             cont_filtros.Visible = true;
             cont_moneda.Visible = true;

@@ -24,10 +24,14 @@
 </asp:UpdatePanel>
 <asp:UpdatePanel ID="up_btn_add_carrito" style="display: inline;" runat="server">
     <ContentTemplate>
-
         <asp:LinkButton ID="btn_agregar_productoCarrito" ClientIDMode="Static" OnClientClick="btnLoading(this);" runat="server"
+<<<<<<< HEAD
             class="waves-effect-1 waves-light btn  blue" OnClick="btn_agregar_productoCarrito_Click">
             <i class="material-icons left">add_shopping_cart</i>Agregar a carrito
+=======
+            class="waves-effect waves-light btn  blue" OnClick="btn_agregar_productoCarrito_Click">
+            <i class="material-icons left">add_shopping_cart</i>Modificado a carrito
+>>>>>>> 9d75af1f5a2d7d72aa849895a686f3f9f44cc8b8
         </asp:LinkButton>
         <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" class="waves-effect waves-light btn  blue">
             <i class="material-icons left">add_shopping_cart</i>Agregar a carrito

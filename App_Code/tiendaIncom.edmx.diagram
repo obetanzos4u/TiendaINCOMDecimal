@@ -52,6 +52,9 @@
         <EntityTypeShape EntityType="tiendaModel.StockRegistroFaltaDeStock" Width="2.75" PointX="18.375" PointY="6.75" />
         <EntityTypeShape EntityType="tiendaModel.productos_solo_visualizacion" Width="1.5" PointX="19.375" PointY="3.75" />
         <EntityTypeShape EntityType="tiendaModel.precios_fantasma" Width="1.5" PointX="19.375" PointY="13.75" />
+        <EntityTypeShape EntityType="tiendaModel.ProductosBloqueoStock1" Width="1.5" PointX="16.375" PointY="20.75" />
+        <EntityTypeShape EntityType="tiendaModel.usuariosInfo1" Width="1.5" PointX="18.375" PointY="20.75" />
+        <EntityTypeShape EntityType="tiendaModel.PedidosClaveUsoCFDI1" Width="1.5" PointX="20.375" PointY="20.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
