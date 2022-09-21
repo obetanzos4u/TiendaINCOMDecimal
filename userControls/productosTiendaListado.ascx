@@ -31,10 +31,10 @@
             padding-left: 3rem;
         }
 
-        .contentResultados-content > div {
-            display: flex;
-            flex-wrap: wrap;
-        }
+            .contentResultados-content > div {
+                display: flex;
+                flex-wrap: wrap;
+            }
 
         .producto-main_container {
             margin: auto 0px !important;
@@ -57,6 +57,7 @@
 </style>
 <script>
     async function producto_agregar_carrito_Service(btn) {
+        console.log(btn);
         var idLoading = btnLoadingHide(btn);
         var numero_parte = document.querySelector("#producto_disponibilidad_numero_parte").textContent;
         var cantidad = document.querySelector("#txt_producto_cantidad_disponibilidad").value;
@@ -96,6 +97,9 @@
                 processData: false
             });
     }
+    const agregarProducto = () => {
+        console.log("Producto agregado");
+    }
 </script>
 <div class="producto-main_container row">
     <!--Clases anteriores de este componente col s12 m12 l12 xl12 style="margin: auto 0px !important; min-height: 330px;" -->
@@ -116,7 +120,7 @@
             </div>
         </div>
         <!-- FIN : Filtros y orden -->
-        <div id="contentResultados">
+        <div id="contentResultados" runat="server" visible="false">
             <div class="contentResultados-sidedar">
                 <div runat="server" id="cont_categorias" class="input-field fixInput" visible="false">
                     <label class="label-filtro_producto" style="position: initial;">Filtrar por categoria</label>

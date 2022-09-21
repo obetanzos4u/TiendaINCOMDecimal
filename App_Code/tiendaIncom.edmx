@@ -4,767 +4,768 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="tiendaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="tiendaModelStoreContainer">
-    <EntitySet Name="base_cotizaciones_estatus" EntityType="tiendaModel.Store.base_cotizaciones_estatus" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="productos_comentarios" EntityType="tiendaModel.Store.productos_comentarios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="productos_stock" EntityType="tiendaModel.Store.productos_stock" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="pedidos_pagos_paypal" EntityType="tiendaModel.Store.pedidos_pagos_paypal" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="glosario" EntityType="tiendaModel.Store.glosario" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="infografías" EntityType="tiendaModel.Store.infografías" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="carrito_productos" EntityType="tiendaModel.Store.carrito_productos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="direcciones_envio" EntityType="tiendaModel.Store.direcciones_envio" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="direcciones_facturacion" EntityType="tiendaModel.Store.direcciones_facturacion" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="estados_mexico" EntityType="tiendaModel.Store.estados_mexico" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="paises" EntityType="tiendaModel.Store.paises" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="pedidos_direccionFacturacion" EntityType="tiendaModel.Store.pedidos_direccionFacturacion" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="pedidos_modificaciones" EntityType="tiendaModel.Store.pedidos_modificaciones" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="pedidos_productos" EntityType="tiendaModel.Store.pedidos_productos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="pedidos_productos_modificaciones" EntityType="tiendaModel.Store.pedidos_productos_modificaciones" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="precios_ListaFija" EntityType="tiendaModel.Store.precios_ListaFija" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="precios_multiplicador" EntityType="tiendaModel.Store.precios_multiplicador" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="precios_rangos" EntityType="tiendaModel.Store.precios_rangos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="productos_Roles" EntityType="tiendaModel.Store.productos_Roles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="productos_unidades" EntityType="tiendaModel.Store.productos_unidades" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="permisos_app" EntityType="tiendaModel.Store.permisos_app" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="cotizaciones_datos" EntityType="tiendaModel.Store.cotizaciones_datos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="cotizaciones_productos" EntityType="tiendaModel.Store.cotizaciones_productos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="productos_Datos" EntityType="tiendaModel.Store.productos_Datos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="pedidos_pagos_liga_santander" EntityType="tiendaModel.Store.pedidos_pagos_liga_santander" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="pedidos_pagos_respuesta_santander" EntityType="tiendaModel.Store.pedidos_pagos_respuesta_santander" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="cotizaciones_datosNumericos" EntityType="tiendaModel.Store.cotizaciones_datosNumericos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="cotizaciones_direccionEnvio" EntityType="tiendaModel.Store.cotizaciones_direccionEnvio" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="pedidos_direccionEnvio" EntityType="tiendaModel.Store.pedidos_direccionEnvio" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="pedidos_datos" EntityType="tiendaModel.Store.pedidos_datos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="pedidos_datosNumericos" EntityType="tiendaModel.Store.pedidos_datosNumericos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="contactos" EntityType="tiendaModel.Store.contactos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="usuarios_ligas_confirmaciones" EntityType="tiendaModel.Store.usuarios_ligas_confirmaciones" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="categorias" EntityType="tiendaModel.Store.categorias" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="usuarios" EntityType="tiendaModel.Store.usuarios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="pedidos_pagos_transferencia" EntityType="tiendaModel.Store.pedidos_pagos_transferencia" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="usuariosInfoes" EntityType="tiendaModel.Store.usuariosInfoes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PedidosClaveUsoCFDIs" EntityType="tiendaModel.Store.PedidosClaveUsoCFDIs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ProductosBloqueoStocks" EntityType="tiendaModel.Store.ProductosBloqueoStocks" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="StockRegistroFaltaDeStocks" EntityType="tiendaModel.Store.StockRegistroFaltaDeStocks" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="productos_solo_visualizacion" EntityType="tiendaModel.Store.productos_solo_visualizacion" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="precios_fantasma" EntityType="tiendaModel.Store.precios_fantasma" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="fk_contactos_usuarios" Association="tiendaModel.Store.fk_contactos_usuarios">
-      <End Role="usuario" EntitySet="usuarios" />
-      <End Role="contacto" EntitySet="contactos" />
-    </AssociationSet>
-    <AssociationSet Name="fk_direccionesenvio_usuarios" Association="tiendaModel.Store.fk_direccionesenvio_usuarios">
-      <End Role="usuario" EntitySet="usuarios" />
-      <End Role="direcciones_envio" EntitySet="direcciones_envio" />
-    </AssociationSet>
-    <AssociationSet Name="fk_direccionesFact_usuarios" Association="tiendaModel.Store.fk_direccionesFact_usuarios">
-      <End Role="usuario" EntitySet="usuarios" />
-      <End Role="direcciones_facturacion" EntitySet="direcciones_facturacion" />
-    </AssociationSet>
-    <AssociationSet Name="fk_permisos_usuarios" Association="tiendaModel.Store.fk_permisos_usuarios">
-      <End Role="usuario" EntitySet="usuarios" />
-      <End Role="permisos_app" EntitySet="permisos_app" />
-    </AssociationSet>
-    <AssociationSet Name="FK_idUsuario" Association="tiendaModel.Store.FK_idUsuario">
-      <End Role="usuario" EntitySet="usuarios" />
-      <End Role="productos_comentarios" EntitySet="productos_comentarios" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="base_cotizaciones_estatus">
-    <Key>
-      <PropertyRef Name="idEstatus" />
-    </Key>
-    <Property Name="idEstatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombreEstatus" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="productos_comentarios">
-    <Key>
-      <PropertyRef Name="idComentario" />
-    </Key>
-    <Property Name="idComentario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="fechaComentario" Type="datetime" Nullable="false" />
-    <Property Name="idUsuario" Type="int" Nullable="true" />
-    <Property Name="comentario" Type="nvarchar" Nullable="false" MaxLength="850" />
-    <Property Name="calificación" Type="tinyint" Nullable="true" />
-    <Property Name="visible" Type="bit" Nullable="false" />
-  </EntityType>
-  <EntityType Name="productos_stock">
-    <Key>
-      <PropertyRef Name="numero_parte" />
-      <PropertyRef Name="cantidad" />
-      <PropertyRef Name="unidad" />
-      <PropertyRef Name="fecha_actualización" />
-    </Key>
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="cantidad" Type="float" Nullable="false" />
-    <Property Name="unidad" Type="nvarchar" Nullable="false" MaxLength="25" />
-    <Property Name="ubicación" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="fecha_actualización" Type="datetime" Nullable="false" />
-    <Property Name="ubicación_pre" Type="nvarchar" Nullable="true" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="pedidos_pagos_paypal">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idTransacciónPayPal" Type="nvarchar" Nullable="false" MaxLength="25" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="intento" Type="nvarchar" Nullable="true" MaxLength="25" />
-    <Property Name="estado" Type="nvarchar" Nullable="true" MaxLength="25" />
-    <Property Name="moneda" Type="nvarchar" Nullable="true" MaxLength="5" />
-    <Property Name="monto" Type="nvarchar" Nullable="true" MaxLength="25" />
-    <Property Name="fecha_primerIntento" Type="datetime" Nullable="true" />
-    <Property Name="fecha_actualización" Type="datetime" Nullable="true" />
-    <Property Name="aprobadoAsesor" Type="bit" Nullable="true" />
-    <Property Name="paymentID" Type="nvarchar" Nullable="true" MaxLength="25" />
-  </EntityType>
-  <EntityType Name="glosario">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="término" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="términoInglés" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="descripción" Type="nvarchar" Nullable="false" MaxLength="800" />
-    <Property Name="simbolo" Type="nvarchar" Nullable="true" MaxLength="25" />
-    <Property Name="link" Type="nvarchar" Nullable="true" MaxLength="250" />
-  </EntityType>
-  <EntityType Name="infografías">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="descripción" Type="nvarchar" Nullable="false" MaxLength="400" />
-    <Property Name="fecha" Type="datetime" Nullable="false" />
-    <Property Name="nombreImagenMiniatura" Type="nvarchar" Nullable="false" MaxLength="250" />
-    <Property Name="nombreArchivo" Type="nvarchar" Nullable="false" MaxLength="250" />
-  </EntityType>
-  <EntityType Name="carrito_productos">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="usuario" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="activo" Type="int" Nullable="false" />
-    <Property Name="tipo" Type="int" Nullable="false" />
-    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="250" />
-    <Property Name="marca" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="moneda" Type="nvarchar" Nullable="false" MaxLength="5" />
-    <Property Name="tipo_cambio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
-    <Property Name="unidad" Type="nvarchar" Nullable="false" MaxLength="25" />
-    <Property Name="precio_unitario" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="cantidad" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="precio_total" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="stock1" Type="float" Nullable="true" />
-    <Property Name="stock1_fecha" Type="datetime" Nullable="true" />
-    <Property Name="stock2" Type="float" Nullable="true" />
-    <Property Name="stock2_fecha" Type="datetime" Nullable="true" />
-  </EntityType>
-  <EntityType Name="direcciones_envio">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_direccion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="id_cliente" Type="int" Nullable="false" />
-    <Property Name="calle" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="numero" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="colonia" Type="nvarchar" Nullable="true" MaxLength="70" />
-    <Property Name="delegacion_municipio" Type="nvarchar" Nullable="true" MaxLength="60" />
-    <Property Name="estado" Type="nvarchar" Nullable="true" MaxLength="35" />
-    <Property Name="codigo_postal" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="pais" Type="nvarchar" Nullable="false" MaxLength="35" />
-    <Property Name="referencias" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="direccion_predeterminada" Type="bit" Nullable="true" />
-    <Property Name="numero_interior" Type="nvarchar" Nullable="true" MaxLength="30" />
-    <Property Name="ciudad" Type="nvarchar" Nullable="true" MaxLength="60" />
-  </EntityType>
-  <EntityType Name="direcciones_facturacion">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_cliente" Type="int" Nullable="false" />
-    <Property Name="nombre_direccion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="razon_social" Type="nvarchar" Nullable="false" MaxLength="150" />
-    <Property Name="rfc" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="calle" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="numero" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="colonia" Type="nvarchar" Nullable="true" MaxLength="35" />
-    <Property Name="delegacion_municipio" Type="nvarchar" Nullable="true" MaxLength="35" />
-    <Property Name="estado" Type="nvarchar" Nullable="true" MaxLength="35" />
-    <Property Name="codigo_postal" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="pais" Type="nvarchar" Nullable="false" MaxLength="35" />
-    <Property Name="ciudad" Type="nvarchar" Nullable="true" MaxLength="60" />
-  </EntityType>
-  <EntityType Name="estados_mexico">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" Nullable="true" MaxLength="25" />
-    <Property Name="codigo" Type="nvarchar" Nullable="true" MaxLength="5" />
-  </EntityType>
-  <EntityType Name="paises">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" Nullable="true" MaxLength="35" />
-    <Property Name="codigo" Type="nvarchar" Nullable="true" MaxLength="5" />
-  </EntityType>
-  <EntityType Name="pedidos_direccionFacturacion">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="razon_social" Type="nvarchar" Nullable="false" MaxLength="150" />
-    <Property Name="rfc" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="calle" Type="nvarchar" Nullable="false" MaxLength="35" />
-    <Property Name="numero" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="colonia" Type="nvarchar" Nullable="false" MaxLength="35" />
-    <Property Name="delegacion_municipio" Type="nvarchar" Nullable="false" MaxLength="35" />
-    <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="35" />
-    <Property Name="codigo_postal" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="pais" Type="nvarchar" Nullable="false" MaxLength="35" />
-    <Property Name="ciudad" Type="nvarchar" Nullable="true" MaxLength="60" />
-    <Property Name="idDireccionFacturacion" Type="int" Nullable="true" />
-    <Property Name="UsoCFDI" Type="nvarchar" Nullable="true" MaxLength="5" />
-  </EntityType>
-  <EntityType Name="pedidos_modificaciones">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="150" />
-    <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
-    <Property Name="modificada_por" Type="nvarchar" Nullable="false" MaxLength="60" />
-  </EntityType>
-  <EntityType Name="pedidos_productos">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="usuario" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="orden" Type="int" Nullable="true" />
-    <Property Name="tipo" Type="int" Nullable="false" />
-    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="250" />
-    <Property Name="marca" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="unidad" Type="nvarchar" Nullable="false" MaxLength="25" />
-    <Property Name="precio_unitario" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="cantidad" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="precio_total" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="stock1" Type="float" Nullable="true" />
-    <Property Name="stock1_fecha" Type="datetime" Nullable="true" />
-    <Property Name="stock2" Type="float" Nullable="true" />
-    <Property Name="stock2_fecha" Type="datetime" Nullable="true" />
-  </EntityType>
-  <EntityType Name="pedidos_productos_modificaciones">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="descripcion" Type="nvarchar" Nullable="true" MaxLength="150" />
-    <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
-    <Property Name="modificada_por" Type="nvarchar" Nullable="false" MaxLength="60" />
-  </EntityType>
-  <EntityType Name="precios_ListaFija">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_cliente" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="precio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="moneda_fija" Type="nvarchar" Nullable="false" MaxLength="5" />
-  </EntityType>
-  <EntityType Name="precios_multiplicador">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nivel" Type="int" Nullable="false" />
-    <Property Name="nombre_multiplicador" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="multiplicador_valor" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-  </EntityType>
-  <EntityType Name="precios_rangos">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="moneda_rangos" Type="nvarchar" Nullable="false" MaxLength="5" />
-    <Property Name="precio1" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="max1" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="precio2" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="max2" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="precio3" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="max3" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="precio4" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="max4" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="precio5" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="max5" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-  </EntityType>
-  <EntityType Name="productos_Roles">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="rol_preciosMultiplicador" Type="nvarchar" Nullable="false" MaxLength="250" />
-    <Property Name="rol_visibilidad" Type="nvarchar" Nullable="false" MaxLength="250" />
-  </EntityType>
-  <EntityType Name="productos_unidades">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="unidad_nombre" Type="nvarchar" Nullable="false" MaxLength="25" />
-  </EntityType>
-  <EntityType Name="permisos_app">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idUsuario" Type="int" Nullable="false" />
-    <Property Name="seccion_pagina" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="permiso" Type="bit" Nullable="false" />
-  </EntityType>
-  <EntityType Name="cotizaciones_datos">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_cotizacion" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-    <Property Name="creada_por" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="mod_asesor" Type="int" Nullable="true" />
-    <Property Name="id_cliente" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="usuario_cliente" Type="nvarchar" Nullable="true" MaxLength="60" />
-    <Property Name="cliente_nombre" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="cliente_apellido_paterno" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="cliente_apellido_materno" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="email" Type="nvarchar" Nullable="true" MaxLength="60" />
-    <Property Name="telefono" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="celular" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="activo" Type="int" Nullable="true" />
-    <Property Name="comentarios" Type="nvarchar" Nullable="true" MaxLength="1500" />
-    <Property Name="vigencia" Type="int" Nullable="true" />
-    <Property Name="vecesRenovada" Type="int" Nullable="true" />
-    <Property Name="conversionPedido" Type="int" Nullable="true" />
-    <Property Name="numero_operacion_pedido" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="tipo_cotizacion" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="idEstatus" Type="int" Nullable="true" />
-    <Property Name="Calculo_Costo_Envio" Type="bit" Nullable="true" />
-  </EntityType>
-  <EntityType Name="cotizaciones_productos">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="usuario" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="orden" Type="int" Nullable="true" />
-    <Property Name="activo" Type="int" Nullable="false" />
-    <Property Name="tipo" Type="int" Nullable="false" />
-    <Property Name="alternativo" Type="int" Nullable="true" />
-    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
-    <Property Name="marca" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="unidad" Type="nvarchar" Nullable="false" MaxLength="25" />
-    <Property Name="precio_unitario" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="cantidad" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="precio_total" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="stock1" Type="float" Nullable="true" />
-    <Property Name="stock1_fecha" Type="datetime" Nullable="true" />
-    <Property Name="stock2" Type="float" Nullable="true" />
-    <Property Name="stock2_fecha" Type="datetime" Nullable="true" />
-  </EntityType>
-  <EntityType Name="productos_Datos">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="130" />
-    <Property Name="descripcion_corta" Type="nvarchar" Nullable="false" MaxLength="250" />
-    <Property Name="titulo_corto_ingles" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="especificaciones" Type="nvarchar" Nullable="true" MaxLength="4000" />
-    <Property Name="marca" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="categoria_identificador" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="imagenes" Type="nvarchar" Nullable="true" MaxLength="500" />
-    <Property Name="metatags" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="peso" Type="decimal" Nullable="true" Precision="10" Scale="5" />
-    <Property Name="alto" Type="decimal" Nullable="true" Precision="10" Scale="5" />
-    <Property Name="ancho" Type="decimal" Nullable="true" Precision="10" Scale="5" />
-    <Property Name="profundidad" Type="decimal" Nullable="true" Precision="10" Scale="5" />
-    <Property Name="pdf" Type="nvarchar" Nullable="true" MaxLength="350" />
-    <Property Name="video" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="unidad_venta" Type="nvarchar" Nullable="true" MaxLength="25" />
-    <Property Name="cantidad" Type="decimal" Nullable="true" Precision="16" Scale="2" />
-    <Property Name="unidad" Type="nvarchar" Nullable="true" MaxLength="25" />
-    <Property Name="producto_alternativo" Type="nvarchar" Nullable="true" MaxLength="150" />
-    <Property Name="productos_relacionados" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="atributos" Type="nvarchar" Nullable="true" MaxLength="3000" />
-    <Property Name="noParte_proveedor" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="noParte_interno" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="upc" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="noParte_Competidor" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="orden" Type="int" Nullable="true" />
-    <Property Name="etiquetas" Type="nvarchar" Nullable="true" MaxLength="150" />
-    <Property Name="disponibleVenta" Type="int" Nullable="false" />
-    <Property Name="disponibleEnvio" Type="int" Nullable="true" />
-    <Property Name="RotacionHorizontal" Type="bit" Nullable="true" />
-    <Property Name="RotacionVertical" Type="bit" Nullable="true" />
-    <Property Name="noParte_Sap" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="avisos" Type="nvarchar" Nullable="true" MaxLength="4000" />
-    <Property Name="destacado" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="pedidos_pagos_liga_santander">
-    <Key>
-      <PropertyRef Name="idLigasSantander" />
-    </Key>
-    <Property Name="idLigasSantander" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="25" />
-    <Property Name="liga" Type="nvarchar" Nullable="false" MaxLength="4000" />
-    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-    <Property Name="fecha_vigencia" Type="datetime" Nullable="false" />
-    <Property Name="monto" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="moneda" Type="nvarchar" Nullable="true" MaxLength="3" />
-  </EntityType>
-  <EntityType Name="pedidos_pagos_respuesta_santander">
-    <Key>
-      <PropertyRef Name="idRespuestasSantander" />
-    </Key>
-    <Property Name="idRespuestasSantander" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="25" />
-    <Property Name="response" Type="nvarchar" Nullable="false" MaxLength="4000" />
-    <Property Name="estatus" Type="nvarchar" Nullable="false" MaxLength="10" />
-    <Property Name="fecha_primerIntento" Type="datetime" Nullable="false" />
-    <Property Name="fecha_actualización" Type="datetime" Nullable="true" />
-  </EntityType>
-  <EntityType Name="cotizaciones_datosNumericos">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="monedaCotizacion" Type="nvarchar" Nullable="true" MaxLength="5" />
-    <Property Name="tipo_cambio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
-    <Property Name="subtotal" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="envio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="metodoEnvio" Type="nvarchar" Nullable="true" MaxLength="15" />
-    <Property Name="monedaEnvio" Type="nvarchar" Nullable="true" MaxLength="5" />
-    <Property Name="impuestos" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="nombreImpuestos" Type="nvarchar" Nullable="true" MaxLength="5" />
-    <Property Name="total" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="descuento" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="descuento_porcentaje" Type="decimal" Nullable="true" Precision="10" Scale="4" />
-    <Property Name="EnvioNota" Type="nvarchar" Nullable="true" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="cotizaciones_direccionEnvio">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="calle" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="numero" Type="nvarchar" Nullable="true" MaxLength="30" />
-    <Property Name="colonia" Type="nvarchar" Nullable="false" MaxLength="70" />
-    <Property Name="delegacion_municipio" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="35" />
-    <Property Name="codigo_postal" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="pais" Type="nvarchar" Nullable="false" MaxLength="35" />
-    <Property Name="referencias" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="ciudad" Type="nvarchar" Nullable="true" MaxLength="60" />
-  </EntityType>
-  <EntityType Name="pedidos_direccionEnvio">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="calle" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="numero" Type="nvarchar" Nullable="true" MaxLength="30" />
-    <Property Name="colonia" Type="nvarchar" Nullable="false" MaxLength="70" />
-    <Property Name="delegacion_municipio" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="35" />
-    <Property Name="codigo_postal" Type="nvarchar" Nullable="true" MaxLength="15" />
-    <Property Name="pais" Type="nvarchar" Nullable="false" MaxLength="35" />
-    <Property Name="referencias" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="ciudad" Type="nvarchar" Nullable="true" MaxLength="60" />
-    <Property Name="idDireccionEnvio" Type="int" Nullable="true" />
-    <Property Name="numero_interior" Type="nvarchar" Nullable="true" MaxLength="60" />
-  </EntityType>
-  <EntityType Name="pedidos_datos">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_pedido" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-    <Property Name="creada_por" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="mod_asesor" Type="int" Nullable="true" />
-    <Property Name="id_cliente" Type="nvarchar" Nullable="true" MaxLength="15" />
-    <Property Name="usuario_cliente" Type="nvarchar" Nullable="true" MaxLength="60" />
-    <Property Name="cliente_nombre" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="cliente_apellido_paterno" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="cliente_apellido_materno" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="email" Type="nvarchar" Nullable="true" MaxLength="60" />
-    <Property Name="telefono" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="celular" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="activo" Type="int" Nullable="true" />
-    <Property Name="comentarios" Type="nvarchar" Nullable="true" MaxLength="600" />
-    <Property Name="preCotizacion" Type="int" Nullable="true" />
-    <Property Name="numero_operacion_cotizacion" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="Calculo_Costo_Envio" Type="bit" Nullable="true" />
-    <Property Name="factura" Type="bit" Nullable="true" />
-    <Property Name="OperacionCancelada" Type="bit" Nullable="true" />
-    <Property Name="motivoCancelacion" Type="nvarchar" Nullable="true" MaxLength="300" />
-    <Property Name="detalleCancelacionAsesor" Type="nvarchar" Nullable="true" MaxLength="800" />
-    <Property Name="idUsuarioSeguimiento" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="pedidos_datosNumericos">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="monedaPedido" Type="nvarchar" Nullable="true" MaxLength="5" />
-    <Property Name="tipo_cambio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
-    <Property Name="subtotal" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="envio" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="metodoEnvio" Type="nvarchar" Nullable="true" MaxLength="15" />
-    <Property Name="monedaEnvio" Type="nvarchar" Nullable="true" MaxLength="5" />
-    <Property Name="impuestos" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="nombreImpuestos" Type="nvarchar" Nullable="true" MaxLength="5" />
-    <Property Name="total" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="descuento" Type="decimal" Nullable="true" Precision="19" Scale="4" />
-    <Property Name="descuento_porcentaje" Type="decimal" Nullable="true" Precision="10" Scale="4" />
-    <Property Name="EnvioNota" Type="nvarchar" Nullable="true" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="contactos">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_cliente" Type="int" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="apellido_paterno" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="apellido_materno" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="email" Type="nvarchar" Nullable="true" MaxLength="60" />
-    <Property Name="telefono" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="celular" Type="nvarchar" Nullable="true" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="usuarios_ligas_confirmaciones">
-    <Key>
-      <PropertyRef Name="idLiga" />
-    </Key>
-    <Property Name="idLiga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="usuario" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="clave" Type="nvarchar" Nullable="false" MaxLength="4000" />
-    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
-    <Property Name="fecha_vigencia" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="categorias">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="descripcion" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="imagen" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="rol_categoria" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="productos_Destacados" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="identificador" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="asociacion" Type="nvarchar" Nullable="true" MaxLength="30" />
-    <Property Name="nivel" Type="int" Nullable="false" />
-    <Property Name="orden" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="usuarios">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="fecha_registro" Type="datetime" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="apellido_paterno" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="apellido_materno" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="60" />
-    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="tipo_de_usuario" Type="nvarchar" Nullable="false" MaxLength="10" />
-    <Property Name="rango" Type="int" Nullable="false" />
-    <Property Name="departamento" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="grupoPrivacidad" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="perfil_cliente" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="id_cliente" Type="nvarchar" Nullable="true" MaxLength="15" />
-    <Property Name="rol_precios_multiplicador" Type="nvarchar" Nullable="true" MaxLength="25" />
-    <Property Name="rol_productos" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="rol_categorias" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="asesor_base" Type="nvarchar" Nullable="true" MaxLength="60" />
-    <Property Name="grupo_asesor" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="asesor_adicional" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="grupo_asesores_adicional" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="grupo_usuario" Type="nvarchar" Nullable="true" MaxLength="20" />
-    <Property Name="ultimo_inicio_sesion" Type="datetime" Nullable="true" />
-    <Property Name="fecha_nacimiento" Type="datetime" Nullable="true" />
-    <Property Name="registrado_por" Type="nvarchar" Nullable="true" MaxLength="60" />
-    <Property Name="telefono" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="celular" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="cuenta_confirmada" Type="bit" Nullable="true" />
-    <Property Name="cuenta_activa" Type="bit" Nullable="true" />
-  </EntityType>
-  <EntityType Name="pedidos_pagos_transferencia">
-    <Key>
-      <PropertyRef Name="idRegistroTransferencia" />
-    </Key>
-    <Property Name="idRegistroTransferencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_operacion" Type="nvarchar" Nullable="false" MaxLength="25" />
-    <Property Name="referencia" Type="nvarchar" Nullable="true" MaxLength="400" />
-    <Property Name="fecha_captura" Type="datetime" Nullable="true" />
-    <Property Name="confirmacionAsesor" Type="bit" Nullable="true" />
-    <Property Name="idUsuario" Type="int" Nullable="true" />
-    <Property Name="fecha_confirmacion" Type="datetime" Nullable="true" />
-  </EntityType>
-  <EntityType Name="usuariosInfoes">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idUsuario" Type="int" Nullable="false" />
-    <Property Name="registroMetodo" Type="int" Nullable="false" />
-    <Property Name="registradoIdAsesor" Type="int" Nullable="true" />
-    <Property Name="fecha_registro" Type="datetime" Nullable="true" />
-  </EntityType>
-  <EntityType Name="PedidosClaveUsoCFDIs">
-    <Key>
-      <PropertyRef Name="id_CFDI" />
-    </Key>
-    <Property Name="id_CFDI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ClaveUsoCFDI" Type="nvarchar" Nullable="false" MaxLength="120" />
-    <Property Name="Descripción" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="PersonaFisica" Type="bit" Nullable="true" />
-    <Property Name="PersonaMoral" Type="bit" Nullable="true" />
-  </EntityType>
-  <EntityType Name="ProductosBloqueoStocks">
-    <Key>
-      <PropertyRef Name="IdBloqueoStock" />
-    </Key>
-    <Property Name="IdBloqueoStock" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="Disponible" Type="decimal" Nullable="false" Precision="16" Scale="2" />
-  </EntityType>
-  <EntityType Name="StockRegistroFaltaDeStocks">
-    <Key>
-      <PropertyRef Name="Id_SRFS" />
-    </Key>
-    <Property Name="Id_SRFS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NumeroParte" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="IdUsuario" Type="int" Nullable="false" />
-    <Property Name="Fecha" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="productos_solo_visualizacion">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="solo_para_Visualizar" Type="bit" Nullable="false" />
-  </EntityType>
-  <EntityType Name="precios_fantasma">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="numero_parte" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="preciosFantasma" Type="decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="porcentajeFantasma" Type="nvarchar" Nullable="true" MaxLength="3" />
-  </EntityType>
-  <Association Name="fk_contactos_usuarios">
-    <End Role="usuario" Type="tiendaModel.Store.usuarios" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="contacto" Type="tiendaModel.Store.contactos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuario">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="contacto">
-        <PropertyRef Name="id_cliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_direccionesenvio_usuarios">
-    <End Role="usuario" Type="tiendaModel.Store.usuarios" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="direcciones_envio" Type="tiendaModel.Store.direcciones_envio" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuario">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="direcciones_envio">
-        <PropertyRef Name="id_cliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_direccionesFact_usuarios">
-    <End Role="usuario" Type="tiendaModel.Store.usuarios" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="direcciones_facturacion" Type="tiendaModel.Store.direcciones_facturacion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuario">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="direcciones_facturacion">
-        <PropertyRef Name="id_cliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_permisos_usuarios">
-    <End Role="usuario" Type="tiendaModel.Store.usuarios" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="permisos_app" Type="tiendaModel.Store.permisos_app" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuario">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="permisos_app">
-        <PropertyRef Name="idUsuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_idUsuario">
-    <End Role="usuario" Type="tiendaModel.Store.usuarios" Multiplicity="0..1" />
-    <End Role="productos_comentarios" Type="tiendaModel.Store.productos_comentarios" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuario">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="productos_comentarios">
-        <PropertyRef Name="idUsuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="tiendaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="base_cotizaciones_estatus">
+          <Key>
+            <PropertyRef Name="idEstatus" />
+          </Key>
+          <Property Name="idEstatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreEstatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="carrito_productos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="activo" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="int" Nullable="false" />
+          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="marca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="moneda" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="tipo_cambio" Type="money" Nullable="false" />
+          <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
+          <Property Name="unidad" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="precio_unitario" Type="money" Nullable="false" />
+          <Property Name="cantidad" Type="money" Nullable="false" />
+          <Property Name="precio_total" Type="money" Nullable="false" />
+          <Property Name="stock1" Type="float" />
+          <Property Name="stock1_fecha" Type="datetime" />
+          <Property Name="stock2" Type="float" />
+          <Property Name="stock2_fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="250" />
+          <Property Name="imagen" Type="nvarchar" MaxLength="100" />
+          <Property Name="rol_categoria" Type="nvarchar" MaxLength="250" />
+          <Property Name="productos_Destacados" Type="nvarchar" MaxLength="250" />
+          <Property Name="identificador" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="asociacion" Type="nvarchar" MaxLength="30" />
+          <Property Name="nivel" Type="int" Nullable="false" />
+          <Property Name="orden" Type="int" />
+        </EntityType>
+        <EntityType Name="contactos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_cliente" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="apellido_paterno" Type="nvarchar" MaxLength="20" />
+          <Property Name="apellido_materno" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="60" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="celular" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="cotizaciones_datos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_cotizacion" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+          <Property Name="creada_por" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="mod_asesor" Type="int" />
+          <Property Name="id_cliente" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="usuario_cliente" Type="nvarchar" MaxLength="60" />
+          <Property Name="cliente_nombre" Type="nvarchar" MaxLength="20" />
+          <Property Name="cliente_apellido_paterno" Type="nvarchar" MaxLength="20" />
+          <Property Name="cliente_apellido_materno" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="60" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="celular" Type="nvarchar" MaxLength="50" />
+          <Property Name="activo" Type="int" />
+          <Property Name="comentarios" Type="nvarchar" MaxLength="1500" />
+          <Property Name="vigencia" Type="int" />
+          <Property Name="vecesRenovada" Type="int" />
+          <Property Name="conversionPedido" Type="int" />
+          <Property Name="numero_operacion_pedido" Type="nvarchar" MaxLength="20" />
+          <Property Name="tipo_cotizacion" Type="nvarchar" MaxLength="20" />
+          <Property Name="idEstatus" Type="int" />
+          <Property Name="Calculo_Costo_Envio" Type="bit" />
+        </EntityType>
+        <EntityType Name="cotizaciones_datosNumericos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="monedaCotizacion" Type="nvarchar" MaxLength="5" />
+          <Property Name="tipo_cambio" Type="money" Nullable="false" />
+          <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
+          <Property Name="subtotal" Type="money" Nullable="false" />
+          <Property Name="envio" Type="money" Nullable="false" />
+          <Property Name="metodoEnvio" Type="nvarchar" MaxLength="15" />
+          <Property Name="monedaEnvio" Type="nvarchar" MaxLength="5" />
+          <Property Name="impuestos" Type="money" Nullable="false" />
+          <Property Name="nombreImpuestos" Type="nvarchar" MaxLength="5" />
+          <Property Name="total" Type="money" Nullable="false" />
+          <Property Name="descuento" Type="money" />
+          <Property Name="descuento_porcentaje" Type="smallmoney" />
+          <Property Name="EnvioNota" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="cotizaciones_direccionEnvio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="calle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="numero" Type="nvarchar" MaxLength="30" />
+          <Property Name="colonia" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="delegacion_municipio" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="estado" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="codigo_postal" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="pais" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="referencias" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="cotizaciones_productos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="usuario" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="orden" Type="int" />
+          <Property Name="activo" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="int" Nullable="false" />
+          <Property Name="alternativo" Type="int" />
+          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="marca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="unidad" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="precio_unitario" Type="money" Nullable="false" />
+          <Property Name="cantidad" Type="money" Nullable="false" />
+          <Property Name="precio_total" Type="money" Nullable="false" />
+          <Property Name="stock1" Type="float" />
+          <Property Name="stock1_fecha" Type="datetime" />
+          <Property Name="stock2" Type="float" />
+          <Property Name="stock2_fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="direcciones_envio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_direccion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="id_cliente" Type="int" Nullable="false" />
+          <Property Name="calle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="numero" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="colonia" Type="nvarchar" MaxLength="70" />
+          <Property Name="delegacion_municipio" Type="nvarchar" MaxLength="60" />
+          <Property Name="estado" Type="nvarchar" MaxLength="35" />
+          <Property Name="codigo_postal" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="pais" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="referencias" Type="nvarchar" MaxLength="100" />
+          <Property Name="direccion_predeterminada" Type="bit" />
+          <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
+          <Property Name="numero_interior" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="direcciones_facturacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_cliente" Type="int" Nullable="false" />
+          <Property Name="nombre_direccion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="razon_social" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="rfc" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="calle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="numero" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="colonia" Type="nvarchar" MaxLength="35" />
+          <Property Name="delegacion_municipio" Type="nvarchar" MaxLength="35" />
+          <Property Name="estado" Type="nvarchar" MaxLength="35" />
+          <Property Name="codigo_postal" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="pais" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="estados_mexico">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="25" />
+          <Property Name="codigo" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="glosario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="término" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="términoInglés" Type="nvarchar" MaxLength="100" />
+          <Property Name="descripción" Type="nvarchar" MaxLength="800" Nullable="false" />
+          <Property Name="simbolo" Type="nvarchar" MaxLength="25" />
+          <Property Name="link" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="infografías">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="descripción" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="nombreImagenMiniatura" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="nombreArchivo" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="paises">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="35" />
+          <Property Name="codigo" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="pedidos_datos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_pedido" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+          <Property Name="creada_por" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="mod_asesor" Type="int" />
+          <Property Name="id_cliente" Type="nvarchar" MaxLength="15" />
+          <Property Name="usuario_cliente" Type="nvarchar" MaxLength="60" />
+          <Property Name="cliente_nombre" Type="nvarchar" MaxLength="20" />
+          <Property Name="cliente_apellido_paterno" Type="nvarchar" MaxLength="20" />
+          <Property Name="cliente_apellido_materno" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="60" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="celular" Type="nvarchar" MaxLength="50" />
+          <Property Name="activo" Type="int" />
+          <Property Name="comentarios" Type="nvarchar" MaxLength="600" />
+          <Property Name="preCotizacion" Type="int" />
+          <Property Name="numero_operacion_cotizacion" Type="nvarchar" MaxLength="20" />
+          <Property Name="Calculo_Costo_Envio" Type="bit" />
+          <Property Name="factura" Type="bit" />
+          <Property Name="OperacionCancelada" Type="bit" />
+          <Property Name="motivoCancelacion" Type="nvarchar" MaxLength="300" />
+          <Property Name="detalleCancelacionAsesor" Type="nvarchar" MaxLength="800" />
+          <Property Name="idUsuarioSeguimiento" Type="int" />
+        </EntityType>
+        <EntityType Name="pedidos_datosNumericos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="monedaPedido" Type="nvarchar" MaxLength="5" />
+          <Property Name="tipo_cambio" Type="money" Nullable="false" />
+          <Property Name="fecha_tipo_cambio" Type="datetime" Nullable="false" />
+          <Property Name="subtotal" Type="money" Nullable="false" />
+          <Property Name="envio" Type="money" Nullable="false" />
+          <Property Name="metodoEnvio" Type="nvarchar" MaxLength="15" />
+          <Property Name="monedaEnvio" Type="nvarchar" MaxLength="5" />
+          <Property Name="impuestos" Type="money" Nullable="false" />
+          <Property Name="nombreImpuestos" Type="nvarchar" MaxLength="5" />
+          <Property Name="total" Type="money" Nullable="false" />
+          <Property Name="descuento" Type="money" />
+          <Property Name="descuento_porcentaje" Type="smallmoney" />
+          <Property Name="EnvioNota" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="pedidos_direccionEnvio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="calle" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="numero" Type="nvarchar" MaxLength="30" />
+          <Property Name="colonia" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="delegacion_municipio" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="estado" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="codigo_postal" Type="nvarchar" MaxLength="15" />
+          <Property Name="pais" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="referencias" Type="nvarchar" MaxLength="100" />
+          <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
+          <Property Name="numero_interior" Type="nvarchar" MaxLength="60" />
+          <Property Name="idDireccionEnvio" Type="int" />
+        </EntityType>
+        <EntityType Name="pedidos_direccionFacturacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="razon_social" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="rfc" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="calle" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="numero" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="colonia" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="delegacion_municipio" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="estado" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="codigo_postal" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="pais" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
+          <Property Name="idDireccionFacturacion" Type="int" />
+          <Property Name="UsoCFDI" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="pedidos_modificaciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="modificada_por" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pedidos_pagos_liga_santander">
+          <Key>
+            <PropertyRef Name="idLigasSantander" />
+          </Key>
+          <Property Name="idLigasSantander" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="liga" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+          <Property Name="fecha_vigencia" Type="datetime" Nullable="false" />
+          <Property Name="monto" Type="money" />
+          <Property Name="moneda" Type="nvarchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="pedidos_pagos_paypal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTransacciónPayPal" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="paymentID" Type="nvarchar" MaxLength="25" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="intento" Type="nvarchar" MaxLength="25" />
+          <Property Name="estado" Type="nvarchar" MaxLength="25" />
+          <Property Name="moneda" Type="nvarchar" MaxLength="5" />
+          <Property Name="monto" Type="nvarchar" MaxLength="25" />
+          <Property Name="fecha_primerIntento" Type="datetime" />
+          <Property Name="fecha_actualización" Type="datetime" />
+          <Property Name="aprobadoAsesor" Type="bit" />
+        </EntityType>
+        <EntityType Name="pedidos_pagos_respuesta_santander">
+          <Key>
+            <PropertyRef Name="idRespuestasSantander" />
+          </Key>
+          <Property Name="idRespuestasSantander" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="response" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="estatus" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="fecha_primerIntento" Type="datetime" Nullable="false" />
+          <Property Name="fecha_actualización" Type="datetime" />
+        </EntityType>
+        <EntityType Name="pedidos_pagos_transferencia">
+          <Key>
+            <PropertyRef Name="idRegistroTransferencia" />
+          </Key>
+          <Property Name="idRegistroTransferencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="referencia" Type="nvarchar" MaxLength="400" />
+          <Property Name="fecha_captura" Type="datetime" />
+          <Property Name="confirmacionAsesor" Type="bit" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="fecha_confirmacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="pedidos_productos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="usuario" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="orden" Type="int" />
+          <Property Name="tipo" Type="int" Nullable="false" />
+          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="marca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="unidad" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="precio_unitario" Type="money" Nullable="false" />
+          <Property Name="cantidad" Type="money" Nullable="false" />
+          <Property Name="precio_total" Type="money" Nullable="false" />
+          <Property Name="stock1" Type="float" />
+          <Property Name="stock1_fecha" Type="datetime" />
+          <Property Name="stock2" Type="float" />
+          <Property Name="stock2_fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="pedidos_productos_modificaciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_operacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="150" />
+          <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="modificada_por" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PedidosClaveUsoCFDI">
+          <Key>
+            <PropertyRef Name="id_CFDI" />
+          </Key>
+          <Property Name="id_CFDI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClaveUsoCFDI" Type="nvarchar" MaxLength="120" Nullable="false" />
+          <Property Name="Descripción" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PersonaFisica" Type="bit" />
+          <Property Name="PersonaMoral" Type="bit" />
+        </EntityType>
+        <EntityType Name="permisos_app">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="seccion_pagina" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="permiso" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="precios_fantasma">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="preciosFantasma" Type="money" Nullable="false" />
+          <Property Name="porcentajeFantasma" Type="nvarchar" MaxLength="3" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="precios_ListaFija">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_cliente" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="precio" Type="money" Nullable="false" />
+          <Property Name="moneda_fija" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="precios_multiplicador">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nivel" Type="int" Nullable="false" />
+          <Property Name="nombre_multiplicador" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="multiplicador_valor" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="precios_rangos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="moneda_rangos" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="precio1" Type="money" />
+          <Property Name="max1" Type="money" />
+          <Property Name="precio2" Type="money" />
+          <Property Name="max2" Type="money" />
+          <Property Name="precio3" Type="money" />
+          <Property Name="max3" Type="money" />
+          <Property Name="precio4" Type="money" />
+          <Property Name="max4" Type="money" />
+          <Property Name="precio5" Type="money" />
+          <Property Name="max5" Type="money" />
+        </EntityType>
+        <EntityType Name="productos_comentarios">
+          <Key>
+            <PropertyRef Name="idComentario" />
+          </Key>
+          <Property Name="idComentario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="fechaComentario" Type="datetime" Nullable="false" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="comentario" Type="nvarchar" MaxLength="850" Nullable="false" />
+          <Property Name="calificación" Type="tinyint" />
+          <Property Name="visible" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productos_Datos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar" MaxLength="130" Nullable="false" />
+          <Property Name="descripcion_corta" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="titulo_corto_ingles" Type="nvarchar" MaxLength="250" />
+          <Property Name="especificaciones" Type="nvarchar" MaxLength="4000" />
+          <Property Name="marca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="categoria_identificador" Type="nvarchar" MaxLength="100" />
+          <Property Name="imagenes" Type="nvarchar" MaxLength="500" />
+          <Property Name="metatags" Type="nvarchar" MaxLength="250" />
+          <Property Name="peso" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="alto" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="ancho" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="profundidad" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="pdf" Type="nvarchar" MaxLength="350" />
+          <Property Name="video" Type="nvarchar" MaxLength="250" />
+          <Property Name="unidad_venta" Type="nvarchar" MaxLength="25" />
+          <Property Name="cantidad" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="unidad" Type="nvarchar" MaxLength="25" />
+          <Property Name="producto_alternativo" Type="nvarchar" MaxLength="150" />
+          <Property Name="productos_relacionados" Type="nvarchar" MaxLength="250" />
+          <Property Name="atributos" Type="nvarchar" MaxLength="3000" />
+          <Property Name="noParte_proveedor" Type="nvarchar" MaxLength="50" />
+          <Property Name="noParte_interno" Type="nvarchar" MaxLength="100" />
+          <Property Name="upc" Type="nvarchar" MaxLength="50" />
+          <Property Name="noParte_Competidor" Type="nvarchar" MaxLength="250" />
+          <Property Name="orden" Type="int" />
+          <Property Name="etiquetas" Type="nvarchar" MaxLength="150" />
+          <Property Name="disponibleVenta" Type="int" Nullable="false" />
+          <Property Name="disponibleEnvio" Type="int" />
+          <Property Name="RotacionHorizontal" Type="bit" />
+          <Property Name="RotacionVertical" Type="bit" />
+          <Property Name="noParte_Sap" Type="nvarchar" MaxLength="100" />
+          <Property Name="avisos" Type="nvarchar" MaxLength="4000" />
+          <Property Name="destacado" Type="int" />
+        </EntityType>
+        <EntityType Name="productos_Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="rol_preciosMultiplicador" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="rol_visibilidad" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productos_solo_visualizacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="solo_para_Visualizar" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="productos_stock">
+          <Key>
+            <PropertyRef Name="numero_parte" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="unidad" />
+            <PropertyRef Name="fecha_actualización" />
+          </Key>
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="unidad" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="ubicación" Type="nvarchar" MaxLength="50" />
+          <Property Name="ubicación_pre" Type="nvarchar" MaxLength="50" />
+          <Property Name="fecha_actualización" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productos_unidades">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="unidad_nombre" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductosBloqueoStock">
+          <Key>
+            <PropertyRef Name="IdBloqueoStock" />
+          </Key>
+          <Property Name="IdBloqueoStock" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero_parte" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Disponible" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha_registro" Type="datetime" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="apellido_paterno" Type="nvarchar" MaxLength="20" />
+          <Property Name="apellido_materno" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="tipo_de_usuario" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="rango" Type="int" Nullable="false" />
+          <Property Name="departamento" Type="nvarchar" MaxLength="20" />
+          <Property Name="grupoPrivacidad" Type="nvarchar" MaxLength="20" />
+          <Property Name="perfil_cliente" Type="nvarchar" MaxLength="20" />
+          <Property Name="id_cliente" Type="nvarchar" MaxLength="15" />
+          <Property Name="rol_precios_multiplicador" Type="nvarchar" MaxLength="25" />
+          <Property Name="rol_productos" Type="nvarchar" MaxLength="20" />
+          <Property Name="rol_categorias" Type="nvarchar" MaxLength="20" />
+          <Property Name="asesor_base" Type="nvarchar" MaxLength="60" />
+          <Property Name="grupo_asesor" Type="nvarchar" MaxLength="20" />
+          <Property Name="asesor_adicional" Type="nvarchar" MaxLength="250" />
+          <Property Name="grupo_asesores_adicional" Type="nvarchar" MaxLength="250" />
+          <Property Name="grupo_usuario" Type="nvarchar" MaxLength="20" />
+          <Property Name="ultimo_inicio_sesion" Type="datetime" />
+          <Property Name="fecha_nacimiento" Type="datetime" />
+          <Property Name="registrado_por" Type="nvarchar" MaxLength="60" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="celular" Type="nvarchar" MaxLength="50" />
+          <Property Name="cuenta_confirmada" Type="bit" />
+          <Property Name="cuenta_activa" Type="bit" />
+        </EntityType>
+        <EntityType Name="usuarios_ligas_confirmaciones">
+          <Key>
+            <PropertyRef Name="idLiga" />
+          </Key>
+          <Property Name="idLiga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="clave" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+          <Property Name="fecha_vigencia" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuariosInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="registroMetodo" Type="int" Nullable="false" />
+          <Property Name="registradoIdAsesor" Type="int" />
+          <Property Name="fecha_registro" Type="datetime" />
+        </EntityType>
+        <Association Name="fk_contactos_usuarios">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="contactos" Type="Self.contactos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contactos">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_direccionesenvio_usuarios">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="direcciones_envio" Type="Self.direcciones_envio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="direcciones_envio">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_direccionesFact_usuarios">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="direcciones_facturacion" Type="Self.direcciones_facturacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="direcciones_facturacion">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_idUsuario">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="0..1" />
+          <End Role="productos_comentarios" Type="Self.productos_comentarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="productos_comentarios">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_permisos_usuarios">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="permisos_app" Type="Self.permisos_app" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="permisos_app">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="tiendaModelStoreContainer">
+          <EntitySet Name="base_cotizaciones_estatus" EntityType="Self.base_cotizaciones_estatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="carrito_productos" EntityType="Self.carrito_productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categorias" EntityType="Self.categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contactos" EntityType="Self.contactos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cotizaciones_datos" EntityType="Self.cotizaciones_datos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cotizaciones_datosNumericos" EntityType="Self.cotizaciones_datosNumericos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cotizaciones_direccionEnvio" EntityType="Self.cotizaciones_direccionEnvio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cotizaciones_productos" EntityType="Self.cotizaciones_productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="direcciones_envio" EntityType="Self.direcciones_envio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="direcciones_facturacion" EntityType="Self.direcciones_facturacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estados_mexico" EntityType="Self.estados_mexico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="glosario" EntityType="Self.glosario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="infografías" EntityType="Self.infografías" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paises" EntityType="Self.paises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos_datos" EntityType="Self.pedidos_datos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos_datosNumericos" EntityType="Self.pedidos_datosNumericos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos_direccionEnvio" EntityType="Self.pedidos_direccionEnvio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos_direccionFacturacion" EntityType="Self.pedidos_direccionFacturacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos_modificaciones" EntityType="Self.pedidos_modificaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos_pagos_liga_santander" EntityType="Self.pedidos_pagos_liga_santander" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos_pagos_paypal" EntityType="Self.pedidos_pagos_paypal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos_pagos_respuesta_santander" EntityType="Self.pedidos_pagos_respuesta_santander" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos_pagos_transferencia" EntityType="Self.pedidos_pagos_transferencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos_productos" EntityType="Self.pedidos_productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pedidos_productos_modificaciones" EntityType="Self.pedidos_productos_modificaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PedidosClaveUsoCFDI" EntityType="Self.PedidosClaveUsoCFDI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="permisos_app" EntityType="Self.permisos_app" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="precios_fantasma" EntityType="Self.precios_fantasma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="precios_ListaFija" EntityType="Self.precios_ListaFija" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="precios_multiplicador" EntityType="Self.precios_multiplicador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="precios_rangos" EntityType="Self.precios_rangos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productos_comentarios" EntityType="Self.productos_comentarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productos_Datos" EntityType="Self.productos_Datos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productos_Roles" EntityType="Self.productos_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productos_solo_visualizacion" EntityType="Self.productos_solo_visualizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productos_unidades" EntityType="Self.productos_unidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductosBloqueoStock" EntityType="Self.ProductosBloqueoStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios_ligas_confirmaciones" EntityType="Self.usuarios_ligas_confirmaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuariosInfo" EntityType="Self.usuariosInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productos_stock" EntityType="Self.productos_stock" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [productos_stock].[numero_parte] AS [numero_parte], 
+    [productos_stock].[cantidad] AS [cantidad], 
+    [productos_stock].[unidad] AS [unidad], 
+    [productos_stock].[ubicación] AS [ubicación], 
+    [productos_stock].[ubicación_pre] AS [ubicación_pre], 
+    [productos_stock].[fecha_actualización] AS [fecha_actualización]
+    FROM [dbo].[productos_stock] AS [productos_stock]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_contactos_usuarios" Association="Self.fk_contactos_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="contactos" EntitySet="contactos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_direccionesenvio_usuarios" Association="Self.fk_direccionesenvio_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="direcciones_envio" EntitySet="direcciones_envio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_direccionesFact_usuarios" Association="Self.fk_direccionesFact_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="direcciones_facturacion" EntitySet="direcciones_facturacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_idUsuario" Association="Self.FK_idUsuario">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="productos_comentarios" EntitySet="productos_comentarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_permisos_usuarios" Association="Self.fk_permisos_usuarios">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="permisos_app" EntitySet="permisos_app" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="tiendaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -825,12 +826,11 @@
             <End Role="productos_comentarios" EntitySet="productos_comentarios" />
           </AssociationSet>
           <EntitySet Name="pedidos_pagos_transferencia" EntityType="tiendaModel.pedidos_pagos_transferencia" />
-          <EntitySet Name="usuariosInfoes" EntityType="tiendaModel.usuariosInfo" />
-          <EntitySet Name="PedidosClaveUsoCFDIs" EntityType="tiendaModel.PedidosClaveUsoCFDI" />
-          <EntitySet Name="ProductosBloqueoStocks" EntityType="tiendaModel.ProductosBloqueoStock" />
-          <EntitySet Name="StockRegistroFaltaDeStocks" EntityType="tiendaModel.StockRegistroFaltaDeStock" />
           <EntitySet Name="productos_solo_visualizacion" EntityType="tiendaModel.productos_solo_visualizacion" />
           <EntitySet Name="precios_fantasma" EntityType="tiendaModel.precios_fantasma" />
+          <EntitySet Name="PedidosClaveUsoCFDIs" EntityType="tiendaModel.PedidosClaveUsoCFDI" />
+          <EntitySet Name="ProductosBloqueoStocks" EntityType="tiendaModel.ProductosBloqueoStock" />
+          <EntitySet Name="usuariosInfoes" EntityType="tiendaModel.usuariosInfo" />
         </EntityContainer>
         <EntityType Name="base_cotizaciones_estatus">
           <Key>
@@ -1483,15 +1483,22 @@
           <Property Name="idUsuario" Type="Int32" />
           <Property Name="fecha_confirmacion" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="usuariosInfo">
+        <EntityType Name="productos_solo_visualizacion">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idUsuario" Type="Int32" Nullable="false" />
-          <Property Name="registroMetodo" Type="Int32" Nullable="false" />
-          <Property Name="registradoIdAsesor" Type="Int32" />
-          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+          <Property Name="numero_parte" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="solo_para_Visualizar" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="precios_fantasma">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numero_parte" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="preciosFantasma" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="porcentajeFantasma" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PedidosClaveUsoCFDI">
           <Key>
@@ -1511,31 +1518,15 @@
           <Property Name="numero_parte" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Disponible" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
         </EntityType>
-        <EntityType Name="StockRegistroFaltaDeStock">
-          <Key>
-            <PropertyRef Name="Id_SRFS" />
-          </Key>
-          <Property Name="Id_SRFS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NumeroParte" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
-          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="productos_solo_visualizacion">
+        <EntityType Name="usuariosInfo">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="numero_parte" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="solo_para_Visualizar" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="precios_fantasma">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="numero_parte" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="preciosFantasma" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="porcentajeFantasma" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="registroMetodo" Type="Int32" Nullable="false" />
+          <Property Name="registradoIdAsesor" Type="Int32" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2149,47 +2140,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="usuariosInfoes">
-      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.usuariosInfo)">
-        <MappingFragment StoreEntitySet="usuariosInfoes">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-          <ScalarProperty Name="registroMetodo" ColumnName="registroMetodo" />
-          <ScalarProperty Name="registradoIdAsesor" ColumnName="registradoIdAsesor" />
-          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PedidosClaveUsoCFDIs">
-      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.PedidosClaveUsoCFDI)">
-        <MappingFragment StoreEntitySet="PedidosClaveUsoCFDIs">
-          <ScalarProperty Name="id_CFDI" ColumnName="id_CFDI" />
-          <ScalarProperty Name="ClaveUsoCFDI" ColumnName="ClaveUsoCFDI" />
-          <ScalarProperty Name="Descripción" ColumnName="Descripción" />
-          <ScalarProperty Name="PersonaFisica" ColumnName="PersonaFisica" />
-          <ScalarProperty Name="PersonaMoral" ColumnName="PersonaMoral" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ProductosBloqueoStocks">
-      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.ProductosBloqueoStock)">
-        <MappingFragment StoreEntitySet="ProductosBloqueoStocks">
-          <ScalarProperty Name="IdBloqueoStock" ColumnName="IdBloqueoStock" />
-          <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
-          <ScalarProperty Name="Disponible" ColumnName="Disponible" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="StockRegistroFaltaDeStocks">
-      <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.StockRegistroFaltaDeStock)">
-        <MappingFragment StoreEntitySet="StockRegistroFaltaDeStocks">
-          <ScalarProperty Name="Id_SRFS" ColumnName="Id_SRFS" />
-          <ScalarProperty Name="NumeroParte" ColumnName="NumeroParte" />
-          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="productos_solo_visualizacion">
       <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.productos_solo_visualizacion)">
         <MappingFragment StoreEntitySet="productos_solo_visualizacion">
@@ -2209,6 +2159,37 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+          <EntitySetMapping Name="PedidosClaveUsoCFDIs">
+            <EntityTypeMapping TypeName="tiendaModel.PedidosClaveUsoCFDI">
+              <MappingFragment StoreEntitySet="PedidosClaveUsoCFDI">
+                <ScalarProperty Name="PersonaMoral" ColumnName="PersonaMoral" />
+                <ScalarProperty Name="PersonaFisica" ColumnName="PersonaFisica" />
+                <ScalarProperty Name="Descripción" ColumnName="Descripción" />
+                <ScalarProperty Name="ClaveUsoCFDI" ColumnName="ClaveUsoCFDI" />
+                <ScalarProperty Name="id_CFDI" ColumnName="id_CFDI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductosBloqueoStocks">
+            <EntityTypeMapping TypeName="tiendaModel.ProductosBloqueoStock">
+              <MappingFragment StoreEntitySet="ProductosBloqueoStock">
+                <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+                <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
+                <ScalarProperty Name="IdBloqueoStock" ColumnName="IdBloqueoStock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuariosInfoes">
+            <EntityTypeMapping TypeName="tiendaModel.usuariosInfo">
+              <MappingFragment StoreEntitySet="usuariosInfo">
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="registradoIdAsesor" ColumnName="registradoIdAsesor" />
+                <ScalarProperty Name="registroMetodo" ColumnName="registroMetodo" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

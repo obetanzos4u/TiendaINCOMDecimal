@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/12/2022 18:57:55
+-- Date Created: 09/21/2022 14:27:34
 -- Generated from EDMX file: C:\Users\AlexisRuizSantiago\source\repos\TiendaINCOMDecimalOmar\App_Code\tiendaIncom.edmx
 -- --------------------------------------------------
 
@@ -112,6 +112,9 @@ GO
 IF OBJECT_ID(N'[dbo].[pedidos_productos_modificaciones]', 'U') IS NOT NULL
     DROP TABLE [dbo].[pedidos_productos_modificaciones];
 GO
+IF OBJECT_ID(N'[dbo].[PedidosClaveUsoCFDI]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PedidosClaveUsoCFDI];
+GO
 IF OBJECT_ID(N'[dbo].[permisos_app]', 'U') IS NOT NULL
     DROP TABLE [dbo].[permisos_app];
 GO
@@ -142,11 +145,17 @@ GO
 IF OBJECT_ID(N'[dbo].[productos_unidades]', 'U') IS NOT NULL
     DROP TABLE [dbo].[productos_unidades];
 GO
+IF OBJECT_ID(N'[dbo].[ProductosBloqueoStock]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProductosBloqueoStock];
+GO
 IF OBJECT_ID(N'[dbo].[usuarios]', 'U') IS NOT NULL
     DROP TABLE [dbo].[usuarios];
 GO
 IF OBJECT_ID(N'[dbo].[usuarios_ligas_confirmaciones]', 'U') IS NOT NULL
     DROP TABLE [dbo].[usuarios_ligas_confirmaciones];
+GO
+IF OBJECT_ID(N'[dbo].[usuariosInfo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[usuariosInfo];
 GO
 IF OBJECT_ID(N'[tiendaModelStoreContainer].[productos_stock]', 'U') IS NOT NULL
     DROP TABLE [tiendaModelStoreContainer].[productos_stock];
@@ -780,6 +789,34 @@ CREATE TABLE [dbo].[precios_fantasma] (
 );
 GO
 
+-- Creating table 'ProductosBloqueoStock1'
+CREATE TABLE [dbo].[ProductosBloqueoStock1] (
+    [IdBloqueoStock] int IDENTITY(1,1) NOT NULL,
+    [numero_parte] nvarchar(100)  NOT NULL,
+    [Disponible] decimal(16,2)  NOT NULL
+);
+GO
+
+-- Creating table 'usuariosInfo1'
+CREATE TABLE [dbo].[usuariosInfo1] (
+    [id] int IDENTITY(1,1) NOT NULL,
+    [idUsuario] int  NOT NULL,
+    [registroMetodo] int  NOT NULL,
+    [registradoIdAsesor] int  NULL,
+    [fecha_registro] datetime  NULL
+);
+GO
+
+-- Creating table 'PedidosClaveUsoCFDI1'
+CREATE TABLE [dbo].[PedidosClaveUsoCFDI1] (
+    [id_CFDI] int IDENTITY(1,1) NOT NULL,
+    [ClaveUsoCFDI] nvarchar(120)  NOT NULL,
+    [Descripción] nvarchar(100)  NOT NULL,
+    [PersonaFisica] bit  NULL,
+    [PersonaMoral] bit  NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -1034,6 +1071,24 @@ GO
 ALTER TABLE [dbo].[precios_fantasma]
 ADD CONSTRAINT [PK_precios_fantasma]
     PRIMARY KEY CLUSTERED ([id] ASC);
+GO
+
+-- Creating primary key on [IdBloqueoStock] in table 'ProductosBloqueoStock1'
+ALTER TABLE [dbo].[ProductosBloqueoStock1]
+ADD CONSTRAINT [PK_ProductosBloqueoStock1]
+    PRIMARY KEY CLUSTERED ([IdBloqueoStock] ASC);
+GO
+
+-- Creating primary key on [id] in table 'usuariosInfo1'
+ALTER TABLE [dbo].[usuariosInfo1]
+ADD CONSTRAINT [PK_usuariosInfo1]
+    PRIMARY KEY CLUSTERED ([id] ASC);
+GO
+
+-- Creating primary key on [id_CFDI] in table 'PedidosClaveUsoCFDI1'
+ALTER TABLE [dbo].[PedidosClaveUsoCFDI1]
+ADD CONSTRAINT [PK_PedidosClaveUsoCFDI1]
+    PRIMARY KEY CLUSTERED ([id_CFDI] ASC);
 GO
 
 -- --------------------------------------------------

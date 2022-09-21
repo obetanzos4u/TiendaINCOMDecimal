@@ -59,10 +59,9 @@ public partial class tiendaEntities : DbContext
     public DbSet<categoria> categorias { get; set; }
     public DbSet<usuario> usuarios { get; set; }
     public DbSet<pedidos_pagos_transferencia> pedidos_pagos_transferencia { get; set; }
-    public DbSet<usuariosInfo> usuariosInfoes { get; set; }
-    public DbSet<PedidosClaveUsoCFDI> PedidosClaveUsoCFDIs { get; set; }
-    public DbSet<ProductosBloqueoStock> ProductosBloqueoStocks { get; set; }
-    public DbSet<StockRegistroFaltaDeStock> StockRegistroFaltaDeStocks { get; set; }
     public DbSet<productos_solo_visualizacion> productos_solo_visualizacion { get; set; }
     public DbSet<precios_fantasma> precios_fantasma { get; set; }
+    public DbSet<PedidosClaveUsoCFDI> PedidosClaveUsoCFDIs { get; set; }
+    public DbSet<ProductosBloqueoStock> ProductosBloqueoStocks { get; set; }
+    public DbSet<usuariosInfo> usuariosInfoes { get; set; }
 }

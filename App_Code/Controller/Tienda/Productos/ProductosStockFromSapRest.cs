@@ -54,24 +54,23 @@ public class ProductosStockFromSapRest
     }
 
 
-    public static async void GuardarStockRegistroFaltaDeStock(StockRegistroFaltaDeStock Registro )
-    {
-        try
-        {
+    //public static async void GuardarStockRegistroFaltaDeStock(StockRegistroFaltaDeStock Registro )
+    //{
+    //    try
+    //    {
 
-            using (var db = new tiendaEntities())
-            {
-                var PedidoDatos = db.StockRegistroFaltaDeStocks.Add(Registro);
-                db.SaveChanges();
-            }
+    //        using (var db = new tiendaEntities())
+    //        {
+    //            var PedidoDatos = db.StockRegistroFaltaDeStocks.Add(Registro);
+    //            db.SaveChanges();
+    //        }
           
-        }
-        catch (Exception ex)
-        {
-
-        
-        }
-    }
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        Console.WriteLine(ex);
+    //    }
+    //}
   
  
 

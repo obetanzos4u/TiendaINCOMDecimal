@@ -544,14 +544,6 @@ public partial class ProductosBloqueoStock
     public decimal Disponible { get; set; }
 }
 
-public partial class StockRegistroFaltaDeStock
-{
-    public int Id_SRFS { get; set; }
-    public string NumeroParte { get; set; }
-    public int IdUsuario { get; set; }
-    public System.DateTime Fecha { get; set; }
-}
-
 public partial class usuario
 {
     public usuario()
