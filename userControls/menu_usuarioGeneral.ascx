@@ -2,8 +2,8 @@
 
 
 
-<nav class="nav navIncom ">
-    <div class="nav-wrapper blue-grey">
+<nav class="nav navIncom is-flex is-bt-5">
+    <div class="nav-wrapper is-bg-blue-darky is-flex is-container is-justify-center">
          
         <a href="#" data-target="mobile-demo" class="sidenav-trigger" ><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="left hide-on-med-and-down  ">

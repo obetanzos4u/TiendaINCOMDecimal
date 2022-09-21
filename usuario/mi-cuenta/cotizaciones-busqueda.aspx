@@ -5,10 +5,10 @@
 <%@ Import Namespace="System.Globalization" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
 
-    <div class="container z-depth-3">
+    <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div class="row">
             <div class="col l12">
-                <h1 class="center-align">Cotizaciones por asesor </h1>
+                <h1 class="is-text-center is-m-0">Cotizaciones por asesor </h1>
             </div>
         </div>
         <!-- Dropdown Trigger -->

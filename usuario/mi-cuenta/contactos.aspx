@@ -3,9 +3,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
 
-    <div class="container z-depth-3">
-
-
+    <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <uc:contactos ID="adminContactos" runat="server" />
     </div>
 

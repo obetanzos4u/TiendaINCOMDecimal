@@ -1,10 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true"   Async="true" CodeFile="mi-cuenta.aspx.cs" MasterPageFile="~/gnCliente.master" Inherits="usuario_mi_cuenta" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
-    <div class="container z-depth-3">
+    <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div class="row ">
             <div class="col l12">
-                <h1 class=" margin-t-2x margin-b-2x">Mi cuenta</h1>
+                <h1 class="is-text-center is-m-0">Mi cuenta</h1>
 
        
                 <h2 class="margin-t-2x">Bienvenido,

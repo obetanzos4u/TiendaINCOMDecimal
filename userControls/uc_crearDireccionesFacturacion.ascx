@@ -2,10 +2,10 @@
 <%@ Register TagPrefix="uc" TagName="ddlPaises"  Src="~/userControls/ddl_paises.ascx" %>
 <%@ Register TagPrefix="uc" TagName="ddlEstados"  Src="~/userControls/ddl_estados.ascx" %>
 
-    <div class="container z-depth-3">
+    <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div class="row">
             <div class="col l12">
-                <h2 class="center-align">Facturación</h2> 
+                <h2 class="is-text-center is-m-0">Facturación</h2> 
             </div>
         </div>
         <div class="row">
