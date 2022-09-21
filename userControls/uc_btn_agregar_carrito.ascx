@@ -26,7 +26,7 @@
     <ContentTemplate>
 
         <asp:LinkButton ID="btn_agregar_productoCarrito" ClientIDMode="Static" OnClientClick="btnLoading(this);" runat="server"
-            class="waves-effect waves-light btn  blue" OnClick="btn_agregar_productoCarrito_Click">
+            class="waves-effect-1 waves-light btn  blue" OnClick="btn_agregar_productoCarrito_Click">
             <i class="material-icons left">add_shopping_cart</i>Agregar a carrito
         </asp:LinkButton>
         <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" class="waves-effect waves-light btn  blue">

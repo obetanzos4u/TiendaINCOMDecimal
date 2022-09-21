@@ -2554,6 +2554,8 @@ ul:not(.browser-default) {
 
 ul:not(.browser-default) > li {
   list-style-type: none;
+  border: 1px solid black;
+  padding: 0.5rem;
 }
 
 a {
@@ -5496,7 +5498,7 @@ button.btn-floating {
           user-select: none;
   -webkit-tap-highlight-color: transparent;
   vertical-align: middle;
-  z-index: 1;
+  z-index: 0;
   -webkit-transition: .3s ease-out;
   transition: .3s ease-out;
 }
@@ -6992,6 +6994,7 @@ select {
   font-size: 1rem;
   margin: 0 0 20px 0;
   padding: 0;
+  z-index: 0;
   display: block;
   -webkit-user-select: none;
      -moz-user-select: none;

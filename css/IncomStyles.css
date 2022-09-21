@@ -901,6 +901,11 @@
     overflow: auto;
     list-style: none;
     width: 100%;
+    padding: 0.25rem;
+    border-right: 1px solid #00000047;
+    border-bottom: 1px solid #00000047;
+    border-left: 1px solid #00000047 ;
+    margin: 0;
 }
 
 .is-productGallery_thumb {
@@ -908,6 +913,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid #00000057
+}
+
+.is-productGallery_thumb img:active {
+    border-color: 3px solid #004eea;
 }
 
     .is-productGallery_thumb img {
@@ -919,6 +929,7 @@
 
 .is-productGallery_featured {
     display: block;
+    border: 1px solid #00000037;
 }
 
 /* Responsive */

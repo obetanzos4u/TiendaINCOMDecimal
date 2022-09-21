@@ -81,7 +81,7 @@
                         <div class="row" style="margin: inherit 0px;">
                             <div class="col s12 m12 l12 xl12">
                                 <asp:Label ID="lbl_msg_maximo_compra" Visible="false" runat="server"></asp:Label>
-                                <div class="input-field  fixInput ">
+                                <div class="input-field  fixInput" style="z-index: 0 !important;">
                                     Moneda:
                                 <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
                                 </div>
