@@ -5,10 +5,10 @@
 <%@ Import Namespace="System.Globalization" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
 
-    <div class="container z-depth-3">
+    <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div class="row">
             <div class="col l12">
-                <h1 class="center-align">Mis cotizaciones </h1>
+                <h1 class="center-align is-m-0">Mis cotizaciones </h1>
             </div>
         </div>
         <!-- Dropdown Trigger -->
@@ -93,7 +93,7 @@
 
         <!-- INICIO : Filtros y orden -->
         <div class="row">
-            <div class="col s12 m5 l3">
+            <div class="col s12 m5">
                 <label>Busca por: Nombre ó Número de operación</label>
                 <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización ó Número de operación" AutoPostBack="true" OnTextChanged="orden" runat="server"></asp:TextBox>
             </div>

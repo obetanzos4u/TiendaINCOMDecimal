@@ -3,9 +3,9 @@
 
     
         <div id="HeaderInfoContactos" runat="server" class="row">
-             <div class="col s12 m12 l12">
-            <h2>Mis contactos</h2>
-                 </div>
+             <div class="col s12 m12 l12 is-bt-3">
+                <h1 class="is-text-center is-m-0">Mis contactos</h1>
+             </div>
                   <div class="col s12 m12 l9">Administra la información de contactos para tus operaciones (Cotizaciones, Pedidos)</div>
                   
              <div class="col s12 m12 l3 right-align">

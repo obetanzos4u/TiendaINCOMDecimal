@@ -2,7 +2,7 @@
     MasterPageFile="~/gnCliente.master" Inherits="usuario_cotizaciones_plantillas" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
-    <div class="container z-depth-3">
+    <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div id="HeaderInfoContactos" runat="server" class="row">
             <div class="col s12 m12 l12">
                 <h2>Mis Plantillas </h2>

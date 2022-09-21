@@ -8,14 +8,12 @@
     background: rgba(86, 86, 86, 0.8);
     padding: 4px 14px !important;
 }
+
 .navIncom > div > ul > li a { 
     color: white;
 
 }
-.producto_precio_contentedor 
-{
 
-}
 .producto_precio {
     font-weight: 600;
     font-size: 0.9rem;

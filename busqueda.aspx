@@ -7,7 +7,7 @@
     <div class="row" style="margin: auto 0px !important;">
         <uc_pro:productos ID="ucProductos" runat="server"></uc_pro:productos>
     </div>
-    <!-- <div class="row">
+<%--     <div class="row">
         <uc1:sliderCatalogos runat="server"></uc1:sliderCatalogos>
-    </div> -->
+    </div> --%>
 </asp:Content>

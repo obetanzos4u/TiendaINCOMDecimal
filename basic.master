@@ -172,7 +172,7 @@
             }
 
             .is-active {
-                border-bottom: 0;
+                border-bottom: 1px;
             }
 
             .splide__track-destacados {
@@ -256,6 +256,7 @@
                     border: 0;
                 }
             }
+
 
             #titulo_categoria {
                 font-family: "Monserrat"; 
@@ -657,6 +658,30 @@
                     margin-left: 0.5rem;
                     margin-top: 0.5rem;
                 }
+
+
+                /*Slider Productos destacados*/
+
+                .splide-destacados {
+                    padding: 0em 3em 1.5em 3em;
+                }
+
+                .splide__pagination__page.is-active {
+                    background: #004EEA;
+                    z-index: 100;
+                }
+
+                .splide__slide > a > img {
+                    border: 1px solid #00000017;
+                    width: 100px !important;
+                }
+
+                .splide__slide > a > p {
+                    width: 100px;
+                    text-align: initial;
+                    font-size: 12px;
+                }
+
             }
 
             /****** INICIO Seccion cotizaciones y pedidos */

@@ -3,12 +3,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
      
     
-    <div class="container z-depth-3">
+    <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8 ">
 
 </div>
         <div class="row">
-             <div class="col s12 m12 l12">
-            <h2>Mis contactos</h2>
+             <div class="col s12 m12 l12 is-bt-3">
+            <h1 class="center-align is-m-0">Mis contactos</h1>
                  </div>
                   <div class="col s12 m12 l9">Administra la información de contactos para tus operaciones (Cotizaciones, Pedidos)</div>
                   
