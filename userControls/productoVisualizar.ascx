@@ -23,10 +23,10 @@
         </div>
     </div>
     <div class="is-w-full is-flex">
-        <div class="is-productGallery" style="width: 40%">
-            <div class="is-productGallery_featured" id="selectedImage" runat="server">
+        <div class="is-productGallery">
+            <div class="is-productGallery_featured container-iframe" id="selectedImage" runat="server">
                 <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Fotografía de producto" style="position: relative; width: 100%" />
-                <iframe id="videoProductGallery_selected" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="is-hidden"></iframe>
+                <iframe id="videoProductGallery_selected" class="responsive-iframe" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="is-hidden"></iframe>
             </div>
             <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
         </div>

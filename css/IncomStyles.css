@@ -890,9 +890,9 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
-    justify-items: center;
     align-items: center;
     width: 40%;
+    max-width: 480px;
 }
 
 .is-productGallery_thumbnails {
