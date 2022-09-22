@@ -8,6 +8,7 @@
 <%@ Register Src="~/userControls/productosRelacionados.ascx" TagName="relacionados" TagPrefix="productos" %>
 <%@ Register Src="~/userControls/uc_producto_btn_SoloVisualizar.ascx" TagName="link" TagPrefix="uc_visualizarProducto" %>
 <%@ Register Src="~/userControls/productos_stockSAP.ascx" TagName="productoStock" TagPrefix="SAP" %>
+<%@ Register src="~/userControls/uc_share_btn.ascx" TagName="share_btnGen" TagPrefix="uc_share_btn" %>
 
 <div id="content_ProductoNoDisponible" visible="false" runat="server">
     <h1 id="h1ProductoNoDisponible">Producto no disponible </h1>
@@ -90,7 +91,8 @@
                         </div>
                         <uc1:btn_addOperacion ID="productoAddOperacion" runat="server"></uc1:btn_addOperacion>
                     </div>
-                    <div class="addthis_inline_share_toolbox"></div>
+                    <div class="addthis_inline_share_toolbox is-test"></div>
+                    <uc_share_btn:share_btnGen ID="share_btn" runat="server"></uc_share_btn:share_btnGen>
                 </div>
             </div>
             <div class="">

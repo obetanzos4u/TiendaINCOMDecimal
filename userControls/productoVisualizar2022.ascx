@@ -24,7 +24,7 @@
     <div class="row margin-t-6x">
         <div class="col s12 m6 l5 xl3">
             <div class="sp-wrap" id="img_producto" runat="server"></div>
-            <div class="addthis_inline_share_toolbox"></div>
+            <div class="addthis_inline_share_toolbox is-test"></div>
 
           
         </div>
@@ -153,11 +153,11 @@
                     <p id="cont_documentacion" runat="server">
                     </p>
                 </div>
-                <div class="col s12 m12 l12 xl8">
+                <!-- <div class="col s12 m12 l12 xl8">
                     <h2>Video</h2>
                     <p id="cont_videos" runat="server">
                     </p>
-                </div>
+                </div> -->
             </div>
         </div>
        <div class="col s12 m12 l7 xl9">

@@ -703,6 +703,10 @@
     border-color: rgba(255, 255, 255, 1);
 }
 
+.is-test {
+    border: 1px solid #3b82f6;
+}
+
 .is-outline-none {
     outline: 2px solid transparent;
     outline-offset: 2px;

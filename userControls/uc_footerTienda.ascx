@@ -68,4 +68,5 @@
         <div class="is-flex is-justify-center is-items-center is-mx-5">
             <p class="is-text-sm">Incom &reg; | Hecho en México por  IT4U Development   <%= DateTime.Now.Year %> | Todos los derechos reservados.</p>
         </div>
+    </div>
 </footer>
