@@ -132,7 +132,7 @@
 
 /*.waves-effect-1*/
 
-.waves-effect {
+.waves-effect-1 {
     position: relative;
     cursor: pointer;
     display: inline-block;
@@ -204,7 +204,7 @@
         background: none;
     }
 
-    .waves-effect img {
+    .waves-effect-1 img {
         position: relative;
         z-index: -1;
     }
