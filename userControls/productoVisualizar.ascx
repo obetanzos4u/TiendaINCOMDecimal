@@ -30,9 +30,10 @@
             </div>
             <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
         </div>
-        <div id="productZoom" class="is-relative" style="width: 60%;">
+        <div class="is-relative" style="width: 60%;">
             <div class="is-flex">
                 <div class="">
+                    <div id="productZoom"></div>
                     <h1 class="title-product_description is-family-ms is-m-0">
                         <asp:Literal ID="lt_numero_parte" Visible="false" runat="server"></asp:Literal>
                         <asp:Literal ID="lt_titulo" runat="server"></asp:Literal>
@@ -137,11 +138,11 @@
         </table>
 
     </div>
-    <div class="col s12 m12 l12 xl8">
+    <!-- <div class="col s12 m12 l12 xl8">
         <h2>Video</h2>
         <p id="cont_videos" runat="server">
         </p>
-    </div>
+    </div> -->
     <div class="col s12 m12 l7 xl9">
         <productos:relacionados ID="productosRelacionados" runat="server"></productos:relacionados>
     </div>
@@ -153,7 +154,7 @@
     let drift = new Drift(selectedImg, {
         paneContainer: document.querySelector("#productZoom"),
         inlinePane: false,
-        zoomFactor: 5,
+        zoomFactor: 2,
         hoverDelay: 0
     });
     console.log(drift);

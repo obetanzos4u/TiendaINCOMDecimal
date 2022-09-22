@@ -147,8 +147,14 @@
 
 /*Fin contenedor de ficha de productos */
 
-/*.waves-effect-1*/
+#productZoom {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    display: flex;
+}
 
+/*.waves-effect-1*/
 .waves-effect-1 {
     position: relative;
     cursor: pointer;
