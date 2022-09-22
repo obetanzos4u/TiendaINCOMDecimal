@@ -4,7 +4,7 @@
     <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div class="row ">
             <div class="col l12">
-                <h1 class="is-text-center is-m-0">Mi cuenta</h1>
+                <h2 class="is-text-center is-m-0">Mi cuenta</h2>
 
        
                 <h2 class="margin-t-2x">Bienvenido,

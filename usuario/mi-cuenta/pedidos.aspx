@@ -6,7 +6,7 @@
     <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div class="row">
             <div class="col l12">
-                <h1 class="center-align is-m-0">Mis pedidos</h1>
+                <h2 class="center-align is-m-0">Mis pedidos</h2>
             </div>
         </div>
    <!-- INICIO : Filtros y orden -->

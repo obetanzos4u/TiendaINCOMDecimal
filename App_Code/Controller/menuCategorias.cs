@@ -41,7 +41,7 @@ public class menusCategorias : System.Web.UI.Page
         L1_Title.Attributes.Add("href", "#");
         L1_Title.Attributes.Add("title", "Productos");
         //L1_Title.InnerHtml = "Productos<i id='menu_ico_productos' class='material-icons right'>arrow_drop_down</i>";
-        L1_Title.InnerHtml = "Productos <img id='menu_ico_productos' class='material-icons right' src='../img/webUI/newdesign/Flecha.svg'/>";
+        L1_Title.InnerHtml = "Productos <img id='menu_ico_productos' class='material-icons right' src='https://www.incom.mx/img/webUI/newdesign/Flecha.svg'/>";
 
         HtmlGenericControl L1_Cont = new HtmlGenericControl("div");
         L1_Cont.Attributes.Add("id", "menuProductosContenido");
