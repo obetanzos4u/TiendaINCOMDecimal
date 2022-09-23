@@ -2728,7 +2728,7 @@ video.responsive-video {
 }
 
 .breadcrumb {
-  font-size: 18px;
+  font-size: 14px !important;
   color: rgba(255, 255, 255);
 }
 

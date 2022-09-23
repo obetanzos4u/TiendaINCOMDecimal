@@ -1004,6 +1004,7 @@
         box-sizing: border-box;
         width: 100%;
         margin-left: 8em;
+        margin-top: 4px;
     }
 
     .contentResultados-content {
@@ -1014,6 +1015,7 @@
         margin-left: 7rem;
         margin-right: 7rem;
     }
+
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {

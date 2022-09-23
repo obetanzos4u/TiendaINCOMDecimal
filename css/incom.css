@@ -4,6 +4,10 @@
     overflow-x: hidden;
 }
 
+#font-s14 {
+    font-size: 14px !important;
+}
+
 .titulo_producto {
     background: rgba(86, 86, 86, 0.8);
     padding: 4px 14px !important;
