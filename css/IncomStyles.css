@@ -998,9 +998,22 @@
         padding-right: 6rem;
     }
 
-    /* .breadcrumb {
-        padding-left: 6rem;
-    } */
+    .is-col-navegation {
+        float: left;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        margin-left: 8em;
+    }
+
+    .contentResultados-content {
+        padding-left: 3rem;
+    }
+
+    .producto-main_wrap {
+        margin-left: 7rem;
+        margin-right: 7rem;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
