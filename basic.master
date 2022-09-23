@@ -242,6 +242,24 @@
                 height: 100%;
             }
 
+            @media only screen and (min-width:1600px) {
+            #top_contenido_titulo_categoria {
+            padding-left: 6rem;
+            }
+
+            .categorias_todas-1 {
+            padding-left: 7rem;
+            padding-right: 7rem;
+            }
+
+            .outname {
+            height: 100%;
+            padding-left: 7rem;
+            }
+
+        }
+
+
             @media only screen and (max-width:1600px) {
             
                 .slider-container {
@@ -293,11 +311,6 @@
                 margin-top:0;*/
                 display: none;
                 z-index: 1;
-            }
-
-            #general_categoria-container {
-                margin: 2rem 0px !important; 
-                border: 1px solid red;
             }
 
             #menuProductosContenido {

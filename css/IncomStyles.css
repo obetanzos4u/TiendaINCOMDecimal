@@ -997,6 +997,10 @@
         padding-left: 8rem;
         padding-right: 6rem;
     }
+
+    /* .breadcrumb {
+        padding-left: 6rem;
+    } */
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {

@@ -5,11 +5,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
    
-    <div class="row">
+    <div class="row is-test">
 
         <div id="nav_categorias_breadcrumb">
-            <div class="nav-wrapper">
-                <div id="navegacion" runat="server" style="" class=" col l12 ">
+            <div class="nav-wrapper is-test">
+                <div id="navegacion" runat="server" class=" col l12 ">
                     <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
                 </div>
             </div>
