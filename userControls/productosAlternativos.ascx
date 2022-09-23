@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="productosAlternativos.ascx.cs" Inherits="uc_productosAlternativos" %>
 
-<div id="alternativosSeccion" class="is-flex is-flex-col" runat="server">
+<div id="alternativosSeccion" class="is-container" runat="server">
     <h2 class="is-font-semibold is-text-center is-select-none">Productos alternativos</h2>
     <asp:ListView ID="lv_productosAlternativos" OnItemDataBound="lv_productosAlternativos_OnItemDataBound" runat="server">
         <LayoutTemplate>

@@ -1,33 +1,58 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="productosRelacionados.ascx.cs" Inherits="uc_productosRelacionados" %>
 
-<div class=" ">
-    <h2 id="encabezado" runat="server" class="margin-t-8x">Productos relacionados</h2>
-</div>
-<asp:ListView ID="lv_productosRelacionados" OnItemDataBound="lv_productosRelacionados_OnItemDataBound" runat="server">
-    <LayoutTemplate>
-        <div>
-            <div runat="server" id="itemPlaceholder"></div>
-        </div>
-    </LayoutTemplate>
-    <ItemTemplate>
-        <div class="col s12 m6 l4 xl2">
-            <div class="card">
-                <div class="card-image">
-                    <asp:HyperLink ID="link_producto" runat="server" CssClass="hoverLinkTituloProducto">
-                        <asp:Image ID="img_producto" class="responsive-img" runat="server" />
-                        <h2 class="tituloProductoTienda " style="margin: 0px 5px;">
-                            <%#Eval("numero_parte") %> - <%#Eval("titulo") %> 
-                        </h2>
-                    </asp:HyperLink>
+<div id="relacionadosSeccion" runat="server" class="is-container borderTest">
+    <h2 class="is-font-semibold is-text-center is-select-none">Productos relacionados</h2>
+    <asp:ListView ID="lv_productosRelacionados" OnItemDataBound="lv_productosRelacionados_OnItemDataBound" runat="server">
+        <LayoutTemplate>
+            <section class="splide" id="relacionados_splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <div runat="server" id="itemPlaceholder"></div>
+                    </ul>
                 </div>
+            </section>
+        </LayoutTemplate>
+        <ItemTemplate>
+            <li class="splide__slide">
+                <asp:HyperLink ID="link_producto" runat="server" CssClass="hoverLinkTituloProducto">
+                    <asp:Image ID="img_producto" class="responsive-img" runat="server" />
+                    <h2 class="tituloProductoTienda " style="margin: 0px 5px;">
+                        <%#Eval("numero_parte") %> - <%#Eval("titulo") %> 
+                    </h2>
+                </asp:HyperLink>
                 <!--  <div class="card-content">
                         <asp:LinkButton id="btn_link" runat="server"></asp:LinkButton> 
                   </div> -->
-            </div>
-        </div>
-    </ItemTemplate>
+            </li>
+        </ItemTemplate>
+        <EmptyDataTemplate>
+        </EmptyDataTemplate>
+    </asp:ListView>
+</div>
 
-    <EmptyDataTemplate>
-    </EmptyDataTemplate>
-
-</asp:ListView>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const splide = new Splide("#relacionados_splide", {
+            type: 'loop',
+            drag: 'free',
+            focus: 'center',
+            perPage: 1,
+            autoWidth: true,
+            autoScroll: {
+                speed: -1,
+            },
+            autoplay: true,
+            speed: 700,
+            gap: '2rem',
+            arrows: false,
+            pauseOnHover: false,
+            lazyLoad: 'nearby',
+            keyboard: false,
+            wheel: false,
+            trimSpace: true,
+            updateOnMove: true
+        });
+        console.log(splide)
+        splide.mount();
+    });
+</script>

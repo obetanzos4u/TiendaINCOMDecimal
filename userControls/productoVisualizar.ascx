@@ -6,9 +6,10 @@
 <%@ Register Src="~/userControls/uc_precio_detalles.ascx" TagName="preciosDetalles" TagPrefix="uc1" %>
 <%@ Register Src="~/userControls/carga_metaTags.ascx" TagName="metaTagColaborativo" TagPrefix="uc1" %>
 <%@ Register Src="~/userControls/productosRelacionados.ascx" TagName="relacionados" TagPrefix="productos" %>
+<%@ Register Src="~/userControls/productosAlternativos.ascx" TagName="alternativos" TagPrefix="productos" %>
 <%@ Register Src="~/userControls/uc_producto_btn_SoloVisualizar.ascx" TagName="link" TagPrefix="uc_visualizarProducto" %>
 <%@ Register Src="~/userControls/productos_stockSAP.ascx" TagName="productoStock" TagPrefix="SAP" %>
-<%@ Register src="~/userControls/uc_share_btn.ascx" TagName="share_btnGen" TagPrefix="uc_share_btn" %>
+<%@ Register Src="~/userControls/uc_share_btn.ascx" TagName="share_btnGen" TagPrefix="uc_share_btn" %>
 
 <div id="content_ProductoNoDisponible" visible="false" runat="server">
     <h1 id="h1ProductoNoDisponible">Producto no disponible </h1>
@@ -26,7 +27,7 @@
         <div class="is-productGallery">
             <div class="is-productGallery_featured container-iframe" id="selectedImage" runat="server">
                 <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Fotografía de producto" style="position: relative; width: 100%" />
-                <iframe id="videoProductGallery_selected" class="responsive-iframe" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" class="is-hidden"></iframe>
+                <iframe id="videoProductGallery_selected" class="responsive-iframe is-hidden" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
             </div>
             <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
         </div>
@@ -137,15 +138,14 @@
             </tbody>
         </table>
 
+        <productos:relacionados ID="productosRelacionados" runat="server"></productos:relacionados>
+        <productos:alternativos ID="productosAlternativos" runat="server"></productos:alternativos>
     </div>
     <!-- <div class="col s12 m12 l12 xl8">
         <h2>Video</h2>
         <p id="cont_videos" runat="server">
         </p>
     </div> -->
-    <div class="col s12 m12 l7 xl9">
-        <productos:relacionados ID="productosRelacionados" runat="server"></productos:relacionados>
-    </div>
 </div>
 <script>
     const thumbs = document.querySelectorAll(".is-productGallery_thumb");

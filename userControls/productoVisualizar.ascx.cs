@@ -128,69 +128,50 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             // Parent = master > Parent Page
             UserControl uc_moneda = this.FindControl("uc_moneda") as UserControl;
             string monedaTienda = (uc_moneda.FindControl("ddl_moneda") as DropDownList).SelectedValue;
-
             preciosTienda procesar = new preciosTienda();
             procesar.monedaTienda = monedaTienda;
-
             productos = procesar.procesarProductos(productos);
-
             string numero_parte = productos.Rows[0]["numero_parte"].ToString();
             string noParte_Sap = productos.Rows[0]["noParte_Sap"].ToString();
-
-
             string marca = productos.Rows[0]["marca"].ToString();
             string descripcion_corta = productos.Rows[0]["descripcion_corta"].ToString();
-
-
-
             string titulo = productos.Rows[0]["titulo"].ToString();
             string especificaciones = productos.Rows[0]["especificaciones"].ToString();
             string unidad_venta = productos.Rows[0]["unidad_venta"].ToString();
             string cantidad = productos.Rows[0]["cantidad"].ToString();
             string productos_relacionados = productos.Rows[0]["productos_relacionados"].ToString();
-
-
+            string productos_alternativos = productos.Rows[0]["producto_alternativo"].ToString();
             string unidad = productos.Rows[0]["unidad"].ToString();
             string imagen_URL = Request.Url.GetLeftPart(UriPartial.Authority) + "/img_catalog/" + productos.Rows[0]["imagenes"].ToString().Split(',')[0];
-
             string peso = productos.Rows[0]["peso"].ToString();
             string alto = productos.Rows[0]["alto"].ToString();
             string ancho = productos.Rows[0]["ancho"].ToString();
             string profundidad = productos.Rows[0]["profundidad"].ToString();
             string etiquetas = productos.Rows[0]["etiquetas"].ToString();
             string upc = productos.Rows[0]["upc"].ToString();
-
             string video = productos.Rows[0]["video"].ToString();
 
             try
             {
                 if (video.Contains("youtube"))
                 {
-
                     int posicion = video.IndexOf("?v=");
-
                     if (video.Contains("&list"))
                     {
-
                         video = video.Remove(0, posicion + 3);
                         int posicionFinPlay = video.IndexOf("&list");
                         int aEliminar = video.Length - posicionFinPlay;
-
                         video = video.Remove(posicionFinPlay, aEliminar);
                     }
                     else video = video.Remove(0, posicion + 3);
 
-
-
-                    cont_videos.InnerHtml = @"<iframe width='560' height='315' src='https://www.youtube.com/embed/"
-                        + video + " ' frameborder=\"0\" allow =\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
-
+                    //cont_videos.InnerHtml = @"<iframe width='560' height='315' src='https://www.youtube.com/embed/"
+                    //    + video + " ' frameborder=\"0\" allow =\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
                 }
-
             }
             catch (Exception ex)
             {
-                devNotificaciones.error("Cortar url videos en producto", ex);
+                devNotificaciones.error("Cortar url videos en producto", ex.Message);
             }
             string url = Request.Url.GetLeftPart(UriPartial.Authority) + GetRouteUrl("productos", new System.Web.Routing.RouteValueDictionary {
                         { "numero_parte", textTools.limpiarURL_NumeroParte(numero_parte) },
@@ -198,45 +179,28 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                         { "productoNombre",  textTools.limpiarURL(titulo) }
                     });
 
-
             lt_numero_parte.Text = numero_parte;
             lt_titulo.Text = titulo;
             lbl_descripcion_corta.Text = descripcion_corta;
             lbl_especificaciones.Text = especificaciones;
-
-
             productoAddOperacion.numero_parte = numero_parte;
             productoAddOperacion.descripcion_corta = descripcion_corta;
-
             sap_producto_disponibilidad.numero_parte = noParte_Sap;
-
-
 
             string str_solo_para_Visualizar = productos.Rows[0]["solo_para_Visualizar"].ToString();
             bool solo_para_Visualizar = string.IsNullOrEmpty(str_solo_para_Visualizar) ? false : bool.Parse(str_solo_para_Visualizar);
-
-
-
             NumberFormatInfo myNumberFormatInfo = new CultureInfo("es-MX", true).NumberFormat;
-
             // Quitamos el símbolo de pesos (establecido en string vacio)
             myNumberFormatInfo.CurrencySymbol = "";
-
-
             decimal? precio = null;
-
-
             // La columna [precio] solo se habilita si el cliente tiene asignado un precio fijo, por lo tanto es el precio a mostrar
             if (productos.Rows[0]["precio"] != DBNull.Value)
             {
                 precio = decimal.Parse(productos.Rows[0]["precio"].ToString());
-
                 // Al ser un precio general, debemos mostrar que tiene cierto descuento siempre y cuando el precio para el cliente sea menor que el general
                 decimal? precioGeneral = procesar.obtenerPrecioGeneralProducto(numero_parte);
-
                 if (precioGeneral != null && precioGeneral > precio)
                 {
-
                     lbl_precioGeneral.Visible = true;
                     lbl_precioGeneralLeyenda.Visible = true;
                     decimal PrecioConImpuestos = Impuestos.ObterPrecioConImpuestos((decimal)precioGeneral);
@@ -247,8 +211,6 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             else if (productos.Rows[0]["precio1"] != DBNull.Value)
             {
                 precio = decimal.Parse(productos.Rows[0]["precio1"].ToString());
-
-
                 // INICIO - Sirve para mostrar si hay precio de lista, solo NO HAY hay un precio fijo para un cliente en especial
                 DataTable dtProducoPrecioLista = preciosTienda.obtenerProductoPrecioLista(numero_parte);
                 if (dtProducoPrecioLista != null)
@@ -357,7 +319,6 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
 
             lbl_marca.Text = marca;
             lbl_numero_parte.Text = numero_parte;
-
             lt_unidad_venta.Text = unidad_venta;
             lt_cantidad.Text = cantidad;
             lt_unidad.Text = unidad;
@@ -577,9 +538,9 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             productosRelacionados.productos = productos_relacionados;
             productosRelacionados.uc_moneda = uc_moneda;
             productosRelacionados.obtenerProductos();
-
-
-
+            productosAlternativos.productos = productos_alternativos;
+            productosAlternativos.uc_moneda = uc_moneda;
+            productosAlternativos.obtenerProductos();
 
         }
 

@@ -63,7 +63,7 @@ public partial class uc_productosRelacionados : System.Web.UI.UserControl
                 
         } else
             {
-                encabezado.Visible = false;
+                relacionadosSeccion.Visible = false;
             }
 
     }
