@@ -8,13 +8,15 @@
         <h2 id="descripcion_categoria" runat="server"></h2>
         <div class="contain-nav-wrapper_producto">
             <div class="nav-wrapper">
-                <div id="navegacion" runat="server" style="" class=" col l12">
-                    <asp:HyperLink ID="categoriasTodas" CssClass="breadcrumb" Style="border: 1px solid red" runat="server">Productos</asp:HyperLink>
+                <div class="outname">
+                    <div id="navegacion" runat="server" class=" col l12">
+                        <asp:HyperLink ID="categoriasTodas" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
+                    </div>                    
                 </div>
             </div>
         </div>
     </div>
-    <div class="row categorias_todas">
+    <div class="categorias_todas-1">
         <div class="categorias_todas">
         <uc_cat:categoriasTodas runat="server"></uc_cat:categoriasTodas>
     </div>

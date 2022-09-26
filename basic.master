@@ -246,6 +246,32 @@
                 height: 100%;
             }
 
+            @media only screen and (min-width:1600px) {
+                #top_contenido_titulo_categoria {
+                    padding-left: 7rem;
+                }
+
+                .categorias_todas-1 {
+                    padding-left: 7rem;
+                    padding-right: 7rem;
+                }
+
+                .outname {
+                    height: 100%;
+                    padding-left: 7rem;
+                }
+
+                .breadcrumb {
+                    font-size: 14px !important;
+                }
+
+                .container-breadcrumb {
+                    padding-left: 8em;
+                    margin: 4.25em 0em 1em 0em;
+                }
+            }
+
+
             @media only screen and (max-width:1600px) {
 
                 .slider-container {
@@ -258,6 +284,15 @@
 
                 .splide__track {
                     border: 0;
+                }
+
+                .breadcrumb {
+                    font-size: 14px !important;
+                }
+
+                .container-breadcrumb {
+                    padding-left: 1em;
+                    margin: 4.25em 0em 1em 0em;
                 }
             }
 
@@ -297,11 +332,6 @@
                 margin-top:0;*/
                 display: none;
                 z-index: 1;
-            }
-
-            #general_categoria-container {
-                margin: 2rem 0px !important;
-                border: 1px solid red;
             }
 
             #menuProductosContenido {
@@ -604,7 +634,7 @@
                 }
 
                 .breadcrumb {
-                    font-size: 1rem;
+                    font-size: 14px !important;
                 }
 
                     .breadcrumb:before {
@@ -685,6 +715,11 @@
                     text-align: initial;
                     font-size: 12px;
                 }
+                
+                .container-breadcrumb {
+                    margin: 0em 0em 2em 0em;
+                }
+
             }
 
             /****** INICIO Seccion cotizaciones y pedidos */

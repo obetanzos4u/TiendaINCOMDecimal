@@ -7,9 +7,9 @@
   
 
     <uc_header:headerGen ID="menuPricipal" runat="server"></uc_header:headerGen>
-        <div class="container-1 is-px-xl is-test">
-    <div class="row is-p-4">
-        <div class="col s12 m12 l12 xl12">
+        <div class="container-1">
+    <div class="row">
+        <div class="s12 m12 l12 xl12">
                 <asp:ContentPlaceHolder ID="contenido" runat="server" />
         </div>
     </div>

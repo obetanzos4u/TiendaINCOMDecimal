@@ -2728,8 +2728,8 @@ video.responsive-video {
 }
 
 .breadcrumb {
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px !important;
+  color: rgba(255, 255, 255);
 }
 
 .breadcrumb i,
@@ -3298,7 +3298,6 @@ input[type=range] + .thumb {
 
 .truncate {
   display: block;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }

@@ -19,11 +19,11 @@
 <div id="contenedor_producto" class="is-container" runat="server">
     <asp:Literal ID="lt_microdataProducto" runat="server"></asp:Literal>
     <div class="nav-wrapper">
-        <div id="navegacion" runat="server" style="height: 42px; margin: 1em 0em; padding-top: 0.25rem;" class="col s12 m12 l12 xl12 is-bg-blue-darky">
+        <div id="navegacion" runat="server" style="height: 42px; padding-top: 0.25rem;" class="container-breadcrumb is-bg-blue-darky">
             <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
         </div>
     </div>
-    <div class="is-w-full is-flex">
+    <div class="is-w-full is-flex is-px-xl">
         <div class="is-productGallery">
             <div class="is-productGallery_featured container-iframe is-cursor-crosshair" id="selectedImage" runat="server">
                 <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Fotografía de producto" style="position: relative; width: 100%" />
@@ -82,7 +82,7 @@
                             <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
                         </div>
                         <div class="row" style="margin: inherit 0px;">
-                            <div class="col s12 m12 l12 xl12">
+                            <div class="s12 m12 l12 xl12">
                                 <asp:Label ID="lbl_msg_maximo_compra" Visible="false" runat="server"></asp:Label>
                                 <div class="input-field  fixInput" style="z-index: 0 !important;">
                                     Moneda:
@@ -105,8 +105,8 @@
     </div>
 </div>
 
-<div class="row">
-    <div id="content_caracteristicas" class="col s12 m12 l12 xl12">
+<div class="is-px-xl">
+    <div id="content_caracteristicas">
         <h2>Características</h2>
         <table class="striped" style="width: 100%;">
             <tbody id="tbody_caracteristicas" runat="server">
@@ -117,12 +117,12 @@
         </p>
     </div>
 
-    <div id="content_avisos" class="col s12 m12 l12 xl12">
+    <div id="content_avisos" class="s12 m12 l12 xl12">
         <h2>Avisos:</h2>
-        <ul id="ProductoAvisosListado" class="incom-ul-default" runat="server">
+        <ul id="ProductoAvisosListado" class="incom-ul-default" style="padding-left: 1rem !important;" runat="server">
         </ul>
     </div>
-    <div class="col s12 m12 l12 xl12">
+    <div class="s12 m12 l12 xl12">
         <!-- caracteristicas -->
         <h2>Especificaciones</h2>
         <p>

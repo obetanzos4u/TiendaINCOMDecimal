@@ -16,6 +16,14 @@
             grid-template-areas: 'sidebar content';
         }
 
+        .contentResultados-1 {
+            margin: auto 0px !important;
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: 170px auto;
+            grid-template-areas: 'sidebar content';
+        }
+
         .contentResultados-sidedar {
             grid-area: sidebar;
             position: relative;
@@ -120,7 +128,7 @@
             </div>
         </div>
         <!-- FIN : Filtros y orden -->
-        <div id="contentResultados" runat="server" visible="false">
+        <div id="contentResultados" class="contentResultados-1" runat="server" visible="false">
             <div class="contentResultados-sidedar">
                 <div runat="server" id="cont_categorias" class="input-field fixInput" visible="false">
                     <label class="label-filtro_producto" style="position: initial;">Filtrar por categoria</label>
