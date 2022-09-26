@@ -776,6 +776,18 @@
     cursor: not-allowed;
 }
 
+.is-cursor-crosshair {
+    cursor: crosshair;
+}
+
+.is-cursor-grab {
+    cursor: grab;
+}
+
+.is-cursor-grabbing {
+    cursor: grabbing;
+}
+
 .is-active {
     border-bottom: 0.25rem solid #3b82f6;
 }

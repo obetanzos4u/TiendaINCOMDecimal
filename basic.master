@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="/css/SimpleStarRating.css" />
     <link rel="stylesheet" type="text/css" href="/css/selectize.css" />
-<%--    <style>
+    <%--    <style>
 
         Se comento este componente para que no se muestre por encima de los menus principales cuando se despliegan
         .bx-wrapper .bx-controls-direction a {
@@ -73,7 +73,7 @@
     <script src='https://www.incom.mx/js/jquery.bxslider.min.js'></script>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script async="async" src="/js/disponibilidad.js?ver=0.1.4"></script>
-    <script defer src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b103649d8169d82"></script>
+    <%--<script defer src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b103649d8169d82"></script>--%>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
@@ -113,6 +113,11 @@
 
     <!--  <asp:ScriptReference Path="~/js/efecto_navidad.js" /> --->
     <title></title>
+    <!-- BEGIN SHAREAHOLIC CODE -->
+    <link rel="preload" href="https://cdn.shareaholic.net/assets/pub/shareaholic.js" as="script" />
+    <meta name="shareaholic:site_id" content="223181f173079a62f54009d7ea1d369a" />
+    <script data-cfasync="false" async src="https://cdn.shareaholic.net/assets/pub/shareaholic.js"></script>
+    <!-- END SHAREAHOLIC CODE -->
 </head>
 <body>
     <form id="form1" runat="server" class="border-4 border-red-500">
@@ -157,9 +162,8 @@
             }
         </style>
         <style>
-
             .slider-container {
-                margin: auto 5rem 8vh 5rem; 
+                margin: auto 5rem 8vh 5rem;
             }
 
             .splide-destacados {
@@ -183,8 +187,8 @@
             .splide__pagination__page:hover {
                 background: #004eea40;
             }
-            
-            .splide__slide { 
+
+            .splide__slide {
                 padding: 1rem;
                 background: #fff;
                 border: 1px solid #00000017;
@@ -193,18 +197,18 @@
                 margin-top: 1rem;
             }
 
-            .splide__slide > a > img {
-                border: 1px solid #00000017;
-            }
+                .splide__slide > a > img {
+                    border: 1px solid #00000017;
+                }
 
-            .splide__slide > a {
-                color: #3483fa;
-            }
-            
-            .splide__slide > a > p {
-                width: 200px;
-                text-align: initial;
-            }
+                .splide__slide > a {
+                    color: #3483fa;
+                }
+
+                    .splide__slide > a > p {
+                        width: 200px;
+                        text-align: initial;
+                    }
 
             #slider_home_principal {
                 padding: 0em !important;
@@ -219,18 +223,18 @@
                 border-radius: 28px
             }
 
-            .splide__arrow svg {
-                fill: #fff;
-            }
+                .splide__arrow svg {
+                    fill: #fff;
+                }
 
-            .splide__arrow:hover:not(:disabled) svg {
-                fill: #004EEA;
-            }
+                .splide__arrow:hover:not(:disabled) svg {
+                    fill: #004EEA;
+                }
 
-            .splide__arrow:focus {
-                outline: none;
-                background-color: #ffffff2a;
-            }
+                .splide__arrow:focus {
+                    outline: none;
+                    background-color: #ffffff2a;
+                }
 
             .splide__list-principal > li > a > img {
                 width: 100vw;
@@ -243,11 +247,11 @@
             }
 
             @media only screen and (max-width:1600px) {
-            
+
                 .slider-container {
                     margin: 0em 0em 4em 0em;
-                }       
-            
+                }
+
                 .splide-destacados {
                     padding: 0em 0em 1.5em 0em;
                 }
@@ -259,13 +263,13 @@
 
 
             #titulo_categoria {
-                font-family: "Monserrat"; 
+                font-family: "Monserrat";
                 color: aqua !important;
                 font-size: 0.8rem;
             }
 
             #descripcion_categoria {
-                font-family: "Monserrat"; 
+                font-family: "Monserrat";
                 color: aqua !important;
                 font-size: 0.8rem;
             }
@@ -276,7 +280,7 @@
                 margin: 1rem;
                 z-index: 1;
             }
-/*
+            /*
             .ruta_productos {
                 color: black;
                 background-color: #01568D;
@@ -287,7 +291,7 @@
             }*/
 
             #top_contenido_descripcion_categoria {
-/*              font-family: "Monserrat";
+                /*              font-family: "Monserrat";
                 color: #2d8bff;
                 font-size: 1rem !important;
                 margin-top:0;*/
@@ -296,13 +300,13 @@
             }
 
             #general_categoria-container {
-                margin: 2rem 0px !important; 
+                margin: 2rem 0px !important;
                 border: 1px solid red;
             }
 
             #menuProductosContenido {
                 height: auto;
-                 overflow-x: hidden;
+                overflow-x: hidden;
             }
 
             #contenedorMenu {
@@ -610,13 +614,13 @@
                     }
 
                 #titulo_categoria {
-                    font-family: "Monserrat"; 
+                    font-family: "Monserrat";
                     color: aqua !important;
                     font-size: 0.8rem;
                 }
 
                 #descripcion_categoria {
-                    font-family: "Monserrat"; 
+                    font-family: "Monserrat";
                     color: aqua !important;
                     font-size: 0.8rem;
                 }
@@ -681,7 +685,6 @@
                     text-align: initial;
                     font-size: 12px;
                 }
-
             }
 
             /****** INICIO Seccion cotizaciones y pedidos */

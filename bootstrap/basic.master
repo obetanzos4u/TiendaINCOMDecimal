@@ -66,8 +66,8 @@
     
 
 
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" defer src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b103649d8169d82"></script>
+    <%--<!-- Go to www.addthis.com/dashboard to customize your tools -->--%>
+    <%--<script type="text/javascript" defer src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b103649d8169d82"></script>--%>
     <a href="#up" class="simplescrollup__button simplescrollup__button--hide">Subir</a>
 
     <script defer src="/js/simplescrollup.js"></script>
