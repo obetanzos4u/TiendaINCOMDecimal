@@ -259,6 +259,11 @@
                 .breadcrumb {
                     font-size: 14px !important;
                 }
+
+                .container-breadcrumb {
+                    padding-left: 8em;
+                    margin: 4.25em 0em 1em 0em;
+                }
             }
 
 
@@ -274,6 +279,15 @@
 
                 .splide__track {
                     border: 0;
+                }
+
+                .breadcrumb {
+                    font-size: 14px !important;
+                }
+
+                .container-breadcrumb {
+                    padding-left: 1em;
+                    margin: 4.25em 0em 1em 0em;
                 }
             }
 
@@ -696,6 +710,11 @@
                     text-align: initial;
                     font-size: 12px;
                 }
+                
+                .container-breadcrumb {
+                    margin: 0em 0em 2em 0em;
+                }
+
             }
 
             /****** INICIO Seccion cotizaciones y pedidos */
