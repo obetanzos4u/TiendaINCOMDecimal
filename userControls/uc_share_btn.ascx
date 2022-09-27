@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_share_btn.ascx.cs" Inherits="uc_share_btn" %>
 
-<div class="btn-share">
+<div class="btn-share is-w-full">
     <span class="btn-text">Compartir</span><span class="btn-icon">
         <svg
             t="1580465783605"
@@ -66,13 +66,13 @@
                 window.open("https://www.facebook.com/sharer/sharer.php?u=" + event.target.baseURI, "popup", 'width=600px,height=600px,top=150pt,resizable=0');
                 break;
             case 'twitter':
-                window.open("https://twitter.com/intent/tweet/?url=" + event.target.baseURI + "&text=Este es un texto que aparecerá preestablecido en el tweet", "popup", 'width=600px,height=600px,top=150pt,resizable=0');
+                window.open("https://twitter.com/intent/tweet/?url=" + event.target.baseURI, "popup", 'width=600px,height=600px,top=150pt,resizable=0');
                 break;
             case 'whatsapp':
-                window.open("http://api.whatsapp.com/send?phone=525552436900&text=Me encantaría tener mayor información sobre este producto: " + event.target.baseURI, "popup", 'width=600px,height=600px,top=150pt,resizable=0');
+                window.open("http://api.whatsapp.com/send?phone=525552436900&text=Hola,%20me%20interesa%20este%20producto:%20" + event.target.baseURI, "popup", 'width=600px,height=600px,top=150pt,resizable=0');
                 break;
             case 'mail':
-                window.open("mailto:retail@incom.mx?cc=sistemasweb@incom.mx&subject=Mayor%20informacion&body=Informacion%20sobre%20este%20producto:%20" + event.target.baseURI, "_blank");
+                window.open("mailto:retail@incom.mx?cc=sistemasweb@incom.mx&subject=Mayor%20informacion&body=Hola,%20me%20interesa%20este%20producto:%20" + event.target.baseURI, "_blank");
                 break;
         }
     }

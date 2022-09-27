@@ -1,46 +1,37 @@
 ﻿async function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    let id_token = googleUser.getAuthResponse().id_token;
+    let res = await LoginWithGoogle(id_token);
+    const contentMsg = document.querySelector("#ajax-login-msg-result > p");
 
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log(id_token);
-
-    var res = await LoginWithGoogle(id_token);
-
-    console.log(res);
-
-    let contentMsg = document.querySelector("#ajax-login-msg-result > p");
     if (res.result) {
-        contentMsg.textContent = res.message + " - Redireccionando en 3 segundos...";
-        contentMsg.className = 'green-text text-darken-2';
-
-        setTimeout(function () { location.reload(); }, 1000);
+        let countdown = 3;
+        contentMsg.className = 'is-text-emerald is-text-semibold is-text-center is-select-none';
+        setInterval(() => {
+            contentMsg.textContent = "Inicio de sesión con Google exitoso, serás redirigido en " + countdown + " segundos.";
+            countdown--;
+            if (countdown === 0 || countdown < 0) {
+                location.replace("/");
+            }
+        }, 1000);
     } else {
         contentMsg.textContent = res.message;
-        contentMsg.className = 'red-text text-darken-1';
+        contentMsg.className = 'is-text-red is-text-semibold is-text-center is-select-none';
     }
-
-
 }
-function loadJsLoginWithGoogle() {
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
+const loadJsLoginWithGoogle = () => {
+    let head = document.getElementsByTagName('head')[0];
+    let script = document.createElement('script');
     script.src = 'https://apis.google.com/js/platform.js';
     head.appendChild(script);
 }
 
 // Regístro con Google
 async function SignWithGoogle(token) {
-
-
-    var url = '/api/CrearUsuario';
-    var data = { "AccessToken": token };
+    let url = '/api/CrearUsuario';
+    let data = { "AccessToken": token };
 
     try {
-        var init = {
+        let init = {
             // el método de envío de la información será POST
             method: "POST",
             body: JSON.stringify(data),
@@ -49,15 +40,11 @@ async function SignWithGoogle(token) {
             }
         };
 
-        var response = await fetch(url, init
-
+        let response = await fetch(url, init
         );
         if (response.ok) {
-
-            var res = JSON.parse(await response.json());
-
+            let res = JSON.parse(await response.json());
             return res;
-
         } else {
             throw new Error(response.statusText);
         }
@@ -67,27 +54,22 @@ async function SignWithGoogle(token) {
         r.result = false;
         r.exception = true;
         r.message = err.message;
-
         console.log("Error al realizar la petición AJAX: " + err.message);
         return r;
     }
-
 }
 
-function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-        console.log('User signed out.');
-    });
+const signOut = () => {
+    let auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut();
 }
+
 async function LoginWithGoogle(token) {
-
-
-    var url = '/api/LoginWithGoogle';
-    var data = { "AccessToken": token };
+    let url = '/api/LoginWithGoogle';
+    let data = { "AccessToken": token };
 
     try {
-        var init = {
+        let init = {
             // el método de envío de la información será POST
             method: "POST",
             body: JSON.stringify(data),
@@ -96,48 +78,41 @@ async function LoginWithGoogle(token) {
             }
         };
 
-        var response = await fetch(url, init
-
+        let response = await fetch(url, init
         );
         if (response.ok) {
-
-            var res = JSON.parse(await response.json());
-
+            let res = JSON.parse(await response.json());
             return res;
-
         } else {
             throw new Error(response.statusText);
         }
     }
     catch (err) {
-        var r = new Object();
+        let r = new Object();
         r.result = false;
         r.exception = true;
         r.message = err.message;
-
         console.log("Error al realizar la petición AJAX: " + err.message);
         return r;
+    }
 }
 
-}
-
-async function LoginAjaxValidateLogin(){
-
+async function LoginAjaxValidateLogin() {
     try {
- 
         // en el objeto init tenemos los parámetros de la petición AJAX
-        var init = {
+        let init = {
             // el método de envío de la información será POST
             method: "POST"
         };
- 
-        var response = await fetch('/service/usuarios-login.ashx', init);
+
+        let response = await fetch('/service/usuarios-login.ashx', init);
+
         if (response.ok) {
- 
-            var respuesta = await response.json();
- 
-         return respuesta;
- 
+
+            let respuesta = await response.json();
+
+            return respuesta;
+
         } else {
             throw new Error(response.statusText);
         }
@@ -146,182 +121,154 @@ async function LoginAjaxValidateLogin(){
         r.result = false;
         r.exception = true;
         r.message = err.message;
-        
-        console.log("Error al realizar la petición AJAX: " + err.message);
+
+        console.log("Error al realizar la petición: " + err.message);
         return r;
     }
-    
-
 }
 
-async function LoginAjaxCreateLoginBTN(ContentBtn){
-
-        let btnHTML = `
+async function LoginAjaxCreateLoginBTN(ContentBtn) {
+    let btnHTML = `
                     <a class="btn-small blue " onclick="LoginAjaxOpenModal();">Iniciar Sesión</a>
                     <a class="btn-small blue" href="/registro-de-usuario.aspx">Registrarse</a>
                   `;
-
-        ContentBtn.innerHTML = btnHTML;
-
+    ContentBtn.innerHTML = btnHTML;
 }
 
 // Crea un modal si este no se ha creado y lo abre
 async function LoginAjaxOpenModal() {
-
-
-    var modalContentLoginAjax = document.querySelector("#modalContentLoginAjax");
+    let modalContentLoginAjax = document.querySelector("#modalContentLoginAjax");
 
     if (modalContentLoginAjax === null) LoginAjaxCreateModalContent();
 
-    var content = `<div class="modal-content">
-                       <div class="row"> 
-                        <div class="col push-s1 s10 push-m2 m8 push-l3 l6 push-xl4 xl4"> 
-                <p style="font-size:1.7rem;">Inicio de sesión</p>
-
-                <div class="row center-align">
-                    <p><strong>Inica sesion con tu cuenta de Google</strong></p>
-                    <div class="g-signin2" style="display: inline-block;" data-longtitle="true" data-onsuccess="onSignIn"></div>
- 
-                        <p></p>
-                    </div>
+    let content = `
+        <div class="modal-content">
+            <div class="is-flex is-flex-col is-justify-center is-items-center">
+                <p class="is-font-bold is-text-xl is-select-none is-m-2">
+                Inicio de sesión
+                </p>
+                <div class="is-text-center is-my-4">
+                <p class="is-select-none is-font-semibold">
+                    Inicia sesion con tu cuenta de Google
+                </p>
+                <div
+                    class="g-signin2 is-inline-block"
+                    data-longtitle="true"
+                    data-onsuccess="onSignIn"
+                ></div>
                 </div>
-
-
-
-                        <div class="row"> 
-                            <div class="col s12 l12 xl12">
-                                      <label for="ajax-login-user">Usuario</label>
-                                <input id="ajax-login-user" type="text" />
-                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col  s12 l12 xl12">
-                                      
-                                <input id="ajax-login-password" type="password" />  
-                                <label for="ajax-login-password">Contraseña</label>
- 
-                            </div> 
-                        </div> 
-                        <div class="row">
-                            <div class="col s12 l12 xl12 ">
-                                <a  id="ajax-login-btn" class="btn blue" onclick="LoginAjaxSet();">Iniciar sesión</a>
-                            </div>
-                           
-                            <div id="ajax-login-msg-result" class="col s12 ">
-                                <p></p>
-                            </div>
-                            <div  class="col  ">
-                                <p>
-                                    <a href="/restablecer-password.aspx" >Olvidé mi contraseña</a>
-                                    </p>
-                            </div>
-                              </div>
-                        </div>
-                    </div>
-                   `;
+            </div>
+            <hr class="is-mx-6" />
+            <div
+                class="is-flex is-flex-col is-justify-center is-items-center is-mx-4 is-px-4"
+            >
+                <p class="is-select-none is-font-semibold">
+                Inicia sesion con tu correo y contraseña
+                </p>
+                <div class="is-w-full">
+                <label for="ajax-login-user">Usuario</label>
+                <input id="ajax-login-user" type="text" />
+                </div>
+                <div class="is-w-full">
+                <label for="ajax-login-password">Contraseña</label>
+                <input id="ajax-login-password" type="password" />
+                </div>
+                <div class="is-flex is-justify-around is-items-center is-py-2 is-w-full">
+                <a href="/restablecer-password.aspx">Olvidé mi contraseña</a>
+                <a
+                    id="ajax-login-btn"
+                    class="is-text-white is-bg-blue is-cursor-pointer is-px-4 is-rounded is-select-none"
+                    onclick="LoginAjaxSet();"
+                    >Iniciar sesión</a
+                >
+                </div>
+                <a href="/registro-de-usuario.aspx">Registrarse</a>
+            </div>
+            <div id="ajax-login-msg-result" class="is-w-full">
+                <p class="is-m-0"></p>
+            </div>
+        </div>
+        `;
 
     modalContentLoginAjax = document.querySelector("#modalContentLoginAjax");
-
- 
     modalContentLoginAjax.innerHTML = content;
 
     loadJsLoginWithGoogle();
 
+    let elem = document.querySelector('#modalContentLoginAjax');
+    let instances = M.Modal.init(elem, null);
 
-     var elem = document.querySelector('#modalContentLoginAjax');
-    var instances = M.Modal.init(elem, null);
-
-     var instance = M.Modal.getInstance(elem);
-     instance.open();
+    let instance = M.Modal.getInstance(elem);
+    instance.open();
     btnEnter("#ajax-login-password", "#ajax-login-btn")
 }
 
 // Intenta realizar la sesión
 async function LoginAjaxSet() {
-
- 
     let user = document.querySelector("#ajax-login-user").value;
     let password = document.querySelector("#ajax-login-password").value;
+    let formData = new FormData();
 
-    var r  = new Object();
+    let r = new Object();
     r.result = false;
     r.exception = true;
     r.message = "Error";
 
-
-
-    let formData = new FormData();
     formData.append('user', user);
     formData.append('password', password);
 
-   
-      await  fetch('/service/usuarios-login.aspx', {
-          method: 'POST',
-          body: formData,
-           
+    await fetch('/service/usuarios-login.aspx', {
+        method: 'POST',
+        body: formData,
     })
         .then(function (response) {
             if (response.ok) {
                 return response.text();
-              
             } else {
-                r.message = "Error en la llamada Ajax";
-                throw "Error en la llamada Ajax";
-              
+                r.message = "Error en la llamada";
+                throw "Error en la llamada";
             }
-
         })
-          .then(function (texto) {
-              console.log(r);
+        .then(function (texto) {
             r = JSON.parse(texto);
         })
         .catch(function (err) {
             r.message = err;
         });
-
     LoginAjaxTextResult(r);
 }
-function LoginAjaxTextResult(r) {
 
-    console.log(r);
+const LoginAjaxTextResult = (r) => {
     let contentMsg = document.querySelector("#ajax-login-msg-result > p");
-
     let result = r.result;
     let exception = r.exception;
-    let message =r.message;
-
+    let message = r.message;
 
     contentMsg.className = '';
     if (!exception) {
-
         if (result) {
-            contentMsg.textContent = message+ " - Redireccionando en 3 segundos...";
-            contentMsg.className = 'green-text text-darken-2';
-
-            setTimeout(function () { location.reload(); }, 1000);
+            let countdown = 3;
+            setInterval(() => {
+                contentMsg.className = 'is-text-emerald is-text-semibold is-text-center is-select-none';
+                contentMsg.textContent = "Inicio de sesión exitoso, serás redirigido en " + countdown + " segundos."
+                if (countdown === 0 || countdown < 0) {
+                    location.reload();
+                }
+            }, 1000);
         } else {
             contentMsg.textContent = message;
-            contentMsg.className = 'red-text text-darken-1';
+            contentMsg.className = 'is-text-red is-text-semibold is-text-center is-select-none';
         }
-        
-
     } else {
-
         contentMsg.textContent = message;
-        contentMsg.className = 'red-text text-darken-1';
-
+        contentMsg.className = 'is-text-red is-text-semibold is-text-center is-select-none';
     }
-
 }
 
-function LoginAjaxCreateModalContent() {
-
-
-    var modalContent = document.createElement("div");
+const LoginAjaxCreateModalContent = () => {
+    let modalContent = document.createElement("div");
     modalContent.classList.add("modal");
     modalContent.id = "modalContentLoginAjax";
-
-    var body = document.getElementsByTagName("body")[0];
+    let body = document.getElementsByTagName("body")[0];
     body.appendChild(modalContent);
-
 }
