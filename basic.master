@@ -73,7 +73,7 @@
     <script src='https://www.incom.mx/js/jquery.bxslider.min.js'></script>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script async="async" src="/js/disponibilidad.js?ver=0.1.4"></script>
-    <script defer src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b103649d8169d82"></script>
+    <%--<script defer src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b103649d8169d82"></script>--%>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
@@ -113,6 +113,11 @@
 
     <!--  <asp:ScriptReference Path="~/js/efecto_navidad.js" /> --->
     <title></title>
+    <!-- BEGIN SHAREAHOLIC CODE -->
+    <link rel="preload" href="https://cdn.shareaholic.net/assets/pub/shareaholic.js" as="script" />
+    <meta name="shareaholic:site_id" content="223181f173079a62f54009d7ea1d369a" />
+    <script data-cfasync="false" async src="https://cdn.shareaholic.net/assets/pub/shareaholic.js"></script>
+    <!-- END SHAREAHOLIC CODE -->
 </head>
 <body>
     <form id="form1" runat="server" class="border-4 border-red-500">

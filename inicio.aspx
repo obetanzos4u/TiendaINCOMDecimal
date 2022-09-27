@@ -45,9 +45,9 @@
         <section class="USP3" id="sliderUSP3" runat="server"></section>
     </div>
 
-        <section class="title_productos-destacados">
-            <p >Productos destacados</p>
-        </section>
+    <section class="title_productos-destacados">
+        <p class="is-select-none">Productos destacados</p>
+    </section>
 
     <div class="center-align slider-container">
         <uc1:sliderDestacados ID="uc_SliderDestacados" runat="server"></uc1:sliderDestacados>
@@ -62,7 +62,7 @@
         <uc_cat:categoriasTodas runat="server"></uc_cat:categoriasTodas>
     </div>
 
-<%--<div class="row ">
+    <%--<div class="row ">
         <div class="col s12 l6 x6">
             <h2>Acerca de Incom ®</h2>
             <p>

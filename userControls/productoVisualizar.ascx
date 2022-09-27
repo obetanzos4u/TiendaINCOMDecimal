@@ -25,7 +25,7 @@
     </div>
     <div class="is-w-full is-flex is-px-xl">
         <div class="is-productGallery">
-            <div class="is-productGallery_featured container-iframe" id="selectedImage" runat="server">
+            <div class="is-productGallery_featured container-iframe is-cursor-crosshair" id="selectedImage" runat="server">
                 <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Fotografía de producto" style="position: relative; width: 100%" />
                 <iframe id="videoProductGallery_selected" class="responsive-iframe is-hidden" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
             </div>
@@ -93,14 +93,13 @@
                         </div>
                         <uc1:btn_addOperacion ID="productoAddOperacion" runat="server"></uc1:btn_addOperacion>
                     </div>
-                    <div class="addthis_inline_share_toolbox is-test"></div>
+                    <%--<div class="addthis_inline_share_toolbox"></div>--%>
                     <uc_share_btn:share_btnGen ID="share_btn" runat="server"></uc_share_btn:share_btnGen>
                 </div>
             </div>
             <div class="">
                 <h2>Documentación</h2>
-                <p id="cont_documentacion" runat="server">
-                </p>
+                <p id="cont_documentacion" runat="server"></p>
             </div>
         </div>
     </div>
@@ -147,17 +146,17 @@
         </p>
     </div> -->
 </div>
+
 <script>
     const thumbs = document.querySelectorAll(".is-productGallery_thumb");
     let selectedImg = document.getElementById("productGallery_selected");
     let selectedVid = document.getElementById("videoProductGallery_selected");
-    let drift = new Drift(selectedImg, {
+    const drift = new Drift(selectedImg, {
         paneContainer: document.querySelector("#productZoom"),
         inlinePane: false,
-        zoomFactor: 2,
+        zoomFactor: 2.5,
         hoverDelay: 0
     });
-    console.log(drift);
     for (let i = 0; i < thumbs.length; i++) {
         thumbs[i].addEventListener("mouseenter", () => {
             let firstChild = thumbs[i].firstChild;
