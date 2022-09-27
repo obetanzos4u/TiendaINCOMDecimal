@@ -172,6 +172,18 @@
     color: #f9f7f7;
 }
 
+.is-text-green {
+    color: #22c55e;
+}
+
+.is-text-emerald {
+    color: #10b981;
+}
+
+.is-text-red {
+    color: #ef4444;
+}
+
 .is-bg-footer {
     background-color: #0C3766;
 }
@@ -257,7 +269,7 @@
 }
 
 .is-bg-viridianGreen {
-    background-color: #0A9396
+    background-color: #0A9396;
 }
 
 .is-bg-middleBlueGreen {

@@ -64,7 +64,7 @@ public partial class usuarios_login : System.Web.UI.Page
                 if (UsuarioInfo != null && UsuarioInfo.registroMetodo == 3) {
 
                     var r = new json_respuestas(false,
-                        "Tu usuario fué registrado con una cuenta de Google, inicia sesión de esa manera ó establece una contraseña", 
+                        "Te registraste con una cuenta de Google, inicia sesión con Google o establece una contraseña", 
                         false).ToJson();
                     HttpContext.Current.Response.Write(r);
                     return;
@@ -78,7 +78,7 @@ public partial class usuarios_login : System.Web.UI.Page
 
             if (resultadoLogin == false)
             {
-                json_respuestas r = new json_respuestas(false, "Contraseña o usuario incorrecto");
+                json_respuestas r = new json_respuestas(false, "La contraseña o el usuario es incorrecto");
 
                 HttpContext.Current.Response.Write(JsonConvert.SerializeObject(r));
                 return;
