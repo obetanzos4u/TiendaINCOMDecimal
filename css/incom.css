@@ -23,15 +23,25 @@
     color: #05a512;
 }
 
-.producto_moneda {
-}
-
 .ulFlow {
     columns: 1;
     -webkit-columns: 1;
     -moz-columns: 1;
 }
 
+#productZoom {
+    display: none;
+    width: 520px;
+    height: 285px;
+    position: absolute;
+    float: right;
+    z-index: 10;
+    border: 1px solid #00000037;
+}
+
+.is-productGallery:hover #productZoom {
+    display: block;
+}
 
 /*Ruta de las categorias*/
 
@@ -177,13 +187,13 @@
 
     /*Fin contenedor de ficha de productos */
 
-    #productZoom {
+    /* #productZoom {
         width: 480px;
         height: 485px;
         position: absolute;
         display: flex;
         z-index: 10;
-    }
+    } */
 
     #productGallery_selected {
         margin-top: -56.5%;
@@ -1222,4 +1232,46 @@
     .sendLogo {
         width: 4px;
         height: 4px;
+    }
+
+
+    /* Alineación de zoom */
+
+    @media only screen and (min-width: 1600px) and (max-width: 2400px)  {
+        #productZoom {
+            left: 600px;
+        }
+    }
+
+    @media only screen and (min-width: 1300px) and (max-width: 1600px)  {
+        #productZoom {
+            left: 540px;
+        }
+    }
+
+    @media only screen and (min-width: 400px) and (max-width: 1300px)  {
+        #productZoom {
+            left: 41vw;
+        }
+    }
+    
+    @media only screen and (min-width: 800px) and (max-width: 900px)  {
+        #productZoom {
+            width: 380px;
+            height: 285px;  
+        }
+    }
+
+    @media only screen and (min-width: 600px) and (max-width: 800px)  {
+        #productZoom {
+            width: 320px;
+            height: 285px;  
+        }
+    }
+
+    @media only screen and (min-width: 400px) and (max-width: 600px)  {
+        #productZoom {
+            width: 250px;
+            height: 200px;  
+        }
     }

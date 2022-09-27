@@ -30,11 +30,11 @@
                 <iframe id="videoProductGallery_selected" class="responsive-iframe is-hidden" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
             </div>
             <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
+            <section id="productZoom"></section>
         </div>
         <div class="is-relative" style="width: 60%;">
             <div class="is-flex">
                 <div class="">
-                    <div id="productZoom"></div>
                     <h1 class="title-product_description is-family-ms is-m-0">
                         <asp:Literal ID="lt_numero_parte" Visible="false" runat="server"></asp:Literal>
                         <asp:Literal ID="lt_titulo" runat="server"></asp:Literal>
