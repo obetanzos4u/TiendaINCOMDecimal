@@ -960,7 +960,7 @@
 
 @media (min-width: 700px) and (max-width: 1600px) { 
 
-    .nav-wrapper {
+    #nav_categorias_breadcrumb > .nav-wrapper {
         padding-left: 4rem;
     }
 }
