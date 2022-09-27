@@ -80,7 +80,8 @@
 	/*@import url("https://fonts.googleapis.com/css?family=Roboto:500");*/
 
 	.wrapper-btn-share {
-		width: 60%; 
+		width: 63%; 
+		margin: auto;
 	}
 
 	.btn-share {

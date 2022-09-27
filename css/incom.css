@@ -226,22 +226,60 @@
         height: 100%;
     }
 
-    /*.waves-effect-1*/
-    .waves-effect-1 {
-        position: relative;
-        cursor: pointer;
-        display: inline-block;
-        overflow: hidden;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
-        vertical-align: middle;
-        z-index: 0;
-        -webkit-transition: .3s ease-out;
-        transition: .3s ease-out;
+    .ticket_compra {
+        border: 1px solid #C7C7C7;
+        border-radius: 0 0 8px 8px;
+        padding: 1.5rem;
     }
+
+    .wrapper-moneda {
+        display: flex; 
+        margin-bottom: 2em;
+    }
+
+    .moneda-input {
+        width: 5rem;
+        height: 2rem;
+        float: left;
+        margin: auto;
+    }
+
+    .price {
+        margin: auto;
+        width: fit-content;
+    }
+
+    .text-IVA {
+        text-align: center;
+    }
+
+    .wrapper-cantidad {
+        text-align: center;
+    }
+
+    input.select-dropdown {
+        height: 2rem !important;
+        border-radius: 6px !important;
+        font-size: 0.75rem !important;
+        padding-left: 1rem !important;
+    }
+
+/*.waves-effect-1*/
+.waves-effect-1 {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+    z-index: 0;
+    -webkit-transition: .3s ease-out;
+    transition: .3s ease-out;
+}
 
         .waves-effect-1 .waves-ripple {
             position: absolute;
@@ -839,7 +877,7 @@
 
     .nota {
         font-size: 0.8rem;
-        padding: 2px 10px;
+        padding: 2px 0;
         margin: 4px 4px;
     }
 
@@ -1170,8 +1208,9 @@
     }
 
     .txt_center {
-        width: 38.5%;
-        float: left;
+        width: 84px;
+        margin: auto;
+        margin-bottom: 1rem;
     }
 
     .btn_carrito_right {

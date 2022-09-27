@@ -58,37 +58,39 @@
                     <SAP:productoStock ID="sap_producto_disponibilidad" Visible="true" runat="server"></SAP:productoStock>
                     <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>
                 </div>
-                <div>
+                <div class="ticket_compra">
                     <div class="">
-                        <div class="col s12 m5 l6 xl5">
-                            <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 1.5rem;" Visible="false" runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lbl_precioLista" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
-                            <asp:Label ID="lbl_precioGeneral" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
-                            <asp:Label ID="lbl_precioGeneralLeyenda" Style="display: block; font-weight: 700; color: #0fb30f;" Visible="false" Text="Tu Precio especial ✓" runat="server"> </asp:Label>
-                            <span style="font-size: 2rem; color: #287aee;">$</span>
-                            <asp:Label ID="lbl_precio" Style="font-size: 2rem; color: #287aee;" runat="server"></asp:Label>
-
-                            <asp:Label ID="lbl_moneda" Style="font-size: 2rem; color: #287aee;" runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false"
-                                class="red white-text" Style="padding: 2px 5px" runat="server"></asp:Label>
-                            <br />
-
-
-                            <span class=" white-text green darken-1  nota">Incluye <strong>IVA ✓</strong> </span>
-                            <br />
-
-                            <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
+                        <div class="col s12 m5 l6 xl5" style="width: 100%; display: contents;">
+                            <section class="price">
+                                <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 1.5rem;" Visible="false" runat="server"></asp:Label>
+                                <asp:Label ID="lbl_precioLista" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
+                                <asp:Label ID="lbl_precioGeneral" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
+                                <asp:Label ID="lbl_precioGeneralLeyenda" Style="display: block; font-weight: 700; color: #0fb30f;" Visible="false" Text="Tu Precio especial ✓" runat="server"> </asp:Label>
+                                <span style="font-size: 1.5rem; color: black; font-weight: 600;">$</span>
+                                <asp:Label ID="lbl_precio" style="font-size: 1.5rem; color: black; font-weight: 600;" runat="server"></asp:Label>
+                                <asp:Label ID="lbl_moneda" style="font-size: 0.75rem; color: black; font-weight: 500; padding-left: .5rem;" runat="server"></asp:Label>
+                                <br />
+                                <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false"
+                                    class="red white-text" Style="padding: 2px 5px" runat="server"></asp:Label>
+                                </section>
+                                <section class="text-IVA">
+                                    <span class="is-text-black nota">IVA <strong>incluido</strong> </span>
+                                </section>                               
+                                <br />
+                                <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>                            
                         </div>
                         <div class="row" style="margin: inherit 0px;">
                             <div class="s12 m12 l12 xl12">
                                 <asp:Label ID="lbl_msg_maximo_compra" Visible="false" runat="server"></asp:Label>
-                                <div class="input-field  fixInput" style="z-index: 0 !important;">
-                                    Moneda:
-                                <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
-                                </div>
-                                <uc_addCarrito:add ID="AddCarrito" runat="server"></uc_addCarrito:add>
+                                <section class="wrapper-moneda">
+                                    <div class="input-field moneda-input" style="z-index: 0 !important;">
+                                        Moneda:
+                                    <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
+                                    </div>                                
+                                </section>
+                                <section class="wrapper-cantidad">
+                                    <uc_addCarrito:add ID="AddCarrito" runat="server"></uc_addCarrito:add>
+                                </section>    
                             </div>
                         </div>
                         <uc1:btn_addOperacion ID="productoAddOperacion" runat="server"></uc1:btn_addOperacion>
