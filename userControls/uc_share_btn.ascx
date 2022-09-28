@@ -99,7 +99,7 @@
 		outline: none;
 		overflow: hidden;
 		cursor: pointer;
-		filter: drop-shadow(0 2px 8px rgba(39, 94, 254, 0.32));
+		filter: drop-shadow(0 2px 2px rgba(39, 94, 254, 0.32));
 		transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 	}
 
