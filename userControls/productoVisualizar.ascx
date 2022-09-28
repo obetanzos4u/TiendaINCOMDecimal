@@ -64,7 +64,7 @@
                         <div class="">
                             <div class="col s12 m5 l6 xl5" style="width: 100%; display: contents;">
                                 <section class="price">
-                                    <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 1.5rem;" Visible="false" runat="server"></asp:Label>
+                                    <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 1.5rem; width: 100%; display: inherit;" Visible="false" runat="server"></asp:Label>
                                     <asp:Label ID="lbl_precioLista" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
                                     <asp:Label ID="lbl_precioGeneral" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
                                     <asp:Label ID="lbl_precioGeneralLeyenda" Style="display: block; font-weight: 700; color: #0fb30f;" Visible="false" Text="Tu Precio especial ✓" runat="server"> </asp:Label>
