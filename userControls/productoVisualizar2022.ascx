@@ -40,8 +40,8 @@
             <div class="row">
                 <span>Marca <strong>
                     <asp:Label ID="lbl_marca" Style="margin: 0px; background: #eeeeee; display: inline; padding: 2px 16px;"
-                        runat="server" Text=""></asp:Label></strong></span> | 
-                Número de parte:  <strong>
+                        runat="server" Text=""></asp:Label></strong></span> 
+                    <b>Número de parte:  </b><strong>
                     <asp:Label ID="lbl_numero_parte" Style="margin: 0px; background: #eeeeee; display: inline; padding: 2px 16px;" runat="server" Text=""></asp:Label></strong>
             </div>
             <div class="row">

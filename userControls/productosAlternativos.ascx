@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="productosAlternativos.ascx.cs" Inherits="uc_productosAlternativos" %>
 
 <div id="alternativosSeccion" class="is-container" runat="server">
-    <h2 class="is-font-semibold is-text-center is-select-none">Productos alternativos</h2>
+    <h2 class="is-font-semibold is-text-center is-select-none" style="line-height: 110%; margin: 0 !important;">Productos alternativos</h2>
     <asp:ListView ID="lv_productosAlternativos" OnItemDataBound="lv_productosAlternativos_OnItemDataBound" runat="server">
         <LayoutTemplate>
             <section id="alternativos_splide" class="splide">
@@ -16,7 +16,7 @@
             <li class="splide__slide">
                 <asp:HyperLink ID="link_producto" runat="server" CssClass="hoverLinkTituloProducto">
                     <asp:Image ID="img_producto" class="responsive-img" runat="server"/>
-                    <h2 class="tituloProductoTienda">
+                    <h2 class="tituloProductoTienda" style="margin: 0px 5px; padding-top: 1rem">
                         <%#Eval("numero_parte") %> - <%#Eval("titulo") %>
                     </h2>
                 </asp:HyperLink>

@@ -5,13 +5,13 @@
 /* Font family */
 body {
     font-family: "Montserrat";
-}
+} 
 
 /* Display section */
 
 
 .is-family-ms {
-    font-family: "Monserrat";
+    font-family: "Montserrat";
 }
 
 /* Flex section */
@@ -278,6 +278,10 @@ body {
 
 .is-bg-mediumChampagne {
     background-color: #E9D8A6;
+}
+
+.is-bg-greenbtn {
+    background: #0CBA3C;
 }
 
 .is-bg-gamboge {
