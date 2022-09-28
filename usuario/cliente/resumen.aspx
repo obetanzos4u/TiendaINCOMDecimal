@@ -1,28 +1,48 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" Async="true" MaintainScrollPositionOnPostback="true" MasterPageFile="~/bootstrap/basic.master" CodeFile="resumen.aspx.cs" Inherits="usuario_cliente_resumen" %>
 
-<%@ Register Src="~/usuario/cliente/cliente-header.ascx" TagPrefix="header" TagName="menuGeneral" %>
+<%@ Register Src="~/usuario/cliente/cliente-header.ascx" TagPrefix="hdr" TagName="menu" %>
 <%@ Register TagPrefix="uc" TagName="ddlAsignarUsuarioAsesor" Src="~/userControls/operaciones/PedidosUsuarioSeguimientoUC.ascx" %>
 <%@ Register TagPrefix="uc" TagName="EdicionDetallesDeEnvioPedido" Src="~/userControls/operaciones/EditarCostoDeEnvioPedido.ascx" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="head">
+<%--<asp:Content runat="server" ContentPlaceHolderID="head">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <!-- Event snippet for Inclusión en el carrito conversion page -->
     <script> gtag('event', 'conversion', { 'send_to': 'AW-10903694501/B-zjCMjt3MEDEKXZpM8o' }); </script>
-</asp:Content>
+</asp:Content>--%>
 <asp:Content runat="server" ContentPlaceHolderID="body">
-    <header:menuGeneral ID="menuGeneral" runat="server" />
+    <hdr:menu ID="menuGeneral" runat="server" />
     <asp:HiddenField ID="hf_id_pedido" runat="server" />
-
     <asp:HiddenField ID="hf_pedido_tipo_envio" runat="server" />
     <asp:HiddenField ID="hf_id_pedido_direccion_envio" runat="server" />
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1 class="h2">Resumen de pedido "<asp:Literal ID="lt_nombre_operacion" runat="server"></asp:Literal>"</h1>
-            </div>
+    <div class="is-container is-px-4">
+        <div class="is-py-2">
+            <h2 class="is-text-xl is-font-bold is-select-none">Resumen de pedido<asp:Literal ID="lt_nombre_operacion" runat="server" Visible="false"></asp:Literal></h2>
         </div>
-
         <div class="row">
             <div class="col  col-12 col-xs-12 col-sm-12 col-md-5 col-xl-6">
+                <div id="Content_AsesorSeguimiento" runat="server" visible="false" class="is-rounded-lg" style="border: 2px solid red">
+                    <div class="card-body  border-top border-3">
+                        <h4 class="card-title">Seguimiento</h4>
+                        <%--                        <h6 id="H1" runat="server" class="card-subtitle mb-2 text-muted"></h6>
+                        <p id="P1" runat="server" class="card-text"></p>--%>
+                        <p id="P2" runat="server">
+                            <uc:ddlAsignarUsuarioAsesor ID="AsignarUsuarioAsesor" runat="server" />
+                        </p>
+                    </div>
+                </div>
+                <div class="is-rounded-lg" style="border: 2px solid red">
+                    <div class="is-flex is-flex-col">
+                        <h4 class="is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg">Datos de quien recibe</h4>
+                        <div class="is-px-8">
+                            <h6 id="contacto_title" class="card-subtitle mb-2 text-muted" runat="server"></h6>
+                            <p id="contacto_desc" class="card-text" runat="server"></p>
+                            <asp:HyperLink runat="server" ID="link_cambiar_contacto"
+                                class="card-link btn btn-secondary">
+                               Cambiar/Establecer
+                            </asp:HyperLink>
+                        </div>
+                    </div>
+                </div>
                 <h1 class="h3">#<asp:Literal ID="lt_numero_pedido" runat="server"></asp:Literal></h1>
                 <p>
                     Creado el <strong>
@@ -37,20 +57,6 @@
                         <p>Se encontró una solicitud de cancelación de pedido o bien, tu pedido ya se encuentra cancelado</p>
                         <strong>Mensaje:</strong>
                         <asp:Label ID="lbl_motivoCancelacion" runat="server"></asp:Label>
-                    </div>
-                </div>
-
-                <div id="Content_AsesorSeguimiento" runat="server" visible="false" class="card mb-4 borderTest">
-                    <div class="card-body  border-top border-3">
-                        <h4 class="card-title">Seguimiento asesor</h4>
-                        <h6 id="H1" runat="server" class="card-subtitle mb-2 text-muted"></h6>
-                        <p id="P1" runat="server" class="card-text"></p>
-                        <p id="P2" runat="server">
-
-                            <uc:ddlAsignarUsuarioAsesor ID="AsignarUsuarioAsesor" runat="server" />
-                        </p>
-
-
                     </div>
                 </div>
 
@@ -95,18 +101,6 @@
                             </asp:HyperLink>
                         </div>
 
-                    </div>
-                </div>
-                <div class="card  mt-4  ">
-                    <div class="card-body  border-top border-3">
-                        <h4 class="card-title">Contacto </h4>
-                        <h6 id="contacto_title" class="card-subtitle mb-2 text-muted" runat="server"></h6>
-                        <p id="contacto_desc" class="card-text" runat="server"></p>
-
-                        <asp:HyperLink runat="server" ID="link_cambiar_contacto"
-                            class="card-link btn btn-secondary">
-                               Cambiar/Establecer
-                        </asp:HyperLink>
                     </div>
                 </div>
                 <div class="d-grid gap-2 mt-3">
@@ -401,6 +395,21 @@
     <!-- FIN Modal cuentas bancarias -->
 
 
+    <%--<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>--%>
+    <script>
+        const notyf = new Notyf({
+            types: [
+                {
+                    type: 'info',
+                    background: 'blue',
+                    icon: false
+                }
+            ]
+        });
+
+        notyf.open({
+            type: 'info',
+            message: 'Send us <b>an email</b> to get support'
+        });
+    </script>
 </asp:Content>
-
-

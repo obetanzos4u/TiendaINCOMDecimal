@@ -3,9 +3,9 @@
     Static styles
 */
 /* Font family */
-/*body {
+body {
     font-family: "Montserrat";
-}*/
+}
 
 /* Display section */
 
@@ -318,6 +318,11 @@
 
 .is-opacity-100 {
     opacity: 1;
+}
+
+/* Shadow section */
+.is-shadow {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.5);
 }
 
 /* Padding and margin section */

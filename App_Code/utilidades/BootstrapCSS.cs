@@ -9,7 +9,6 @@ using System.Web.UI;
 /// </summary>
 public class BootstrapCSS : System.Web.UI.Page
 {
-
     public enum MessageType
     {
         primary,
@@ -21,18 +20,18 @@ public class BootstrapCSS : System.Web.UI.Page
         light,
         dark
     }
-    public static void Message(Control t,string selector, MessageType MessageType, string Title, string Message)
-
+    public static void Message(Control t, string selector, MessageType MessageType, string Title, string Message)
     {
         Random rnd = new Random();
         int n = rnd.Next(1, 20);
-        string script = " BootstrapAlert(\"" + selector+ "\", \"" + MessageType+ "\", \"" + Title + "\", \"" + Message + "\");";
+        string script = " BootstrapAlert(\"" + selector + "\", \"" + MessageType + "\", \"" + Title + "\", \"" + Message + "\");";
         ScriptManager.RegisterStartupScript(t, typeof(Control), "Alert_" + n, script, true);
     }
     /// <summary>
     /// Registra un RegisterStartupScrupt con   window.location.replace, 4500 default
     /// </summary>
-    public static void RedirectJs(Control t, string Url) {
+    public static void RedirectJs(Control t, string Url)
+    {
         string script = @"   setTimeout(function () { window.location.replace('" + Url + "')}, 4500);";
         ScriptManager.RegisterStartupScript(t, typeof(Page), "redirección", script, true);
     }
@@ -41,7 +40,7 @@ public class BootstrapCSS : System.Web.UI.Page
     /// </summary>
     public static void RedirectJs(Control t, string Url, int milisegundos)
     {
-        string script = @"   setTimeout(function () { window.location.replace('" + Url + "')}, "+ milisegundos+"); ";
+        string script = @"   setTimeout(function () { window.location.replace('" + Url + "')}, " + milisegundos + "); ";
         ScriptManager.RegisterStartupScript(t, typeof(Page), "redirección", script, true);
     }
 
