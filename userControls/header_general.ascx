@@ -651,8 +651,8 @@
     }
 
     .title_tipoDeCambio {
-        font-size: 1rem;
-        height: 1.5rem;
+        font-size: 0.75rem;
+        height: 1rem;
         text-align: start;
         display: block;
     }
@@ -663,6 +663,7 @@
 
         #txt_tipoDeCambio::before {
             content: "1 USD = ";
+            font-size: 0.75rem;
         }
 
     .icon_menu {
@@ -672,7 +673,7 @@
     }
 
     .cantidad_tipoDeCambio {
-        font-size: 1rem;
+        font-size: 0.75rem;
     }
 
     .content_tipoDeCambio {
@@ -1012,10 +1013,6 @@
 
     #txt_tipoDeCambio {
         font-size:0.75rem;
-    }
-
-    .cantidad_tipoDeCambio {
-        font-size: 0.75rem;
     }
 
     .icon_cuenta {

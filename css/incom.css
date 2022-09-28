@@ -101,7 +101,7 @@
 .text-this_categria {
     text-align: center !important;
     color: rgba(0, 0, 0, 0.87);
-    font-size: 1.25rem !important;
+    font-size: 1rem !important;
     font-weight: 600;
     margin-top: -0.75rem;
     width: 240px;
@@ -652,14 +652,6 @@
             columns: 1;
             -webkit-columns: 1;
             -moz-columns: 1;
-        }
-
-        .title_tipoDeCambio {
-            font-size: 12px;
-        }
-
-        #txt_tipoDeCambio::before {
-            font-size: 12px;
         }
     }
 

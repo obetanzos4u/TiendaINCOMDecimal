@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="productosRelacionados.ascx.cs" Inherits="uc_productosRelacionados" %>
 
 <div id="relacionadosSeccion" runat="server" class="is-container is-bt-2">
-    <h2 class="is-font-semibold is-text-center is-select-none" style="line-height: 110%; margin: 0 !important;">Productos relacionados</h2>
+    <h2 class="is-font-semibold is-text-center is-select-none" style="line-height: 110%; margin: 0 !important; font-size: 1rem !important;">Productos relacionados</h2>
     <asp:ListView ID="lv_productosRelacionados" OnItemDataBound="lv_productosRelacionados_OnItemDataBound" runat="server">
         <LayoutTemplate>
             <section class="splide" id="relacionados_splide">
