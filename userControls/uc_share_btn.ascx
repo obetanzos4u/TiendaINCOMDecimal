@@ -80,8 +80,9 @@
 	/*@import url("https://fonts.googleapis.com/css?family=Roboto:500");*/
 
 	.wrapper-btn-share {
-		width: 63%; 
-		margin: auto;
+		width: 160px; 
+		margin: 2em 0em auto auto;
+		float: right;
 	}
 
 	.btn-share {

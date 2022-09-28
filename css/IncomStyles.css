@@ -3,15 +3,15 @@
     Static styles
 */
 /* Font family */
-/*body {
+body {
     font-family: "Montserrat";
-}*/
+} 
 
 /* Display section */
 
 
 .is-family-ms {
-    font-family: "Monserrat";
+    font-family: "Montserrat";
 }
 
 /* Flex section */

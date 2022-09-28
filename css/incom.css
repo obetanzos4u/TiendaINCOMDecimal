@@ -226,7 +226,7 @@
         height: 100%;
     }
 
-    .ticket_compra {
+    .borde-ticket_compra {
         border: 1px solid #C7C7C7;
         border-radius: 0 0 8px 8px;
         padding: 1.5rem;
@@ -264,6 +264,59 @@
         padding-left: 1rem !important;
     }
 
+    .wrapper-descripcion {
+        padding:1em;
+    }
+
+    #relacionados_splide-list > li > a > img {
+        width: 180px;
+        height: auto;
+    }
+
+    #relacionados_splide-list > li {
+        width: 210px;
+        height: auto;
+    }
+
+    #relacionados_splide {
+        padding: 0em;
+    }
+
+    #relacionados_splide > ul.splide__pagination {
+        position: relative;
+        margin-top: 1em;
+    }
+
+    #relacionadosSeccion {
+        margin-bottom: 2em;
+    }
+
+    .tituloProductoTienda {
+
+    }
+
+    #alternativos_splide > li > a > img {
+        width: 180px;
+        height: auto;
+    }
+
+    #alternativos_splide-list > li {
+        width: 210px;
+        height: auto;
+    }
+
+    #alternativos_splide {
+        padding: 0em;
+    }
+
+    #alternativos_splide > ul.splide__pagination {
+        position: relative;
+        margin-top: 1em;
+    }
+
+    #alternativosSeccion {
+        margin-bottom: 2em;
+    }
 /*.waves-effect-1*/
 .waves-effect-1 {
     position: relative;

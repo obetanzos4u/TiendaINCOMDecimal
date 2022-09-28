@@ -425,7 +425,7 @@
         color: #000000 !important;
         z-index: 1;
         font-size: 0.8rem !important;
-        font-family: 'Monserrat', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+        font-family: 'Montserrat', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
         font-weight: 600;
     }
 
