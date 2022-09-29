@@ -356,7 +356,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
 
             string htmlUPC = @"
             <tr >" +
-                     "<td class='is-bg-white is-p-0'><strong>Código EAN/UPC/GTIN</strong>:</td>" +
+                     "<td class='is-bg-white is-top-75'><strong>Código EAN/UPC/GTIN</strong>:</td>" +
                      "<td class='is-bg-white is-p-0'>" + upc + "</td>" +
                  "</tr>";
 
@@ -722,7 +722,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 {
                     caracHTML += @"
             <tr>" +
-                        "<td style='white-space: nowrap; text-align:right; padding-right:4px;'><strong>" + atributo.Key + "</strong>:</td>" +
+                        "<td style='white-space: nowrap; text-align:left; padding-right:4px;'><strong>" + atributo.Key + "</strong>:</td>" +
                         "<td style='white-space: nowrap; width:100%;'>" + atributo.Value + "</td>" +
                     "</tr>";
 

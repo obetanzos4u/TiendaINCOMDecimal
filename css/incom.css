@@ -1269,12 +1269,14 @@
 
     /* 20191126 - Carlos | Muestra bullet a las Características de los productos al visualizarse */
     #content_caracteristicas ul {
-        margin-left: 20px;
+        display: inline-block;
+        padding-left: 5%;
     }
 
 
         #content_caracteristicas ul > li {
-            list-style: disc;
+            list-style: square;
+            text-align: start;
         }
 
     .incom-mensaje-aviso {

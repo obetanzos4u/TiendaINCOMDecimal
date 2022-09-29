@@ -116,44 +116,48 @@
             <input type="radio" id="tab2" name="tab-control">
             <input type="radio" id="tab3" name="tab-control">  
             <ul>
-            <li title="Características"><label for="tab1" role="button">   <span>Características</span></label></li>
+            <li title="Características"><label for="tab1" role="button"><span>Características</span></label></li>
             <li title="Espcificaciones"><label for="tab2" role="button"><span>Espcificaciones</span></label></li>
-            <li title="Consideraciones"><label for="tab3" role="button"<span>Consideraciones</span></label></li>    
+            <li title="Consideraciones"><label for="tab3" role="button"><span>Consideraciones</span></label></li>    
             </ul>
             
             <div class="slider-tab"><div class="indicator-tab"></div></div>
             <div class="content-tab">
             <section>
                     <div id="content_caracteristicas">
-                    <h2>Características</h2>
-                        <table class="striped" style="width: 100%;">
-                            <tbody id="tbody_caracteristicas" runat="server">
-                            </tbody>
-                        </table>
-                        <p>
-                            <asp:Label ID="lbl_especificaciones" runat="server"></asp:Label>
+                        <p class="item-caracteristicas">
+                            <asp:Label ID="lbl_especificaciones" class="caracteristicas-list" runat="server"></asp:Label>
                         </p>
                     </div>
             </section>
                 <section>
                     <!-- caracteristicas -->
-                    <h2>Especificaciones</h2>
-                    <p>
+                        <div class="wrapper-especificaciones">
+                            <div class="left-especificaciones">
+                                <span class="detalles-producto"><strong>Detalles del producto</strong></span>
+                                <br>
+                                <table class="striped striped-tb" style="width: 100%;">
+                                    <tbody id="tbody_caracteristicas" runat="server">
+                                    </tbody>
+                                </table>                        
+                            </div>
+                            <div class="right-especificaciones">
+                                <span class="medidas-empaque"><strong>Medidas del empaque</strong></span>
+                                <br>
+                                <table class="striped striped-tb" style="width: 100%;">
+                                    <tbody id="tbody_dimensiones_empaque" runat="server">
+                                    </tbody>
+                                </table>                         
+                            </div>
+                        </div>  
+                        <p class="bottom-especificaciones">
                         Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando 
-                                    <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
-                    </p>
-                    <span class="green-text"><strong>Detalles del producto</strong></span>
-
-                    <span class="green-text"><strong>Las siguientes medidas son de empaque</strong></span>
-                    <table class="striped" style="width: 100%;">
-                        <tbody id="tbody_dimensiones_empaque" runat="server">
-                        </tbody>
-                    </table>
+                            <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
+                        </p>                  
                 </section>
                 <section>
                     <div id="content_avisos">
-                        <h2>Avisos:</h2>
-                        <ul id="ProductoAvisosListado" class="incom-ul-default" style="padding-left: 1rem !important;" runat="server">
+                        <ul id="ProductoAvisosListado" class="content_avisos-list" style="padding-left: 5%; !important; display: inline-block;" runat="server">
                         </ul>
                     </div>
                 </section>
@@ -211,6 +215,10 @@
 <style>
     @import "https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400";
 
+    .content-tab {
+        font-size: 12px;
+    }
+
     .tabs {
         position: relative;
         background: white;
@@ -219,10 +227,8 @@
         width: 100%;
         height: auto;
         margin: 4rem auto;
-        border-radius: 5px;
+        border-radius: 0px 0px 8px 8px;
         min-width: 180px;
-        box-shadow: 0 3px 2px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.22);
-        border-top: 1px solid rgba(0, 0, 0, 0.16);
     }
 
         .tabs input[name=tab-control] {
@@ -233,7 +239,7 @@
         .tabs ul li label {
             font-family: "Montserrat";
             font-weight: bold;
-            font-size: 18px;
+            font-size: 15px;
             color: #01568D;
         }
 
@@ -326,7 +332,7 @@
                 animation-timing-function: ease-in-out;
                 -webkit-animation-iteration-count: 1;
                 animation-iteration-count: 1;
-                line-height: 1.4;
+                line-height: 1;
             }
 
                 .tabs .content-tab section h2 {
@@ -353,6 +359,51 @@
             .tabs input[name=tab-control]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label svg {
                 fill: #01568D;
             }
+            
+    .wrapper-especificaciones {
+        display: flex;
+    }
+
+    .right-especificaciones {
+        display: inline-block;
+        width: 45%;
+        margin-left: 5%;
+    }
+
+    .bottom-especificaciones {
+        margin-left: 5%;
+        margin-top: 2em;
+    }
+
+    .detalles-producto {
+        color: #01568D;
+    }
+
+    .medidas-empaque {
+        color: #01568D;
+    }
+
+    .striped-tb {
+        margin-top: 1rem;
+    }
+
+    .content_avisos-list li {
+        list-style-type: square !important;
+        line-height: 2rem;
+    }
+
+    .caracteristicas-list li {
+        list-style-type: square !important;
+    }
+
+    #content_caracteristicas ul li {
+        line-height: 2rem;
+    }
+
+    #content_caracteristicas > p {
+        white-space: normal !important;
+        line-height: normal;
+    }
 
     @media (max-width: 450px) {
         .tabs input[name=tab-control]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label {
@@ -376,6 +427,7 @@
         .tabs input[name=tab-control]:nth-of-type(2):checked ~ ul > li:nth-child(2) > label svg {
             fill: #01568D;
         }
+
 
     @media (max-width: 450px) {
         .tabs input[name=tab-control]:nth-of-type(2):checked ~ ul > li:nth-child(2) > label {

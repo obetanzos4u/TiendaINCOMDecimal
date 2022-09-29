@@ -131,7 +131,7 @@
                 </div>
                 <div class="col s12 m12 l12 xl12">
                     <!-- caracteristicas -->
-                    <h2>Especificaciones</h2>
+                    <h2></h2>
                     <p>
                       Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando 
                         <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
