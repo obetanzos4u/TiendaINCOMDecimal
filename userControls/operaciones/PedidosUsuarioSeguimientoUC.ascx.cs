@@ -23,37 +23,36 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
     }
     async protected void ObtenerAsignacion()
     {
-
         var pedidoDatos = PedidosEF.ObtenerDatos(numero_operacion);
 
-        if(pedidoDatos.idUsuarioSeguimiento == null)
+        if (pedidoDatos.idUsuarioSeguimiento == null)
         {
-            BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.warning, "Aviso", 
-                "No se ha asignado un asesor.");
+            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "No se ha asignado un asesor.");
             return;
         }
         else
         {
             ddl_UsuarioSeguimiento.SelectedValue = pedidoDatos.idUsuarioSeguimiento.ToString();
-            btn_asignarAsesor.Text = "Re Asignar";
-            BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.info, "Asesor ya asignado",
-            "Un asesor ya se ha asignado a este pedido.");
+            btn_asignarAsesor.Text = "Re asignar";
+            //BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.info, "Asesor ya asignado",
+            //"Un asesor ya se ha asignado a este pedido.");
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Asesor asignado");
             return;
         }
 
     }
-        async protected void CargarAsesores() {
+    async protected void CargarAsesores()
+    {
         var Usuarios = await UsuariosEF.ObtenerUsuariosVendedores();
 
         // Filtrado para mostrar solo nombre y apellido
-        var List = Usuarios.Select(x => new ListItem { 
+        var List = Usuarios.Select(x => new ListItem
+        {
             Text = x.nombre + " " + x.apellido_paterno,
-            Value = x.id.ToString() 
+            Value = x.id.ToString()
         })
             .OrderBy(o => o.Text)
             .ToList();
-
-     
 
         ddl_UsuarioSeguimiento.DataSource = List;
         ddl_UsuarioSeguimiento.DataTextField = "Text";
@@ -61,32 +60,33 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
         ddl_UsuarioSeguimiento.DataBind();
         //ddl_UsuarioSeguimiento.Items.Add(new ListItem(txt_box1.Text),);
 
-        ddl_UsuarioSeguimiento.Items.Insert(0, new ListItem("- Selecciona", ""));
+        ddl_UsuarioSeguimiento.Items.Insert(0, new ListItem("Seleccionar", ""));
         ddl_UsuarioSeguimiento.DataBind();
 
     }
 
- 
+
 
     protected async void btn_asignarAsesor_Click(object sender, EventArgs e)
     {
 
         try
         {
-          if(ddl_UsuarioSeguimiento.SelectedValue == "")
+            if (ddl_UsuarioSeguimiento.SelectedValue == "")
             {
-                BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.warning,
-             "Aviso", "No haz seleccionado un asesor");
+                NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "No se ha seleccionado un asesor");
+             //   BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.warning,
+             //"Aviso", "No haz seleccionado un asesor");
                 return;
             }
             var pedidoDatos = PedidosEF.ObtenerDatos(numero_operacion);
             var DatosUsuario = UsuariosEF.Obtener(int.Parse(ddl_UsuarioSeguimiento.SelectedValue));
-
             var ResultAsignación = await PedidosEF.ActualizarAsesorAsigando(numero_operacion, DatosUsuario.id);
 
-            if(ResultAsignación.result == false)
+            if (ResultAsignación.result == false)
             {
-                BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.danger,"Error", ResultAsignación.message);
+                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, ResultAsignación.message);
+                //BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.danger, "Error", ResultAsignación.message);
                 return;
             }
 
@@ -100,16 +100,16 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
 
             string dominio = Request.Url.GetLeftPart(UriPartial.Authority);
             string id_operacion_encritado = seguridad.Encriptar(pedidoDatos.id.ToString());
-            string url_operacion= dominio + "/usuario/cliente/mi-cuenta/pedidos/resumen/" + id_operacion_encritado;
+            string url_operacion = dominio + "/usuario/cliente/mi-cuenta/pedidos/resumen/" + id_operacion_encritado;
 
 
-            datosDiccRemplazo.Add("{dominio}", dominio);  
+            datosDiccRemplazo.Add("{dominio}", dominio);
             datosDiccRemplazo.Add("{nombre}", pedidoDatos.cliente_nombre);
             datosDiccRemplazo.Add("{usuario_email}", pedidoDatos.usuario_cliente);
             datosDiccRemplazo.Add("{numero_operacion}", numero_operacion);
             datosDiccRemplazo.Add("{nombre_operacion}", pedidoDatos.nombre_pedido);
             datosDiccRemplazo.Add("{FechaPedido}", pedidoDatos.fecha_creacion.ToString());
-            
+
 
             datosDiccRemplazo.Add("{nombreAsesor}", DatosUsuario.nombre + " " + DatosUsuario.apellido_paterno);
             datosDiccRemplazo.Add("{emailAsesor}", DatosUsuario.email);
@@ -123,19 +123,19 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
             emailTienda email = new emailTienda(asunto, $"iamado@2rent.mx, tpavia@incom.mx, jhernandez@incom.mx,  ralbert@incom.mx, pjuarez@incom.mx, fgarcia@incom.mx, {pedidoDatos.email}", mensaje, "retail@incom.mx");
             email.general();
 
-            BootstrapCSS.Message(up_seguimientoUsuarioPedido, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.success,
-             "Asignación correcta", "Asignación realizada con éxito.");
-
-
+            //BootstrapCSS.Message(up_seguimientoUsuarioPedido, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.success,
+            // "Asignación correcta", "Asignación realizada con éxito.");
+            NotiflixJS.Message(up_seguimientoUsuarioPedido, NotiflixJS.MessageType.success, "Asesor asignado.");
         }
-        catch (Exception ex) {
-            BootstrapCSS.Message(up_seguimientoUsuarioPedido, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.danger,
-                "Error", "Ocurrio un error al asignar, contacta a desarrollo. Ex: "+ ex.Message);
+        catch (Exception ex)
+        {
+            NotiflixJS.Message(up_seguimientoUsuarioPedido, NotiflixJS.MessageType.failure, "Error al asignar.");
+            //BootstrapCSS.Message(up_seguimientoUsuarioPedido, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.danger,
+            //    "Error", "Ocurrio un error al asignar, contacta a desarrollo. Ex: " + ex.Message);
         }
         finally
         {
             up_seguimientoUsuarioPedido.Update();
         }
-   
     }
 }

@@ -10,7 +10,7 @@
             contentMsg.textContent = "Inicio de sesión con Google exitoso, serás redirigido en " + countdown + " segundos.";
             countdown--;
             if (countdown === 0 || countdown < 0) {
-                location.replace("/");
+                location.reload();
             }
         }, 1000);
     } else {

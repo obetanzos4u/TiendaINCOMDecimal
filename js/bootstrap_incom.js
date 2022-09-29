@@ -57,8 +57,8 @@ function BootstrapAlert(contentSelector, type, title, message) {
         case "light": html = light; break;
         case "dark": html = dark; break;
     }
-    console.log(contentSelector);
-    console.log(document.querySelector(contentSelector));
+    //console.log(contentSelector);
+    //console.log(document.querySelector(contentSelector));
     document.querySelector(contentSelector).innerHTML += html;
 }
 

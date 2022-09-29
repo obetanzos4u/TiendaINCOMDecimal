@@ -1,13 +1,19 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="cliente-header.ascx.cs" Inherits="usuario_cliente_cliente_header" %>
 
-<div class="row bg-white" >
-    <div class="col-12">
-        <nav class="navbar navbar-expand-lg navbar-light  " style="padding: .1rem .7rem;">
+<div class="is-flex is-flex-col is-justify-center is-items-center is-m-0 is-p-2 is-shadow">
+    <a href="/">
+        <img alt="INCOM La ferretera de las telecomunicaciones" src="https://www.incom.mx/img/webUI/newdesign/Incom_nuevo.png" class="logotipo_pedido">
+    </a>
+    <div id="barraProgreso" runat="server"></div>
+</div>
 
-            <a class="navbar-brand" href="/">
-                <img src="/img/webUI/incom_retail_logo_header.png" width="200" height="46" alt="" loading="lazy">
+<%--<div class="row bg-white">
+    <div class="col-12">
+        <nav class="is-flex is-justify-center is-items-center">
+            <a class="" href="/">
+                <img alt="INCOM La ferretera de las telecomunicaciones" src="https://www.incom.mx/img/webUI/newdesign/Incom_nuevo.png" class="logotipo_pedido">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            <%--<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,11 +37,9 @@
                             <asp:HyperLink ID="miCuenta" class="btn btn-primary mb-2 " NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx"
                                 runat="server"> Mi cuenta </asp:HyperLink>
 
-                                     <a href="/usuario/mi-cuenta/pedidos.aspx" class="btn btn-primary mb-2 d-lg-none">
-                                     Pedidos</a> 
+                            <a href="/usuario/mi-cuenta/pedidos.aspx" class="btn btn-primary mb-2 d-lg-none">Pedidos</a>
 
-                                 <a href="/usuario/mi-cuenta/cotizaciones.aspx" class="btn btn-primary mb-2 d-lg-none">
-                                     Cotizaciones</a> 
+                            <a href="/usuario/mi-cuenta/cotizaciones.aspx" class="btn btn-primary mb-2 d-lg-none">Cotizaciones</a>
                             <asp:LinkButton ID="btn_loggout" class="btn btn-outline-secondary mb-2 ms-2" OnClick="btn_loggout_Click" runat="server">Cerrar sesión</asp:LinkButton>
                         </LoggedInTemplate>
                         <AnonymousTemplate>
@@ -51,13 +55,12 @@
                 </ul>
             </div>
         </nav>
-
     </div>
-</div>
+</div>--%>
 
-<nav class="navbar navbar-expand-lg navbar-light  bg-white  mb-3" style="padding: .1rem .7rem;">
+<%--<nav class="navbar navbar-expand-lg navbar-light  bg-white  mb-3" style="padding: .1rem .7rem;">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+<%--        <ul class="navbar-nav mr-auto">
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_Enseñanza" role="button" data-bs-toggle="dropdown" aria-expanded="false">Enseñanza
@@ -90,59 +93,57 @@
         </ul>
         <ul class="navbar-nav ">
             <li class="nav-item">
-                <a class="nav-link" href="/mi-carrito.aspx"><i class="fas fa-shopping-cart"></i> Carrito</a>
+                <a class="nav-link" href="/mi-carrito.aspx"><i class="fas fa-shopping-cart"></i>Carrito</a>
             </li>
         </ul>
-
-
-
-
     </div>
-
-
-</nav>
+</nav>--%>
 
 <style>
-    .Submenu_Marcas, .Submenu_Productos {
+    /*    .Submenu_Marcas, .Submenu_Productos {
         max-height: 400px;
         overflow-y: auto;
+    }*/
+
+    .logotipo_pedido {
+        height: 3rem;
+        width: auto;
+        margin-top: 0;
     }
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
-
-        BootstrapTxtAction("#txt_buscador_principal","#btn_buscar")
-        
+    document.addEventListener("DOMContentLoaded", (event) => {
+        BootstrapTxtAction("#txt_buscador_principal", "#btn_buscar")
         // INICIO Buscador en listado de marcas
 
-        var input = document.querySelector('#txt_buscadorMenuMarcas');
-        input.onkeyup = function () {
-            var filter = input.value.toUpperCase();
-            var lis = document.querySelectorAll(".Submenu_Marcas > a");
-            for (var i = 0; i < lis.length; i++) {
+        //var input = document.querySelector('#txt_buscadorMenuMarcas');
+        //input.onkeyup = function () {
+        //    var filter = input.value.toUpperCase();
+        //    var lis = document.querySelectorAll(".Submenu_Marcas > a");
+        //    for (var i = 0; i < lis.length; i++) {
 
-                var name = lis[i].innerHTML;
+        //        var name = lis[i].innerHTML;
 
-                if (name.toUpperCase().includes(filter))
-                    lis[i].style.display = 'block';
-                else lis[i].style.display = 'none';
-            }
-        }
+        //        if (name.toUpperCase().includes(filter))
+        //            lis[i].style.display = 'block';
+        //        else lis[i].style.display = 'none';
+        //    }
+        //}
         // FIN Buscador en listado de marcas
 
 
         // INICIO - Boton de buscar principal
 
 
-        var btn_buscador = document.querySelector('#btn_buscar');
+        //var btn_buscador = document.querySelector('#btn_buscar');
 
-        btn_buscador.onclick = function () {
-            var text = document.querySelector('#txt_buscador_principal').value;
+        //btn_buscador.onclick = function () {
+        //    var text = document.querySelector('#txt_buscador_principal').value;
 
-            location.replace("/productos/buscar?busqueda=" + text);
+        //    location.replace("/productos/buscar?busqueda=" + text);
 
-        }
+        //}
 
         // FIN - Boton de buscar principal
     });
