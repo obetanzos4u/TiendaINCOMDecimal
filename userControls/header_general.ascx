@@ -596,8 +596,8 @@
     }
 
     .btn_cuenta {
-        font-weight: 600;
         margin: auto;
+        font-size: 0.75rem;
     }
 
     #carrito_de_compra {
@@ -608,7 +608,7 @@
     }
 
     .txt_carrito {
-        font-weight: 600;
+        font-size: 0.75rem;
         margin: 0;
     }
 
@@ -652,7 +652,6 @@
 
     .title_tipoDeCambio {
         font-size: 1rem;
-        font-weight: 600;
         height: 1.5rem;
         text-align: start;
         display: block;
@@ -660,7 +659,6 @@
 
     #txt_tipoDeCambio {
         font-size: 1rem;
-        font-weight: 600;
     }
 
         #txt_tipoDeCambio::before {
@@ -675,7 +673,6 @@
 
     .cantidad_tipoDeCambio {
         font-size: 1rem;
-        font-weight: 600;
     }
 
     .content_tipoDeCambio {
@@ -694,6 +691,7 @@
         color: black;
         width: 2.5rem;
         height: auto;
+        margin-left: 0.25rem;
     }
 
     .title_categorias {
@@ -1017,14 +1015,6 @@
     }
 
     .cantidad_tipoDeCambio {
-        font-size: 0.75rem;
-    }
-
-    .txt_carrito {
-        font-size: 0.75rem;
-    }
-
-    .btn_cuenta {
         font-size: 0.75rem;
     }
 

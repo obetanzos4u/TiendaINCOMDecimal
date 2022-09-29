@@ -31,10 +31,10 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         //HtmlGenericControl home = new HtmlGenericControl("li");
         //home.InnerHtml = "<a title='página principal' class='hide-on-med-and-down'  href='" + request.url.getleftpart(uripartial.authority) + "'>inicio</a>";
 
-        HtmlGenericControl ofertas = new HtmlGenericControl("li");
-        ofertas.ID = "content-menu-incom-outlet";
-        ofertas.ClientIDMode = ClientIDMode.Static;
-        ofertas.InnerHtml = "<a title='Ofertas'  href='https://www.incom.mx/productos/Outlet-OUTLET1'>Ofertas</a>";
+        HtmlGenericControl rebajas = new HtmlGenericControl("li");
+        rebajas.ID = "content-menu-incom-outlet";
+        rebajas.ClientIDMode = ClientIDMode.Static;
+        rebajas.InnerHtml = "<a title='Rebajas'  href='https://www.incom.mx/productos/Outlet-OUTLET1'>Rebajas</a>";
 
         HtmlGenericControl biblioteca = new HtmlGenericControl("li");
         biblioteca.ID = "content-menu-incom-biblioteca";
@@ -72,7 +72,7 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         contenedorMenu.Controls.Add(menuCat);
         //contenedorMenu.Controls.Add(menuMarcas);
 
-        contenedorMenu.Controls.Add(ofertas);
+        contenedorMenu.Controls.Add(rebajas);
 
         //contenedorMenu.Controls.Add(menuCat2);
         contenedorMenu.Controls.Add(biblioteca);
