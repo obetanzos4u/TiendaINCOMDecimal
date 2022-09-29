@@ -27,15 +27,16 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
 
         if (pedidoDatos.idUsuarioSeguimiento == null)
         {
-            BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.warning, "", "No se ha asignado un asesor.");
+            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "No se ha asignado un asesor.");
             return;
         }
         else
         {
             ddl_UsuarioSeguimiento.SelectedValue = pedidoDatos.idUsuarioSeguimiento.ToString();
-            btn_asignarAsesor.Text = "Re Asignar";
-            BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.info, "Asesor ya asignado",
-            "Un asesor ya se ha asignado a este pedido.");
+            btn_asignarAsesor.Text = "Re asignar";
+            //BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.info, "Asesor ya asignado",
+            //"Un asesor ya se ha asignado a este pedido.");
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Asesor asignado");
             return;
         }
 
@@ -73,18 +74,19 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
         {
             if (ddl_UsuarioSeguimiento.SelectedValue == "")
             {
-                BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.warning,
-             "Aviso", "No haz seleccionado un asesor");
+                NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "No se ha seleccionado un asesor");
+             //   BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.warning,
+             //"Aviso", "No haz seleccionado un asesor");
                 return;
             }
             var pedidoDatos = PedidosEF.ObtenerDatos(numero_operacion);
             var DatosUsuario = UsuariosEF.Obtener(int.Parse(ddl_UsuarioSeguimiento.SelectedValue));
-
             var ResultAsignación = await PedidosEF.ActualizarAsesorAsigando(numero_operacion, DatosUsuario.id);
 
             if (ResultAsignación.result == false)
             {
-                BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.danger, "Error", ResultAsignación.message);
+                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, ResultAsignación.message);
+                //BootstrapCSS.Message(this, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.danger, "Error", ResultAsignación.message);
                 return;
             }
 
@@ -121,20 +123,19 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
             emailTienda email = new emailTienda(asunto, $"iamado@2rent.mx, tpavia@incom.mx, jhernandez@incom.mx,  ralbert@incom.mx, pjuarez@incom.mx, fgarcia@incom.mx, {pedidoDatos.email}", mensaje, "retail@incom.mx");
             email.general();
 
-            BootstrapCSS.Message(up_seguimientoUsuarioPedido, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.success,
-             "Asignación correcta", "Asignación realizada con éxito.");
-
-
+            //BootstrapCSS.Message(up_seguimientoUsuarioPedido, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.success,
+            // "Asignación correcta", "Asignación realizada con éxito.");
+            NotiflixJS.Message(up_seguimientoUsuarioPedido, NotiflixJS.MessageType.success, "Asesor asignado.");
         }
         catch (Exception ex)
         {
-            BootstrapCSS.Message(up_seguimientoUsuarioPedido, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.danger,
-                "Error", "Ocurrio un error al asignar, contacta a desarrollo. Ex: " + ex.Message);
+            NotiflixJS.Message(up_seguimientoUsuarioPedido, NotiflixJS.MessageType.failure, "Error al asignar.");
+            //BootstrapCSS.Message(up_seguimientoUsuarioPedido, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.danger,
+            //    "Error", "Ocurrio un error al asignar, contacta a desarrollo. Ex: " + ex.Message);
         }
         finally
         {
             up_seguimientoUsuarioPedido.Update();
         }
-
     }
 }
