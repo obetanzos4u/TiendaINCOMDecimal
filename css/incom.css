@@ -36,7 +36,7 @@
     position: absolute;
     float: right;
     z-index: 10;
-    border: 1px solid #00000037;
+    box-shadow: 0 2px 4px #d7d7d7;
 }
 
 .is-productGallery:hover #productZoom {
@@ -183,6 +183,10 @@
     .wrapper-descripcion {
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+
+    .title-product_description {
+        font-weight: 500;
     }
 }
 
@@ -629,6 +633,11 @@
     }
 
     @media only screen and (min-width: 600px) {
+        
+        .productcard {
+            display: flex;
+        }
+
         .productos_descripciones {
             height: 10rem;
         }
@@ -641,6 +650,7 @@
     }
 
     @media only screen and (min-width: 700px) {
+        
         .productos_descripciones {
             height: 9rem;
         }
@@ -691,6 +701,10 @@
             padding: 0.5rem;
             padding-left: 2rem;
             padding-right: 2rem;
+        }
+
+        .ticket_compra {
+            width: 30%;
         }
     }
 
@@ -1421,15 +1435,9 @@
         }
     }
 
-    @media only screen and (min-width: 1300px) and (max-width: 1600px)  {
+    @media only screen and (min-width: 400px) and (max-width: 1600px)  {
         #productZoom {
-            left: 540px;
-        }
-    }
-
-    @media only screen and (min-width: 400px) and (max-width: 1300px)  {
-        #productZoom {
-            left: 41vw;
+            left: 32vw;
         }
     }
     
@@ -1451,5 +1459,19 @@
         #productZoom {
             width: 250px;
             height: 200px;  
+        }
+
+        .productcard {
+            display: inline;
+        }
+
+        .container-descripcion {
+            width: 90%;
+        }
+
+        .is-productGallery {
+            display: inline;
+            width: 80%;
+            margin: auto;
         }
     }

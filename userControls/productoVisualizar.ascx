@@ -23,7 +23,7 @@
             <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
         </div>
     </div>
-    <div class="productcard is-flex is-px-xl">
+    <div class="productcard is-px-xl">
         <div class="is-productGallery">
             <div class="is-productGallery_featured container-iframe is-cursor-crosshair" id="selectedImage" runat="server">
                 <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Fotografía de producto" style="position: relative; width: 100%" />
@@ -31,7 +31,9 @@
             </div>
             <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
             <section id="productZoom"></section>
+            <span class="txt-gallery">Posiciona el cursor sobre la imagen para obtener una vista ampliada.</span>
         </div>
+
         <div class="container-descripcion is-relative">
             <div class="is-flex">
                 <div class="wrapper-descripcion">
@@ -370,6 +372,11 @@
         display: inline-block;
         width: 45%;
         margin-left: 5%;
+    }
+
+    .txt-gallery {
+        font-size: 12px;
+        margin-bottom: 2rem;
     }
 
     .bottom-especificaciones {
