@@ -110,7 +110,7 @@
 			left: 0;
 			z-index: -1;
 			width: 100%;
-			height: 100%;
+			height: 70%;
 			background: var(--btn-color);
 			border-radius: 24px;
 			transition: 0.9s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -133,7 +133,7 @@
 
 		.btn-share .social-icons {
 			position: absolute;
-			top: 50%;
+			top: 40%;
 			left: 0;
 			right: 0;
 			display: flex;
@@ -142,6 +142,14 @@
 			list-style-type: none;
 			transform: translateY(-50%);
 			text-align: center;
+		}
+
+		.icon-share {
+			padding-bottom: 0.5rem;
+		}
+		
+		.btn-share .btn-text {
+			padding-bottom: 0.5rem;
 		}
 
 			.btn-share .social-icons li {

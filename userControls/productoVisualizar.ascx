@@ -229,7 +229,7 @@
         margin: 4rem auto;
         border-radius: 0px 0px 8px 8px;
         min-width: 180px;
-        box-shadow: 0 3px 2px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.22);
+        box-shadow: 0 3px 1px 2px #c7c7c73a;
         border-top: 1px solid rgba(0, 0, 0, 0.16);
     }
 
@@ -310,7 +310,7 @@
 
             .tabs .slider-tab .indicator-tab {
                 position: relative;
-                width: 50%;
+                width: 100%;
                 max-width: 100%;
                 margin: 0 auto;
                 height: 3px;
@@ -405,6 +405,26 @@
     #content_caracteristicas > p {
         white-space: normal !important;
         line-height: normal;
+    }
+
+    #share-facebook > svg:nth-child(1) {
+        width: 16px;
+        height: 16px;
+    }
+
+    #share-twitter > svg:nth-child(1) {
+        width: 16px;
+        height: 16px;
+    }
+
+    #share-whatsapp > svg:nth-child(1) {
+        width: 16px;
+        height: 16px;
+    }
+
+    #share-mail > svg:nth-child(1) {
+        width: 16px;
+        height: 16px;
     }
 
     @media (max-width: 450px) {
@@ -527,5 +547,14 @@
             .tabs .content-tab section h2 {
                 display: block;
             }
+    }
+
+    @media (min-width: 1000px) and (max-width: 1600px) {
+        
+        .tabs {
+            width: auto;
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
     }
 </style>
