@@ -31,8 +31,8 @@
 
 
             <div class="col s12 m5 l4" visible="false" runat="server">
-                <label>Busca por: Nombre de cotización ó Número de operación</label>
-                <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización ó Número de operación" AutoPostBack="true" OnTextChanged="cargarProductos" runat="server"></asp:TextBox>
+                <label>Busca por: Nombre de cotización o número de operación</label>
+                <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización ó número de operación" AutoPostBack="true" OnTextChanged="cargarProductos" runat="server"></asp:TextBox>
             </div>
             <div class="col s6 m4 l3">
                   <label>Ordenar por</label>

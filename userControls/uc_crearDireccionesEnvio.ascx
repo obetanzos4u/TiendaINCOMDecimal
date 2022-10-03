@@ -7,7 +7,7 @@
     <div class="container z-depth-3">
         <div class="row">
             <div class="col l12">
-                <h1 class="center-align">Envíos</h1> 
+                <h2 class="center-align" style="font-size: 1.56rem !important;">Envíos</h2> 
             </div>
         </div>
         <div class="row">
@@ -88,9 +88,10 @@
             <div class="col s12 m12 l12">
                 <div class="input-field col s12 m12 l12">
                     <a href="<%= ResolveUrl("~/usuario/mi-cuenta/direcciones-de-envio.aspx") %>" 
-                        class="waves-effect waves-light btn blue-grey darken-1">Regresar</a>
+                        class="waves-effect waves-light btn blue-grey darken-1" style="text-transform: none;">Regresar</a>
                     <asp:LinkButton ID="btn_crear_direccion" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5" 
                   OnClick="btn_crear_direccion_Click"
+                  style="text-transform: none;"
                         runat="server">
                                     <i class="material-icons right">add</i> Crear dirección de envío</asp:LinkButton>
                     

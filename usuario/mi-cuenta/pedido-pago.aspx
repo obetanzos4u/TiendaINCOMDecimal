@@ -25,7 +25,7 @@
             <asp:Label ID="lbl_moneda" CssClass="orange-text" runat="server"></asp:Label>
             <br />
             <asp:HyperLink ID="hl_editarDatos" CssClass="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 "
-                runat="server"><i class="material-icons left">edit</i>Regresar a Contacto, envío y facturación</asp:HyperLink>
+                runat="server"><i class="material-icons left">edit</i>Regresar a contacto, envío y facturación</asp:HyperLink>
 
             &nbsp;
             <asp:HyperLink ID="hl_editarProductos" CssClass="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 " 

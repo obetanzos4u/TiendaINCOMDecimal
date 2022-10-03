@@ -21,7 +21,7 @@
                 </asp:DropDownList>
             </div>
             <div class="col m6 l12 right-align">
-                <a id="btn_opciones_cotizaciones" class='dropdown-trigger btn blue' href='#' data-target='opciones_cotizaciones'>Opciones</a>
+                <a id="btn_opciones_cotizaciones" class='dropdown-trigger btn blue' style="text-transform: none;" href='#' data-target='opciones_cotizaciones'>Opciones</a>
             </div>
         </div>
         <!-- Dropdown Structure -->
@@ -101,8 +101,8 @@
         <!-- INICIO : Filtros y orden -->
         <div class="row">
             <div class="col s12 m5 l4" >
-                <label>Busca por: Nombre de cotización ó Número de operación</label>
-                <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización ó Número de operación"
+                <label>Busca por: Nombre de cotización o número de operación</label>
+                <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización o número de operación"
                     AutoPostBack="true" OnTextChanged="orden" runat="server"></asp:TextBox>
             </div>
             <div class="col s6 m4 l2 xl2" >
@@ -316,7 +316,7 @@
 
 
                     <EmptyDataTemplate>
-                        <h2>Aún no tienes cotizaciones realizadas, <a href="/productos/">comienza a cotizar ahora.</a></h2>
+                        <h3>Aún no tienes cotizaciones realizadas, <a href="/productos/">comienza a cotizar ahora.</a></h3>
                     </EmptyDataTemplate>
                 </asp:listview>
             </div>

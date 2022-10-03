@@ -157,8 +157,8 @@
                                 </li>
                             </EditItemTemplate>
                                                                             <EmptyDataTemplate>
-                       <div class="row center-align"> <h2>Aún no tienes direcciones de envío, crea uno ahora.</h2>
-    <a id="eliminar" href="<%= ResolveUrl("~/usuario/mi-cuenta/crear-direccion-de-envio.aspx") %>" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" data-tooltip="Agregar dirección denvío ">
+                       <div class="row center-align"> <h3>Aún no tienes direcciones de envío, crea uno ahora.</h3>
+    <a id="eliminar" href="<%= ResolveUrl("~/usuario/mi-cuenta/crear-direccion-de-envio.aspx") %>" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" style="text-transform: none;" data-tooltip="Agregar dirección de envío ">
                     <i class="material-icons right">local_shipping</i>Agregar dirección</a>
                            </div>
                     </EmptyDataTemplate>

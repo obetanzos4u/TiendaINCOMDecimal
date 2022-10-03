@@ -11,7 +11,7 @@
             <AnonymousTemplate>
                 <p>Inicia sesión para agregar un comentario  </p>
                 <p>
-                    <asp:LoginStatus ID="LoginStatus" class="waves-effect waves-light btn-small blue" ToolTip="Sesión de usuario" runat="server" LoginText="Iniciar Sesión"
+                    <asp:LoginStatus ID="LoginStatus" class="waves-effect waves-light btn-small blue" ToolTip="Sesión de usuario" runat="server" LoginText="Iniciar sesión"
                         LogoutText="Cerrar Sesión" />
                     ó 
              <a title="Crear cuenta" class="waves-effect waves-light btn-small blue" href='<%= ResolveUrl("~/registro-de-usuario.aspx") %>'>Crear cuenta</a>

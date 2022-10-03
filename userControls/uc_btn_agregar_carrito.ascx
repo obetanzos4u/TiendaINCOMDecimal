@@ -1,9 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_btn_agregar_carrito.ascx.cs" Inherits="uc_btn_agregar_carrito" %>
 
- <span style="font-size: 15px; font-weight: 400; color: #000000;">Cantidad:</span>
+ <span class="cantidad-label" style="font-weight: 400; color: #000000;">Cantidad:</span>
 <asp:UpdatePanel ID="UP_cantidadCarrito" style="overflow: hidden;"  runat="server">
     <ContentTemplate>
-        <div style="width: 250px;">
+        <div class="counter_carrito">
 <%--            <div class="btn_carrito_left">
                 <a href="#" onclick="event.preventDefault(); calculoTxtCarrito('resta', '<%=txt_cantidadCarrito.ClientID %>');  "
                     class="btn-cantidad-carrito btn-small btn-small-s blue-grey darken-1"><i class="material-icons">remove</i></a>
@@ -25,10 +25,10 @@
 <asp:UpdatePanel ID="up_btn_add_carrito" style="display: inline;" runat="server">
     <ContentTemplate>
         <asp:LinkButton ID="btn_agregar_productoCarrito" ClientIDMode="Static" OnClientClick="btnLoading(this);" runat="server"
-            class="waves-effect-1 waves-light btn  blue" OnClick="btn_agregar_productoCarrito_Click">
-            <i class="material-icons left">add_shopping_cart</i>Modificado a carrito
+            class="agregar_carrito waves-effect-1 waves-light btn" OnClick="btn_agregar_productoCarrito_Click" style="background: #0CBA3C !important; border-radius: 6px; text-transform: none; font-weight: 600;">
+            Agregar al carrito
         </asp:LinkButton>
-        <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" class="waves-effect-1 waves-light btn" style="background: #0CBA3C !important; border-radius: 6px; text-transform: none; padding: 0 19px; font-weight: 600;">
+        <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" class="agregar_carrito agregar_carrito-out waves-effect-1 waves-light btn" style="background: #0CBA3C !important; border-radius: 6px; text-transform: none; font-weight: 600;">
             Agregar al carrito
         </a>
     </ContentTemplate><Triggers><asp:AsyncPostBackTrigger ControlID="btn_agregar_productoCarrito" EventName="Click" /></Triggers>

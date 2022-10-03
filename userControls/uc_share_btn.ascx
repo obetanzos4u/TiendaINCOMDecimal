@@ -81,8 +81,8 @@
 
 	.wrapper-btn-share {
 		width: 160px; 
-		margin: 2em 0em auto auto;
-		float: right;
+		margin: 2em auto;
+		text-align: center;
 	}
 
 	.btn-share {

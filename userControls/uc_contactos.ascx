@@ -9,7 +9,7 @@
                   <div class="col s12 m12 l9">Administra la información de contactos para tus operaciones (Cotizaciones, Pedidos)</div>
                   
              <div class="col s12 m12 l3 right-align">
-                  <a ID="eliminar" OnClick="$('#modal_crearContacto').modal('open');" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" data-tooltip="Crear contacto">
+                  <a ID="eliminar" OnClick="$('#modal_crearContacto').modal('open');" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" style="text-transform: none;" data-tooltip="Crear contacto">
                       <i class="material-icons right">person_add</i>Agregar</a>
              </div>
         </div>
@@ -56,8 +56,8 @@
                     </ItemTemplate>
 
                     <EmptyDataTemplate>
-                       <div class="row center-align"> <h2>Aún no tienes contactos, crea uno ahora.</h2>
-                          <a ID="eliminar" OnClick="$('#modal_crearContacto').modal('open');" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" data-tooltip="Crear contacto">
+                       <div class="row center-align"> <h3>Aún no tienes contactos, crea uno ahora.</h3>
+                          <a ID="eliminar" OnClick="$('#modal_crearContacto').modal('open');" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" style="text-transform: none;" data-tooltip="Crear contacto">
                       <i class="material-icons right">person_add</i>Agregar</a>
                            </div>
                     </EmptyDataTemplate>

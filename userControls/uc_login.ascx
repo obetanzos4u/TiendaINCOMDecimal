@@ -29,7 +29,7 @@
     <div class=" center-align  col s12 m6 l12">
 
                 <asp:Button ID="btn_iniciar_sesion" OnClick="btn_iniciar_sesion_Click" Style="width: 100%,"
-                    class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5" Text="Iniciar Sesión" runat="server"></asp:Button>
+                    class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5" Text="Iniciar sesión" runat="server"></asp:Button>
 
         <br />
         <br />

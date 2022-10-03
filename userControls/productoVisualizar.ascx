@@ -19,11 +19,11 @@
 <div id="contenedor_producto" class="is-container" runat="server">
     <asp:Literal ID="lt_microdataProducto" runat="server"></asp:Literal>
     <div class="nav-wrapper">
-        <div id="navegacion" runat="server" style="height: 42px; padding-top: 0.25rem;" class="container-breadcrumb is-bg-blue-darky">
+        <div id="navegacion" runat="server" style="height: 42px;" class="container-breadcrumb is-bg-blue-darky">
             <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
         </div>
     </div>
-    <div class="is-w-full is-flex is-px-xl">
+    <div class="productcard is-flex is-px-xl">
         <div class="is-productGallery">
             <div class="is-productGallery_featured container-iframe is-cursor-crosshair" id="selectedImage" runat="server">
                 <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Fotografía de producto" style="position: relative; width: 100%" />
@@ -32,10 +32,10 @@
             <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
             <section id="productZoom"></section>
         </div>
-        <div class="is-relative" style="width: 60%;">
+        <div class="container-descripcion is-relative">
             <div class="is-flex">
                 <div class="wrapper-descripcion">
-                    <h1 class="title-product_description is-family-ms is-m-0" style="font-size: 1.8rem !important; margin-bottom: 2rem;">
+                    <h1 class="title-product_description is-family-ms is-m-0" style="margin-bottom: 2rem;">
                         <asp:Literal ID="lt_numero_parte" Visible="false" runat="server"></asp:Literal>
                         <asp:Literal ID="lt_titulo" runat="server"></asp:Literal>
                     </h1>
@@ -52,7 +52,7 @@
                     &nbsp;
                     <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
                     </span>
-                    <p>
+                    <p style="margin-bottom: 4rem;">
                         <asp:Label ID="lbl_descripcion_corta" runat="server" Text="descripcion_corta"></asp:Label>
                         <uc1:metaTagColaborativo ID="metaTagColaborativo" runat="server"></uc1:metaTagColaborativo>
                     </p>
@@ -68,9 +68,9 @@
                                     <asp:Label ID="lbl_precioLista" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
                                     <asp:Label ID="lbl_precioGeneral" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
                                     <asp:Label ID="lbl_precioGeneralLeyenda" Style="display: block; font-weight: 700; color: #0fb30f;" Visible="false" Text="Tu Precio especial ✓" runat="server"> </asp:Label>
-                                    <span style="font-size: 1.5rem; color: black; font-weight: 600;">$</span>
-                                    <asp:Label ID="lbl_precio" style="font-size: 1.5rem; color: black; font-weight: 600;" runat="server"></asp:Label>
-                                    <asp:Label ID="lbl_moneda" style="font-size: 0.75rem; color: black; font-weight: 500; padding-left: .5rem;" runat="server"></asp:Label>
+                                    <span class="divisa-txt">$</span>
+                                    <asp:Label ID="lbl_precio" class="precio-producto" runat="server"></asp:Label>
+                                    <asp:Label ID="lbl_moneda" class="moneda-txt" runat="server"></asp:Label>
                                     <br />
                                     <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false"
                                         class="red white-text" Style="padding: 2px 5px" runat="server"></asp:Label>
@@ -117,7 +117,7 @@
             <input type="radio" id="tab3" name="tab-control">  
             <ul>
             <li title="Características"><label for="tab1" role="button"><span>Características</span></label></li>
-            <li title="Espcificaciones"><label for="tab2" role="button"><span>Espcificaciones</span></label></li>
+            <li title="Espcificaciones"><label for="tab2" role="button"><span>Especificaciones</span></label></li>
             <li title="Consideraciones"><label for="tab3" role="button"><span>Consideraciones</span></label></li>    
             </ul>
             
@@ -229,6 +229,8 @@
         margin: 4rem auto;
         border-radius: 0px 0px 8px 8px;
         min-width: 180px;
+        box-shadow: 0 3px 2px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.22);
+        border-top: 1px solid rgba(0, 0, 0, 0.16);
     }
 
         .tabs input[name=tab-control] {
@@ -308,7 +310,7 @@
 
             .tabs .slider-tab .indicator-tab {
                 position: relative;
-                width: 50px;
+                width: 50%;
                 max-width: 100%;
                 margin: 0 auto;
                 height: 3px;

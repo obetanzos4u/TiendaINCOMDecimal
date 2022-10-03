@@ -125,6 +125,16 @@
     border: 3px solid #0b79d0;
 }
 
+.divisa-txt {
+    font-weight: 400;
+    color:rgba(0, 0, 0, 0.87);
+}
+
+.precio-producto {
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 400;
+}
+
 .breadcrumb:before {
     content: '\E5CC';
     color: rgba(255, 255, 255);
@@ -148,6 +158,11 @@
     .truncate {
         font-size: 1rem !important;
     }
+
+    .wrapper-descripcion {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
 
 @media only screen and (max-width: 700px) {
@@ -165,24 +180,84 @@
         padding-left: 0 !important;
     }
 
-    .nav-wrapper {
+    .wrapper-descripcion {
         padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
     /*Contenedor de ficha de productos */
     @media (max-width: 1600px) {
-        .container-1 {
-            margin-left: 4rem;
-            margin-right: 4rem;
+        .productcard {
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+
+        .is-productGallery {
+            width: 30%;
+        }
+
+        .is-relative {
+            width: 70%;
+        }
+
+        .borde-ticket_compra {
+            padding: 2rem 0 0 0;
+        }
+
+        .wrapper-descripcion span {
+            font-size: 12px;
+        }
+
+        .ticket_compra {
+            width: 40%;
+        }
+
+        .txt_cantidadCarrito {
+            padding: 0 !important;
+            width: 88% !important;
+        }
+
+        .title-product_description {
+            font-size: 1.5rem !important;
+        }
+
+        .divisa-txt {
+            font-size: 1.25rem;         
+        }
+
+        .precio-producto {
+            font-size: 1.5rem;
+        }
+
+        .moneda-txt {
+            font-size: 0.75rem;
+            padding-left: .5rem; 
         }
     }
 
     @media (max-width: 1000px) {
-        .container-1 {
-            margin-left: 2rem;
-            margin-right: 2rem;
+
+        .title-product_description {
+            font-size: 1rem !important;
         }
+
+        .price > span:nth-child(1) {
+            font-size: 1rem;
+        }
+
+        .divisa-txt {
+            font-size: 1rem;         
+        }
+
+        .precio-producto {
+            font-size: 1rem;
+        }
+
+        .moneda-txt {
+            font-size: 0.5rem;
+            padding-left: 0.25rem;
+        } 
     }
 
     /*Fin contenedor de ficha de productos */
@@ -229,7 +304,6 @@
     .borde-ticket_compra {
         border: 1px solid #C7C7C7;
         border-radius: 0 0 8px 8px;
-        padding: 1.5rem;
     }
 
     .wrapper-moneda {
@@ -258,10 +332,10 @@
     }
 
     input.select-dropdown {
-        height: 2rem !important;
         border-radius: 6px !important;
         font-size: 0.75rem !important;
-        padding-left: 1rem !important;
+        padding-left: 0.75rem !important;
+        }
     }
 
     .wrapper-descripcion {
@@ -289,10 +363,6 @@
 
     #relacionadosSeccion {
         margin-bottom: 2em;
-    }
-
-    .tituloProductoTienda {
-
     }
 
     #alternativos_splide > li > a > img {
@@ -529,13 +599,6 @@
         }
     }
 
-    /* @media (min-width: 1600px) {
-    #general_categoria-container {
-        padding-left: 7rem;
-        padding-right: 7rem;
-    }
-} */
-
     @media only screen and (max-width: 500px) {
 
         .fixInput {
@@ -707,8 +770,6 @@
     }
 
     /* INICIO Override Materialize*/
-    .incom-ul-default {
-    }
 
         .incom-ul-default > li {
             list-style-type: initial !important;
@@ -784,7 +845,7 @@
         }
 
     h1 {
-        font-size: 2.2rem !important;
+        font-size: 2.2rem;
         line-height: 110%;
         margin: 2.1rem 0 1.68rem 0;
     }
@@ -1135,7 +1196,37 @@
             padding-left: 7rem;
             padding-right: 7rem;
         }
-        
+
+        .is-productGallery { 
+            width: 40%;
+        }
+
+        .price {
+            margin-top: 1rem;
+        }
+
+        .counter_carrito {
+            width: 250px;
+        }
+
+        input.select-dropdown {
+            height: 2rem !important;
+            padding-left: 1rem !important;
+            }
+
+        .divisa-txt {
+            font-size: 1.5rem;  
+            font-weight: 300;       
+        }
+
+        .precio-producto {
+            font-size: 2rem;
+        }
+
+        .moneda-txt {
+            font-size: 0.75rem;
+            padding-left: .25rem;  
+        }
     }
 
     @media only screen and (min-width: 1700px) {
@@ -1243,9 +1334,6 @@
         width: -webkit-fill-available;
     }
 
-    .btn_carrito {
-    }
-
     .btn_carrito_left {
         width: 28%;
         float: left;
@@ -1326,6 +1414,10 @@
     @media only screen and (min-width: 1600px) and (max-width: 2400px)  {
         #productZoom {
             left: 600px;
+        }
+
+        .title-product_description {
+            font-size: 2.2rem !important;
         }
     }
 
