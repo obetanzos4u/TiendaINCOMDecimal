@@ -338,19 +338,19 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             }
             tbody_dimensiones_empaque.InnerHtml += @"
             <tr>" +
-                "<td style='white-space: nowrap; text-align:right; padding-right:4px;'><strong>Peso</strong>:</td>" +
+                "<td style='white-space: nowrap; padding-right:4px;'><strong>Peso</strong>:</td>" +
                 "<td style='white-space: nowrap; width:100%;'>" + productos.Rows[0]["peso"].ToString() + " kg</td>" +
             "</tr>" +
              "<tr>" +
-                "<td style='white-space: nowrap; text-align:right; padding-right:4px;'><strong>Alto </strong>:</td>" +
+                "<td style='white-space: nowrap; padding-right:4px;'><strong>Alto </strong>:</td>" +
                 "<td style='white-space: nowrap; width:100%;'>" + productos.Rows[0]["alto"].ToString() + " cm</td>" +
             "</tr>" +
             "<tr>" +
-                "<td style='white-space: nowrap; text-align:right; padding-right:4px;'><strong>Ancho</strong>:</td>" +
+                "<td style='white-space: nowrap; padding-right:4px;'><strong>Ancho</strong>:</td>" +
                 "<td style='white-space: nowrap; width:100%;'>" + productos.Rows[0]["ancho"].ToString() + " cm</td>" +
             "</tr>" +
             "<tr>" +
-                "<td style='white-space: nowrap; text-align:right; padding-right:4px;'><strong>Largo/Profundidad </strong>:</td>" +
+                "<td style='white-space: nowrap; padding-right:4px;'><strong>Largo/Profundidad </strong>:</td>" +
                 "<td style='white-space: nowrap; width:100%;'>" + productos.Rows[0]["profundidad"].ToString() + " cm</td>" +
             "</tr>";
 

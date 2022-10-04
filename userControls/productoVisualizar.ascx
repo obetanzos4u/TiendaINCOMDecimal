@@ -218,7 +218,8 @@
     @import "https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400";
 
     .content-tab {
-        font-size: 12px;
+        justify-content: center;
+        display: flex;
     }
 
     .tabs {
@@ -366,6 +367,7 @@
             
     .wrapper-especificaciones {
         display: flex;
+        justify-content: center;
     }
 
     .right-especificaciones {
@@ -530,10 +532,6 @@
             .tabs ul li label svg {
                 height: 1.5em;
             }
-
-        .content-tab {
-            font-size: 10px;
-        }
     }
 
     @media (max-width: 450px) {
@@ -587,5 +585,26 @@
         .tabs {
             display: block !important;
             }
+    }
+
+    @media (min-width: 350px) {
+    
+        .content-tab {
+            font-size: 8px;
+        }
+    }
+
+    @media (min-width: 700px) {
+    
+        .content-tab {
+            font-size: 12px;
+        }
+    }
+
+    @media (min-width: 1600px) {
+
+        .content-tab {
+            font-size: 16px;
+        }
     }
 </style>
