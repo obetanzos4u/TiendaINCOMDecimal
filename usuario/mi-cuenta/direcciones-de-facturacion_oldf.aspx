@@ -12,10 +12,10 @@
             <div class="col s12 m12 l12">
                 <h2>Mis direcciones de facturación</h2>
             </div>
-            <div class="col s12 m12 l9">Administra tus direcciones de facturación para: Cotizaciones ó Pedidos</div>
+            <div class="col s12 m12 l9">Administra tus direcciones de facturación para: Cotizaciones o Pedidos</div>
 
             <div class="col s12 m12 l3 right-align">
-                <a id="eliminar" href="<%= ResolveUrl("~/usuario/mi-cuenta/crear-direccion-de-facturacion.aspx") %>" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" data-tooltip="Agregar dirección denvío ">
+                <a id="eliminar" href="<%= ResolveUrl("~/usuario/mi-cuenta/crear-direccion-de-facturacion.aspx") %>" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" style="text-transform: none;" data-tooltip="Agregar dirección de envío ">
                     <i class="material-icons right">local_shipping</i>Agregar dirección</a>
             </div>
         </div>
@@ -57,7 +57,7 @@
                                                 runat="server">
                                     <i class="material-icons">delete</i></asp:LinkButton>
                                             &nbsp;
-                            <asp:LinkButton ID="editar" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5" CommandName="Edit" runat="server">
+                            <asp:LinkButton ID="editar" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5" CommandName="Edit" style="text-transform: none;" runat="server">
                                 <i class="material-icons right">edit</i>Editar</asp:LinkButton>
                                         </p>
                                     </div>

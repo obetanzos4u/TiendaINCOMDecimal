@@ -129,7 +129,7 @@ async function LoginAjaxValidateLogin() {
 
 async function LoginAjaxCreateLoginBTN(ContentBtn) {
     let btnHTML = `
-                    <a class="btn-small blue " onclick="LoginAjaxOpenModal();">Iniciar Sesión</a>
+                    <a class="btn-small blue " onclick="LoginAjaxOpenModal();">Iniciar sesión</a>
                     <a class="btn-small blue" href="/registro-de-usuario.aspx">Registrarse</a>
                   `;
     ContentBtn.innerHTML = btnHTML;

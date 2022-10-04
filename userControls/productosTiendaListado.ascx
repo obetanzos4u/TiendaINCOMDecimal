@@ -123,7 +123,7 @@
         <!-- INICIO : Filtros y orden -->
         <div class="row" style="margin: auto 0px !important;" id="cont_ordenar" runat="server">
             <div class="col s12 m5 l4" visible="false" runat="server">
-                <label>Busca por: Nombre de cotización ó Número de operación</label>
+                <label>Busca por: Nombre de cotización o Número de operación</label>
                 <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización ó Número de operación" AutoPostBack="true" OnTextChanged="cargarProductos" runat="server"></asp:TextBox>
             </div>
         </div>

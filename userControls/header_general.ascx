@@ -50,7 +50,7 @@
 <%--    #endregion--%>
 
     <li>
-        <asp:LoginStatus ID="LoginStatus2" ToolTip="Sesión de usuario" runat="server" LoginText="<img src='https://www.incom.mx/img/webUI/newdesign/mi_cuenta.svg' alt='botón de inicio de sesión' class='inicio_sesion-icon'/>Iniciar Sesión" LogoutText=" " OnLoggedOut="LoginStatus1_LoggedOut" />
+        <asp:LoginStatus ID="LoginStatus2" ToolTip="Sesión de usuario" runat="server" LoginText="<img src='https://www.incom.mx/img/webUI/newdesign/mi_cuenta.svg' alt='botón de inicio de sesión' class='inicio_sesion-icon'/>Iniciar sesión" LogoutText=" " OnLoggedOut="LoginStatus1_LoggedOut" />
     </li>
     <li>
         <div class="divider"></div>
@@ -174,12 +174,12 @@
                         <LoggedInTemplate>
                             <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="login_btn" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx"
                                 runat="server">Mi cuenta</asp:HyperLink>
-                            <asp:LoginStatus ID="LoginStatus1" class="login_btn" ToolTip="Sesión de usuario" runat="server" LoginText="Iniciar Sesión"
+                            <asp:LoginStatus ID="LoginStatus1" class="login_btn" ToolTip="Sesión de usuario" runat="server" LoginText="Iniciar sesión"
                                 LogoutText="Cerrar Sesión" OnLoggedOut="LoginStatus1_LoggedOut" />
                         </LoggedInTemplate>
                         <AnonymousTemplate>
                             <a title="Crear cuenta" class="login_btn " href='<%= ResolveUrl("~/registro-de-usuario.aspx") %>'>Crear cuenta</a>
-                            <a class="login_btn" href="#" onclick="LoginAjaxOpenModal();">Iniciar Sesión</a>
+                            <a class="login_btn" href="#" onclick="LoginAjaxOpenModal();">Iniciar sesión</a>
                         </AnonymousTemplate>
                     </asp:LoginView>
                 </div>--%>
@@ -214,7 +214,7 @@
                                     <img class="icon_cuenta" src="https://www.incom.mx/img/webUI/newdesign/Cuenta.svg" />
                                     <span>Iniciar sesión</span>
                                 </a>
-                                <%--<a class="login_btn" href="#" onclick="LoginAjaxOpenModal();">Iniciar Sesión</a>--%>
+                                <%--<a class="login_btn" href="#" onclick="LoginAjaxOpenModal();">Iniciar sesión</a>--%>
                             </AnonymousTemplate>
                         </asp:LoginView>
                     </div>
@@ -651,8 +651,8 @@
     }
 
     .title_tipoDeCambio {
-        font-size: 1rem;
-        height: 1.5rem;
+        font-size: 0.75rem;
+        height: 1rem;
         text-align: start;
         display: block;
     }
@@ -663,6 +663,7 @@
 
         #txt_tipoDeCambio::before {
             content: "1 USD = ";
+            font-size: 0.75rem;
         }
 
     .icon_menu {
@@ -672,7 +673,7 @@
     }
 
     .cantidad_tipoDeCambio {
-        font-size: 1rem;
+        font-size: 0.75rem;
     }
 
     .content_tipoDeCambio {
@@ -1012,10 +1013,6 @@
 
     #txt_tipoDeCambio {
         font-size:0.75rem;
-    }
-
-    .cantidad_tipoDeCambio {
-        font-size: 0.75rem;
     }
 
     .icon_cuenta {

@@ -39,7 +39,7 @@
                                                 runat="server">
                                     <i class="material-icons">delete</i></asp:LinkButton>
                                             &nbsp;
-                            <asp:LinkButton ID="editar" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5" CommandName="Edit" runat="server">
+                            <asp:LinkButton ID="editar" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5" style="text-transform: none;" CommandName="Edit" runat="server">
                                 <i class="material-icons right">edit</i>Editar</asp:LinkButton>
                                         </p>
                                     </div>
@@ -156,7 +156,7 @@
                             </EditItemTemplate>
                                                 <EmptyDataTemplate>
                        <div class="row center-align"> <h2>Aún no tienes direcciones de facturación, crea uno ahora.</h2>
-  <a id="eliminar" href="<%= ResolveUrl("~/usuario/mi-cuenta/crear-direccion-de-facturacion.aspx") %>" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" data-tooltip="Agregar dirección denvío ">
+  <a id="eliminar" href="<%= ResolveUrl("~/usuario/mi-cuenta/crear-direccion-de-facturacion.aspx") %>" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" style="text-transform: none;" data-tooltip="Agregar dirección de envío ">
                     <i class="material-icons right">playlist_add_check</i>Agregar dirección</a>
                            </div>
                     </EmptyDataTemplate>

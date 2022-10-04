@@ -23,7 +23,7 @@
                         <asp:Literal ID="li_celular" runat="server"></asp:Literal> </li>
                       <li class="collection-item"><strong>Teléfono: </strong>
                        <asp:Literal ID="li_telefono" runat="server"></asp:Literal>  </li>
-                    <li class="collection-item"><strong>Email/Usuario: </strong>
+                    <li class="collection-item"><strong>Correo electrónico: </strong>
                         <asp:Literal ID="li_email" runat="server"></asp:Literal></li>
                     <li class="collection-item hide"><strong>ID de Cliente: </strong>
                         <asp:Literal ID="li_id_cliente" runat="server"></asp:Literal>
@@ -35,11 +35,11 @@
                 </ul>
                 <asp:LinkButton ID="btn_editarDatosBasicos"
                     class="waves-effect waves-light btn blue-grey darken-1 btn-s "
-                    OnClick="btn_editarDatosBasicos_Click" runat="server">Editar Datos</asp:LinkButton>
+                    OnClick="btn_editarDatosBasicos_Click"  style="text-transform: none;" runat="server">Editar datos</asp:LinkButton>
                 &nbsp;
                   <asp:LinkButton ID="btn_CambiarPassword" 
                     class="waves-effect waves-light btn blue-grey darken-1 btn-s "
-                  OnClick="btn_CambiarPassword_Click" runat="server">Actualizar contraseña </asp:LinkButton>
+                  OnClick="btn_CambiarPassword_Click" style="text-transform: none;" runat="server">Actualizar contraseña </asp:LinkButton>
                 <br />
                 <br />
             </div>

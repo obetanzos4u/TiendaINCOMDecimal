@@ -18,7 +18,7 @@
             class="  waves-effect waves-light btn  btn-full-text  btn-full-text blue " OnClick="btn_agregar_productoCarrito_Click">
             <i class="material-icons left">add_shopping_cart</i> LISTADO a carrito
         </asp:LinkButton>
-        <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" class=" waves-effect waves-light btn  btn-full-text  blue ">
+        <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" class="waves-effect-1 waves-light btn">
             <i class="material-icons left">add_shopping_cart</i> Agregar a carrito
         </a>
     </ContentTemplate>

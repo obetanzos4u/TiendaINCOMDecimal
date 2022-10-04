@@ -50,7 +50,7 @@ function productoDisponibilidadDataTable(json) {
 
     if (json === "null") {
 
-        document.querySelector("#productoDisponibilidad").innerHTML = `Para consultar la disponibilidad Inicia Sesión`;
+        document.querySelector("#productoDisponibilidad").innerHTML = `Para agregar al carrito, ingresa a tu cuenta`;
 
 
         return null;

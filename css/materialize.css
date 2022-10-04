@@ -5117,7 +5117,7 @@ small {
   height: 36px;
   line-height: 36px;
   padding: 0 2rem;
-  text-transform: uppercase;
+  text-transform: none;
   vertical-align: middle;
   -webkit-tap-highlight-color: transparent;
 }

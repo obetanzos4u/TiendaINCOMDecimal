@@ -12,8 +12,8 @@
    <!-- INICIO : Filtros y orden -->
         <div class="row is-top-3">
             <div class="col s12 m5 l4">
-                <label>Busca por: Nombre ó Número de operación</label>
-                <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de pedido ó Número de operación" AutoPostBack="true" OnTextChanged="orden" runat="server"></asp:TextBox>
+                <label>Busca por: Nombre o Número de operación</label>
+                <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de pedido o Número de operación" AutoPostBack="true" OnTextChanged="orden" runat="server"></asp:TextBox>
             </div>
             <div class="col s6 m4 l3">
                   <label>Ordenar por</label>
@@ -189,7 +189,7 @@
 
 
                     <EmptyDataTemplate>
-                        <h2>Aún no tienes pedidos realizados, <a href="/productos/">comienza a comprar ahora.</a></h2>
+                        <h3>Aún no tienes pedidos realizados, <a href="/productos/">comienza a comprar ahora.</a></h3>
                     </EmptyDataTemplate>
                 </asp:listview>
             </div>

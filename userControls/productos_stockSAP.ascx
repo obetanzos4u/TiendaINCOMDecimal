@@ -3,7 +3,7 @@
 
 
 
-        <asp:Panel ID="content_usuario_logeado" Visible="false" style="display:inline;" runat="server">
+        <asp:Panel ID="content_usuario_logeado" Visible="false" class="producto_disponibilidad-txt" style="display:inline;" runat="server">
             <asp:HiddenField ID="hf_numero_parte" runat="server" />
 <%--            <a class="btn green" onclick="consultarDisponibilidad(this);" href="#">Ver disponibilidad</a>
             <br /> <br />--%>
@@ -26,10 +26,10 @@
         </asp:Panel>
 
         <asp:Panel ID="content_usuario_visitante" style="display:inline;" Visible="false" runat="server"><p>
-            Para consultar la disponibilidad  
-                                                          <a href="#" onclick="LoginAjaxOpenModal();">Iniciar Sesión</a>
-            ó 
-                            <a title="Crear cuenta" href='<%= ResolveUrl("~/registro-de-usuario.aspx") %>'>Crear cuenta</a>
+            Para agregar al carrito,
+                                                          <a href="#" onclick="LoginAjaxOpenModal();">Inicia sesión</a>
+            o 
+                            <a title="Crear cuenta" href='<%= ResolveUrl("~/registro-de-usuario.aspx") %>'>Crea tu cuenta</a>
             </p>
         </asp:Panel>
 

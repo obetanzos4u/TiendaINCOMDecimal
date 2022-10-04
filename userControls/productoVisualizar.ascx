@@ -19,11 +19,11 @@
 <div id="contenedor_producto" class="is-container" runat="server">
     <asp:Literal ID="lt_microdataProducto" runat="server"></asp:Literal>
     <div class="nav-wrapper">
-        <div id="navegacion" runat="server" style="height: 42px; padding-top: 0.25rem;" class="container-breadcrumb is-bg-blue-darky">
+        <div id="navegacion" runat="server" style="height: 42px;" class="container-breadcrumb is-bg-blue-darky">
             <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
         </div>
     </div>
-    <div class="is-w-full is-flex is-px-xl">
+    <div class="productcard is-flex is-px-xl">
         <div class="is-productGallery">
             <div class="is-productGallery_featured container-iframe is-cursor-crosshair" id="selectedImage" runat="server">
                 <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Fotografía de producto" style="position: relative; width: 100%" />
@@ -32,10 +32,10 @@
             <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
             <section id="productZoom"></section>
         </div>
-        <div class="is-relative" style="width: 60%;">
+        <div class="container-descripcion is-relative">
             <div class="is-flex">
                 <div class="wrapper-descripcion">
-                    <h1 class="title-product_description is-family-ms is-m-0" style="font-size: 1.8rem !important; margin-bottom: 2rem;">
+                    <h1 class="title-product_description is-family-ms is-m-0" style="margin-bottom: 2rem;">
                         <asp:Literal ID="lt_numero_parte" Visible="false" runat="server"></asp:Literal>
                         <asp:Literal ID="lt_titulo" runat="server"></asp:Literal>
                     </h1>
@@ -52,7 +52,7 @@
                     &nbsp;
                     <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
                     </span>
-                    <p>
+                    <p style="margin-bottom: 4rem;">
                         <asp:Label ID="lbl_descripcion_corta" runat="server" Text="descripcion_corta"></asp:Label>
                         <uc1:metaTagColaborativo ID="metaTagColaborativo" runat="server"></uc1:metaTagColaborativo>
                     </p>
@@ -68,9 +68,9 @@
                                     <asp:Label ID="lbl_precioLista" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
                                     <asp:Label ID="lbl_precioGeneral" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
                                     <asp:Label ID="lbl_precioGeneralLeyenda" Style="display: block; font-weight: 700; color: #0fb30f;" Visible="false" Text="Tu Precio especial ✓" runat="server"> </asp:Label>
-                                    <span style="font-size: 1.5rem; color: black; font-weight: 600;">$</span>
-                                    <asp:Label ID="lbl_precio" style="font-size: 1.5rem; color: black; font-weight: 600;" runat="server"></asp:Label>
-                                    <asp:Label ID="lbl_moneda" style="font-size: 0.75rem; color: black; font-weight: 500; padding-left: .5rem;" runat="server"></asp:Label>
+                                    <span class="divisa-txt">$</span>
+                                    <asp:Label ID="lbl_precio" class="precio-producto" runat="server"></asp:Label>
+                                    <asp:Label ID="lbl_moneda" class="moneda-txt" runat="server"></asp:Label>
                                     <br />
                                     <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false"
                                         class="red white-text" Style="padding: 2px 5px" runat="server"></asp:Label>
@@ -110,37 +110,61 @@
 </div>
 
 <div class="is-px-xl">
-    <div id="content_caracteristicas">
-        <h2>Características</h2>
-        <table class="striped" style="width: 100%;">
-            <tbody id="tbody_caracteristicas" runat="server">
-            </tbody>
-        </table>
-        <p>
-            <asp:Label ID="lbl_especificaciones" runat="server"></asp:Label>
-        </p>
-    </div>
+    <div class="tabs">
+    
+            <input type="radio" id="tab1" name="tab-control" checked>
+            <input type="radio" id="tab2" name="tab-control">
+            <input type="radio" id="tab3" name="tab-control">  
+            <ul>
+            <li title="Características"><label for="tab1" role="button"><span>Características</span></label></li>
+            <li title="Espcificaciones"><label for="tab2" role="button"><span>Especificaciones</span></label></li>
+            <li title="Consideraciones"><label for="tab3" role="button"><span>Consideraciones</span></label></li>    
+            </ul>
+            
+            <div class="slider-tab"><div class="indicator-tab"></div></div>
+            <div class="content-tab">
+            <section>
+                    <div id="content_caracteristicas">
+                        <p class="item-caracteristicas">
+                            <asp:Label ID="lbl_especificaciones" class="caracteristicas-list" runat="server"></asp:Label>
+                        </p>
+                    </div>
+            </section>
+                <section>
+                    <!-- caracteristicas -->
+                        <div class="wrapper-especificaciones">
+                            <div class="left-especificaciones">
+                                <span class="detalles-producto"><strong>Detalles del producto</strong></span>
+                                <br>
+                                <table class="striped striped-tb" style="width: 100%;">
+                                    <tbody id="tbody_caracteristicas" runat="server">
+                                    </tbody>
+                                </table>                        
+                            </div>
+                            <div class="right-especificaciones">
+                                <span class="medidas-empaque"><strong>Medidas del empaque</strong></span>
+                                <br>
+                                <table class="striped striped-tb" style="width: 100%;">
+                                    <tbody id="tbody_dimensiones_empaque" runat="server">
+                                    </tbody>
+                                </table>                         
+                            </div>
+                        </div>  
+                        <p class="bottom-especificaciones">
+                        Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando 
+                            <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
+                        </p>                  
+                </section>
+                <section>
+                    <div id="content_avisos">
+                        <ul id="ProductoAvisosListado" class="content_avisos-list" style="padding-left: 5%; !important; display: inline-block;" runat="server">
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
 
-    <div id="content_avisos" class="s12 m12 l12 xl12">
-        <h2>Avisos:</h2>
-        <ul id="ProductoAvisosListado" class="incom-ul-default" style="padding-left: 1rem !important;" runat="server">
-        </ul>
-    </div>
     <div class="s12 m12 l12 xl12">
-        <!-- caracteristicas -->
-        <h2>Especificaciones</h2>
-        <p>
-            Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando 
-                        <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
-        </p>
-        <span class="green-text"><strong>Detalles del producto</strong></span>
-
-        <span class="green-text"><strong>Las siguientes medidas son de empaque</strong></span>
-        <table class="striped" style="width: 100%;">
-            <tbody id="tbody_dimensiones_empaque" runat="server">
-            </tbody>
-        </table>
-
         <productos:relacionados ID="productosRelacionados" runat="server"></productos:relacionados>
         <productos:alternativos ID="productosAlternativos" runat="server"></productos:alternativos>
     </div>
@@ -187,3 +211,350 @@
 </script>
 
 <uc1:mdl_addOperacion ID="mdl_addOperacion" runat="server"></uc1:mdl_addOperacion>
+
+<style>
+    @import "https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400";
+
+    .content-tab {
+        font-size: 12px;
+    }
+
+    .tabs {
+        position: relative;
+        background: white;
+        padding: 50px;
+        padding-bottom: 80px;
+        width: 100%;
+        height: auto;
+        margin: 4rem auto;
+        border-radius: 0px 0px 8px 8px;
+        min-width: 180px;
+        box-shadow: 0 3px 1px 2px #c7c7c73a;
+        border-top: 1px solid rgba(0, 0, 0, 0.16);
+    }
+
+        .tabs input[name=tab-control] {
+            display: none;
+        }
+
+        .tabs .content-tab section h2,
+        .tabs ul li label {
+            font-family: "Montserrat";
+            font-weight: bold;
+            font-size: 15px;
+            color: #01568D;
+        }
+
+        .tabs ul {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 10px;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+            .tabs ul li {
+                box-sizing: border-box;
+                flex: 1;
+                width: 33.3333333333%;
+                padding: 0 10px;
+                text-align: center;
+            }
+
+                .tabs ul li label {
+                    transition: all 0.3s ease-in-out;
+                    color: #929daf;
+                    padding: 5px auto;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: block;
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
+                    white-space: nowrap;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+
+                    .tabs ul li label br {
+                        display: none;
+                    }
+
+                    .tabs ul li label svg {
+                        fill: #929daf;
+                        height: 1.2em;
+                        vertical-align: bottom;
+                        margin-right: 0.2em;
+                        transition: all 0.2s ease-in-out;
+                    }
+
+                    .tabs ul li label:hover, .tabs ul li label:focus, .tabs ul li label:active {
+                        outline: 0;
+                        color: #bec5cf;
+                    }
+
+                        .tabs ul li label:hover svg, .tabs ul li label:focus svg, .tabs ul li label:active svg {
+                            fill: #bec5cf;
+                        }
+
+        .tabs .slider-tab {
+            position: relative;
+            width: 33.3333333333%;
+            transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+        }
+
+            .tabs .slider-tab .indicator-tab {
+                position: relative;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+                height: 3px;
+                background: #01568D;
+                border-radius: 1px;
+            }
+
+        .tabs .content-tab {
+            margin-top: 30px;
+        }
+
+            .tabs .content-tab section {
+                display: none;
+                -webkit-animation-name: content-tab;
+                animation-name: content-tab;
+                -webkit-animation-direction: normal;
+                animation-direction: normal;
+                -webkit-animation-duration: 0.3s;
+                animation-duration: 0.3s;
+                -webkit-animation-timing-function: ease-in-out;
+                animation-timing-function: ease-in-out;
+                -webkit-animation-iteration-count: 1;
+                animation-iteration-count: 1;
+                line-height: 1;
+            }
+
+                .tabs .content-tab section h2 {
+                    color: #01568D;
+                    display: none;
+                }
+
+                    .tabs .content-tab section h2::after {
+                        content: "";
+                        position: relative;
+                        display: block;
+                        width: 30px;
+                        height: 3px;
+                        background: #01568D;
+                        margin-top: 5px;
+                        left: 1px;
+                    }
+
+        .tabs input[name=tab-control]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label {
+            cursor: default;
+            color: #01568D;
+        }
+
+            .tabs input[name=tab-control]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label svg {
+                fill: #01568D;
+            }
+            
+    .wrapper-especificaciones {
+        display: flex;
+    }
+
+    .right-especificaciones {
+        display: inline-block;
+        width: 45%;
+        margin-left: 5%;
+    }
+
+    .bottom-especificaciones {
+        margin-left: 5%;
+        margin-top: 2em;
+    }
+
+    .detalles-producto {
+        color: #01568D;
+    }
+
+    .medidas-empaque {
+        color: #01568D;
+    }
+
+    .striped-tb {
+        margin-top: 1rem;
+    }
+
+    .content_avisos-list li {
+        list-style-type: square !important;
+        line-height: 2rem;
+    }
+
+    .caracteristicas-list li {
+        list-style-type: square !important;
+    }
+
+    #content_caracteristicas ul li {
+        line-height: 2rem;
+    }
+
+    #content_caracteristicas > p {
+        white-space: normal !important;
+        line-height: normal;
+    }
+
+    #share-facebook > svg:nth-child(1) {
+        width: 16px;
+        height: 16px;
+    }
+
+    #share-twitter > svg:nth-child(1) {
+        width: 16px;
+        height: 16px;
+    }
+
+    #share-whatsapp > svg:nth-child(1) {
+        width: 16px;
+        height: 16px;
+    }
+
+    #share-mail > svg:nth-child(1) {
+        width: 16px;
+        height: 16px;
+    }
+
+    @media (max-width: 450px) {
+        .tabs input[name=tab-control]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label {
+            background: rgba(0, 0, 0, 0.08);
+        }
+    }
+
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ .slider-tab {
+        transform: translateX(0%);
+    }
+
+    .tabs input[name=tab-control]:nth-of-type(1):checked ~ .content-tab > section:nth-child(1) {
+        display: block;
+    }
+
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ ul > li:nth-child(2) > label {
+        cursor: default;
+        color: #01568D;
+    }
+
+        .tabs input[name=tab-control]:nth-of-type(2):checked ~ ul > li:nth-child(2) > label svg {
+            fill: #01568D;
+        }
+
+
+    @media (max-width: 450px) {
+        .tabs input[name=tab-control]:nth-of-type(2):checked ~ ul > li:nth-child(2) > label {
+            background: rgba(0, 0, 0, 0.08);
+        }
+    }
+
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ .slider-tab {
+        transform: translateX(100%);
+    }
+
+    .tabs input[name=tab-control]:nth-of-type(2):checked ~ .content-tab > section:nth-child(2) {
+        display: block;
+    }
+
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ ul > li:nth-child(3) > label {
+        cursor: default;
+        color: #01568D;
+    }
+
+        .tabs input[name=tab-control]:nth-of-type(3):checked ~ ul > li:nth-child(3) > label svg {
+            fill: #01568D;
+        }
+
+    @media (max-width: 450px) {
+        .tabs input[name=tab-control]:nth-of-type(3):checked ~ ul > li:nth-child(3) > label {
+            background: rgba(0, 0, 0, 0.08);
+        }
+    }
+
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ .slider-tab {
+        transform: translateX(200%);
+    }
+
+    .tabs input[name=tab-control]:nth-of-type(3):checked ~ .content-tab > section:nth-child(3) {
+        display: block;
+    }
+
+    @-webkit-keyframes content-tab {
+        from {
+            opacity: 0;
+            transform: translateY(5%);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
+
+    @keyframes content-tab {
+        from {
+            opacity: 0;
+            transform: translateY(5%);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
+
+    @media (max-width: 750px) {
+        .tabs ul li label {
+            white-space: initial;
+        }
+
+            .tabs ul li label br {
+                display: initial;
+            }
+
+            .tabs ul li label svg {
+                height: 1.5em;
+            }
+    }
+
+    @media (max-width: 450px) {
+        .tabs ul li label {
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+            .tabs ul li label span {
+                display: none;
+            }
+
+        .tabs .slider-tab {
+            display: none;
+        }
+
+        .tabs .content-tab {
+            margin-top: 20px;
+        }
+
+            .tabs .content-tab section h2 {
+                display: block;
+            }
+    }
+
+    @media (min-width: 1000px) and (max-width: 1600px) {
+        
+        .tabs {
+            width: auto;
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+    }
+</style>

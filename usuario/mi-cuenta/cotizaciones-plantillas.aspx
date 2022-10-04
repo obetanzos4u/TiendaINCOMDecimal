@@ -54,7 +54,7 @@
                                             &nbsp;
                             <asp:LinkButton ID="editar" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5"
                                 CommandName="Edit" runat="server">
-                                <i class="material-icons right">add_box</i>Editar Plantilla</asp:LinkButton>
+                                <i class="material-icons right">add_box</i>Editar plantilla</asp:LinkButton>
 
                                          
                                     </div>
@@ -91,7 +91,7 @@
                                                 <asp:UpdatePanel ID="UpdatePanel1" class="modal-content" ClientIDMode="Static" UpdateMode="Conditional" runat="server" RenderMode="Block">
                                                     <ContentTemplate>
                                                         <asp:LinkButton ID="btn_cancelar" runat="server" CommandName="Cancel" class="waves-effect waves-light btn  blue-grey darken-1" Text="Cerrar edición" />
-                                                        <asp:LinkButton ID="btn_actualizar" runat="server" CommandName="Update" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 " Text="Guardar cambios ✓" />
+                                                        <asp:LinkButton ID="btn_actualizar" runat="server" CommandName="Update" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 " style="text-transform: none;" Text="Guardar cambios ✓" />
                                                     </ContentTemplate>
                                                     <Triggers>
                                                         <asp:AsyncPostBackTrigger ControlID="btn_cancelar" EventName="Click" />
@@ -132,7 +132,7 @@
                             </div>
                             <div class="input-field col s12 m12 l12">
                                 <asp:LinkButton ID="btn_crearPlantilla" OnClick="btn_crearPlantilla_Click" CssClass="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align "
-                                    runat="server">Crear Plantilla</asp:LinkButton>
+                                    runat="server">Crear plantilla</asp:LinkButton>
                             </div>
 
                         </div>

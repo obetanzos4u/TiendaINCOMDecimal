@@ -55,7 +55,7 @@ public partial class herramientas_admin_precios : System.Web.UI.Page {
 
 
             if (numero_parteSAP == null) {
-                LoResultado += $"El producto: {numero_parte} no tiene número de parte SAP ó ocurrio un error. \r\n";
+                LoResultado += $"El producto: {numero_parte} no tiene número de parte SAP o ocurrio un error. \r\n";
                 continue;
             }
 

@@ -92,8 +92,9 @@
             <div class="col s12 m12 l12">
                 <div class="input-field col s12 m12 l12">
                     <a href="<%= ResolveUrl("~/usuario/mi-cuenta/direcciones-de-facturacion.aspx") %>" 
-                        class="waves-effect waves-light btn blue-grey darken-1">Regresar</a>
+                        class="waves-effect waves-light btn blue-grey darken-1" style="text-transform: none;">Regresar</a>
                     <asp:LinkButton ID="btn_crear_direccion" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5" 
+                  style="text-transform: none; margin-left: 3rem;"
                   OnClick="btn_crear_direccion_Click"
                         runat="server">
                                     <i class="material-icons right">add</i> Crear dirección de facturación</asp:LinkButton>
