@@ -554,6 +554,17 @@ body {
     margin-top: 5rem;
 }
 
+/* List section */
+.list-none {
+    list-style-type: none;
+}
+.list-disc {
+    list-style-type: disc;
+}
+.list-decimal {
+    list-style-type: decimal;
+}
+
 /* Width and Height section */
 .is-container {
     width: 100%;
@@ -697,8 +708,20 @@ body {
     font-style: normal;
 }
 
+.is-text-left {
+    text-align: left;
+}
+
 .is-text-center {
     text-align: center;
+}
+
+.is-text-right {
+    text-align: right;
+}
+
+.is-text-justify {
+    text-align: justify;
 }
 
 .is-resize-none {

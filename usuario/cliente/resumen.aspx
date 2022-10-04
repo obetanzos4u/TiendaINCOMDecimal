@@ -19,30 +19,51 @@
         </div>
         <div class="row">
             <div class="col  col-12 col-xs-12 col-sm-12 col-md-5 col-xl-6">
-                <div id="Content_AsesorSeguimiento" runat="server" visible="false" class="is-rounded-lg is-shadow is-my-4">
+                <div id="Content_AsesorSeguimiento" runat="server" visible="false" class="is-rounded-lg is-shadow is-my-2">
                     <div class="is-flex is-flex-col">
-                        <h4 class="is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg">Seguimiento</h4>
-                        <div class="is-px-8">
-                            <h6 id="H1" runat="server" class="card-subtitle mb-2 text-muted"></h6>
+                        <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Seguimiento</h4>
+                        <div class="is-px-8 is-py-2">
+                            <h6 id="H1" runat="server" class="card-subtitle text-muted"></h6>
                             <p id="P1" runat="server" class="card-text"></p>
                             <p id="P2" runat="server">
                                 <uc:ddlAsignarUsuarioAsesor ID="AsignarUsuarioAsesor" runat="server" />
                             </p>
                         </div>
-
                     </div>
                 </div>
-                <div class="is-rounded-lg is-shadow is-my-4">
+                <div class="is-rounded-lg is-shadow is-my-2">
                     <div class="is-flex is-flex-col">
-                        <h4 class="is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg">Datos de quien recibe</h4>
-                        <div class="is-px-8">
-                            <h6 id="contacto_title" class="card-subtitle mb-2 text-muted" runat="server"></h6>
-                            <p id="contacto_desc" class="card-text" runat="server"></p>
-                            <asp:HyperLink runat="server" ID="link_cambiar_contacto"
-                                class="card-link btn btn-secondary">
-                               Cambiar/Establecer
+                        <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Datos de quien recibe</h4>
+                        <div class="is-px-8 is-py-2">
+                            <h6 id="contacto_title" class="" runat="server"></h6>
+                            <p id="contacto_desc" class="" runat="server"></p>
+                            <asp:HyperLink runat="server" ID="link_cambiar_contacto">
+                               Cambiar
                             </asp:HyperLink>
                         </div>
+                    </div>
+                </div>
+                <div class="is-rounded-lg is-shadow is-my-2" style="border: 2px solid red">
+                    <div class="is-flex is-flex-col">
+                        <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Envío</h4>
+                        <div class="is-px-8 is-py-2">
+                            <h6 id="metodo_envio_title" class="card-subtitle" runat="server"></h6>
+                            <p id="metodo_envio_desc" class="card-text is-select-all" runat="server"></p>
+                            <div id="msg_alert_envio" visible="false" class="alert alert-warning" role="alert" runat="server"></div>
+                            <%--<asp:LinkButton ID="btn_Borrar_msg_alert_envio" CssClass="mb-2" Visible="false" OnClick="btn_Borrar_msg_alert_envio_Click" runat="server">
+                            Borrar mensaje de error envío
+                            </asp:LinkButton>--%>
+                            <div class="is-flex is-justify-between is-items-center">
+                                <%--<div class="Conteng_msg_envioNota"></div>--%>
+                                <div class="dropdown">
+                                    <asp:HyperLink runat="server" ID="btn_cambiar_metodo_envio" class="">
+                                Cambiar método de envío
+                                    </asp:HyperLink>
+                                </div>
+                                <uc:EdicionDetallesDeEnvioPedido ID="uc_EdicionDetallesDeEnvioPedido" runat="server" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <h1 class="h3">#<asp:Literal ID="lt_numero_pedido" runat="server"></asp:Literal></h1>
@@ -81,28 +102,6 @@
                             class="card-link btn btn-secondary">
                                 Cambiar
                         </asp:HyperLink>
-                    </div>
-                </div>
-                <div class="card mt-4  ">
-                    <div class="card-body  border-top border-3">
-                        <h4 class="card-title">Envio</h4>
-                        <uc:EdicionDetallesDeEnvioPedido ID="uc_EdicionDetallesDeEnvioPedido" runat="server" />
-                        <h6 id="metodo_envio_title" class="card-subtitle mb-2 text-muted" runat="server"></h6>
-                        <p id="metodo_envio_desc" class="card-text" runat="server"></p>
-                        <div id="msg_alert_envio" visible="false" class="alert alert-warning" role="alert" runat="server"></div>
-                        <asp:LinkButton ID="btn_Borrar_msg_alert_envio" CssClass="mb-2" Visible="false" OnClick="btn_Borrar_msg_alert_envio_Click" runat="server">
-                            Borrar mensaje de error envío
-                        </asp:LinkButton>
-                        <div class="Conteng_msg_envioNota">
-                        </div>
-
-                        <div class="dropdown">
-                            <asp:HyperLink runat="server" ID="btn_cambiar_metodo_envio"
-                                class="card-link btn btn-secondary">
-                                Cambiar método de envío
-                            </asp:HyperLink>
-                        </div>
-
                     </div>
                 </div>
                 <div class="d-grid gap-2 mt-3">

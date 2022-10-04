@@ -58,7 +58,7 @@
             Notiflix.Notify.merge({
                 closeButton: false,
                 width: '280px',
-                showOnlyTheLastOne: true
+                showOnlyTheLastOne: false
             });
             Notiflix.Notify.success(message);
             break;
@@ -69,7 +69,7 @@
             Notiflix.Notify.warning(message);
             break;
         case "info":
-            Notifix.Notify.info(message);
+            Notiflix.Notify.info(message);
             break;
     }
 }

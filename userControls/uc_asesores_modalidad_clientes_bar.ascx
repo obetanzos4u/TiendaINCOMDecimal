@@ -3,12 +3,12 @@
 <!-- Dropdown Structure -->
 <div class="user-menu">
     <%--<button type="button" id="btn-asesor" class="is-text-white is-bg-blue is-px-2 is-rounded-2xl" style="outline-width: 0; border: 0; cursor: pointer;" data-target="advisorDropdown">Asesor</button>--%>
-    <asp:Label ID="lbl_modalidad_asesores" class="is-bg-blue is-text-white is-px-2 is-rounded" runat="server">
-        <asp:CheckBox ID="chk_modalidad_asesores" AutoPostBack="true" Text="Modo asesor" CssClass="is-text-white" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
+    <asp:Label ID="lbl_modalidad_asesores" class="is-bg-blue is-text-white is-px-2 is-rounded is-cursor-pointer" runat="server">
+        <asp:CheckBox ID="chk_modalidad_asesores" AutoPostBack="true" Text="Modo asesor" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
     </asp:Label>
 <%--    <label class="is-text-white is-bg-blue is-px-4 is-rounded-2xl">
     </label>--%>
-    <ul style="list-style: none;">
+    <ul id="modoAsesorUl" style="list-style: none;" runat="server">
         <li>
             <asp:HyperLink ID="myBtnCambiarAsesorModal" ClientIDMode="Static" Style="cursor: pointer;" runat="server">Cambiar</asp:HyperLink>
         </li>

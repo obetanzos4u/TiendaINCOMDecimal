@@ -278,7 +278,7 @@
 
 <div id="content_btn_admin" runat="server" visible="false" style="padding: 8px 10px; float: left; z-index: 99997; background: white; position: sticky; top: 0px;">
     <a id="btn_admin" href="#!" data-target='<%=adminBar.ClientID %>' style="margin-left: 10px;" class="sidenav-trigger ">
-        <i style="line-height: 36px !important;" class="material-icons">settings</i>
+        <img src="https://www.incom.mx/img/webUI/newdesign/Tuerca.svg" alt="Admin bar"/>
     </a>
 </div>
 <script>
