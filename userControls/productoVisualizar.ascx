@@ -113,13 +113,13 @@
 
 <div class="is-px-xl">
     <div class="tabs">
-    
+
             <input type="radio" id="tab1" name="tab-control" checked>
             <input type="radio" id="tab2" name="tab-control">
             <input type="radio" id="tab3" name="tab-control">  
             <ul>
             <li title="Características"><label for="tab1" role="button"><span>Características</span></label></li>
-            <li title="Espcificaciones"><label for="tab2" role="button"><span>Especificaciones</span></label></li>
+            <li title="Especificaciones"><label for="tab2" role="button"><span>Especificaciones</span></label></li>
             <li title="Consideraciones"><label for="tab3" role="button"><span>Consideraciones</span></label></li>    
             </ul>
             
@@ -132,7 +132,7 @@
                         </p>
                     </div>
             </section>
-                <section>
+                <section>       
                     <!-- caracteristicas -->
                         <div class="wrapper-especificaciones">
                             <div class="left-especificaciones">
@@ -380,7 +380,6 @@
     }
 
     .bottom-especificaciones {
-        margin-left: 5%;
         margin-top: 2em;
     }
 
@@ -531,6 +530,10 @@
             .tabs ul li label svg {
                 height: 1.5em;
             }
+
+        .content-tab {
+            font-size: 10px;
+        }
     }
 
     @media (max-width: 450px) {
@@ -556,12 +559,33 @@
             }
     }
 
-    @media (min-width: 1000px) and (max-width: 1600px) {
+    @media (min-width: 1200px) and (max-width: 1600px) {
         
         .tabs {
             width: auto;
             margin-left: 2rem;
             margin-right: 2rem;
         }
+    }
+
+    @media (max-width: 1200px) {
+
+        .tabs {
+            width: auto;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            padding: 20px
+        }
+
+        .tabs .content-tab section h2,
+        .tabs ul li label {
+            font-size: 12px;
+        } 
+    }
+
+    @media only screen and (max-width: 992px) {
+        .tabs {
+            display: block !important;
+            }
     }
 </style>
