@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 public partial class usuario_cliente_resumen : System.Web.UI.Page
@@ -78,10 +79,26 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         lbl_total.Text = pedido_montos.total.ToString("C2", myNumberFormatInfo) + " " + pedido_montos.monedaPedido;
 
         #region Datos de Contacto
-        contacto_title.InnerText = $"{pedidos_datos.cliente_nombre} {pedidos_datos.cliente_apellido_paterno} ";
-        contacto_desc.InnerText = $"{pedidos_datos.cliente_nombre} {pedidos_datos.cliente_apellido_paterno} {pedidos_datos.cliente_apellido_materno}" +
-            $", Teléfono fijo: {pedidos_datos.telefono}" +
-            $", Celular: {pedidos_datos.celular}";
+        contacto_title.InnerText = $"{pedidos_datos.cliente_nombre} {pedidos_datos.cliente_apellido_paterno}";
+        if (string.IsNullOrEmpty(pedidos_datos.telefono) && string.IsNullOrEmpty(pedidos_datos.celular))
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Completa la información de contacto");
+            contacto_desc.InnerHtml = $"<ul class='list-none'><li class='is-text-red is-font-semibold'>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li class='is-text-red is-font-semibold'>Celular: {pedidos_datos.celular}</li></ul>";
+        }
+        else if (string.IsNullOrEmpty(pedidos_datos.telefono) && !string.IsNullOrEmpty(pedidos_datos.celular))
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "Completa la información de contacto");
+            contacto_desc.InnerHtml = $"<ul class='list-none '><li class='is-text-red is-font-semibold'>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li>Celular: {pedidos_datos.celular}</li></ul>";
+        }
+        else if (string.IsNullOrEmpty(pedidos_datos.celular) && !string.IsNullOrEmpty(pedidos_datos.telefono))
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "Completa la información de contacto");
+            contacto_desc.InnerHtml = $"<ul class='list-none'><li>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li class='is-text-red is-font-semibold'>Celular: {pedidos_datos.celular}</li></ul>";
+        }
+        else
+        {
+            contacto_desc.InnerHtml = $"<ul class='list-none'><li>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li>Celular: {pedidos_datos.celular}</li></ul>";
+        }
         #endregion
 
         #region Facturación
@@ -118,22 +135,23 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             // Cambiar si se reactiva la oferta de envío gratis.
             if (pedido_montos.EnvioNota == "Tu operación aplica para envío gratis.")
             {
+                NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Un asesor se contactará para los detalles del envío.");
                 msg_alert_envio.InnerText = "Un asesor se contactará para los detalles del envío.";
-                msg_alert_envio.Visible = true;
-                btn_Borrar_msg_alert_envio.Visible = true;
+                msg_alert_envio.Visible = false;
+                //btn_Borrar_msg_alert_envio.Visible = true;
             }
             else
             {
                 msg_alert_envio.InnerText = pedido_montos.EnvioNota;
                 msg_alert_envio.Visible = true;
-                btn_Borrar_msg_alert_envio.Visible = true;
+                //btn_Borrar_msg_alert_envio.Visible = true;
             }
         }
         else
         {
             msg_alert_envio.InnerText = pedido_montos.EnvioNota;
             msg_alert_envio.Visible = false;
-            btn_Borrar_msg_alert_envio.Visible = false;
+            //btn_Borrar_msg_alert_envio.Visible = false;
         }
 
         #endregion
@@ -158,14 +176,14 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         if (usuarios.userLogin().tipo_de_usuario == "usuario")
         {
 
-            if (msg_alert_envio.InnerText == "")
-            {
-                btn_Borrar_msg_alert_envio.Visible = false;
-            }
-            else
-            {
-                btn_Borrar_msg_alert_envio.Visible = true;
-            }
+            //if (msg_alert_envio.InnerText == "")
+            //{
+            //    btn_Borrar_msg_alert_envio.Visible = false;
+            //}
+            //else
+            //{
+            //    btn_Borrar_msg_alert_envio.Visible = true;
+            //}
             Content_AsesorSeguimiento.Visible = true;
             Content_Pago_Datos_Transferencia_Asesor.Visible = true;
             System.Web.HttpContext.Current.Session["modoAsesor"] = true;
@@ -188,15 +206,16 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             if (direccionEnvio != null)
             {
                 hf_id_pedido_direccion_envio.Value = direccionEnvio.idDireccionEnvio.ToString();
-                metodo_envio_desc.InnerHtml = $"" +
-               $"<span class='text-secondary'>Calle:</span> {direccionEnvio.calle} " +
-               $"<span class='text-secondary'>Número:</span>  {direccionEnvio.numero} " +
-               $"<span class='text-secondary'>Colonia:</span> {direccionEnvio.colonia}, " +
-               $"<span class='text-secondary'>C.P.</span>  {direccionEnvio.codigo_postal}, " +
-               $"<span class='text-secondary'>Municipio: </span>{direccionEnvio.delegacion_municipio}, " +
-               $"<span class='text-secondary'>Estado:</span> {direccionEnvio.estado}," +
-               $" {direccionEnvio.pais} " +
-              $"<br><span class='text-secondary'>Referencias:</span> {direccionEnvio.referencias} ";
+                metodo_envio_desc.InnerHtml = $"<p class='is-select-all is-m-0 is-text-justify'>{direccionEnvio.calle} {direccionEnvio.numero}, {direccionEnvio.colonia}, {direccionEnvio.codigo_postal} {direccionEnvio.delegacion_municipio}, {direccionEnvio.estado}.</p><p class='is-m-0'>Referencias: {direccionEnvio.referencias}</p>";
+              //  metodo_envio_desc.InnerHtml = $"" +
+              // $"<span class='text-secondary'>Calle:</span> {direccionEnvio.calle} " +
+              // $"<span class='text-secondary'>Número:</span>  {direccionEnvio.numero} " +
+              // $"<span class='text-secondary'>Colonia:</span> {direccionEnvio.colonia}, " +
+              // $"<span class='text-secondary'>C.P.</span>  {direccionEnvio.codigo_postal}, " +
+              // $"<span class='text-secondary'>Municipio: </span>{direccionEnvio.delegacion_municipio}, " +
+              // $"<span class='text-secondary'>Estado:</span> {direccionEnvio.estado}," +
+              // $" {direccionEnvio.pais} " +
+              //$"<br><span class='text-secondary'>Referencias:</span> {direccionEnvio.referencias} ";
             }
         }
         else

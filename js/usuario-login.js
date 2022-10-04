@@ -8,10 +8,10 @@
         contentMsg.className = 'is-text-emerald is-text-semibold is-text-center is-select-none';
         setInterval(() => {
             contentMsg.textContent = "Inicio de sesión con Google exitoso, serás redirigido en " + countdown + " segundos.";
-            countdown--;
             if (countdown === 0 || countdown < 0) {
                 location.reload();
             }
+            countdown--;
         }, 1000);
     } else {
         contentMsg.textContent = res.message;
@@ -254,6 +254,7 @@ const LoginAjaxTextResult = (r) => {
                 if (countdown === 0 || countdown < 0) {
                     location.reload();
                 }
+                countdown--;
             }, 1000);
         } else {
             contentMsg.textContent = message;

@@ -56,10 +56,12 @@ public partial class uc_asesores_modalidad_clientes_bar : System.Web.UI.UserCont
             if (!IsPostBack)
             {
                 chk_modalidad_asesores.Checked = modalidadAsesorActivada;
+
             }
             ddl_clientes_asesores.Visible = true;
             myBtnCambiarAsesorModal.Visible = true;
             lbl_modalidad_asesores.Visible = true;
+            modoAsesorUl.Visible = true;
             if (System.Web.HttpContext.Current.Session["datosCliente"] != null)
             {
                 usuarios cliente = (usuarios)System.Web.HttpContext.Current.Session["datosCliente"];
@@ -77,6 +79,7 @@ public partial class uc_asesores_modalidad_clientes_bar : System.Web.UI.UserCont
             lbl_cliente.Visible = false;
             lbl_cliente.Text = "";
             chk_salir_modalidad_asesores.Visible = false;
+            modoAsesorUl.Visible = false;
         }
     }
 
@@ -86,6 +89,7 @@ public partial class uc_asesores_modalidad_clientes_bar : System.Web.UI.UserCont
         if (chk_salir_modalidad_asesores.Checked)
         {
             chk_modalidad = false;
+            modoAsesorUl.Visible = true;
         }
         System.Web.HttpContext.Current.Session["modoAsesor"] = chk_modalidad;
         privacidadAsesores.establecer_DatosCliente(((usuarios)HttpContext.Current.Session["datosUsuario"]).id);
