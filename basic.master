@@ -766,7 +766,7 @@
                 background-color: #949494;
                 color: white;
                 cursor: pointer;
-                padding: 1rem 1.2rem;
+                padding: 0.8rem 1rem;
                 border-radius: 120px;
             }
 

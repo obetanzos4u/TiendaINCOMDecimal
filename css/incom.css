@@ -1095,6 +1095,7 @@
     .tituloProductoTienda {
         font-size: 12px !important;
         line-height: 1.2rem !important;
+        padding-top: 1rem;
     }
 }
 
@@ -1103,9 +1104,15 @@
     .tituloProductoTienda {
         font-size: 10px !important;
         line-height: 10px !important;
+        padding-top: 6px;
     }
 
     #relacionados_splide-list > li {
+        width: 115px;
+        height: auto;
+    }
+
+    #alternativos_splide-list > li {
         width: 115px;
         height: auto;
     }
