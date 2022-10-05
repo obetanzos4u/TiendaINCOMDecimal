@@ -112,7 +112,7 @@
 <div class="producto-main_container row">
     <!--Clases anteriores de este componente col s12 m12 l12 xl12 style="margin: auto 0px !important; min-height: 330px;" -->
     <div class="producto-main_wrap">
-        <div runat="server" id="content_resultado_busqueda_text" visible="false" style="position: sticky; top: 100px; background: white; z-index: 99; overflow: auto; height: 53px;">
+        <div runat="server" id="content_resultado_busqueda_text" visible="false" style="top: 100px; background: white; z-index: 99; overflow: auto; height: 53px;">
             <h2 style="margin: 0px; line-height: 50px;">Resultado de la búsqueda de: 
                 <span class="blue-text">
                     <asp:HyperLink ID="linkTerminoBusqueda" runat="server"></asp:HyperLink>
@@ -201,7 +201,7 @@
                     <ItemTemplate>
                         <%-- class="cajaProductosFCO borderTest" --%>
                         <div id="item_producto" runat="server" class="product-card-list_wrapper">
-                            <div style="padding: 0">
+                            <div class="item-producto-into">
                                 <div class='content_imgProducto_<%# Eval("id") %>'>
                                     <%-- Cotizar: waves-effect --%>
                                     <asp:HyperLink ID="link_productoIMG" Visible="true" runat="server">
@@ -211,7 +211,7 @@
                                     <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false" class="red white-text" Style="padding: 2px 5px; position: absolute; top: 24px;" runat="server"></asp:Label>
                                 </div>
 
-                                <div class="card-content descripciónProductoListado is-bg-gray-100" style="padding-top: 12px; text-align: center;">
+                                <div class="card-content descripciónProductoListado" style="padding-top: 12px; text-align: center; border-radius: 0 0 8px 8px">
                                     <h2 class="margin-b-1x margin-t-2x card-title is-justify-center tituloProductoTienda">
                                         <asp:HyperLink ID="link_producto" class="is-text-black hoverLinkTituloProducto" Target="_blank" runat="server">   <%# Eval("numero_parte") %> -  <%# Eval("titulo") %> </asp:HyperLink>
                                         <asp:Literal ID="lt_numero_parte" Text='<%# Eval("numero_parte") %>' Visible="false" runat="server"></asp:Literal>
@@ -221,9 +221,13 @@
                                         <asp:Literal ID="lt_descripcion_corta" Visible="false" runat="server"></asp:Literal>
                                         Marca
                                         <asp:Label ID="lbl_marca" class="tooltipped" runat="server" Text=""></asp:Label>
-
-
-                                        <br />
+                                    </p>
+                                    <div style="font-size: 14px; text-align: center;"><%# Eval("unidad_venta") %> (<%# Eval("cantidad") %>  <%# Eval("unidad") %>)</div>
+                                    <!-- <div>
+                                        <span style="inline-size: -webkit-fill-available; white-space: nowrap; overflow: hidden;"
+                                            class=" white-text green darken-1 nota">Incluye <strong>IVA ✓</strong> </span>
+                                    </div> -->
+                                    <p>
                                         <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 0.9rem;" Visible="false" runat="server"></asp:Label>
 
                                         <span class="producto_precio">$</span>
@@ -231,12 +235,6 @@
                                         <asp:Label ID="lbl_producto_moneda" CssClass="producto_moneda" runat="server" Text=""></asp:Label>
 
                                     </p>
-                                    <div style="font-size: 14px; text-align: center;"><%# Eval("unidad_venta") %> (<%# Eval("cantidad") %>  <%# Eval("unidad") %>)</div>
-                                    <!-- <div>
-                                        <span style="inline-size: -webkit-fill-available; white-space: nowrap; overflow: hidden;"
-                                            class=" white-text green darken-1 nota">Incluye <strong>IVA ✓</strong> </span>
-                                    </div> -->
-
                                     <div class= "boton-agregar-carrito-resultados">
                                         <uc_addCarrito:add ID="AddCarrito" numero_parte='<%# Eval("numero_parte") %>' runat="server"></uc_addCarrito:add>
                                         <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>

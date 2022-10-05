@@ -18,9 +18,17 @@
 }
 
 .producto_precio {
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    font-size: 0.9rem;
-    color: #05a512;
+    font-size: 1.2rem;
+    color: #000000;
+}
+
+.producto_moneda {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 0.6rem;
+    color: #000000;
 }
 
 .ulFlow {
@@ -163,7 +171,7 @@
 .btn-1 {
 
     border: none;
-    border-radius: 2px;
+    border-radius: 6px;
     display: inline-block;
     height: 36px;
     line-height: 36px;
@@ -176,6 +184,7 @@
     color: #fff;
     background-color: #0066cc;
     text-align: center;
+    font-weight: bold;
     /* letter-spacing: .5px; */
     -webkit-transition: background-color .2s ease-out;
     transition: background-color .2s ease-out;
@@ -204,8 +213,23 @@
 }
 
 .carrito-white_btn {
-    width: 18px;
+    width: 12px;
     height: auto;
+    padding-top: 4px;
+}
+
+.descripciónProductoListado {
+    background-color: #f9f9f9;
+    border: 1px solid #00000325;
+    box-shadow: 0 0 1px #ccc;
+}
+
+.item-producto-into > div > a > div > div  {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid #00000323;
+    -webkit-box-shadow: 0 0 1px #ccc !important;
+    box-shadow: 0 !important;
 }
 
 /* Correción de alineación en las subcategorias */
