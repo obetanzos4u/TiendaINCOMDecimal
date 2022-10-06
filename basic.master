@@ -751,7 +751,8 @@
             }
 
             .material-tooltip {
-                background-color: black;
+                background-color: #0C3766;
+                font-size: 12px !important:
             }
 
             #btn_toTop {

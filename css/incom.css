@@ -90,6 +90,11 @@
     width: 240px;
 }
 
+.img1-item_categoria:hover {
+    transform: scale(0.95);
+    transition: all 0.3s;
+}
+
 .img2-item_categoria {
     width: 240px;
 }
@@ -163,8 +168,13 @@
 }
 
 .truncate {
-    font-weight: 500;
+    font-weight: 600;
 }
+
+.imgage-categoria:hover {
+    transform: scale(0.95);
+    transition: all 0.3s;
+   }
 
 /*Botón carta de producto en resultados*/
 
@@ -231,6 +241,13 @@
     -webkit-box-shadow: 0 0 1px #ccc !important;
     box-shadow: 0 !important;
 }
+
+.resultado_busqueda-txt {
+    color: #0066cc;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
 
 /* Correción de alineación en las subcategorias */
     

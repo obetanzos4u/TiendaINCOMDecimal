@@ -2800,7 +2800,7 @@ if (jQuery) {
 
     // Defaults
     var defaults = {
-      delay: 350,
+      delay: 450,
       tooltip: '',
       position: 'bottom',
       html: false

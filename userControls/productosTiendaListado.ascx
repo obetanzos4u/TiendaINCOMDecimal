@@ -113,12 +113,12 @@
     <!--Clases anteriores de este componente col s12 m12 l12 xl12 style="margin: auto 0px !important; min-height: 330px;" -->
     <div class="producto-main_wrap">
         <div runat="server" id="content_resultado_busqueda_text" visible="false" style="top: 100px; background: white; z-index: 99; overflow: auto; height: 53px;">
-            <h2 style="margin: 0px; line-height: 50px;">Resultado de la búsqueda de: 
-                <span class="blue-text">
+            <h3 style="margin: 0px; line-height: 50px;">Resultado de la búsqueda de: 
+                <span class="resultado_busqueda-txt">
                     <asp:HyperLink ID="linkTerminoBusqueda" runat="server"></asp:HyperLink>
                     <asp:Literal ID="lt_termino_busqueda" runat="server"></asp:Literal>
                 </span>
-            </h2>
+            </h3>
         </div>
         <!-- INICIO : Filtros y orden -->
         <div class="row" style="margin: auto 0px !important;" id="cont_ordenar" runat="server">
@@ -234,6 +234,7 @@
                                         <asp:Label ID="lbl_producto_precio" CssClass="producto_precio" runat="server" Text=""></asp:Label>
                                         <asp:Label ID="lbl_producto_moneda" CssClass="producto_moneda" runat="server" Text=""></asp:Label>
 
+                                        <asp:Label runat="server" ID="lbl_aviso"></asp:Label>
                                     </p>
                                     <div class= "boton-agregar-carrito-resultados">
                                         <uc_addCarrito:add ID="AddCarrito" numero_parte='<%# Eval("numero_parte") %>' runat="server"></uc_addCarrito:add>
@@ -245,7 +246,6 @@
                                             runat="server" class="waves-effect waves-light btn btn-full-text blue modal-trigger" style="margin-top: 5px;"><i class="material-icons left">done</i>
                                             Ver Disponibilidad</a>
                                         <!-- <asp:Label runat="server" ID="lbl_puntajeBusqueda" Visible="false"></asp:Label> -->
-                                        <asp:Label runat="server" ID="lbl_aviso"></asp:Label>
                                     </div>
                                 </div>
                             </div>
@@ -427,6 +427,7 @@
         padding: 3px;
         line-height: 1;
         font-size: 93%;
+        border: 1px solid #c6c6c6;
     }
 
     .slick-slide {
