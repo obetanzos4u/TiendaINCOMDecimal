@@ -168,6 +168,10 @@ body {
     color: rgb(0, 0, 0);
 }
 
+.is-text-gray {
+    color: rgb(107, 114, 128);
+}
+
 .is-text-title {
     color: #f9f7f7;
 }
@@ -576,6 +580,10 @@ body {
 
 .is-w-1 {
     width: 0.25rem;
+}
+
+.is-w-4 {
+    width: 1rem;
 }
 
 .is-w-6 {

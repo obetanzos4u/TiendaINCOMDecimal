@@ -558,15 +558,14 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
     }
     protected void documentacionExterna(string _documentacionPDF)
     {
-
+        cont_documentacion.Visible = true;
         HyperLink link = new HyperLink();
-        link.CssClass = "waves -effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5";
-        link.Text = @"<i class='material-icons left'>description</i>";
-        link.Text += " Ficha Técnica";
+        link.CssClass = "is-px-4 is-border is-border-black is-rounded";
+        link.Text = "<img src='https://www.incom.mx/img/webUI/newdesign/documento.svg' alt='Ficha técnica' />";
+        link.Text += "Ficha técnica";
         link.NavigateUrl = _documentacionPDF;
         link.Target = "_blank";
         cont_documentacion.Controls.Add(link);
-
     }
 
     protected void procesarDocumentacion(string _documentacionPDF)
@@ -577,67 +576,57 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             documentacionExterna(_documentacionPDF);
             return;
         }
-
-
         if (_documentacionPDF.Contains("_new"))
         {
-
             _documentacionPDF = _documentacionPDF.Replace("_new", "");
             JavaScriptSerializer deserializer = new JavaScriptSerializer();
-
             Dictionary<string, object> D_documentacionPDF = deserializer.Deserialize<Dictionary<string, object>>("{" + _documentacionPDF + "}");
-
+            var counter = 0;
 
             foreach (var atributo in D_documentacionPDF)
             {
-
-
                 HyperLink link = new HyperLink();
-                link.CssClass = "waves -effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5";
-                link.Text = @"<i class='material-icons left'>description</i>";
-                if (atributo.Key.ToLower() == "ft") { link.Text += " Ficha Técnica"; }
-                else if (link.Text == "") { link.Text += " Más documentación"; }
-                else { link.Text = "<i class='material-icons left'>description</i> " + atributo.Key; }
+                link.CssClass = "is-px-4 is-border is-border-black is-rounded";
+                link.Text = "<img src='https://www.incom.mx/img/webUI/newdesign/documento.svg' alt='Documentación' />";
+                if (atributo.Key.ToLower() == "ft")
+                {
+                    link.Text += "Ficha técnica";
+                }
+                else if (link.Text == "")
+                {
+                    link.Text += "Más documentación";
+                }
+                else
+                {
+                    link.Text = "<img src='https://www.incom.mx/img/webUI/newdesign/documento.svg' alt='Ficha técnica' />" + atributo.Key;
+                }
 
-                if (atributo.Value.ToString().Contains("http")) link.NavigateUrl = atributo.Value.ToString();
+                if (atributo.Value.ToString().Contains("http"))
+                {
+                    link.NavigateUrl = atributo.Value.ToString();
+                }
                 else
                 {
                     if (!archivosManejador.validarExistenciaPDF(atributo.Value.ToString()))
                     {
+                        counter++;
                         continue;
                     }
+                    cont_documentacion.Visible = true;
                     link.NavigateUrl = Request.Url.GetLeftPart(UriPartial.Authority) + archivosManejador.pdfDirectorioWeb + atributo.Value;
                 }
 
                 link.Target = "_blank";
                 cont_documentacion.Controls.Add(link);
-
-
-
-
-
-
-
             }
-
-
-
-
         }
         else   //Si contiene múltiples fichas en el formato antiguo (separado por comas
         {
-
-
             string[] documentacionPDF = _documentacionPDF.Split(',');
-
-
             if (documentacionPDF.Length >= 1)
             {
-
-
                 for (int i = 0; i < documentacionPDF.Length; i++)
                 {
-
                     if (archivosManejador.validarExistenciaPDF(documentacionPDF[i]))
                     {
                         HyperLink link = new HyperLink();
@@ -647,20 +636,12 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                         link.NavigateUrl = Request.Url.GetLeftPart(UriPartial.Authority) + archivosManejador.pdfDirectorioWeb + documentacionPDF[i];
                         link.Target = "_blank";
                         cont_documentacion.Controls.Add(link);
-
                     }
-
-
                 }
-
             }
-
         }
-
-
-
-
     }
+
     protected void procesarImagenesYVideo(string img, string alt, string title, string video)
     {
         img = img.Replace(" ", "");

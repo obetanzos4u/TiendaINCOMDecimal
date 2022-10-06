@@ -43,6 +43,7 @@
         gtag('js', new Date());
         gtag('config', 'UA-23255752-4');
         gtag('config', 'AW-918960672');
+        gtag('config', 'G-51F7JY1HKZ');
     </script>
     <script>
         //<![CDATA[
