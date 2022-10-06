@@ -41,23 +41,35 @@
                         <asp:Literal ID="lt_numero_parte" Visible="false" runat="server"></asp:Literal>
                         <asp:Literal ID="lt_titulo" runat="server"></asp:Literal>
                     </h1>
-                    <span class="is-block is-font-semibold">Número de parte:  <strong>
-                        <asp:Label ID="lbl_numero_parte" Style="margin: 0px; display: inline; padding: 2px 16px;" runat="server" Text=""></asp:Label></strong>
-                    </span>
-                    <span class="is-block is-font-semibold">Marca:  <strong>
-                        <asp:Label ID="lbl_marca" Style="margin: 0px; display: inline; padding: 2px 16px;" runat="server" Text=""></asp:Label></strong>
-                    </span>
-                    <span class="is-block is-font-semibold">Unidad de venta:  <strong>
-                        <asp:Literal ID="lt_unidad_venta" runat="server"></asp:Literal></strong>
-                    &nbsp;
-                    (<asp:Literal ID="lt_cantidad" runat="server"></asp:Literal>
-                    &nbsp;
-                    <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
-                    </span>
-                    <p style="margin-bottom: 4rem;">
-                        <asp:Label ID="lbl_descripcion_corta" runat="server" Text="descripcion_corta"></asp:Label>
-                        <uc1:metaTagColaborativo ID="metaTagColaborativo" runat="server"></uc1:metaTagColaborativo>
-                    </p>
+                    <div class="is-flex is-justify-start is-items-center is-font-semibold is-m-0">
+                        <p class="is-m-0">Número de parte:</p>
+                        <strong class="is-select-all">
+                            <asp:Label ID="lbl_numero_parte" Style="margin: 0px; display: inline; padding: 2px 16px;" runat="server" Text=""></asp:Label>
+                        </strong>
+                        <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none" onclick="copiarNumeroParte()">
+                            <span class="is-text-gray">
+                                <svg class="is-w-4 is-h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="is-flex is-justify-start is-items-center is-font-semibold is-m-0">
+                        <p class="is-m-0">Marca:</p>
+                        <strong class="is-select-all">
+                            <asp:Label ID="lbl_marca" Style="margin: 0px; display: inline; padding: 2px 16px;" runat="server" Text=""></asp:Label>
+                        </strong>
+                    </div>
+                    <div class="is-flex is-justify-start is-items-center is-font-semibold is-m-0">
+                        <p class="is-m-0">Unidad de venta: </p>
+                        <strong>
+                            <asp:Literal ID="lt_unidad_venta" runat="server"></asp:Literal>
+                        </strong>
+                        (<asp:Literal ID="lt_cantidad" runat="server"></asp:Literal>
+                        <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
+                    </div>
+                    <asp:Label ID="lbl_descripcion_corta" CssClass="is-my-4" runat="server" Text="descripcion_corta"></asp:Label>
+                    <uc1:metaTagColaborativo ID="metaTagColaborativo" runat="server"></uc1:metaTagColaborativo>
                     <SAP:productoStock ID="sap_producto_disponibilidad" Visible="true" runat="server"></SAP:productoStock>
                     <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>
                 </div>
@@ -76,12 +88,12 @@
                                     <br />
                                     <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false"
                                         class="red white-text" Style="padding: 2px 5px" runat="server"></asp:Label>
-                                    </section>
-                                    <section class="text-IVA">
-                                        <span class="is-text-black nota">IVA <strong>incluido</strong> </span>
-                                    </section>                               
-                                    <br />
-                                    <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>                            
+                                </section>
+                                <section class="text-IVA">
+                                    <span class="is-text-black nota">IVA <strong>incluido</strong> </span>
+                                </section>
+                                <br />
+                                <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
                             </div>
                             <div class="row" style="margin: inherit 0px;">
                                 <div class="s12 m12 l12 xl12">
@@ -90,22 +102,21 @@
                                         <div class="input-field moneda-input" style="z-index: 0 !important;">
                                             Moneda:
                                         <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
-                                        </div>                                
+                                        </div>
                                     </section>
                                     <section class="wrapper-cantidad">
                                         <uc_addCarrito:add ID="AddCarrito" runat="server"></uc_addCarrito:add>
-                                    </section>    
+                                    </section>
                                 </div>
                             </div>
                             <uc1:btn_addOperacion ID="productoAddOperacion" runat="server"></uc1:btn_addOperacion>
-                        </div>                    
+                        </div>
                     </div>
                     <uc_share_btn:share_btnGen ID="share_btn" runat="server"></uc_share_btn:share_btnGen>
                 </div>
             </div>
-            <div class="">
-                <h2 style="margin: 0em 0em 0em 1em; font-size: 1.2rem !important;">Documentación</h2>
-                <p id="cont_documentacion" runat="server"></p>
+            <div id="cont_documentacion" runat="server" visible="false">
+                <h2>Documentación</h2>
             </div>
         </div>
     </div>
@@ -126,45 +137,45 @@
             <div class="slider-tab"><div class="indicator-tab"></div></div>
             <div class="content-tab">
             <section>
-                    <div id="content_caracteristicas">
-                        <p class="item-caracteristicas">
-                            <asp:Label ID="lbl_especificaciones" class="caracteristicas-list" runat="server"></asp:Label>
-                        </p>
-                    </div>
+                <div id="content_caracteristicas">
+                    <p class="item-caracteristicas">
+                        <asp:Label ID="lbl_especificaciones" class="caracteristicas-list" runat="server"></asp:Label>
+                    </p>
+                </div>
             </section>
-                <section>       
-                    <!-- caracteristicas -->
-                        <div class="wrapper-especificaciones">
-                            <div class="left-especificaciones">
-                                <span class="detalles-producto"><strong>Detalles del producto</strong></span>
-                                <br>
-                                <table class="striped striped-tb" style="width: 100%;">
-                                    <tbody id="tbody_caracteristicas" runat="server">
-                                    </tbody>
-                                </table>                        
-                            </div>
-                            <div class="right-especificaciones">
-                                <span class="medidas-empaque"><strong>Medidas del empaque</strong></span>
-                                <br>
-                                <table class="striped striped-tb" style="width: 100%;">
-                                    <tbody id="tbody_dimensiones_empaque" runat="server">
-                                    </tbody>
-                                </table>                         
-                            </div>
-                        </div>  
-                        <p class="bottom-especificaciones">
-                        Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando 
-                            <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
-                        </p>                  
-                </section>
-                <section>
-                    <div id="content_avisos">
-                        <ul id="ProductoAvisosListado" class="content_avisos-list" style="padding-left: 5%; !important; display: inline-block;" runat="server">
-                        </ul>
+            <section>
+                <!-- caracteristicas -->
+                <div class="wrapper-especificaciones">
+                    <div class="left-especificaciones">
+                        <span class="detalles-producto"><strong>Detalles del producto</strong></span>
+                        <br>
+                        <table class="striped striped-tb" style="width: 100%;">
+                            <tbody id="tbody_caracteristicas" runat="server">
+                            </tbody>
+                        </table>
                     </div>
-                </section>
-            </div>
+                    <div class="right-especificaciones">
+                        <span class="medidas-empaque"><strong>Medidas del empaque</strong></span>
+                        <br>
+                        <table class="striped striped-tb" style="width: 100%;">
+                            <tbody id="tbody_dimensiones_empaque" runat="server">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <p class="bottom-especificaciones">
+                    Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando 
+                            <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
+                </p>
+            </section>
+            <section>
+                <div id="content_avisos">
+                    <ul id="ProductoAvisosListado" class="content_avisos-list" style="padding-left: 5%; !important; display: inline-block;" runat="server">
+                    </ul>
+                </div>
+            </section>
         </div>
+    </div>
 
     <div class="s12 m12 l12 xl12">
         <productos:relacionados ID="productosRelacionados" runat="server"></productos:relacionados>
@@ -210,6 +221,10 @@
         document.getElementById("productGallery_selected").src = firstSrc;
         selectedImg.setAttribute("data-zoom", firstSrc);
     });
+    const copiarNumeroParte = () => {
+        const numeroParte = document.getElementById("top_contenido_ctl00_lbl_numero_parte").innerText;
+        navigator.clipboard.writeText(numeroParte);
+    }
 </script>
 
 <uc1:mdl_addOperacion ID="mdl_addOperacion" runat="server"></uc1:mdl_addOperacion>
@@ -364,7 +379,7 @@
             .tabs input[name=tab-control]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label svg {
                 fill: #01568D;
             }
-            
+
     .wrapper-especificaciones {
         display: flex;
         justify-content: center;

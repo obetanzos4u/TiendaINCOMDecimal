@@ -52,7 +52,6 @@
             trimSpace: true,
             updateOnMove: true
         });
-        console.log(splide)
         splide.mount();
     });
 </script>
