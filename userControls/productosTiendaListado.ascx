@@ -112,13 +112,13 @@
 <div class="producto-main_container row">
     <!--Clases anteriores de este componente col s12 m12 l12 xl12 style="margin: auto 0px !important; min-height: 330px;" -->
     <div class="producto-main_wrap">
-        <div runat="server" id="content_resultado_busqueda_text" visible="false" style="position: sticky; top: 100px; background: white; z-index: 99; overflow: auto; height: 53px;">
-            <h2 style="margin: 0px; line-height: 50px;">Resultado de la búsqueda de: 
-                <span class="blue-text">
+        <div runat="server" id="content_resultado_busqueda_text" visible="false" style="top: 100px; background: white; z-index: 99; overflow: auto; height: 53px;">
+            <h3 style="margin: 0px; line-height: 50px;">Resultado de la búsqueda de: 
+                <span class="resultado_busqueda-txt">
                     <asp:HyperLink ID="linkTerminoBusqueda" runat="server"></asp:HyperLink>
                     <asp:Literal ID="lt_termino_busqueda" runat="server"></asp:Literal>
                 </span>
-            </h2>
+            </h3>
         </div>
         <!-- INICIO : Filtros y orden -->
         <div class="row" style="margin: auto 0px !important;" id="cont_ordenar" runat="server">
@@ -200,8 +200,8 @@
                     </LayoutTemplate>
                     <ItemTemplate>
                         <%-- class="cajaProductosFCO borderTest" --%>
-                        <div id="item_producto" runat="server" style="width: 200px; float: left; margin: 0 30px;">
-                            <div style="padding: 0">
+                        <div id="item_producto" runat="server" class="product-card-list_wrapper">
+                            <div class="item-producto-into">
                                 <div class='content_imgProducto_<%# Eval("id") %>'>
                                     <%-- Cotizar: waves-effect --%>
                                     <asp:HyperLink ID="link_productoIMG" Visible="true" runat="server">
@@ -211,37 +211,32 @@
                                     <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false" class="red white-text" Style="padding: 2px 5px; position: absolute; top: 24px;" runat="server"></asp:Label>
                                 </div>
 
-                                <div class="card-content descripciónProductoListado" style="padding-top: 12px;">
-                                    <h2 class="margin-b-1x margin-t-2x card-title tituloProductoTienda">
-                                        <asp:HyperLink ID="link_producto" class=" hoverLinkTituloProducto" Target="_blank" runat="server">   <%# Eval("numero_parte") %> -  <%# Eval("titulo") %> </asp:HyperLink>
+                                <div class="card-content descripciónProductoListado" style="padding-top: 12px; text-align: center; border-radius: 0 0 8px 8px">
+                                    <h2 class="margin-b-1x margin-t-2x card-title is-justify-center tituloProductoTienda">
+                                        <asp:HyperLink ID="link_producto" class="is-text-black hoverLinkTituloProducto" Target="_blank" runat="server">   <%# Eval("numero_parte") %> -  <%# Eval("titulo") %> </asp:HyperLink>
                                         <asp:Literal ID="lt_numero_parte" Text='<%# Eval("numero_parte") %>' Visible="false" runat="server"></asp:Literal>
                                     </h2>
 
-                                    <p style="line-height: 20px;">
+                                    <p style="line-height: 20px; text-align: center;">
                                         <asp:Literal ID="lt_descripcion_corta" Visible="false" runat="server"></asp:Literal>
                                         Marca
                                         <asp:Label ID="lbl_marca" class="tooltipped" runat="server" Text=""></asp:Label>
-
-
-                                        <br />
+                                    </p>
+                                    <div style="font-size: 14px; text-align: center;"><%# Eval("unidad_venta") %> (<%# Eval("cantidad") %>  <%# Eval("unidad") %>)</div>
+                                    <!-- <div>
+                                        <span style="inline-size: -webkit-fill-available; white-space: nowrap; overflow: hidden;"
+                                            class=" white-text green darken-1 nota">Incluye <strong>IVA ✓</strong> </span>
+                                    </div> -->
+                                    <p>
                                         <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 0.9rem;" Visible="false" runat="server"></asp:Label>
 
                                         <span class="producto_precio">$</span>
                                         <asp:Label ID="lbl_producto_precio" CssClass="producto_precio" runat="server" Text=""></asp:Label>
                                         <asp:Label ID="lbl_producto_moneda" CssClass="producto_moneda" runat="server" Text=""></asp:Label>
 
+                                        <asp:Label runat="server" ID="lbl_aviso"></asp:Label>
                                     </p>
-                                    <div style="font-size: 14px;"><%# Eval("unidad_venta") %> (<%# Eval("cantidad") %>  <%# Eval("unidad") %>)</div>
-
-
-
-
-                                    <div>
-                                        <span style="inline-size: -webkit-fill-available; white-space: nowrap; overflow: hidden;"
-                                            class=" white-text green darken-1 nota">Incluye <strong>IVA ✓</strong> </span>
-                                    </div>
-
-                                    <div>
+                                    <div class= "boton-agregar-carrito-resultados">
                                         <uc_addCarrito:add ID="AddCarrito" numero_parte='<%# Eval("numero_parte") %>' runat="server"></uc_addCarrito:add>
                                         <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>
 
@@ -250,11 +245,9 @@
                                         <a id="btn_VerDisponibilidad" visible="false"
                                             runat="server" class="waves-effect waves-light btn btn-full-text blue modal-trigger" style="margin-top: 5px;"><i class="material-icons left">done</i>
                                             Ver Disponibilidad</a>
-                                        <asp:Label runat="server" ID="lbl_puntajeBusqueda" Visible="false"></asp:Label>
-                                        <asp:Label runat="server" ID="lbl_aviso"></asp:Label>
+                                        <!-- <asp:Label runat="server" ID="lbl_puntajeBusqueda" Visible="false"></asp:Label> -->
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </ItemTemplate>
@@ -434,6 +427,7 @@
         padding: 3px;
         line-height: 1;
         font-size: 93%;
+        border: 1px solid #c6c6c6;
     }
 
     .slick-slide {

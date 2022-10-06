@@ -1003,6 +1003,11 @@ body {
     border: 1px solid #00000037;
 }
 
+
+.select-wrapper input.select-dropdown {
+    width: 80% !important;
+}
+
 /* Responsive */
 
 @media (max-width: 700px) {
@@ -1059,9 +1064,9 @@ body {
         margin-top: 4px;
     }
 
-    .container-descripcion {
+    /* .container-descripcion {
         width: 70%;
-    }
+    } */
 
     #btn_agregar_productoCarrito {
         font-size: 9px;

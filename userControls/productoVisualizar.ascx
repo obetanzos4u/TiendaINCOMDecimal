@@ -23,7 +23,7 @@
             <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
         </div>
     </div>
-    <div class="productcard is-flex is-px-xl">
+    <div class="productcard is-px-xl">
         <div class="is-productGallery">
             <div class="is-productGallery_featured container-iframe is-cursor-crosshair" id="selectedImage" runat="server">
                 <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Fotografía de producto" style="position: relative; width: 100%" />
@@ -31,7 +31,9 @@
             </div>
             <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
             <section id="productZoom"></section>
+            <span class="txt-gallery">Posiciona el cursor sobre la imagen para obtener una vista ampliada.</span>
         </div>
+
         <div class="container-descripcion is-relative">
             <div class="is-flex">
                 <div class="wrapper-descripcion">
@@ -123,22 +125,17 @@
 <div class="is-px-xl">
     <div class="tabs">
 
-        <input type="radio" id="tab1" name="tab-control">
-        <input type="radio" id="tab2" name="tab-control">
-        <input type="radio" id="tab3" name="tab-control">
-        <ul>
-            <li title="Características">
-                <label for="tab1" role="button"><span>Características</span></label></li>
-            <li title="Espcificaciones">
-                <label for="tab2" role="button"><span>Especificaciones</span></label></li>
-            <li title="Consideraciones">
-                <label for="tab3" role="button"><span>Consideraciones</span></label></li>
-        </ul>
-
-        <div class="slider-tab">
-            <div class="indicator-tab"></div>
-        </div>
-        <div class="content-tab">
+            <input type="radio" id="tab1" name="tab-control" checked>
+            <input type="radio" id="tab2" name="tab-control">
+            <input type="radio" id="tab3" name="tab-control">  
+            <ul>
+            <li title="Características"><label for="tab1" role="button"><span>Características</span></label></li>
+            <li title="Especificaciones"><label for="tab2" role="button"><span>Especificaciones</span></label></li>
+            <li title="Consideraciones"><label for="tab3" role="button"><span>Consideraciones</span></label></li>    
+            </ul>
+            
+            <div class="slider-tab"><div class="indicator-tab"></div></div>
+            <div class="content-tab">
             <section>
                 <div id="content_caracteristicas">
                     <p class="item-caracteristicas">
@@ -236,7 +233,8 @@
     @import "https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400";
 
     .content-tab {
-        font-size: 12px;
+        justify-content: center;
+        display: flex;
     }
 
     .tabs {
@@ -384,6 +382,7 @@
 
     .wrapper-especificaciones {
         display: flex;
+        justify-content: center;
     }
 
     .right-especificaciones {
@@ -392,8 +391,12 @@
         margin-left: 5%;
     }
 
+    .txt-gallery {
+        font-size: 12px;
+        margin-bottom: 2rem;
+    }
+
     .bottom-especificaciones {
-        margin-left: 5%;
         margin-top: 2em;
     }
 
@@ -569,12 +572,54 @@
             }
     }
 
-    @media (min-width: 1000px) and (max-width: 1600px) {
-
+    @media (min-width: 1200px) and (max-width: 1600px) {
+        
         .tabs {
             width: auto;
             margin-left: 2rem;
             margin-right: 2rem;
+        }
+    }
+
+    @media (max-width: 1200px) {
+
+        .tabs {
+            width: auto;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            padding: 20px
+        }
+
+        .tabs .content-tab section h2,
+        .tabs ul li label {
+            font-size: 12px;
+        } 
+    }
+
+    @media only screen and (max-width: 992px) {
+        .tabs {
+            display: block !important;
+            }
+    }
+
+    @media (min-width: 350px) {
+    
+        .content-tab {
+            font-size: 8px;
+        }
+    }
+
+    @media (min-width: 700px) {
+    
+        .content-tab {
+            font-size: 12px;
+        }
+    }
+
+    @media (min-width: 1600px) {
+
+        .content-tab {
+            font-size: 16px;
         }
     }
 </style>

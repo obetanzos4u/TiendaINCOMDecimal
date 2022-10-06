@@ -704,9 +704,14 @@
                     z-index: 100;
                 }
 
+                .splide__slide {
+                padding: 0.75rem !important;
+                margin-right: 0.75rem !important;
+                }
+
                 .splide__slide > a > img {
                     border: 1px solid #00000017;
-                    width: 100px !important;
+                    width: 100% !important;
                 }
 
                 .splide__slide > a > p {
@@ -719,6 +724,9 @@
                     margin: 0em 0em 2em 0em;
                 }
 
+                .inicio_sesion-position {
+                    margin: 3em;
+                }
             }
 
             /****** INICIO Seccion cotizaciones y pedidos */
@@ -747,7 +755,8 @@
             }
 
             .material-tooltip {
-                background-color: black;
+                background-color: #0C3766;
+                font-size: 12px !important:
             }
 
             #btn_toTop {
@@ -762,7 +771,7 @@
                 background-color: #949494;
                 color: white;
                 cursor: pointer;
-                padding: 1rem 1.2rem;
+                padding: 0.8rem 1rem;
                 border-radius: 120px;
             }
 

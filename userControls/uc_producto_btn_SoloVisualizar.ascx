@@ -4,7 +4,7 @@
 
 
 
-<div class="btn_carrito_left">
+<!-- <div class="btn_carrito_left">
     <a href="#" class="btn-small blue-grey darken-1 disabled"><i class="material-icons">remove</i></a>
 </div>
 <div class="txt_center">
@@ -14,7 +14,7 @@
 <div class="btn_carrito_right">
     <a href="#" class="btn-small blue-grey darken-1 disabled"><i class="material-icons">add</i></a>
 
-</div>
+</div> -->
 
 <asp:HyperLink ID="link_VisualizarProducto" CssClass=" waves-effect waves-light btn blue  btn-full-text" runat="server">
             Ver y cotizar <i class="material-icons left">chevron_right</i></asp:HyperLink>
