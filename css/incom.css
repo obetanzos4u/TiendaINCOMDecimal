@@ -264,6 +264,32 @@
     margin: auto;
 }
 
+.margin-btn {
+    margin: 2rem;
+}
+
+.text-contrasena-inicio_sesion {
+    font-size: 1rem !important;
+}
+
+.text-email-inicio_sesion {
+    font-size: 1rem !important;
+}
+
+#btn_iniciar_sesion {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+#txt_email {
+    height:  2.5rem;
+}
+
+#txt_password {
+    height: 2.5rem;
+}
+
 /* Correción de alineación en las subcategorias */
 @media only screen and (min-width: 700px) and (max-width: 993px) {
     .truncate {
