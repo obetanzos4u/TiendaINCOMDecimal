@@ -248,12 +248,25 @@
     font-weight: 600;
 }
 
+.inicio_sesion-position {
+    margin: 6em 3em 3em 3em;
+}
+
+.inicio_sesion-border {
+    border: 1px solid rgba(0, 0, 0, 0.87);
+    border-radius: 8px;
+    margin-right: 10rem;
+    margin-left: 10rem;
+}
+
+.sesion-with_social {
+    text-align: center;
+    margin: auto;
+}
 
 /* Correción de alineación en las subcategorias */
-    
-    @media only screen and (min-width: 700px) and (max-width: 993px)  {
-        
-        .truncate {
+@media only screen and (min-width: 700px) and (max-width: 993px) {
+    .truncate {
             font-size: 1rem !important;
         }
     }
@@ -277,32 +290,6 @@
         .wrapper-descripcion {
             padding-left: 2rem;
             padding-right: 2rem;
-        }
-    }
-
-    @media only screen and (max-width: 700px) {
-
-        .text-pleca {
-            font-size: 10px;
-        }
-
-        .title_nav_cat {
-            width: 180px !important;
-            height: 150px !important;
-        }
-
-        #top_contenido_titulo_categoria {
-            padding-left: 0 !important;
-        }
-
-        .wrapper-descripcion {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .title-product_description {
-            font-size: 14px !important;
-            font-weight: 500;
         }
     }
 
@@ -378,6 +365,11 @@
             font-size: 0.5rem;
             padding-left: 0.25rem;
         } 
+
+        .inicio_sesion-border {
+            width: 480px;
+            margin: auto;
+        }
     }
 
     /*Fin contenedor de ficha de productos */
@@ -823,6 +815,11 @@
         .ticket_compra {
             width: 30%;
         }
+
+        .inicio_sesion-border {
+            width: 540px;
+            margin: auto;
+        }
     }
 
     @media only screen and (min-width: 1100px) {
@@ -954,6 +951,37 @@
     @media only screen and (min-width:993px) {
         .container {
             width: 95%;
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
+
+        .text-pleca {
+            font-size: 10px;
+        }
+
+        .title_nav_cat {
+            width: 180px !important;
+            height: 150px !important;
+        }
+
+        #top_contenido_titulo_categoria {
+            padding-left: 0 !important;
+        }
+
+        .wrapper-descripcion {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .title-product_description {
+            font-size: 14px !important;
+            font-weight: 500;
+        }
+
+        .inicio_sesion-border {
+            width: 360px;
+            margin: auto;
         }
     }
 

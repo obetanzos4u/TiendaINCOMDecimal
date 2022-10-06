@@ -723,6 +723,9 @@
                     margin: 0em 0em 2em 0em;
                 }
 
+                .inicio_sesion-position {
+                    margin: 3em;
+                }
             }
 
             /****** INICIO Seccion cotizaciones y pedidos */
