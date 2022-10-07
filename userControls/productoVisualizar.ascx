@@ -125,17 +125,22 @@
 <div class="is-px-xl">
     <div class="tabs">
 
-            <input type="radio" id="tab1" name="tab-control" checked>
-            <input type="radio" id="tab2" name="tab-control">
-            <input type="radio" id="tab3" name="tab-control">  
-            <ul>
-            <li title="Características"><label for="tab1" role="button"><span>Características</span></label></li>
-            <li title="Especificaciones"><label for="tab2" role="button"><span>Especificaciones</span></label></li>
-            <li title="Consideraciones"><label for="tab3" role="button"><span>Consideraciones</span></label></li>    
-            </ul>
-            
-            <div class="slider-tab"><div class="indicator-tab"></div></div>
-            <div class="content-tab">
+        <input type="radio" id="tab1" name="tab-control" checked>
+        <input type="radio" id="tab2" name="tab-control">
+        <input type="radio" id="tab3" name="tab-control">
+        <ul>
+            <li title="Características">
+                <label for="tab1" role="button"><span>Características</span></label></li>
+            <li title="Especificaciones">
+                <label for="tab2" role="button"><span>Especificaciones</span></label></li>
+            <li title="Consideraciones">
+                <label for="tab3" role="button"><span>Consideraciones</span></label></li>
+        </ul>
+
+        <div class="slider-tab">
+            <div class="indicator-tab"></div>
+        </div>
+        <div class="content-tab">
             <section>
                 <div id="content_caracteristicas">
                     <p class="item-caracteristicas">

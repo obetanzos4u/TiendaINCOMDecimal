@@ -65,7 +65,6 @@
 </style>
 <script>
     async function producto_agregar_carrito_Service(btn) {
-        console.log(btn);
         var idLoading = btnLoadingHide(btn);
         var numero_parte = document.querySelector("#producto_disponibilidad_numero_parte").textContent;
         var cantidad = document.querySelector("#txt_producto_cantidad_disponibilidad").value;
@@ -104,9 +103,6 @@
                 contentType: false,
                 processData: false
             });
-    }
-    const agregarProducto = () => {
-        console.log("Producto agregado");
     }
 </script>
 <div class="producto-main_container row">

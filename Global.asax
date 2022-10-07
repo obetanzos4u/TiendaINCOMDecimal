@@ -99,53 +99,35 @@
         RouteTable.Routes.MapPageRoute("categorias", "productos/{nombre}-{identificador}", "~/categoria.aspx");
         RouteTable.Routes.MapPageRoute("categoriasL2", "productos/{l1}/{nombre}-{identificador}", "~/categoria.aspx");
         RouteTable.Routes.MapPageRoute("categoriasL3", "productos/{l1}/{l2}/{nombre}-{identificador}", "~/categoria.aspx");
-
-
         // Productos
         RouteTable.Routes.MapPageRoute("productos", "producto/{productoNombre}-MARCA-{marca}-{numero_parte}", "~/visualizarProducto.aspx");
-
         RouteTable.Routes.MapPageRoute("busqueda", "productos/buscar", "~/busqueda.aspx");
         RouteTable.Routes.MapPageRoute("productos-old", "{producto-nombre}-MARCA-{marca}-{numero_parte}", "~/visualizarProducto.aspx");
-
         // Cliente 
         RouteTable.Routes.MapPageRoute("usuario-cotizaciones", "usuario/mi-cuenta/cotizaciones/", "~/usuario/mi-cuenta/cotizaciones.aspx");
         RouteTable.Routes.MapPageRoute("usuario-cotizacion-datos", "usuario/mi-cuenta/cotizaciones/datos/{id_operacion}", "~/usuario/mi-cuenta/cotizacion-datos.aspx");
         RouteTable.Routes.MapPageRoute("usuario-cotizacion-productos", "usuario/mi-cuenta/cotizaciones/productos/{id_operacion}", "~/usuario/mi-cuenta/cotizacion-productos.aspx");
         RouteTable.Routes.MapPageRoute("usuario-cotizacion-visualizar", "usuario/mi-cuenta/cotizaciones/visualizar/{id_operacion}", "~/usuario/mi-cuenta/cotizacion-visualizar.aspx");
-
         RouteTable.Routes.MapPageRoute("usuario-pedidos", "usuario/mi-cuenta/pedidos/", "~/usuario/mi-cuenta/pedidos.aspx");
         RouteTable.Routes.MapPageRoute("usuario-pedido-datos", "usuario/mi-cuenta/pedidos/datos/{id_operacion}", "~/usuario/mi-cuenta/pedido-datos.aspx");
         RouteTable.Routes.MapPageRoute("usuario-pedido-productos", "usuario/mi-cuenta/pedidos/productos/{id_operacion}", "~/usuario/mi-cuenta/pedido-productos.aspx");
         RouteTable.Routes.MapPageRoute("usuario-pedido-visualizar", "usuario/mi-cuenta/pedidos/visualizar/{id_operacion}", "~/usuario/mi-cuenta/pedido-visualizar.aspx");
-
         RouteTable.Routes.MapPageRoute("usuario-pedido-pago-paypal", "usuario/mi-cuenta/pedidos/pagos/{id_operacion}", "~/usuario/mi-cuenta/pedido-pago.aspx");
         RouteTable.Routes.MapPageRoute("usuario-pedido-pago-santander", "usuario/mi-cuenta/pedidos/pagos/3DSecure/{id_operacion}", "~/usuario/mi-cuenta/pedido-pago-santander.aspx");
-
         // Enseñanza
-
         RouteTable.Routes.MapPageRoute("glosario", "glosario/{letra}", "~/enseñanza/glosario.aspx");
         RouteTable.Routes.MapPageRoute("infografias", "enseñanza/infografías", "~/enseñanza/infografías.aspx");
         RouteTable.Routes.MapPageRoute("infografia", "infografía/{titulo}/{id}", "~/enseñanza/infografía.aspx");
-
         //Pedidos Cliente Update 2021
         RouteTable.Routes.MapPageRoute("cliente-pedido-datos", "usuario/cliente/mi-cuenta/pedidos/datos/{id_operacion}", "~/usuario/cliente/pedido-datos.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-envio", "usuario/cliente/mi-cuenta/pedidos/envio/{id_operacion}", "~/usuario/cliente/pedido-envio.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-facturacion", "usuario/cliente/mi-cuenta/pedidos/facturacion/{id_operacion}", "~/usuario/cliente/pedido-facturacion.aspx");
-
         RouteTable.Routes.MapPageRoute("cliente-pedido-pago", "usuario/cliente/mi-cuenta/pedidos/pago/{id_operacion}", "~/usuario/cliente/pedido-pago.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-pago-santander", "usuario/cliente/mi-cuenta/pedidos/pago/santander/{id_operacion}", "~/usuario/cliente/pago-santander.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-pago-paypal", "usuario/cliente/mi-cuenta/pedidos/pago/paypal/{id_operacion}", "~/usuario/cliente/pago-paypal.aspx");
-
-
-
         RouteTable.Routes.MapPageRoute("cliente-pedido-resumen", "usuario/cliente/mi-cuenta/pedidos/resumen/{id_operacion}", "~/usuario/cliente/resumen.aspx");
-
-
         RouteTable.Routes.MapPageRoute("cliente-editar-direccion-envio", "usuario/cliente/editar/envio/{id_direccion}", "~/usuario/cliente/editar-direccion-envio.aspx");
         RouteTable.Routes.MapPageRoute("cliente-editar-contacto", "usuario/cliente/editar/contacto/{id_contacto}", "~/usuario/cliente/editar-contacto.aspx");
-
         RouteTable.Routes.MapPageRoute("cliente-editar-direccion-facturacion", "usuario/cliente/editar/facturacion/{id_direccion}", "~/usuario/cliente/editar-direccion-facturacion.aspx");
-
-
     }
 </script>

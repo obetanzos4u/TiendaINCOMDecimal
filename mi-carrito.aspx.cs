@@ -14,6 +14,7 @@ using System.Dynamic;
 using System.Data.Entity;
 using System.Net.Http;
 using System.Web.UI.HtmlControls;
+using DocumentFormat.OpenXml.Drawing;
 
 public partial class mi_carrito : System.Web.UI.Page
 {
@@ -175,7 +176,8 @@ public partial class mi_carrito : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            materializeCSS.crear_toast(this, "Ocurrio un error al calcular el costo de envío", false);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Error al calcular el costo de envío");
+            //materializeCSS.crear_toast(this, "Ocurrio un error al calcular el costo de envío", false);
         }
 
         decimal envio = 0;
@@ -207,7 +209,7 @@ public partial class mi_carrito : System.Web.UI.Page
         string monedaTienda = (uc_moneda.FindControl("ddl_moneda") as DropDownList).SelectedValue;
         if (monedaTienda == "USD") subtotal = (decimal)(subtotal * operacionesConfiguraciones.obtenerTipoDeCambio());
 
-        var total = subtotal*(decimal)1.16;
+        var total = subtotal * (decimal)1.16;
 
         var ListProductosEnvio = new List<ProductoEnvioCalculoModel>();
         foreach (DataRow r in DTproductosCarritos.Rows)
@@ -287,8 +289,8 @@ public partial class mi_carrito : System.Web.UI.Page
             else
             {
                 lbl_envio.Text = CostoEnvio.Message;
-                materializeCSS.crear_toast(this, CostoEnvio.Message, false);
-
+                NotiflixJS.Message(this, NotiflixJS.MessageType.info, CostoEnvio.Message);
+                //materializeCSS.crear_toast(this, CostoEnvio.Message, false);
                 link_API_desglose_envio.Visible = false;
             }
             return new json_respuestas();
@@ -429,11 +431,13 @@ public partial class mi_carrito : System.Web.UI.Page
         {
             cargarProductoAsync();
             up_carrito.Update();
-            materializeCSS.crear_toast(this, actualizar.mensaje_ResultadoOperacion, resultado);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.success, actualizar.mensaje_ResultadoOperacion);
+            //materializeCSS.crear_toast(this, actualizar.mensaje_ResultadoOperacion, resultado);
         }
         else
         {
-            materializeCSS.crear_toast(this, actualizar.mensaje_ResultadoOperacion, resultado);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, actualizar.mensaje_ResultadoOperacion);
+            //materializeCSS.crear_toast(this, actualizar.mensaje_ResultadoOperacion, resultado);
         }
     }
 
@@ -453,12 +457,14 @@ public partial class mi_carrito : System.Web.UI.Page
             eliminar.eliminarProductoCarrito(idProductoCarrito);
             cargarProductoAsync();
             up_carrito.Update();
-            materializeCSS.crear_toast(this, "Producto eliminado con éxito", true);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Producto eliminado con éxito");
+            //materializeCSS.crear_toast(this, "Producto eliminado con éxito", true);
         }
         catch (Exception ex)
         {
             devNotificaciones.error("Error al eliminar producto de carrito", ex);
-            materializeCSS.crear_toast(this, "Error al eliminar producto", false);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al eliminar el producto");
+            //materializeCSS.crear_toast(this, "Error al eliminar producto", false);
         }
     }
 
@@ -476,7 +482,8 @@ public partial class mi_carrito : System.Web.UI.Page
         {
             if (carrito.obtenerCantidadProductos(usuario.email) < 1)
             {
-                materializeCSS.crear_toast(this, "Aún no tienes productos en tu carrito", false);
+                NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Aún no tienes productos en tu carrito");
+                //materializeCSS.crear_toast(this, "Aún no tienes productos en tu carrito", false);
             }
             else
             {
@@ -587,7 +594,8 @@ public partial class mi_carrito : System.Web.UI.Page
 
                     DataTable operacion = obtener.obtenerCotizacionDatos_min(resultado);
 
-                    materializeCSS.crear_toast(this, "Cotización creada con éxito", true);
+                    NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Cotización creada con éxito");
+                    //materializeCSS.crear_toast(this, "Cotización creada con éxito", true);
 
                     string id_operacion_encritado = seguridad.Encriptar(operacion.Rows[0]["id"].ToString());
                     string nombre_cotizacion = operacion.Rows[0]["nombre_cotizacion"].ToString();
@@ -642,11 +650,8 @@ public partial class mi_carrito : System.Web.UI.Page
 
                         emailTienda email = new emailTienda(asunto, $"telemarketing@incom.mx, fgarcia@incom.mx, {usuarioLogin.email}", mensaje, "retail@incom.mx");
                         email.general();
-                        materializeCSS.crear_toast(this, email.resultadoMensaje, email.resultado);
-
-
-
-
+                        NotiflixJS.Message(this, NotiflixJS.MessageType.info, email.resultadoMensaje);
+                        //materializeCSS.crear_toast(this, email.resultadoMensaje, email.resultado);
                     }
                     else
                     {
@@ -659,7 +664,8 @@ public partial class mi_carrito : System.Web.UI.Page
         }
         else
         {
-            materializeCSS.crear_toast(this, "El campo teléfono es obligatorio / Excede la cantidad de caracteres", false);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "El campo teléfono es obligatorio / Excede la cantidad de caracteres");
+            //materializeCSS.crear_toast(this, "El campo teléfono es obligatorio / Excede la cantidad de caracteres", false);
         }
     }
 
@@ -673,7 +679,8 @@ public partial class mi_carrito : System.Web.UI.Page
 
         if (carrito.obtenerCantidadProductos(usuario.email) < 1)
         {
-            materializeCSS.crear_toast(this, "Aún no tienes productos en tu carrito", false);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Aún no tienes productos en tu carrito");
+            //materializeCSS.crear_toast(this, "Aún no tienes productos en tu carrito", false);
             return;
         }
         string nombrePedido = txtNombrePedido.Text;
@@ -786,8 +793,8 @@ public partial class mi_carrito : System.Web.UI.Page
 
             }
 
-
-            materializeCSS.crear_toast(this, "Pedido creado con éxito", true);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Pedido creado con éxito");
+            //materializeCSS.crear_toast(this, "Pedido creado con éxito", true);
 
             pedidosDatos obtener = new pedidosDatos();
             DataTable operacion = obtener.obtenerPedidoDatos(resultado);
@@ -896,7 +903,8 @@ public partial class mi_carrito : System.Web.UI.Page
 
                 email.general();
 
-                materializeCSS.crear_toast(this, email.resultadoMensaje, email.resultado);
+                NotiflixJS.Message(this, NotiflixJS.MessageType.info, email.resultadoMensaje);
+                //materializeCSS.crear_toast(this, email.resultadoMensaje, email.resultado);
 
                 // FIN - Envio de email
                 cargarProductoAsync();
@@ -919,47 +927,55 @@ public partial class mi_carrito : System.Web.UI.Page
     {
         bool resultado = cotizacionesPlantillas.guardarPlantillaDeCarrito();
 
-        if (resultado) materializeCSS.crear_toast(this, "Plantilla guardada con éxito", true);
-        else if (resultado) materializeCSS.crear_toast(this, "Error al guardar plantilla", true);
+        if (resultado)
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Plantilla guardada con éxito");
+            //materializeCSS.crear_toast(this, "Plantilla guardada con éxito", true);
+        }
+        else if (resultado)
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "Error al guardar la plantilla");
+            //materializeCSS.crear_toast(this, "Error al guardar plantilla", true);
+        }
+
+        //protected async void txt_telefono_fijo_TextChangedAsync(object sender, EventArgs e)
+        //{
+        //    var EmailUserLogin = hf_UserLogin.Value;
+        //    var Telefono = textTools.lineSimple(txt_telefono_fijo.Text);
+        //    var result = await UsuariosDatosEF.GuardarTelefonoFijo(EmailUserLogin, Telefono);
+
+        //    if (result.result)
+        //    {
+        //        lbl_text_result_saved_tel.ForeColor = System.Drawing.Color.Green;
+        //        lbl_text_result_saved_tel.Text = result.message;
+        //        usuarios.establecer_DatosClienteStatic(EmailUserLogin);
+        //    }
+        //    else
+        //    {
+        //        lbl_text_result_saved_tel.ForeColor = System.Drawing.Color.Red;
+        //        lbl_text_result_saved_tel.Text = result.message;
+        //    }
+        //    mostrarModalContacto();
+        //}
+
+        //protected async void txt_celular_TextChangedAsync(object sender, EventArgs e)
+        //{
+        //    var EmailUserLogin = hf_UserLogin.Value;
+        //    var Celular = textTools.lineSimple(txt_celular.Text);
+        //    var result = await UsuariosDatosEF.GuardarCelular(EmailUserLogin, Celular);
+
+        //    if (result.result)
+        //    {
+        //        lbl_text_result_saved_tel.ForeColor = System.Drawing.Color.Green;
+        //        lbl_text_result_saved_tel.Text = result.message;
+        //        usuarios.establecer_DatosClienteStatic(EmailUserLogin);
+        //    }
+        //    else
+        //    {
+        //        lbl_text_result_saved_tel.ForeColor = System.Drawing.Color.Red;
+        //        lbl_text_result_saved_tel.Text = result.message;
+        //    }
+        //    mostrarModalContacto();
+        //}
     }
-
-    //protected async void txt_telefono_fijo_TextChangedAsync(object sender, EventArgs e)
-    //{
-    //    var EmailUserLogin = hf_UserLogin.Value;
-    //    var Telefono = textTools.lineSimple(txt_telefono_fijo.Text);
-    //    var result = await UsuariosDatosEF.GuardarTelefonoFijo(EmailUserLogin, Telefono);
-
-    //    if (result.result)
-    //    {
-    //        lbl_text_result_saved_tel.ForeColor = System.Drawing.Color.Green;
-    //        lbl_text_result_saved_tel.Text = result.message;
-    //        usuarios.establecer_DatosClienteStatic(EmailUserLogin);
-    //    }
-    //    else
-    //    {
-    //        lbl_text_result_saved_tel.ForeColor = System.Drawing.Color.Red;
-    //        lbl_text_result_saved_tel.Text = result.message;
-    //    }
-    //    mostrarModalContacto();
-    //}
-
-    //protected async void txt_celular_TextChangedAsync(object sender, EventArgs e)
-    //{
-    //    var EmailUserLogin = hf_UserLogin.Value;
-    //    var Celular = textTools.lineSimple(txt_celular.Text);
-    //    var result = await UsuariosDatosEF.GuardarCelular(EmailUserLogin, Celular);
-
-    //    if (result.result)
-    //    {
-    //        lbl_text_result_saved_tel.ForeColor = System.Drawing.Color.Green;
-    //        lbl_text_result_saved_tel.Text = result.message;
-    //        usuarios.establecer_DatosClienteStatic(EmailUserLogin);
-    //    }
-    //    else
-    //    {
-    //        lbl_text_result_saved_tel.ForeColor = System.Drawing.Color.Red;
-    //        lbl_text_result_saved_tel.Text = result.message;
-    //    }
-    //    mostrarModalContacto();
-    //}
 }

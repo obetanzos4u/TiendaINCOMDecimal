@@ -42,7 +42,15 @@ public partial class uc_btn_agregar_carritoListado : System.Web.UI.UserControl
         await agregar.agregarProductoAsync();
         btn_agregar_productoCarrito.Attributes.Add("numero_parte", numero_parte);
         bool resultado = agregar.resultado_operacion;
-        materializeCSS.crear_toast(this.Page, agregar.mensaje_ResultadoOperacion, resultado);
+        if (resultado)
+        {
+            NotiflixJS.Message(this.Page, NotiflixJS.MessageType.success, "Producto agregado");
+            //materializeCSS.crear_toast(this.Page, agregar.mensaje_ResultadoOperacion, resultado);
+        }
+        else
+        {
+            NotiflixJS.Message(this.Page, NotiflixJS.MessageType.failure, "Error");
+        }
         //   System.Web.UI.ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "upContadorCarrito", " $(\"#btnTotalProductosCarrito\").click();", true);
         UP_cantidadCarrito.Update();
     }

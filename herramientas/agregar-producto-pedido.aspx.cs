@@ -35,6 +35,7 @@ public partial class herramientas_agregar_producto_pedido : System.Web.UI.Page {
         operacionesProductos agregar = new operacionesProductos(tipo_operacion, "", numero_operacion, txt_numero_parte.Text, txt_cantidad.Text, moneda_pedido);
         await agregar.agregarProductoAsync();
 
+        NotiflixJS.Message(this.Page, NotiflixJS.MessageType.info, "Resultado");
         materializeCSS.crear_toast(this.Page, agregar.mensaje_ResultadoOperacion, agregar.resultado_operacion);
     }
 }

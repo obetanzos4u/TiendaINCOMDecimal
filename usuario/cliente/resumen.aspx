@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="is-rounded-lg is-shadow is-my-2" style="border: 2px solid red">
+                <div class="is-rounded-lg is-shadow is-my-2">
                     <div class="is-flex is-flex-col">
                         <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Envío</h4>
                         <div class="is-px-8 is-py-2">
@@ -66,6 +66,33 @@
 
                     </div>
                 </div>
+                <div class="is-rounded-lg is-shadow is-my-2" style="border: 2px solid red">
+                    <div class="is-flex is-flex-col">
+                        <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Facturación </h4>
+                        <div class="is-px-8 is-py-2">
+                            <h6 id="facturacion_title" runat="server" class="card-subtitle"></h6>
+                            <p id="facturacion_desc" runat="server" class="card-text"></p>
+                            <p id="ContentFacturacionUsoCFDI" runat="server">
+                                <strong>
+                                    <label for="ddl_UsoCFDI" class="form-label">Uso de CFDI</label>
+                                    <span class="text-danger">*</span>
+                                </strong>
+                                <asp:DropDownList ID="ddl_UsoCFDI" class="form-select"
+                                    OnSelectedIndexChanged="ddl_UsoCFDI_SelectedIndexChanged" AutoPostBack="true" runat="server">
+                                </asp:DropDownList>
+                            </p>
+                            <div class="is-flex is-justify-between is-items-center">
+                                <asp:LinkButton runat="server" ID="btn_sin_factura" OnClick="btn_sin_factura_Click"
+                                    class="">
+                             Sin factura </asp:LinkButton>
+                                <asp:HyperLink runat="server" ID="link_cambiar_direcc_facturacion"
+                                    class="">
+                                Cambiar
+                                </asp:HyperLink>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <h1 class="h3">#<asp:Literal ID="lt_numero_pedido" runat="server"></asp:Literal></h1>
                 <p>
                     Creado el <strong>
@@ -80,28 +107,6 @@
                         <p>Se encontró una solicitud de cancelación de pedido o bien, tu pedido ya se encuentra cancelado</p>
                         <strong>Mensaje:</strong>
                         <asp:Label ID="lbl_motivoCancelacion" runat="server"></asp:Label>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body  border-top border-3">
-                        <h4 class="card-title">Facturación </h4>
-                        <h6 id="facturacion_title" runat="server" class="card-subtitle mb-2 text-muted"></h6>
-                        <p id="facturacion_desc" runat="server" class="card-text"></p>
-                        <p id="ContentFacturacionUsoCFDI" runat="server">
-                            <strong>
-                                <label for="ddl_UsoCFDI" class="form-label">Uso de CFDI</label><span class="text-danger">*</span></strong>
-                            <asp:DropDownList ID="ddl_UsoCFDI" class="form-select"
-                                OnSelectedIndexChanged="ddl_UsoCFDI_SelectedIndexChanged" AutoPostBack="true" runat="server">
-                            </asp:DropDownList>
-                        </p>
-                        <asp:LinkButton runat="server" ID="btn_sin_factura" OnClick="btn_sin_factura_Click"
-                            class="card-link btn btn-secondary">
-                             Sin factura </asp:LinkButton>
-                        <asp:HyperLink runat="server" ID="link_cambiar_direcc_facturacion"
-                            class="card-link btn btn-secondary">
-                                Cambiar
-                        </asp:HyperLink>
                     </div>
                 </div>
                 <div class="d-grid gap-2 mt-3">
