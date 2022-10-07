@@ -115,8 +115,8 @@
                     <uc_share_btn:share_btnGen ID="share_btn" runat="server"></uc_share_btn:share_btnGen>
                 </div>
             </div>
-            <div id="cont_documentacion" runat="server" visible="false">
-                <h2>Documentación</h2>
+            <div id="cont_documentacion" class="documentacion" runat="server" visible="false">
+                <h2 class="txt-documentacion">Documentación</h2>
             </div>
         </div>
     </div>

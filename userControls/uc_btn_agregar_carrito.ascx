@@ -28,7 +28,7 @@
             class="agregar_carrito waves-effect-1 waves-light btn" OnClick="btn_agregar_productoCarrito_Click" style="background: #0CBA3C !important; border-radius: 6px; text-transform: none; font-weight: 600;">
             Agregar al carrito
         </asp:LinkButton>
-        <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" class="agregar_carrito agregar_carrito-out waves-effect-1 waves-light btn" style="background: #0CBA3C !important; border-radius: 6px; text-transform: none; font-weight: 600;">
+        <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" class="agregar_carrito agregar_carrito-out waves-effect-1 waves-light btn-2" style="background: #0CBA3C !important; border-radius: 6px; text-transform: none; font-weight: 600;">
             Agregar al carrito
         </a>
     </ContentTemplate><Triggers><asp:AsyncPostBackTrigger ControlID="btn_agregar_productoCarrito" EventName="Click" /></Triggers>
