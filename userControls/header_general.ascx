@@ -891,6 +891,10 @@
         width: 100vw;
         z-index: 2;
     }
+
+    .categorias_container {
+        margin-bottom: 2vh;
+    }
 }
 
 @media only screen and (max-height:1000px) {
