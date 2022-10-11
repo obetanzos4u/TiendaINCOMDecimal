@@ -614,6 +614,10 @@
                     margin-bottom: 7px;
                 }
 
+                .splide__arrow svg {
+                    width: 1.5em;
+                }
+
                 /* Quita los sub elementos de productos/categorias para no desglosar tan extenso */
                 .menu-items ul {
                     display: none !important;
@@ -709,7 +713,6 @@
 
                 .splide__list-principal > li > a > img {
                     border: 1px solid #00000017;
-                    width: 100%;
                 }
 
                 .splide-destacados > li > a > img {
@@ -762,7 +765,7 @@
 
             .material-tooltip {
                 background-color: #0C3766;
-                font-size: 12px !important :
+                font-size: 12px !important:
             }
 
             #btn_toTop {

@@ -1641,7 +1641,7 @@
             width: 140px !important;
         }
 
-        .splide__list-destacados > a > p {
+        .splide__list-destacados > li > a > p {
             width: 140px;
             text-align: initial;
             font-size: 12px;

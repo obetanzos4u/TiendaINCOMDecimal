@@ -1149,6 +1149,16 @@
     .main_container {
         margin: 0em 0em 3em 0em;
     }
+
+@media only screen and (max-width: 600px) {
+        
+    .title_productos-destacados {
+        font-size: 0.8rem;
+    }
+
+    .title_categorias {
+        font-size: 0.8rem;
+    }
 }
 
 </style>
