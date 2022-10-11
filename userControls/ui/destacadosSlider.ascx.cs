@@ -51,7 +51,7 @@ namespace tienda
                 li.ID = "destacadoID";
                 li.ClientIDMode = ClientIDMode.Static;
                 li.Attributes.Add("class", "splide__slide");
-                li.InnerHtml = "<a title='" + titulo + "' href='" + link +"'><img src='" + img_producto +"' alt='" + descripcion + "' style='width: 200px' /><p>" + titulo + "</p></a>";
+                li.InnerHtml = "<a title='" + titulo + "' href='" + link +"'><img src='" + img_producto +"' alt='" + descripcion + "' class='img-destacados'/><p>" + titulo + "</p></a>";
                 contenedorDestacados.Controls.Add(li);
             }
         }

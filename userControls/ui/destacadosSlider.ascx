@@ -3,7 +3,7 @@
 
 <section class="splide splide-destacados is-cursor-grab" id="destacados_splide">
     <div class="splide__track splide__track-destacados" >
-        <ul id="contenedorDestacados" class="splide__list" runat="server"></ul>
+        <ul id="contenedorDestacados" class="splide__list splide__list-destacados" runat="server"></ul>
     </div>
     <div class="splide__progress">
 <%--        <div class="splide__progress__bar">

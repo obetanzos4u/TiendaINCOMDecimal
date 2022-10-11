@@ -209,11 +209,6 @@
                     color: #3483fa;
                 }
 
-                    .splide__slide > a > p {
-                        width: 200px;
-                        text-align: initial;
-                    }
-
             #slider_home_principal {
                 padding: 0em !important;
             }
@@ -619,6 +614,10 @@
                     margin-bottom: 7px;
                 }
 
+                .splide__arrow svg {
+                    width: 1.5em;
+                }
+
                 /* Quita los sub elementos de productos/categorias para no desglosar tan extenso */
                 .menu-items ul {
                     display: none !important;
@@ -660,6 +659,10 @@
                 #top_contenido_titulo_categoria {
                     font-size: 0.8rem !important;
                     z-index: 1;
+                }
+
+                #btn_toTop {
+                    padding: 0.6rem 0.8rem;
                 }
             }
 
@@ -708,21 +711,28 @@
                 }
 
                 .splide__slide {
-                    padding: 0.75rem !important;
-                    margin-right: 0.75rem !important;
+                        padding: 0.75rem !important;
+                        margin-right: 0.75rem !important;
                 }
 
-                    .splide__slide > a > img {
-                        border: 1px solid #00000017;
-                        width: 100% !important;
-                    }
+                .splide__list-principal > li > a > img {
+                    border: 1px solid #00000017;
+                }
 
-                    .splide__slide > a > p {
-                        width: 100px;
-                        text-align: initial;
-                        font-size: 12px;
-                    }
+                .splide-destacados > li > a > img {
+                    width: 80px;
+                }
 
+                .splide-destacados > a > p {
+                    width: 80px;
+                    text-align: initial;
+                    font-size: 12px;
+                }
+
+                .img-destacados {
+                    width: 80px;
+                }
+                
                 .container-breadcrumb {
                     margin: 0em 0em 2em 0em;
                 }
@@ -759,7 +769,7 @@
 
             .material-tooltip {
                 background-color: #0C3766;
-                font-size: 12px !important :
+                font-size: 12px !important:
             }
 
             #btn_toTop {
@@ -775,7 +785,7 @@
                 color: white;
                 cursor: pointer;
                 padding: 0.8rem 1rem;
-                border-radius: 120px;
+                border-radius: 30px;
             }
 
                 #btn_toTop:hover {

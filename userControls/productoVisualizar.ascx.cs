@@ -561,7 +561,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
         cont_documentacion.Visible = true;
         HyperLink link = new HyperLink();
         link.CssClass = "is-px-4 is-border is-border-black is-rounded";
-        link.Text = "<img src='https://www.incom.mx/img/webUI/newdesign/documento.svg' alt='Ficha técnica' />";
+        link.Text = "<img src='../../img/webUI/newdesign/documentacion-blue.svg' alt='Ficha técnica' class='is-pr-2'/>";
         link.Text += "Ficha técnica";
         link.NavigateUrl = _documentacionPDF;
         link.Target = "_blank";
@@ -586,8 +586,8 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             foreach (var atributo in D_documentacionPDF)
             {
                 HyperLink link = new HyperLink();
-                link.CssClass = "is-px-4 is-border is-border-black is-rounded";
-                link.Text = "<img src='https://www.incom.mx/img/webUI/newdesign/documento.svg' alt='Documentación' />";
+                link.CssClass = "is-px-4 is-rounded is-bg-gray-100 is-p-2 is-space-r-6 txt-doc";
+                link.Text = "<img src='../../img/webUI/newdesign/documentacion-blue.svg' alt='Documentación' class='is-pr-2 icon-document'/>";
                 if (atributo.Key.ToLower() == "ft")
                 {
                     link.Text += "Ficha técnica";
@@ -598,7 +598,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 }
                 else
                 {
-                    link.Text = "<img src='https://www.incom.mx/img/webUI/newdesign/documento.svg' alt='Ficha técnica' />" + atributo.Key;
+                    link.Text = "<img src='../../img/webUI/newdesign/documentacion-blue.svg' alt='Ficha técnica' class='is-pr-2 icon-document'/>" + atributo.Key;
                 }
 
                 if (atributo.Value.ToString().Contains("http"))

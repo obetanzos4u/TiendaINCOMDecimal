@@ -510,6 +510,14 @@ body {
     margin-left: 1.5rem;
 }
 
+.is-space-r-6 {
+    margin-right: 1.5rem;
+}
+
+.is-space-x-9 {
+    margin-right: 2rem;
+}
+
 .is-my-5 {
     margin-top: 15vh;
 }
@@ -1028,10 +1036,6 @@ body {
     .is-col-2 {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
-
-    .agregar_carrito {
-        width: 100px;
-    }
 }
 
 @media (min-width: 700px) and (max-width: 1600px) { 
@@ -1072,7 +1076,7 @@ body {
         font-size: 9px;
     }
 
-    .agregar_carrito-out {
+    /* .agregar_carrito-out {
         font-size: 9px !important;
     }
 
@@ -1081,7 +1085,7 @@ body {
         height: 24px !important;
         line-height: 24px !important;
         padding: 0 9px;
-    }
+    } */
 
     input.select-dropdown {
         width: 80%;
