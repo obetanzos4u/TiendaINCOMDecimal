@@ -884,6 +884,14 @@ body {
         background-color: #D9D9D9;
     }
 
+    .text-nombre_cuenta {
+        font-size: 0.75rem;
+    }
+
+    .text-sesion {
+        font-size: 0.75rem;
+    }
+
 /* Scrollbar */
 /* Firefox */
 * {
@@ -1138,6 +1146,11 @@ body {
 
     .is-w-full-xl {
         width: 100%;
+    }
+
+    .producto-main_wrap {
+        margin-left: 4rem;
+        margin-right: 1rem;
     }
 }
 

@@ -31,7 +31,7 @@
             left: 0;
             height: fit-content;
             border: 1px solid #B7B7B7;
-            border-radius: 8px;
+            border-radius: 0 0 8px 8px;
         }
 
         /*El área del filtro tomo distancia del borde izquierdo y por eso se agrego padding a este elemento, que es el contenedor de los resultados de los productos*/

@@ -198,12 +198,12 @@
                                 <div class="user-menu">
                                     <div class="is-flex is-flex-col is-justify-center is-items-center is-px-2">
                                         <%--<img  class="icon_cuenta" src="https://ui-avatars.com/api/?name=Hugo+Carre%C3%B1o&background=000&color=fff&rounded=true&format=svg" />--%>
-                                        <asp:Image ID="profile_photo" Style="width: 2.50rem;" runat="server" />
-                                        <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="is-text-black" Style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 7.5rem; text-transform: capitalize;" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx" runat="server"></asp:HyperLink>
+                                        <asp:Image ID="profile_photo" class="image-cuenta" Style="width: 2rem;" runat="server" />
+                                        <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="text-nombre_cuenta is-text-black" Style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 7.5rem; text-transform: capitalize;" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx" runat="server"></asp:HyperLink>
                                     </div>
                                     <ul style="list-style: none;">
                                         <li>
-                                            <asp:LoginStatus ID="LoginStatus1" class="is-text-black" runat="server" LoginText="Iniciar Sesión" LogoutText="Cerrar sesión" OnLoggedOut="LoginStatus1_LoggedOut" />
+                                            <asp:LoginStatus ID="LoginStatus1" class="text-sesion is-text-black" runat="server" LoginText="Iniciar Sesión" LogoutText="Cerrar sesión" OnLoggedOut="LoginStatus1_LoggedOut" />
                                         </li>
                                     </ul>
                                 </div>
@@ -1039,6 +1039,13 @@
     .logotipo_home {
         height: 3.5rem;
     }
+
+    .image-cuenta {
+        width: 2rem;
+        padding-top: 5px;
+        margin-bottom: 3px;
+    }
+
 }
 
 @media only screen and (max-width:999px) {
