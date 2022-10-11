@@ -69,6 +69,11 @@
             Notiflix.Notify.warning(message);
             break;
         case "info":
+            Notiflix.Notify.merge({
+                closeButton: false,
+                width: '280px',
+                showOnlyTheLastOne: false
+            });
             Notiflix.Notify.info(message);
             break;
     }
