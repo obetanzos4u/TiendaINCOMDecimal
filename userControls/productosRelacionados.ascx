@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="productosRelacionados.ascx.cs" Inherits="uc_productosRelacionados" %>
+<%@ Register Src="~/userControls/uc_btn_agregar_carritoListado.ascx" TagPrefix="add" TagName="cart" %>
 
 <div id="relacionadosSeccion" runat="server" class="is-container is-bt-2">
     <h2 class="is-font-semibold is-text-center is-select-none" style="line-height: 110%; margin: 0 !important; font-size: 1rem !important;">Productos relacionados</h2>
@@ -20,6 +21,7 @@
                         <%#Eval("numero_parte") %> - <%#Eval("titulo") %> 
                     </h2>
                 </asp:HyperLink>
+                <add:cart ID="AddCart" numero_parte='<%# Eval("numero_parte") %>' runat="server" />
                 <!--  <div class="card-content">
                         <asp:LinkButton id="btn_link" runat="server"></asp:LinkButton> 
                   </div> -->

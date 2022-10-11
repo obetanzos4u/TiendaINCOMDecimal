@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="destacadosSlider.ascx.cs" Inherits="tienda.destacadosSlider" %>
+<%@ Register Src="~/userControls/uc_btn_agregar_carritoListado.ascx" TagName="add" TagPrefix="uc_cart" %>
 
 <section class="splide splide-destacados is-cursor-grab" id="destacados_splide">
     <div class="splide__track splide__track-destacados" >

@@ -34,10 +34,16 @@ public partial class uc_btn_agregar_carritoListado : System.Web.UI.UserControl
     protected override void OnPreRender(EventArgs e)
     {
         numero_parte = this.numero_parte;
+
     }
     protected async void btn_agregar_productoCarrito_Click(object sender, EventArgs e)
     {
         string monedaTienda = HttpContext.Current.Session["monedaTienda"].ToString();
+        if (numero_parte.Contains(","))
+        {
+            string[] numeros_parte = numero_parte.Split(',');
+            numero_parte = numeros_parte[0];
+        }
         operacionesProductos agregar = new operacionesProductos("carrito", null, null, numero_parte, txt_cantidadCarrito.Text, monedaTienda);
         await agregar.agregarProductoAsync();
         btn_agregar_productoCarrito.Attributes.Add("numero_parte", numero_parte);

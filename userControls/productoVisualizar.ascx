@@ -62,11 +62,13 @@
                     </div>
                     <div class="is-flex is-justify-start is-items-center is-font-semibold is-m-0">
                         <p class="is-m-0">Unidad de venta: </p>
-                        <strong>
+                        <strong class="is-px-2">
                             <asp:Literal ID="lt_unidad_venta" runat="server"></asp:Literal>
                         </strong>
-                        (<asp:Literal ID="lt_cantidad" runat="server"></asp:Literal>
-                        <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>)
+                        (
+                        <asp:Literal ID="lt_cantidad" runat="server"></asp:Literal>
+                        <asp:Literal ID="lt_unidad" runat="server"></asp:Literal>
+                        )
                     </div>
                     <asp:Label ID="lbl_descripcion_corta" CssClass="is-my-4" runat="server" Text="descripcion_corta"></asp:Label>
                     <uc1:metaTagColaborativo ID="metaTagColaborativo" runat="server"></uc1:metaTagColaborativo>
@@ -182,7 +184,7 @@
         </div>
     </div>
 
-    <div class="s12 m12 l12 xl12">
+    <div class="">
         <productos:relacionados ID="productosRelacionados" runat="server"></productos:relacionados>
         <productos:alternativos ID="productosAlternativos" runat="server"></productos:alternativos>
     </div>
@@ -578,7 +580,7 @@
     }
 
     @media (min-width: 1200px) and (max-width: 1600px) {
-        
+
         .tabs {
             width: auto;
             margin-left: 2rem;
@@ -595,27 +597,27 @@
             padding: 20px
         }
 
-        .tabs .content-tab section h2,
-        .tabs ul li label {
-            font-size: 12px;
-        } 
+            .tabs .content-tab section h2,
+            .tabs ul li label {
+                font-size: 12px;
+            }
     }
 
     @media only screen and (max-width: 992px) {
         .tabs {
             display: block !important;
-            }
+        }
     }
 
     @media (min-width: 350px) {
-    
+
         .content-tab {
             font-size: 8px;
         }
     }
 
     @media (min-width: 700px) {
-    
+
         .content-tab {
             font-size: 12px;
         }
