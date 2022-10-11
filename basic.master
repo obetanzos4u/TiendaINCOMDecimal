@@ -297,6 +297,25 @@
                 }
             }
 
+            @media only screen and (min-width:1000px) {
+
+                #relacionados_splide-list > li .btn-1 {
+                    width: 56px;
+                    height: 32px;
+                    line-height: 24px;
+                    font-size: 0px;
+                    padding: 0;
+                }
+
+                #relacionados_splide-list > li .btn-1 > .carrito-white_btn {
+                    width: 18px;
+                }
+
+                #relacionados_splide-list > li > div {
+                    text-align: end;
+                    margin-top: -32px;
+                }
+            }
 
             #titulo_categoria {
                 color: aqua !important;
@@ -740,6 +759,20 @@
                 .inicio_sesion-position {
                     margin: 3em;
                 }
+
+                #relacionados_splide-list > li .btn-1 {
+                    width: 34px;
+                    height: 18px;
+                    line-height: 14px;
+                    font-size: 0px;
+                    padding: 0;
+                }
+
+                #relacionados_splide-list > li > div {
+                    text-align: end;
+                    margin-top: -22px;
+                }
+
             }
 
             /****** INICIO Seccion cotizaciones y pedidos */
