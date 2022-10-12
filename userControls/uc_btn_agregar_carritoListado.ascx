@@ -15,7 +15,7 @@
             <a href="#" onclick="event.preventDefault(); calculoTxtCarrito('suma', '<%=txt_cantidadCarrito.ClientID %>'); " class="btn-cantidad-carrito  btn-small  btn-small-s blue-grey darken-1"><i class="material-icons">add</i></a>
         </div> -->
         <asp:LinkButton ID="btn_agregar_productoCarrito" OnClientClick="btnLoading(this);" runat="server"
-            class="  waves-effect waves-light btn-1  btn-full-text  btn-full-text" OnClick="btn_agregar_productoCarrito_Click">
+            class="waves-effect waves-light btn-1  btn-full-text" OnClick="btn_agregar_productoCarrito_Click">
             <img class="carrito-white_btn" alt="Botón para añadir a carrito" src="https://www.incom.mx/img/webUI/newdesign/Carrito-white.svg"> 
             Agregar al carrito
         </asp:LinkButton>

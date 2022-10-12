@@ -243,6 +243,11 @@
     padding-right: 5%;
 }
 
+.boton-agregar-carrito-resultados .btn-1 {
+    padding: 0 8px;
+    font-size: 9px;
+}
+
 .carrito-white_btn {
     width: 12px;
     height: auto;
