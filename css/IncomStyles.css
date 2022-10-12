@@ -767,6 +767,14 @@ body {
     border-color: rgba(255, 255, 255, 1);
 }
 
+.is-border-collapse {
+    border-collapse: collapse;
+}
+
+.is-border-separate {
+    border-collapse: separate;
+}
+
 .is-test {
     border: 1px solid #3b82f6;
 }

@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="productosAlternativos.ascx.cs" Inherits="uc_productosAlternativos" %>
+<%@ Register Src="~/userControls/uc_btn_agregar_carritoListado.ascx" TagPrefix="add" TagName="cart" %>
 
 <div id="alternativosSeccion" class="is-container" runat="server">
     <h2 class="is-font-semibold is-text-center is-select-none" style="line-height: 110%; margin: 0 !important; font-size: 1rem !important;">Productos alternativos</h2>
@@ -20,6 +21,7 @@
                         <%#Eval("numero_parte") %> - <%#Eval("titulo") %>
                     </h2>
                 </asp:HyperLink>
+                <add:cart ID="AddCart" numero_parte='<%# Eval("numero_parte") %>' runat="server" />
             </li>
         </ItemTemplate>
     </asp:ListView>
