@@ -218,7 +218,7 @@
                                         Marca
                                         <asp:Label ID="lbl_marca" class="tooltipped" runat="server" Text=""></asp:Label>
                                     </p>
-                                    <div style="font-size: 14px; text-align: center;"><%# Eval("unidad_venta") %> (<%# Eval("cantidad") %>  <%# Eval("unidad") %>)</div>
+                                    <div style="font-size: 11px; text-align: center;"><%# Eval("unidad_venta") %> (<%# Eval("cantidad") %>  <%# Eval("unidad") %>)</div>
                                     <!-- <div>
                                         <span style="inline-size: -webkit-fill-available; white-space: nowrap; overflow: hidden;"
                                             class=" white-text green darken-1 nota">Incluye <strong>IVA ✓</strong> </span>
