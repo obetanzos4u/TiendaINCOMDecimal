@@ -1147,11 +1147,6 @@ body {
     .is-w-full-xl {
         width: 100%;
     }
-
-    .producto-main_wrap {
-        margin-left: 4rem;
-        margin-right: 1rem;
-    }
 }
 
 @media (min-width: 1600px) {
@@ -1176,11 +1171,6 @@ body {
 
     .contentResultados-content {
         padding-left: 3rem;
-    }
-
-    .producto-main_wrap {
-        margin-left: 7rem;
-        margin-right: 7rem;
     }
 
     .productcard {

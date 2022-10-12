@@ -213,7 +213,7 @@
                                         <asp:Literal ID="lt_numero_parte" Text='<%# Eval("numero_parte") %>' Visible="false" runat="server"></asp:Literal>
                                     </h2>
 
-                                    <p style="line-height: 20px; text-align: center;">
+                                    <p class="space-marca" style="line-height: 20px; text-align: center;">
                                         <asp:Literal ID="lt_descripcion_corta" Visible="false" runat="server"></asp:Literal>
                                         Marca
                                         <asp:Label ID="lbl_marca" class="tooltipped" runat="server" Text=""></asp:Label>
@@ -224,7 +224,7 @@
                                             class=" white-text green darken-1 nota">Incluye <strong>IVA ✓</strong> </span>
                                     </div> -->
                                     <p>
-                                        <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 0.9rem;" Visible="false" runat="server"></asp:Label>
+                                        <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 0.9rem; display: inherit;" Visible="false" runat="server"></asp:Label>
 
                                         <span class="producto_precio">$</span>
                                         <asp:Label ID="lbl_producto_precio" CssClass="producto_precio" runat="server" Text=""></asp:Label>
