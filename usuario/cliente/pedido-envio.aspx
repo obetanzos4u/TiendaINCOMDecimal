@@ -25,18 +25,19 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="row row-cols-1 row-cols-sm-1  row-cols-md-2  row-cols-lg-2  row-cols-xl-2">
+                <div class="space-envios row row-cols-1 row-cols-sm-1  row-cols-md-2  row-cols-lg-2  row-cols-xl-2">
                     <p class="is-top-2" style="width: 100%"><strong>Elige un método de envío:</strong></p>
                     <div class="col mb-4">
                         <div id='contentCard_DireccEnvio' class="card " runat="server">
                             <div id="card_envio_recoge_en_tienda" class="card-body">
-                                <h5 class="card-title">Recoger en tienda</h5>
+                                <h5 class="is-text-lg card-title is-text-center">Recoger en tienda</h5>
+                                <img src="https://www.incom.mx/img/webUI/newdesign/tiendaazul.svg" alt="Opción de envio, imagen de transporte de envios" class="img-camion_envios"> 
                                 <!-- <p class="card-text">
                                 Recoge en nuestra sucursal CDMX.
                                 </p>  <br /> -->
-                                <div class="d-grid gap-2 mt-4">
+                                <div class="d-grid gap-2 mt-4 is-justify-center">
                                     <asp:LinkButton ID="btn_recogeEnTienda" OnClick="btn_recogeEnTienda_Click" OnClientClick="BootstrapClickLoading(this);"
-                                        class="btn btn-lg btn-primary" runat="server">Recoger en tienda</asp:LinkButton>
+                                        class="btn-3" runat="server">Seleccionar</asp:LinkButton>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +74,7 @@
                             </div>
                         </ItemTemplate>
                         <EmptyDataTemplate>
-                            <p class="h4">No hay direcciones guardadas</p>
+                            <p class="is-text-lg is-top-1 is-text-center">Sin direcciones guardadas</p>
                         </EmptyDataTemplate>
                     </asp:ListView>
                 </div>
@@ -87,54 +88,54 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="<%= txt_nombre_direccion.ClientID %>">Asigna un nombre a esta dirección:</label>
+                            <label for="<%= txt_nombre_direccion.ClientID %>" style="font-size: 0.8rem; margin-top: 0.8rem;">Asigna un nombre a esta dirección:</label>
 
                             <asp:TextBox ID="txt_nombre_direccion" ClientIDMode="Static" class="form-control" Style="padding: .175rem .75rem; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px;" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
-                            <small id="emailHelp" class="form-text text-muted">Ejemplo: Casa, trabajo, bodega</small>
+                            <small id="emailHelp" class="is-text-xs form-text text-muted">Ejemplo: Casa, trabajo, bodega</small>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="txt_codigo_postal">Código Postal:</label>
+                            <label for="txt_codigo_postal" style="font-size: 0.8rem; margin-top: 0.8rem;">Código Postal:</label>
                             <asp:TextBox ID="txt_codigo_postal" AutoPostBack="true" OnTextChanged="txt_codigo_postal_TextChanged" ClientIDMode="Static" class="form-control" Style="padding: .175rem .75rem; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px;" runat="server"></asp:TextBox>
                         </div>
                         <div class="form-group">
-                            <label for="<%= txt_calle.ClientID %>">Calle:</label>
+                            <label for="<%= txt_calle.ClientID %>" style="font-size: 0.8rem; margin-top: 0.8rem;">Calle:</label>
                             <asp:TextBox ID="txt_calle" ClientIDMode="Static" class="form-control" Style="padding: .175rem .75rem; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px;" data-length="50" MaxLength="50" runat="server"></asp:TextBox>
                         </div>
                         <div class="form-group">
-                            <label for="<%= txt_numero.ClientID %>">Número:</label>
+                            <label for="<%= txt_numero.ClientID %>" style="font-size: 0.8rem; margin-top: 0.8rem;">Número:</label>
                             <asp:TextBox ID="txt_numero" ClientIDMode="Static" class="form-control" Style="padding: .175rem .75rem; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px;" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
 
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="<%= txt_colonia.ClientID %>">Colonia:</label>
+                            <label for="<%= txt_colonia.ClientID %>" style="font-size: 0.8rem; margin-top: 0.8rem;">Colonia:</label>
                             <asp:DropDownList ID="ddl_colonia" Visible="false" class="form-select" runat="server"></asp:DropDownList>
 
                             <asp:TextBox ID="txt_colonia" ClientIDMode="Static" class="form-control" Style="padding: .175rem .75rem; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px;" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
 
                         </div>
-                        <div class="form-group" style="margin-top: 1rem;">
-                            <label for="txt_delegacion_municipio">Delegación o municipio:</label>
+                        <div class="form-group">
+                            <label for="txt_delegacion_municipio" style="font-size: 0.8rem; margin-top: 0.8rem;">Delegación o municipio:</label>
                             <asp:TextBox ID="txt_delegacion_municipio" ClientIDMode="Static" class="form-control" Style="padding: .175rem .75rem; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px;" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
 
                         </div>
                         <div class="form-group">
-                            <label for="txt_ciudad">Ciudad:</label>
+                            <label for="txt_ciudad" style="font-size: 0.8rem; margin-top: 0.8rem;">Ciudad:</label>
                             <asp:TextBox ID="txt_ciudad" ClientIDMode="Static" CssClass="validate" Style="display: inherit; width: 100%; border-radius: 6px; border: 1px solid #37373733;" data-length="60" MaxLength="60" runat="server"></asp:TextBox>
 
                         </div>
                     </div>
                     <div class="form-row">
                         <div id="cont_txt_estado" class="form-group col-md-6" runat="server">
-                            <label for="txt_estado">Estado:</label>
+                            <label for="txt_estado" style="font-size: 0.8rem; margin-top: 0.8rem;">Estado:</label>
                             <asp:TextBox ID="txt_estado" class="form-control" Style="padding: .175rem .75rem; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px;" ClientIDMode="Static" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="ddl_pais">Pais:</label>
+                        <label for="ddl_pais" style="font-size: 0.8rem; margin-top: 0.8rem;">Pais:</label>
                         <uc:ddlPaises ID="ddl_pais" class="form-control" style="padding: .175rem .75rem; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px;" runat="server" />
                     </div>
                     <!-- <div id="cont_ddl_estado" class="form-group col-md-4" runat="server">
@@ -142,7 +143,7 @@
                     <uc:ddlEstados ID="ddl_estado" runat="server" />
                 </div> -->
                     <div class="form-group">
-                        <label for="txt_referencias">Referencias:</label>
+                        <label for="txt_referencias" style="font-size: 0.8rem; margin-top: 0.8rem;">Referencias:</label>
                         <asp:TextBox ID="txt_referencias" ClientIDMode="Static" CssClass="form-control" Style="padding: .175rem .75rem; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px; border-radius: 6px;" runat="server"></asp:TextBox>
                     </div>
                     <div id="content_alert"></div>
@@ -189,7 +190,25 @@
            background: #1c74f8; 
         }
        
+        .img-camion_envios {
+            display: block;
+            margin: auto;
+            width:120px;
+            height:auto;
+        }
 
+        @media screen and (min-width: 420px) and (max-width: 1200px) {
+            .img-camion_envios {
+            display: block;
+            margin: auto;
+            width: 80px;
+            height:auto;
+            }
+
+            .space-envios {
+                --bs-gutter-x: -2.5rem !important;
+            }
+        }
     </style>
 </asp:Content>
 
