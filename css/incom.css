@@ -508,14 +508,6 @@
 
     /*Fin contenedor de ficha de productos */
 
-    /* #productZoom {
-        width: 480px;
-        height: 485px;
-        position: absolute;
-        display: flex;
-        z-index: 10;
-    } */
-
     #productGallery_selected {
         margin-top: -56.5%;
     }
@@ -1429,7 +1421,7 @@
     }
 
     .agregar_carrito {
-        width: 160px;
+        width: 140px;
         height: 30px !important;
         line-height: 30px !important;
     }
@@ -1753,6 +1745,10 @@
         #title-form_direccion {
             font-size: 1rem !important;
         }
+
+        .agregar_carrito {
+            width: 175px;
+        }
     }
 
     @media only screen and (min-width: 1700px) {
@@ -1786,6 +1782,10 @@
     @media only screen and (min-width: 2400px) {
         .cajaProductosFCO {
             width: 10.6%;
+        }
+
+        #productZoom {
+            left: 600px;
         }
     }
 
@@ -1953,6 +1953,7 @@
         height: 1px;
         background-color: rgba(196, 196, 196, 03);
         margin-left: 2%;
+        vertical-align: super;
       }
       
       .separator::before {
@@ -1962,12 +1963,13 @@
         height: 1px;
         background-color: rgb(196, 196, 196, 03);
         margin-right: 2%;
+        vertical-align: super;
       }
 
       #modalContentLoginAjax {
         border-radius: 8px;
       }
-      
+
       .contain-btn-inicio_sesion_modal {
         width: 30%;
         min-width: 120px;
@@ -2055,5 +2057,13 @@
             display: inline;
             width: 80%;
             margin: auto;
+        }
+
+        .separator {
+            font-size: 12px;
+        }
+
+        .separator::after, .separator::before {
+            width: 44%;
         }
     }
