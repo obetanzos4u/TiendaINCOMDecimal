@@ -37,9 +37,9 @@
                         <div class="is-px-8 is-py-2">
                             <h6 id="contacto_title" class="" runat="server"></h6>
                             <p id="contacto_desc" class="" runat="server"></p>
-                            <asp:HyperLink runat="server" ID="link_cambiar_contacto">
-                               Cambiar
-                            </asp:HyperLink>
+                            <!-- <asp:HyperLink runat="server" ID="link_cambiar_contacto">
+                               Cambiar método de envío
+                            </asp:HyperLink> -->
                         </div>
                     </div>
                 </div>
@@ -82,24 +82,24 @@
                                 </asp:DropDownList>
                             </p>
                             <div class="is-flex is-justify-between is-items-center">
-                                <asp:LinkButton runat="server" ID="btn_sin_factura" OnClick="btn_sin_factura_Click"
+                                <!-- <asp:LinkButton runat="server" ID="btn_sin_factura" OnClick="btn_sin_factura_Click"
                                     class="">
-                             Sin factura </asp:LinkButton>
+                             Sin factura </asp:LinkButton> -->
                                 <asp:HyperLink runat="server" ID="link_cambiar_direcc_facturacion"
                                     class="">
-                                Cambiar
+                                Agregar datos de facturación
                                 </asp:HyperLink>
                             </div>
                         </div>
                     </div>
                 </div>
-                <h1 class="h3">#<asp:Literal ID="lt_numero_pedido" runat="server"></asp:Literal></h1>
-                <p>
+                <!-- <h1 class="h3">#<asp:Literal ID="lt_numero_pedido" runat="server"></asp:Literal></h1> -->
+                <!-- <p>
                     Creado el <strong>
                         <asp:Label ID="lbl_fecha_creacion" runat="server"></asp:Label></strong>
                     Usuario: <strong>
                         <asp:Literal ID="lt_usuario_cliente" runat="server"></asp:Literal></strong>
-                </p>
+                </p> -->
 
                 <div id="content_pedido_cancelado" visible="false" runat="server">
                     <div class="alert alert-danger" role="alert">
@@ -110,11 +110,11 @@
                     </div>
                 </div>
                 <div class="d-grid gap-2 mt-3">
-                    <h3>Aclaraciones</h3>
-                    <ul>
-                        <li>Los <strong>costos de envió</strong> podrían ser re calculados y estos pueden ser mayores o menores a lo mostrado.</li>
-                        <li>Algunos productos por seguridad, requieren un <strong>seguro de envío</strong> el cuál tu asesor te informará del costo.</li>
-                        <li>Una vez registrado el pago, solo podrás actualizar el método de envío con ayuda de un asesor. Los datos de facturación o contacto podrás actualizarlos normalmente.</li>
+                    <h3>Aviso</h3>
+                    <ul style="text-decoration: none; list-style-type: none">
+                        <li>Los <strong>costos de envío</strong> podrían ser recalculados y resultar mayores o menores a lo mostrado.</li>
+                        <li>Por seguridad, algunos productos requieren un <strong>seguro de envío</strong>  con costo adicional. De ser el caso, su asesor de ventas le informará.</li>
+                        <li>Una vez registrado el pago, solo se podrá actualizar el método de envío con ayuda de un asesor. Los datos de facturación o contacto se pueden actualizar normalmente.</li>
                     </ul>
                     <div class="content_msg_confirmacion_pedido" runat="server"></div>
 
@@ -236,7 +236,7 @@
             <div class="col col-12  col-xs-12 col-sm-12 col-md-7 col-xl-6">
                 <div id="content_msg_cancelar_pedido"></div>
                 <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
-                    class="btn btn-outline-danger btn-sm">Cancelar pedido</a>
+                    class="is-text-red">Cancelar pedido</a>
             </div>
         </div>
     </div>

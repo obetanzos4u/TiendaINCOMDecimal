@@ -103,7 +103,8 @@
     </asp:ListView>
  
     </div>
-      </div><div class="col">       <div class="row">
+      </div><div class="col">       
+        <div class="row">
             <div class="col">
                 <h1 class="h2">Agregar una dirección</h1>
 
@@ -111,10 +112,10 @@
       </div>
           <div class="form-row">
               <div class="form-group col-md-6">
-                  <label for="<%= txt_nombre_direccion.ClientID %>">Asigna un nombre a esta dirección </label>
+                  <label for="<%= txt_nombre_direccion.ClientID %>">Asigna un nombre a esta dirección: </label>
 
                   <asp:TextBox ID="txt_nombre_direccion" ClientIDMode="Static" class="form-control" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
-                  <small id="emailHelp" class="form-text text-muted">Ejemplo: Casa, Trabajo, Bodega</small>
+                  <small id="emailHelp" class="form-text text-muted">Ejemplo: Casa, trabajo, bodega</small>
               </div>
               <div class="form-group col-md-6">
                   <label for="<%= txt_razon_social.ClientID %>">Razón social</label>
