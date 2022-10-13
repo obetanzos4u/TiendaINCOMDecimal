@@ -111,7 +111,7 @@ public partial class mi_carrito : System.Web.UI.Page
                 btn_comprar.Enabled = false;
                 btn_comprar.Visible = false;
 
-                link_API_desglose_envio.Visible = true;
+                //link_API_desglose_envio.Visible = true;
             }
             if (usuarios.modoAsesorActivado() == 1 && emailUsuarioLogin != emailClienteAsesor)
             {
@@ -131,29 +131,17 @@ public partial class mi_carrito : System.Web.UI.Page
 
     protected async void cargarProductoAsync()
     {
-
-
-
-
         carrito obtener = new carrito();
-
         usuarios usuario = usuarios.modoAsesor();
         DataTable productosCarritos = obtener.obtenerCarritoUsuarioWithMedidas(usuario.email);
-
-
 
         lv_productosCarritos.DataSource = productosCarritos;
         lv_productosCarritos.DataBind();
 
         HttpContext ctx = HttpContext.Current;
-
-
         string monedaTienda = (uc_moneda.FindControl("ddl_moneda") as DropDownList).SelectedValue;
-
         string str_subtotal = "";
         decimal subtotal = 0;
-
-
 
         if (monedaTienda == "USD")
         {
@@ -164,6 +152,7 @@ public partial class mi_carrito : System.Web.UI.Page
             str_subtotal = obtener.obtenerTotalMXN(usuario.email);
 
         }
+
         if (string.IsNullOrEmpty(str_subtotal))
             subtotal = 0;
         else subtotal = decimal.Parse(str_subtotal);
@@ -176,7 +165,7 @@ public partial class mi_carrito : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Error al calcular el costo de envío");
+            NotiflixJS.Message(this.uc_moneda, NotiflixJS.MessageType.info, "Error al calcular el costo de envío");
             //materializeCSS.crear_toast(this, "Ocurrio un error al calcular el costo de envío", false);
         }
 
@@ -191,8 +180,10 @@ public partial class mi_carrito : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-
+            lbl_envio.Text = "Cálculo manual";
+            Console.WriteLine(ex.ToString());
         }
+
         subtotal = subtotal + envio;
         lbl_subTotal.Text = subtotal.ToString("C2", myNumberFormatInfo) + " " + monedaTienda;
 
@@ -282,31 +273,26 @@ public partial class mi_carrito : System.Web.UI.Page
 
                 lbl_envio.Text = String.Format("{0:C}", precio, "C2") + monedaTienda;
 
-                //link_API_desglose_envio.NavigateUrl = "https://apiweb.incom.mx/fletes/CalculoFlete.aspx?Numero_Operacion="+ usuarioCarrito.email; // Error because usuarioCarrito.email its invalid parameter.
-                link_API_desglose_envio.NavigateUrl = "https://apiweb.incom.mx/fletes/CalculoFlete.aspx"; // Error because usuarioCarrito.email its invalid parameter.
-                link_API_desglose_envio.Visible = false;
+                //link_API_desglose_envio.NavigateUrl = "https://apiweb.incom.mx/fletes/CalculoFlete.aspx?Numero_Operacion=" + usuarioCarrito.email; // Error because usuarioCarrito.email its invalid parameter.
+                //link_API_desglose_envio.NavigateUrl = "https://apiweb.incom.mx/fletes/CalculoFlete.aspx"; // Error because usuarioCarrito.email its invalid parameter.
+                //link_API_desglose_envio.Visible = false;
             }
             else
             {
                 lbl_envio.Text = CostoEnvio.Message;
                 NotiflixJS.Message(this, NotiflixJS.MessageType.info, CostoEnvio.Message);
                 //materializeCSS.crear_toast(this, CostoEnvio.Message, false);
-                link_API_desglose_envio.Visible = false;
+                //link_API_desglose_envio.Visible = false;
             }
             return new json_respuestas();
         }
         catch (Exception ex)
         {
-            return new json_respuestas();
-            devNotificaciones.error("Calcular envio:", ex);
-            devNotificaciones.ErrorSQL("Calcular flete carrito " + usuarioCarrito.email, ex, ex.Message);
             lbl_envio.Text = "El envío no ha podido ser calculado o no se ha establecido dirección de entrega.";
-
+            return new json_respuestas();
+            //devNotificaciones.error("Calcular envio:", ex);
+            //devNotificaciones.ErrorSQL("Calcular flete carrito " + usuarioCarrito.email, ex, ex.Message);
         }
-
-
-
-
     }
     protected async void lv_productos_OnItemDataBound(object sender, ListViewItemEventArgs e)
     {
@@ -389,7 +375,7 @@ public partial class mi_carrito : System.Web.UI.Page
         lbl_precio_total.Text = decimal.Parse(precio_total.ToString()).ToString("#,#.##", myNumberFormatInfo) + " " + monedaTienda;
         Image imgProducto = (Image)e.Item.FindControl("imgProducto");
         HyperLink link_producto = (HyperLink)e.Item.FindControl("link_producto");
-        HyperLink link_imgProducto = (HyperLink)e.Item.FindControl("link_imgProducto");
+        //HyperLink link_imgProducto = (HyperLink)e.Item.FindControl("link_imgProducto");
         imgProducto.ImageUrl = archivosManejador.imagenProducto(rowView["imagenes"].ToString().Split(',')[0]);
 
         link_producto.NavigateUrl = GetRouteUrl("productos", new System.Web.Routing.RouteValueDictionary {
@@ -397,7 +383,7 @@ public partial class mi_carrito : System.Web.UI.Page
                          { "marca", marca },
                         { "productoNombre",  textTools.limpiarURL(titulo) }
                     });
-        link_imgProducto.NavigateUrl = link_producto.NavigateUrl;
+        //link_imgProducto.NavigateUrl = link_producto.NavigateUrl;
 
         tienda.uc_precio_detalles detalles_precios = (tienda.uc_precio_detalles)e.Item.FindControl("detalles_precios");
 
@@ -409,18 +395,12 @@ public partial class mi_carrito : System.Web.UI.Page
     }
     protected async void txt_cantidadCarrito_TextChanged(object sender, EventArgs e)
     {
-
         string cantidad = ((TextBox)sender).Text;
-
-
         // Obtenemos el contenedor del objeto que creo el evento
         ListViewItem lvItemCarrito = (ListViewItem)((TextBox)sender).NamingContainer;
-
         Literal lt_numeroParte = lvItemCarrito.FindControl("lt_numeroParte") as Literal;
-
         string numero_parte = lt_numeroParte.Text;
         string monedaTienda = HttpContext.Current.Session["monedaTienda"].ToString();
-
         operacionesProductos actualizar = new operacionesProductos("carrito", "update", "", numero_parte, cantidad, monedaTienda);
 
         await actualizar.agregarProductoAsync();
@@ -605,8 +585,8 @@ public partial class mi_carrito : System.Web.UI.Page
                     string script = @"   setTimeout(function () { window.location.replace('" + url_cotizacion + "')}, 3500);";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
 
-                    content_msg_exito_operacion.Visible = true;
-                    lt_tipo_operacion.Text = "Cotización";
+                    //content_msg_exito_operacion.Visible = true;
+                    //lt_tipo_operacion.Text = "Cotización";
                     cargarProductoAsync();
 
                     // INICIO - Envio de email
@@ -843,8 +823,8 @@ public partial class mi_carrito : System.Web.UI.Page
             string script = @"setTimeout(function () { window.location.replace('" + redirectUrl + "')}, 3500);";
             ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
 
-            content_msg_exito_operacion.Visible = true;
-            lt_tipo_operacion.Text = "Pedido";
+            //content_msg_exito_operacion.Visible = true;
+            //lt_tipo_operacion.Text = "Pedido";
 
             // INICIO - Envio de email
             if (usuarioLogin.tipo_de_usuario == "cliente")

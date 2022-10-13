@@ -314,7 +314,7 @@
         <!-- ======= Exhibitor Section ======= -->
         <section id="exhibitor" class="testimonials">
             <div class="container">
-                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonials-slider swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="testimonial-item">
