@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"   CodeFile="ddl_paises.ascx.cs" Inherits="uc_ddl_paises" %>
-<asp:DropDownList ID="ddl_pais" class="form-control" AutoPostBack="true" runat="server">
+<asp:DropDownList ID="ddl_pais" class="form-control" style="padding: .175rem .75rem;" AutoPostBack="true" runat="server">
     <asp:ListItem Value=""  >Selecciona pais</asp:ListItem>
     <asp:ListItem Text="Afghanistan" Value="AF"></asp:ListItem>
     <asp:ListItem Text="Albania" Value="AL"></asp:ListItem>

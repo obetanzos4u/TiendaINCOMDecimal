@@ -83,21 +83,21 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         if (string.IsNullOrEmpty(pedidos_datos.telefono) && string.IsNullOrEmpty(pedidos_datos.celular))
         {
             NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Completa la información de contacto");
-            contacto_desc.InnerHtml = $"<ul class='list-none'><li class='is-text-red is-font-semibold'>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li class='is-text-red is-font-semibold'>Celular: {pedidos_datos.celular}</li></ul>";
+            contacto_desc.InnerHtml = $"<ul class='list-none'><li class='is-text-red is-font-semibold'>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li class='is-text-red is-font-semibold'>Celular: {pedidos_datos.celular}</li></ul>" + $"<p class='is-text-red'>*Campos obligatorios</p>";
         }
         else if (string.IsNullOrEmpty(pedidos_datos.telefono) && !string.IsNullOrEmpty(pedidos_datos.celular))
         {
             NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "Completa la información de contacto");
-            contacto_desc.InnerHtml = $"<ul class='list-none '><li class='is-text-red is-font-semibold'>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li>Celular: {pedidos_datos.celular}</li></ul>";
+            contacto_desc.InnerHtml = $"<ul class='list-none '><li class='is-text-red is-font-semibold'>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li>Celular: {pedidos_datos.celular}</li></ul>" + $"<p class='is-text-red'>*Campos obligatorios</p>";
         }
         else if (string.IsNullOrEmpty(pedidos_datos.celular) && !string.IsNullOrEmpty(pedidos_datos.telefono))
         {
             NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "Completa la información de contacto");
-            contacto_desc.InnerHtml = $"<ul class='list-none'><li>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li class='is-text-red is-font-semibold'>Celular: {pedidos_datos.celular}</li></ul>";
+            contacto_desc.InnerHtml = $"<ul class='list-none'><li>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li class='is-text-red is-font-semibold'>Celular: {pedidos_datos.celular}</li></ul>" + $"<p class='is-text-red'>*Campos obligatorios</p>";
         }
         else
         {
-            contacto_desc.InnerHtml = $"<ul class='list-none'><li>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li>Celular: {pedidos_datos.celular}</li></ul>";
+            contacto_desc.InnerHtml = $"<ul class='list-none'><li>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li>Celular: {pedidos_datos.celular}</li></ul>" + $"<p class='is-text-red'>*Campos obligatorios</p>";
         }
         #endregion
 

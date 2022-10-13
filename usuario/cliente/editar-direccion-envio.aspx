@@ -22,7 +22,7 @@
                 <label for="<%= txt_nombre_direccion.ClientID %>">Asigna un nombre a esta dirección </label>
               
                 <asp:TextBox ID="txt_nombre_direccion" ClientIDMode="Static" class="form-control" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
-                <small id="emailHelp" class="form-text text-muted">Ejemplo: Casa, Trabajo, Bodega</small>
+                <small id="emailHelp" class="form-text text-muted">Ejemplo: Casa, trabajo, bodega</small>
             </div>
                    <div class="form-group col-md-2">
                 <label for="txt_codigo_postal">Código Postal</label>
