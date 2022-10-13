@@ -10,13 +10,12 @@
             <div class="row">
                 <div class="col l8 xl8" style="padding: 1rem 0">
                     <div style="display: flex; justify-content: center; align-items: center">
-                        <h1>Carrito de compra
-                            <%--<asp:LinkButton ID="btn_guardarPlantilla" data-tooltip="Guarda este listado de productos para cotizaciones" OnClick="btn_guardarPlantilla_Click" CssClass="tooltipped" runat="server">
+                        <asp:Label ID="lbl_shoppingCartTitle" class="is-text-xl is-font-semibold is-select-none" runat="server"></asp:Label>
+                        <%--<asp:LinkButton ID="btn_guardarPlantilla" data-tooltip="Guarda este listado de productos para cotizaciones" OnClick="btn_guardarPlantilla_Click" CssClass="tooltipped" runat="server">
                             <i class="material-icons">save</i>
                         </asp:LinkButton>--%>
-                        </h1>
                     </div>
-                    <div class="is-container">
+                    <div class="is-w-full">
                         <asp:ListView ID="lv_productosCarritos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                             <LayoutTemplate>
                                 <div class="is-w-full" style="height: 300px; overflow-y: auto">
@@ -34,7 +33,7 @@
                                     </td>
                                     <td style="width: 50%">
                                         <asp:HiddenField ID="hf_idProductoCarrito" Value='<%#Eval("id") %>' runat="server" />
-                                        <div>
+                                        <div class="is-select-all">
                                             <asp:Literal ID="lt_numeroParte" Text='<%#Eval("numero_parte") %>' runat="server"></asp:Literal>
                                             <span>-</span>
                                             <asp:Literal ID="lt_titulo" Text='<%#Eval("titulo") %>' runat="server"></asp:Literal>
@@ -76,10 +75,10 @@
                                 </tr>
                             </ItemTemplate>
                             <EmptyDataTemplate>
-                                <div class="row center-align">
-                                    <h2 class="center-align">No has agregado productos a tu carrito</h2>
-                                    <h3>¡Más de 1,500 productos te esperan!</h3>
-                                    <a class="btn blue waves-effect waves-light" href="/productos">Navegar</a>
+                                <div class="">
+                                    <h2 class="center-align">Aún no tienes artículos en tu carrito.</h2>
+                                    <h3>¡Navega entre más de 2,000 productos!</h3>
+                                    <a class="" href="/productos">Descubrir</a>
                                 </div>
                             </EmptyDataTemplate>
                         </asp:ListView>
@@ -104,7 +103,7 @@
                         <i>Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</i>
                     </div>--%>
                 </div>
-                <div class="col s12 l4 xl4 right-align">
+                <div id="ctn_details" class="col s12 l4 xl4 right-align" runat="server">
                     <div class="is-flex is-justify-evenly is-items-center">
                         <p class="is-select-none">Moneda de visualización:</p>
                         <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>

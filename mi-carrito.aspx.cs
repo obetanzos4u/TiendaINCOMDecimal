@@ -19,18 +19,16 @@ using DocumentFormat.OpenXml.Drawing;
 public partial class mi_carrito : System.Web.UI.Page
 {
     NumberFormatInfo myNumberFormatInfo = new CultureInfo("es-MX", true).NumberFormat;
+    decimal envio = 0;
+    decimal subtotal = 0;
     protected void mostrarModalContacto()
     {
-        string script = @" 
-                    
-                         
-                         setTimeout(function () { 
-                                                     M.Modal.getInstance(document.querySelector('#modal_NumerosContacto')).open(); 
+        string script = @"
+                        setTimeout(function () {
+                            M.Modal.getInstance(document.querySelector('#modal_NumerosContacto')).open(); 
                                                 }, 1500);  
                   ";
-
         ScriptManager.RegisterStartupScript(this, this.GetType(), "ModalContacto", script, true);
-
     }
 
     protected async void ProcesarProductosPromo()
@@ -71,6 +69,7 @@ public partial class mi_carrito : System.Web.UI.Page
 
         if (!IsPostBack)
         {
+            obtenerEnvio();
             cargarProductoAsync();
             Page.Title = "Carrito de compras";
             Page.MetaDescription = "Carrito de compras, compra en linea, telecomunicaciones y fibra óptica";
@@ -123,10 +122,34 @@ public partial class mi_carrito : System.Web.UI.Page
             }
             #endregion FIN - Sección para evitar que se coticene ellos solitos
 
-            ProcesarProductosPromo();
+            //ProcesarProductosPromo();
+        }
+    }
+
+     private async void obtenerEnvio()
+    {
+        carrito obtener = new carrito();
+        usuarios usuario = usuarios.modoAsesor();
+        DataTable productosCarritos = obtener.obtenerCarritoUsuarioWithMedidas(usuario.email);
+
+        try // Contemplar orden de llamadas
+        {
+            var r = await CalcularEnvio(productosCarritos, subtotal);
+        }
+        catch (Exception ex)
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Error al calcular el costo de envío");
         }
 
-
+        try
+        {
+            string strEnvio = lbl_envio.Text.Replace("MXN", "").Replace("$", "").Replace("USD", "").Replace(" ", "");
+            envio = decimal.Parse(strEnvio);
+        }
+        catch (Exception ex)
+        {
+            lbl_envio.Text = "Será calculado por  asesor";
+        }
     }
 
     protected async void cargarProductoAsync()
@@ -141,60 +164,48 @@ public partial class mi_carrito : System.Web.UI.Page
         HttpContext ctx = HttpContext.Current;
         string monedaTienda = (uc_moneda.FindControl("ddl_moneda") as DropDownList).SelectedValue;
         string str_subtotal = "";
-        decimal subtotal = 0;
+        //decimal subtotal = 0;
 
-        if (monedaTienda == "USD")
+
+        if (carrito.obtenerCantidadProductos(usuario.email) > 0)
         {
-            str_subtotal = obtener.obtenerTotalUSD(usuario.email);
+            lbl_shoppingCartTitle.Text = "Carrito de compra";
+            ctn_details.Visible = true;
+
+            if (monedaTienda == "USD")
+            {
+                str_subtotal = obtener.obtenerTotalUSD(usuario.email);
+            }
+            else if (monedaTienda == "MXN")
+            {
+                str_subtotal = obtener.obtenerTotalMXN(usuario.email);
+            }
+
+            if (string.IsNullOrEmpty(str_subtotal))
+            {
+                subtotal = 0;
+            }
+            else
+            {
+                subtotal = decimal.Parse(str_subtotal);
+            }
+
+            subtotal = subtotal + envio;
+            lbl_subTotal.Text = subtotal.ToString("C2", myNumberFormatInfo) + " " + monedaTienda;
+
+            decimal impuestos = subtotal * (decimal.Parse(Session["impuesto"].ToString()) - 1);
+            decimal total = subtotal * decimal.Parse(Session["impuesto"].ToString());
+
+            lbl_impuestos.Text = decimal.Parse(impuestos.ToString()).ToString("C2", myNumberFormatInfo) + " " + monedaTienda;
+            lbl_total.Text = decimal.Parse(total.ToString()).ToString("C2", myNumberFormatInfo) + " " + monedaTienda;
         }
-        else if (monedaTienda == "MXN")
+        else
         {
-            str_subtotal = obtener.obtenerTotalMXN(usuario.email);
-
+            lbl_shoppingCartTitle.Text = "Tu carrito está vacío";
+            ctn_details.Visible = false;
         }
-
-        if (string.IsNullOrEmpty(str_subtotal))
-            subtotal = 0;
-        else subtotal = decimal.Parse(str_subtotal);
-
-        try // Contemplar orden de llamadas
-        {
-            var r = await CalcularEnvio(productosCarritos, subtotal);
-            //  await Task.Run(() => { HttpContext.Current = ctx; CalcularEnvio(productosCarritos, subtotal); });
-            // await  CalcularEnvio(productosCarritos, subtotal); 
-        }
-        catch (Exception ex)
-        {
-            NotiflixJS.Message(this.uc_moneda, NotiflixJS.MessageType.info, "Error al calcular el costo de envío");
-            //materializeCSS.crear_toast(this, "Ocurrio un error al calcular el costo de envío", false);
-        }
-
-        decimal envio = 0;
-
-        try
-        {
-            string strEnvio = lbl_envio.Text.Replace("MXN", "").Replace("$", "").Replace("USD", "").Replace(" ", "");
-
-            envio = decimal.Parse(strEnvio);
-
-        }
-        catch (Exception ex)
-        {
-            lbl_envio.Text = "Cálculo manual";
-            Console.WriteLine(ex.ToString());
-        }
-
-        subtotal = subtotal + envio;
-        lbl_subTotal.Text = subtotal.ToString("C2", myNumberFormatInfo) + " " + monedaTienda;
-
-        decimal impuestos = subtotal * (decimal.Parse(Session["impuesto"].ToString()) - 1);
-        decimal total = subtotal * decimal.Parse(Session["impuesto"].ToString());
-
-        lbl_impuestos.Text = decimal.Parse(impuestos.ToString()).ToString("C2", myNumberFormatInfo) + " " + monedaTienda;
-        lbl_total.Text = decimal.Parse(total.ToString()).ToString("C2", myNumberFormatInfo) + " " + monedaTienda;
-
-
     }
+
     protected async Task<json_respuestas> CalcularEnvio(DataTable DTproductosCarritos, decimal subtotal)
     {
         string monedaTienda = (uc_moneda.FindControl("ddl_moneda") as DropDownList).SelectedValue;
