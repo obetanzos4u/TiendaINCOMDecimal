@@ -1934,6 +1934,77 @@
         height: 4px;
     }
 
+    .contain-separator {
+        width: 90%;
+        height: 30px;
+        margin: auto;
+      }
+      
+      .separator {
+        display: block;
+        width: 100%;
+        font-size: 14px;
+      }
+      
+      .separator::after {
+        content: "";
+        display: inline-block;
+        width: 46%;
+        height: 1px;
+        background-color: rgba(196, 196, 196, 03);
+        margin-left: 2%;
+      }
+      
+      .separator::before {
+        content: "";
+        display: inline-block;
+        width: 46%;
+        height: 1px;
+        background-color: rgb(196, 196, 196, 03);
+        margin-right: 2%;
+      }
+
+      #modalContentLoginAjax {
+        border-radius: 8px;
+      }
+      
+      .contain-btn-inicio_sesion_modal {
+        width: 30%;
+        min-width: 120px;
+        max-width: 200px;
+        height: 36px;
+        line-height: 36px;
+      }
+
+      .btn-inicio_sesion_modal {
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 18px;
+        border: 0;
+        font-style: normal;
+        font-size: inherit;
+        text-transform: inherit;
+        background: none;
+        position: relative;
+        text-align: center;
+        -webkit-appearance: button;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        line-height: 1.15;
+        margin: 0;
+        transition: .3s ease-out;
+        overflow: hidden;
+      }
+
+      .input-login_modal {
+        width: 70% !important;
+        display: inline-block !important;
+        height: 30px !important;
+        margin-top: 10px !important;
+      }
+
     /* Alineación de zoom */
 
     @media only screen and (min-width: 1600px) and (max-width: 2400px)  {

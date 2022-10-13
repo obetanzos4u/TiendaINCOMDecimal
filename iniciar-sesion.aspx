@@ -11,14 +11,17 @@
                             <h1 class="txt-inicio_sesion" style="font-size: 2rem; text-align: center">Iniciar sesión</h1>
                         </div>
                         <div class="sesion-with_social">
-                            <p><strong>Inica sesión con tu cuenta de Google</strong></p>
+                            <p><strong>Inicia sesión con tu cuenta de Google</strong></p>
                             <div class="g-signin2" style="display: inline-block;" data-longtitle="true" data-onsuccess="onSignIn"></div>
                             <div id="ajax-login-msg-result" class="">
                                 <p></p>
                             </div>
                         </div>
                         <div class="center-align">
-                            <p class="center-align"><strong>O continúa con tu correo electrónico</strong></p>
+                            <div class="contain-separator">
+                                <span class="separator">O</span>
+                            </div>
+                            <p class="center-align is-bt-2"><strong>Continúa con tu correo electrónico</strong></p>
                             <div class="w350 centerDiv">
                                 <label class="text-email-inicio_sesion" for="txt_email">Correo electrónico</label>
                                 <asp:TextBox ID="txt_email" ClientIDMode="Static" runat="server"></asp:TextBox>
