@@ -194,7 +194,7 @@
 
             .splide__slide {
                 padding: 1rem;
-                background: #fff;
+                background: #f7f7f7;
                 border: 1px solid #00000017;
                 border-radius: 8px;
                 margin-bottom: 1rem;
@@ -206,7 +206,8 @@
                 }
 
                 .splide__slide > a {
-                    color: #3483fa;
+                    color: #166ff7;
+                    font-weight: 500;
                 }
 
             #slider_home_principal {

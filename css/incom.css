@@ -103,7 +103,7 @@
     width: 200px;
     height: 140px;
     margin-right: 4.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 }
 
 .imgage-categoria {
@@ -322,6 +322,25 @@
     vertical-align: middle;
 }
 
+.center-carrito_vacio {
+    width: 50%;
+    float: right;
+
+}
+
+.center-btn-carrito_vacio {
+    text-align: center;
+    justify-items: center;
+    margin: auto;
+    display: table;
+}
+
+.shopping_cart {
+    margin-left: 10%;
+    font-size: 2rem;
+    width: 100%;
+  }
+ 
 #btn_iniciar_sesion {
     color: #ffffff;
     font-weight: 600;
