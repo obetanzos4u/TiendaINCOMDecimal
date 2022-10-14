@@ -12,24 +12,18 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (!IsPostBack)
         {
             Title = "Método de envío";
             if (Page.RouteData.Values["id_operacion"].ToString() != null)
             {
-
                 CargarDatosPedido();
             }
             CargarDireccionEnvio();
             cargarDirecciones();
             EstablecerNavegacion();
-
-
-
         }
         else
-
         {
             if (ddl_pais.SelectedText == "México")
             {
@@ -44,15 +38,14 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
         }
     }
 
-
     protected void EstablecerNavegacion()
     {
 
-      /*  link_envio.NavigateUrl = GetRouteUrl("cliente-pedido-envio", new System.Web.Routing.RouteValueDictionary {
-                        { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
-                    });
+        /*  link_envio.NavigateUrl = GetRouteUrl("cliente-pedido-envio", new System.Web.Routing.RouteValueDictionary {
+                          { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
+                      });
 
-   */
+     */
     }
     protected void CargarDatosPedido()
     {
@@ -85,64 +78,59 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
         }
         if (!string.IsNullOrWhiteSpace(pedido_montos.EnvioNota))
         {
-            msg_alert.Text = pedido_montos.EnvioNota;
-            msg_alert.Visible = true;
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, pedido_montos.EnvioNota);
+            //msg_alert.Text = pedido_montos.EnvioNota;
+            //msg_alert.Visible = true;
         }
         else
         {
-            msg_alert.Text = pedido_montos.EnvioNota;
-            msg_alert.Visible = false;
+            //NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "Persistente");
+            //msg_alert.Text = pedido_montos.EnvioNota;
+            //msg_alert.Visible = false;
         }
     }
-        protected void CargarDireccionEnvio() {
-        
-
-       
-
+    protected void CargarDireccionEnvio()
+    {
         var result = PedidosEF.ObtenerDireccionEnvio(lt_numero_pedido.Text);
-         
-            if (result.result) {
+
+        if (result.result)
+        {
 
             pedidos_direccionEnvio direccionEnvio = result.response;
 
-            if(direccionEnvio != null)
+            if (direccionEnvio != null)
             {
                 hf_id_pedido_direccion_envio.Value = direccionEnvio.idDireccionEnvio.ToString();
             }
-
-        
-            
         }
         else
         {
-            BootstrapCSS.Message(this, "#", BootstrapCSS.MessageType.danger, "Error", result.message);
-
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, result.message);
+            //BootstrapCSS.Message(this, "#", BootstrapCSS.MessageType.danger, "Error", result.message);
         }
-            }
+    }
     protected void cargarDirecciones()
     {
-
         usuarios user = usuarios.modoAsesor();
-
-         
         lv_direcciones.DataSource = direcciones_envio_EF.ObtenerTodas(user.id);
         lv_direcciones.DataBind();
-
-        
     }
     //text-white bg-success
+    protected void btn_entregaDomicilioNuevo_Click(object sender, EventArgs e)
+    {
+        ContentReferenciaDomicilioNuevo.Visible = true;
+    }
     protected void btn_crear_direccion_Click(object sender, EventArgs e)
     {
-
         string estado;
         string colonia = "";
 
-        if (ddl_pais.SelectedText == "México")    estado = ddl_estado.SelectedText;
-        else   estado = txt_estado.Text;
-        
+        if (ddl_pais.SelectedText == "México") estado = ddl_estado.SelectedText;
+        else estado = txt_estado.Text;
+
         if (ddl_colonia.Visible) colonia = ddl_colonia.SelectedValue;
-        else  colonia = txt_colonia.Text;
-        
+        else colonia = txt_colonia.Text;
+
         direccionesEnvio direccion = new direccionesEnvio
         {
             nombre_direccion = txt_nombre_direccion.Text,
@@ -162,30 +150,27 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
         if (resultValidacion.result)
         {
             usuarios datosUsuario = usuarios.modoAsesor();
-
             if (direccion.crearDireccion(datosUsuario.id) != null)
             {
-                BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.success, "Creada con éxito","");
-
+                NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Dirección agregada");
+                //BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.success, "Creada con éxito", "");
+                ContentReferenciaDomicilioNuevo.Visible = false;
+                ContentReferenciaDomiciliosGuardados.Visible = true;
                 direcciones_envio_EF.EstablecerPredeterminada(datosUsuario.id);
                 cargarDirecciones();
             }
             else
             {
-                BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.danger, "Error al crear dirección de envío", "");
- 
+                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al agregar la dirección");
+                //BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.danger, "Error al crear dirección de envío", "");
             }
-
         }
         else
         {
-            BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.danger, "Error al crear dirección de envío", resultValidacion.message);
-
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al agregar la dirección");
+            //BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.danger, "Error al crear dirección de envío", resultValidacion.message);
         }
-
-
     }
-
 
     protected void btn_usarDirección_Click(object sender, EventArgs e)
     {
@@ -216,20 +201,21 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
         pedidoDireccionEnvio.pais = direccionEnvio.pais;
         pedidoDireccionEnvio.referencias = direccionEnvio.referencias;
 
- 
+
         var result = PedidosEF.GuardarDireccionEnvio(lt_numero_pedido.Text, pedidoDireccionEnvio);
 
         pedidosDatos.establecerEstatusCalculo_Costo_Envio(true, numero_operacion);
         string resultado = pedidosDatos.actualizarEnvio(0, "Estándar", numero_operacion);
-       
-      
+
+
         var emailUserLogin = usuarios.userLoginName();
 
 
         var ProductosPedidos = PedidosEF.ObtenerProductosWithData(numero_operacion);
         var ListProductosEnvio = new List<ProductoEnvioCalculoModel>();
 
-        foreach (var ProductoPedido in ProductosPedidos) {
+        foreach (var ProductoPedido in ProductosPedidos)
+        {
             var p = new ProductoEnvioCalculoModel();
             p.Numero_Parte = ProductoPedido.datos.numero_parte;
             p.Tipo = 1;
@@ -246,36 +232,40 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
 
 
         var ValidarRegla = new EnviosIncomReglas(numero_operacion, "pedido", ListProductosEnvio);
-       
-        if(ValidarRegla.Resultado.result == false) {
+
+        if (ValidarRegla.Resultado.result == false)
+        {
             // Si no aplica envio de alguna promoción, calculamos el costo del envío.
-            try {
+            try
+            {
 
                 ValidarCalculoEnvioOperacion validar = new ValidarCalculoEnvioOperacion(numero_operacion, "pedido");
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 devNotificaciones.error("Calcular envio en pedido: " + numero_operacion + " ", ex, emailUserLogin);
             }
         }
 
-       
-          
+
+
 
         string redirectUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary {
                         { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
                     });
 
 
-        msg_succes.Text = "Estableciendo <strong>Dirección de envío</strong>, redireccionando en 3,2,1....";
-        msg_succes.Visible = true;
+        NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Dirección de envío establecida");
+        //msg_succes.Text = "Estableciendo <strong>Dirección de envío</strong>, redireccionando en 3,2,1....";
+        //msg_succes.Visible = true;
 
-        BootstrapCSS.RedirectJs(this, redirectUrl,2000);
+        BootstrapCSS.RedirectJs(this, redirectUrl, 2000);
 
-        
+
         CargarDatosPedido();
         CargarDireccionEnvio();
         cargarDirecciones();
-      
+
     }
 
 
@@ -283,49 +273,41 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
 
     protected void lv_direcciones_ItemDataBound(object sender, ListViewItemEventArgs e)
     {
-
         string id_pedido_direccion_envio = hf_id_pedido_direccion_envio.Value;
         if (!string.IsNullOrWhiteSpace(id_pedido_direccion_envio) && hf_pedido_tipo_envio.Value != "En Tienda" && hf_pedido_tipo_envio.Value != "Ninguno")
         {
- 
             HiddenField hf_id_direccion = (HiddenField)e.Item.FindControl("hf_id_direccion");
-
-            if(hf_id_direccion.Value== id_pedido_direccion_envio)
+            if (hf_id_direccion.Value == id_pedido_direccion_envio)
             {
                 HtmlGenericControl contentCard_DireccEnvio = (HtmlGenericControl)e.Item.FindControl("contentCard_DireccEnvio");
                 contentCard_DireccEnvio.Attributes["class"] += " text-white bg-success";
             }
-           
-
         }
-       
     }
- 
 
     protected void btn_recogeEnTienda_Click(object sender, EventArgs e)
     {
-
         string numero_operacion = lt_numero_pedido.Text;
         string id_operacion = hf_id_pedido.Value;
         Task.Run(() =>
         {
             try
             {
-                                   string metodoEnvio = "En Tienda";
-                    decimal envio = 0;
+                string metodoEnvio = "En Tienda";
+                decimal envio = 0;
 
 
-                    var resultado = pedidosDatos.actualizarEnvio(envio, metodoEnvio, numero_operacion,"");
+                var resultado = pedidosDatos.actualizarEnvio(envio, metodoEnvio, numero_operacion, "");
 
                 pedidosProductos.actualizarTotalStatic(numero_operacion);
             }
             catch (Exception ex)
             {
-                    
-                    var resultado = pedidosDatos.actualizarEnvio(0, "Ninguno", numero_operacion,
-                        "Ocurrio un error al calcular tu envío, no te preocupes en unos momentos un asesor se pondrá en contacto contigo");
 
-               
+                var resultado = pedidosDatos.actualizarEnvio(0, "Ninguno", numero_operacion,
+                    "Ocurrio un error al calcular tu envío, no te preocupes en unos momentos un asesor se pondrá en contacto contigo");
+
+
                 devNotificaciones.error("Establecer envio en tienda: " + numero_operacion + " ", ex);
                 materializeCSS.crear_toast(this, "Ocurrio un error", false);
 
@@ -336,18 +318,20 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
                         { "id_operacion", seguridad.Encriptar(id_operacion )}
                     });
 
+        NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Recoger en tienda");
+        //msg_succes.Text = "Estableciendo <strong>Dirección de envío </strong>, redireccionando en 3,2,1....";
+        //msg_succes.Visible = true;
 
-
-        msg_succes.Text = "Estableciendo <strong>Dirección de envío </strong>, redireccionando en 3,2,1....";
-        msg_succes.Visible = true;
-
-        BootstrapCSS.RedirectJs(this, redirectUrl,2500);
-
+        BootstrapCSS.RedirectJs(this, redirectUrl, 2500);
 
         CargarDatosPedido();
-      
         CargarDireccionEnvio();
         cargarDirecciones();
+    }
+
+    protected void btn_entregaDomicilio_Click(object sender, EventArgs e)
+    {
+        ContentReferenciaDomiciliosGuardados.Visible = true;
     }
 
     protected async void txt_codigo_postal_TextChanged(object sender, EventArgs e)
@@ -422,7 +406,6 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
 
     protected void btn_eliminarDireccion_Click(object sender, EventArgs e)
     {
-
         LinkButton btnEliminar = (LinkButton)sender;
         // Obtenemos el contenedor del objeto que creo el evento
         ListViewItem lvItem = (ListViewItem)btnEliminar.NamingContainer;
@@ -431,19 +414,13 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
 
         int IdDireccion = int.Parse(hf_id_direccion.Value);
 
-
         var result = direcciones_envio_EF.eliminar(IdDireccion);
 
         if (result.result)
         {
-            btn_recogeEnTienda_Click(sender, e);
+            //btn_recogeEnTienda_Click(sender, e);
             cargarDirecciones();
-
         }
-        else
-        {
-
-        }
-
+        cargarDirecciones();
     }
 }
