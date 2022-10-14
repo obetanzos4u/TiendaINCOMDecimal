@@ -8,14 +8,16 @@
                     <h2 class="is-font-semibold is-select-none is-px-2">Crear cuenta</h2>
                     <div class="is-px-4 is-py-0">
                         <div class="is-flex is-flex-col is-justify-center is-items-center is-py-2">
-                            <p class="is-font-medium is-select-none">Iniciar sesión con Google</p>
+                            <p class="is-font-medium is-select-none">Continuar con Google</p>
                             <div class="g-signin2" data-text="sfsf" data-onsuccess="onSignIn"></div>
                             <div id="ajax-register-msg-result"></div>
                         </div>
-                        <hr />
+                        <div class="contain-separator is-top-2">
+                            <span class="separator" style="margin-left: 10px;">O</span>
+                        </div>
                         <div class="is-flex is-flex-col is-justify-center is-items-center">
-                            <p class="is-font-medium is-select-none">Iniciar sesión con tu correo</p>
-                            <div class="is-grid is-col-2 is-gap-4">
+                            <p class="is-font-medium is-select-none">Registrarse con el correo electrónico</p>
+                            <div class="is-grid is-col-2 is-gap-5">
                                 <div>
                                     <label for="txt_email" class="is-text-base is-select-none">Correo electrónico</label>
                                     <asp:TextBox ID="txt_email" ClientIDMode="Static" runat="server"></asp:TextBox>
@@ -32,7 +34,7 @@
                                 </div>
                                 <div>
                                     <div>
-                                        <label for="<%= txt_apellido_paterno.ClientID %>" class="is-text-base is-select-none">Apellidos</label>
+                                        <label for="<%= txt_apellido_paterno.ClientID %>" class="is-text-base is-select-none">Apellido</label>
                                         <asp:TextBox ID="txt_apellido_paterno" ClientIDMode="Static" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
@@ -84,7 +86,8 @@
                                 </label>
                             </div>
                             <div class="is-py-8">
-                                <asp:LinkButton ID="btn_registrar" OnClick="btn_registrar_ClickAsync" OnClientClick="btnLoading(this);" class="is-text-white is-px-4 is-py-2 is-bg-blue is-rounded" runat="server">Crear cuenta</asp:LinkButton>
+                                <%-- <asp:LinkButton ID="btn_registrar" OnClick="btn_registrar_ClickAsync" OnClientClick="btnLoading(this);" class="is-text-white is-px-4 is-py-2 is-bg-blue is-rounded" runat="server">Crear cuenta</asp:LinkButton> --%>
+                                <asp:LinkButton ID="btn_registrar" OnClick="btn_registrar_ClickAsync" OnClientClick="btnLoading(this);" class="waves-effect waves-light btn-1 is-bg-footer is-text-white margin-btn lighten-5 center-align waves-input-wrapper" runat="server">Crear cuenta</asp:LinkButton> 
                             </div>
                         </div>
                     </div>

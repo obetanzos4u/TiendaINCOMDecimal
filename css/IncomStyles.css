@@ -124,6 +124,10 @@ body {
     gap: 1rem;
 }
 
+.is-gap-5 {
+    gap: 1rem 3rem;
+}
+
 .is-col-footer {
     grid-template-columns: repeat(3, minmax(0, 1fr))
 }

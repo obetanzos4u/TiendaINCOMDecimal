@@ -33,7 +33,7 @@
                 <p class="is-mx-1 is-text-xl is-font-bold">Suscríbete a nuestro boletín:</p>
                 <div class="is-mx-1 is-flex is-justify-center is-items-center is-w-full-xl is-px-4">
                     <input type="email" id="newsletter_email" name="newsletter_email" placeholder="Correo electrónico" style="background-color: rgb(255, 255, 255); font-style: italic;  color: rgb(0, 0, 0); padding-left: 0.5rem; width: 45vw; height: 2rem; margin: 0; border-radius: 0.4rem 0rem 0rem 0.4rem" />
-                    <button type="submit" class="is-text-white is-rounded" style="background-color: #004EEA; padding: 0.5rem 1.5rem; height: 100%; border: 0; border-radius: 0rem 0.4rem 0.4rem 0rem;">Suscríbete</button>
+                    <button type="submit" class="is-text-white is-rounded" style="background-color: #004EEA; padding: 0.5rem 1.5rem; height: 100%; border: 0; border-radius: 0rem 0.4rem 0.4rem 0rem;">Suscribirse</button>
                 </div>
             </div>
             <div class="is-flex-xl is-justify-center-xl is-font-normal is-text-base">

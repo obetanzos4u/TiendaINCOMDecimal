@@ -331,8 +331,32 @@
 .center-carrito_vacio {
     width: 50%;
     float: right;
-
 }
+
+
+    @media only screen and (min-width: 400px) and (max-width: 600px) {
+
+        .center-carrito_vacio {
+            width: 100%;
+            margin-left: 200px;
+        }
+    }
+
+    @media only screen and (min-width: 600px) and (max-width: 800px) {
+
+        .center-carrito_vacio {
+            width: 100%;
+            margin-left: 500px;
+        }
+    }
+
+    @media only screen and (min-width: 800px) and (max-width: 1000px) {
+
+        .center-carrito_vacio {
+            width: 100%;
+            margin-left: 600px;
+        }
+    }
 
 .center-btn-carrito_vacio {
     text-align: center;
@@ -362,7 +386,7 @@
 }
 
 /* Correción de alineación en las subcategorias */
-@media only screen and (min-width: 700px) and (max-width: 993px) {
+    @media only screen and (min-width: 700px) and (max-width: 993px) {
     .truncate {
             font-size: 1rem !important;
         }
@@ -631,6 +655,16 @@
         margin-bottom: 2em;
     }
 
+    /* Crear cuenta */
+    .abcRioButton {
+        width: 260px !important;
+    }
+
+    #txt_phone, #txt_password_confirma, #text_nombre, #txt_apellido_paterno {
+        height: 2.5rem;
+    }
+
+    /* Fin de crear cuenta */
 
 .waves-effect-1 {
     position: relative;
@@ -997,6 +1031,54 @@
 
         .space-form {
             margin-top: 1rem !important;
+        }
+    }
+
+    @media only screen and (min-width: 1000px) and (max-width: 1450px) {
+        #relacionados_splide-list > li {
+            width: 145px;
+        }
+
+        #alternativos_splide-list > li {
+            width: 145px;
+        }
+
+        #relacionados_splide-list > li .btn-1 {
+            width: 42px;
+            height: 24px;
+            line-height: 19px;
+            font-size: 0px;
+            padding: 0;
+        }
+
+        #relacionados_splide-list > li .btn-1 > .carrito-white_btn {
+            width: 16px;
+        }
+
+        #relacionados_splide-list > li > div {
+            text-align: end;
+            margin-top: -26px;
+        }
+
+        #alternativos_splide-list > li .btn-1 {
+            margin-top: -190px;
+            width: 42px;
+            height: 24px;
+            line-height: 19px;
+            font-size: 0px;
+            padding: 0;
+        }
+
+        #alternativos_splide-list > li .btn-1 > .carrito-white_btn {
+            width: 16px;
+        }
+
+        #alternativos_splide-list > li > div {
+            text-align: end;
+        }
+
+        .carrito-white_btn {
+            padding-top: 0px;
         }
     }
 

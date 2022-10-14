@@ -19,7 +19,7 @@
             <img class="carrito-white_btn" alt="Botón para añadir a carrito" src="https://www.incom.mx/img/webUI/newdesign/Carrito-white.svg">
             Agregar al carrito
         </asp:LinkButton>
-        <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" class="waves-effect waves-light btn-1  btn-full-text">
+        <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" style="color: #ffffff!important;" class="waves-effect waves-light btn-1  btn-full-text">
             <img class="carrito-white_btn" alt="Botón para añadir a carrito" src="https://www.incom.mx/img/webUI/newdesign/Carrito-white.svg"> 
             Agregar al carrito
         </a>
