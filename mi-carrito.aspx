@@ -7,10 +7,10 @@
     <asp:HiddenField ID="hf_UserLogin" runat="server" />
     <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="is-container" runat="server">
         <ContentTemplate>
-            <div class="row">
-                <div class="col l8 xl8" style="padding: 1rem 0">
+            <div class="row" style="margin-bottom: 27vh">
+                <div class="col l8 xl8" style="padding: 1rem 0;">
                     <div style="display: flex; justify-content: center; align-items: center">
-                        <asp:Label ID="lbl_shoppingCartTitle" class="is-text-xl is-font-semibold is-select-none" runat="server"></asp:Label>
+                        <asp:Label ID="lbl_shoppingCartTitle" class="shopping_cart is-text-xl is-font-semibold is-select-none" runat="server"></asp:Label>
                         <%--<asp:LinkButton ID="btn_guardarPlantilla" data-tooltip="Guarda este listado de productos para cotizaciones" OnClick="btn_guardarPlantilla_Click" CssClass="tooltipped" runat="server">
                             <i class="material-icons">save</i>
                         </asp:LinkButton>--%>
@@ -75,12 +75,12 @@
                                 </tr>
                             </ItemTemplate>
                             <EmptyDataTemplate>
-                                <div class="">
+                                <div class="center-carrito_vacio">
                                     <h2 class="center-align">Aún no tienes artículos en tu carrito.</h2>
-                                    <h3>¡Navega entre más de 2,000 productos!</h3>
-                                    <a class="" href="/productos">Descubrir</a>
+                                    <h3 class="is-text-center">¡Navega entre más de 2,000 productos!</h3>
+                                    <a class="btn-1 center-btn-carrito_vacio" class="text-align: center; justify-content: center; justify-items: center; margin: auto; display: table;" href="/productos">Descubrir ofertas</a>
                                 </div>
-                            </EmptyDataTemplate>
+                            </EmptyDataTemplate>                   
                         </asp:ListView>
                     </div>
                     <%--<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0;">

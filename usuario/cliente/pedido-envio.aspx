@@ -228,6 +228,10 @@
             .btn-3:hover {
                 background: #1c74f8;
             }
+            .space-envios {
+                --bs-gutter-x: -2.5rem !important;
+            }
+        }
     </style>
 </asp:Content>
 

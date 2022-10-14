@@ -194,7 +194,7 @@
 
             .splide__slide {
                 padding: 1rem;
-                background: #fff;
+                background: #f7f7f7;
                 border: 1px solid #00000017;
                 border-radius: 8px;
                 margin-bottom: 1rem;
@@ -206,7 +206,8 @@
                 }
 
                 .splide__slide > a {
-                    color: #3483fa;
+                    color: #166ff7;
+                    font-weight: 500;
                 }
 
             #slider_home_principal {
@@ -313,7 +314,24 @@
 
                 #relacionados_splide-list > li > div {
                     text-align: end;
-                    margin-top: -32px;
+                    margin-top: -34px;
+                }
+
+                #alternativos_splide-list > li .btn-1 {
+                    margin-top: -200px;
+                    width: 56px;
+                    height: 32px;
+                    line-height: 24px;
+                    font-size: 0px;
+                    padding: 0;
+                }
+
+                #alternativos_splide-list > li .btn-1 > .carrito-white_btn {
+                    width: 18px;
+                }
+
+                #alternativos_splide-list > li > div {
+                    text-align: end;
                 }
             }
 
@@ -772,6 +790,21 @@
                     text-align: end;
                     margin-top: -22px;
                 }
+
+                #alternativos_splide-list > li .btn-1 {
+                    margin-top: -134px;
+                    width: 34px;
+                    height: 18px;
+                    line-height: 14px;
+                    font-size: 0px;
+                    padding: 0;
+                }
+
+                #alternativos_splide-list > li > div {
+                    text-align: end;
+                    margin-top: -22px;
+                }
+
 
             }
 

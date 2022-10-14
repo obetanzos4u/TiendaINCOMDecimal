@@ -144,12 +144,10 @@ async function LoginAjaxOpenModal() {
     let content = `
         <div class="modal-content">
             <div class="is-flex is-flex-col is-justify-center is-items-center">
-                <p class="is-font-bold is-text-xl is-select-none is-m-2">
-                Inicio de sesión
-                </p>
+                <h1 class="txt-inicio_sesion" style="font-size: 2rem; margin-top:2rem; text-align: center">Iniciar sesión</h1>
                 <div class="is-text-center is-my-4">
-                <p class="is-select-none is-font-semibold">
-                    Inicia sesion con tu cuenta de Google
+                <p class="is-select-none is-font-regular">
+                    Inicia sesión con tu cuenta de Google
                 </p>
                 <div
                     class="g-signin2 is-inline-block"
@@ -158,31 +156,36 @@ async function LoginAjaxOpenModal() {
                 ></div>
                 </div>
             </div>
-            <hr class="is-mx-6" />
+            <div class="contain-separator">
+                <span class="separator">O</span>
+            </div>
             <div
-                class="is-flex is-flex-col is-justify-center is-items-center is-mx-4 is-px-4"
-            >
-                <p class="is-select-none is-font-semibold">
-                Inicia sesion con tu correo y contraseña
+                class="is-flex is-flex-col is-justify-center is-items-center is-mx-4 is-px-4">
+                <p class="is-select-none is-font-regular">
+                Continúa con tu correo electrónico
                 </p>
-                <div class="is-w-full">
-                <label for="ajax-login-user">Usuario</label>
-                <input id="ajax-login-user" type="text" />
+                <div class="is-w-full is-text-center">
+                <label for="ajax-login-user" class="is-block">Correo electrónico</label>
+                <input id="ajax-login-user" class="input-login_modal" type="text" />
                 </div>
-                <div class="is-w-full">
-                <label for="ajax-login-password">Contraseña</label>
-                <input id="ajax-login-password" type="password" />
+                <div class="is-w-full is-text-center">
+                <label for="ajax-login-password" class="is-block">Contraseña</label>
+                <input id="ajax-login-password" class="input-login_modal" type="password" />
                 </div>
-                <div class="is-flex is-justify-around is-items-center is-py-2 is-w-full">
-                <a href="/restablecer-password.aspx">Olvidé mi contraseña</a>
+                <div class="is-bg-footer is-flex is-justify-around is-items-center contain-btn-inicio_sesion_modal is-my-4">
                 <a
                     id="ajax-login-btn"
-                    class="is-text-white is-bg-blue is-cursor-pointer is-px-4 is-rounded is-select-none"
+                    class="btn-inicio_sesion_modal is-select-none"
                     onclick="LoginAjaxSet();"
                     >Iniciar sesión</a
                 >
                 </div>
-                <a href="/registro-de-usuario.aspx">Registrarse</a>
+                <span class="is-my-4">
+                    <a href="/restablecer-password.aspx">¿Olvidaste tu contraseña?</a>                
+                </span>
+                <span class="is-my-4">
+                ¿Aún no tienes cuenta? <a href="/registro-de-usuario.aspx">Crea una cuenta</a>               
+                </span>
             </div>
             <div id="ajax-login-msg-result" class="is-w-full">
                 <p class="is-m-0"></p>

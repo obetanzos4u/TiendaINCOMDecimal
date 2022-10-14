@@ -162,7 +162,7 @@
                 </div>
             </div>
 
-            <div class="contentResultados-content borderTest">
+            <div class="contentResultados-content">
                 <asp:ListView ID="lv_productos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                     <LayoutTemplate>
                         <%--<div class="row">
@@ -224,7 +224,7 @@
                                             class=" white-text green darken-1 nota">Incluye <strong>IVA ✓</strong> </span>
                                     </div> -->
                                     <p>
-                                        <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 0.9rem; display: inherit;" Visible="false" runat="server"></asp:Label>
+                                        <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 0.9rem; display: inherit; margin-top: -1rem; line-height: 1.2;" Visible="false" runat="server"></asp:Label>
 
                                         <span class="producto_precio">$</span>
                                         <asp:Label ID="lbl_producto_precio" CssClass="producto_precio" runat="server" Text=""></asp:Label>
