@@ -456,6 +456,10 @@ body {
     margin: 0;
 }
 
+.is-m-auto {
+    margin: auto;
+}
+
 .is-mx-0 {
     margin-left: 0;
     margin-right: 0;
@@ -530,7 +534,7 @@ body {
     margin-top: 15vh;
 }
 
-.is-bt-5 {
+.is-bt-1 {
     margin-bottom: 1rem;
 }
 
@@ -583,6 +587,12 @@ body {
 }
 .list-decimal {
     list-style-type: decimal;
+}
+
+/* Text type */
+
+.is-decoration-none {
+    text-decoration: none;
 }
 
 /* Width and Height section */
@@ -753,6 +763,11 @@ body {
 }
 
 /* Borders */
+
+.is-border-none {
+    border: none;
+}
+
 .is-border {
     border-width: 1px;
     border-style: solid;
@@ -765,6 +780,10 @@ body {
 
 .is-border-black {
     border-color: rgb(0, 0, 0);
+}
+
+.is-border-gray-soft {
+    border: 1px solid #e1e1e1;
 }
 
 .is-border-soft {

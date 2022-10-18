@@ -7,7 +7,6 @@
 <div class="row">
     <div class="col s12 m3 l3 xl2 ">
          <div class="row">
- 
                 <h2>  Moneda:</h2>
             <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
            
@@ -17,10 +16,7 @@
             <asp:RadioButtonList ID="rd_filtroMarcas" OnSelectedIndexChanged="orden" AutoPostBack="true" RepeatDirection="Vertical" CssClass="ulFlow" RepeatLayout="UnorderedList" runat="server">
                 <asp:ListItem Text="Todas las marcas" Value=""></asp:ListItem>
             </asp:RadioButtonList>
-
-
         </div>
-         
     </div>
     <div class="col s12 m9 l9 xl10 ">
          <div runat="server" id="content_resultado_busqueda_text" visible="false" class="row">
@@ -28,8 +24,6 @@
          </div>
         <!-- INICIO : Filtros y orden -->
         <div class="row"     id="cont_ordenar" runat="server">
-
-
             <div class="col s12 m5 l4" visible="false" runat="server">
                 <label>Busca por: Nombre de cotización o número de operación</label>
                 <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización ó número de operación" AutoPostBack="true" OnTextChanged="cargarProductos" runat="server"></asp:TextBox>
@@ -43,13 +37,10 @@
                    </asp:DropDownList>
             </div>
             <div class="col s6 m3 l2">
-
                 <label>Ordenar por</label>
-
                 <asp:DropDownList ID="ddl_ordenTipo" AutoPostBack="true" OnSelectedIndexChanged="orden"  runat="server">
                    <asp:ListItem Value="DESC" Text="Descendente"></asp:ListItem>  
                     <asp:ListItem Value="ASC" Text="Ascendente"></asp:ListItem>
-
                 </asp:DropDownList>
             </div>
         </div>
@@ -69,8 +60,6 @@
                     LastPageText=" &nbsp; &gt;&gt;" ShowLastPageButton="True" ShowPreviousPageButton="False" />
             </Fields>
         </asp:DataPager>
-
-
 
           </div>
         <div class="row" style="margin: auto 0px !important;">
@@ -99,8 +88,7 @@
                <asp:HyperLink ID="link_productoIMG" runat="server">
                     <asp:Image ID="img_producto" runat="server" />
                </asp:HyperLink>
-            <span class="card-title titulo_producto" >  <asp:Literal ID="lt_numero_parte"  Text='<%# Eval("numero_parte") %>' runat="server"></asp:Literal></h2></span>
-            
+            <span class="card-title titulo_producto" >  <asp:Literal ID="lt_numero_parte"  Text='<%# Eval("numero_parte") %>' runat="server"></asp:Literal></h2></span>  
         </div>
                  <div class="card-content">
                      <p class="productos_descripciones">
@@ -108,37 +96,31 @@
                          <asp:HyperLink ID="link_producto" runat="server">Ver más
                          </asp:HyperLink>
                      </p>
-
                  </div>
                    <div class="card-action">
                        Marca <%# Eval("marca") %>
-
                    </div>
                  <div class="card-action">
                       <uc_addCarrito:add ID="AddCarrito" numero_parte='<%# Eval("numero_parte") %>' runat="server"></uc_addCarrito:add>
-                   
                  </div>
                  <div class="card-action ">
                       <uc1:btn_addOperacion ID="productoAddOperacion"  numero_parte='<%# Eval("numero_parte") %>' descripcion_corta='<%# Eval("descripcion_corta") %>' runat="server"></uc1:btn_addOperacion>
-                   
                  </div>
                  <div class="card-action">
                      <div class="producto_precio_contentedor">
                          <span class="producto_precio">$</span><asp:Label ID="lbl_producto_precio" CssClass="producto_precio" runat="server" Text=""></asp:Label>
                          <asp:Label ID="lbl_producto_moneda" CssClass="producto_moneda" runat="server" Text=""></asp:Label>
-                         <span class=" blue-grey lighten-5 nota">Impuestos <strong>No incluidos</strong> </span>
+                         <span class="blue-grey lighten-5 nota">Impuestos <strong>No incluidos</strong> </span>
                      </div>
                  </div>
              </div>
-
-
-
         </div>
     </ItemTemplate>
     <EmptyDataTemplate>
         <div class="row center-align">
- <div class="col col s12">
-            <h3>Intenta con otro término de búsqueda</h3></div>
+            <div class="col col s12">
+                <h3>Intenta con otro término de búsqueda</h3>
+            </div>
         </div>
     </EmptyDataTemplate>
         </asp:ListView>
