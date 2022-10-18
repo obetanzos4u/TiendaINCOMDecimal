@@ -56,7 +56,7 @@
                             <div class="is-flex is-justify-between is-items-center">
                                 <%--<div class="Conteng_msg_envioNota"></div>--%>
                                 <div class="dropdown">
-                                    <asp:HyperLink runat="server" ID="btn_cambiar_metodo_envio" class="">
+                                    <asp:HyperLink runat="server" ID="btn_cambiar_metodo_envio" class="is-decoration-none">
                                 Cambiar método de envío
                                     </asp:HyperLink>
                                 </div>
@@ -86,7 +86,7 @@
                                     class="">
                              Sin factura </asp:LinkButton> -->
                                 <asp:HyperLink runat="server" ID="link_cambiar_direcc_facturacion"
-                                    class="">
+                                    class="is-decoration-none">
                                 Agregar datos de facturación
                                 </asp:HyperLink>
                             </div>
@@ -122,20 +122,24 @@
 
                 </div>
                 <asp:Panel ID="Pago_Pendiente" Visible="false" CssClass="mt-4 col col-12 col-xs-12 col-sm-12 col-md-12 col-xl-12" runat="server">
-
-                    <p class="h5">Elige el método de pago </p>
-
-                    <asp:HyperLink ID="link_pago_santander" class="btn btn-lg btn-primary " runat="server">
-                       <img src="/img/webUI/visa_mastercard.png" style="width: 120px;" class="img-thumbnail" />
-                        <i class="fas fa-lock"></i> Tarjeta crédito/débito</asp:HyperLink>
-                    <p class="mt-2">Otras formas de pago</p>
-                    <asp:HyperLink ID="link_pago_paypal" class="btn btn-outline-primary btn-sm" runat="server">
-                        <i class="fas fa-lock"></i> PayPal</asp:HyperLink>
-
-                    <a data-bs-toggle="modal" data-bs-target="#modal_deposito_trans" class="btn btn-outline-primary btn-sm">Transferencia o depósito</a>
+                <div class="is-flex">
+                    <figure>
+                        <figcaption style="float: left; width: fit-content;">Paga de manera segura por alguno de nuestros medios.</figcaption>
+                        <br>
+                        <img src="/img/webUI/newdesign/Formas_pago.png" alt="Imagen únicamente ilustrativa de Visa, Mastercard, American Express y Paypal" title="Métodos de pago aceptados" style="width: 250px; float: left;">
+                        <img src="/img/webUI/newdesign/mercado-pago.png" alt="Imagen únicamente ilustrativa de Mercado Pago" title="Métodos de pago aceptados" style="width: 54px; float: left;">
+                        <img src="/img/webUI/newdesign/transferencia.png" alt="Imagen únicamente ilustrativa de Transferencia bancaria" title="Métodos de pago aceptados" style="width: 75px; float: left; padding-top: 10px;">   
+                    </figure>
+                </div>
+                <div style="float: left; width: fit-content;">
+                    <p>Elige el método de pago:</p> 
+                    <asp:HyperLink ID="link_pago_santander" class="" runat="server"><div class="is-btn-gray">Tarjeta crédito/débito</div></asp:HyperLink>
+                    <asp:HyperLink ID="link_pago_paypal" class="is-text-white is-decoration-none" runat="server"><div class="is-btn-gray"><p id="text-paypal" style="color: white;">PayPal</p></div></asp:HyperLink>
+                    <a data-bs-toggle="modal" data-bs-target="#modal_deposito_trans"><div class="is-btn-gray">Transferencia o depósito</div></a>          
                     <div class="alert alert-warning mt-4" role="alert">
                         <strong>Aviso</strong>  No sé ha confirmado un pago aún.
                     </div>
+                </div>
                 </asp:Panel>
                 <asp:Panel ID="Pago_Confirmado" Visible="false" CssClass="mt-4 col col-12 col-xs-12 col-sm-12 col-md-12 col-xl-12" runat="server">
                     <p class="h5">
@@ -145,11 +149,6 @@
                 </asp:Panel>
             </div>
             <div class="col col-12  col-xs-12 col-sm-12 col-md-7 col-xl-6">
-
-
-
-
-
                 <p class="h5 ">Productos</p>
 
                 <asp:ListView ID="lv_productos" OnItemDataBound="lv_productos_ItemDataBound" Visible="true" runat="server">
@@ -192,12 +191,11 @@
                         No hay productos
                     </EmptyDataTemplate>
                 </asp:ListView>
-
                 <table class="table table-sm">
                     <thead>
                         <tr>
-                            <th scope="col">Concepto</th>
-                            <th class="text-end" scope="col">Total</th>
+                            <th scope="col">Total del pedido</th>
+                            <!-- <th class="text-end" scope="col">Total</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -207,36 +205,34 @@
                                 <asp:Label ID="lbl_total_productos" runat="server"></asp:Label></strong></td>
                         </tr>
                         <tr>
-                            <td>Envio (estimado)</td>
+                            <td>Envío (estándar):</td>
                             <td class="text-end"><strong>
                                 <asp:Label ID="lbl_envio" runat="server"></asp:Label></strong></td>
                         </tr>
-
                         <tr>
-                            <td>Subtotal</td>
+                            <td>Subtotal:</td>
                             <td class="text-end"><strong>
                                 <asp:Label ID="lbl_subtotal" runat="server"></asp:Label></strong></td>
                         </tr>
                         <tr>
-                            <td>Impuestos</td>
+                            <td>Impuestos:</td>
                             <td class="text-end"><strong>
                                 <asp:Label ID="lbl_impuestos" runat="server"></asp:Label></strong></td>
                         </tr>
                         <tr class="table-active">
-                            <td>Total</td>
+                            <td>Total:</td>
                             <td class="text-end"><strong>
                                 <asp:Label ID="lbl_total" runat="server"></asp:Label></strong></td>
                         </tr>
                     </tbody>
                 </table>
-
+                <div class="row">
+                    <div class="is-m-auto is-w-auto">
+                        <div id="content_msg_cancelar_pedido"></div>
+                            <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
+                        class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col col-12  col-xs-12 col-sm-12 col-md-7 col-xl-6">
-                <div id="content_msg_cancelar_pedido"></div>
-                <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
-                    class="is-text-red">Cancelar pedido</a>
             </div>
         </div>
     </div>
@@ -357,7 +353,7 @@
                       <br />
                                 <asp:LinkButton ID="btn_pago_transferencia" OnClick="btn_pago_transferencia_Click"
                                     class="btn btn-success"
-                                    runat="server">Ya he realizado la transferencia</asp:LinkButton>
+                                    runat="server">Ya realicé el pago</asp:LinkButton>
                             </asp:Panel>
                             <asp:Panel ID="ContentReferenciaTransferencia" Visible="false" runat="server">
                                 <p class="h4">Gracias por tu pago</p>

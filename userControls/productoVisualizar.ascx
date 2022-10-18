@@ -396,6 +396,7 @@
         display: inline-block;
         width: 45%;
         margin-left: 5%;
+        margin-right: 10%;
     }
 
     .txt-gallery {
