@@ -19,7 +19,14 @@ public partial class uc_btn_agregar_carrito : System.Web.UI.UserControl
             {
                 btn_agregar_productoCarrito.Visible = false;
                 agregar_productoCarrito_logoOut.Visible = true;
-                agregar_productoCarrito_logoOut.Attributes.Add("href", "~/iniciar-sesion.aspx?ReturnUrl=" + HttpContext.Current.Request.Url.AbsolutePath);
+                if (HttpContext.Current.Request.Url.AbsolutePath == "/productos/buscar")
+                {
+                    agregar_productoCarrito_logoOut.Attributes.Add("href", "~/iniciar-sesion.aspx?ReturnUrl=/productos");
+                }
+                else
+                {
+                    agregar_productoCarrito_logoOut.Attributes.Add("href", "~/iniciar-sesion.aspx?ReturnUrl=" + HttpContext.Current.Request.Url.AbsolutePath);
+                }
             }
             else
             {
