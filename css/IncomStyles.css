@@ -1060,6 +1060,9 @@ body {
 }
 
 /* Botones */
+
+/*Se usa para indicar opciones y el estado active indica elección*/
+
 .is-btn-gray {
 
     border: none;
@@ -1098,6 +1101,76 @@ body {
     color: #FFFFFF;
 }
 
+.is-btn-gray-light {
+
+    border: none;
+    border-radius: 6px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: none;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(160, 166, 175);
+    text-align: center;
+    font-weight: bold;
+    /* letter-spacing: .5px; */
+    -webkit-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+
+    font-size: 12px;
+    outline: 0;
+
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.is-btn-gray-light:hover {
+    background: #a7b0be;
+    color: #FFFFFF;
+}
+
+/*Se usa para avanzar en procesos del sitio como formularios*/
+
+.is-btn-blue {
+
+    width: fit-content;
+
+    border: none;
+    border-radius: 6px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: none;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+
+    text-decoration: none;
+    color: #fff;
+    background-color: #0066cc;
+    text-align: center;
+    font-weight: bold;
+    /* letter-spacing: .5px; */
+    -webkit-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+
+    font-size: 12px;
+    outline: 0;
+
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.is-btn-blue:hover {
+    background: #1c74f8;
+    color: #FFFFFF;
+}
+
+/*Esta serie de botones son indicativos de compra"*/
 
 .is-btn-green {
 

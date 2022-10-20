@@ -244,8 +244,8 @@
 
 .boton-agregar-carrito-resultados > div:nth-child(1) {
     display: flex;
-    padding-left: 5%;
-    padding-right: 5%;
+    width: 100%;
+    margin: auto;
 }
 
 .boton-agregar-carrito-resultados .btn-1 {
@@ -337,6 +337,12 @@
     width: 50%;
     float: right;
 }
+
+
+/* Formulario de facturación*/
+.text-facturaion-sub {
+    font-size: 1rem;
+    }
 
     @media only screen and (min-width: 400px) and (max-width: 600px) {
 
@@ -1160,7 +1166,7 @@
     a.aspNetDisabled {
         opacity: 0.4;
     }
-
+    
     /* INICIO Override Materialize*/
 
         .incom-ul-default > li {

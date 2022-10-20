@@ -232,7 +232,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             if (solo_para_Visualizar)
             {
                 lbl_moneda.Visible = false;
-                lbl_precio.Text = "Cotízalo";
+                lbl_precio.Text = "Cotízalo por medio de un asesor al teléfono (55)5243-6900";
 
                 linkVisualizarProducto.solicitarInforme();
                 AddCarrito.Visible = false;

@@ -473,13 +473,13 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
                 if (rowView["puntajeBusqueda"] != DBNull.Value)
                 {
                     Label lbl_puntajeBusqueda = (Label)e.Item.FindControl("lbl_puntajeBusqueda");
-                    Label lbl_aviso = (Label)e.Item.FindControl("lbl_aviso");
+                    // Label lbl_aviso = (Label)e.Item.FindControl("lbl_aviso");
                     lbl_puntajeBusqueda.Visible = true;
 
                     string puntaje = rowView["puntajeBusqueda"].ToString();
                     lbl_puntajeBusqueda.Text = "Puntaje: " + puntaje;
                     string aviso = rowView["avisos"].ToString();
-                    lbl_aviso.Text = aviso;
+                    // lbl_aviso.Text = aviso;
                 }
 
             }

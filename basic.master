@@ -206,7 +206,7 @@
                 }
 
                 .splide__slide > a {
-                    color: #166ff7;
+                    color: #000000;
                     font-weight: 500;
                 }
 

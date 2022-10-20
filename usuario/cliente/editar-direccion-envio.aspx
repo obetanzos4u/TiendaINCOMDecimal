@@ -8,65 +8,66 @@
     <header:menuGeneral ID="menuGeneral" runat="server" />
 
     <div class="container mt-4 is-top-3">
-        <div class="row" style="width: 450px; margin: 2rem auto 4rem auto;">
+        <div class="row" style="width: 400px; margin: 2rem auto 4rem auto;">
             <div class="col is-bg-gray-light is-p-8 is-top-1 is-rounded-lg is-border-gray-soft">
                 <h1 class="is-text-base is-font-semibold">Editar dirección de envío</h1>
                   <h1 class="h2" id="titulo_nombre_direccion"  runat="server"></h1>
                     <asp:HiddenField ID="hd_id_direccion" Value='<%#Eval("id") %>' runat="server" />
                         <div class="form-row">
-                            <div class="form-group is-top-1">
-                                <label for="<%= txt_nombre_direccion.ClientID %>">Asigna un nombre a esta dirección </label>
+                            <div class="form-group is-top-75">
+                                <label for="<%= txt_nombre_direccion.ClientID %>">Asigna un nombre a esta dirección:</label>
                                 <asp:TextBox ID="txt_nombre_direccion" ClientIDMode="Static" class="form-control" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
                                     <small id="emailHelp" class="form-text text-muted">Ejemplo: Casa, trabajo, bodega</small>
                             </div>
-                            <div class="form-group is-top-1">
-                                <label for="txt_codigo_postal">Código Postal</label>
+                            <div class="form-group is-top-75">
+                                <label for="txt_codigo_postal">Código Postal:</label>
                                 <asp:TextBox ID="txt_codigo_postal" AutoPostBack="true" OnTextChanged="txt_codigo_postal_TextChanged"
-                                    ClientIDMode="Static" class="form-control" runat="server">
+                                    ClientIDMode="Static" class="form-control" style="display: initial; width: 30%;" runat="server">
                                 </asp:TextBox>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group is-top-1">
-                                <label for="<%= txt_calle.ClientID %>">Calle</label>
+                            <div class="form-group is-top-75">
+                                <label for="<%= txt_calle.ClientID %>">Calle:</label>
                                 <asp:TextBox ID="txt_calle" ClientIDMode="Static" class="form-control" data-length="50" MaxLength="50" runat="server"></asp:TextBox>
                             </div>
-                            <div class="form-group is-top-1">
-                                <label for="<%= txt_numero.ClientID %>">Número</label>
-                                <asp:TextBox ID="txt_numero" ClientIDMode="Static" class="form-control" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
+                            <div class="form-group is-top-75">
+                                <label for="<%= txt_numero.ClientID %>">Número:</label>
+                                <asp:TextBox ID="txt_numero" ClientIDMode="Static" class="form-control" style="width: 40%;" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group is-top-1">
-                                <label for="<%= txt_colonia.ClientID %>">Colonia</label>
+                            <div class="form-group is-top-75">
+                                <label for="<%= txt_colonia.ClientID %>">Colonia:</label>
                                 <asp:DropDownList ID="ddl_colonia" class="form-select" runat="server"></asp:DropDownList>
                                 <asp:TextBox ID="txt_colonia" ClientIDMode="Static" Visible="false" class="form-control"   runat="server"></asp:TextBox>
                             </div>
-                            <div class="form-group is-top-1">
-                            <label for="txt_delegacion_municipio">Delegación/Municipio</label>
+                            <div class="form-group is-top-75">
+                            <label for="txt_delegacion_municipio">Delegación/Municipio:</label>
                             <asp:TextBox ID="txt_delegacion_municipio" ClientIDMode="Static" class="form-control" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
                         </div>
-                        <div class="form-group is-top-1">
-                            <label for="txt_ciudad">Ciudad</label>
-                            <asp:TextBox ID="txt_ciudad" ClientIDMode="Static" CssClass="validate form-control" data-length="60" MaxLength="60" runat="server"></asp:TextBox>
+                        <div class="form-group is-top-75">
+                            <label for="txt_ciudad" style="display: initial;">Ciudad:</label>
+                            <asp:TextBox ID="txt_ciudad" ClientIDMode="Static" CssClass="validate form-control" style="width: 80%; display: 
+                            initial;" data-length="60" MaxLength="60" runat="server"></asp:TextBox>
                         </div>
                     </div>
-                    <div id="cont_ddl_estado" class="form-group" runat="server">
-                        <label for="ddl_municipio_estado" class="form-group is-top-1 is-block">Estado</label>
-                        <uc:ddlEstados ID="ddl_estado" runat="server" />
+                    <div id="cont_ddl_estado" class="form-group form-estado" runat="server">
+                        <label for="ddl_municipio_estado" class="is-top-75 is-h-8">Estado:</label>
+                        <uc:ddlEstados ID="ddl_estado" style="height: 2rem;" runat="server" />
                     </div>
-                    <div id="cont_txt_estado" class="form-group is-top-1" runat="server">
-                        <label for="txt_estado">Estado</label>
+                    <div id="cont_txt_estado" class="form-group is-top-75" runat="server">
+                        <label for="txt_estado">Estado:</label>
                         <asp:TextBox ID="txt_estado" class="form-control" ClientIDMode="Static" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
                     </div>
                     <div class="form-row">
-                        <div class="form-group is-top-1">
-                            <label for="ddl_pais" class="is-block">Pais</label>
+                        <div class="form-group is-top-75">
+                            <label for="ddl_pais" class="">País:</label>
                             <uc:ddlPaises ID="ddl_pais" runat="server" />
                         </div>
                     </div>
-                    <div class="form-group is-top-1">
-                        <label for="txt_referencias">Referencias</label>
+                    <div class="form-group is-top-75">
+                        <label for="txt_referencias">Referencias:</label>
                         <asp:TextBox ID="txt_referencias" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                     <div id="content_alert">

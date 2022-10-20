@@ -31,7 +31,7 @@
 
               </div>
               <div class="form-group col-md-6">
-                  <label for="<%= txt_rfc.ClientID %>">Ingresa un RFC </label>
+                  <label for="<%= txt_rfc.ClientID %>">Régimen fiscal/RFC</label>
                   <asp:TextBox ID="txt_rfc" ClientIDMode="Static" class="form-control" data-length="15" MaxLength="15" runat="server"></asp:TextBox>
 
               </div>
