@@ -183,8 +183,6 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
         int idDireccion = int.Parse(hf_id_direccion.Value);
         string numero_operacion = lt_numero_pedido.Text;
 
-
-
         direcciones_envio direccionEnvio = direcciones_envio_EF.Obtener(idDireccion);
         pedidos_direccionEnvio pedidoDireccionEnvio = new pedidos_direccionEnvio();
 
@@ -201,16 +199,11 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
         pedidoDireccionEnvio.pais = direccionEnvio.pais;
         pedidoDireccionEnvio.referencias = direccionEnvio.referencias;
 
-
         var result = PedidosEF.GuardarDireccionEnvio(lt_numero_pedido.Text, pedidoDireccionEnvio);
 
         pedidosDatos.establecerEstatusCalculo_Costo_Envio(true, numero_operacion);
         string resultado = pedidosDatos.actualizarEnvio(0, "Estándar", numero_operacion);
-
-
         var emailUserLogin = usuarios.userLoginName();
-
-
         var ProductosPedidos = PedidosEF.ObtenerProductosWithData(numero_operacion);
         var ListProductosEnvio = new List<ProductoEnvioCalculoModel>();
 
@@ -230,7 +223,6 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
             ListProductosEnvio.Add(p);
         }
 
-
         var ValidarRegla = new EnviosIncomReglas(numero_operacion, "pedido", ListProductosEnvio);
 
         if (ValidarRegla.Resultado.result == false)
@@ -238,7 +230,6 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
             // Si no aplica envio de alguna promoción, calculamos el costo del envío.
             try
             {
-
                 ValidarCalculoEnvioOperacion validar = new ValidarCalculoEnvioOperacion(numero_operacion, "pedido");
             }
             catch (Exception ex)
@@ -247,13 +238,9 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
             }
         }
 
-
-
-
         string redirectUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary {
                         { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
                     });
-
 
         NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Dirección de envío establecida");
         //msg_succes.Text = "Estableciendo <strong>Dirección de envío</strong>, redireccionando en 3,2,1....";
@@ -261,16 +248,10 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
 
         BootstrapCSS.RedirectJs(this, redirectUrl, 2000);
 
-
         CargarDatosPedido();
         CargarDireccionEnvio();
         cargarDirecciones();
-
     }
-
-
-
-
     protected void lv_direcciones_ItemDataBound(object sender, ListViewItemEventArgs e)
     {
         string id_pedido_direccion_envio = hf_id_pedido_direccion_envio.Value;

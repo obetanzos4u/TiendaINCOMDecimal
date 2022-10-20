@@ -70,8 +70,8 @@
                                             <div class="card-body">
                                                 <p class="is-text-lg is-font-semibold"><%# Eval("nombre_direccion") %></p>
                                                 <p class="is-select-all">
-                                                    <%# Eval("calle") %> <%# Eval("numero") %>, <%# Eval("colonia") %>,  <%# Eval("delegacion_municipio") %>,  <%# Eval("estado") %>
-                                                    <%# Eval("codigo_postal") %> <%# Eval("referencias") %>
+                                                    <%# Eval("calle") %> <%# Eval("numero") %>, <%# Eval("colonia") %>,  <%# Eval("delegacion_municipio") %>, <%# Eval("estado") %>
+                                                    <%# Eval("codigo_postal") %>. <%# Eval("referencias") %>
                                                 </p>
                                                 <div class="is-flex is-justify-around is-items-center">
                                                     <asp:LinkButton class="btn is-bg-gray-400 is-text-white" OnClientClick="return confirm('¿Eliminar?');" OnClick="btn_eliminarDireccion_Click" ID="btn_eliminarDireccion" runat="server">
@@ -176,10 +176,6 @@
     </div>
 
     <script>
-        const copiarNumeroParte = () => {
-            const numeroParte = document.getElementById("body_lt_numero_pedido").innerText;
-            navigator.clipboard.writeText(numeroParte);
-        }
         const eliminarConfirmacion = () => {
             event.preventDefault();
             Notiflix.Confirm.show(

@@ -308,9 +308,9 @@
                     padding: 0;
                 }
 
-                #relacionados_splide-list > li .btn-1 > .carrito-white_btn {
-                    width: 18px;
-                }
+                    #relacionados_splide-list > li .btn-1 > .carrito-white_btn {
+                        width: 18px;
+                    }
 
                 #relacionados_splide-list > li > div {
                     text-align: end;
@@ -326,9 +326,9 @@
                     padding: 0;
                 }
 
-                #alternativos_splide-list > li .btn-1 > .carrito-white_btn {
-                    width: 18px;
-                }
+                    #alternativos_splide-list > li .btn-1 > .carrito-white_btn {
+                        width: 18px;
+                    }
 
                 #alternativos_splide-list > li > div {
                     text-align: end;
@@ -748,8 +748,8 @@
                 }
 
                 .splide__slide {
-                        padding: 0.75rem !important;
-                        margin-right: 0.75rem !important;
+                    padding: 0.75rem !important;
+                    margin-right: 0.75rem !important;
                 }
 
                 .splide__list-principal > li > a > img {
@@ -769,7 +769,7 @@
                 .img-destacados {
                     width: 80px;
                 }
-                
+
                 .container-breadcrumb {
                     margin: 0em 0em 2em 0em;
                 }
@@ -804,8 +804,6 @@
                     text-align: end;
                     margin-top: -22px;
                 }
-
-
             }
 
             /****** INICIO Seccion cotizaciones y pedidos */
@@ -835,7 +833,7 @@
 
             .material-tooltip {
                 background-color: #0C3766;
-                font-size: 12px !important:
+                font-size: 12px !important :
             }
 
             #btn_toTop {
@@ -874,6 +872,12 @@
 
     </form>
 
+    <script>
+        const copiarNumeroParte = () => {
+            const numeroParte = document.getElementById("body_lt_numero_pedido").innerText;
+            navigator.clipboard.writeText(numeroParte);
+        }
+    </script>
 
     <script>
         // When the user scrolls down 20px from the top of the document, show the button
@@ -895,8 +899,6 @@
     </script>
     <script>
         $(document).ready(function () {
-
-
             // INICIO 20210421 RC - Función que muestra/oculta el texto en un caja de password
             var clicked = 0;
 
@@ -921,10 +923,6 @@
             });
 
          // FIN 20210421 RC - Función que muestra/oculta el texto en un caja de password
-
-
-
-
     </script>
 
     <%--    <!-- begin olark code -->
@@ -1091,5 +1089,6 @@
                 $('.selectize-select').selectize();
             }
     </script>
+    <script src="//code.tidio.co/hcxpcrajmgdgnkbstm77gkvwk3acusob.js" async></script>
 </body>
 </html>
