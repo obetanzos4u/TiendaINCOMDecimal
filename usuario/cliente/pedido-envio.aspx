@@ -34,7 +34,7 @@
                     <asp:Panel ID="ContentReferenciaDomicilio" runat="server">
                         <div class="is-container">
                             <p class="text-center">Elige un método de envío:</p>
-                            <div class="is-flex is-justify-start is-items-center">
+                            <div class="is-flex is-justify-around is-items-center">
                                 <div id='contentCard_DireccEnvio' class="card is-rounded-xl is-bg-gray-light" runat="server">
                                     <div id="card_envio_recoge_en_tienda" class="card-body is-rounded-lg is-border-gray-soft">
                                         <h6 class="card-title">Recoger en tienda</h6>
@@ -55,7 +55,20 @@
                                 </div>
                             </div>
                         </div>
+                    <div style="float: left;">
+                        <hr class="is-top-4">
+                        <p>Dirección de tienda INCOM.</p>
+                        <div class="is-flex is-py-4">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.340310184435!2d-99.11385668466113!3d19.397696846821297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fe8542cb5455%3A0xe8681194a59f3b5a!2sIncom!5e0!3m2!1ses-419!2smx!4v1666278428806!5m2!1ses-419!2smx" width="500" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <p>Av. Presidente Plutarco Elías Calles 276, Col. Tlazintla, Iztacalco, C.P. 08710, Ciudad de México.</p>
+                        <div class="is-flex is-justify-start is-py-4">
+                            <a href="https://g.page/Incom_CDMX?share" class="is-decoration-none" target="_blank">Mapa</a>
+                            <a href="/documents/pdf/croquis-plutarco.pdf" class="is-decoration-none is-space-x-6" target="_blank">Croquis</a>
+                        </div>
+                    </div>                        
                     </asp:Panel>
+
                     <asp:Panel ID="ContentReferenciaDomiciliosGuardados" Visible="false" runat="server">
                         <p class="is-text-center is-m-auto">Direcciones guardadas:</p>
                         <div>
