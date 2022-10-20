@@ -232,7 +232,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             if (solo_para_Visualizar)
             {
                 lbl_moneda.Visible = false;
-                lbl_precio.Text = "Cotízalo";
+                lbl_precio.Text = "Cotízalo por medio de un asesor al teléfono (55)5243-6900";
 
                 linkVisualizarProducto.solicitarInforme();
                 AddCarrito.Visible = false;
@@ -560,7 +560,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
     {
         cont_documentacion.Visible = true;
         HyperLink link = new HyperLink();
-        link.CssClass = "is-px-4 is-border is-border-black is-rounded";
+        link.CssClass = "is-p-3 is-border-soft is-border-black is-rounded is-bg-gray-light";
         link.Text = "<img src='../../img/webUI/newdesign/documentacion-blue.svg' alt='Ficha técnica' class='is-pr-2'/>";
         link.Text += "Ficha técnica";
         link.NavigateUrl = _documentacionPDF;

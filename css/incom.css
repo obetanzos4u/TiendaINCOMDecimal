@@ -244,20 +244,14 @@
 
 .boton-agregar-carrito-resultados > div:nth-child(1) {
     display: flex;
-    padding-left: 5%;
-    padding-right: 5%;
+    width: 100%;
+    margin: auto;
 }
 
-.boton-agregar-carrito-resultados .btn-1 {
+.boton-agregar-carrito-resultados .is-btn-green {
     padding: 0 8px;
     font-size: 9px;
 }
-
-.boton-agregar-carrito-resultados .btn-1 {
-    padding: 0 8px;
-    font-size: 9px;
-}
-
 
 .carrito-white_btn {
     width: 12px;
@@ -339,6 +333,11 @@
 }
 
 
+/* Formulario de facturación*/
+.text-facturaion-sub {
+    font-size: 1rem;
+    }
+
     @media only screen and (min-width: 400px) and (max-width: 600px) {
 
         .center-carrito_vacio {
@@ -376,11 +375,21 @@
     width: 100%;
   }
  
+/* Corrección de activación de origen */
 #btn_iniciar_sesion {
     color: #ffffff;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
+    width: 160px;
+    height: 40px;
 }
+
+#ajax-login-btn {
+    width: 160px;
+    height: 40px;
+    line-height: 2.6;
+}
+/* Fin de la corrección de activación de origen */
 
 #txt_email {
     height:  2.5rem;
@@ -668,6 +677,20 @@
     #txt_phone, #txt_password_confirma, #text_nombre, #txt_apellido_paterno {
         height: 2.5rem;
     }
+
+    .contain-form-crear_cuenta {
+        border: 1px solid #c2c2c2;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 4rem;
+    }
+
+    .contain-form-recuperar-contrasena {
+        border: 1px solid #c2c2c2;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
 
     /* Fin de crear cuenta */
 
@@ -1024,7 +1047,7 @@
             margin: 0 20px 40px 0;
         }
 
-        .boton-agregar-carrito-resultados > a.btn-1 {
+        .boton-agregar-carrito-resultados > a.is-btn-green {
             padding: 0 12px;
             font-size: 9px;
         }
@@ -1048,7 +1071,7 @@
             width: 145px;
         }
 
-        #relacionados_splide-list > li .btn-1 {
+        #relacionados_splide-list > li .is-btn-green {
             width: 42px;
             height: 24px;
             line-height: 19px;
@@ -1056,7 +1079,7 @@
             padding: 0;
         }
 
-        #relacionados_splide-list > li .btn-1 > .carrito-white_btn {
+        #relacionados_splide-list > li .is-btn-green > .carrito-white_btn {
             width: 16px;
         }
 
@@ -1065,7 +1088,7 @@
             margin-top: -26px;
         }
 
-        #alternativos_splide-list > li .btn-1 {
+        #alternativos_splide-list > li .is-btn-green {
             margin-top: -190px;
             width: 42px;
             height: 24px;
@@ -1074,7 +1097,7 @@
             padding: 0;
         }
 
-        #alternativos_splide-list > li .btn-1 > .carrito-white_btn {
+        #alternativos_splide-list > li .is-btn-green > .carrito-white_btn {
             width: 16px;
         }
 
@@ -1161,7 +1184,7 @@
     a.aspNetDisabled {
         opacity: 0.4;
     }
-
+    
     /* INICIO Override Materialize*/
 
         .incom-ul-default > li {
@@ -2064,7 +2087,6 @@
       }
 
       .contain-btn-inicio_sesion_modal {
-        width: 30%;
         min-width: 120px;
         max-width: 200px;
         height: 36px;

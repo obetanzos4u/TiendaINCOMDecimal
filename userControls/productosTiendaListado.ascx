@@ -215,8 +215,8 @@
 
                                     <p class="space-marca" style="line-height: 20px; text-align: center;">
                                         <asp:Literal ID="lt_descripcion_corta" Visible="false" runat="server"></asp:Literal>
-                                        Marca
-                                        <asp:Label ID="lbl_marca" class="tooltipped" runat="server" Text=""></asp:Label>
+                                        <p class="is-text-xs is-m-0">Marca: </p>
+                                        <asp:Label ID="lbl_marca" class="tooltipped is-text-xs" runat="server" Text=""></asp:Label>
                                     </p>
                                     <div style="font-size: 11px; text-align: center;"><%# Eval("unidad_venta") %> (<%# Eval("cantidad") %>  <%# Eval("unidad") %>)</div>
                                     <!-- <div>

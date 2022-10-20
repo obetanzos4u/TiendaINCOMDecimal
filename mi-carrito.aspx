@@ -78,6 +78,7 @@
                                 <div class="center-carrito_vacio">
                                     <h2 class="center-align">Aún no tienes artículos en tu carrito.</h2>
                                     <h3 class="is-text-center">¡Navega entre más de 2,000 productos!</h3>
+                                    <img src="https://www.incom.mx/img/webUI/newdesign/carrito-vacio.svg" style="width: 15vw; margin: auto; display: block; padding-left: 2rem; margin-bottom: 3rem;">
                                     <a class="btn-1 center-btn-carrito_vacio" class="text-align: center; justify-content: center; justify-items: center; margin: auto; display: table;" href="/productos">Descubrir ofertas</a>
                                 </div>
                             </EmptyDataTemplate>                   
@@ -114,12 +115,12 @@
                         </div>
                         <div class="is-border-soft">
                             <div class="is-flex is-justify-between is-items-center">
-                                <span>Envío:</span>
+                                <!-- <span>Envío:</span>
                                 <div>
                                     <asp:Label ID="lbl_envio" runat="server"></asp:Label>
                                     <asp:Label ID="lbl_envio_nota" runat="server"></asp:Label>
                                     <%--<asp:HyperLink ID="link_API_desglose_envio" Target="_blank" Visible="false" runat="server" CssClass="sendLogo"><i class="material-icons">launch</i></asp:HyperLink>--%>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="is-flex is-justify-between is-items-center">
                                 <span>Subtotal:</span>
@@ -142,22 +143,25 @@
                         </div>
                     </div>
                     <div class="is-flex is-flex-col is-justify-center is-items-center">
-                        <asp:LinkButton ID="LinkButton1" ClientIDMode="Static" OnClick="btn_comprar_Click" OnClientClick="btnLoading(this);" CssClass="" runat="server">
-                            Continuar con la compra
-                        </asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton1" ClientIDMode="Static" OnClick="btn_comprar_Click" OnClientClick="btnLoading(this);" CssClass="is-text-white" runat="server">
+                                <div class="is-btn-green">Continuar con la compra</div>
+                            </asp:LinkButton>
                         <%--<a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a>--%>
                         <a href="#">Descargar cotización</a>
                     </div>
                     <div class="is-flex is-flex-col is-justify-center is-items-start">
                         <span>Consideraciones:</span>
-                        <div class="is-text-justify">
+                        <!-- <div class="is-text-justify">
                             <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión. <a target="_blank" href="/documents/INCOM-MEDIDAS-COVID.pdf">Consulta nuestro protocolo COVID</a></p>
+                            <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
+                        </div> -->
+                        <div class="is-text-justify">
+                            <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
                             <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
                         </div>
                     </div>
                 </div>
             </div>
-
             <%--            <div id="content_msg_exito_operacion" visible="false" class="row center-align" runat="server">
                 <h1 class="blue-text" id="">Tu 
                     <asp:Literal ID="lt_tipo_operacion" Text="Operación " runat="server"></asp:Literal>

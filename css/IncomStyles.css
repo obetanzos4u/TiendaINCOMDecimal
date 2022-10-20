@@ -408,6 +408,10 @@ body {
     padding-bottom: 0.5rem;
 }
 
+.is-p-3 {
+    padding: 0.75rem;
+}
+
 .is-p-4 {
     padding: 1rem;
 }
@@ -782,12 +786,16 @@ body {
     border-color: rgb(0, 0, 0);
 }
 
+.is-border-soft {
+    border-color: rgba(0, 0, 0, 0.315);
+}
+
 .is-border-gray-soft {
     border: 1px solid #e1e1e1;
 }
 
 .is-border-soft {
-    border: 1px solid #00000037;
+    border: 1px solid rgb(196, 196, 196);
 }
 
 .is-border-white {
@@ -1058,6 +1066,154 @@ body {
 .select-wrapper input.select-dropdown {
     width: 80% !important;
 }
+
+/* Botones */
+
+/*Se usa para indicar opciones y el estado active indica elección*/
+
+.is-btn-gray {
+
+    border: none;
+    border-radius: 6px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: none;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+
+    text-decoration: none;
+    color: #fff;
+    background-color: #7a7a7a;
+    text-align: center;
+    font-weight: bold;
+    /* letter-spacing: .5px; */
+    -webkit-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+
+    font-size: 12px;
+    outline: 0;
+
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.is-btn-gray:hover {
+    background: #9b9b9b;
+    color: #FFFFFF;
+}
+
+.is-btn-gray:active {
+    background: #06C;
+    color: #FFFFFF;
+}
+
+.is-btn-gray-light {
+
+    border: none;
+    border-radius: 6px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: none;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(160, 166, 175);
+    text-align: center;
+    font-weight: bold;
+    /* letter-spacing: .5px; */
+    -webkit-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+
+    font-size: 12px;
+    outline: 0;
+
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.is-btn-gray-light:hover {
+    background: #a7b0be;
+    color: #FFFFFF;
+}
+
+/*Se usa para avanzar en procesos del sitio como formularios*/
+
+.is-btn-blue {
+
+    width: fit-content;
+
+    border: none;
+    border-radius: 6px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: none;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+
+    text-decoration: none;
+    color: #fff;
+    background-color: #0066cc;
+    text-align: center;
+    font-weight: bold;
+    /* letter-spacing: .5px; */
+    -webkit-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+
+    font-size: 12px;
+    outline: 0;
+
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.is-btn-blue:hover {
+    background: #1c74f8;
+    color: #FFFFFF;
+}
+
+/*Esta serie de botones son indicativos de compra"*/
+
+.is-btn-green {
+
+    border: none;
+    border-radius: 6px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: none;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+
+    text-decoration: none;
+    color: #fff;
+    /* background-color: #108A00; */
+    background-color: #119100;
+    text-align: center;
+    font-weight: bold;
+    /* letter-spacing: .5px; */
+    -webkit-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+
+    font-size: 12px;
+    outline: 0;
+
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.is-btn-green:hover {
+    background: #169e04;
+    color: #FFFFFF;
+}
+
 
 /* Responsive */
 
