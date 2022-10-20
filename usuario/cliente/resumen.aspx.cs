@@ -119,7 +119,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         if (pedido_montos.metodoEnvio == "En Tienda")
         {
             metodo_envio_title.InnerText = pedido_montos.metodoEnvio;
-            metodo_envio_desc.InnerText = "Recoge en nuestra sucursal CDMX.";
+            metodo_envio_desc.InnerText = "Puedes recoger tus productos en nuestra sucursal en Ciudad de México. Consulta nuestros horarios de servicio.";
 
         }
         else if (pedido_montos.metodoEnvio == "Ninguno")
