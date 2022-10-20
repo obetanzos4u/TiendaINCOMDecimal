@@ -408,6 +408,10 @@ body {
     padding-bottom: 0.5rem;
 }
 
+.is-p-3 {
+    padding: 0.75rem;
+}
+
 .is-p-4 {
     padding: 1rem;
 }
@@ -782,12 +786,16 @@ body {
     border-color: rgb(0, 0, 0);
 }
 
+.is-border-soft {
+    border-color: rgba(0, 0, 0, 0.315);
+}
+
 .is-border-gray-soft {
     border: 1px solid #e1e1e1;
 }
 
 .is-border-soft {
-    border: 1px solid #00000037;
+    border: 1px solid rgb(196, 196, 196);
 }
 
 .is-border-white {

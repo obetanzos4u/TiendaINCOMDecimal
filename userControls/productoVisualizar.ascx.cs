@@ -560,7 +560,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
     {
         cont_documentacion.Visible = true;
         HyperLink link = new HyperLink();
-        link.CssClass = "is-px-4 is-border is-border-black is-rounded";
+        link.CssClass = "is-p-3 is-border-soft is-border-black is-rounded is-bg-gray-light";
         link.Text = "<img src='../../img/webUI/newdesign/documentacion-blue.svg' alt='Ficha técnica' class='is-pr-2'/>";
         link.Text += "Ficha técnica";
         link.NavigateUrl = _documentacionPDF;

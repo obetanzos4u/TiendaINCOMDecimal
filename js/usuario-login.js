@@ -165,11 +165,11 @@ async function LoginAjaxOpenModal() {
                 Continúa con tu correo electrónico
                 </p>
                 <div class="is-w-full is-text-center">
-                <label for="ajax-login-user" class="is-block">Correo electrónico</label>
+                <label for="ajax-login-user" class="is-block">Correo electrónico:</label>
                 <input id="ajax-login-user" class="input-login_modal" type="text" />
                 </div>
                 <div class="is-w-full is-text-center">
-                <label for="ajax-login-password" class="is-block">Contraseña</label>
+                <label for="ajax-login-password" class="is-block">Contraseña:</label>
                 <input id="ajax-login-password" class="input-login_modal" type="password" />
                 </div>
                 <div class="is-bg-footer is-flex is-justify-around is-items-center contain-btn-inicio_sesion_modal is-my-4">

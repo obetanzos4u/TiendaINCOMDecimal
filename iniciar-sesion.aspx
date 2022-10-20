@@ -34,8 +34,9 @@
                     </div>
 
                     <div class="center-align">
-                        <asp:Button ID="btn_iniciar_sesion" ClientIDMode="Static" OnClick="btn_iniciar_sesion_Click" Style="width: 100%,"
-                            class="waves-effect waves-light btn-1 is-bg-footer is-text-white margin-btn lighten-5 center-align" Text="Iniciar sesión" runat="server"></asp:Button>
+                        <asp:Button ID="btn_iniciar_sesion" ClientIDMode="Static" OnClick="btn_iniciar_sesion_Click" Style="height: 40px; padding: 0 !important;"
+                            class="waves-effect waves-light btn-1 is-bg-footer is-text-white margin-btn lighten-5 center-align" Text="Iniciar sesión" runat="server">
+                        </asp:Button>
                         <p>
                             <asp:Label ID="lbl_msg" runat="server" Visible="false"></asp:Label>
                         </p>

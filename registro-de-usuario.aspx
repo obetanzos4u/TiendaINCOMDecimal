@@ -4,7 +4,7 @@
     <div class="is-container">
         <div class="is-flex is-justify-center is-items-center is-w-full">
             <div class="is-w-1_2">
-                <div>
+                <div class="contain-form-crear_cuenta">
                     <h2 class="is-font-semibold is-select-none is-px-2">Crear cuenta</h2>
                     <div class="is-px-4 is-py-0">
                         <div class="is-flex is-flex-col is-justify-center is-items-center is-py-2">

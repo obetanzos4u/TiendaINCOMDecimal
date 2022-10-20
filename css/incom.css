@@ -375,11 +375,21 @@
     width: 100%;
   }
  
+/* Corrección de activación de origen */
 #btn_iniciar_sesion {
     color: #ffffff;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
+    width: 160px;
+    height: 40px;
 }
+
+#ajax-login-btn {
+    width: 160px;
+    height: 40px;
+    line-height: 2.6;
+}
+/* Fin de la corrección de activación de origen */
 
 #txt_email {
     height:  2.5rem;
@@ -667,6 +677,20 @@
     #txt_phone, #txt_password_confirma, #text_nombre, #txt_apellido_paterno {
         height: 2.5rem;
     }
+
+    .contain-form-crear_cuenta {
+        border: 1px solid #c2c2c2;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 4rem;
+    }
+
+    .contain-form-recuperar-contrasena {
+        border: 1px solid #c2c2c2;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
 
     /* Fin de crear cuenta */
 
@@ -2063,7 +2087,6 @@
       }
 
       .contain-btn-inicio_sesion_modal {
-        width: 30%;
         min-width: 120px;
         max-width: 200px;
         height: 36px;
