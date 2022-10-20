@@ -78,3 +78,7 @@
             break;
     }
 }
+
+const NotiflixLoading = () => {
+    console.log("Debe cargar boton de carga");
+}
