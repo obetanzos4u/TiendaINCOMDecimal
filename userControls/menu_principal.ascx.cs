@@ -34,7 +34,7 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         HtmlGenericControl rebajas = new HtmlGenericControl("li");
         rebajas.ID = "content-menu-incom-outlet";
         rebajas.ClientIDMode = ClientIDMode.Static;
-        rebajas.InnerHtml = "<a title='Rebajas'  href='/productos/Outlet-OUTLET1'>Rebajas</a>";
+        rebajas.InnerHtml = "<a title='Rebajas'  href='/productos/Rebajas-REBAJAS1'>Rebajas</a>";
 
         HtmlGenericControl biblioteca = new HtmlGenericControl("li");
         biblioteca.ID = "content-menu-incom-biblioteca";
