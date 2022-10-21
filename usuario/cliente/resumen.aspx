@@ -37,9 +37,9 @@
                         <div class="is-px-8 is-py-2">
                             <h6 id="contacto_title" class="" runat="server"></h6>
                             <p id="contacto_desc" class="" runat="server"></p>
-                            <!-- <asp:HyperLink runat="server" ID="link_cambiar_contacto">
-                               Cambiar método de envío
-                            </asp:HyperLink> -->
+                             <asp:HyperLink runat="server" ID="link_cambiar_contacto">
+                               Cambiar
+                            </asp:HyperLink> 
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,17 @@
                         <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Envío</h4>
                         <div class="is-px-8 is-py-2">
                             <h6 id="metodo_envio_title" class="card-subtitle" runat="server"></h6>
-                            <p id="metodo_envio_desc" class="card-text is-select-all" runat="server"></p>
+                            <div class="is-flex is-justify-between is-items-start">
+                                <p id="metodo_envio_desc" class="is-select-all" runat="server"></p>
+                                <a id="localizacionTienda" visible="false" href="https://g.page/Incom_CDMX?share" target="_blank" rel="noreferrer noopener" class="is-decoration-none is-text-black" runat="server">
+                                    <span>
+                                        <svg class="is-w-6 is-h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
                             <div id="msg_alert_envio" visible="false" class="alert alert-warning" role="alert" runat="server"></div>
                             <%--<asp:LinkButton ID="btn_Borrar_msg_alert_envio" CssClass="mb-2" Visible="false" OnClick="btn_Borrar_msg_alert_envio_Click" runat="server">
                             Borrar mensaje de error envío

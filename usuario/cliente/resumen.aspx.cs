@@ -83,21 +83,11 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         if (string.IsNullOrEmpty(pedidos_datos.telefono) && string.IsNullOrEmpty(pedidos_datos.celular))
         {
             NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Completa la información de contacto");
-            contacto_desc.InnerHtml = $"<ul class='list-none'><li class='is-text-red is-font-semibold'>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li class='is-text-red is-font-semibold'>Celular: {pedidos_datos.celular}</li></ul>" + $"<p class='is-text-red'>*Campos obligatorios</p>";
-        }
-        else if (string.IsNullOrEmpty(pedidos_datos.telefono) && !string.IsNullOrEmpty(pedidos_datos.celular))
-        {
-            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "Completa la información de contacto");
-            contacto_desc.InnerHtml = $"<ul class='list-none '><li class='is-text-red is-font-semibold'>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li>Celular: {pedidos_datos.celular}</li></ul>" + $"<p class='is-text-red'>*Campos obligatorios</p>";
-        }
-        else if (string.IsNullOrEmpty(pedidos_datos.celular) && !string.IsNullOrEmpty(pedidos_datos.telefono))
-        {
-            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "Completa la información de contacto");
-            contacto_desc.InnerHtml = $"<ul class='list-none'><li>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li class='is-text-red is-font-semibold'>Celular: {pedidos_datos.celular}</li></ul>" + $"<p class='is-text-red'>*Campos obligatorios</p>";
+            contacto_desc.InnerHtml = $"<ul class='list-none'><li class='is-text-red is-font-semibold'>Teléfono*: {pedidos_datos.celular}</li>" + $"<li class='is-text-red is-font-semibold'>Teléfono alternativo: {pedidos_datos.telefono}</li></ul>" + $"<p class='is-text-red'>*Campos obligatorios</p>";
         }
         else
         {
-            contacto_desc.InnerHtml = $"<ul class='list-none'><li>Teléfono fijo: {pedidos_datos.telefono}</li>" + $"<li>Celular: {pedidos_datos.celular}</li></ul>" + $"<p class='is-text-red'>*Campos obligatorios</p>";
+            contacto_desc.InnerHtml = $"<ul class='list-none'><li>Teléfono: {pedidos_datos.celular}</li>" + $"<li>Teléfono alternativo: {pedidos_datos.telefono}</li></ul>";
         }
         #endregion
 
@@ -119,12 +109,13 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         if (pedido_montos.metodoEnvio == "En Tienda")
         {
             metodo_envio_title.InnerText = pedido_montos.metodoEnvio;
-            metodo_envio_desc.InnerText = "Puedes recoger tus productos en nuestra sucursal en Ciudad de México. Consulta nuestros horarios de servicio.";
+            metodo_envio_desc.InnerText = "Te esperamos en nuestra sucursal.";
+            localizacionTienda.Visible = true;
 
         }
         else if (pedido_montos.metodoEnvio == "Ninguno")
         {
-            metodo_envio_title.InnerText = pedido_montos.metodoEnvio;
+            metodo_envio_title.InnerText = "Método de envío no seleccionado.";
         }
         else
         {
@@ -136,14 +127,15 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             if (pedido_montos.EnvioNota == "Tu operación aplica para envío gratis.")
             {
                 NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Un asesor se contactará para los detalles del envío.");
-                msg_alert_envio.InnerText = "Un asesor se contactará para los detalles del envío.";
-                msg_alert_envio.Visible = false;
+                //msg_alert_envio.InnerText = "Un asesor se contactará para los detalles del envío.";
+                //msg_alert_envio.Visible = false;
                 //btn_Borrar_msg_alert_envio.Visible = true;
             }
             else
             {
-                msg_alert_envio.InnerText = pedido_montos.EnvioNota;
-                msg_alert_envio.Visible = true;
+                NotiflixJS.Message(this, NotiflixJS.MessageType.info, pedido_montos.EnvioNota);
+                //msg_alert_envio.InnerText = pedido_montos.EnvioNota;
+                //msg_alert_envio.Visible = true;
                 //btn_Borrar_msg_alert_envio.Visible = true;
             }
         }
