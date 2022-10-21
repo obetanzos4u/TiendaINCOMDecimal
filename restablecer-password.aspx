@@ -29,7 +29,7 @@
                             <asp:LinkButton ID="btn_restablecer_password" OnClientClick="btnLoading(this);" OnClick="btn_restablecer_password_Click" Style="width: 100%,"
                                 class=""
                                 Text="Restablecer" runat="server">
-                                <div class="waves-effect waves-light btn-1 is-bg-footer is-text-white margin-btn lighten-5 center-align waves-input-wrapper is-m-auto">Restablecer</div>
+                                <div class="btn-1 is-m-auto">Restablecer</div>
                             </asp:LinkButton>
                         </ContentTemplate>
                     </asp:UpdatePanel>

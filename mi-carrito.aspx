@@ -7,7 +7,7 @@
     <asp:HiddenField ID="hf_UserLogin" runat="server" />
     <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="is-container" runat="server">
         <ContentTemplate>
-            <div class="row" style="margin-bottom: 27vh">
+            <div class="row" style="margin-bottom: 20vh">
                 <div class="col l8 xl8" style="padding: 1rem 0;">
                     <div style="display: flex; justify-content: center; align-items: center">
                         <asp:Label ID="lbl_shoppingCartTitle" class="shopping_cart is-text-xl is-font-semibold is-select-none" runat="server"></asp:Label>
@@ -79,7 +79,7 @@
                                     <h2 class="center-align">Aún no tienes artículos en tu carrito.</h2>
                                     <h3 class="is-text-center">¡Navega entre más de 2,000 productos!</h3>
                                     <img src="https://www.incom.mx/img/webUI/newdesign/carrito-vacio.svg" style="width: 15vw; margin: auto; display: block; padding-left: 2rem; margin-bottom: 3rem;">
-                                    <a class="btn-1 center-btn-carrito_vacio" class="text-align: center; justify-content: center; justify-items: center; margin: auto; display: table;" href="/productos">Descubrir ofertas</a>
+                                    <a class="is-btn-blue center-btn-carrito_vacio" style="text-align: center; justify-content: center; justify-items: center; margin: auto; display: table;" href="/productos">Descubrir ofertas</a>
                                 </div>
                             </EmptyDataTemplate>                   
                         </asp:ListView>

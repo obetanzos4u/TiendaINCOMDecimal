@@ -203,17 +203,15 @@
 
     border: none;
     border-radius: 6px;
-    display: inline-block;
     height: 36px;
     line-height: 36px;
-    padding: 0 16px;
     text-transform: none;
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
     
     text-decoration: none;
     color: #fff;
-    background-color: #0066cc;
+    background-color: #0C3766;
     text-align: center;
     font-weight: bold;
     /* letter-spacing: .5px; */
@@ -228,7 +226,12 @@
 }
 
 .btn-1:hover {
-    background: #1c74f8;
+    background: #0c4785;
+    color: #FFFFFF;
+}
+
+.btn-1:active {
+    background: #1161b6;
     color: #FFFFFF;
 }
 
@@ -386,8 +389,9 @@
 
 #ajax-login-btn {
     width: 160px;
-    height: 40px;
-    line-height: 2.6;
+    height: 36px;
+    line-height: 3;
+    display: block;
 }
 /* Fin de la corrección de activación de origen */
 
@@ -691,7 +695,14 @@
         border-radius: 12px;
     }
 
-
+    .btn-crear_cuenta {
+        width: 160px;
+        height: 36px;
+        color: #FFFFFF;
+        line-height: 3;
+        border-radius: 6px;
+        display: block;
+    }
     /* Fin de crear cuenta */
 
 .waves-effect-1 {
@@ -2113,6 +2124,21 @@
         margin: 0;
         transition: .3s ease-out;
         overflow: hidden;
+      }
+
+      #ajax-login-btn:hover {
+        background: #0c4785;
+        width: 160px;
+        height: 36px;
+        line-height: 3;
+        border-radius: 6px;
+  }
+
+      #ajax-login-btn:active{
+            background: #1161b6;
+            width: 160px;
+            height: 36px;
+            line-height: 3;
       }
 
       .input-login_modal {

@@ -172,7 +172,7 @@ async function LoginAjaxOpenModal() {
                 <label for="ajax-login-password" class="is-block">Contraseña:</label>
                 <input id="ajax-login-password" class="input-login_modal" type="password" />
                 </div>
-                <div class="is-bg-footer is-flex is-justify-around is-items-center contain-btn-inicio_sesion_modal is-my-4">
+                <div class="btn-1">
                 <a
                     id="ajax-login-btn"
                     class="btn-inicio_sesion_modal is-select-none"

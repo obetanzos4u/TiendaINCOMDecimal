@@ -85,9 +85,9 @@
                                     <span>Acepto los <a href="/informacion/terminos-y-condiciones-de-compra.aspx" target="_blank">Términos y condiciones de compra</a> y el <a href="/informacion/aviso-de-privacidad.aspx" target="_blank">Aviso de privacidad</a></span>
                                 </label>
                             </div>
-                            <div class="is-py-8">
+                            <div class="btn-1">
                                 <%-- <asp:LinkButton ID="btn_registrar" OnClick="btn_registrar_ClickAsync" OnClientClick="btnLoading(this);" class="is-text-white is-px-4 is-py-2 is-bg-blue is-rounded" runat="server">Crear cuenta</asp:LinkButton> --%>
-                                <asp:LinkButton ID="btn_registrar" OnClick="btn_registrar_ClickAsync" OnClientClick="btnLoading(this);" class="waves-effect waves-light btn-1 is-bg-footer is-text-white margin-btn lighten-5 center-align waves-input-wrapper" runat="server">Crear cuenta</asp:LinkButton> 
+                                <asp:LinkButton ID="btn_registrar" OnClick="btn_registrar_ClickAsync" OnClientClick="btnLoading(this);" class="btn-crear_cuenta" runat="server">Crear cuenta</asp:LinkButton>
                             </div>
                         </div>
                     </div>

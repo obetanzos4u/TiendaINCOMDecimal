@@ -23,11 +23,11 @@
                             </div>
                             <p class="center-align is-bt-2"><strong>Continúa con tu correo electrónico</strong></p>
                             <div class="w350 centerDiv">
-                                <label class="text-email-inicio_sesion" for="txt_email">Correo electrónico</label>
+                                <label class="text-email-inicio_sesion" for="txt_email">Correo electrónico:</label>
                                 <asp:TextBox ID="txt_email" ClientIDMode="Static" runat="server"></asp:TextBox>
                             </div>
                             <div class="w350 centerDiv">
-                                <label class="text-contrasena-inicio_sesion" for="txt_password">Contraseña</label>
+                                <label class="text-contrasena-inicio_sesion" for="txt_password">Contraseña:</label>
                                 <asp:TextBox ID="txt_password" ClientIDMode="Static" TextMode="Password" runat="server"></asp:TextBox>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
 
                     <div class="center-align">
                         <asp:Button ID="btn_iniciar_sesion" ClientIDMode="Static" OnClick="btn_iniciar_sesion_Click" Style="height: 40px; padding: 0 !important;"
-                            class="waves-effect waves-light btn-1 is-bg-footer is-text-white margin-btn lighten-5 center-align" Text="Iniciar sesión" runat="server">
+                            class="btn-1 is-top-2 center-align" Text="Iniciar sesión" runat="server">
                         </asp:Button>
                         <p>
                             <asp:Label ID="lbl_msg" runat="server" Visible="false"></asp:Label>
