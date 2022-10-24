@@ -308,9 +308,9 @@
                     padding: 0;
                 }
 
-                #relacionados_splide-list > li .is-btn-green > .carrito-white_btn {
-                    width: 18px;
-                }
+                    #relacionados_splide-list > li .is-btn-green > .carrito-white_btn {
+                        width: 18px;
+                    }
 
                 #relacionados_splide-list > li > div {
                     text-align: end;
@@ -326,9 +326,9 @@
                     padding: 0;
                 }
 
-                #alternativos_splide-list > li .is-btn-green > .carrito-white_btn {
-                    width: 18px;
-                }
+                    #alternativos_splide-list > li .is-btn-green > .carrito-white_btn {
+                        width: 18px;
+                    }
 
                 #alternativos_splide-list > li > div {
                     text-align: end;
@@ -873,9 +873,10 @@
     </form>
 
     <script>
-        const copiarNumeroParte = () => {
-            const numeroParte = document.getElementById("body_lt_numero_pedido").innerText;
+        const copiarNumeroParte = (id, tipo) => {
+            const numeroParte = document.getElementById(id).innerText;
             navigator.clipboard.writeText(numeroParte);
+            Notiflix.Notify.success(tipo + ' copiado con éxito');
         }
     </script>
 

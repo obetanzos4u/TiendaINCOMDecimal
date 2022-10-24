@@ -126,7 +126,7 @@ public partial class mi_carrito : System.Web.UI.Page
         }
     }
 
-     private async void obtenerEnvio()
+    private async void obtenerEnvio()
     {
         carrito obtener = new carrito();
         usuarios usuario = usuarios.modoAsesor();
@@ -328,7 +328,7 @@ public partial class mi_carrito : System.Web.UI.Page
         decimal precio_total = decimal.Parse(rowView["precio_total"].ToString());
         decimal tipo_cambio = decimal.Parse(rowView["tipo_cambio"].ToString());
 
-        decimal cantidad = Math.Round(decimal.Parse(rowView["cantidad"].ToString()), 1);
+        decimal cantidad = decimal.Parse(rowView["cantidad"].ToString());
 
         precio_unitario = procesar.precio_a_MonedaTienda(tipo_cambio, rowView["moneda"].ToString(), precio_unitario);
         precio_total = procesar.precio_a_MonedaTienda(tipo_cambio, rowView["moneda"].ToString(), precio_total);
@@ -363,9 +363,6 @@ public partial class mi_carrito : System.Web.UI.Page
 
         if (usuarios.modoAsesor().tipo_de_usuario == "usuario")
         {
-
-
-
             if (string.IsNullOrEmpty(rowView["alto"].ToString())
                 || string.IsNullOrEmpty(rowView["ancho"].ToString())
                  || string.IsNullOrEmpty(rowView["peso"].ToString())
@@ -375,9 +372,15 @@ public partial class mi_carrito : System.Web.UI.Page
                 warning_envios_medidas.Visible = true;
                 warning_envios_medidas.InnerText = "Este producto no tiene las dimensiones completas.";
             }
-
         }
-        txt_cantidadCarrito.Text = cantidad.ToString();
+        if (cantidad % 1 == 0)
+        {
+            txt_cantidadCarrito.Text = cantidad.ToString("#");
+        }
+        else
+        {
+            txt_cantidadCarrito.Text = Math.Round(cantidad, MidpointRounding.ToEven).ToString("#");
+        }
 
         Label lbl_precio_unitario = (Label)e.Item.FindControl("lbl_precio_unitario");
         lbl_precio_unitario.Text = precio_unitario.ToString("#,#.##", myNumberFormatInfo) + " " + monedaTienda;
@@ -406,13 +409,13 @@ public partial class mi_carrito : System.Web.UI.Page
     }
     protected async void txt_cantidadCarrito_TextChanged(object sender, EventArgs e)
     {
-        string cantidad = ((TextBox)sender).Text;
+        decimal cantidad = Math.Round(decimal.Parse(((TextBox)sender).Text), MidpointRounding.ToEven);
         // Obtenemos el contenedor del objeto que creo el evento
         ListViewItem lvItemCarrito = (ListViewItem)((TextBox)sender).NamingContainer;
         Literal lt_numeroParte = lvItemCarrito.FindControl("lt_numeroParte") as Literal;
         string numero_parte = lt_numeroParte.Text;
         string monedaTienda = HttpContext.Current.Session["monedaTienda"].ToString();
-        operacionesProductos actualizar = new operacionesProductos("carrito", "update", "", numero_parte, cantidad, monedaTienda);
+        operacionesProductos actualizar = new operacionesProductos("carrito", "update", "", numero_parte, cantidad.ToString(), monedaTienda);
 
         await actualizar.agregarProductoAsync();
 
