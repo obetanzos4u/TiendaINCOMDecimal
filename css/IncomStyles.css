@@ -180,6 +180,10 @@ body {
     color: #f9f7f7;
 }
 
+.is-text-blue {
+    color: #039be5;
+}
+
 .is-text-green {
     color: #22c55e;
 }
@@ -1214,6 +1218,13 @@ body {
     color: #FFFFFF;
 }
 
+.overflow-productos::-webkit-scrollbar {
+    background: orange;        /* color of the tracking area */
+  }
+
+.overflow-productos::-webkit-scrollbar-track {
+    color: #005F73;
+}
 
 /* Responsive */
 

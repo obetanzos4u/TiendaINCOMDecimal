@@ -7,10 +7,10 @@
     <asp:HiddenField ID="hf_UserLogin" runat="server" />
     <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="is-container" runat="server">
         <ContentTemplate>
-            <div class="row" style="margin-bottom: 20vh">
-                <div class="col l8 xl8" style="padding: 1rem 0;">
+            <div class="row" style="margin: 0 3% 20vh 3%">
+                <div class="col l8 xl8" style="padding: 1rem 0; width: 60% !important;">
                     <div style="display: flex; justify-content: center; align-items: center">
-                        <asp:Label ID="lbl_shoppingCartTitle" class="shopping_cart is-text-xl is-font-semibold is-select-none" runat="server"></asp:Label>
+                        <asp:Label ID="lbl_shoppingCartTitle" class="is-w-full is-text-xl is-font-semibold is-select-none" runat="server"></asp:Label>
                         <%--<asp:LinkButton ID="btn_guardarPlantilla" data-tooltip="Guarda este listado de productos para cotizaciones" OnClick="btn_guardarPlantilla_Click" CssClass="tooltipped" runat="server">
                             <i class="material-icons">save</i>
                         </asp:LinkButton>--%>
@@ -18,7 +18,7 @@
                     <div class="is-w-full">
                         <asp:ListView ID="lv_productosCarritos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                             <LayoutTemplate>
-                                <div class="is-w-full" style="height: 300px; overflow-y: auto">
+                                <div class="is-w-full overflow-productos" style="height: 410px; overflow-y: auto;">
                                     <table class="">
                                         <tbody>
                                             <div runat="server" id="itemPlaceholder"></div>
@@ -28,7 +28,7 @@
                             </LayoutTemplate>
                             <ItemTemplate>
                                 <tr>
-                                    <td style="width: 20%">
+                                    <td style="width: 10%">
                                         <asp:Image ID="imgProducto" CssClass="responsive-img" runat="server" />
                                     </td>
                                     <td style="width: 50%">
@@ -43,6 +43,7 @@
                                         </div>
                                         <div class="is-flex is-justify-start is-items-center">
                                             <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>
+                                            <p class="is-px-4 is-text-blue">|</p>
                                             <asp:UpdatePanel UpdateMode="Always" runat="server">
                                                 <ContentTemplate>
                                                     <asp:LinkButton OnClick="btn_eliminarProducto_Click" ID="btn_eliminarProducto" CssClass="" OnClientClick="btnLoading(this);" ClientIDMode="Static" runat="server">Eliminar</asp:LinkButton>
@@ -104,12 +105,20 @@
                         <i>Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</i>
                     </div>--%>
                 </div>
+                <div style="float: left; margin-right: 2rem;">
+                    <div class="arrow-doble-down is-text-blue is-flex" style="width: fit-content;">
+                            <svg xmlns="http://www.w3.org/2000/svg" id="svg-arrow-down" width="288" height="288" viewBox="0 0 24 24"><path class="arrow" fill="#2d6cdf" d="M12 12a1 1 0 0 1-.71-.29l-4-4A1 1 0 0 1 8.71 6.29L12 9.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 12zM12 18a1 1 0 0 1-.71-.29l-4-4a1 1 0 0 1 1.41-1.41L12 15.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 18z" class="color000 svgShape"/>
+                            </svg>                        
+                    </div>                    
+                </div>
+
+                <!-- <div id="cover"></div> -->
                 <div id="ctn_details" class="col s12 l4 xl4 right-align" runat="server">
                     <div class="is-flex is-justify-evenly is-items-center">
                         <p class="is-select-none">Moneda de visualización:</p>
                         <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
                     </div>
-                    <div style="font-size: 1.1rem; text-align: left" class="is-border-soft is-border-collapse is-rounded-lg">
+                    <div style="font-size: 1.1rem; text-align: left" class="is-border-soft is-border-collapse is-rounded-lg is-bt-3">
                         <div class="is-border-soft is-rounded-t-lg">
                             <strong>Total del pedido: </strong>
                         </div>
@@ -147,7 +156,7 @@
                                 <div class="is-btn-green">Continuar con la compra</div>
                             </asp:LinkButton>
                         <%--<a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a>--%>
-                        <a href="#">Descargar cotización</a>
+                        <!-- <a href="#">Descargar cotización</a> -->
                     </div>
                     <div class="is-flex is-flex-col is-justify-center is-items-start">
                         <span>Consideraciones:</span>
@@ -325,6 +334,67 @@
             }
         });
     </script>
+    <script>
+        $(window).scroll(function(e) {
+        frames = 17;
+        step = ($("div.arrow-doble-down").height() - $(window).height()) / frames;
+        scrollStep = parseInt($(window).scrollTop() / step);
+        maskPosition = 100 / frames * scrollStep;
+        // $("#cover").css({
+        //     "mask-position": maskPosition + "% 90%",
+        //     "-webkit-mask-position": maskPosition + "% 90%"
+        // });
+        });
+    </script>
+    <style>
+    /* div.arrow-doble-down {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    } */
+    .arrow-doble-down {
+        height: 450px;
+    }
+
+    div.arrow-doble-down #svg-arrow-down {
+        width: 26px;
+        display: block;
+        height: 60px;
+        margin-top: 400px;
+    }
+
+    div.arrow-doble-down #svg-arrow-down .arrow {
+    -webkit-animation: scroll 1.25s ease-in alternate infinite;
+            animation: scroll 1.25s ease-in alternate infinite;
+    }
+
+    @-webkit-keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+    }
+
+    @keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+    }
+
+    @keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+    }
+    </style>
 </asp:Content>
 
 
