@@ -15,6 +15,8 @@ using System.Data.Entity;
 using System.Net.Http;
 using System.Web.UI.HtmlControls;
 using DocumentFormat.OpenXml.Drawing;
+using RestSharp;
+using RestSharp.Authenticators;
 
 public partial class mi_carrito : System.Web.UI.Page
 {
@@ -152,6 +154,80 @@ public partial class mi_carrito : System.Web.UI.Page
         }
     }
 
+    protected async void btn_obtenerStockCarrito(object sender, EventArgs e)
+    {
+        try
+        {
+            carrito obtener = new carrito();
+            usuarios usuario = usuarios.modoAsesor();
+            DataTable productosCarritos = obtener.obtenerCarritoUsuarioWithSAP(usuario.email);
+            string urlNumeroParte = "";
+            var posicionFinal = productosCarritos.Rows.Count;
+            var posicion = 0;
+            // Construcción de url para consulta de stock a SAP
+            foreach (DataRow productoCarrito in productosCarritos.Rows)
+            {
+                posicion++;
+                if (posicion == 1 && productoCarrito["noParte_Sap"].ToString() != "")
+                {
+                    urlNumeroParte += "CPRODUCT_ID eq '" + productoCarrito["noParte_Sap"] + "'";
+                }
+                else if (posicion == 1 && productoCarrito["noParte_Sap"].ToString() == "")
+                {
+                    obtener.desactivarProductoCarrito(usuario.email, productoCarrito["numero_parte"].ToString());
+                    posicion = 0;
+                }
+                else if (posicion < posicionFinal && productoCarrito["noParte_Sap"].ToString() != "")
+                {
+                    urlNumeroParte += " or CPRODUCT_ID eq '" + productoCarrito["noParte_Sap"] + "'";
+                }
+                else if (posicion == posicionFinal && productoCarrito["noParte_Sap"].ToString() != "")
+                {
+                    urlNumeroParte += " or CPRODUCT_ID eq '" + productoCarrito["noParte_Sap"] + "'";
+                }
+                else if (productoCarrito["noParte_Sap"].ToString() == "")
+                {
+                    obtener.desactivarProductoCarrito(usuario.email, productoCarrito["numero_parte"].ToString());
+                }
+            }
+
+            if (urlNumeroParte != "")
+            {
+                // Consulta de stock a SAP
+                var client = new RestClient("https://my338095.sapbydesign.com");
+                client.Authenticator = new HttpBasicAuthenticator("ARUIZ", "Incom#724!");
+
+                var request = new RestRequest("/sap/byd/odata/ana_businessanalytics_analytics.svc/RPZ3CFEC590A236E733BD9701QueryResults?$inlinecount=allpages&$select=CPRODUCT_ID,CQUANTITY_UOM,TQUANTITY_UOM,KRZAC52B3549F1E886FD1FA4D,KRZ38A3122568DF31A282B12B&$filter=(" + urlNumeroParte + ")&$format=json", Method.GET);
+                var response = await client.ExecuteGetAsync(request);
+                if (response.IsSuccessful)
+                {
+                    dynamic jsonResult = Newtonsoft.Json.JsonConvert.DeserializeObject(response.Content);
+                    dynamic stockResult = jsonResult.d.results;
+                    productos obtenerNumeroParte = new productos();
+                    bool actualizacion = false;
+                    foreach (dynamic producto in stockResult)
+                    {
+                        string no_ParteSap = producto.CPRODUCT_ID;
+                        int stock = producto.KRZ38A3122568DF31A282B12B;
+                        string stockSolicitado = producto.KRZAC52B3549F1E886FD1FA4D;
+                        string medida = producto.TQUANTITY_UOM;
+                        string numero_parte = obtenerNumeroParte.obtenerNumeroParteWithSAP(no_ParteSap);
+                        actualizacion = obtener.actualizarStockCarritoProducto(usuario.email, numero_parte, stock);
+                        if (!actualizacion || stock == 0)
+                        {
+                            obtener.desactivarProductoCarrito(usuario.email, numero_parte);
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            //devNotificaciones.error("Cálculo de stocks", ex);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al obtener la disponibilidad de los productos");
+        }
+    }
+
     protected async void cargarProductoAsync()
     {
         carrito obtener = new carrito();
@@ -188,6 +264,11 @@ public partial class mi_carrito : System.Web.UI.Page
             else
             {
                 subtotal = decimal.Parse(str_subtotal);
+            }
+
+            if (carrito.obtenerCantidadProductos(usuario.email) >= 3)
+            {
+                moreArrow.Visible = true;
             }
 
             subtotal = subtotal + envio;
@@ -340,7 +421,6 @@ public partial class mi_carrito : System.Web.UI.Page
         TextBox txt_cantidadCarrito = (TextBox)e.Item.FindControl("txt_cantidadCarrito");
         HtmlGenericControl warning_envios_medidas = (HtmlGenericControl)e.Item.FindControl("warning_envios_medidas");
 
-
         #region valida que el producto exista en la  productos datos si no, muestra una advertencia
         var resultExistenciaProducto = await ProductosTiendaEF.ObtenerSoloNumerosParte(numero_parte);
 
@@ -404,8 +484,6 @@ public partial class mi_carrito : System.Web.UI.Page
         detalles_precios.numero_parte = numero_parte;
         detalles_precios.moneda = monedaTienda;
         detalles_precios.size = "min";
-
-
     }
     protected async void txt_cantidadCarrito_TextChanged(object sender, EventArgs e)
     {
