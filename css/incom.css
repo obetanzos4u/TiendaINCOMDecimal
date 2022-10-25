@@ -1952,6 +1952,20 @@ div.arrow-doble-down #svg-arrow-down {
         }
     }
 
+    @media only screen and (max-width: 450px) {
+
+        .txt-inicio_sesion {
+            font-size: 1.5rem !important;
+        }
+
+        .inicio_sesion-position {
+            margin: 1em 0em 3em 0em !important;
+        }
+
+        #txt_email, #txt_password {
+            width: 80%;
+        }
+    }
 
     /* M */
     @media only screen and (min-width: 601px) {
@@ -1965,6 +1979,12 @@ div.arrow-doble-down #svg-arrow-down {
 
         .cotizacionesProductos_min {
             height: 450px;
+        }
+    }
+
+    @media only screen and (min-width: 450px) and (max-width: 700px) {
+        #txt_email, #txt_password {
+            width: 80%;
         }
     }
 
