@@ -8,9 +8,9 @@
     <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="is-container" runat="server">
         <ContentTemplate>
             <div class="mi-carrito-contain">
-                <div class="col l8 xl8 mi-carrito-list" style="padding: 1rem 0;">
+                <div class="col l8 xl8 mi-carrito-list">
                     <div style="display: flex; justify-content: center; align-items: center">
-                        <asp:Label ID="lbl_shoppingCartTitle" class="title-carrito_list is-w-full is-text-xl is-font-semibold is-select-none" runat="server"></asp:Label>
+                        <asp:Label ID="lbl_shoppingCartTitle" class="title-product_list is-w-full is-font-semibold is-select-none" runat="server"></asp:Label>
                         <%--<asp:LinkButton ID="btn_guardarPlantilla" data-tooltip="Guarda este listado de productos para cotizaciones" OnClick="btn_guardarPlantilla_Click" CssClass="tooltipped" runat="server">
                             <i class="material-icons">save</i>
                         </asp:LinkButton>--%>
@@ -19,7 +19,7 @@
                         <asp:ListView ID="lv_productosCarritos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                             <LayoutTemplate>
                                 <div class="is-w-full overflow-productos" style="overflow-y: auto;">
-                                    <table class="">
+                                    <table class="product-table">
                                         <tbody>
                                             <div runat="server" id="itemPlaceholder"></div>
                                         </tbody>
@@ -43,7 +43,7 @@
                                         </div>
                                         <!-- <div id="warning_envios_medidas" class="is-text-xs is-text-red" runat="server" visible="false"></div> -->
                                     </td>
-                                    <td style="width: 40%">
+                                    <td class="product-list-precio_cantidad">
                                         <div class="is-flex is-justify-between is-items-center">
                                             <p>Precio unitario: </p>
                                             <asp:Label ID="lbl_precio_unitario" runat="server"></asp:Label>
@@ -52,9 +52,9 @@
                                             <p>Cantidad: </p>
                                             <asp:UpdatePanel UpdateMode="Always" runat="server">
                                                 <ContentTemplate>
-                                                    <div style="width: 4rem;">
+                                                    <div class="btn-products_counter">
                                                         <%--<input id="txt_cantidadCarrito" type="number" min="1" max="12" onchange="txtLoading(this);" AutoPostBack="true" value='<%#Eval("cantidad") %>' runat="server" />--%>
-                                                        <asp:TextBox ID="txt_cantidadCarrito" TextMode="Number" Type="Integer" min="1" max="12" onchange="txtLoading(this);" AutoPostBack="true" Text='<%#Eval("cantidad") %>' OnTextChanged="txt_cantidadCarrito_TextChanged" Style="border-radius: 10px; text-align: center" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txt_cantidadCarrito" class="products_counter" TextMode="Number" Type="Integer" min="1" max="12" onchange="txtLoading(this);" AutoPostBack="true" Text='<%#Eval("cantidad") %>' OnTextChanged="txt_cantidadCarrito_TextChanged" Style="border-radius: 10px; text-align: center" runat="server"></asp:TextBox>
                                                     </div>
                                                 </ContentTemplate>
                                                 <Triggers>
@@ -67,7 +67,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3">
+                                    <td colspan="3" class="options-product_list">
                                         <div class="mi-carrito-product_options is-flex">
                                             <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>
                                             <p class="is-px-4 is-text-blue">|</p>
@@ -110,7 +110,7 @@
                         <i>Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</i>
                     </div>--%>
                 </div>
-                <div class="mi-carrito-arrow" style="float: left; margin-right: 2rem;">
+                <div class="mi-carrito-arrow" style="float: left; margin-right: 1rem;">
                     <div class="arrow-doble-down is-text-blue is-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" id="svg-arrow-down" width="288" height="288" viewBox="0 0 24 24"><path class="arrow" fill="#2d6cdf" d="M12 12a1 1 0 0 1-.71-.29l-4-4A1 1 0 0 1 8.71 6.29L12 9.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 12zM12 18a1 1 0 0 1-.71-.29l-4-4a1 1 0 0 1 1.41-1.41L12 15.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 18z" class="color000 svgShape"/>
                             </svg>                        
@@ -130,11 +130,11 @@
                         <p class="is-select-none">Moneda:</p>
                         <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
                     </div>
-                    <div style="font-size: 1.1rem; text-align: left" class="is-border-soft is-border-collapse is-rounded-lg is-bt-1">
-                        <div class="is-border-soft is-rounded-t-lg">
-                            <strong class="is-w-full is-text-xl is-font-semibold is-select-none">Total del pedido</strong>
+                    <div style="text-align: left" class="is-border-soft is-border-collapse is-rounded-lg is-bt-1">
+                        <div class="is-rounded-t-lg section-ticket-1">
+                            <strong class="title-total_pedido is-w-full is-font-semibold is-select-none">Total del pedido</strong>
                         </div>
-                        <div class="is-border-soft">
+                        <div class="section-ticket-2">
                             <div class="is-flex is-justify-between is-items-center">
                                 <!-- <span>Envío:</span>
                                 <div>
@@ -160,7 +160,7 @@
                             </div>
                         </div>
                         <div class="is-text-center">
-                            <span class="is-text-sm is-select-none">El costo de envío se calcula con tu dirección</span>
+                            <span class="text-ticket_enviois-select-none">El costo de envío se calcula con tu dirección</span>
                         </div>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                 <%--<a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a>--%>
                 <!-- <a href="#">Descargar cotización</a> -->
                 </div>
-                <div class="mi-carrito-consideraciones-lg is-top-3">
+                <div class="mi-carrito-consideraciones-lg is-top-4">
                     <span>Consideraciones:</span>
                     <!-- <div class="is-text-justify">
                         <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión. <a target="_blank" href="/documents/INCOM-MEDIDAS-COVID.pdf">Consulta nuestro protocolo COVID</a></p>
