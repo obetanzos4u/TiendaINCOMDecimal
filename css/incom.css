@@ -1283,6 +1283,10 @@ div.arrow-doble-down #svg-arrow-down {
             font-size: 9px;
         }
 
+        #relacionados_splide-list > li .is-btn-green {
+            margin-top: -138px;
+        }
+
         .producto-main_wrap {
             margin-left: 4rem;
             margin-right: 1rem;
