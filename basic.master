@@ -784,6 +784,7 @@
                     line-height: 14px;
                     font-size: 0px;
                     padding: 0;
+                    margin-top: -180px;
                 }
 
                 #relacionados_splide-list > li > div {

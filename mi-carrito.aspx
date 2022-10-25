@@ -7,10 +7,10 @@
     <asp:HiddenField ID="hf_UserLogin" runat="server" />
     <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="is-container" runat="server">
         <ContentTemplate>
-            <div class="row" style="margin: 0 3% 20vh 3%">
-                <div class="col l8 xl8" style="padding: 1rem 0; width: 60% !important;">
+            <div class="mi-carrito-contain">
+                <div class="col l8 xl8 mi-carrito-list">
                     <div style="display: flex; justify-content: center; align-items: center">
-                        <asp:Label ID="lbl_shoppingCartTitle" class="is-w-full is-text-xl is-font-semibold is-select-none" runat="server"></asp:Label>
+                        <asp:Label ID="lbl_shoppingCartTitle" class="title-product_list is-w-full is-font-semibold is-select-none" runat="server"></asp:Label>
                         <%--<asp:LinkButton ID="btn_guardarPlantilla" data-tooltip="Guarda este listado de productos para cotizaciones" OnClick="btn_guardarPlantilla_Click" CssClass="tooltipped" runat="server">
                             <i class="material-icons">save</i>
                         </asp:LinkButton>--%>
@@ -18,8 +18,8 @@
                     <div class="is-w-full">
                         <asp:ListView ID="lv_productosCarritos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                             <LayoutTemplate>
-                                <div class="is-w-full overflow-productos" style="height: 410px; overflow-y: auto;">
-                                    <table class="">
+                                <div class="is-w-full overflow-productos" style="overflow-y: auto;">
+                                    <table class="product-table">
                                         <tbody>
                                             <div runat="server" id="itemPlaceholder"></div>
                                         </tbody>
@@ -27,11 +27,11 @@
                                 </div>
                             </LayoutTemplate>
                             <ItemTemplate>
-                                <tr>
+                                <tr class="table-product_description">
                                     <td style="width: 10%">
                                         <asp:Image ID="imgProducto" CssClass="responsive-img" runat="server" />
                                     </td>
-                                    <td style="width: 50%">
+                                    <td style="width: 40%; padding: 15px;">
                                         <asp:HiddenField ID="hf_idProductoCarrito" Value='<%#Eval("id") %>' runat="server" />
                                         <div class="is-select-all">
                                             <asp:Literal ID="lt_numeroParte" Text='<%#Eval("numero_parte") %>' runat="server"></asp:Literal>
@@ -53,7 +53,7 @@
                                         <div id="warning_envios_medidas" class="is-text-xs is-text-red" runat="server" visible="false"></div>
                                         <div id="lbl_stock" visible="false" runat="server"></div>
                                     </td>
-                                    <td style="width: 30%">
+                                    <td class="product-list-precio_cantidad">
                                         <div class="is-flex is-justify-between is-items-center">
                                             <p>Precio unitario: </p>
                                             <asp:Label ID="lbl_precio_unitario" runat="server"></asp:Label>
@@ -62,9 +62,9 @@
                                             <p>Cantidad: </p>
                                             <asp:UpdatePanel UpdateMode="Always" runat="server">
                                                 <ContentTemplate>
-                                                    <div style="width: 4rem;">
+                                                    <div class="btn-products_counter">
                                                         <%--<input id="txt_cantidadCarrito" type="number" min="1" max="12" onchange="txtLoading(this);" AutoPostBack="true" value='<%#Eval("cantidad") %>' runat="server" />--%>
-                                                        <asp:TextBox ID="txt_cantidadCarrito" TextMode="Number" Type="Integer" min="1" max="12" onchange="txtLoading(this);" AutoPostBack="true" Text='<%#Eval("cantidad") %>' OnTextChanged="txt_cantidadCarrito_TextChanged" Style="border-radius: 10px; text-align: center" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txt_cantidadCarrito" class="products_counter" TextMode="Number" Type="Integer" min="1" max="12" onchange="txtLoading(this);" AutoPostBack="true" Text='<%#Eval("cantidad") %>' OnTextChanged="txt_cantidadCarrito_TextChanged" Style="border-radius: 10px; text-align: center" runat="server"></asp:TextBox>
                                                     </div>
                                                 </ContentTemplate>
                                                 <Triggers>
@@ -74,6 +74,19 @@
                                             <asp:Label ID="lbl_precio_total" runat="server"></asp:Label>
                                         </div>
                                         <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="options-product_list">
+                                        <div class="mi-carrito-product_options is-flex">
+                                            <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>
+                                            <p class="is-px-4 is-text-blue">|</p>
+                                            <asp:UpdatePanel UpdateMode="Always" runat="server">
+                                                <ContentTemplate>
+                                                    <asp:LinkButton OnClick="btn_eliminarProducto_Click" ID="btn_eliminarProducto" CssClass="" OnClientClick="btnLoading(this);" ClientIDMode="Static" runat="server">Eliminar</asp:LinkButton>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </div>
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -114,18 +127,25 @@
                         </svg>
                     </div>
                 </div>
+                <div class="mi-carrito-consideraciones">
+                    <span>Consideraciones:</span>
+                    <div class="is-text-justify">
+                        <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
+                        <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
+                    </div>
+                </div>
 
                 <!-- <div id="cover"></div> -->
-                <div id="ctn_details" class="col s12 l4 xl4 right-align" runat="server">
-                    <div class="is-flex is-justify-evenly is-items-center">
-                        <p class="is-select-none">Moneda de visualización:</p>
+                <div id="ctn_details" class="col s12 l4 xl4 right-align mi-carrito-ticket" runat="server">
+                    <div class="is-flex">
+                        <p class="is-select-none">Moneda:</p>
                         <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
                     </div>
-                    <div style="font-size: 1.1rem; text-align: left" class="is-border-soft is-border-collapse is-rounded-lg is-bt-3">
-                        <div class="is-border-soft is-rounded-t-lg">
-                            <strong>Total del pedido: </strong>
+                    <div style="text-align: left" class="is-border-soft is-border-collapse is-rounded-lg is-bt-1">
+                        <div class="is-rounded-t-lg section-ticket-1">
+                            <strong class="title-total_pedido is-w-full is-font-semibold is-select-none">Total del pedido</strong>
                         </div>
-                        <div class="is-border-soft">
+                        <div class="section-ticket-2">
                             <div class="is-flex is-justify-between is-items-center">
                                 <!-- <span>Envío:</span>
                                 <div>
@@ -151,29 +171,26 @@
                             </div>
                         </div>
                         <div class="is-text-center">
-                            <span class="is-text-sm is-select-none">El costo de envío se calcula con tu dirección</span>
+                            <span class="text-ticket_enviois-select-none">El costo de envío se calcula con tu dirección</span>
                         </div>
                     </div>
-                    <div class="is-flex is-flex-col is-justify-center is-items-center">
-                        <asp:LinkButton ID="LinkButton1" ClientIDMode="Static" OnClick="btn_comprar_Click" OnClientClick="btnLoading(this);" CssClass="is-text-white" runat="server">
-                                <div class="is-btn-green">Continuar con la compra</div>
-                        </asp:LinkButton>
-                        <%--<a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a>--%>
-                        <!-- <a href="#">Descargar cotización</a> -->
-                    </div>
-                    <div class="is-flex is-flex-col is-justify-center is-items-center">
-                        <asp:LinkButton ID="stocks" ClientIDMode="Static" OnClick="btn_obtenerStockCarrito" runat="server">Obtener stocks</asp:LinkButton>
-                    </div>
-                    <div class="is-flex is-flex-col is-justify-center is-items-start">
-                        <span>Consideraciones:</span>
-                        <!-- <div class="is-text-justify">
-                            <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión. <a target="_blank" href="/documents/INCOM-MEDIDAS-COVID.pdf">Consulta nuestro protocolo COVID</a></p>
-                            <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
-                        </div> -->
-                        <div class="is-text-justify">
-                            <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
-                            <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
-                        </div>
+                </div>
+                <div class="mi-carrito-boton-compra is-flex is-flex-col is-justify-center is-items-center">
+                    <asp:LinkButton ID="LinkButton1" ClientIDMode="Static" OnClick="btn_comprar_Click" OnClientClick="btnLoading(this);" CssClass="is-text-white" runat="server">
+                        <div class="is-btn-green">Continuar con la compra</div>
+                    </asp:LinkButton>
+                <%--<a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a>--%>
+                <!-- <a href="#">Descargar cotización</a> -->
+                </div>
+                <div class="mi-carrito-consideraciones-lg is-top-4">
+                    <span>Consideraciones:</span>
+                    <!-- <div class="is-text-justify">
+                        <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión. <a target="_blank" href="/documents/INCOM-MEDIDAS-COVID.pdf">Consulta nuestro protocolo COVID</a></p>
+                        <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
+                    </div> -->
+                    <div class="is-text-justify">
+                        <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
+                        <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
                     </div>
                 </div>
             </div>
@@ -209,11 +226,8 @@
                         <asp:TextBox ID="txt_telefono_fijo" AutoPostBack="true" OnTextChanged="txt_telefono_fijo_TextChangedAsync" 
                             ClientIDMode="Static" placeholder="Teléfono fijo/oficina" runat="server"></asp:TextBox>
                     </p>
-         
                     <p>
-                        
-                            <asp:Label ID="lbl_text_result_saved_tel" runat="server"  ></asp:Label> 
-                     
+                        <asp:Label ID="lbl_text_result_saved_tel" runat="server"  ></asp:Label>
                     </p>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -362,16 +376,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     } */
-        .arrow-doble-down {
-            height: 450px;
-        }
-
-        div.arrow-doble-down #svg-arrow-down {
-            width: 26px;
-            display: block;
-            height: 60px;
-            margin-top: 400px;
-        }
 
             div.arrow-doble-down #svg-arrow-down .arrow {
                 -webkit-animation: scroll 1.25s ease-in alternate infinite;
