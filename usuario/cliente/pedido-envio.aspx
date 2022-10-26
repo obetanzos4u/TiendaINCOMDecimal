@@ -37,7 +37,8 @@
                             <div class="is-flex is-justify-around is-items-center">
                                 <div id='contentCard_DireccEnvio' class="card is-rounded-xl is-bg-gray-light" runat="server">
                                     <div id="card_envio_recoge_en_tienda" class="card-body is-rounded-lg is-border-gray-soft">
-                                        <h6 class="card-title">Recoger en tienda</h6>
+                                        <div style="height: 30px;"></div>
+                                        <h6 class="card-title is-text-center">Recoger en tienda</h6>
                                         <div class="d-grid gap-2 mt-4">
                                             <%-- OnClientClick="BootstrapClickLoading(this);" --%>
                                             <asp:LinkButton ID="btn_recogeEnTienda" OnClick="btn_recogeEnTienda_Click"
@@ -45,9 +46,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card is-rounded-xl is-space-x-6" runat="server">
+                                <div class="card-domicilio card is-rounded-xl is-space-x-6" runat="server">
                                     <div class="card-body is-rounded-lg is-bg-gray-light is-border-gray-soft">
-                                        <h6>Entrega a domicilio</h6>
+                                        <div style="height: 30px"></div>
+                                        <h6 class="card-title is-text-center">Entrega a domicilio</h6>
                                         <div>
                                             <asp:LinkButton ID="btn_entregaDomicilio" OnClick="btn_entregaDomicilio_Click" class="btn-3 d-grid gap-2 mt-4 hover-direccion is-text-white is-decoration-none" runat="server">Seleccionar</asp:LinkButton>
                                         </div>
@@ -95,10 +97,10 @@
                     </asp:Panel>
                     <asp:Panel ID="ContentReferenciaDomicilioNuevo" Visible="false" runat="server">
                         <div class="col">
-                            <div class="background-form is-bg-gray-light is-items-center is-border-gray-soft" style="width: 90%; padding: 30px; border-radius: 8px; margin-left: 2rem;">
+                            <div class="background-form is-bg-gray-light is-items-center is-border-gray-soft" style="width: 96%; padding: 30px; border-radius: 8px;">
                                 <div class="row">
                                     <div class="col">
-                                        <p id="title-form_direccion"><strong>Agregar una nueva dirección: </strong></p>
+                                        <p id="title-form_direccion"><strong>Agregar nueva dirección: </strong></p>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -229,6 +231,9 @@
             box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
         }
 
+        #card_envio_recoge_en_tienda, .card-domicilio {
+            height: 160px;
+        }
             .btn-3:hover {
                 background: #1c74f8;
                 color: #FFFFFF;

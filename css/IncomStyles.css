@@ -9,6 +9,25 @@ body {
 
 /* Display section */
 
+  :root {
+    --img: url(/img/webUI/newdesign/check-green.png);
+  }
+
+  .bg-success-1 {
+    background-image: var(--img);
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 10%;
+  }
+
+  .bg-success-2 {
+    background-image: var(--img);
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 10%;
+  }
 
 .is-family-ms {
     font-family: "Montserrat";

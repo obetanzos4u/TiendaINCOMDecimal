@@ -224,7 +224,7 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
             if(hf_id_direccion.Value== id_pedido_direccion_facturacion)
             {
                 HtmlGenericControl contentCard_DireccFact = (HtmlGenericControl)e.Item.FindControl("contentCard_DireccFact");
-                contentCard_DireccFact.Attributes["class"] += " text-white bg-success";
+                contentCard_DireccFact.Attributes["class"] += "bg-success-1";
             }
            
 
