@@ -160,7 +160,7 @@
                             </div>
                         </div>
                         <div class="is-text-center">
-                            <span class="text-ticket_enviois-select-none">El costo de envío se calcula con tu dirección</span>
+                            <span class="text-ticket_envio is-select-none">El costo de envío se calcula con tu dirección</span>
                         </div>
                     </div>
                 </div>
