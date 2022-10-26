@@ -41,7 +41,17 @@
                                         <div class="is-py-4">
                                             <%#Eval("descripcion") %>
                                         </div>
-                                        <!-- <div id="warning_envios_medidas" class="is-text-xs is-text-red" runat="server" visible="false"></div> -->
+                                        <div class="is-flex is-justify-start is-items-center">
+                                            <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>
+                                            <p class="is-px-4 is-text-blue">|</p>
+                                            <asp:UpdatePanel UpdateMode="Always" runat="server">
+                                                <ContentTemplate>
+                                                    <asp:LinkButton OnClick="btn_eliminarProducto_Click" ID="btn_eliminarProducto" CssClass="" OnClientClick="btnLoading(this);" ClientIDMode="Static" runat="server">Eliminar</asp:LinkButton>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </div>
+                                        <div id="warning_envios_medidas" class="is-text-xs is-text-red" runat="server" visible="false"></div>
+                                        <div id="lbl_stock" visible="false" runat="server"></div>
                                     </td>
                                     <td class="product-list-precio_cantidad">
                                         <div class="is-flex is-justify-between is-items-center">
@@ -87,7 +97,7 @@
                                     <img src="https://www.incom.mx/img/webUI/newdesign/carrito-vacio.svg" style="width: 15vw; margin: auto; display: block; padding-left: 2rem; margin-bottom: 3rem;">
                                     <a class="is-btn-blue center-btn-carrito_vacio" style="text-align: center; justify-content: center; justify-items: center; margin: auto; display: table;" href="/productos">Descubrir ofertas</a>
                                 </div>
-                            </EmptyDataTemplate>                   
+                            </EmptyDataTemplate>
                         </asp:ListView>
                     </div>
                     <%--<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0;">
@@ -110,11 +120,12 @@
                         <i>Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</i>
                     </div>--%>
                 </div>
-                <div class="mi-carrito-arrow" style="float: left; margin-right: 1rem;">
-                    <div class="arrow-doble-down is-text-blue is-flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" id="svg-arrow-down" width="288" height="288" viewBox="0 0 24 24"><path class="arrow" fill="#2d6cdf" d="M12 12a1 1 0 0 1-.71-.29l-4-4A1 1 0 0 1 8.71 6.29L12 9.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 12zM12 18a1 1 0 0 1-.71-.29l-4-4a1 1 0 0 1 1.41-1.41L12 15.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 18z" class="color000 svgShape"/>
-                            </svg>                        
-                    </div>                    
+                <div id="moreArrow" visible="false" style="float: left; margin-right: 2rem;" runat="server">
+                    <div class="arrow-doble-down is-text-blue is-flex" style="width: fit-content;">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="svg-arrow-down" width="288" height="288" viewBox="0 0 24 24">
+                            <path class="arrow" fill="#2d6cdf" d="M12 12a1 1 0 0 1-.71-.29l-4-4A1 1 0 0 1 8.71 6.29L12 9.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 12zM12 18a1 1 0 0 1-.71-.29l-4-4a1 1 0 0 1 1.41-1.41L12 15.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 18z" class="color000 svgShape" />
+                        </svg>
+                    </div>
                 </div>
                 <div class="mi-carrito-consideraciones">
                     <span>Consideraciones:</span>
@@ -192,6 +203,10 @@
             </div>--%>
         </ContentTemplate>
     </asp:UpdatePanel>
+
+    <div>
+        <asp:TextBox ID="txt_log_result" onfocus="Resize(this);" ClientIDMode="Static" class="form-control is-resize-none" ReadOnly="true" TextMode="MultiLine" runat="server"></asp:TextBox>
+    </div>
 
     <!--- INICIO Modal agregar número telefónico, solo se muestra si no ah agregado uno a su cuenta principal --->
 
@@ -344,55 +359,58 @@
         });
     </script>
     <script>
-        $(window).scroll(function(e) {
-        frames = 17;
-        step = ($("div.arrow-doble-down").height() - $(window).height()) / frames;
-        scrollStep = parseInt($(window).scrollTop() / step);
-        maskPosition = 100 / frames * scrollStep;
-        // $("#cover").css({
-        //     "mask-position": maskPosition + "% 90%",
-        //     "-webkit-mask-position": maskPosition + "% 90%"
-        // });
+        $(window).scroll(function (e) {
+            frames = 17;
+            step = ($("div.arrow-doble-down").height() - $(window).height()) / frames;
+            scrollStep = parseInt($(window).scrollTop() / step);
+            maskPosition = 100 / frames * scrollStep;
+            // $("#cover").css({
+            //     "mask-position": maskPosition + "% 90%",
+            //     "-webkit-mask-position": maskPosition + "% 90%"
+            // });
         });
     </script>
     <style>
-    /* div.arrow-doble-down {
+        /* div.arrow-doble-down {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     } */
 
-    div.arrow-doble-down #svg-arrow-down .arrow {
-    -webkit-animation: scroll 1.25s ease-in alternate infinite;
-            animation: scroll 1.25s ease-in alternate infinite;
-    }
+            div.arrow-doble-down #svg-arrow-down .arrow {
+                -webkit-animation: scroll 1.25s ease-in alternate infinite;
+                animation: scroll 1.25s ease-in alternate infinite;
+            }
 
-    @-webkit-keyframes scroll {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(10px);
-    }
-    }
+        @-webkit-keyframes scroll {
+            0% {
+                transform: translateY(0);
+            }
 
-    @keyframes scroll {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(10px);
-    }
-    }
+            100% {
+                transform: translateY(10px);
+            }
+        }
 
-    @keyframes scroll {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(10px);
-    }
-    }
+        @keyframes scroll {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(10px);
+            }
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(10px);
+            }
+        }
     </style>
 </asp:Content>
 
