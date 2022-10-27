@@ -71,9 +71,10 @@ public partial class mi_carrito : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            obtenerEnvio();
             obtenerStockCarrito();
+            obtenerEnvio();
             cargarProductoAsync();
+            up_carrito.Update();
             Page.Title = "Carrito de compras";
             Page.MetaDescription = "Carrito de compras, compra en linea, telecomunicaciones y fibra óptica";
 
@@ -220,6 +221,7 @@ public partial class mi_carrito : System.Web.UI.Page
                             obtener.desactivarProductoCarrito(usuario.email, numero_parte);
                         }
                     }
+                    await Task.Delay(2000);
                     modalCarga.Visible = false;
                     up_carrito.Update();
                     up_carrito.Visible = true;
@@ -234,6 +236,7 @@ public partial class mi_carrito : System.Web.UI.Page
             //devNotificaciones.error("Cálculo de stocks", ex);
             NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al obtener la disponibilidad de los productos");
         }
+        up_carrito.Update();
     }
 
     protected async void cargarProductoAsync()
@@ -494,7 +497,14 @@ public partial class mi_carrito : System.Web.UI.Page
         {
             lbl_stock.Visible = true;
             lbl_stock.InnerText = "Sin stock";
+            txt_cantidadCarrito.Attributes.Add("min", "0");
+            txt_cantidadCarrito.Attributes.Add("max", "0");
             NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Hay productos sin stock en tu carrito, no se agregarán al pedido.");
+        }
+        else
+        {
+            txt_cantidadCarrito.Attributes.Add("min", "1");
+            txt_cantidadCarrito.Attributes.Add("max", stock);
         }
 
         tienda.uc_precio_detalles detalles_precios = (tienda.uc_precio_detalles)e.Item.FindControl("detalles_precios");
