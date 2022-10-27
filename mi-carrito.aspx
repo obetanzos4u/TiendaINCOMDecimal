@@ -34,7 +34,7 @@
                                     <td style="width: 10%">
                                         <asp:Image ID="imgProducto" CssClass="responsive-img" runat="server" />
                                     </td>
-                                    <td style="width: 40%; padding: 15px;">
+                                    <td style="width: 60%; padding: 15px;">
                                         <asp:HiddenField ID="hf_idProductoCarrito" Value='<%#Eval("id") %>' runat="server" />
                                         <div class="is-select-all">
                                             <asp:Literal ID="lt_numeroParte" Text='<%#Eval("numero_parte") %>' runat="server"></asp:Literal>
@@ -73,7 +73,9 @@
                                     <td colspan="3" class="options-product_list">
                                         <div class="is-flex is-justify-between is-items-center">
                                             <div class="mi-carrito-product_options is-flex">
-                                                <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>
+                                                <div>
+                                                <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>                                                   
+                                                </div>
                                                 <p class="is-px-4 is-text-blue">|</p>
                                                 <asp:UpdatePanel UpdateMode="Always" runat="server">
                                                     <ContentTemplate>
@@ -126,11 +128,11 @@
 
                 <!-- <div id="cover"></div> -->
                 <div id="ctn_details" class="col s12 l4 xl4 right-align mi-carrito-ticket" runat="server">
-                    <div class="is-flex">
+                    <div class="is-flex moneda-ticket">
                         <p class="is-select-none">Moneda:</p>
                         <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
                     </div>
-                    <div style="text-align: left" class="is-border-soft is-border-collapse is-rounded-lg is-bt-1">
+                    <div style="text-align: left; padding: 1rem;" class="is-border-soft is-border-collapse is-rounded-lg is-bt-3">
                         <div class="is-rounded-t-lg section-ticket-1">
                             <strong class="title-total_pedido is-w-full is-font-semibold is-select-none">Total del pedido</strong>
                         </div>
@@ -176,6 +178,20 @@
                         <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
                     </div>
                 </div>--%>
+                <div id="btn_continuarCompra" class="mi-carrito-boton-compra is-flex is-flex-col is-justify-center is-items-center" runat="server">
+                    <asp:LinkButton ID="LinkButton1" ClientIDMode="Static" OnClick="btn_comprar_Click" OnClientClick="btnLoading(this);" CssClass="is-text-white" runat="server">
+                                    <div class="is-btn-green">Continuar con la compra</div>
+                    </asp:LinkButton>
+                    <!-- <a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a> -->
+                    <!-- <a href="#">Descargar cotización</a> -->
+                </div>
+                <div id="lbl_consideraciones" visible="true" class="mi-carrito-consideraciones-lg" runat="server">
+                    <span>Consideraciones:</span>
+                    <div class="is-text-justify">
+                        <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
+                        <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
+                    </div>
+                </div>
             </div>
             <%--<div id="content_msg_exito_operacion" visible="false" class="row center-align" runat="server">
                 <h1 class="blue-text" id="">Tu 
@@ -186,21 +202,6 @@
             </div>--%>
         </ContentTemplate>
     </asp:UpdatePanel>
-
-    <div id="btn_continuarCompra" class="mi-carrito-boton-compra is-flex is-flex-col is-justify-center is-items-center" runat="server">
-        <asp:LinkButton ID="LinkButton1" ClientIDMode="Static" OnClick="btn_comprar_Click" OnClientClick="btnLoading(this);" CssClass="is-text-white" runat="server">
-                        <div class="is-btn-green">Continuar con la compra</div>
-        </asp:LinkButton>
-        <a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a>
-        <!-- <a href="#">Descargar cotización</a> -->
-    </div>
-    <div id="lbl_consideraciones" visible="true" class="mi-carrito-consideraciones-lg" runat="server">
-        <span>Consideraciones:</span>
-        <div class="is-text-justify">
-            <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
-            <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
-        </div>
-    </div>
 
 
     <!--- INICIO Modal cotización --->
