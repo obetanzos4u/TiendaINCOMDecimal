@@ -162,44 +162,38 @@
                 <p class="h5 ">Productos</p>
 
                 <asp:ListView ID="lv_productos" OnItemDataBound="lv_productos_ItemDataBound" Visible="true" runat="server">
-
                     <LayoutTemplate>
-                        <ul class="list-group mb-3">
-                            <div id="itemPlaceholder" runat="server"></div>
-
-                        </ul>
-
+                        <div class="list-group-resumen">
+                            <ul class="list-group mb-3">
+                                <div id="itemPlaceholder" runat="server"></div>
+                            </ul>
+                        </div>
                     </LayoutTemplate>
-
-                    <ItemTemplate>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <asp:Image ID="img_producto" class="img-fluid" Style="width: 100px;" runat="server" /><div>
-
-
-                                <h6 class="my-0"><%#Eval("productos.numero_parte") %>
-                                </h6>
-
-                                <small class="text-muted"><%#Eval("productos.descripcion") %>
-                                    <br />
-                                    <asp:Literal ID="lt_cantidad" Text='<%#Eval("productos.cantidad") %>' runat="server"> </asp:Literal>
-                                    pza
-                                        x
-                            <asp:Literal ID="lt_precio_unitario" Text=' <%#Eval("productos.precio_unitario") %>' runat="server"></asp:Literal>
-                                </small>
-
-                            </div>
-                            <span class="text-muted">
-                                <strong>
-                                    <asp:Literal ID="lt_precio_total" Text='<%#Eval("productos.precio_total") %>' runat="server">  </asp:Literal>
-                                </strong>
-
-                            </span>
-
-                        </li>
-                    </ItemTemplate>
-                    <EmptyDataTemplate>
-                        No hay productos
-                    </EmptyDataTemplate>
+                        <ItemTemplate>
+                            <li class="list-group-item d-flex lh-sm">
+                                <asp:Image ID="img_producto" class="img-fluid" Style="width: 100px;" runat="server" />
+                                <div style="justify-content: space-between; display: flex; width: 100%; margin: 1rem">
+                                    <div>
+                                        <h6 class="my-0"><%#Eval("productos.numero_parte") %></h6>
+                                        <small class="text-muted"><%#Eval("productos.descripcion") %>
+                                            <br />
+                                            <asp:Literal ID="lt_cantidad" Text='<%#Eval("productos.cantidad") %>' runat="server"> </asp:Literal>
+                                            pza
+                                                x
+                                            <asp:Literal ID="lt_precio_unitario" Text=' <%#Eval("productos.precio_unitario") %>' runat="server"></asp:Literal>
+                                        </small>
+                                    </div>
+                                    <span class="text-muted" style="float: right;">
+                                        <strong>
+                                            <asp:Literal ID="lt_precio_total" Text='<%#Eval("productos.precio_total") %>' runat="server"></asp:Literal>
+                                        </strong>
+                                    </span>   
+                                </div>
+                            </li>
+                        </ItemTemplate>
+                        <EmptyDataTemplate>
+                            No hay productos
+                        </EmptyDataTemplate>
                 </asp:ListView>
                 <table class="table table-sm">
                     <thead>
@@ -268,7 +262,6 @@
                     </div>
                     <asp:LinkButton OnClick="btn_cancelar_pedido_Click" OnClientClick="BootstrapClickLoading(this);"
                         ID="btn_cancelar_pedido" class="btn btn-danger" runat="server"> Cancelar pedido </asp:LinkButton>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar ventana</button>
@@ -279,8 +272,6 @@
     </div>
     <!-- FIN Modal cancelar pedido -->
 
-
-
     <!-- Modal cuentas bancarias -->
     <div class="modal  " id="modal_deposito_trans" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-lg">
@@ -290,8 +281,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
-
                     <img src="/img/informacion/logo-banamex.svg" style="width: 200px;" class="img-thumbnail" />
                     <h5 class="card-title mt-2">Datos de la cuenta</h5>
                     <p>

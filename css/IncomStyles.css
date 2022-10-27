@@ -1402,6 +1402,12 @@ body {
         font-size: 15px;
     }
 
+    .list-group-resumen {
+        overflow: scroll;
+        height: fit-content;
+        max-height: 290px;
+    }
+
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
