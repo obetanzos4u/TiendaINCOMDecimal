@@ -6,7 +6,7 @@
         opacity: 1,
         borderRadius: '5px',
         rtl: false,
-        timeout: 3000,
+        timeout: 4000,
         backOverlay: false,
         backOverlayColor: 'rgba(0,0,0,0.8)', //Verificar porque al parecer no funciona
         clickToClose: true,
@@ -14,7 +14,7 @@
         fontFamily: "Montserrat",
         fontSize: "18px",
         cssAnimation: true,
-        cssAnimationDuration: 700,
+        cssAnimationDuration: 600,
         cssAnimationStyle: "zoom",
         closeButton: true,
         useIcon: true,
@@ -58,7 +58,7 @@
             Notiflix.Notify.merge({
                 closeButton: false,
                 width: '280px',
-                showOnlyTheLastOne: false
+                showOnlyTheLastOne: true
             });
             Notiflix.Notify.success(message);
             break;

@@ -5,7 +5,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
     <asp:HiddenField ID="hf_UserLogin" runat="server" />
-    <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="is-container" runat="server">
+    <div id="modalCarga" visible="true" runat="server">
+        <div style="width: 100%; height: 100vh; background-color: red"></div>
+    </div>
+    <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="is-container" Visible="false" runat="server">
         <ContentTemplate>
             <div class="mi-carrito-contain">
                 <div class="col l8 xl8 mi-carrito-list">
@@ -41,7 +44,7 @@
                                         <div class="is-py-4">
                                             <%#Eval("descripcion") %>
                                         </div>
-                                        <div class="is-flex is-justify-start is-items-center">
+                                        <%--<div class="is-flex is-justify-start is-items-center">
                                             <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>
                                             <p class="is-px-4 is-text-blue">|</p>
                                             <asp:UpdatePanel UpdateMode="Always" runat="server">
@@ -49,9 +52,8 @@
                                                     <asp:LinkButton OnClick="btn_eliminarProducto_Click" ID="btn_eliminarProducto" CssClass="" OnClientClick="btnLoading(this);" ClientIDMode="Static" runat="server">Eliminar</asp:LinkButton>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
-                                        </div>
+                                        </div>--%>
                                         <div id="warning_envios_medidas" class="is-text-xs is-text-red" runat="server" visible="false"></div>
-                                        <div id="lbl_stock" visible="false" runat="server"></div>
                                     </td>
                                     <td class="product-list-precio_cantidad">
                                         <div class="is-flex is-justify-between is-items-center">
@@ -78,14 +80,17 @@
                                 </tr>
                                 <tr>
                                     <td colspan="3" class="options-product_list">
-                                        <div class="mi-carrito-product_options is-flex">
-                                            <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>
-                                            <p class="is-px-4 is-text-blue">|</p>
-                                            <asp:UpdatePanel UpdateMode="Always" runat="server">
-                                                <ContentTemplate>
-                                                    <asp:LinkButton OnClick="btn_eliminarProducto_Click" ID="btn_eliminarProducto" CssClass="" OnClientClick="btnLoading(this);" ClientIDMode="Static" runat="server">Eliminar</asp:LinkButton>
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
+                                        <div class="is-flex is-justify-between is-items-center">
+                                            <div class="mi-carrito-product_options is-flex">
+                                                <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>
+                                                <p class="is-px-4 is-text-blue">|</p>
+                                                <asp:UpdatePanel UpdateMode="Always" runat="server">
+                                                    <ContentTemplate>
+                                                        <asp:LinkButton OnClick="btn_eliminarProducto_Click" ID="btn_eliminarProducto" CssClass="" OnClientClick="btnLoading(this);" ClientIDMode="Static" runat="server">Eliminar</asp:LinkButton>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                            </div>
+                                            <div id="lbl_stock" visible="false" runat="server" class="is-text-red is-font-bold is-text-sm"></div>
                                         </div>
                                     </td>
                                 </tr>
@@ -125,13 +130,6 @@
                         <svg xmlns="http://www.w3.org/2000/svg" id="svg-arrow-down" width="288" height="288" viewBox="0 0 24 24">
                             <path class="arrow" fill="#2d6cdf" d="M12 12a1 1 0 0 1-.71-.29l-4-4A1 1 0 0 1 8.71 6.29L12 9.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 12zM12 18a1 1 0 0 1-.71-.29l-4-4a1 1 0 0 1 1.41-1.41L12 15.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 18z" class="color000 svgShape" />
                         </svg>
-                    </div>
-                </div>
-                <div class="mi-carrito-consideraciones">
-                    <span>Consideraciones:</span>
-                    <div class="is-text-justify">
-                        <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
-                        <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
                     </div>
                 </div>
 
@@ -175,14 +173,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="mi-carrito-boton-compra is-flex is-flex-col is-justify-center is-items-center">
-                    <asp:LinkButton ID="LinkButton1" ClientIDMode="Static" OnClick="btn_comprar_Click" OnClientClick="btnLoading(this);" CssClass="is-text-white" runat="server">
-                        <div class="is-btn-green">Continuar con la compra</div>
-                    </asp:LinkButton>
-                <%--<a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a>--%>
-                <!-- <a href="#">Descargar cotización</a> -->
-                </div>
-                <div class="mi-carrito-consideraciones-lg is-top-4">
+                <%--
+                <div id="lbl_consideracionesCopy" class="mi-carrito-consideraciones-lg is-top-4" runat="server">
                     <span>Consideraciones:</span>
                     <!-- <div class="is-text-justify">
                         <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión. <a target="_blank" href="/documents/INCOM-MEDIDAS-COVID.pdf">Consulta nuestro protocolo COVID</a></p>
@@ -192,9 +184,9 @@
                         <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
                         <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
                     </div>
-                </div>
+                </div>--%>
             </div>
-            <%--            <div id="content_msg_exito_operacion" visible="false" class="row center-align" runat="server">
+            <%--<div id="content_msg_exito_operacion" visible="false" class="row center-align" runat="server">
                 <h1 class="blue-text" id="">Tu 
                     <asp:Literal ID="lt_tipo_operacion" Text="Operación " runat="server"></asp:Literal>
                     se ha realizado con éxito</h1>
@@ -204,41 +196,20 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
-    <div>
-        <asp:TextBox ID="txt_log_result" onfocus="Resize(this);" ClientIDMode="Static" class="form-control is-resize-none" ReadOnly="true" TextMode="MultiLine" runat="server"></asp:TextBox>
+    <div id="btn_continuarCompra" class="mi-carrito-boton-compra is-flex is-flex-col is-justify-center is-items-center" runat="server">
+        <asp:LinkButton ID="LinkButton1" ClientIDMode="Static" OnClick="btn_comprar_Click" OnClientClick="btnLoading(this);" CssClass="is-text-white" runat="server">
+                        <div class="is-btn-green">Continuar con la compra</div>
+        </asp:LinkButton>
+        <a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a>
+        <!-- <a href="#">Descargar cotización</a> -->
     </div>
-
-    <!--- INICIO Modal agregar número telefónico, solo se muestra si no ah agregado uno a su cuenta principal --->
-
-
-    <%--    <div id="modal_NumerosContacto" class="modal">
-        <div class="modal-content">
-            <h3>Ayudanos a contactarte.</h3>
-            <p>Asocia un número fijo/oficina y/o celular principal</p>
-            <asp:UpdatePanel ID="up_contacto" UpdateMode="Always" runat="server">
-                <ContentTemplate>           <p>
-                        <span>Teléfono celular</span>
-                        <asp:TextBox ID="txt_celular"  AutoPostBack="true" OnTextChanged="txt_celular_TextChangedAsync" 
-                            ClientIDMode="Static" placeholder="Teléfono celular" runat="server"></asp:TextBox>
-                    </p>
-                    <p>
-                        <span>Teléfono fijo/oficina</span>
-                        <asp:TextBox ID="txt_telefono_fijo" AutoPostBack="true" OnTextChanged="txt_telefono_fijo_TextChangedAsync" 
-                            ClientIDMode="Static" placeholder="Teléfono fijo/oficina" runat="server"></asp:TextBox>
-                    </p>
-                    <p>
-                        <asp:Label ID="lbl_text_result_saved_tel" runat="server"  ></asp:Label>
-                    </p>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+    <div id="lbl_consideraciones" visible="true" class="mi-carrito-consideraciones-lg" runat="server">
+        <span>Consideraciones:</span>
+        <div class="is-text-justify">
+            <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
+            <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
-        </div>
-    </div>--%>
-
-
-    <!--- FIN Modal agregar número telefónico, solo se muestra si no ah agregado uno a su cuenta principal --->
+    </div>
 
 
     <!--- INICIO Modal cotización --->
@@ -377,10 +348,10 @@
     transform: translate(-50%, -50%);
     } */
 
-            div.arrow-doble-down #svg-arrow-down .arrow {
-                -webkit-animation: scroll 1.25s ease-in alternate infinite;
-                animation: scroll 1.25s ease-in alternate infinite;
-            }
+        div.arrow-doble-down #svg-arrow-down .arrow {
+            -webkit-animation: scroll 1.25s ease-in alternate infinite;
+            animation: scroll 1.25s ease-in alternate infinite;
+        }
 
         @-webkit-keyframes scroll {
             0% {
@@ -413,5 +384,3 @@
         }
     </style>
 </asp:Content>
-
-

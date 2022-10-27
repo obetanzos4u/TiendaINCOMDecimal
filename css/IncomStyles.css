@@ -240,6 +240,10 @@ body {
     background-color: #D9D9D9;
 }
 
+.is-bg-green-500 {
+    background-color: #22c55e;
+}
+
 .is-bg-button {
     background-color: #004eea;
 }

@@ -231,6 +231,7 @@
                                         <asp:Label ID="lbl_producto_moneda" CssClass="producto_moneda" runat="server" Text=""></asp:Label>
 
                                         <asp:Label runat="server" ID="lbl_aviso"></asp:Label>
+                                        <asp:Label runat="server" Visible="false" ID="lbl_envioGratuito"></asp:Label>
                                     </p>
                                     <div class= "boton-agregar-carrito-resultados">
                                         <uc_addCarrito:add ID="AddCarrito" numero_parte='<%# Eval("numero_parte") %>' runat="server"></uc_addCarrito:add>

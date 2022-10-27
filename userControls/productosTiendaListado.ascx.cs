@@ -295,6 +295,7 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
             string str_solo_para_Visualizar = rowView["solo_para_Visualizar"].ToString();
             bool solo_para_Visualizar = string.IsNullOrEmpty(str_solo_para_Visualizar) ? false : bool.Parse(str_solo_para_Visualizar);
             string avisos = rowView["avisos"].ToString();
+            string disponibleEnvio = rowView["disponibleEnvio"].ToString();
 
             NumberFormatInfo myNumberFormatInfo = new CultureInfo("es-MX", true).NumberFormat;
 
@@ -306,6 +307,7 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
             Label lbl_producto_moneda = (Label)e.Item.FindControl("lbl_producto_moneda");
             Label lbl_preciosFantasma = (Label)e.Item.FindControl("lbl_preciosFantasma");
             Label lbl_descuento_porcentaje_fantasma = (Label)e.Item.FindControl("lbl_descuento_porcentaje_fantasma");
+            Label lbl_envioGratuito = (Label)e.Item.FindControl("lbl_envioGratuito");
 
             link.NavigateUrl = Request.Url.GetLeftPart(UriPartial.Authority) + GetRouteUrl("productos", new System.Web.Routing.RouteValueDictionary {
                         { "numero_parte", textTools.limpiarURL_NumeroParte(numero_parte) },
@@ -314,6 +316,11 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
                     });
             link_productoIMG.NavigateUrl = link.NavigateUrl;
 
+            if (disponibleEnvio == "1")
+            {
+                lbl_envioGratuito.Visible = true;
+                lbl_envioGratuito.Text = "Envio gratis";
+            }
 
             btn_VerDisponibilidad.Attributes.Add("onclick", $"openModalProductoDisponibilidad('{numero_parte}');");
             if (!solo_para_Visualizar)
@@ -473,18 +480,17 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
                 if (rowView["puntajeBusqueda"] != DBNull.Value)
                 {
                     Label lbl_puntajeBusqueda = (Label)e.Item.FindControl("lbl_puntajeBusqueda");
-                    // Label lbl_aviso = (Label)e.Item.FindControl("lbl_aviso");
+                    //Label lbl_aviso = (Label)e.Item.FindControl("lbl_aviso");
                     lbl_puntajeBusqueda.Visible = true;
 
                     string puntaje = rowView["puntajeBusqueda"].ToString();
                     lbl_puntajeBusqueda.Text = "Puntaje: " + puntaje;
                     string aviso = rowView["avisos"].ToString();
-                    // lbl_aviso.Text = aviso;
+                    //lbl_aviso.Text = aviso;
                 }
 
             }
             #endregion
-
 
 
 

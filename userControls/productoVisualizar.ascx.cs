@@ -137,6 +137,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             string descripcion_corta = productos.Rows[0]["descripcion_corta"].ToString();
             string titulo = productos.Rows[0]["titulo"].ToString();
             string especificaciones = productos.Rows[0]["especificaciones"].ToString();
+            string disponibleEnvio = productos.Rows[0]["disponibleEnvio"].ToString();
             string unidad_venta = productos.Rows[0]["unidad_venta"].ToString();
             string cantidad = productos.Rows[0]["cantidad"].ToString();
             string productos_relacionados = productos.Rows[0]["productos_relacionados"].ToString();
@@ -178,6 +179,12 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                          { "marca", marca },
                         { "productoNombre",  textTools.limpiarURL(titulo) }
                     });
+
+            if (disponibleEnvio == "1")
+            {
+                lbl_envioIncluido.Visible = true;
+                lbl_envioIncluido.InnerText = "Envio gratis";
+            }
 
             lt_numero_parte.Text = numero_parte;
             lt_titulo.Text = titulo;

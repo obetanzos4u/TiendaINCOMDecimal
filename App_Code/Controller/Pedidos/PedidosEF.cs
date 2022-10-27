@@ -14,8 +14,8 @@ public class PedidosProductosDatos
 {
 
     public pedidos_productos productos { get; set; }
-    public  productos_Datos datos { get; set; }
- 
+    public productos_Datos datos { get; set; }
+
 
 
 
@@ -44,19 +44,19 @@ public class PedidosEF
         // TODO: Agregar aquí la lógica del constructor
         //
     }
-     
+
     /// <summary>
     /// Regresa con json_respuestas donde si es correcto, devuelve el tipo PedidosDTOModel en el atributo Response
     /// </summary>
-     static public async Task< json_respuestas>  ObtenerPedidoCompleto(string numero_operacion)
+    static public async Task<json_respuestas> ObtenerPedidoCompleto(string numero_operacion)
     {
 
-        if(string.IsNullOrWhiteSpace(numero_operacion))
+        if (string.IsNullOrWhiteSpace(numero_operacion))
             return new json_respuestas(false, "No se ha especificado un numero de operación");
-        
-        var PedidoDatos = ObtenerDatos(numero_operacion); 
 
-       if(PedidoDatos == null)
+        var PedidoDatos = ObtenerDatos(numero_operacion);
+
+        if (PedidoDatos == null)
             return new json_respuestas(false, "No se ha encontrado una operación con ese # de operación");
 
         var Pedido = new PedidosDTOModel();
@@ -83,8 +83,8 @@ public class PedidosEF
     }
 
     /// <summary>
-      /// 20210308 CM - Obtiene la información de un pedido por ID
-      /// </summary>
+    /// 20210308 CM - Obtiene la información de un pedido por ID
+    /// </summary>
     public static pedidos_datos ObtenerDatos(int idPedido)
     {
 
@@ -136,26 +136,30 @@ public class PedidosEF
     }    /// <summary>
          /// 20210810 CM - Obtiene la información de los pedidos por un periodo
          /// </summary>
-    public static async Task<List<pedidos_datos>> ObtenerDatos(DateTime desde,   DateTime hasta, bool OmitirCancelados) {
+    public static async Task<List<pedidos_datos>> ObtenerDatos(DateTime desde, DateTime hasta, bool OmitirCancelados)
+    {
 
 
-        try {
+        try
+        {
 
-            using (var db = new tiendaEntities()) {
+            using (var db = new tiendaEntities())
+            {
                 var PedidoDatos = await db.pedidos_datos
                      .AsNoTracking()
                      .Where(s => s.fecha_creacion >= desde && s.fecha_creacion <= hasta)
                      .ToListAsync();
-                if(OmitirCancelados == true)
+                if (OmitirCancelados == true)
                 {
                     PedidoDatos.RemoveAll(p => p.OperacionCancelada == true);
 
                 }
-               
+
                 return PedidoDatos;
             }
         }
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
 
             return null;
         }
@@ -192,12 +196,15 @@ public class PedidosEF
     /// <summary>
     /// 20210608 CM - Obtiene la moneda de una operación por su numero_operacion
     /// </summary>
-    public static string ObtenerMonedaOperacion(string numero_operacion) {
+    public static string ObtenerMonedaOperacion(string numero_operacion)
+    {
 
 
-        try {
+        try
+        {
 
-            using (var db = new tiendaEntities()) {
+            using (var db = new tiendaEntities())
+            {
                 var moneda = db.pedidos_datosNumericos
                      .AsNoTracking()
 
@@ -208,7 +215,8 @@ public class PedidosEF
                 return moneda;
             }
         }
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
 
             return null;
         }
@@ -238,16 +246,19 @@ public class PedidosEF
             devNotificaciones.error("obtenernumeros", ex);
             return null;
         }
-    } 
+    }
     /// <summary>
-      /// 20210404 CM - Obtiene la información de montos $$ de un pedido por su número de operación
-      /// </summary>
-    public static decimal? ObtenerMontoTotalProductos(string numero_operacion) {
+    /// 20210404 CM - Obtiene la información de montos $$ de un pedido por su número de operación
+    /// </summary>
+    public static decimal? ObtenerMontoTotalProductos(string numero_operacion)
+    {
 
 
-        try {
+        try
+        {
 
-            using (var db = new tiendaEntities()) {
+            using (var db = new tiendaEntities())
+            {
                 var MontoTotalProductos = db.pedidos_productos
                      .AsNoTracking()
                      .Where(n => n.numero_operacion == numero_operacion)
@@ -257,7 +268,8 @@ public class PedidosEF
                 return MontoTotalProductos;
             }
         }
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
             devNotificaciones.error("Obtener monto total de productos", ex);
             return null;
         }
@@ -267,36 +279,22 @@ public class PedidosEF
     /// </summary>
     public static List<PedidosProductosDatos> ObtenerProductosWithData(string numero_operacion)
     {
-
-
         try
         {
-
             using (var db = new tiendaEntities())
             {
-
-
                 var PedidoProductos = db.pedidos_productos
-                          .GroupJoin(
-                db.productos_Datos,
-                pro => pro.numero_parte,
-                dat => dat.numero_parte,
-                (pro, dat) => new { pro, dat })
-                .SelectMany(x => x.dat.DefaultIfEmpty(),
-                     (x, y) => new { pro = x.pro, dat = y })
-   .Where(x => x.pro.numero_operacion == numero_operacion).GroupBy(x => new {
-       x.pro, x.dat
-   })
-            .Select(g => new {
-                  g.Key.pro,
-                g.Key.dat
-
-            })
-            .AsNoTracking()
-            .ToList();
-
-
-
+                    .GroupJoin(
+                        db.productos_Datos,
+                        pro => pro.numero_parte,
+                        dat => dat.numero_parte,
+                        (pro, dat) => new { pro, dat })
+                    .SelectMany(x => x.dat.DefaultIfEmpty(),(x, y) => new { pro = x.pro, dat = y })
+                    .Where(x => x.pro.numero_operacion == numero_operacion)
+                    .GroupBy(x => new { x.pro, x.dat })
+                    .Select(g => new { g.Key.pro, g.Key.dat })
+                    .AsNoTracking()
+                    .ToList();
 
                 /*  var PedidoProductos =   db.pedidos_productos
                     .Join(db.productos_Datos, // the source table of the inner join
@@ -316,7 +314,7 @@ public class PedidosEF
                .Where(a => a.numero_operacion == numero_operacion).ToList();
 
                   */
-                return PedidoProductos.Select(a => new PedidosProductosDatos() { productos = a.pro, datos = a.dat }).ToList(); 
+                return PedidoProductos.Select(a => new PedidosProductosDatos() { productos = a.pro, datos = a.dat }).ToList();
             }
         }
         catch (Exception ex)
@@ -371,15 +369,15 @@ public class PedidosEF
                       .Where(s => s.numero_operacion == numero_operacion).FirstOrDefault();
 
 
-                if(PedidoDireccionEnvio != null)
-                return new json_respuestas(true,"Dirección obtenida con éxito)",false, PedidoDireccionEnvio);
+                if (PedidoDireccionEnvio != null)
+                    return new json_respuestas(true, "Dirección obtenida con éxito)", false, PedidoDireccionEnvio);
                 else return new json_respuestas(true, "No se encontró una dirección de envío establecida", false, null);
             }
         }
         catch (Exception ex)
         {
             return new json_respuestas(false, "Hubo un error al obtener la dirección de envío", true, null);
-            
+
         }
     }
     /// <summary>
@@ -429,13 +427,13 @@ public class PedidosEF
 
 
                 // Si no existe
-                if(PedidoDireccionEnvio == null)
+                if (PedidoDireccionEnvio == null)
                 {
                     db.pedidos_direccionEnvio.Add(direccion);
                 } // si existe, actualizamos
                 else
                 {
- 
+
                     PedidoDireccionEnvio.idDireccionEnvio = direccion.idDireccionEnvio;
                     PedidoDireccionEnvio.calle = direccion.calle;
                     PedidoDireccionEnvio.numero = direccion.numero;
@@ -447,7 +445,7 @@ public class PedidosEF
                     PedidoDireccionEnvio.codigo_postal = direccion.codigo_postal;
                     PedidoDireccionEnvio.pais = direccion.pais;
                     PedidoDireccionEnvio.referencias = direccion.referencias;
-                  
+
                 }
                 db.SaveChanges();
 
@@ -457,7 +455,7 @@ public class PedidosEF
         catch (Exception ex)
         {
 
-            return new json_respuestas(false,"Ocurrio un error al guardar la dirección",true);
+            return new json_respuestas(false, "Ocurrio un error al guardar la dirección", true);
         }
     }
 
@@ -486,7 +484,7 @@ public class PedidosEF
                 else
                 {
 
-                  PedidoDireccionFacturacion.idDireccionFacturacion = direccion.idDireccionFacturacion;
+                    PedidoDireccionFacturacion.idDireccionFacturacion = direccion.idDireccionFacturacion;
                     PedidoDireccionFacturacion.calle = direccion.calle;
                     PedidoDireccionFacturacion.numero = direccion.numero;
                     PedidoDireccionFacturacion.colonia = direccion.colonia;
@@ -525,16 +523,16 @@ public class PedidosEF
                 var PedidoDatos = db.pedidos_datos
                     .Where(s => s.id == idPedido).FirstOrDefault();
 
- 
-                    PedidoDatos.cliente_nombre = contacto.nombre;
-                    PedidoDatos.cliente_apellido_paterno = contacto.apellido_paterno;
-                    PedidoDatos.cliente_apellido_materno = contacto.apellido_materno;
-                    PedidoDatos.email = contacto.email;
-                    PedidoDatos.telefono = contacto.telefono;
-                    PedidoDatos.celular = contacto.celular;
+
+                PedidoDatos.cliente_nombre = contacto.nombre;
+                PedidoDatos.cliente_apellido_paterno = contacto.apellido_paterno;
+                PedidoDatos.cliente_apellido_materno = contacto.apellido_materno;
+                PedidoDatos.email = contacto.email;
+                PedidoDatos.telefono = contacto.telefono;
+                PedidoDatos.celular = contacto.celular;
 
                 db.SaveChanges();
-                
+
 
             }
             return new json_respuestas(true, "Datos de contacto guardado con éxito", false);
@@ -575,9 +573,11 @@ public class PedidosEF
     /// </summary>
     public static json_respuestas ActualizarFacturacion(string numero_operacion, bool factura)
     {
-        try {
+        try
+        {
 
-            using (var db = new tiendaEntities()) {
+            using (var db = new tiendaEntities())
+            {
                 var PedidoDatos = db.pedidos_datos
                     .Where(s => s.numero_operacion == numero_operacion).FirstOrDefault();
 
@@ -627,7 +627,7 @@ public class PedidosEF
 
             using (var db = new tiendaEntities())
             {
-                var direccion  = db.pedidos_direccionFacturacion
+                var direccion = db.pedidos_direccionFacturacion
                     .Where(s => s.numero_operacion == numero_operacion).FirstOrDefault();
 
                 db.pedidos_direccionFacturacion.Remove(direccion);
@@ -636,7 +636,8 @@ public class PedidosEF
             }
             return new json_respuestas(true, "Dirección de facturación eliminada con éxito.", false);
         }
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
             return new json_respuestas(false, "Error al eliminar dirección de facturación de el pedido.", true);
         }
 
@@ -665,7 +666,7 @@ public class PedidosEF
 
     }
 
- 
+
     public static json_respuestas ObtenerMetodoDeEnvío(string numero_operacion)
     {
         try
@@ -680,12 +681,13 @@ public class PedidosEF
                       .FirstOrDefault();
 
 
-                if (MetodoDeEnvio != null) {
-                    if(MetodoDeEnvio == "Ninguno") return new json_respuestas(false, "El método de envío no se ha podido establecer o ocurrió un error.", false, MetodoDeEnvio);
-                    else 
-                    return new json_respuestas(true, "Método de envío obtenido correctamente.", false, MetodoDeEnvio);
+                if (MetodoDeEnvio != null)
+                {
+                    if (MetodoDeEnvio == "Ninguno") return new json_respuestas(false, "El método de envío no se ha podido establecer o ocurrió un error.", false, MetodoDeEnvio);
+                    else
+                        return new json_respuestas(true, "Método de envío obtenido correctamente.", false, MetodoDeEnvio);
                 }
-                   
+
                 else return new json_respuestas(false, "El método de envío no es válido, no se ha establecido o ocurrió un error.", false, null);
             }
         }
@@ -703,12 +705,12 @@ public class PedidosEF
     {
         try
         {
-        
-           var historialPagosPayPal = PayPalTienda.obtenerPago(numero_operacion);
+
+            var historialPagosPayPal = PayPalTienda.obtenerPago(numero_operacion);
 
             if (historialPagosPayPal != null && historialPagosPayPal.estado == "COMPLETED")
             {
-                dynamic Pago =  new ExpandoObject();
+                dynamic Pago = new ExpandoObject();
                 Pago.tipo = "Paypal";
                 Pago.pago = historialPagosPayPal;
                 return new json_respuestas(true, $"Ya se encuentra un pago vía Paypal y su estado es: {historialPagosPayPal.estado}.", false, Pago);
@@ -734,11 +736,11 @@ public class PedidosEF
                 dynamic Pago = new ExpandoObject();
                 Pago.tipo = "Transferencia";
                 Pago.pago = referencia;
-              
 
-                string textEstado = (bool)referencia.confirmacionAsesor ?  "Pago SI confirmado" : "Pago NO confirmado";
-               
-                return new json_respuestas(true, $"Ya se encuentra un intento de pago por transfencia, el estado es: "+textEstado, false, Pago);
+
+                string textEstado = (bool)referencia.confirmacionAsesor ? "Pago SI confirmado" : "Pago NO confirmado";
+
+                return new json_respuestas(true, $"Ya se encuentra un intento de pago por transfencia, el estado es: " + textEstado, false, Pago);
             }
 
 
@@ -789,7 +791,7 @@ public class PedidosEF
     public static json_respuestas ReactivarPedido(string numero_operacion)
     {
         try
-        {    
+        {
             using (var db = new tiendaEntities())
             {
                 var PedidoDatos = db.pedidos_datos
@@ -812,67 +814,69 @@ public class PedidosEF
 
     public static async Task<json_respuestas> GenerarReferenciaTransferencia(pedidos_pagos_transferencia pago)
     {
-        try { 
+        try
+        {
 
- 
-            using(var db = new tiendaEntities())
+
+            using (var db = new tiendaEntities())
             {
                 var ReferenciaTransferencia = await db.pedidos_pagos_transferencia
                     .AsNoTracking()
                     .CountAsync(s => s.numero_operacion == pago.numero_operacion);
 
 
-                    if (ReferenciaTransferencia >= 1) {
+                if (ReferenciaTransferencia >= 1)
+                {
                     return new json_respuestas(false, "Ya se encuentra una referencia generada.", false, null);
-                    
+
                 }
 
 
                 db.pedidos_pagos_transferencia.Add(pago);
-                await db.SaveChangesAsync();       
+                await db.SaveChangesAsync();
             }
-            return new json_respuestas(true, "Registro generado con éxito, en unos momentos un asesor confirmara tu transferencia.", false,pago);
-        }
-        catch(Exception ex)
-        {
-            return new json_respuestas(false, "Error interno, contacta a un asesor.", true,ex);
-        }
-    }
-    public static async Task<json_respuestas>ObtenerReferenciaTransferencia(string numero_operacion)
-    {
-        try
-        {
-            using (var db = new tiendaEntities())
-            {
-              var ReferenciaTransferencia=  db.pedidos_pagos_transferencia
-                    .AsNoTracking()
-                     .Where(s => s.numero_operacion == numero_operacion).FirstOrDefault();
-
-                if (ReferenciaTransferencia == null)
-                {
-                    return new json_respuestas(false, "No se ha encontrada una referencia para este número de operación", false, null);
-                }
-              
-                    return new json_respuestas(true, "Referencia de transferencia obtenida con éxito", false, ReferenciaTransferencia);
-            }
-           
+            return new json_respuestas(true, "Registro generado con éxito, en unos momentos un asesor confirmara tu transferencia.", false, pago);
         }
         catch (Exception ex)
         {
-            return new json_respuestas(false, "Error al obtener refrencia de transfrencia.", true, ex);
+            return new json_respuestas(false, "Error interno, contacta a un asesor.", true, ex);
         }
     }
-    public static async Task<json_respuestas>ActualizarReferenciaTransferencia(pedidos_pagos_transferencia referencia)
+    public static async Task<json_respuestas> ObtenerReferenciaTransferencia(string numero_operacion)
     {
         try
         {
             using (var db = new tiendaEntities())
             {
                 var ReferenciaTransferencia = db.pedidos_pagos_transferencia
-                      
+                      .AsNoTracking()
+                       .Where(s => s.numero_operacion == numero_operacion).FirstOrDefault();
+
+                if (ReferenciaTransferencia == null)
+                {
+                    return new json_respuestas(false, "No se ha encontrada una referencia para este número de operación", false, null);
+                }
+
+                return new json_respuestas(true, "Referencia de transferencia obtenida con éxito", false, ReferenciaTransferencia);
+            }
+
+        }
+        catch (Exception ex)
+        {
+            return new json_respuestas(false, "Error al obtener refrencia de transfrencia.", true, ex);
+        }
+    }
+    public static async Task<json_respuestas> ActualizarReferenciaTransferencia(pedidos_pagos_transferencia referencia)
+    {
+        try
+        {
+            using (var db = new tiendaEntities())
+            {
+                var ReferenciaTransferencia = db.pedidos_pagos_transferencia
+
                        .Where(s => s.numero_operacion == referencia.numero_operacion).FirstOrDefault();
 
-                if(ReferenciaTransferencia != null)
+                if (ReferenciaTransferencia != null)
                 {
                     ReferenciaTransferencia.fecha_confirmacion = referencia.fecha_confirmacion;
                     ReferenciaTransferencia.confirmacionAsesor = referencia.confirmacionAsesor;
@@ -885,7 +889,7 @@ public class PedidosEF
                 {
                     return new json_respuestas(true, "No se encontró una referencia con el número de operación", false, ReferenciaTransferencia);
                 }
-               
+
             }
 
         }

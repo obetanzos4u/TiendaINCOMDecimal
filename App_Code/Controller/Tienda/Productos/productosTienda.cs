@@ -43,6 +43,7 @@ public class productosTienda {
                (SELECT IIF(producto.orden IS NULL, 999, producto.orden)) as orden,
                 producto.etiquetas,
                 producto.disponibleVenta,
+                producto.disponibleEnvio,
                 producto.avisos,
 
                 roles.rol_visibilidad,
@@ -117,6 +118,7 @@ public class productosTienda {
                (SELECT IIF(producto.orden IS NULL, 999, producto.orden)) as orden,
                 producto.etiquetas,
                 producto.disponibleVenta,
+                producto.disponibleEnvio,
                 producto.avisos,
 
                 roles.rol_visibilidad,
@@ -235,6 +237,7 @@ WHERE producto.numero_parte  = @numero_parte
                 producto.unidad_venta,
                      (SELECT IIF(producto.orden IS NULL, 999, producto.orden)) AS orden,
                 producto.disponibleVenta,
+                producto.disponibleEnvio,
                 roles.rol_visibilidad,
                 roles.rol_preciosMultiplicador,
                 preciosFantasma.preciosFantasma,

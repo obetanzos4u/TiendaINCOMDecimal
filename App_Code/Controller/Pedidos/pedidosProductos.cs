@@ -10,40 +10,43 @@ using System.Web;
 /// <summary>
 /// Descripción breve de pedidos productos
 /// </summary>
-public class pedidosProductos : model_pedidos_productos {
+public class pedidosProductos : model_pedidos_productos
+{
     private SqlConnection con { get; set; }
     private SqlCommand cmd { get; set; }
     private SqlDataAdapter da { get; set; }
     private DataSet ds { get; set; }
     private DataTable dt { get; set; }
-
-
     public string monedaPedido { get; set; }
     public decimal tipoDeCambio { get; set; }
     public DateTime fechaTipoDeCambio { get; set; }
 
-    protected void dbConexion() {
+    protected void dbConexion()
+    {
 
         con = new SqlConnection(conexiones.conexionTienda());
         cmd = new SqlCommand();
         cmd.Connection = con;
 
-        }
-    public pedidosProductos() {
+    }
+    public pedidosProductos()
+    {
         // 
         // TODO: Agregar aquí la lógica del constructor
         //
-        }
+    }
 
     /// <summary>
     /// Retorna los productos de un pedido: id, numero_parte, descripcion, marca, cantidad, unidad, precios e imagenes de la productosBase
     /// </summary>
     /// 
-    public static DataTable obtenerProductos(string numero_operacion) {
+    public static DataTable obtenerProductos(string numero_operacion)
+    {
         SqlCommand cmd = new SqlCommand();
         SqlConnection con = new SqlConnection(conexiones.conexionTienda());
         cmd.Connection = con;
-        using (con) {
+        using (con)
+        {
 
             StringBuilder sel = new StringBuilder();
 
@@ -92,21 +95,23 @@ public class pedidosProductos : model_pedidos_productos {
             con.Open();
             da.Fill(ds);
             return ds.Tables[0];
-            }
-
-
         }
+
+
+    }
 
     /// <summary>
     /// Obtiene la incedencia de productos en un pedido
     /// </summary>
-    static public DataTable obtenerProducto(string numero_operacion, string producto) {
+    static public DataTable obtenerProducto(string numero_operacion, string producto)
+    {
 
         SqlCommand cmd = new SqlCommand();
-        SqlConnection  con = new SqlConnection(conexiones.conexionTienda());
+        SqlConnection con = new SqlConnection(conexiones.conexionTienda());
         cmd.Connection = con;
 
-        using (con) {
+        using (con)
+        {
 
             StringBuilder sel = new StringBuilder();
 
@@ -133,27 +138,30 @@ public class pedidosProductos : model_pedidos_productos {
             con.Open();
             da.Fill(ds);
             return ds.Tables[0];
-            }
-
-
         }
-    
+
+
+    }
+
     /// <summary>
     ///Agregar producto a una operación, si se agrega correctamente devuelve true
     /// </summary>
-    static public bool agregarProducto(string numero_operacion, model_pedidos_productos producto) {
+    static public bool agregarProducto(string numero_operacion, model_pedidos_productos producto)
+    {
 
         SqlCommand cmd = new SqlCommand();
         SqlConnection con = new SqlConnection(conexiones.conexionTienda());
         cmd.Connection = con;
 
-        try { 
-        using (con) {
+        try
+        {
+            using (con)
+            {
 
                 StringBuilder sel = new StringBuilder();
 
                 sel.Append("INSERT INTO pedidos_productos");
-                
+
                 // Campos básicos
                 sel.Append(@"(
                            [numero_operacion]
@@ -237,43 +245,48 @@ public class pedidosProductos : model_pedidos_productos {
 
                 cmd.Parameters.Add("@precio_total", SqlDbType.Money);
                 cmd.Parameters["@precio_total"].Value = producto.precio_total;
-/*
-                cmd.Parameters.Add("@stock1", SqlDbType.money);
-                if (producto.stock1 == float.NaN) cmd.Parameters["@stock1"].Value = DBNull.Value;
-                else cmd.Parameters["@stock1"].Value = producto.stock1;
+                /*
+                                cmd.Parameters.Add("@stock1", SqlDbType.money);
+                                if (producto.stock1 == float.NaN) cmd.Parameters["@stock1"].Value = DBNull.Value;
+                                else cmd.Parameters["@stock1"].Value = producto.stock1;
 
-                cmd.Parameters.Add("@stock1_fecha", SqlDbType.DateTime);
-                if (producto.stock1_fecha == null) cmd.Parameters["@stock1_fecha"].Value = DBNull.Value;
-                else cmd.Parameters["@stock1_fecha"].Value = producto.stock1_fecha;
+                                cmd.Parameters.Add("@stock1_fecha", SqlDbType.DateTime);
+                                if (producto.stock1_fecha == null) cmd.Parameters["@stock1_fecha"].Value = DBNull.Value;
+                                else cmd.Parameters["@stock1_fecha"].Value = producto.stock1_fecha;
 
-                cmd.Parameters.Add("@stock2", SqlDbType.Float);
-                if (producto.stock2 == float.NaN) cmd.Parameters["@stock2"].Value = DBNull.Value;
-                else cmd.Parameters["@stock2"].Value = producto.stock2;
+                                cmd.Parameters.Add("@stock2", SqlDbType.Float);
+                                if (producto.stock2 == float.NaN) cmd.Parameters["@stock2"].Value = DBNull.Value;
+                                else cmd.Parameters["@stock2"].Value = producto.stock2;
 
-                cmd.Parameters.Add("@stock2_fecha", SqlDbType.DateTime);
-                cmd.Parameters["@stock2_fecha"].Value = producto.stock2_fecha;
-  */           
+                                cmd.Parameters.Add("@stock2_fecha", SqlDbType.DateTime);
+                                cmd.Parameters["@stock2_fecha"].Value = producto.stock2_fecha;
+                  */
                 con.Open();
 
                 cmd.ExecuteNonQuery();
             }
             return true;
-            } catch(Exception ex) {
+        }
+        catch (Exception ex)
+        {
 
             devNotificaciones.error("Agregar producto a pedido de la operación: " + numero_operacion, ex);
             return false;
-            }
         }
+    }
 
 
     /// <summary>
     /// Retorna los productos de un pedido: id, numero_parte, descripcion, marca, cantidad, unidad
     /// </summary>
     /// 
-    public DataTable obtenerProductosPEdidosmin(string numero_operacion) {
-        try {
+    public DataTable obtenerProductosPEdidosmin(string numero_operacion)
+    {
+        try
+        {
             dbConexion();
-            using (con) {
+            using (con)
+            {
 
                 StringBuilder query = new StringBuilder();
 
@@ -295,25 +308,29 @@ public class pedidosProductos : model_pedidos_productos {
                 da.Fill(ds);
 
                 return ds.Tables[0];
-                }
             }
-        catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
 
             Task.Run(() => devNotificaciones.error("Obtener productos mínimos de un pedido, número de operación: " + numero_operacion, ex));
 
             return null;
-            }
         }
+    }
 
 
     /// <summary>
     /// Retorna todos campos de la tabla "pedidos_productos"
     /// </summary>
     /// 
-    public DataTable obtenerProductosPedido_max(string numero_operacion) {
-        try {
+    public DataTable obtenerProductosPedido_max(string numero_operacion)
+    {
+        try
+        {
             dbConexion();
-            using (con) {
+            using (con)
+            {
 
                 StringBuilder query = new StringBuilder();
 
@@ -334,25 +351,29 @@ public class pedidosProductos : model_pedidos_productos {
                 da.Fill(ds);
 
                 return ds.Tables[0];
-                }
             }
-        catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
 
             devNotificaciones.error("Obtener productos de un pedido (todas las columnas), número de operación: " + numero_operacion, ex);
 
             return null;
-            }
         }
+    }
 
     /// <summary>
     /// Retorna X cantidad de productos de un pedido: id, numero_parte, descripcion, marca, cantidad, unidad
     /// </summary>
     /// <param name="numeroProductos">Especifica el # de productos a retornar </param>  
 
-    public DataTable obtenerProductosPedido_min(string numero_operacion, int numeroProductos) {
-        try {
+    public DataTable obtenerProductosPedido_min(string numero_operacion, int numeroProductos)
+    {
+        try
+        {
             dbConexion();
-            using (con) {
+            using (con)
+            {
 
                 StringBuilder query = new StringBuilder();
 
@@ -377,25 +398,29 @@ public class pedidosProductos : model_pedidos_productos {
                 da.Fill(ds);
 
                 return ds.Tables[0];
-                }
             }
-        catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
 
             devNotificaciones.error("Obtener productos mínimos de un pedido", ex);
 
             return null;
-            }
         }
+    }
 
     /// <summary>
     /// Retorna el número total de productos de un pedido, retorna 0 si se crea un error
     /// </summary>
     /// 
-    public int obtenerCantidadProductosPedido(string numero_operacion) {
-        try {
+    public int obtenerCantidadProductosPedido(string numero_operacion)
+    {
+        try
+        {
             dbConexion();
 
-            using (con) {
+            using (con)
+            {
 
                 StringBuilder query = new StringBuilder();
                 query.Append("SET LANGUAGE English; ");
@@ -412,23 +437,26 @@ public class pedidosProductos : model_pedidos_productos {
                 int productosTotales = int.Parse(cmd.ExecuteScalar().ToString());
 
                 return productosTotales;
-                }
-            }
-
-        catch (Exception ex) {
-            devNotificaciones.error("Obtener cantidad de productos de un pedido", ex);
-            return 0;
             }
         }
 
+        catch (Exception ex)
+        {
+            devNotificaciones.error("Obtener cantidad de productos de un pedido", ex);
+            return 0;
+        }
+    }
 
-    public void eliminarProducto(string idProductoCarrito) {
+
+    public void eliminarProducto(string idProductoCarrito)
+    {
         StringBuilder query = new StringBuilder();
 
         query.Append("SET LANGUAGE English; DELETE FROM pedidos_productos   WHERE id=@id");
 
         dbConexion();
-        using (con) {
+        using (con)
+        {
 
             cmd.CommandText = query.ToString();
             cmd.CommandType = CommandType.Text;
@@ -438,13 +466,14 @@ public class pedidosProductos : model_pedidos_productos {
             con.Open();
 
             cmd.ExecuteNonQuery();
-            }
-
         }
+
+    }
     /// <summary>
     /// Suma productos, envío y aplica el iva
     /// </summary>
-    public bool actualizarTotal(string numero_operacion) {
+    public bool actualizarTotal(string numero_operacion)
+    {
 
 
 
@@ -488,7 +517,8 @@ public class pedidosProductos : model_pedidos_productos {
 
 
         dbConexion();
-        using (con) {
+        using (con)
+        {
 
             cmd.CommandText = total;
             cmd.CommandType = CommandType.Text;
@@ -497,23 +527,26 @@ public class pedidosProductos : model_pedidos_productos {
 
             con.Open();
 
-            try {
+            try
+            {
                 cmd.ExecuteNonQuery();
                 return true;
-                }
-            catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 devNotificaciones.error("Error al actualizar totales de pedido:" + numero_operacion, ex);
                 return false;
-                }
-
             }
 
         }
+
+    }
     /// <summary>
     /// Suma productos, envío y aplica el IVA
     /// </summary>
     /// 20191211 Mod. para  actualizar el total contemplando el procentaje 
-    public static bool actualizarTotalStatic(string numero_operacion) {
+    public static bool actualizarTotalStatic(string numero_operacion)
+    {
 
 
 
@@ -561,7 +594,8 @@ public class pedidosProductos : model_pedidos_productos {
         SqlConnection con = new SqlConnection(conexiones.conexionTienda());
         cmd.Connection = con;
 
-        using (con) {
+        using (con)
+        {
 
             cmd.CommandText = total;
             cmd.CommandType = CommandType.Text;
@@ -570,11 +604,13 @@ public class pedidosProductos : model_pedidos_productos {
 
             con.Open();
 
-            try {
+            try
+            {
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 devNotificaciones.error("Error al actualizar totales de pedido:" + numero_operacion, ex);
                 return false;
             }
@@ -583,7 +619,8 @@ public class pedidosProductos : model_pedidos_productos {
 
     }
 
-    public bool actualizarCantidadProducto(string numero_operacion, model_pedidos_productos producto) {
+    public bool actualizarCantidadProducto(string numero_operacion, model_pedidos_productos producto)
+    {
 
         StringBuilder query = new StringBuilder();
         query.Append("SET LANGUAGE English; UPDATE  pedidos_productos  SET ");
@@ -593,9 +630,11 @@ public class pedidosProductos : model_pedidos_productos {
 
         dbConexion();
 
-        using (con) {
-        // Si es producto de la DB se actualiza la información
-            if (producto.tipo == 1) {
+        using (con)
+        {
+            // Si es producto de la DB se actualiza la información
+            if (producto.tipo == 1)
+            {
 
                 cmd.Parameters.Add("@descripcion", SqlDbType.NVarChar, 500);
                 cmd.Parameters["@descripcion"].Value = producto.descripcion;
@@ -608,7 +647,7 @@ public class pedidosProductos : model_pedidos_productos {
 
                 query.Append(" ,descripcion = @descripcion , marca = @marca, unidad = @unidad ");
 
-                }
+            }
 
 
 
@@ -639,30 +678,35 @@ public class pedidosProductos : model_pedidos_productos {
             cmd.CommandType = CommandType.Text;
 
             con.Open();
-            try {
+            try
+            {
                 int resultado = cmd.ExecuteNonQuery();
                 return true;
-                }
-            catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
 
                 Task.Run(() => devNotificaciones.error("Actualizar cantidad de producto en un pedido número:" + numero_operacion, ex));
                 return false;
-                }
-
-
             }
-
 
 
         }
 
 
-    public   string crearPedidoDeCotizacion_productos(string numero_operacionPedido, string numero_operacion_cotizacion) {
+
+    }
 
 
-        try {
+    public string crearPedidoDeCotizacion_productos(string numero_operacionPedido, string numero_operacion_cotizacion)
+    {
+
+
+        try
+        {
             dbConexion();
-            using (con) {
+            using (con)
+            {
 
                 StringBuilder query = new StringBuilder();
                 query.Append("SET LANGUAGE English;");
@@ -715,26 +759,28 @@ public class pedidosProductos : model_pedidos_productos {
                 cmd.CommandType = CommandType.Text;
 
                 con.Open();
-                  cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
                 return "";
 
-                }
             }
-        catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
             devNotificaciones.error("Crear productos de pedido y datos numéricos", ex);
             return null;
-            }
-
         }
+
+    }
 
     /// <summary>
     /// 3/4 Crea el pedido y de vuelve un string con el número de operación, también vacía el carrito si esta fue creada con éxito.
     /// </summary>
     /// 
-    public string crearPedidoDeCarrito_productos(usuarios usuario, string numero_operacion, model_impuestos impuestos, model_envios envio) {
+    public string crearPedidoDeCarrito_productos(usuarios usuario, string numero_operacion, model_impuestos impuestos, model_envios envio)
+    {
 
-            {
+        {
             // DECLARE @idUltimo int; SET @idUltimo = (SELECT MAX(id) FROM cotizaciones_datos);
             // numero_operacion: [ca= de carrito],[co=co directa]
 
@@ -764,7 +810,7 @@ public class pedidosProductos : model_pedidos_productos {
                    -- ,[stock1_fecha]
                    -- ,[stock2]
                    -- ,[stock2_fecha]
-                  FROM [carrito_productos]
+                  FROM [carrito_productos] WHERE activo = '1' AND stock1 > 0
 		
 		";
             // carritotToMXN
@@ -787,91 +833,95 @@ public class pedidosProductos : model_pedidos_productos {
                    -- ,[stock1_fecha]
                    -- ,[stock2]
                    -- ,[stock2_fecha]
-                  FROM [carrito_productos]
+                  FROM [carrito_productos] WHERE activo = '1' AND stock1 > 0
 		";
 
             // Depende la moneda seleccionada son los querys que se usaran para crear la cotización en USD o MXN
-            if (monedaPedido == "USD") {
+            if (monedaPedido == "USD")
+            {
                 subtotal = subtotalUSD;
                 carrito = carritotToUSD;
-                } else if (monedaPedido == "MXN") {
+            }
+            else if (monedaPedido == "MXN")
+            {
                 subtotal = subtotalMXN;
                 carrito = carritotToMXN;
-                }
+            }
 
+            dbConexion();
+            using (con)
+            {
+                StringBuilder query = new StringBuilder();
 
-            
-                dbConexion();
-                using (con) {
+                query.Append("SET LANGUAGE English;");
+                query.Append("DECLARE @subtotal money; SET @subtotal =  (" + subtotal + " WHERE usuario = @usuario );");
+                query.Append("DECLARE @impuestos money; SET @impuestos =  (@subtotal + @envio) * (@valorImpuestos / 100);");
+                query.Append("DECLARE @total money; SET @total =  (@subtotal + @impuestos + (@envio * (@valorImpuestos / 100)));");
 
-                    StringBuilder query = new StringBuilder();
+                query.Append("INSERT INTO pedidos_datosNumericos  ");
+                query.Append(" (numero_operacion, monedaPedido, tipo_cambio, fecha_tipo_cambio, subtotal, envio, ");
+                query.Append(" metodoEnvio, monedaEnvio, impuestos, nombreImpuestos, total) ");
 
-                    query.Append("SET LANGUAGE English;");
-                    query.Append("DECLARE @subtotal money; SET @subtotal =  (" + subtotal + " WHERE usuario = @usuario );");
-                    query.Append("DECLARE @impuestos money; SET @impuestos =  (@subtotal + @envio) * (@valorImpuestos / 100);");
-                    query.Append("DECLARE @total money; SET @total =  (@subtotal + @impuestos + (@envio * (@valorImpuestos / 100)));");
+                query.Append(" VALUES (@numero_operacion, @monedaPedido, @tipo_cambio, @fecha_tipo_cambio, @subtotal, @envio, ");
+                query.Append(" @metodoEnvio, @monedaEnvio, @impuestos, @nombreImpuestos, @total);");
 
-                    query.Append("INSERT INTO pedidos_datosNumericos  ");
-                    query.Append(" (numero_operacion, monedaPedido, tipo_cambio, fecha_tipo_cambio, subtotal, envio, ");
-                    query.Append(" metodoEnvio, monedaEnvio, impuestos, nombreImpuestos, total) ");
-
-                    query.Append(" VALUES (@numero_operacion, @monedaPedido, @tipo_cambio, @fecha_tipo_cambio, @subtotal, @envio, ");
-                    query.Append(" @metodoEnvio, @monedaEnvio, @impuestos, @nombreImpuestos, @total);");
-
-                    query.Append(@" INSERT INTO pedidos_productos (
+                query.Append(@" INSERT INTO pedidos_productos (
                                    numero_operacion, usuario, tipo, fecha_creacion, numero_parte, descripcion, marca,
                                    unidad, precio_unitario, cantidad, precio_total
                                 ) 
 
-                                " + carrito + " WHERE usuario = @usuario");
+                                " + carrito + " AND usuario = @usuario");
 
-                    cmd.Parameters.Add("@usuario", SqlDbType.NVarChar, 60);
-                    cmd.Parameters["@usuario"].Value = usuario.email;
+                cmd.Parameters.Add("@usuario", SqlDbType.NVarChar, 60);
+                cmd.Parameters["@usuario"].Value = usuario.email;
 
-                    cmd.Parameters.Add("@valorImpuestos", SqlDbType.Money);
-                    cmd.Parameters["@valorImpuestos"].Value = impuestos.valor;
+                cmd.Parameters.Add("@valorImpuestos", SqlDbType.Money);
+                cmd.Parameters["@valorImpuestos"].Value = impuestos.valor;
 
-                    cmd.Parameters.Add("@numero_operacion", SqlDbType.NVarChar, 20);
-                    cmd.Parameters["@numero_operacion"].Value = numero_operacion;
+                cmd.Parameters.Add("@numero_operacion", SqlDbType.NVarChar, 20);
+                cmd.Parameters["@numero_operacion"].Value = numero_operacion;
 
-                    cmd.Parameters.Add("@monedaPedido", SqlDbType.NVarChar, 5);
-                    cmd.Parameters["@monedaPedido"].Value = monedaPedido;
+                cmd.Parameters.Add("@monedaPedido", SqlDbType.NVarChar, 5);
+                cmd.Parameters["@monedaPedido"].Value = monedaPedido;
 
-                    cmd.Parameters.Add("@tipo_cambio", SqlDbType.Money);
-                    cmd.Parameters["@tipo_cambio"].Value = tipoDeCambio;
+                cmd.Parameters.Add("@tipo_cambio", SqlDbType.Money);
+                cmd.Parameters["@tipo_cambio"].Value = tipoDeCambio;
 
-                    cmd.Parameters.Add("@fecha_tipo_cambio", SqlDbType.DateTime);
-                    cmd.Parameters["@fecha_tipo_cambio"].Value = fechaTipoDeCambio;
+                cmd.Parameters.Add("@fecha_tipo_cambio", SqlDbType.DateTime);
+                cmd.Parameters["@fecha_tipo_cambio"].Value = fechaTipoDeCambio;
 
-                    cmd.Parameters.Add("@envio", SqlDbType.Money);
-                    cmd.Parameters["@envio"].Value = envio.costoEnvio;
+                cmd.Parameters.Add("@envio", SqlDbType.Money);
+                cmd.Parameters["@envio"].Value = envio.costoEnvio;
 
-                    cmd.Parameters.Add("@metodoEnvio", SqlDbType.NVarChar, 15);
-                    cmd.Parameters["@metodoEnvio"].Value = envio.nombre;
+                cmd.Parameters.Add("@metodoEnvio", SqlDbType.NVarChar, 15);
+                cmd.Parameters["@metodoEnvio"].Value = envio.nombre;
 
-                    cmd.Parameters.Add("@monedaEnvio", SqlDbType.NVarChar, 5);
-                    cmd.Parameters["@monedaEnvio"].Value = envio.monedaEnvio;
+                cmd.Parameters.Add("@monedaEnvio", SqlDbType.NVarChar, 5);
+                cmd.Parameters["@monedaEnvio"].Value = envio.monedaEnvio;
 
-                    cmd.Parameters.Add("@nombreImpuestos", SqlDbType.NVarChar, 20);
-                    cmd.Parameters["@nombreImpuestos"].Value = impuestos.nombre;
+                cmd.Parameters.Add("@nombreImpuestos", SqlDbType.NVarChar, 20);
+                cmd.Parameters["@nombreImpuestos"].Value = impuestos.nombre;
 
-                    cmd.CommandText = query.ToString();
+                cmd.CommandText = query.ToString();
 
-                    cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.Text;
 
-                    con.Open();
-                try { cmd.ExecuteNonQuery(); return ""; } catch (Exception ex) {
+                con.Open();
+                try { cmd.ExecuteNonQuery(); return ""; }
+                catch (Exception ex)
+                {
                     devNotificaciones.error("Error al insertar productos y totales de carrito a pedido ", ex);
-                    return null; }
-                 
+                    return null;
+                }
 
-                
-                    }
-              
-                
+
 
             }
+
+
+
         }
+    }
 
 
     /// <summary>
@@ -938,7 +988,7 @@ public class pedidosProductos : model_pedidos_productos {
         bool resultadoMetodo = new bool();
 
         // Obtenemos datos del pedido
-       
+
         DataTable dtOperacion = pedidosDatos.obtenerPedidoDatosStatic(numero_operacion);
         DataTable dtProductos = obtenerProductos(numero_operacion);
 
@@ -1058,7 +1108,7 @@ public class pedidosProductos : model_pedidos_productos {
 
                   RotacionVertical = dat_producto.RotacionVertical,
                   RotacionHorizontal = dat_producto.RotacionHorizontal,
-                   DisponibleParaEnvioGratuito = dat_producto.disponibleEnvio
+                  DisponibleParaEnvioGratuito = dat_producto.disponibleEnvio
 
 
               })
@@ -1090,4 +1140,4 @@ public class pedidosProductos : model_pedidos_productos {
             return allProducts.ToList();
         }
     }
-    }
+}

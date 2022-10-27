@@ -17,7 +17,8 @@ public class utilidad_fechas
     /// <summary>
     /// Obtiene la fecha Central sumando o restando días en el formato "yyy-MM-dd"
     /// </summary>
-    public static string obtenerFechaSQL(int dias) {
+    public static string obtenerFechaSQL(int dias)
+    {
         DateTime fecha = obtenerCentral(); // Genera la fecha actual menos 1 hora para el uso horario del servidor
         fecha = fecha.AddDays(dias);
         string fechaSQL = fecha.ToString(fecha.ToString("yyy-MM-dd"));  // No utilizable al insertar
@@ -27,7 +28,8 @@ public class utilidad_fechas
     /// <summary>
     /// Obtiene la fecha Central actual  en el formato "yyy-MM-dd"
     /// </summary>
-    public static string obtenerFechaSQL() {
+    public static string obtenerFechaSQL()
+    {
         DateTime fecha = obtenerCentral(); // Genera la fecha actual menos 1 hora para el uso horario del servidor
         string fechaSQL = fecha.ToString(fecha.ToString("yyy-MM-dd"));  // No utilizable al insertar
 
@@ -36,8 +38,9 @@ public class utilidad_fechas
     /// <summary>
     /// Obtiene la fecha  Central Standard Time (-6 CDMX)
     /// </summary>
-    public static DateTime obtenerCentral() {
-          
+    public static DateTime obtenerCentral()
+    {
+
         // Coordinated Universal Time string from 
         // DateTime.Now.ToUniversalTime().ToString("u");
 
@@ -58,7 +61,8 @@ public class utilidad_fechas
     /// <summary>
     /// Convierte una fecha a la hora central =  Central Standard Time (-6 CDMX)
     /// </summary>
-    public static DateTime ConvertirFechaToCentral(DateTime fechaToConvert) {
+    public static DateTime ConvertirFechaToCentral(DateTime fechaToConvert)
+    {
 
         // Coordinated Universal Time string from 
         // DateTime.Now.ToUniversalTime().ToString("u");
@@ -76,20 +80,26 @@ public class utilidad_fechas
 
         return nzDateTime;
 
-        }
+    }
     /// <summary>
     /// Devuelve un entero entre días de una fecha recibida contra la fecha actual
     /// </summary>
-    public static int calcularDiferenciaDias(DateTime fecha) {
+    public static int calcularDiferenciaDias(DateTime fecha)
+    {
         TimeSpan ts = obtenerCentral() - fecha;
         return ts.Days;
-        }
+    }
     /// <summary>
     /// Devuelve la fecha actual en el siguiente formato [AAAMMDD] o [yyyyMMdd]
     /// </summary>
-    public static string AAAMMDD() {
+    public static string AAAMMDD()
+    {
         DateTime DateTime = obtenerCentral();
-        return DateTime.ToString("yyyyMMdd") ;
-        }
-   
+        return DateTime.ToString("yyyyMMdd");
     }
+    public static string DDMMAA()
+    {
+        DateTime dateTime = obtenerCentral();
+        return dateTime.ToString("ddMMyy");
+    }
+}

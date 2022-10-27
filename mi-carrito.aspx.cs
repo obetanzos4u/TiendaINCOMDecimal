@@ -72,10 +72,10 @@ public partial class mi_carrito : System.Web.UI.Page
         if (!IsPostBack)
         {
             obtenerEnvio();
+            obtenerStockCarrito();
             cargarProductoAsync();
             Page.Title = "Carrito de compras";
             Page.MetaDescription = "Carrito de compras, compra en linea, telecomunicaciones y fibra óptica";
-
 
             string emailUsuarioLogin = usuarios.userLogin().email;
             string emailClienteAsesor = usuarios.modoAsesor().email;
@@ -124,7 +124,7 @@ public partial class mi_carrito : System.Web.UI.Page
             }
             #endregion FIN - Sección para evitar que se coticene ellos solitos
 
-            //ProcesarProductosPromo();
+            //ProcesarProductosPromo
         }
     }
 
@@ -154,8 +154,10 @@ public partial class mi_carrito : System.Web.UI.Page
         }
     }
 
-    protected async void btn_obtenerStockCarrito(object sender, EventArgs e)
+    protected async void obtenerStockCarrito()
     {
+        modalCarga.Visible = true;
+        up_carrito.Visible = false;
         try
         {
             carrito obtener = new carrito();
@@ -218,8 +220,14 @@ public partial class mi_carrito : System.Web.UI.Page
                             obtener.desactivarProductoCarrito(usuario.email, numero_parte);
                         }
                     }
+                    modalCarga.Visible = false;
+                    up_carrito.Update();
+                    up_carrito.Visible = true;
                 }
             }
+            up_carrito.Update();
+            modalCarga.Visible = false;
+            up_carrito.Visible = true;
         }
         catch (Exception ex)
         {
@@ -230,6 +238,7 @@ public partial class mi_carrito : System.Web.UI.Page
 
     protected async void cargarProductoAsync()
     {
+        modalCarga.Visible = true;
         carrito obtener = new carrito();
         usuarios usuario = usuarios.modoAsesor();
         DataTable productosCarritos = obtener.obtenerCarritoUsuarioWithMedidas(usuario.email);
@@ -282,8 +291,13 @@ public partial class mi_carrito : System.Web.UI.Page
         }
         else
         {
-            lbl_shoppingCartTitle.Text = "Tu carrito está vacío";
+            modalCarga.Visible = false;
             ctn_details.Visible = false;
+            lbl_consideraciones.Visible = false;
+            btn_continuarCompra.Visible = false;
+            //lbl_consideracionesCopy.Visible = false;
+            moreArrow.Visible = false;
+            lbl_shoppingCartTitle.Text = "Tu carrito está vacío";
         }
     }
 
@@ -392,8 +406,6 @@ public partial class mi_carrito : System.Web.UI.Page
         ContentAlertCrearPedido.Visible = false;
         ContentAlertCrearPedido.InnerHtml = "";
         ContentAlertCrearCotizacion.InnerHtml = "";
-        // Parent = master >
-
 
         UserControl uc_moneda = e.Item.Parent.Parent.Parent.FindControl("uc_moneda") as UserControl;
 
@@ -402,24 +414,23 @@ public partial class mi_carrito : System.Web.UI.Page
         preciosTienda procesar = new preciosTienda();
         procesar.monedaTienda = monedaTienda;
 
-
         System.Data.DataRowView rowView = e.Item.DataItem as System.Data.DataRowView;
 
         decimal precio_unitario = decimal.Parse(rowView["precio_unitario"].ToString());
         decimal precio_total = decimal.Parse(rowView["precio_total"].ToString());
         decimal tipo_cambio = decimal.Parse(rowView["tipo_cambio"].ToString());
-
         decimal cantidad = decimal.Parse(rowView["cantidad"].ToString());
-
         precio_unitario = procesar.precio_a_MonedaTienda(tipo_cambio, rowView["moneda"].ToString(), precio_unitario);
         precio_total = procesar.precio_a_MonedaTienda(tipo_cambio, rowView["moneda"].ToString(), precio_total);
-
         string numero_parte = rowView["numero_parte"].ToString();
         string titulo = rowView["titulo"].ToString();
         string marca = rowView["marca"].ToString();
+        string activo = rowView["activo"].ToString();
+        string stock = rowView["stock1"].ToString();
 
         TextBox txt_cantidadCarrito = (TextBox)e.Item.FindControl("txt_cantidadCarrito");
         HtmlGenericControl warning_envios_medidas = (HtmlGenericControl)e.Item.FindControl("warning_envios_medidas");
+        HtmlGenericControl lbl_stock = (HtmlGenericControl)e.Item.FindControl("lbl_stock");
 
         #region valida que el producto exista en la  productos datos si no, muestra una advertencia
         var resultExistenciaProducto = await ProductosTiendaEF.ObtenerSoloNumerosParte(numero_parte);
@@ -479,6 +490,13 @@ public partial class mi_carrito : System.Web.UI.Page
                     });
         //link_imgProducto.NavigateUrl = link_producto.NavigateUrl;
 
+        if (stock == "0")
+        {
+            lbl_stock.Visible = true;
+            lbl_stock.InnerText = "Sin stock";
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Hay productos sin stock en tu carrito, no se agregarán al pedido.");
+        }
+
         tienda.uc_precio_detalles detalles_precios = (tienda.uc_precio_detalles)e.Item.FindControl("detalles_precios");
 
         detalles_precios.numero_parte = numero_parte;
@@ -527,6 +545,7 @@ public partial class mi_carrito : System.Web.UI.Page
         try
         {
             eliminar.eliminarProductoCarrito(idProductoCarrito);
+            obtenerStockCarrito();
             cargarProductoAsync();
             up_carrito.Update();
             NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Producto eliminado con éxito");
@@ -744,10 +763,8 @@ public partial class mi_carrito : System.Web.UI.Page
 
     protected void btn_comprar_Click(object sender, EventArgs e)
     {
-
         usuarios usuario = usuarios.modoAsesor();
         usuarios usuarioLogin = usuarios.userLogin();
-
 
         if (carrito.obtenerCantidadProductos(usuario.email) < 1)
         {
@@ -755,13 +772,13 @@ public partial class mi_carrito : System.Web.UI.Page
             //materializeCSS.crear_toast(this, "Aún no tienes productos en tu carrito", false);
             return;
         }
-        string nombrePedido = txtNombrePedido.Text;
+        //string nombrePedido = txtNombrePedido.Text;
 
-        if (String.IsNullOrEmpty(nombrePedido) || nombrePedido.Length < 3)
-        {
-            nombrePedido = utilidad_fechas.AAAMMDD() + "Pedido Sin nombre";
-
-        }
+        //if (String.IsNullOrEmpty(nombrePedido) || nombrePedido.Length < 3)
+        //{
+        //    nombrePedido = utilidad_fechas.AAAMMDD();
+        //}
+        string nombrePedido = utilidad_fechas.DDMMAA();
 
         model_impuestos impuestos = new model_impuestos() { nombre = "MX", valor = 16, id = 1 };
         model_pedidos_datos pedidoDatos = new model_pedidos_datos();
@@ -910,13 +927,11 @@ public partial class mi_carrito : System.Web.UI.Page
                         { "id_operacion", id_operacion_encritado }
                     });
 
-
-            // Necesario para redirección
-            string script = @"setTimeout(function () { window.location.replace('" + redirectUrl + "')}, 3500);";
-            ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
-
             //content_msg_exito_operacion.Visible = true;
             //lt_tipo_operacion.Text = "Pedido";
+            // Necesario para redirección
+            string script = @"setTimeout(function () { window.location.replace('" + redirectUrl + "')}, 1500);";
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
 
             // INICIO - Envio de email
             if (usuarioLogin.tipo_de_usuario == "cliente")
@@ -954,20 +969,15 @@ public partial class mi_carrito : System.Web.UI.Page
                 datosDiccRemplazo.Add("{url_operacion}", dominio + redirectUrl);
                 datosDiccRemplazo.Add("{productos}", productosEmailHTML);
                 datosDiccRemplazo.Add("{FechaPedido}", pedidoDatos.fecha_creacion.ToString());
-
                 datosDiccRemplazo.Add("{DireccionEnvio}", strDireccionEnvio);
                 datosDiccRemplazo.Add("{DireccionFacturacion}", strDireccionFacturacion);
                 datosDiccRemplazo.Add("{InfoDeContacto}", InfoDeContacto);
-
                 datosDiccRemplazo.Add("{UrlDireccionEnvio}", dominio + UrlDireccionEnvio);
                 datosDiccRemplazo.Add("{UrlDireccionFacturacion}", dominio + UrlDireccionFacturacion);
                 datosDiccRemplazo.Add("{UrlInfoDeContacto}", dominio + UrlInfoDeContacto);
                 datosDiccRemplazo.Add("{MontoTotalProductos}", decimal.Parse(MontoTotalProductos.ToString()).ToString("#,#.##", myNumberFormatInfo));
 
-
-
                 mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
-
 
                 //  emailTienda email = new emailTienda(asunto, $"cmiranda@incom.mx, {usuarioLogin.email}", mensaje, "retail@incom.mx");               
 
@@ -984,17 +994,11 @@ public partial class mi_carrito : System.Web.UI.Page
             }
             else
             {
-
+                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se puede crear el pedido. Intentar más tarde.");
                 //    materializeCSS.crear_toast(this, "Error al crear pedido ", false);
-
-
             }
-
         }
-
-
     }
-
     protected void btn_guardarPlantilla_Click(object sender, EventArgs e)
     {
         bool resultado = cotizacionesPlantillas.guardarPlantillaDeCarrito();
