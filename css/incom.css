@@ -373,10 +373,6 @@ margin-left: 1rem;
     border-bottom: 1px solid rgb(196, 196, 196);
 }
 
-.overflow-productos {
-    height: 410px;
-}
-
 .mi-carrito-consideraciones-lg {
     display: flex;
     justify-content: center;
@@ -1305,6 +1301,8 @@ div.arrow-doble-down #svg-arrow-down {
 
         .overflow-productos {
             padding-right: 2rem;
+            height: fit-content;
+            max-height: 345px;
         }
 
         .title-product_list {

@@ -33,19 +33,23 @@
                 </div>
                 <div class="is-rounded-lg is-shadow is-my-2">
                     <div class="is-flex is-flex-col">
-                        <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Datos de quien recibe</h4>
+                        <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
+                            <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Datos de quien recibe</h4>
+                        </section>
                         <div class="is-px-8 is-py-2">
                             <h6 id="contacto_title" class="" runat="server"></h6>
                             <p id="contacto_desc" class="" runat="server"></p>
-                             <asp:HyperLink runat="server" ID="link_cambiar_contacto">
-                               Cambiar
+                             <asp:HyperLink runat="server" ID="link_cambiar_contacto" style="text-decoration: none;">
+                               Editar quien recibe
                             </asp:HyperLink> 
                         </div>
                     </div>
                 </div>
                 <div class="is-rounded-lg is-shadow is-my-2">
                     <div class="is-flex is-flex-col">
-                        <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Envío</h4>
+                        <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
+                            <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Envío</h4>
+                        </section>
                         <div class="is-px-8 is-py-2">
                             <h6 id="metodo_envio_title" class="card-subtitle" runat="server"></h6>
                             <div class="is-flex is-justify-between is-items-start">
@@ -76,9 +80,11 @@
 
                     </div>
                 </div>
-                <div class="is-rounded-lg is-shadow is-my-2" style="border: 2px solid red">
+                <div class="is-rounded-lg is-shadow is-my-2">
                     <div class="is-flex is-flex-col">
-                        <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Facturación </h4>
+                        <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
+                            <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Facturación</h4>
+                        </section>
                         <div class="is-px-8 is-py-2">
                             <h6 id="facturacion_title" runat="server" class="card-subtitle"></h6>
                             <p id="facturacion_desc" runat="server" class="card-text"></p>
@@ -121,7 +127,7 @@
                 </div>
                 <div class="d-grid gap-2 mt-3">
                     <h3>Aviso</h3>
-                    <ul style="text-decoration: none; list-style-type: none">
+                    <ul class="is-p-0" style="text-decoration: none; list-style-type: none;">
                         <li>Los <strong>costos de envío</strong> podrían ser recalculados y resultar mayores o menores a lo mostrado.</li>
                         <li>Por seguridad, algunos productos requieren un <strong>seguro de envío</strong>  con costo adicional. De ser el caso, su asesor de ventas le informará.</li>
                         <li>Una vez registrado el pago, solo se podrá actualizar el método de envío con ayuda de un asesor. Los datos de facturación o contacto se pueden actualizar normalmente.</li>
@@ -159,90 +165,94 @@
                 </asp:Panel>
             </div>
             <div class="col col-12  col-xs-12 col-sm-12 col-md-7 col-xl-6">
-                <p class="h5 ">Productos</p>
-
+                <div class="is-bg-gray-300 is-rounded-t wrapp-product_list">
+                    <p class="h6" style="font-weight: 600; margin: 0;">Productos</p>
+                </div>
                 <asp:ListView ID="lv_productos" OnItemDataBound="lv_productos_ItemDataBound" Visible="true" runat="server">
-
                     <LayoutTemplate>
-                        <ul class="list-group mb-3">
-                            <div id="itemPlaceholder" runat="server"></div>
-
-                        </ul>
-
+                        <div class="">
+                            <ul class="list-group-resumen list-group mb-3 is-rounded-b">
+                                <div id="itemPlaceholder" runat="server"></div>
+                            </ul>
+                        </div>
                     </LayoutTemplate>
-
-                    <ItemTemplate>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <asp:Image ID="img_producto" class="img-fluid" Style="width: 100px;" runat="server" /><div>
-
-
-                                <h6 class="my-0"><%#Eval("productos.numero_parte") %>
-                                </h6>
-
-                                <small class="text-muted"><%#Eval("productos.descripcion") %>
-                                    <br />
-                                    <asp:Literal ID="lt_cantidad" Text='<%#Eval("productos.cantidad") %>' runat="server"> </asp:Literal>
-                                    pza
-                                        x
-                            <asp:Literal ID="lt_precio_unitario" Text=' <%#Eval("productos.precio_unitario") %>' runat="server"></asp:Literal>
-                                </small>
-
-                            </div>
-                            <span class="text-muted">
-                                <strong>
-                                    <asp:Literal ID="lt_precio_total" Text='<%#Eval("productos.precio_total") %>' runat="server">  </asp:Literal>
-                                </strong>
-
-                            </span>
-
-                        </li>
-                    </ItemTemplate>
-                    <EmptyDataTemplate>
-                        No hay productos
-                    </EmptyDataTemplate>
+                        <ItemTemplate>
+                            <li class="list-group-item d-flex lh-sm">
+                                <asp:Image ID="img_producto" class="img-fluid" Style="width: 100px;" runat="server" />
+                                <div style="justify-content: space-between; display: flex; width: 100%; margin: 1rem">
+                                    <div>
+                                        <h6 class="my-0"><%#Eval("productos.numero_parte") %></h6>
+                                        <small class="text-muted"><%#Eval("productos.descripcion") %>
+                                            <br />
+                                            <asp:Literal ID="lt_cantidad" Text='<%#Eval("productos.cantidad") %>' runat="server"> </asp:Literal>
+                                            pza
+                                                x
+                                            <asp:Literal ID="lt_precio_unitario" Text=' <%#Eval("productos.precio_unitario") %>' runat="server"></asp:Literal>
+                                        </small>
+                                    </div>
+                                    <span class="text-muted" style="float: right;">
+                                        <strong>
+                                            <asp:Literal ID="lt_precio_total" Text='<%#Eval("productos.precio_total") %>' runat="server"></asp:Literal>
+                                        </strong>
+                                    </span>   
+                                </div>
+                            </li>
+                        </ItemTemplate>
+                        <EmptyDataTemplate>
+                            No hay productos
+                        </EmptyDataTemplate>
                 </asp:ListView>
-                <table class="table table-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">Total del pedido</th>
-                            <!-- <th class="text-end" scope="col">Total</th> -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Productos</td>
-                            <td class="text-end"><strong>
-                                <asp:Label ID="lbl_total_productos" runat="server"></asp:Label></strong></td>
-                        </tr>
-                        <tr>
-                            <td>Envío (estándar):</td>
-                            <td class="text-end"><strong>
-                                <asp:Label ID="lbl_envio" runat="server"></asp:Label></strong></td>
-                        </tr>
-                        <tr>
-                            <td>Subtotal:</td>
-                            <td class="text-end"><strong>
-                                <asp:Label ID="lbl_subtotal" runat="server"></asp:Label></strong></td>
-                        </tr>
-                        <tr>
-                            <td>Impuestos:</td>
-                            <td class="text-end"><strong>
-                                <asp:Label ID="lbl_impuestos" runat="server"></asp:Label></strong></td>
-                        </tr>
-                        <tr class="table-active">
-                            <td>Total:</td>
-                            <td class="text-end"><strong>
-                                <asp:Label ID="lbl_total" runat="server"></asp:Label></strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="row">
+                <div style="padding: 1rem; border: 1px solid #2333; border-radius: 8px;">
+                    <table class="table table-sm" >
+                        <thead>
+                            <tr>
+                                <th scope="col">Total del pedido</th>
+                                <!-- <th class="text-end" scope="col">Total</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Productos</td>
+                                <td class="text-end">
+                                    <asp:Label ID="lbl_total_productos" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Envío (estándar):</td>
+                                <td class="text-end">
+                                    <asp:Label ID="lbl_envio" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Subtotal:</td>
+                                <td class="text-end">
+                                    <asp:Label ID="lbl_subtotal" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Impuestos:</td>
+                                <td class="text-end">
+                                    <asp:Label ID="lbl_impuestos" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr class="table-active">
+                                <td>Total:</td>
+                                <td class="text-end">
+                                    <asp:Label ID="lbl_total" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="row is-top-2">
                     <div class="is-m-auto is-w-auto">
                         <div id="content_msg_cancelar_pedido"></div>
                             <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
                         class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
@@ -268,7 +278,6 @@
                     </div>
                     <asp:LinkButton OnClick="btn_cancelar_pedido_Click" OnClientClick="BootstrapClickLoading(this);"
                         ID="btn_cancelar_pedido" class="btn btn-danger" runat="server"> Cancelar pedido </asp:LinkButton>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar ventana</button>
@@ -279,8 +288,6 @@
     </div>
     <!-- FIN Modal cancelar pedido -->
 
-
-
     <!-- Modal cuentas bancarias -->
     <div class="modal  " id="modal_deposito_trans" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-lg">
@@ -290,8 +297,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
-
                     <img src="/img/informacion/logo-banamex.svg" style="width: 200px;" class="img-thumbnail" />
                     <h5 class="card-title mt-2">Datos de la cuenta</h5>
                     <p>
@@ -404,4 +409,17 @@
         </div>
     </div>
     <!-- FIN Modal cuentas bancarias -->
+
+
+    <style>
+
+    .wrapp-product_list {
+        margin-top: 0.5rem;
+        height: 32px;
+        padding-left: 2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    </style>
 </asp:Content>

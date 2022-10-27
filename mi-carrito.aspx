@@ -44,15 +44,6 @@
                                         <div class="is-py-4">
                                             <%#Eval("descripcion") %>
                                         </div>
-                                        <%--<div class="is-flex is-justify-start is-items-center">
-                                            <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>
-                                            <p class="is-px-4 is-text-blue">|</p>
-                                            <asp:UpdatePanel UpdateMode="Always" runat="server">
-                                                <ContentTemplate>
-                                                    <asp:LinkButton OnClick="btn_eliminarProducto_Click" ID="btn_eliminarProducto" CssClass="" OnClientClick="btnLoading(this);" ClientIDMode="Static" runat="server">Eliminar</asp:LinkButton>
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
-                                        </div>--%>
                                         <div id="warning_envios_medidas" class="is-text-xs is-text-red" runat="server" visible="false"></div>
                                     </td>
                                     <td class="product-list-precio_cantidad">
@@ -169,7 +160,7 @@
                             </div>
                         </div>
                         <div class="is-text-center">
-                            <span class="text-ticket_enviois-select-none">El costo de envío se calcula con tu dirección</span>
+                            <span class="text-ticket_envio is-select-none">El costo de envío se calcula con tu dirección</span>
                         </div>
                     </div>
                 </div>

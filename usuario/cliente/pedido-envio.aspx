@@ -5,10 +5,10 @@
 <%@ Register TagPrefix="uc" TagName="ddlEstados" Src="~/userControls/ddl_estados.ascx" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="body">
-    <header:menuGeneral ID="menuGeneral" runat="server" />
-    <asp:HiddenField ID="hf_id_pedido" runat="server" />
-    <asp:HiddenField ID="hf_pedido_tipo_envio" runat="server" />
-    <asp:HiddenField ID="hf_id_pedido_direccion_envio" runat="server" />
+    <header:menuGeneral ID="menuGeneral" runat="server"/>
+    <asp:HiddenField ID="hf_id_pedido" runat="server"/>
+    <asp:HiddenField ID="hf_pedido_tipo_envio" runat="server"/>
+    <asp:HiddenField ID="hf_id_pedido_direccion_envio" runat="server"/>
     <div class="container-md is-top-3">
         <div class="is-flex is-flex-col is-justify-center is-items-start">
             <div class="is-flex is-justify-start is-items-center">
@@ -37,7 +37,8 @@
                             <div class="is-flex is-justify-around is-items-center">
                                 <div id='contentCard_DireccEnvio' class="card is-rounded-xl is-bg-gray-light" runat="server">
                                     <div id="card_envio_recoge_en_tienda" class="card-body is-rounded-lg is-border-gray-soft">
-                                        <h6 class="card-title">Recoger en tienda</h6>
+                                        <div style="height: 30px;"></div>
+                                        <h6 class="card-title is-text-center">Recoger en tienda</h6>
                                         <div class="d-grid gap-2 mt-4">
                                             <%-- OnClientClick="BootstrapClickLoading(this);" --%>
                                             <asp:LinkButton ID="btn_recogeEnTienda" OnClick="btn_recogeEnTienda_Click"
@@ -45,30 +46,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card is-rounded-xl is-space-x-6" runat="server">
+                                <div class="card-domicilio card is-rounded-xl is-space-x-6" runat="server">
                                     <div class="card-body is-rounded-lg is-bg-gray-light is-border-gray-soft">
-                                        <h6>Entrega a domicilio</h6>
-                                        <div class="btn-3 d-grid gap-2 mt-4">
-                                            <asp:LinkButton ID="btn_entregaDomicilio" OnClick="btn_entregaDomicilio_Click" class="hover-direccion is-text-white is-decoration-none" runat="server">Seleccionar</asp:LinkButton>
+                                        <div style="height: 30px"></div>
+                                        <h6 class="card-title is-text-center">Entrega a domicilio</h6>
+                                        <div>
+                                            <asp:LinkButton ID="btn_entregaDomicilio" OnClick="btn_entregaDomicilio_Click" class="btn-3 d-grid gap-2 mt-4 hover-direccion is-text-white is-decoration-none" runat="server">Seleccionar</asp:LinkButton>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <div style="float: left;">
-                        <hr class="is-top-4">
-                        <p>Dirección de tienda INCOM.</p>
-                        <div class="is-flex is-py-4">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.340310184435!2d-99.11385668466113!3d19.397696846821297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fe8542cb5455%3A0xe8681194a59f3b5a!2sIncom!5e0!3m2!1ses-419!2smx!4v1666278428806!5m2!1ses-419!2smx" width="500" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                        <p>Av. Presidente Plutarco Elías Calles 276, Col. Tlazintla, Iztacalco, C.P. 08710, Ciudad de México.</p>
-                        <div class="is-flex is-justify-start is-py-4">
-                            <a href="https://g.page/Incom_CDMX?share" class="is-decoration-none" target="_blank">Mapa</a>
-                            <a href="/documents/pdf/croquis-plutarco.pdf" class="is-decoration-none is-space-x-6" target="_blank">Croquis</a>
-                        </div>
-                    </div>                        
                     </asp:Panel>
-
                     <asp:Panel ID="ContentReferenciaDomiciliosGuardados" Visible="false" runat="server">
                         <p class="is-text-center is-m-auto">Direcciones guardadas:</p>
                         <div>
@@ -77,7 +66,7 @@
                                     <div id="itemPlaceholder" runat="server"></div>
                                 </LayoutTemplate>
                                 <ItemTemplate>
-                                    <asp:HiddenField ID="hf_id_direccion" Value='<%#Eval("id") %>' runat="server" />
+                                    <asp:HiddenField ID="hf_id_direccion" Value='<%#Eval("id") %>' runat="server"/>
                                     <div class="col-8 mb-4 is-m-auto is-top-1">
                                         <div id='contentCard_DireccEnvio' class="card is-bg-gray-light is-border-none is-rounded-lg is-border-gray-soft is-rounded-lg" runat="server">
                                             <div class="card-body">
@@ -108,10 +97,10 @@
                     </asp:Panel>
                     <asp:Panel ID="ContentReferenciaDomicilioNuevo" Visible="false" runat="server">
                         <div class="col">
-                            <div class="background-form is-bg-gray-light is-items-center is-border-gray-soft" style="width: 90%; padding: 30px; border-radius: 8px; margin-left: 2rem;">
+                            <div class="background-form is-bg-gray-light is-items-center is-border-gray-soft" style="width: 96%; padding: 30px; border-radius: 8px;">
                                 <div class="row">
                                     <div class="col">
-                                        <p id="title-form_direccion"><strong>Agregar una nueva dirección: </strong></p>
+                                        <p id="title-form_direccion"><strong>Agregar nueva dirección: </strong></p>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -139,19 +128,15 @@
                                     <div class="form-group is-top-1">
                                         <label for="<%= txt_colonia.ClientID %>">Colonia:</label>
                                         <asp:DropDownList ID="ddl_colonia" Visible="false" class="form-select" runat="server"></asp:DropDownList>
-
                                         <asp:TextBox ID="txt_colonia" ClientIDMode="Static" class="form-control" Style="padding: .175rem .75rem; border-radius: 6px;" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
-
                                     </div>
                                     <div class="form-group is-top-1">
                                         <label for="txt_delegacion_municipio">Delegación o municipio:</label>
                                         <asp:TextBox ID="txt_delegacion_municipio" ClientIDMode="Static" class="form-control" Style="padding: .175rem .75rem; border-radius: 6px;" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
-
                                     </div>
                                     <div class="form-group is-top-1">
                                         <label for="txt_ciudad">Ciudad:</label>
                                         <asp:TextBox ID="txt_ciudad" ClientIDMode="Static" CssClass="validate" Style="display: initial; width: 100%; border-radius: 6px; border: 1px solid #37373733;" data-length="60" MaxLength="60" runat="server"></asp:TextBox>
-
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -182,10 +167,22 @@
                 </div>
             </ContentTemplate>
             <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="btn_entregaDomicilio" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="btn_entregaDomicilio" EventName="Click"/>
                 <%--<asp:AsyncPostBackTrigger ControlID="btn_entregaDomicilioNuevo" EventName="Click" />--%>
             </Triggers>
         </asp:UpdatePanel>
+        <div style="float: left;">
+            <hr class="is-top-4">
+            <p>Dirección de tienda INCOM.</p>
+            <div class="is-flex is-py-4">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.340310184435!2d-99.11385668466113!3d19.397696846821297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fe8542cb5455%3A0xe8681194a59f3b5a!2sIncom!5e0!3m2!1ses-419!2smx!4v1666278428806!5m2!1ses-419!2smx" width="500" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p>Av. Presidente Plutarco Elías Calles 276, Col. Tlazintla, Iztacalco, C.P. 08710, Ciudad de México.</p>
+            <div class="is-flex is-justify-start is-py-4">
+                <a href="https://g.page/Incom_CDMX?share" class="is-decoration-none" target="_blank">Mapa</a>
+                <a href="/documents/pdf/croquis-plutarco.pdf" class="is-decoration-none is-space-x-6" target="_blank">Croquis</a>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -234,6 +231,9 @@
             box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
         }
 
+        #card_envio_recoge_en_tienda, .card-domicilio {
+            height: 160px;
+        }
             .btn-3:hover {
                 background: #1c74f8;
                 color: #FFFFFF;
