@@ -159,12 +159,13 @@
                 </asp:Panel>
             </div>
             <div class="col col-12  col-xs-12 col-sm-12 col-md-7 col-xl-6">
-                <p class="h5 ">Productos</p>
-
+                <div class="is-bg-gray-300 is-rounded-t" style="height: 32px; padding-left: 2rem; display: flex; align-items: center;">
+                    <p class="h6" style="font-weight: 600; margin: 0;">Productos</p>
+                </div>
                 <asp:ListView ID="lv_productos" OnItemDataBound="lv_productos_ItemDataBound" Visible="true" runat="server">
                     <LayoutTemplate>
                         <div class="list-group-resumen">
-                            <ul class="list-group mb-3">
+                            <ul class="list-group mb-3 is-rounded-b">
                                 <div id="itemPlaceholder" runat="server"></div>
                             </ul>
                         </div>
@@ -195,41 +196,50 @@
                             No hay productos
                         </EmptyDataTemplate>
                 </asp:ListView>
-                <table class="table table-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">Total del pedido</th>
-                            <!-- <th class="text-end" scope="col">Total</th> -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Productos</td>
-                            <td class="text-end"><strong>
-                                <asp:Label ID="lbl_total_productos" runat="server"></asp:Label></strong></td>
-                        </tr>
-                        <tr>
-                            <td>Envío (estándar):</td>
-                            <td class="text-end"><strong>
-                                <asp:Label ID="lbl_envio" runat="server"></asp:Label></strong></td>
-                        </tr>
-                        <tr>
-                            <td>Subtotal:</td>
-                            <td class="text-end"><strong>
-                                <asp:Label ID="lbl_subtotal" runat="server"></asp:Label></strong></td>
-                        </tr>
-                        <tr>
-                            <td>Impuestos:</td>
-                            <td class="text-end"><strong>
-                                <asp:Label ID="lbl_impuestos" runat="server"></asp:Label></strong></td>
-                        </tr>
-                        <tr class="table-active">
-                            <td>Total:</td>
-                            <td class="text-end"><strong>
-                                <asp:Label ID="lbl_total" runat="server"></asp:Label></strong></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div style="padding: 1rem; border: 1px solid #2333; border-radius: 8px;">
+                    <table class="table table-sm" >
+                        <thead>
+                            <tr>
+                                <th scope="col">Total del pedido</th>
+                                <!-- <th class="text-end" scope="col">Total</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Productos</td>
+                                <td class="text-end">
+                                    <asp:Label ID="lbl_total_productos" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Envío (estándar):</td>
+                                <td class="text-end">
+                                    <asp:Label ID="lbl_envio" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Subtotal:</td>
+                                <td class="text-end">
+                                    <asp:Label ID="lbl_subtotal" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Impuestos:</td>
+                                <td class="text-end">
+                                    <asp:Label ID="lbl_impuestos" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr class="table-active">
+                                <td>Total:</td>
+                                <td class="text-end">
+                                    <asp:Label ID="lbl_total" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
                 <div class="row">
                     <div class="is-m-auto is-w-auto">
                         <div id="content_msg_cancelar_pedido"></div>

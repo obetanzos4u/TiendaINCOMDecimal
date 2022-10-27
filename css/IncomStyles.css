@@ -885,6 +885,14 @@ body {
     border-top-right-radius: 1rem;
 }
 
+.is-rounded-t {
+    border-radius: 8px 8px 0 0;
+}
+
+.is-rounded-b {
+    border-radius: 0 0 8px 8px;
+}
+
 /* Utilities */
 .is-select-none {
     user-select: none;
