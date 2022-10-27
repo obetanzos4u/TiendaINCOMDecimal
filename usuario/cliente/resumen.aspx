@@ -33,19 +33,23 @@
                 </div>
                 <div class="is-rounded-lg is-shadow is-my-2">
                     <div class="is-flex is-flex-col">
-                        <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Datos de quien recibe</h4>
+                        <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
+                            <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Datos de quien recibe</h4>
+                        </section>
                         <div class="is-px-8 is-py-2">
                             <h6 id="contacto_title" class="" runat="server"></h6>
                             <p id="contacto_desc" class="" runat="server"></p>
-                             <asp:HyperLink runat="server" ID="link_cambiar_contacto">
-                               Cambiar
+                             <asp:HyperLink runat="server" ID="link_cambiar_contacto" style="text-decoration: none;">
+                               Editar quien recibe
                             </asp:HyperLink> 
                         </div>
                     </div>
                 </div>
                 <div class="is-rounded-lg is-shadow is-my-2">
                     <div class="is-flex is-flex-col">
-                        <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Envío</h4>
+                        <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
+                            <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Envío</h4>
+                        </section>
                         <div class="is-px-8 is-py-2">
                             <h6 id="metodo_envio_title" class="card-subtitle" runat="server"></h6>
                             <div class="is-flex is-justify-between is-items-start">
@@ -76,9 +80,11 @@
 
                     </div>
                 </div>
-                <div class="is-rounded-lg is-shadow is-my-2" style="border: 2px solid red">
+                <div class="is-rounded-lg is-shadow is-my-2">
                     <div class="is-flex is-flex-col">
-                        <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Facturación </h4>
+                        <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
+                            <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Facturación</h4>
+                        </section>
                         <div class="is-px-8 is-py-2">
                             <h6 id="facturacion_title" runat="server" class="card-subtitle"></h6>
                             <p id="facturacion_desc" runat="server" class="card-text"></p>
@@ -121,7 +127,7 @@
                 </div>
                 <div class="d-grid gap-2 mt-3">
                     <h3>Aviso</h3>
-                    <ul style="text-decoration: none; list-style-type: none">
+                    <ul class="is-p-0" style="text-decoration: none; list-style-type: none;">
                         <li>Los <strong>costos de envío</strong> podrían ser recalculados y resultar mayores o menores a lo mostrado.</li>
                         <li>Por seguridad, algunos productos requieren un <strong>seguro de envío</strong>  con costo adicional. De ser el caso, su asesor de ventas le informará.</li>
                         <li>Una vez registrado el pago, solo se podrá actualizar el método de envío con ayuda de un asesor. Los datos de facturación o contacto se pueden actualizar normalmente.</li>
@@ -159,13 +165,13 @@
                 </asp:Panel>
             </div>
             <div class="col col-12  col-xs-12 col-sm-12 col-md-7 col-xl-6">
-                <div class="is-bg-gray-300 is-rounded-t" style="height: 32px; padding-left: 2rem; display: flex; align-items: center;">
+                <div class="is-bg-gray-300 is-rounded-t wrapp-product_list">
                     <p class="h6" style="font-weight: 600; margin: 0;">Productos</p>
                 </div>
                 <asp:ListView ID="lv_productos" OnItemDataBound="lv_productos_ItemDataBound" Visible="true" runat="server">
                     <LayoutTemplate>
-                        <div class="list-group-resumen">
-                            <ul class="list-group mb-3 is-rounded-b">
+                        <div class="">
+                            <ul class="list-group-resumen list-group mb-3 is-rounded-b">
                                 <div id="itemPlaceholder" runat="server"></div>
                             </ul>
                         </div>
@@ -240,13 +246,13 @@
 
                 </div>
 
-                <div class="row">
+                <div class="row is-top-2">
                     <div class="is-m-auto is-w-auto">
                         <div id="content_msg_cancelar_pedido"></div>
                             <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
                         class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
@@ -403,4 +409,17 @@
         </div>
     </div>
     <!-- FIN Modal cuentas bancarias -->
+
+
+    <style>
+
+    .wrapp-product_list {
+        margin-top: 0.5rem;
+        height: 32px;
+        padding-left: 2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    </style>
 </asp:Content>
