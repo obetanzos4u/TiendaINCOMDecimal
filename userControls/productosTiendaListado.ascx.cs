@@ -319,7 +319,7 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
             if (disponibleEnvio == "1")
             {
                 lbl_envioGratuito.Visible = true;
-                lbl_envioGratuito.Text = "Envio gratis";
+                lbl_envioGratuito.Text = "Envío gratis";
             }
 
             btn_VerDisponibilidad.Attributes.Add("onclick", $"openModalProductoDisponibilidad('{numero_parte}');");

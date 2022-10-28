@@ -212,8 +212,8 @@
                                         <asp:HyperLink ID="link_producto" class="is-text-black hoverLinkTituloProducto" Target="_blank" runat="server">   <%# Eval("numero_parte") %> -  <%# Eval("titulo") %> </asp:HyperLink>
                                         <asp:Literal ID="lt_numero_parte" Text='<%# Eval("numero_parte") %>' Visible="false" runat="server"></asp:Literal>
                                     </h2>
-
                                     <p class="space-marca" style="line-height: 20px; text-align: center;">
+                                        <asp:Label runat="server" Visible="false" ID="lbl_envioGratuito" class="is-text-xsm is-bg-green-500 is-text-white is-font-semibold is-block is-w-full"></asp:Label>
                                         <asp:Literal ID="lt_descripcion_corta" Visible="false" runat="server"></asp:Literal>
                                         <p class="is-text-xs is-m-0">Marca: </p>
                                         <asp:Label ID="lbl_marca" class="tooltipped is-text-xs" runat="server" Text=""></asp:Label>
@@ -225,13 +225,10 @@
                                     </div> -->
                                     <p>
                                         <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 0.9rem; display: inherit; margin-top: -1rem; line-height: 1.2;" Visible="false" runat="server"></asp:Label>
-
                                         <span class="producto_precio">$</span>
                                         <asp:Label ID="lbl_producto_precio" CssClass="producto_precio" runat="server" Text=""></asp:Label>
                                         <asp:Label ID="lbl_producto_moneda" CssClass="producto_moneda" runat="server" Text=""></asp:Label>
-
                                         <asp:Label runat="server" ID="lbl_aviso"></asp:Label>
-                                        <asp:Label runat="server" Visible="false" ID="lbl_envioGratuito"></asp:Label>
                                     </p>
                                     <div class= "boton-agregar-carrito-resultados">
                                         <uc_addCarrito:add ID="AddCarrito" numero_parte='<%# Eval("numero_parte") %>' runat="server"></uc_addCarrito:add>

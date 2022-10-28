@@ -745,6 +745,12 @@ body {
     line-height: 1rem;
 }
 
+.is-text-xsm {
+    font-size: 0.65rem;
+    line-height: 1.3rem;
+}
+
+
 .is-text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem
@@ -763,6 +769,10 @@ body {
 .is-text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+}
+
+.is-line-175 {
+    line-height: 1.75;
 }
 
 .is-italic {
