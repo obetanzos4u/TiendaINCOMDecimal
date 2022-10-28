@@ -57,7 +57,7 @@
                                                 <ContentTemplate>
                                                     <div class="btn-products_counter">
                                                         <%--<input id="txt_cantidadCarrito" type="number" min="1" max="12" onchange="txtLoading(this);" AutoPostBack="true" value='<%#Eval("cantidad") %>' runat="server" />--%>
-                                                        <asp:TextBox ID="txt_cantidadCarrito" class="products_counter" TextMode="Number" Type="Integer" min="1" max="12" onchange="txtLoading(this);" AutoPostBack="true" Text='<%#Eval("cantidad") %>' OnTextChanged="txt_cantidadCarrito_TextChanged" Style="border-radius: 10px; text-align: center" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txt_cantidadCarrito" class="products_counter" TextMode="Number" Type="Integer" onchange="txtLoading(this);" AutoPostBack="true" Text='<%#Eval("cantidad") %>' OnTextChanged="txt_cantidadCarrito_TextChanged" Style="border-radius: 10px; text-align: center" runat="server"></asp:TextBox>
                                                     </div>
                                                 </ContentTemplate>
                                                 <Triggers>
