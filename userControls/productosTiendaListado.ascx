@@ -42,6 +42,7 @@
             .contentResultados-content > div {
                 display: flex;
                 flex-wrap: wrap;
+                justify-content: center;
             }
 
         .producto-main_container {

@@ -397,7 +397,7 @@ div.arrow-doble-down #svg-arrow-down {
     width: 26px;
     display: block;
     height: 60px;
-    margin-top: 400px;
+    margin-top: 480px;
 }
 
 .mi-carrito-product_options {
@@ -581,6 +581,11 @@ div.arrow-doble-down #svg-arrow-down {
         .moneda-txt {
             font-size: 0.75rem;
             padding-left: .5rem; 
+        }
+
+        .space-marca {
+            height: 20px;
+            margin: 6px 0;
         }
     }
 
@@ -1998,6 +2003,16 @@ div.arrow-doble-down #svg-arrow-down {
 
         .cotizacionesProductos_min {
             height: 450px;
+        }
+    }
+
+    @media only screen and (min-width: 330px) and (max-width: 480px) {
+        .producto-main_wrap {
+            margin: 0;
+          }
+
+        .product-card-list_wrapper {
+            width: 40%;
         }
     }
 

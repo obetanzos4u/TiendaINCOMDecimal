@@ -1269,6 +1269,18 @@ body {
     .truncate {
         font-size: 12px !important;
     }
+
+    #top_contenido_ucProductos_cont_moneda {
+        display: none;
+    }
+
+    #top_contenido_ucProductos_cont_filtros {
+        margin-right: 3rem;
+    }
+
+    #top_contenido_ucProductos_ddl_filtroMarcas {
+        margin-bottom: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1285,6 +1297,13 @@ body {
 
     #nav_categorias_breadcrumb > .nav-wrapper {
         padding-left: 4rem;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 1000px) {
+
+    .product-card-list_wrapper {
+        width: 160px;
     }
 }
 
