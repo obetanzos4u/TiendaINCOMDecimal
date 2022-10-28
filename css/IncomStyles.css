@@ -50,6 +50,10 @@ body {
     flex-direction: column;
 }
 
+.is-flex-col-reverse {
+    flex-direction: column-reverse;
+}
+
 .is-justify-start {
     justify-content: flex-start;
 }

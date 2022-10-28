@@ -17,17 +17,17 @@ public class carrito
     private SqlDataAdapter da { get; set; }
     private DataSet ds { get; set; }
     private DataTable dt { get; set; }
+    public static string cantidadProductos = "";
 
     protected void dbConexion()
     {
-
         con = new SqlConnection(conexiones.conexionTienda());
         cmd = new SqlCommand();
         cmd.Connection = con;
-
     }
 
-    public carrito() {
+    public carrito()
+    {
         // 
         // TODO: Agregar aquí la lógica del constructor
         //
@@ -55,7 +55,7 @@ public class carrito
             cmd.CommandText = query;
             cmd.CommandType = CommandType.Text;
 
-            cmd.Parameters.Add("@usuario", SqlDbType.NVarChar,60);
+            cmd.Parameters.Add("@usuario", SqlDbType.NVarChar, 60);
             cmd.Parameters["@usuario"].Value = usuario;
 
             cmd.Parameters.Add("@numero_parte", SqlDbType.NVarChar, 50);
@@ -141,7 +141,7 @@ stock2_fecha,
 	                 WHERE usuario = @usuario
  ");
 
-           
+
 
             string query = sel.ToString(); ;
             cmd.CommandText = query;
@@ -150,11 +150,10 @@ stock2_fecha,
             cmd.Parameters.Add("@usuario", SqlDbType.NVarChar, 60);
             cmd.Parameters["@usuario"].Value = usuario;
 
-
-         
+            int cantidad = int.Parse(cmd.ExecuteScalar().ToString());
             con.Open();
-         
-            return int.Parse(cmd.ExecuteScalar().ToString());
+            cantidadProductos = cantidad.ToString();
+            return cantidad;
         }
 
 
@@ -177,7 +176,7 @@ stock2_fecha,
 	                 WHERE usuario =  @usuario) as [totalMXN]
  ");
 
-           
+
 
             string query = sel.ToString(); ;
             cmd.CommandText = query;
@@ -187,9 +186,9 @@ stock2_fecha,
             cmd.Parameters["@usuario"].Value = usuario;
 
 
-         
+
             con.Open();
-         
+
             return cmd.ExecuteScalar().ToString();
         }
 
@@ -281,12 +280,14 @@ stock2_fecha,
 
             con.Open();
 
-            try { 
+            try
+            {
                 int resultado = cmd.ExecuteNonQuery();
-             }
-            catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 devNotificaciones.error("Actualizar cantidad producto de carrito ", ex);
-                }
+            }
         }
 
     }
@@ -301,13 +302,14 @@ stock2_fecha,
         query.Append(" VALUES (@usuario, @activo, @tipo, @fecha_creacion, @numero_parte, @descripcion, @marca, @moneda, @tipo_cambio, @fecha_tipo_cambio, @unidad, @precio_unitario, @cantidad, ");
         query.Append(" @precio_total, @stock1, @stock1_fecha)  ");
 
-        
+
 
         dbConexion();
 
-        using (con) {  
+        using (con)
+        {
 
-            cmd.CommandText = query.ToString(); 
+            cmd.CommandText = query.ToString();
             cmd.CommandType = CommandType.Text;
 
             cmd.Parameters.Add("@usuario", SqlDbType.NVarChar, 50);
@@ -372,7 +374,8 @@ stock2_fecha,
         query.Append("SET LANGUAGE English; DELETE FROM carrito_productos WHERE id=@id");
 
         dbConexion();
-        using (con) {
+        using (con)
+        {
 
             cmd.CommandText = query.ToString();
             cmd.CommandType = CommandType.Text;
@@ -385,14 +388,16 @@ stock2_fecha,
         }
 
     }
-    public void eliminarCarrito(string usuario) {
+    public void eliminarCarrito(string usuario)
+    {
 
         StringBuilder query = new StringBuilder();
         query.Append("SET LANGUAGE English; DELETE FROM carrito_productos WHERE usuario=@usuario ");
 
         dbConexion();
 
-        using (con) {
+        using (con)
+        {
 
             cmd.CommandText = query.ToString();
             cmd.CommandType = CommandType.Text;
@@ -400,14 +405,17 @@ stock2_fecha,
             cmd.Parameters["@usuario"].Value = usuario;
 
             con.Open();
-            try {
-                 cmd.ExecuteNonQuery(); }
-            catch (Exception ex) {
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
 
                 devNotificaciones.error("Eliminar carrito del usuario: " + usuario, ex);
-                }
-            
             }
 
         }
+
     }
+}

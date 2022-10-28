@@ -492,7 +492,7 @@ public partial class mi_carrito : System.Web.UI.Page
                         { "productoNombre",  textTools.limpiarURL(titulo) }
                     });
         //link_imgProducto.NavigateUrl = link_producto.NavigateUrl;
-
+        up_carrito.Update();
         if (stock == "0")
         {
             lbl_stock.Visible = true;

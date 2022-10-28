@@ -12,11 +12,14 @@ using System.Web;
 /// </summary>
 public class carrito
 {
+    public static string cantidadProductos;
+
     private SqlConnection con { get; set; }
     private SqlCommand cmd { get; set; }
     private SqlDataAdapter da { get; set; }
     private DataSet ds { get; set; }
     private DataTable dt { get; set; }
+    public string cantidadProductosCarrito { get; set; }
 
     protected void dbConexion()
     {
@@ -244,6 +247,7 @@ public class carrito
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Open();
             da.Fill(ds);
+            cantidadProductosCarrito = ds.Tables[0].ToString();
             return ds.Tables[0];
         }
     }
@@ -267,6 +271,7 @@ public class carrito
             cmd.Parameters.Add("@usuario", SqlDbType.NVarChar, 60);
             cmd.Parameters["@usuario"].Value = usuario;
             con.Open();
+            
             return int.Parse(cmd.ExecuteScalar().ToString());
         }
     }
