@@ -20,11 +20,18 @@ public partial class menuPrincipal : System.Web.UI.UserControl
                 usuarios usuarioLogin = (usuarios)HttpContext.Current.Session["datosUsuario"];
                 usuarios userActivo = usuarios.modoAsesor();
                 HyperLink link_miCuenta = (HyperLink)LoginView1.FindControl("miCuenta");
-                Image userImage = (Image)LoginView1.FindControl("profile_photo");
+                HtmlGenericControl miCuenta = (HtmlGenericControl)LoginView1.FindControl("miCuentaNombre");
+                //Image userImage = (Image)LoginView1.FindControl("profile_photo");
+                Image userImage = new Image();
+                userImage.Attributes.Add("class", "profile_photo");
                 userImage.ImageUrl = $"https://ui-avatars.com/api/?name={userActivo.nombre}+{userActivo.apellido_paterno}&background=000&color=fff&rounded=true&format=svg";
-                link_miCuenta.Text = "Hola " + userActivo.nombre.ToLowerInvariant();
+                miCuenta.InnerText = "Hola " + userActivo.nombre.ToLowerInvariant();
                 link_miCuenta.ToolTip = "Hola " + userActivo.nombre.ToUpper();
+                link_miCuenta.Controls.Add(userImage);
                 if (usuarioLogin.tipo_de_usuario == "usuario") barraAsesores.Visible = true;
+                lbl_cantidadProductosCarrito.Visible = true;
+                lbl_cantidadProductosCarrito.InnerText = carrito.obtenerCantidadProductos(userActivo.email).ToString();
+                //lbl_cantidadProductosCarrito.InnerText = carrito.cantidadProductos;
             }
         }
     }
