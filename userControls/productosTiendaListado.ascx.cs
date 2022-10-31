@@ -309,6 +309,8 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
             Label lbl_descuento_porcentaje_fantasma = (Label)e.Item.FindControl("lbl_descuento_porcentaje_fantasma");
             Label lbl_envioGratuito = (Label)e.Item.FindControl("lbl_envioGratuito");
 
+            link.Target = "_self";
+
             link.NavigateUrl = Request.Url.GetLeftPart(UriPartial.Authority) + GetRouteUrl("productos", new System.Web.Routing.RouteValueDictionary {
                         { "numero_parte", textTools.limpiarURL_NumeroParte(numero_parte) },
                          { "marca", marca },
@@ -319,7 +321,7 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
             if (disponibleEnvio == "1")
             {
                 lbl_envioGratuito.Visible = true;
-                lbl_envioGratuito.Text = "Envio gratis";
+                lbl_envioGratuito.Text = "Promoción envio gratuito";
             }
 
             btn_VerDisponibilidad.Attributes.Add("onclick", $"openModalProductoDisponibilidad('{numero_parte}');");

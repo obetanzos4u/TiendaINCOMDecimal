@@ -5,11 +5,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
     <asp:HiddenField ID="hf_UserLogin" runat="server" />
-    <div id="modalCarga" visible="true" runat="server">
+    <div id="pantallaCarga" visible="false" runat="server">
         <div style="width: 100%; height: 100vh; background-color: red"></div>
     </div>
     <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="is-container" Visible="false" runat="server">
-        <ContentTemplate>
+        <ContentTemplate>   
             <div class="mi-carrito-contain">
                 <div class="col l8 xl8 mi-carrito-list">
                     <div style="display: flex; justify-content: center; align-items: center">
@@ -57,7 +57,7 @@
                                                 <ContentTemplate>
                                                     <div class="btn-products_counter">
                                                         <%--<input id="txt_cantidadCarrito" type="number" min="1" max="12" onchange="txtLoading(this);" AutoPostBack="true" value='<%#Eval("cantidad") %>' runat="server" />--%>
-                                                        <asp:TextBox ID="txt_cantidadCarrito" class="products_counter" TextMode="Number" Type="Integer" onchange="txtLoading(this);" AutoPostBack="true" Text='<%#Eval("cantidad") %>' OnTextChanged="txt_cantidadCarrito_TextChanged" Style="border-radius: 10px; text-align: center" runat="server"></asp:TextBox>
+                                                        <asp:TextBox ID="txt_cantidadCarrito" class="products_counter" TextMode="Number" Type="Integer" AutoPostBack="true" Text='<%#Eval("cantidad") %>' OnTextChanged="txt_cantidadCarrito_TextChanged" Style="border-radius: 10px; text-align: center" runat="server"></asp:TextBox>
                                                     </div>
                                                 </ContentTemplate>
                                                 <Triggers>
@@ -74,7 +74,7 @@
                                         <div class="is-flex is-justify-between is-items-center">
                                             <div class="mi-carrito-product_options is-flex">
                                                 <div>
-                                                <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>                                                   
+                                                    <asp:HyperLink ID="link_producto" Target="_blank" runat="server">Ver producto</asp:HyperLink>
                                                 </div>
                                                 <p class="is-px-4 is-text-blue">|</p>
                                                 <asp:UpdatePanel UpdateMode="Always" runat="server">
@@ -83,7 +83,11 @@
                                                     </ContentTemplate>
                                                 </asp:UpdatePanel>
                                             </div>
-                                            <div id="lbl_stock" visible="false" runat="server" class="is-text-red is-font-bold is-text-sm"></div>
+                                            <asp:UpdatePanel ID="up_stock" UpdateMode="Conditional" runat="server">
+                                                <ContentTemplate>
+                                                    <div id="lbl_stock" visible="false" runat="server" class="is-text-red is-font-bold is-text-sm"></div>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
                                         </div>
                                     </td>
                                 </tr>

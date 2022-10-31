@@ -231,9 +231,11 @@
                                         <asp:Label ID="lbl_producto_moneda" CssClass="producto_moneda" runat="server" Text=""></asp:Label>
 
                                         <asp:Label runat="server" ID="lbl_aviso"></asp:Label>
-                                        <asp:Label runat="server" Visible="false" ID="lbl_envioGratuito"></asp:Label>
+                                        <div class="is-bg-green-500 is-w-full is-select-none">
+                                            <asp:Label runat="server" Visible="false" ID="lbl_envioGratuito" class="is-text-xs is-text-white is-font-semibold"></asp:Label>
+                                        </div>
                                     </p>
-                                    <div class= "boton-agregar-carrito-resultados">
+                                    <div class="boton-agregar-carrito-resultados">
                                         <uc_addCarrito:add ID="AddCarrito" numero_parte='<%# Eval("numero_parte") %>' runat="server"></uc_addCarrito:add>
                                         <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>
 
