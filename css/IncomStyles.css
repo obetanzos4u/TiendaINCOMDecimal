@@ -749,6 +749,12 @@ body {
     line-height: 1rem;
 }
 
+.is-text-xsm {
+    font-size: 0.65rem;
+    line-height: 1.3rem;
+}
+
+
 .is-text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem
@@ -767,6 +773,10 @@ body {
 .is-text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+}
+
+.is-line-175 {
+    line-height: 1.75;
 }
 
 .is-italic {
@@ -1263,6 +1273,18 @@ body {
     .truncate {
         font-size: 12px !important;
     }
+
+    #top_contenido_ucProductos_cont_moneda {
+        display: none;
+    }
+
+    #top_contenido_ucProductos_cont_filtros {
+        margin-right: 3rem;
+    }
+
+    #top_contenido_ucProductos_ddl_filtroMarcas {
+        margin-bottom: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1279,6 +1301,13 @@ body {
 
     #nav_categorias_breadcrumb > .nav-wrapper {
         padding-left: 4rem;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 1000px) {
+
+    .product-card-list_wrapper {
+        width: 160px;
     }
 }
 

@@ -94,8 +94,7 @@
                                 <section class="text-IVA">
                                     <span class="is-text-black nota">IVA <strong>incluido</strong> </span>
                                 </section>
-                                <div id="lbl_envioIncluido" class="is-text-center is-text-white is-font-semibold is-bg-green-500" runat="server"></div>
-                                <br />
+                                <div id="lbl_envioIncluido" class="is-text-center is-text-white is-font-semibold is-bg-green-500 is-line-175" runat="server"></div>
                                 <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
                             </div>
                             <div class="row" style="margin: inherit 0px;">

@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"    CodeFile="productosVisitados.ascx.cs" Inherits="uc_productosVisitados" %>
 
                         <div class=" "> 
-                            <h2 id="titulo" visible="false" class="margin-t-8x" runat="server">Productos más visitados</h2>   </div>
+                            <h2 id="titulo" visible="false" class="margin-t-8x" runat="server" style="font-size:1.2rem !important; text-align: center;">Productos más visitados</h2>   </div>
   <asp:ListView ID="lv_productosMasVistos" OnItemDataBound="lv_productosMasVistos_OnItemDataBound"  runat="server">
                     <LayoutTemplate>
                          <div class="sliderVisitados">
