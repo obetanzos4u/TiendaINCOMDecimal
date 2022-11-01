@@ -94,10 +94,13 @@
                             </ItemTemplate>
                             <EmptyDataTemplate>
                                 <div class="center-carrito_vacio">
-                                    <h2 class="center-align">Aún no tienes artículos en tu carrito.</h2>
-                                    <h3 class="is-text-center">¡Navega entre más de 2,000 productos!</h3>
-                                    <img src="https://www.incom.mx/img/webUI/newdesign/carrito-vacio.svg" style="width: 15vw; margin: auto auto 6rem auto; display: block; padding-left: 2rem;">
-                                    <a class="is-btn-blue center-btn-carrito_vacio" style="text-align: center; justify-content: center; justify-items: center; margin: auto; display: table;" href="/productos">Descubrir ofertas</a>
+                                    <h2>Aún no tienes artículos en tu carrito.</h2>
+                                    <h3>¡Navega entre más de 2,000 productos!</h3>
+                                    <img class="icon-carrito_vacio" alt="Imagen de un carrito de compras vacio" title="Carrito de compras vacio" src="https://www.incom.mx/img/webUI/newdesign/carrito-vacio.svg">
+                                    <div class="center-btn-carrito_vacio">
+                                        <a class="is-btn-blue btn-carrito_vacio is-m-auto" href="/productos">Descubrir ofertas</a>
+                                    </div>
+                                    
                                 </div>
                             </EmptyDataTemplate>
                         </asp:ListView>
