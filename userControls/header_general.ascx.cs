@@ -29,8 +29,12 @@ public partial class menuPrincipal : System.Web.UI.UserControl
                 link_miCuenta.ToolTip = "Hola " + userActivo.nombre.ToUpper();
                 link_miCuenta.Controls.Add(userImage);
                 if (usuarioLogin.tipo_de_usuario == "usuario") barraAsesores.Visible = true;
-                lbl_cantidadProductosCarrito.Visible = true;
-                lbl_cantidadProductosCarrito.InnerText = carrito.obtenerCantidadProductos(userActivo.email).ToString();
+                int cantidadProductos = carrito.obtenerCantidadProductos(userActivo.email);
+                if (cantidadProductos > 0)
+                {
+                    lbl_cantidadProductosCarrito.Visible = true;
+                    lbl_cantidadProductosCarrito.InnerText = cantidadProductos.ToString();
+                }
                 //lbl_cantidadProductosCarrito.InnerText = carrito.cantidadProductos;
             }
         }
