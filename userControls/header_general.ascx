@@ -227,7 +227,7 @@
                                 <img class="btn-mi-carrito" title="Carrito de productos" src="https://www.incom.mx/img/webUI/newdesign/Carrito.svg" />
                                 <span class="txt_carrito is-text-black">Carrito</span>
                             </a>
-                            <span id="lbl_cantidadProductosCarrito" class="is-select-none" runat="server"></span>
+                            <span id="lbl_cantidadProductosCarrito" class="carrito_counter is-select-none" runat="server"></span>
                             <%--<div style="display: flex; flex-direction: column;">
                                 <uc_carrito:btnCarrito ID="carrito" runat="server"></uc_carrito:btnCarrito>
                                 <p class="txt_carrito">Carrito</p>
@@ -774,6 +774,76 @@
 
     .USP3 {
         background-color: #be9393;
+    }
+
+    .carrito_counter {
+        color: white;
+        background: #06C;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        border-radius: 28px;
+        font-size: 10px;
+    }
+
+    @media only screen and (min-width: 1000px) and (max-width: 1200px) {
+        .carrito_counter {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile_photo {
+            height: 2rem;
+        }
+
+        .btn-mi-carrito {
+            width: 2rem;
+            margin-top: 0.25rem;
+        }
+
+        #carrito_de_compra {
+            width: 5rem;
+        }
+
+        .btn-mi-carrito {
+            height: 28px;
+            margin: 0;
+        }
+
+        .txt_carrito {
+            font-size: 10px;
+        }
+
+        #carrito_de_compra {
+            padding-left: 0.5rem;
+        }
+
+        .text-nombre_cuenta > span {
+            font-size: 10px;
+            margin-top: 0.5rem;
+        }
+
+        #carrito_de_compra > a:nth-child(1) > img:nth-child(1) {
+            padding-bottom: 0.25rem;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        .carrito_counter {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile_photo {
+            height: 2rem;
+        }
+
+        .btn-mi-carrito {
+            width: 2rem;
+            margin-top: 0.25rem;
+        }
     }
 
     @media only screen and (max-width:3000px) {

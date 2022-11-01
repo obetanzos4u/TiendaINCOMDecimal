@@ -18,7 +18,7 @@
                             <i class="material-icons">save</i>
                         </asp:LinkButton>--%>
                     </div>
-                    <div class="is-w-full">
+                    <div class="is-w-full wrapp-mi_carrito">
                         <asp:ListView ID="lv_productosCarritos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                             <LayoutTemplate>
                                 <div class="is-w-full overflow-productos" style="overflow-y: auto;">
@@ -92,7 +92,7 @@
                                 <div class="center-carrito_vacio">
                                     <h2 class="center-align">Aún no tienes artículos en tu carrito.</h2>
                                     <h3 class="is-text-center">¡Navega entre más de 2,000 productos!</h3>
-                                    <img src="https://www.incom.mx/img/webUI/newdesign/carrito-vacio.svg" style="width: 15vw; margin: auto; display: block; padding-left: 2rem; margin-bottom: 3rem;">
+                                    <img src="https://www.incom.mx/img/webUI/newdesign/carrito-vacio.svg" style="width: 15vw; margin: auto auto 6rem auto; display: block; padding-left: 2rem;">
                                     <a class="is-btn-blue center-btn-carrito_vacio" style="text-align: center; justify-content: center; justify-items: center; margin: auto; display: table;" href="/productos">Descubrir ofertas</a>
                                 </div>
                             </EmptyDataTemplate>

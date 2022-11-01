@@ -37,8 +37,8 @@
                             <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Datos de quien recibe</h4>
                         </section>
                         <div class="is-px-8 is-py-2">
-                            <h6 id="contacto_title" class="" runat="server"></h6>
-                            <p id="contacto_desc" class="" runat="server"></p>
+                            <h6 id="contacto_title" runat="server"></h6>
+                            <p id="contacto_desc" runat="server"></p>
                              <asp:HyperLink runat="server" ID="link_cambiar_contacto" style="text-decoration: none;">
                                Editar quien recibe
                             </asp:HyperLink> 
@@ -70,7 +70,7 @@
                             <div class="is-flex is-justify-between is-items-center">
                                 <%--<div class="Conteng_msg_envioNota"></div>--%>
                                 <div class="dropdown">
-                                    <asp:HyperLink runat="server" ID="btn_cambiar_metodo_envio" class="is-decoration-none">
+                                    <asp:HyperLink runat="server" ID="btn_cambiar_metodo_envio" style="text-decoration: none;">
                                 Cambiar método de envío
                                     </asp:HyperLink>
                                 </div>
@@ -101,8 +101,7 @@
                                 <!-- <asp:LinkButton runat="server" ID="btn_sin_factura" OnClick="btn_sin_factura_Click"
                                     class="">
                              Sin factura </asp:LinkButton> -->
-                                <asp:HyperLink runat="server" ID="link_cambiar_direcc_facturacion"
-                                    class="is-decoration-none">
+                                <asp:HyperLink runat="server" ID="link_cambiar_direcc_facturacion" style="text-decoration: none;">
                                 Agregar datos de facturación
                                 </asp:HyperLink>
                             </div>
@@ -133,9 +132,13 @@
                         <li>Una vez registrado el pago, solo se podrá actualizar el método de envío con ayuda de un asesor. Los datos de facturación o contacto se pueden actualizar normalmente.</li>
                     </ul>
                     <div class="content_msg_confirmacion_pedido" runat="server"></div>
-
-
-
+                </div>
+                <div class="row">
+                    <div class="is-w-auto">
+                        <div id="content_msg_cancelar_pedido"></div>
+                            <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
+                        class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
+                    </div>
                 </div>
                 <asp:Panel ID="Pago_Pendiente" Visible="false" CssClass="mt-4 col col-12 col-xs-12 col-sm-12 col-md-12 col-xl-12" runat="server">
                 <div class="is-flex">
@@ -149,7 +152,7 @@
                 </div>
                 <div style="float: left; width: fit-content;">
                     <p>Elige el método de pago:</p> 
-                    <asp:HyperLink ID="link_pago_santander" class="" runat="server"><div class="is-btn-gray">Tarjeta crédito/débito</div></asp:HyperLink>
+                    <asp:HyperLink ID="link_pago_santander" runat="server"><div class="is-btn-gray">Tarjeta crédito/débito</div></asp:HyperLink>
                     <asp:HyperLink ID="link_pago_paypal" class="is-text-white is-decoration-none" runat="server"><div class="is-btn-gray"><p id="text-paypal" style="color: white;">PayPal</p></div></asp:HyperLink>
                     <a data-bs-toggle="modal" data-bs-target="#modal_deposito_trans"><div class="is-btn-gray">Transferencia o depósito</div></a>          
                     <div class="alert alert-warning mt-4" role="alert">
@@ -170,7 +173,7 @@
                 </div>
                 <asp:ListView ID="lv_productos" OnItemDataBound="lv_productos_ItemDataBound" Visible="true" runat="server">
                     <LayoutTemplate>
-                        <div class="">
+                        <div>
                             <ul class="list-group-resumen list-group mb-3 is-rounded-b">
                                 <div id="itemPlaceholder" runat="server"></div>
                             </ul>
@@ -243,15 +246,6 @@
                             </tr>
                         </tbody>
                     </table>
-
-                </div>
-
-                <div class="row is-top-2">
-                    <div class="is-m-auto is-w-auto">
-                        <div id="content_msg_cancelar_pedido"></div>
-                            <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
-                        class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -262,26 +256,32 @@
         <div class="modal-dialog  modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Cancelar pedido</h5>
+                    <h5 class="modal-title">
+                        <strong>
+                            Cancelar pedido:
+                        </strong>
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <p>
-                        Una vez que solicites la cancelación de pedido no podras realizar cambios en este.<br />
-                        Las canciones deben cumplir con 
-          nuestros <a target="_blank" href="/informacion/terminos-y-condiciones-de-compra.aspx">términos y condiciones</a> y de 
-          <a target="_blank" href="/informacion/devoluciones-y-garantias.aspx">devoluciones y garantías.</a>
+                        Una vez que solicites la cancelación de pedido no podras realizar cambios en este.
                     </p>
                     <div class="mb-3">
-                        <label for="txt_motivo_cancelacion" class="form-label">Motivo de cancelación</label>
+                        <label for="txt_motivo_cancelacion" class="form-label">Cuéntanos el motivo de cancelación:</label>
                         <asp:TextBox ID="txt_motivo_cancelacion" ClientIDMode="Static" class="form-control" TextMode="MultiLine" Rows="3" runat="server"></asp:TextBox>
                     </div>
                     <asp:LinkButton OnClick="btn_cancelar_pedido_Click" OnClientClick="BootstrapClickLoading(this);"
-                        ID="btn_cancelar_pedido" class="btn btn-danger" runat="server"> Cancelar pedido </asp:LinkButton>
+                        ID="btn_cancelar_pedido" runat="server">
+                        <div class="btn-cancelar_pedido">
+                            <p>
+                               Cancelar pedido
+                            </p>
+                        </div>
+                    </asp:LinkButton>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar ventana</button>
-
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar ventana</button> -->
                 </div>
             </div>
         </div>
@@ -419,6 +419,26 @@
         padding-left: 2rem;
         display: flex;
         align-items: center;
+    }
+
+    .btn-cancelar_pedido {
+        border: 1px solid red;
+        width: 150px;
+        height: 38px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        border-radius: 8px;
+        position: relative;
+        float: left;
+    }
+
+    .btn-cancelar_pedido > p {
+        text-decoration: none;
+        color: red;
+        margin: auto;
     }
 
     </style>

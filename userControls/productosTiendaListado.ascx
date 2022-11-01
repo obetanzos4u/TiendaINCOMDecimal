@@ -20,7 +20,7 @@
             margin: auto 0px !important;
             display: grid;
             grid-gap: 5px;
-            grid-template-columns: 170px auto;
+            grid-template-columns: 160px auto;
             grid-template-areas: 'sidebar content';
         }
 

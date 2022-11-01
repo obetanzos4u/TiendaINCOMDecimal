@@ -72,9 +72,8 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
         hf_pedido_tipo_envio.Value = pedido_montos.metodoEnvio;
         if (pedido_montos.metodoEnvio == "En Tienda")
         {
-            string script = " document.getElementById('card_envio_recoge_en_tienda').classList.add('bg-success-1');";
+            string script = " document.getElementById('card_envio_recoge_en_tienda').classList.add('bg-success-1'); document.getElementById('icon-tienda-color').classList.add('bg-success-3');";
             ScriptManager.RegisterStartupScript(this, typeof(Control), "CSS_add", script, true);
-
         }
         if (!string.IsNullOrWhiteSpace(pedido_montos.EnvioNota))
         {
@@ -262,6 +261,7 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
             {
                 HtmlGenericControl contentCard_DireccEnvio = (HtmlGenericControl)e.Item.FindControl("contentCard_DireccEnvio");
                 contentCard_DireccEnvio.Attributes["class"] += " bg-success-2";
+
             }
         }
     }

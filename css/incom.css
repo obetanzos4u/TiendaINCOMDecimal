@@ -1860,6 +1860,10 @@ div.arrow-doble-down #svg-arrow-down {
     .agregar_carrito-out {
         font-size: 12px !important;
     }
+
+    .wrapp-mi_carrito {
+        margin-left: 20vw;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
