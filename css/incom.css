@@ -165,22 +165,18 @@
     margin-left: 2rem;
 }
 
-#top_contenido_ctn_details .select-wrapper > .caret {
-    right: 20px;
-    }
-
 #top_contenido_ctn_details .select-wrapper {
 padding-top: 0.5rem;
 margin-left: 1rem;
 }
 
-/* .mi-carrito-list, .mi-carrito-ticket {
-    border: 1px solid red;
-} */
-
 .mi-carrito-consideraciones {
     display: none;
     margin-top: 3rem;
+}
+
+.products_counter {
+    height: 2rem !important;
 }
 
 /*Documentación tamáño móvi mediano*/
@@ -572,6 +568,10 @@ div.arrow-doble-down #svg-arrow-down {
             padding: 4px 22px; 
         }
 
+        .btn-products_counter {
+            width: 3rem;
+        }
+
         .txt_cantidadCarrito {
             padding: 0 !important;
             width: 88% !important;
@@ -678,11 +678,11 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         #top_contenido_ctn_details .select-wrapper {
-            width: 65px;;
+            width: 125px;
         }
 
-        #top_contenido_ctn_details .select-wrapper > .caret {
-            right: 0px;
+        .mi-carrito-boton-compra {
+            width: 100%;
         }
 
         .title-product_list {
@@ -697,6 +697,10 @@ div.arrow-doble-down #svg-arrow-down {
         .mi-carrito-ticket {
             display: flex;
             order: 1;
+        }
+
+        .mi-carrito-ticket > div:nth-child(2) {
+            margin-bottom: 1rem;
         }
 
         .title-total_pedido {
@@ -718,6 +722,11 @@ div.arrow-doble-down #svg-arrow-down {
             justify-content: end;
         }
 
+        .moneda-ticket > .select-wrapper input.select-dropdown {
+            border: 1px solid #cecece;
+            margin: auto 0 auto auto;
+        }
+
         .mi-carrito-arrow {
             display: flex;
             order: 2;
@@ -732,7 +741,6 @@ div.arrow-doble-down #svg-arrow-down {
 
         .mi-carrito-boton-compra {
             margin-top: 24px;
-            display: flex;
             order: 4;
         }
 
@@ -1365,7 +1373,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         .overflow-productos {
-            padding-right: 2rem;
+            padding-right: 1rem;
             height: fit-content;
             max-height: 445px;
         }
@@ -1392,8 +1400,12 @@ div.arrow-doble-down #svg-arrow-down {
             flex-direction: column;
         }
 
+        .mi-carrito-ticket > div:nth-child(2) {
+            margin-bottom: 3rem;
+        }
+
         #top_contenido_ctn_details .select-wrapper > .caret {
-            margin-bottom: 1.25rem;
+            margin-bottom: 0.75rem;
         }
 
         .mi-carrito-arrow {
@@ -1405,10 +1417,16 @@ div.arrow-doble-down #svg-arrow-down {
         .mi-carrito-consideraciones-lg {
             width: 30%;
             margin-top: 5rem;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            order: 5;
         }
 
         .mi-carrito-boton-compra {
-            width: 35%;
+            width: 30%;
         }
 
         .icon-carrito_vacio {
@@ -1440,7 +1458,6 @@ div.arrow-doble-down #svg-arrow-down {
             text-align: end;
             padding-right: 2rem;
         }
-    }
 
     @media only screen and (min-width: 1000px) and (max-width: 1450px) {
         #relacionados_splide-list > li {
@@ -1487,6 +1504,31 @@ div.arrow-doble-down #svg-arrow-down {
 
         .carrito-white_btn {
             padding-top: 0px;
+        }
+
+        .overflow-productos {
+            font-size: 12px !important;
+        }
+
+        .text-subtotal_producto::before {
+            content: "Subtotal: ";
+            margin-right: 0.5rem;
+        }
+
+        tr.table-product_description > td > div:nth-child(2) {
+            flex-direction: column;
+        }
+
+        .product-list-precio_cantidad > div:nth-child(1) {
+            justify-content: center;
+        }
+        
+        tr.table-product_description > td > div> p:nth-child(1l) {
+            margin: 0.5rem 0rem 0rem 0rem;
+        }
+
+        tr.table-product_description > td > div> p:nth-child(2) {
+            margin-right: 0.5rem;
         }
     }
 
@@ -1926,9 +1968,9 @@ div.arrow-doble-down #svg-arrow-down {
         font-size: 12px !important;
     }
 
-    /* .wrapp-mi_carrito {
-        margin-left: 20vw;
-    } */
+    #top_contenido_ctn_details .select-wrapper {
+        margin-top: 0.5rem; 
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -2209,7 +2251,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         input.select-dropdown {
-            height: 2rem !important;
+            height: 1.5rem !important;
             padding-left: 1rem !important;
             }
 
@@ -2306,6 +2348,11 @@ div.arrow-doble-down #svg-arrow-down {
             margin: auto 6rem 6rem auto;
             display: block;
             padding-left: 2rem;
+        }
+
+        .mi-carrito-consideraciones-lg {
+            font-size: 12px;
+            margin-top: 5rem;
         }
     }
 
@@ -2578,6 +2625,18 @@ div.arrow-doble-down #svg-arrow-down {
         height: 30px !important;
         margin-top: 10px !important;
       }
+
+      .aviso-version_movil {
+        display: none;
+      }
+
+
+    /* Aparición de la sugerenica de uso horizontal del dispositivo */
+    @media only screen and (max-width: 440px) and (orientation: portrait) {
+        .aviso-version_movil {
+            display: block;
+          }
+    }
 
     /* Alineación de zoom */
 
