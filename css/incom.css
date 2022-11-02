@@ -645,6 +645,10 @@ div.arrow-doble-down #svg-arrow-down {
 
     @media (max-width: 1000px) {
 
+        .container-breadcrumb {
+            padding-top: 0.8rem !important;
+        }
+
         .title-product_description {
             font-size: 1rem !important;
         }
@@ -1248,7 +1252,7 @@ div.arrow-doble-down #svg-arrow-down {
             font-size: 12px !important;
         }
 
-        .tabs {
+        /* .tabs {
             padding: 0 !important;
         }
 
@@ -1259,6 +1263,92 @@ div.arrow-doble-down #svg-arrow-down {
 
         .tabs ul li {
             width: 100% !important;
+        } */
+
+        .container-descripcion > div:nth-child(1) {
+            flex-direction: column;
+          }
+
+          .wrapper-descripcion {
+            font-size: 9px;
+            width: 90% !important;
+            margin: 2rem;
+            padding: 0 !important;
+          }
+
+          .ticket_compra {
+            width: 100% !important;
+          }
+
+          .agregar_carrito-out {
+            padding: 8px 16px;
+            font-size: 10px;
+          }
+
+          .borde-ticket_compra {
+            width: 80% !important;
+            margin: auto;
+          }
+
+          .tabs {
+            padding: 0 !important;
+            margin: 0 auto !important;
+          }
+
+          .tabs > ul {
+            display: flex !important;
+            flex-direction: column !important;
+          }
+
+          .tabs ul li {
+            width: 100% !important;
+          }
+
+          #productZoom {
+            display: none;
+            position: absolute;
+            float: right;
+            z-index: 10;
+            width: 250px;
+            height: 200px;
+        }
+
+        .productcard {
+            display: inline;
+        }
+
+        .container-descripcion {
+            width: 90%;
+        }
+
+        .is-productGallery {
+            display: inline;
+            width: 80%;
+            margin: auto;
+        }
+
+        .separator {
+            font-size: 12px;
+        }
+
+        .separator::after, .separator::before {
+            width: 44%;
+        }
+
+        #productZoom {
+            left: 32vw;
+            width: 250px;
+            height: 200px;
+            border: 0;
+        }
+
+        .is-productGallery:hover #productZoom {
+            display: none;
+        }
+
+        .drift-zoom-pane {
+            width: 60%;
+            height: 15%;
         }
     }
 

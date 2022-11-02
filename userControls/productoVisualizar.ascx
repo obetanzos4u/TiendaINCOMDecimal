@@ -460,6 +460,26 @@
         }
     }
 
+    @media (min-width: 450px) and (max-width: 600px) {
+        .tabs {
+            white-space: nowrap;
+            min-height: 240px;
+        }
+
+        .content-tab {
+            justify-content: flex-start;
+        }
+
+        .bottom-especificaciones {
+            padding-left: 4em;
+            margin-bottom: 2rem;
+        }
+
+        .content-tab > section:nth-child(1), .content-tab > section:nth-child(3) {
+            margin: auto;
+        }
+    }
+
     .tabs input[name=tab-control]:nth-of-type(1):checked ~ .slider-tab {
         transform: translateX(0%);
     }
@@ -559,9 +579,9 @@
             border-radius: 5px;
         }
 
-            .tabs ul li label span {
-                display: none;
-            }
+        .tabs .content-tab section h2, .tabs ul li label {
+            font-size: 9px !important;
+        }
 
         .tabs .slider-tab {
             display: none;
@@ -571,9 +591,56 @@
             margin-top: 20px;
         }
 
-            .tabs .content-tab section h2 {
-                display: block;
-            }
+        .tabs .content-tab section h2 {
+            display: block;
+        }
+
+        .tabs input[name="tab-control"]:nth-of-type(2):checked ~ .content-tab > section:nth-child(2) {
+            display: block;
+        }
+
+        .wrapper-especificaciones {
+            justify-content: flex-start;
+        }
+
+        .tabs .content-tab section {
+            line-height: 1;
+        }
+
+        .right-especificaciones {
+            width: 100%;
+            margin-right: 40px;
+        }
+
+        .tabs {
+            white-space: nowrap;
+            min-height: 220px;
+        }
+
+        .tabs .content-tab {
+            margin: auto;
+        }
+
+        .content-tab > section:nth-child(2) {
+            width: 100%;
+        }
+
+        .bottom-especificaciones {
+            width: 300px;
+            white-space: initial;
+            font-size: 8px;
+            padding: 1rem;
+        }
+
+        .content-tab {
+            font-size: 8px;
+            margin-right: 50px;
+            width: fit-content;
+        }
+
+        .left-especificaciones {
+            margin-left: 12px;
+        }
     }
 
     @media (min-width: 1200px) and (max-width: 1600px) {
