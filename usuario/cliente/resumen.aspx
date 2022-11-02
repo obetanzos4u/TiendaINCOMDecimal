@@ -145,9 +145,7 @@
                     <figure>
                         <figcaption style="float: left; width: fit-content;">Paga de manera segura por alguno de nuestros medios.</figcaption>
                         <br>
-                        <img src="/img/webUI/newdesign/Formas_pago.png" alt="Imagen únicamente ilustrativa de Visa, Mastercard, American Express y Paypal" title="Métodos de pago aceptados" style="width: 250px; float: left;">
-                        <img src="/img/webUI/newdesign/mercado-pago.png" alt="Imagen únicamente ilustrativa de Mercado Pago" title="Métodos de pago aceptados" style="width: 54px; float: left;">
-                        <img src="/img/webUI/newdesign/transferencia.png" alt="Imagen únicamente ilustrativa de Transferencia bancaria" title="Métodos de pago aceptados" style="width: 75px; float: left; padding-top: 10px;">   
+                        <img class="icono-formas_pago" alt="Formas de pago; Visa, Mastercard, American Express, Paypal, Transferencia Bancaria y Mercado Pago" title="Formas de pago" src="/img/webUI/newdesign/Formas_de_pago.png"/>
                     </figure>
                 </div>
                 <div style="float: left; width: fit-content;">
@@ -439,6 +437,12 @@
         text-decoration: none;
         color: red;
         margin: auto;
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .icono-formas_pago {
+            width: 450px;
+        }
     }
 
     </style>

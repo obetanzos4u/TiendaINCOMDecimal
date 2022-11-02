@@ -1383,24 +1383,9 @@ body {
         margin-top: 4px;
     }
 
-    /* .container-descripcion {
-        width: 70%;
-    } */
-
     #btn_agregar_productoCarrito {
         font-size: 10px;
     }
-
-    /* .agregar_carrito-out {
-        font-size: 9px !important;
-    }
-
-    .agregar_carrito {
-        width: 127px;
-        height: 24px !important;
-        line-height: 24px !important;
-        padding: 0 9px;
-    } */
 
     input.select-dropdown {
         width: 80%;

@@ -436,6 +436,41 @@ div.arrow-doble-down #svg-arrow-down {
         .center-carrito_vacio h2 {
             font-size: 1.2rem !important;
         }
+
+        .container-descripcion {
+            width: 100% !important;
+          }
+
+        .container-descripcion > div:nth-child(1) {
+          flex-direction: column;
+        }
+
+        .wrapper-descripcion {
+            width: 90% !important;
+            margin: 2rem;
+        }
+
+        .ticket_compra {
+            width: 100% !important;
+        }
+
+        .borde-ticket_compra {
+            width: 60% !important;
+            margin: auto;
+        }
+
+        .tabs {
+            padding: 0 !important;
+        }
+
+        .tabs > ul {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .tabs ul li {
+            width: 100% !important;
+        }
     }
 
     @media only screen and (min-width: 600px) and (max-width: 800px) {
@@ -1212,6 +1247,19 @@ div.arrow-doble-down #svg-arrow-down {
         .center-carrito_vacio h3 {
             font-size: 12px !important;
         }
+
+        .tabs {
+            padding: 0 !important;
+        }
+
+        .tabs > ul {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .tabs ul li {
+            width: 100% !important;
+        }
     }
 
     @media only screen and (min-width: 400px) {
@@ -1458,6 +1506,7 @@ div.arrow-doble-down #svg-arrow-down {
             text-align: end;
             padding-right: 2rem;
         }
+    }
 
     @media only screen and (min-width: 1000px) and (max-width: 1450px) {
         #relacionados_splide-list > li {
