@@ -985,7 +985,7 @@
         }
 
         .categorias_container {
-            margin-bottom: 4vh;
+            margin-bottom: 2vh;
         }
     }
 

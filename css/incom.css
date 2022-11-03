@@ -1150,7 +1150,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         .img2-item_categoria {
-            width: 200px;
+            width: 120px;
         }
     }
 
@@ -1836,6 +1836,10 @@ div.arrow-doble-down #svg-arrow-down {
             height: 150px !important;
         }
 
+        .title_productos-destacados {
+            height: 2rem !important;
+        }
+
         #top_contenido_titulo_categoria {
             padding-left: 0 !important;
         }
@@ -1861,6 +1865,7 @@ div.arrow-doble-down #svg-arrow-down {
 
         .title_categorias {
             height: 2rem;
+            margin-bottom: 0 !important;
         }
 
         .text-this_categria {
@@ -1868,19 +1873,19 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         .img1-item_categoria {
-            width: 160px;
+            width: 120px;
         }
 
         .this_categoria > a {
-            width: 160px;
+            width: 120px;
         }
 
         .text-this_categria {
-            width: 160px;
+            width: 120px;
         }
 
         .this_categoria {
-            width: 160px;
+            width: 120px;
             margin-right: 3rem;
             margin-bottom: .5rem;
         }
@@ -1940,9 +1945,6 @@ div.arrow-doble-down #svg-arrow-down {
         margin: 0.5rem 0 0.4rem 0;
     }
 
-    .tab a.active {
-    }
-
     .tabs .tab a:hover {
         background-color: rgba(95, 124, 139, 0.058823529411764705) !important;
     }
@@ -1970,27 +1972,6 @@ div.arrow-doble-down #svg-arrow-down {
         color: #eaedfa !important;
     }
 
-
-
-    /*
-.dropdown-content li {
-    min-height: 25px !important;
-    line-height: 0.9rem !important;
-}
-
-    .dropdown-content li > a, .dropdown-content li > span {
-        font-size: 14px !important;
-        line-height: 18px !important;
-        padding: 6px 16px !important;
-    }*/
-    /*
-.select-wrapper input.select-dropdown {
-    height: 2rem !important;
-    line-height: 2rem !important;
-    width: 85% !important;
-    font-size: 14px !important;
-}
-*/
     input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
         border: 1px solid #9e9e9e87 !important;
         padding: 5px;
