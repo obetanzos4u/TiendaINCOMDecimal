@@ -777,13 +777,11 @@
     }
 
     .carrito_counter {
-        color: white;
-        background: #06C;
-        justify-content: center;
-        align-items: center;
         display: flex;
-        border-radius: 28px;
-        font-size: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #06C;
+        align-items: center;
     }
 
     @media only screen and (min-width: 1000px) and (max-width: 1200px) {
@@ -799,7 +797,6 @@
 
         .btn-mi-carrito {
             width: 2rem;
-            margin-top: 0.25rem;
         }
 
         #carrito_de_compra {
@@ -812,7 +809,7 @@
         }
 
         .txt_carrito {
-            font-size: 10px;
+            font-size: 0.75rem;
         }
 
         #carrito_de_compra {
@@ -820,7 +817,7 @@
         }
 
         .text-nombre_cuenta > span {
-            font-size: 10px;
+            font-size: 0.75rem;
             margin-top: 0.5rem;
         }
 

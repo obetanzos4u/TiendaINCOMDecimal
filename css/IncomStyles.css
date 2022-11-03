@@ -1344,6 +1344,10 @@ body {
     .is-col-2 {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
+
+    #btn_agregar_productoCarrito {
+        font-size: 10px;
+    }
 }
 
 @media (min-width: 700px) and (max-width: 1600px) { 
@@ -1357,6 +1361,10 @@ body {
 
     .product-card-list_wrapper {
         width: 160px;
+    }
+
+    #btn_agregar_productoCarrito {
+        font-size: 10px;
     }
 }
 
@@ -1381,10 +1389,6 @@ body {
         width: 100%;
         margin-left: 0em;
         margin-top: 4px;
-    }
-
-    #btn_agregar_productoCarrito {
-        font-size: 10px;
     }
 
     input.select-dropdown {
@@ -1438,6 +1442,10 @@ body {
 
     .is-w-full-xl {
         width: 100%;
+    }
+
+    #btn_agregar_productoCarrito {
+        font-size: 12px;
     }
 }
 
