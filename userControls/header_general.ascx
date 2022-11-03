@@ -339,7 +339,7 @@
         height: 2.25rem;
         text-align: left;
         left: 100%;
-        margin-left: 3rem;
+        margin-left: 2rem;
     }
 
 
@@ -861,6 +861,12 @@
             margin-bottom: 10vh;
             flex-wrap: wrap;
             justify-content: center;
+        }
+
+        /* Separadores en barra de menús*/
+        #content-menu-incom-outlet, #menuProductos, #content-menu-incom-biblioteca {
+            border-right: 1px solid #B7B7B7;
+            padding: 0rem 2rem 0rem 0rem;
         }
     }
 

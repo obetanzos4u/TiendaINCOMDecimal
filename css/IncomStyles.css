@@ -1355,6 +1355,10 @@ body {
     #nav_categorias_breadcrumb > .nav-wrapper {
         padding-left: 4rem;
     }
+
+    #top_contenido_ucProductos_cont_moneda > .select-wrapper .caret {
+        right: 1.5rem;
+    }
 }
 
 @media (min-width: 700px) and (max-width: 1000px) {
@@ -1495,6 +1499,9 @@ body {
         max-height: 440px;
     }
 
+    #top_contenido_ucProductos_cont_moneda > .select-wrapper .caret {
+        right: 1.5rem;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
