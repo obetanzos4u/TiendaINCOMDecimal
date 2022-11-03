@@ -414,8 +414,8 @@ public partial class mi_carrito : System.Web.UI.Page
     protected async void lv_productos_OnItemDataBound(object sender, ListViewItemEventArgs e)
     {
         ContentAlertCrearCotizacion.Visible = false;
-        ContentAlertCrearPedido.Visible = false;
-        ContentAlertCrearPedido.InnerHtml = "";
+        //ContentAlertCrearPedido.Visible = false;
+        //ContentAlertCrearPedido.InnerHtml = "";
         ContentAlertCrearCotizacion.InnerHtml = "";
 
         UserControl uc_moneda = e.Item.Parent.Parent.Parent.FindControl("uc_moneda") as UserControl;
@@ -455,8 +455,8 @@ public partial class mi_carrito : System.Web.UI.Page
             btn_crearCotizacion.Enabled = false;
 
             ContentAlertCrearCotizacion.Visible = true;
-            ContentAlertCrearPedido.Visible = true;
-            ContentAlertCrearPedido.InnerHtml = "<strong>Aviso:<strong> Elimina los productos no disponibles para la venta para continuar.";
+            //ContentAlertCrearPedido.Visible = true;
+            //ContentAlertCrearPedido.InnerHtml = "<strong>Aviso:<strong> Elimina los productos no disponibles para la venta para continuar.";
             ContentAlertCrearCotizacion.InnerHtml = "<strong>Aviso:<strong> Elimina los productos no disponibles para la venta para continuar.";
         }
 
@@ -796,7 +796,7 @@ public partial class mi_carrito : System.Web.UI.Page
         //{
         //    nombrePedido = utilidad_fechas.AAAMMDD();
         //}
-        string nombrePedido = utilidad_fechas.DDMMAA();
+        string nombrePedido = utilidad_fechas.DDMMAAff();
 
         model_impuestos impuestos = new model_impuestos() { nombre = "MX", valor = 16, id = 1 };
         model_pedidos_datos pedidoDatos = new model_pedidos_datos();
@@ -826,81 +826,65 @@ public partial class mi_carrito : System.Web.UI.Page
 
         if (resultado != null)
         {
+            pedidosDatos.actualizarEnvio(0, "Estándar", resultado);
+            direccionEnvio = direcciones_envio_EF.ObtenerPredeterminada(usuario.id);
+            string strDireccionEnvio = "";
 
-            if (chk_pedido_sin_envio.Checked)
+            if (direccionEnvio != null)
             {
-                string metodoEnvio = "En Tienda";
-                decimal envio = 0;
+                pedidos_direccionEnvio pedidoDireccionEnvio = new pedidos_direccionEnvio();
+                pedidoDireccionEnvio.numero_operacion = resultado;
+                pedidoDireccionEnvio.idDireccionEnvio = direccionEnvio.id;
+                pedidoDireccionEnvio.calle = direccionEnvio.calle;
+                pedidoDireccionEnvio.numero = direccionEnvio.numero;
+                pedidoDireccionEnvio.numero_interior = direccionEnvio.numero_interior;
+                pedidoDireccionEnvio.colonia = direccionEnvio.colonia;
+                pedidoDireccionEnvio.delegacion_municipio = direccionEnvio.delegacion_municipio;
+                pedidoDireccionEnvio.codigo_postal = direccionEnvio.codigo_postal;
+                pedidoDireccionEnvio.ciudad = direccionEnvio.ciudad;
+                pedidoDireccionEnvio.estado = direccionEnvio.estado;
+                pedidoDireccionEnvio.pais = direccionEnvio.pais;
+                pedidoDireccionEnvio.referencias = direccionEnvio.referencias;
 
-                pedidosDatos.actualizarEnvio(envio, metodoEnvio, resultado);
-                pedidosProductos.actualizarTotalStatic(resultado);
+                var result = PedidosEF.GuardarDireccionEnvio(resultado, pedidoDireccionEnvio);
+                pedidosDatos.establecerEstatusCalculo_Costo_Envio(true, resultado);
+                var ProductosPedidos = PedidosEF.ObtenerProductosWithData(resultado);
+                var ListProductosEnvio = new List<ProductoEnvioCalculoModel>();
+
+                foreach (var ProductoPedido in ProductosPedidos)
+                {
+                    var p = new ProductoEnvioCalculoModel();
+                    p.Numero_Parte = ProductoPedido.datos.numero_parte;
+                    p.Tipo = 1;
+                    p.Cantidad = ProductoPedido.productos.cantidad;
+                    p.PesoKg = ProductoPedido.datos.peso;
+                    p.Largo = ProductoPedido.datos.profundidad;
+                    p.Ancho = ProductoPedido.datos.ancho;
+                    p.Alto = ProductoPedido.datos.alto;
+                    p.RotacionHorizontal = ProductoPedido.datos.RotacionHorizontal;
+                    p.RotacionVertical = ProductoPedido.datos.RotacionVertical;
+                    p.DisponibleParaEnvioGratuito = ProductoPedido.datos.disponibleEnvio;
+                    ListProductosEnvio.Add(p);
+                }
+
+                var ValidarRegla = new EnviosIncomReglas(resultado, "pedido", ListProductosEnvio);
+
+                if (ValidarRegla.Resultado.result == false)
+                {
+                    ValidarCalculoEnvioOperacion validar = new ValidarCalculoEnvioOperacion(resultado, "pedido");
+                }
+
+                strDireccionEnvio = $"Calle: {direccionEnvio.calle}, número: {direccionEnvio.numero}, colonia: {direccionEnvio.colonia}, " + $"{direccionEnvio.delegacion_municipio}, " + $"{direccionEnvio.ciudad}, {direccionEnvio.estado}, C.P.: {direccionEnvio.codigo_postal} ";
             }
             else
             {
-                pedidosDatos.actualizarEnvio(0, "Estándar", resultado);
-
-
-                direccionEnvio = direcciones_envio_EF.ObtenerPredeterminada(usuario.id);
-
-                if (direccionEnvio != null)
-                {
-                    pedidos_direccionEnvio pedidoDireccionEnvio = new pedidos_direccionEnvio();
-
-                    pedidoDireccionEnvio.numero_operacion = resultado;
-                    pedidoDireccionEnvio.idDireccionEnvio = direccionEnvio.id;
-                    pedidoDireccionEnvio.calle = direccionEnvio.calle;
-                    pedidoDireccionEnvio.numero = direccionEnvio.numero;
-                    pedidoDireccionEnvio.numero_interior = direccionEnvio.numero_interior;
-                    pedidoDireccionEnvio.colonia = direccionEnvio.colonia;
-                    pedidoDireccionEnvio.delegacion_municipio = direccionEnvio.delegacion_municipio;
-                    pedidoDireccionEnvio.codigo_postal = direccionEnvio.codigo_postal;
-                    pedidoDireccionEnvio.ciudad = direccionEnvio.ciudad;
-                    pedidoDireccionEnvio.estado = direccionEnvio.estado;
-                    pedidoDireccionEnvio.pais = direccionEnvio.pais;
-                    pedidoDireccionEnvio.referencias = direccionEnvio.referencias;
-
-
-                    var result = PedidosEF.GuardarDireccionEnvio(resultado, pedidoDireccionEnvio);
-                    pedidosDatos.establecerEstatusCalculo_Costo_Envio(true, resultado);
-                    var ProductosPedidos = PedidosEF.ObtenerProductosWithData(resultado);
-                    var ListProductosEnvio = new List<ProductoEnvioCalculoModel>();
-
-                    foreach (var ProductoPedido in ProductosPedidos)
-                    {
-                        var p = new ProductoEnvioCalculoModel();
-                        p.Numero_Parte = ProductoPedido.datos.numero_parte;
-                        p.Tipo = 1;
-                        p.Cantidad = ProductoPedido.productos.cantidad;
-                        p.PesoKg = ProductoPedido.datos.peso;
-                        p.Largo = ProductoPedido.datos.profundidad;
-                        p.Ancho = ProductoPedido.datos.ancho;
-                        p.Alto = ProductoPedido.datos.alto;
-                        p.RotacionHorizontal = ProductoPedido.datos.RotacionHorizontal;
-                        p.RotacionVertical = ProductoPedido.datos.RotacionVertical;
-                        p.DisponibleParaEnvioGratuito = ProductoPedido.datos.disponibleEnvio;
-                        ListProductosEnvio.Add(p);
-                    }
-
-
-                    var ValidarRegla = new EnviosIncomReglas(resultado, "pedido", ListProductosEnvio);
-
-                    if (ValidarRegla.Resultado.result == false)
-                    {
-                        ValidarCalculoEnvioOperacion validar = new ValidarCalculoEnvioOperacion(resultado, "pedido");
-                    }
-                }
-                else
-                {
-                    pedidosDatos.actualizarEnvio(0, "Ninguno", resultado,
-                        "No haz establecido un método/dirección de envío");
-                    bool resultadoTotales = pedidosProductos.actualizarTotalStatic(resultado);
-
-                }
-
-
+                pedidosDatos.actualizarEnvio(0, "Ninguno", resultado, "No haz establecido un método/dirección de envío");
+                strDireccionEnvio = "No establecida aún.";
+                bool resultadoTotales = pedidosProductos.actualizarTotalStatic(resultado);
             }
 
             NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Pedido creado con éxito");
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Redireccionando...");
             //materializeCSS.crear_toast(this, "Pedido creado con éxito", true);
 
             pedidosDatos obtener = new pedidosDatos();
@@ -909,25 +893,10 @@ public partial class mi_carrito : System.Web.UI.Page
             string id_operacion_encritado = seguridad.Encriptar(operacion.Rows[0]["id"].ToString());
             string nombre_pedido = operacion.Rows[0]["nombre_pedido"].ToString();
             string numero_operacion = operacion.Rows[0]["numero_operacion"].ToString();
-
-
             decimal? MontoTotalProductos = PedidosEF.ObtenerMontoTotalProductos(numero_operacion);
-            string strDireccionEnvio = "No establecida aún.";
-
-            if (direccionEnvio != null)
-            {
-                strDireccionEnvio = $"Calle: {direccionEnvio.calle}, número: {direccionEnvio.numero}, colonia: {direccionEnvio.colonia}, " +
-              $"{direccionEnvio.delegacion_municipio}, " +
-              $"{direccionEnvio.ciudad}, {direccionEnvio.estado}, C.P.: {direccionEnvio.codigo_postal} ";
-            }
-
-
             string InfoDeContacto = $"{usuario.nombre} {usuario.apellido_paterno} {usuario.apellido_materno}, {usuario.email} " +
             $"Tel: {usuario.telefono}, Cel: {usuario.celular}";
-
             string strDireccionFacturacion = "";
-
-
             string UrlDireccionEnvio = GetRouteUrl("cliente-pedido-envio", new System.Web.Routing.RouteValueDictionary {
                         { "id_operacion", id_operacion_encritado }
                     });
@@ -939,8 +908,8 @@ public partial class mi_carrito : System.Web.UI.Page
                         { "id_operacion", id_operacion_encritado }
                     });
 
-
             if (string.IsNullOrWhiteSpace(strDireccionFacturacion)) strDireccionFacturacion = "No establecido aún.";
+
             string redirectUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary {
                         { "id_operacion", id_operacion_encritado }
                     });
@@ -948,73 +917,71 @@ public partial class mi_carrito : System.Web.UI.Page
             //content_msg_exito_operacion.Visible = true;
             //lt_tipo_operacion.Text = "Pedido";
             // Necesario para redirección
-            string script = @"setTimeout(function () { window.location.replace('" + redirectUrl + "')}, 1500);";
+            string script = @"setTimeout(function () { window.location.replace('" + redirectUrl + "')}, 1000);";
             ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
 
-            // INICIO - Envio de email
-            if (usuarioLogin.tipo_de_usuario == "cliente")
-            {
+            //// INICIO - Envio de email
+            //if (usuarioLogin.tipo_de_usuario == "cliente")
+            //{
+            //    DateTime fechaSolicitud = utilidad_fechas.obtenerCentral();
+            //    string asunto = "Incom.mx, Gracias por tu compra: " + pedidoDatos.nombre_pedido + " " + pedidoDatos.usuario_cliente + " ";
+            //    string mensaje = string.Empty;
+            //    string filePathHTML = "/email_templates/operaciones/pedidos/pedido_cliente.html";
 
-                DateTime fechaSolicitud = utilidad_fechas.obtenerCentral();
-                string asunto = "Incom.mx, Gracias por tu compra: " + pedidoDatos.nombre_pedido + " " + pedidoDatos.usuario_cliente + " ";
-                string mensaje = string.Empty;
-                string filePathHTML = "/email_templates/operaciones/pedidos/pedido_cliente.html";
+            //    DataTable operacionProductos = pedidosProductos.obtenerProductos(resultado);
 
-                DataTable operacionProductos = pedidosProductos.obtenerProductos(resultado);
+            //    string productosEmailHTML = "";
+            //    foreach (DataRow r in operacionProductos.Rows)
+            //    {
+            //        var precio_unitario = "$" + decimal.Parse(r["precio_unitario"].ToString()).ToString("#,#.##", myNumberFormatInfo) + " " + monedaTienda;
+            //        var cantidad = decimal.Round(decimal.Parse(r["cantidad"].ToString()), 2);
+            //        var unidad = r["unidad"].ToString();
 
-                string productosEmailHTML = "";
-                foreach (DataRow r in operacionProductos.Rows)
-                {
-                    var precio_unitario = "$" + decimal.Parse(r["precio_unitario"].ToString()).ToString("#,#.##", myNumberFormatInfo) + " " + monedaTienda;
-                    var cantidad = decimal.Round(decimal.Parse(r["cantidad"].ToString()), 2);
-                    var unidad = r["unidad"].ToString();
+            //        productosEmailHTML += "<strong>" + r["numero_parte"].ToString() + "</strong> - " + r["descripcion"].ToString() + "<br>" +
+            //           "Cantidad: <strong>" + cantidad + " x " + precio_unitario + "</strong><hr><br>";
+            //    }
 
-                    productosEmailHTML += "<strong>" + r["numero_parte"].ToString() + "</strong> - " + r["descripcion"].ToString() + "<br>" +
-                       "Cantidad: <strong>" + cantidad + " x " + precio_unitario + "</strong><hr><br>";
-                }
+            //    Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
 
-                Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
+            //    string dominio = Request.Url.GetLeftPart(UriPartial.Authority);
 
-                string dominio = Request.Url.GetLeftPart(UriPartial.Authority);
+            //    datosDiccRemplazo.Add("{dominio}", dominio);
+            //    datosDiccRemplazo.Add("{tipo_operacion}", "Pedido");
+            //    datosDiccRemplazo.Add("{nombre_cotizacion}", "Pedido");
+            //    datosDiccRemplazo.Add("{usuario_email}", usuarioLogin.email);
+            //    datosDiccRemplazo.Add("{nombre}", pedidoDatos.cliente_nombre);
+            //    datosDiccRemplazo.Add("{numero_operacion}", numero_operacion);
+            //    datosDiccRemplazo.Add("{nombre_operacion}", nombre_pedido);
+            //    datosDiccRemplazo.Add("{url_operacion}", dominio + redirectUrl);
+            //    datosDiccRemplazo.Add("{productos}", productosEmailHTML);
+            //    datosDiccRemplazo.Add("{FechaPedido}", pedidoDatos.fecha_creacion.ToString());
+            //    datosDiccRemplazo.Add("{DireccionEnvio}", strDireccionEnvio);
+            //    datosDiccRemplazo.Add("{DireccionFacturacion}", strDireccionFacturacion);
+            //    datosDiccRemplazo.Add("{InfoDeContacto}", InfoDeContacto);
+            //    datosDiccRemplazo.Add("{UrlDireccionEnvio}", dominio + UrlDireccionEnvio);
+            //    datosDiccRemplazo.Add("{UrlDireccionFacturacion}", dominio + UrlDireccionFacturacion);
+            //    datosDiccRemplazo.Add("{UrlInfoDeContacto}", dominio + UrlInfoDeContacto);
+            //    datosDiccRemplazo.Add("{MontoTotalProductos}", decimal.Parse(MontoTotalProductos.ToString()).ToString("#,#.##", myNumberFormatInfo));
 
-                datosDiccRemplazo.Add("{dominio}", dominio);
-                datosDiccRemplazo.Add("{tipo_operacion}", "Pedido");
-                datosDiccRemplazo.Add("{nombre_cotizacion}", "Pedido");
-                datosDiccRemplazo.Add("{usuario_email}", usuarioLogin.email);
-                datosDiccRemplazo.Add("{nombre}", pedidoDatos.cliente_nombre);
-                datosDiccRemplazo.Add("{numero_operacion}", numero_operacion);
-                datosDiccRemplazo.Add("{nombre_operacion}", nombre_pedido);
-                datosDiccRemplazo.Add("{url_operacion}", dominio + redirectUrl);
-                datosDiccRemplazo.Add("{productos}", productosEmailHTML);
-                datosDiccRemplazo.Add("{FechaPedido}", pedidoDatos.fecha_creacion.ToString());
-                datosDiccRemplazo.Add("{DireccionEnvio}", strDireccionEnvio);
-                datosDiccRemplazo.Add("{DireccionFacturacion}", strDireccionFacturacion);
-                datosDiccRemplazo.Add("{InfoDeContacto}", InfoDeContacto);
-                datosDiccRemplazo.Add("{UrlDireccionEnvio}", dominio + UrlDireccionEnvio);
-                datosDiccRemplazo.Add("{UrlDireccionFacturacion}", dominio + UrlDireccionFacturacion);
-                datosDiccRemplazo.Add("{UrlInfoDeContacto}", dominio + UrlInfoDeContacto);
-                datosDiccRemplazo.Add("{MontoTotalProductos}", decimal.Parse(MontoTotalProductos.ToString()).ToString("#,#.##", myNumberFormatInfo));
+            //    mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
 
-                mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
+            //    //  emailTienda email = new emailTienda(asunto, $"cmiranda@incom.mx, {usuarioLogin.email}", mensaje, "retail@incom.mx");               
 
-                //  emailTienda email = new emailTienda(asunto, $"cmiranda@incom.mx, {usuarioLogin.email}", mensaje, "retail@incom.mx");               
+            //    emailTienda email = new emailTienda(asunto, $"iamado@2rent.mx, ralbert@incom.mx, tpavia@incom.mx, jhernandez@incom.mx, pjuarez@incom.mx, fgarcia@incom.mx, {usuarioLogin.email}", mensaje, "retail@incom.mx");
 
-                emailTienda email = new emailTienda(asunto, $"iamado@2rent.mx, ralbert@incom.mx, tpavia@incom.mx, jhernandez@incom.mx, pjuarez@incom.mx, fgarcia@incom.mx, {usuarioLogin.email}", mensaje, "retail@incom.mx");
+            //    email.general();
 
-                email.general();
+            //    NotiflixJS.Message(this, NotiflixJS.MessageType.info, email.resultadoMensaje);
+            //    //materializeCSS.crear_toast(this, email.resultadoMensaje, email.resultado);
 
-                NotiflixJS.Message(this, NotiflixJS.MessageType.info, email.resultadoMensaje);
-                //materializeCSS.crear_toast(this, email.resultadoMensaje, email.resultado);
-
-                // FIN - Envio de email
-                cargarProductoAsync();
-
-            }
-            else
-            {
-                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se puede crear el pedido. Intentar más tarde.");
-                //    materializeCSS.crear_toast(this, "Error al crear pedido ", false);
-            }
+            //    // FIN - Envio de email
+            //    cargarProductoAsync();
+            //} 
+            //else
+            //{
+            //    NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se puede crear el pedido. Intentar más tarde.");
+            //    //    materializeCSS.crear_toast(this, "Error al crear pedido ", false);
+            //}
         }
     }
     protected void btn_guardarPlantilla_Click(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"   Async="true" CodeFile="ubicacion-y-sucursales.aspx.cs" MasterPageFile="~/general.master" Inherits="aviso_de_privacidad" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Async="true" CodeFile="ubicacion-y-sucursales.aspx.cs" MasterPageFile="~/general.master" Inherits="aviso_de_privacidad" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
     <div class="is-container">
@@ -46,7 +46,7 @@
                 <hr />
                 <div class="is-py-4">
                     <h2 class="is-font-semibold is-m-0">Ubicaciones</h2>
-                    <div class="is-flex is-justify-center is-items-start">
+                    <div class="is-flex is-justify-center is-items-center">
                         <div class="is-w-1_2 is-h-full is-p-8">
                             <img class="responsive-img" src="/img/informacion/fachada_plutarco_contacto.jpg" width="575" height="357" alt="Sucursal ciudad de méxico Incom">
                             <div class="is-flex is-justify-around is-items-center is-py-4">
@@ -58,15 +58,20 @@
                             <p class="is-font-semibold is-text-lg is-m-0 is-p-4">INCOM Ciudad de México</p>
                             <div class="is-w-full">
                                 <p class="is-m-0">Av. Presidente Plutarco Elías Calles 276, Col. Tlazintla, Iztacalco, C.P. 08710, Ciudad de México.</p>
-                                <p class="is-font-semibold is-m-0 is-py-2">Teléfonos: </p>
-                                <strong>CDMX y área metropolitana: </strong>
+                                <p class="is-font-semibold is-m-0 is-py-2">Atención a clientes: </p>
+                                <strong>Teléfonos: </strong>
                                 <div>
-                                    <p class="is-m-0 is-p-0">Atención a clientes: <a href="tel:5552436902">(55) 5243-6902</a></p>
-                                    <p class="is-m-0 is-p-0">Administración y operaciones: <a href="tel:5552436902">(55) 5243-6902</a></p>
-                                    <p class="is-m-0 is-p-0">Atención a proveedores: <a href="tel:5552437200">(55) 5243-7200</a> y <a href="tel:5552437201">(55) 5243-7201</a></p>
+                                    <p class="is-m-0 is-p-0">CDMX y área metropolitana: <a href="tel:5552436900">(55) 5243-6900</a> y <a href="tel:5552436902">(55) 5243-6902</a></p>
+                                    <p class="is-m-0 is-p-0">Del interior sin costo: <a href="tel:8004626600">(800) 46266-00</a></p>
                                 </div>
-                                <strong>Del interior sin costo: </strong>
-                                <p class="is-m-0 is-p-0">Atención a clientes: <a href="tel:8004626600">(800) 46266-00</a></p>
+                                <p class="is-font-semibold is-m-0 is-py-2">Atención a proveedores: </p>
+                                <strong>Teléfonos: </strong>
+                                <div>
+                                    <p class="is-m-0 is-p-0"><a href="tel:5552437200">(55) 5243-7200</a> y <a href="tel:5552437201">(55) 5243-7201</a></p>
+                                </div>
+                                <p class="is-font-semibold is-m-0 is-py-2">Horarios de atención: </p>
+                                <p class="is-m-0">Lunes a jueves de 8:00 a 19:00 hrs.</p>
+                                <p class="is-m-0">Viernes de 8:00 a 17:00 hrs.</p>
                             </div>
                         </div>
                     </div>
@@ -82,15 +87,13 @@
                             <p class="is-font-semibold is-text-lg is-m-0 is-p-4">Planta Polymerico</p>
                             <div class="is-w-full">
                                 <p class="is-m-0">KM 99.5 carretera México Querétaro.</p>
-                                <p class="is-font-semibold is-m-0">Teléfono: </p>
-                                <p class="is-m-0 is-p-0">Atención a clientes: <a href="tel:5559534428">(55) 5953-4428</a></p>
-<%--                                <p class="is-font-semibold is-m-0">Correo: </p>
+                                <p class="is-font-semibold is-m-0">Atención a clientes: </p>
+                                <p class="is-m-0 is-p-0">Móvil: <a href="tel:5559534428">(55) 5953-4428</a></p>
+                                <%--                                <p class="is-font-semibold is-m-0">Correo: </p>
                                 <p class="is-m-0 is-p-0"><a href="mailto:mmartinez@polymeric.mx">mmartinez@polymeric.mx</a></p>--%>
-                                <strong>Horarios de atención: </strong>
-                                <div>
-                                    <p class="is-m-0 is-p-0">Lunes a jueves de 7:00 a 17:00 hrs.</p>
-                                    <p class="is-m-0 is-p-0">Viernes de 7:00 a 15:00 hrs.</p>
-                                </div>
+                                <p class="is-font-semibold is-m-0 is-py-2">Horarios de atención: </p>
+                                <p class="is-m-0">Lunes a jueves de 7:00 a 17:00 hrs.</p>
+                                <p class="is-m-0">Viernes de 7:00 a 15:00 hrs.</p>
                             </div>
                         </div>
                     </div>

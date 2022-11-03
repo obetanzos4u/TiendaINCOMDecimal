@@ -13,35 +13,26 @@ public class SantanderLigaCobro
 {
     private string id_companySANDBOX = "SNBX";
     private string id_branchSANDBOX = "01SNBXBRNCH";
-   
     private string userSANDBOX = "SNBXUSR01";
     private string pwdSANDBOX = "SECRETO";
-
     private string KeyCifradoSANDBOX = "5DCC67393750523CD165F17E1EFADD21";
     private string data0SANDBOX = "SNDBX123";
-    public string UrlSANDBOX = "https://wppsandbox.mit.com.mx/";
+    //public string UrlSANDBOX = "https://wppsandbox.mit.com.mx/";
+    public string UrlSANDBOX = "https://sandbox.mit.com.mx/";
     private readonly string _ResourceSANDBOX = "gen";
 
     /***     Productivo MXN // AFILIACION - 8487094 MXN  ***/
     private string id_companyPRODUCTIVO = "01HA";
-
-
     private string id_branchPRODUCTIVO_MXN = "0001";
     private string userPRODUCTIVO_MXN = "01HASIUS0";
     private string pwdPRODUCTIVO_MXN = "B8VUH3SM36";
-
 
     /***     Productivo USD // AFILIACION - 8487094 MXN  ***/
     private string id_branchPRODUCTIVO_USD = "0003";
     private string userPRODUCTIVO_USD = "01HASIUS1";
     private string pwdPRODUCTIVO_USD = "ZHY8EVPKXI";
-
-
-
     private string KeyCifradoPRODUCTIVO = "72CD51410E8BF2930432D71F93431323";
     private string data0PRODUCTIVO = "9265655591";
-
-
     public string UrlPRODUCTIVO = "https://bc.mitec.com.mx/";
     private readonly string _ResourcePRODUCTIVO = "p/gen";
     private string cadenaXML { get; set; }
@@ -56,11 +47,9 @@ public class SantanderLigaCobro
 
         string host = HttpContext.Current.Request.Url.Host;
 
-      if (host == "localhost" || host == "test1.incom.mx")
+        if (host == "localhost" || host == "test1.incom.mx")
         //   if(true)
         {
-
-
             id_company = id_companySANDBOX;
             id_branch = id_branchSANDBOX;
             user = userSANDBOX;
@@ -83,8 +72,8 @@ public class SantanderLigaCobro
                 user = userPRODUCTIVO_USD;
                 pwd = pwdPRODUCTIVO_USD;
             }
-           
-           
+
+
         }
         cadenaXML = $@"
                             <P>
@@ -118,15 +107,16 @@ public class SantanderLigaCobro
         <idc>{Data3ds.idc}</idc>
       </data3ds>*/
 
-      //  devNotificaciones.notificacionSimple(cadenaXML);
+        //  devNotificaciones.notificacionSimple(cadenaXML);
     }
 
-    public async Task GenerarLigaAsync() {
+    public async Task GenerarLigaAsync()
+    {
 
         string data0 = "";
         string key = "";
-       
-       string host = HttpContext.Current.Request.Url.Host;
+
+        string host = HttpContext.Current.Request.Url.Host;
 
 
         var client = new RestClient();
@@ -139,26 +129,27 @@ public class SantanderLigaCobro
 
             key = KeyCifradoSANDBOX;
             data0 = data0SANDBOX;
- 
+
             client = new RestClient(UrlSANDBOX);
-            request= new RestRequest(_ResourceSANDBOX, Method.POST);
-        } 
-        else { 
+            request = new RestRequest(_ResourceSANDBOX, Method.POST);
+        }
+        else
+        {
             key = KeyCifradoPRODUCTIVO;
             data0 = data0PRODUCTIVO;
-            
+
             client = new RestClient(UrlPRODUCTIVO);
             request = new RestRequest(_ResourcePRODUCTIVO, Method.POST);
         }
 
 
- 
+
         string encryptedString = AESCrypto.encrypt(cadenaXML, key);
 
 
-       
 
-   
+
+
         request.AddHeader("cache-control", "no-cache");
         request.AddHeader("content-type", "application/x-www-form-urlencoded");
         request.AddParameter("xml", $"<pgs><data0>{data0}</data0><data>{encryptedString}</data></pgs>");
@@ -170,7 +161,7 @@ public class SantanderLigaCobro
 
         string decryptedString = AESCrypto.decrypt(key, content);
 
-     
+
         /*
             <P_RESPONSE>
             <cd_response>success</cd_response>
@@ -180,33 +171,35 @@ public class SantanderLigaCobro
          */
 
 
-        if (string.IsNullOrWhiteSpace( decryptedString)) URL = null;
-        else {
+        if (string.IsNullOrWhiteSpace(decryptedString)) URL = null;
+        else
+        {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(decryptedString);
 
-           
+
             XmlNodeList nb_response = xmlDoc.GetElementsByTagName("nb_response");
 
             string str_nb_response = nb_response[0].InnerXml;
 
             // La petición fue procesada correctamente si response es vacía.
-            if (!string.IsNullOrEmpty(str_nb_response)) {
+            if (!string.IsNullOrEmpty(str_nb_response))
+            {
                 throw new Exception(str_nb_response);
 
-                
+
             }
-            else {
+            else
+            {
                 XmlNodeList nb_url = xmlDoc.GetElementsByTagName("nb_url");
                 URL = nb_url[0].InnerXml;
 
-              
+
             }
-      
+
         }
 
 
 
     }
 }
- 

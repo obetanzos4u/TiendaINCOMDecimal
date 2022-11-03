@@ -24,7 +24,7 @@
 </asp:UpdatePanel>
 <asp:UpdatePanel ID="up_btn_add_carrito" style="display: inline;" runat="server">
     <ContentTemplate>
-        <asp:LinkButton ID="btn_agregar_productoCarrito" ClientIDMode="Static" OnClientClick="btnLoading(this);" runat="server"
+        <asp:LinkButton ID="btn_agregar_productoCarrito" ClientIDMode="Static" runat="server"
             class="agregar_carrito waves-effect-1 waves-light btn" OnClick="btn_agregar_productoCarrito_Click" style="background: #108A00 !important; border-radius: 6px; text-transform: none; font-weight: 600;">
             Agregar al carrito
         </asp:LinkButton>

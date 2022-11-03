@@ -3,6 +3,7 @@
 <%@ Register Src="~/usuario/cliente/cliente-header.ascx" TagPrefix="hdr" TagName="menu" %>
 <%@ Register TagPrefix="uc" TagName="ddlAsignarUsuarioAsesor" Src="~/userControls/operaciones/PedidosUsuarioSeguimientoUC.ascx" %>
 <%@ Register TagPrefix="uc" TagName="EdicionDetallesDeEnvioPedido" Src="~/userControls/operaciones/EditarCostoDeEnvioPedido.ascx" %>
+<%@ Register TagPrefix="uc" TagName="progreso" Src="~/userControls/uc_progresoCompra.ascx" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="head">
     <!-- Event snippet for Inclusión en el carrito conversion page -->
@@ -13,6 +14,7 @@
     <asp:HiddenField ID="hf_id_pedido" runat="server" />
     <asp:HiddenField ID="hf_pedido_tipo_envio" runat="server" />
     <asp:HiddenField ID="hf_id_pedido_direccion_envio" runat="server" />
+    <uc:progreso runat="server"></uc:progreso>
     <div class="is-container is-px-4">
         <div class="is-py-2">
             <h2 class="is-text-xl is-font-bold is-select-none">Resumen de pedido<asp:Literal ID="lt_nombre_operacion" runat="server" Visible="false"></asp:Literal></h2>
@@ -39,9 +41,9 @@
                         <div class="is-px-8 is-py-2">
                             <h6 id="contacto_title" class="" runat="server"></h6>
                             <p id="contacto_desc" class="" runat="server"></p>
-                             <asp:HyperLink runat="server" ID="link_cambiar_contacto" style="text-decoration: none;">
+                            <asp:HyperLink runat="server" ID="link_cambiar_contacto" Style="text-decoration: none;">
                                Editar quien recibe
-                            </asp:HyperLink> 
+                            </asp:HyperLink>
                         </div>
                     </div>
                 </div>
@@ -138,24 +140,26 @@
 
                 </div>
                 <asp:Panel ID="Pago_Pendiente" Visible="false" CssClass="mt-4 col col-12 col-xs-12 col-sm-12 col-md-12 col-xl-12" runat="server">
-                <div class="is-flex">
-                    <figure>
-                        <figcaption style="float: left; width: fit-content;">Paga de manera segura por alguno de nuestros medios.</figcaption>
-                        <br>
-                        <img src="/img/webUI/newdesign/Formas_pago.png" alt="Imagen únicamente ilustrativa de Visa, Mastercard, American Express y Paypal" title="Métodos de pago aceptados" style="width: 250px; float: left;">
-                        <img src="/img/webUI/newdesign/mercado-pago.png" alt="Imagen únicamente ilustrativa de Mercado Pago" title="Métodos de pago aceptados" style="width: 54px; float: left;">
-                        <img src="/img/webUI/newdesign/transferencia.png" alt="Imagen únicamente ilustrativa de Transferencia bancaria" title="Métodos de pago aceptados" style="width: 75px; float: left; padding-top: 10px;">   
-                    </figure>
-                </div>
-                <div style="float: left; width: fit-content;">
-                    <p>Elige el método de pago:</p> 
-                    <asp:HyperLink ID="link_pago_santander" class="" runat="server"><div class="is-btn-gray">Tarjeta crédito/débito</div></asp:HyperLink>
-                    <asp:HyperLink ID="link_pago_paypal" class="is-text-white is-decoration-none" runat="server"><div class="is-btn-gray"><p id="text-paypal" style="color: white;">PayPal</p></div></asp:HyperLink>
-                    <a data-bs-toggle="modal" data-bs-target="#modal_deposito_trans"><div class="is-btn-gray">Transferencia o depósito</div></a>          
-                    <div class="alert alert-warning mt-4" role="alert">
-                        <strong>Aviso</strong>  No sé ha confirmado un pago aún.
+                    <div class="is-flex">
+                        <figure>
+                            <figcaption style="float: left; width: fit-content;">Paga de manera segura por alguno de nuestros medios.</figcaption>
+                            <br>
+                            <img src="/img/webUI/newdesign/Formas_pago.png" alt="Imagen únicamente ilustrativa de Visa, Mastercard, American Express y Paypal" title="Métodos de pago aceptados" style="width: 250px; float: left;">
+                            <img src="/img/webUI/newdesign/mercado-pago.png" alt="Imagen únicamente ilustrativa de Mercado Pago" title="Métodos de pago aceptados" style="width: 54px; float: left;">
+                            <img src="/img/webUI/newdesign/transferencia.png" alt="Imagen únicamente ilustrativa de Transferencia bancaria" title="Métodos de pago aceptados" style="width: 75px; float: left; padding-top: 10px;">
+                        </figure>
                     </div>
-                </div>
+                    <div style="float: left; width: fit-content;">
+                        <p>Elige el método de pago:</p>
+                        <asp:HyperLink ID="link_pago_santander" class="" runat="server"><div class="is-btn-gray">Tarjeta crédito/débito</div></asp:HyperLink>
+                        <asp:HyperLink ID="link_pago_paypal" class="is-text-white is-decoration-none" runat="server"><div class="is-btn-gray"><p id="text-paypal" style="color: white;">PayPal</p></div></asp:HyperLink>
+                        <a data-bs-toggle="modal" data-bs-target="#modal_deposito_trans">
+                            <div class="is-btn-gray">Transferencia o depósito</div>
+                        </a>
+                        <div class="alert alert-warning mt-4" role="alert">
+                            <strong>Aviso</strong>  No sé ha confirmado un pago aún.
+                        </div>
+                    </div>
                 </asp:Panel>
                 <asp:Panel ID="Pago_Confirmado" Visible="false" CssClass="mt-4 col col-12 col-xs-12 col-sm-12 col-md-12 col-xl-12" runat="server">
                     <p class="h5">
@@ -176,34 +180,36 @@
                             </ul>
                         </div>
                     </LayoutTemplate>
-                        <ItemTemplate>
-                            <li class="list-group-item d-flex lh-sm">
-                                <asp:Image ID="img_producto" class="img-fluid" Style="width: 100px;" runat="server" />
-                                <div style="justify-content: space-between; display: flex; width: 100%; margin: 1rem">
-                                    <div>
-                                        <h6 class="my-0"><%#Eval("productos.numero_parte") %></h6>
-                                        <small class="text-muted"><%#Eval("productos.descripcion") %>
-                                            <br />
-                                            <asp:Literal ID="lt_cantidad" Text='<%#Eval("productos.cantidad") %>' runat="server"> </asp:Literal>
-                                            pza
+                    <ItemTemplate>
+                        <li class="list-group-item d-flex lh-sm">
+                            <asp:Image ID="img_producto" class="img-fluid" Style="width: 100px;" runat="server" />
+                            <div style="justify-content: space-between; display: flex; width: 100%; margin: 1rem">
+                                <div>
+                                    <h6 class="my-0"><%#Eval("productos.numero_parte") %></h6>
+                                    <small class="text-muted"><%#Eval("productos.descripcion") %>
+                                        <br />
+                                        <asp:Literal ID="lt_cantidad" Text='<%#Eval("productos.cantidad") %>' runat="server"> </asp:Literal>
+                                        pza
                                                 x
                                             <asp:Literal ID="lt_precio_unitario" Text=' <%#Eval("productos.precio_unitario") %>' runat="server"></asp:Literal>
-                                        </small>
-                                    </div>
-                                    <span class="text-muted" style="float: right;">
-                                        <strong>
-                                            <asp:Literal ID="lt_precio_total" Text='<%#Eval("productos.precio_total") %>' runat="server"></asp:Literal>
-                                        </strong>
-                                    </span>   
+                                    </small>
                                 </div>
-                            </li>
-                        </ItemTemplate>
-                        <EmptyDataTemplate>
-                            No hay productos
-                        </EmptyDataTemplate>
+                                <span class="text-muted" style="float: right;">
+                                    <strong>
+                                        <asp:Literal ID="lt_precio_total" Text='<%#Eval("productos.precio_total") %>' runat="server"></asp:Literal>
+                                    </strong>
+                                </span>
+                            </div>
+                        </li>
+                    </ItemTemplate>
+                    <EmptyDataTemplate>
+                        <div class="is-flex is-justify-center is-items-center">
+                            <p>No hay productos</p>
+                        </div>
+                    </EmptyDataTemplate>
                 </asp:ListView>
                 <div style="padding: 1rem; border: 1px solid #2333; border-radius: 8px;">
-                    <table class="table table-sm" >
+                    <table class="table table-sm">
                         <thead>
                             <tr>
                                 <th scope="col">Total del pedido</th>
@@ -246,11 +252,13 @@
 
                 </div>
 
-                <div class="row is-top-2">
+                <div class="row is-top-2" style="border: 2px solid red">
+                    <div class="is-m-auto is-w-auto">
+                        <asp:HyperLink runat="server" ID="btn_continuarMetodoPago" class="is-decoration-none">Continuar a método de pago</asp:HyperLink>
+                    </div>
                     <div class="is-m-auto is-w-auto">
                         <div id="content_msg_cancelar_pedido"></div>
-                            <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
-                        class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
+                        <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido" class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
                     </div>
                 </div>
             </div>
@@ -412,14 +420,12 @@
 
 
     <style>
-
-    .wrapp-product_list {
-        margin-top: 0.5rem;
-        height: 32px;
-        padding-left: 2rem;
-        display: flex;
-        align-items: center;
-    }
-
+        .wrapp-product_list {
+            margin-top: 0.5rem;
+            height: 32px;
+            padding-left: 2rem;
+            display: flex;
+            align-items: center;
+        }
     </style>
 </asp:Content>

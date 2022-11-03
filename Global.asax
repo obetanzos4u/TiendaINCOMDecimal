@@ -1,8 +1,11 @@
 ﻿<%@ Application Language="C#" CodeBehind="Global.asax.cs" %>
+
 <%@ Import Namespace="System.Web.Routing" %>
 <%@ Import Namespace="System.Web.Http" %>
 <%@ Import Namespace="System.Security.Principal" %>
+
 <script RunAt="server">
+
     protected void Application_AuthenticateRequest(Object sender, EventArgs e)
     {
 
@@ -15,15 +18,11 @@
 
         // Get the authentication ticket and rebuild the principal 
         // & identity
-        FormsAuthenticationTicket authTicket =
-          FormsAuthentication.Decrypt(authCookie.Value);
+        FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
         string[] roles = authTicket.UserData.Split(new Char[] { ',' });
 
-
-        GenericIdentity userIdentity =
-          new GenericIdentity(authTicket.Name);
-        GenericPrincipal userPrincipal =
-          new GenericPrincipal(userIdentity, roles);
+        GenericIdentity userIdentity = new GenericIdentity(authTicket.Name);
+        GenericPrincipal userPrincipal = new GenericPrincipal(userIdentity, roles);
         Context.User = userPrincipal;
     }
 
@@ -32,13 +31,9 @@
         // Código que se ejecuta al iniciarse la aplicación
         DefinirRutas();
 
-
-
-
         GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/plain"));
         GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream"));
         GlobalConfiguration.Configuration.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/plain"));
-
 
         // 20200619 CM -  WebAPI
         RouteTable.Routes.MapHttpRoute(
@@ -49,17 +44,12 @@
         // 20200619 CM - WebAPI remueve las respuestas XML por JSON
         GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
 
-
-
         //Evito las referencias circulares al trabajar con Entity FrameWork         
         GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
         GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
 
         //Elimino que el sistema devuelva en XML, sólo trabajaremos con JSON
         GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
-
-
-
     }
 
     void Application_End(object sender, EventArgs e)
@@ -70,10 +60,9 @@
 
     void Application_Error(object sender, EventArgs e)
     {
-        // Código que se ejecuta cuando se produce un error sin procesar
+        // Código que se ejecuta cuando se produce un error no controlado
         Exception ex = Server.GetLastError();
         //   devNotificaciones.ErrorSQL("Obtener Productos visitados", ex,"");
-
     }
 
     void Session_Start(object sender, EventArgs e)
@@ -122,7 +111,7 @@
         RouteTable.Routes.MapPageRoute("cliente-pedido-datos", "usuario/cliente/mi-cuenta/pedidos/datos/{id_operacion}", "~/usuario/cliente/pedido-datos.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-envio", "usuario/cliente/mi-cuenta/pedidos/envio/{id_operacion}", "~/usuario/cliente/pedido-envio.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-facturacion", "usuario/cliente/mi-cuenta/pedidos/facturacion/{id_operacion}", "~/usuario/cliente/pedido-facturacion.aspx");
-        RouteTable.Routes.MapPageRoute("cliente-pedido-pago", "usuario/cliente/mi-cuenta/pedidos/pago/{id_operacion}", "~/usuario/cliente/pedido-pago.aspx");
+        RouteTable.Routes.MapPageRoute("cliente-pedido-pago", "usuario/cliente/mi-cuenta/pedidos/pago/{id_operacion}", "~/usuario/cliente/pago.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-pago-santander", "usuario/cliente/mi-cuenta/pedidos/pago/santander/{id_operacion}", "~/usuario/cliente/pago-santander.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-pago-paypal", "usuario/cliente/mi-cuenta/pedidos/pago/paypal/{id_operacion}", "~/usuario/cliente/pago-paypal.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-resumen", "usuario/cliente/mi-cuenta/pedidos/resumen/{id_operacion}", "~/usuario/cliente/resumen.aspx");
@@ -130,4 +119,5 @@
         RouteTable.Routes.MapPageRoute("cliente-editar-contacto", "usuario/cliente/editar/contacto/{id_contacto}", "~/usuario/cliente/editar-contacto.aspx");
         RouteTable.Routes.MapPageRoute("cliente-editar-direccion-facturacion", "usuario/cliente/editar/facturacion/{id_direccion}", "~/usuario/cliente/editar-direccion-facturacion.aspx");
     }
+
 </script>

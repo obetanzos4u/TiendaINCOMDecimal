@@ -9,7 +9,7 @@
         <div style="width: 100%; height: 100vh; background-color: red"></div>
     </div>
     <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="is-container" Visible="false" runat="server">
-        <ContentTemplate>   
+        <ContentTemplate>
             <div class="mi-carrito-contain">
                 <div class="col l8 xl8 mi-carrito-list">
                     <div style="display: flex; justify-content: center; align-items: center">
@@ -183,14 +183,14 @@
                     </div>
                 </div>--%>
                 <div id="btn_continuarCompra" class="mi-carrito-boton-compra is-flex is-flex-col is-justify-center is-items-center" runat="server">
-                    <asp:LinkButton ID="LinkButton1" ClientIDMode="Static" OnClick="btn_comprar_Click" OnClientClick="btnLoading(this);" CssClass="is-text-white" runat="server">
-                                    <div class="is-btn-green">Continuar con la compra</div>
+                    <asp:LinkButton ID="btn_comprar" ClientIDMode="Static" OnClick="btn_comprar_Click" CssClass="is-text-white" runat="server">
+                        <div class="is-btn-green">Continuar con la compra</div>
                     </asp:LinkButton>
                     <!-- <a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a> -->
                     <!-- <a href="#">Descargar cotización</a> -->
                 </div>
                 <div id="lbl_consideraciones" visible="true" class="mi-carrito-consideraciones-lg" runat="server">
-                    <span>Consideraciones:</span>
+                    <span class="is-font-semibold">Consideraciones:</span>
                     <div class="is-text-justify">
                         <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
                         <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
@@ -261,7 +261,7 @@
 
 
     <!--- INICIO Modal Pedido --->
-    <div id="modalPedido" class="modal">
+    <%--    <div id="modalPedido" class="modal">
         <div class="modal-content">
             <h3>Nombre de tu pedido</h3>
             <p id="ContentAlertCrearPedido" runat="server">
@@ -295,7 +295,7 @@
         <div class="modal-footer">
             <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Cancelar</a>
         </div>
-    </div>
+    </div>--%>
 
     <!--- FIN Modal Pedido --->
     <script> document.addEventListener("DOMContentLoaded", function (event) {

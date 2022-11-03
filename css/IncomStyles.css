@@ -651,6 +651,10 @@ body {
     width: 1.5rem;
 }
 
+.is-w-12 {
+    width: 3rem;
+}
+
 .is-w-auto {
     width: auto;
 }
@@ -717,6 +721,10 @@ body {
 
 .is-h-8 {
     height: 2rem;
+}
+
+.is-h-12 {
+    height: 3rem;
 }
 
 .is-h-full {

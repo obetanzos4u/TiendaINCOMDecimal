@@ -183,7 +183,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             if (disponibleEnvio == "1")
             {
                 lbl_envioIncluido.Visible = true;
-                lbl_envioIncluido.InnerText = "Envío gratis";
+                lbl_envioIncluido.InnerHtml = "Envío gratis";
             }
 
             lt_numero_parte.Text = numero_parte;

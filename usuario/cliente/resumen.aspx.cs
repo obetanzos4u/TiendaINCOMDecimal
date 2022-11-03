@@ -199,15 +199,15 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             {
                 hf_id_pedido_direccion_envio.Value = direccionEnvio.idDireccionEnvio.ToString();
                 metodo_envio_desc.InnerHtml = $"<p class='is-select-all is-m-0 is-text-justify'>{direccionEnvio.calle} {direccionEnvio.numero}, {direccionEnvio.colonia}, {direccionEnvio.codigo_postal} {direccionEnvio.delegacion_municipio}, {direccionEnvio.estado}.</p><p class='is-m-0'>Referencias: {direccionEnvio.referencias}</p>";
-              //  metodo_envio_desc.InnerHtml = $"" +
-              // $"<span class='text-secondary'>Calle:</span> {direccionEnvio.calle} " +
-              // $"<span class='text-secondary'>Número:</span>  {direccionEnvio.numero} " +
-              // $"<span class='text-secondary'>Colonia:</span> {direccionEnvio.colonia}, " +
-              // $"<span class='text-secondary'>C.P.</span>  {direccionEnvio.codigo_postal}, " +
-              // $"<span class='text-secondary'>Municipio: </span>{direccionEnvio.delegacion_municipio}, " +
-              // $"<span class='text-secondary'>Estado:</span> {direccionEnvio.estado}," +
-              // $" {direccionEnvio.pais} " +
-              //$"<br><span class='text-secondary'>Referencias:</span> {direccionEnvio.referencias} ";
+                //  metodo_envio_desc.InnerHtml = $"" +
+                // $"<span class='text-secondary'>Calle:</span> {direccionEnvio.calle} " +
+                // $"<span class='text-secondary'>Número:</span>  {direccionEnvio.numero} " +
+                // $"<span class='text-secondary'>Colonia:</span> {direccionEnvio.colonia}, " +
+                // $"<span class='text-secondary'>C.P.</span>  {direccionEnvio.codigo_postal}, " +
+                // $"<span class='text-secondary'>Municipio: </span>{direccionEnvio.delegacion_municipio}, " +
+                // $"<span class='text-secondary'>Estado:</span> {direccionEnvio.estado}," +
+                // $" {direccionEnvio.pais} " +
+                //$"<br><span class='text-secondary'>Referencias:</span> {direccionEnvio.referencias} ";
             }
         }
         else
@@ -289,26 +289,35 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
     }
     protected void EstablecerNavegacion()
     {
+        btn_cambiar_metodo_envio.NavigateUrl = GetRouteUrl("cliente-pedido-envio", new System.Web.Routing.RouteValueDictionary 
+        {
+            { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
+        });
 
-        btn_cambiar_metodo_envio.NavigateUrl = GetRouteUrl("cliente-pedido-envio", new System.Web.Routing.RouteValueDictionary {
-                          { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
-                      });
+        link_cambiar_contacto.NavigateUrl = GetRouteUrl("cliente-pedido-datos", new System.Web.Routing.RouteValueDictionary 
+        {
+            { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
+        });
 
-        link_cambiar_contacto.NavigateUrl = GetRouteUrl("cliente-pedido-datos", new System.Web.Routing.RouteValueDictionary {
-                          { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
-                      });
+        link_cambiar_direcc_facturacion.NavigateUrl = GetRouteUrl("cliente-pedido-facturacion", new System.Web.Routing.RouteValueDictionary 
+        {
+            { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
+        });
 
-        link_cambiar_direcc_facturacion.NavigateUrl = GetRouteUrl("cliente-pedido-facturacion", new System.Web.Routing.RouteValueDictionary {
-                          { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
-                      });
+        link_pago_santander.NavigateUrl = GetRouteUrl("cliente-pedido-pago-santander", new System.Web.Routing.RouteValueDictionary 
+        {
+            { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
+        });
 
+        link_pago_paypal.NavigateUrl = GetRouteUrl("cliente-pedido-pago-paypal", new System.Web.Routing.RouteValueDictionary
+        {
+            { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
+        });
 
-        link_pago_santander.NavigateUrl = GetRouteUrl("cliente-pedido-pago-santander", new System.Web.Routing.RouteValueDictionary {
-                          { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
-                      });
-        link_pago_paypal.NavigateUrl = GetRouteUrl("cliente-pedido-pago-paypal", new System.Web.Routing.RouteValueDictionary {
-                          { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
-                      });
+        btn_continuarMetodoPago.NavigateUrl = GetRouteUrl("cliente-pedido-pago", new System.Web.Routing.RouteValueDictionary
+        {
+            { "id_operacion", seguridad.Encriptar(hf_id_pedido.Value) }
+        });
     }
 
 

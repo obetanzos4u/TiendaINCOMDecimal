@@ -15,13 +15,13 @@
             <a href="#" onclick="event.preventDefault(); calculoTxtCarrito('suma', '<%=txt_cantidadCarrito.ClientID %>'); " class="btn-cantidad-carrito  btn-small  btn-small-s blue-grey darken-1"><i class="material-icons">add</i></a>
         </div> -->
         <%-- OnClientClick="btnLoading(this);" --%>
-        <asp:LinkButton ID="btn_agregar_productoCarrito" OnClientClick="NotiflixLoading();" runat="server"
+        <asp:LinkButton ID="btn_agregar_productoCarrito" runat="server"
             class="waves-effect waves-light is-btn-green btn-full-text is-m-auto" OnClick="btn_agregar_productoCarrito_Click">
             <img class="carrito-white_btn" alt="Botón para añadir a carrito" src="https://www.incom.mx/img/webUI/newdesign/Carrito-white.svg">
             Agregar al carrito
         </asp:LinkButton>
         <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" style="color: #ffffff!important;" class="waves-effect waves-light is-btn-green  btn-full-text is-m-auto">
-            <img class="carrito-white_btn" alt="Botón para añadir a carrito" src="https://www.incom.mx/img/webUI/newdesign/Carrito-white.svg"> 
+            <img class="carrito-white_btn" alt="Botón para añadir a carrito" src="https://www.incom.mx/img/webUI/newdesign/Carrito-white.svg">
             Agregar al carrito
         </a>
     </ContentTemplate>
@@ -44,4 +44,3 @@
         .keyup(resizeInput)
         .each(resizeInput);
 </script>
-
