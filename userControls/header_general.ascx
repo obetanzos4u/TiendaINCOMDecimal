@@ -680,7 +680,7 @@
 
     .content_tipoDeCambio {
         width: 12rem;
-        padding-top: 8px;
+        padding-top: 10px;
         padding-left: 1rem;
         border-left: 1px solid #787878;
     }
@@ -839,7 +839,6 @@
 
         .btn-mi-carrito {
             width: 2rem;
-            margin-top: 0.25rem;
         }
     }
 
@@ -948,6 +947,10 @@
 
         .carrito_productos_movil {
             margin-right: 1rem;
+        }
+
+        .categorias_container {
+            margin-left: 20px;
         }
     }
 
