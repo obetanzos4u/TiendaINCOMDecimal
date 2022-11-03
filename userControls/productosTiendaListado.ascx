@@ -20,7 +20,7 @@
             margin: auto 0px !important;
             display: grid;
             grid-gap: 5px;
-            grid-template-columns: 170px auto;
+            grid-template-columns: 160px auto;
             grid-template-areas: 'sidebar content';
         }
 
@@ -214,7 +214,7 @@
                                         <asp:Literal ID="lt_numero_parte" Text='<%# Eval("numero_parte") %>' Visible="false" runat="server"></asp:Literal>
                                     </h2>
                                     <p class="space-marca" style="line-height: 20px; text-align: center;">
-                                        <%--<asp:Label runat="server" Visible="false" ID="lbl_envioGratuito" class="is-text-xsm is-bg-green-500 is-text-white is-font-semibold is-block is-w-full"></asp:Label>--%>
+<%--                                        <asp:Label runat="server" Visible="false" ID="lbl_envioGratuito" class="is-text-xsm is-bg-green-500 is-text-white is-font-semibold is-block is-w-full"></asp:Label>--%>
                                         <asp:Literal ID="lt_descripcion_corta" Visible="false" runat="server"></asp:Literal>
                                         <p class="is-text-xs is-m-0">Marca: </p>
                                         <asp:Label ID="lbl_marca" class="tooltipped is-text-xs" runat="server" Text=""></asp:Label>

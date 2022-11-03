@@ -18,7 +18,7 @@
                             <i class="material-icons">save</i>
                         </asp:LinkButton>--%>
                     </div>
-                    <div class="is-w-full">
+                    <div class="is-w-full wrapp-mi_carrito">
                         <asp:ListView ID="lv_productosCarritos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                             <LayoutTemplate>
                                 <div class="is-w-full overflow-productos" style="overflow-y: auto;">
@@ -64,7 +64,7 @@
                                                     <asp:AsyncPostBackTrigger ControlID="txt_cantidadCarrito" EventName="TextChanged" />
                                                 </Triggers>
                                             </asp:UpdatePanel>
-                                            <asp:Label ID="lbl_precio_total" runat="server"></asp:Label>
+                                            <asp:Label ID="lbl_precio_total" class="text-subtotal_producto" runat="server"></asp:Label>
                                         </div>
                                         <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
                                     </td>
@@ -94,10 +94,13 @@
                             </ItemTemplate>
                             <EmptyDataTemplate>
                                 <div class="center-carrito_vacio">
-                                    <h2 class="center-align">Aún no tienes artículos en tu carrito.</h2>
-                                    <h3 class="is-text-center">¡Navega entre más de 2,000 productos!</h3>
-                                    <img src="https://www.incom.mx/img/webUI/newdesign/carrito-vacio.svg" style="width: 15vw; margin: auto; display: block; padding-left: 2rem; margin-bottom: 3rem;">
-                                    <a class="is-btn-blue center-btn-carrito_vacio" style="text-align: center; justify-content: center; justify-items: center; margin: auto; display: table;" href="/productos">Descubrir ofertas</a>
+                                    <h2>Aún no tienes artículos en tu carrito.</h2>
+                                    <h3>¡Navega entre más de 2,000 productos!</h3>
+                                    <img class="icon-carrito_vacio" alt="Imagen de un carrito de compras vacio" title="Carrito de compras vacio" src="https://www.incom.mx/img/webUI/newdesign/carrito-vacio.svg">
+                                    <div class="center-btn-carrito_vacio">
+                                        <a class="is-btn-blue btn-carrito_vacio is-m-auto" href="/productos">Descubrir ofertas</a>
+                                    </div>
+                                    
                                 </div>
                             </EmptyDataTemplate>
                         </asp:ListView>
@@ -122,7 +125,7 @@
                         <i>Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</i>
                     </div>--%>
                 </div>
-                <div id="moreArrow" visible="false" style="float: left; margin-right: 2rem;" runat="server">
+                <div id="moreArrow" visible="false" style="float: left; margin-right: 1rem;" runat="server">
                     <div class="arrow-doble-down is-text-blue is-flex" style="width: fit-content;">
                         <svg xmlns="http://www.w3.org/2000/svg" id="svg-arrow-down" width="288" height="288" viewBox="0 0 24 24">
                             <path class="arrow" fill="#2d6cdf" d="M12 12a1 1 0 0 1-.71-.29l-4-4A1 1 0 0 1 8.71 6.29L12 9.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 12zM12 18a1 1 0 0 1-.71-.29l-4-4a1 1 0 0 1 1.41-1.41L12 15.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 18z" class="color000 svgShape" />
@@ -136,7 +139,7 @@
                         <p class="is-select-none">Moneda:</p>
                         <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
                     </div>
-                    <div style="text-align: left; padding: 1rem;" class="is-border-soft is-border-collapse is-rounded-lg is-bt-3">
+                    <div style="text-align: left; padding: 1rem;" class="is-border-soft is-border-collapse is-rounded-lg">
                         <div class="is-rounded-t-lg section-ticket-1">
                             <strong class="title-total_pedido is-w-full is-font-semibold is-select-none">Total del pedido</strong>
                         </div>

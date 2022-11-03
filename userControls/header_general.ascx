@@ -227,7 +227,7 @@
                                 <img class="btn-mi-carrito" title="Carrito de productos" src="https://www.incom.mx/img/webUI/newdesign/Carrito.svg" />
                                 <span class="txt_carrito is-text-black">Carrito</span>
                             </a>
-                            <span id="lbl_cantidadProductosCarrito" class="is-select-none" runat="server"></span>
+                            <span id="lbl_cantidadProductosCarrito" class="carrito_counter is-select-none" runat="server"></span>
                             <%--<div style="display: flex; flex-direction: column;">
                                 <uc_carrito:btnCarrito ID="carrito" runat="server"></uc_carrito:btnCarrito>
                                 <p class="txt_carrito">Carrito</p>
@@ -339,7 +339,7 @@
         height: 2.25rem;
         text-align: left;
         left: 100%;
-        margin-left: 3rem;
+        margin-left: 2rem;
     }
 
 
@@ -680,7 +680,7 @@
 
     .content_tipoDeCambio {
         width: 12rem;
-        padding-top: 8px;
+        padding-top: 10px;
         padding-left: 1rem;
         border-left: 1px solid #787878;
     }
@@ -776,6 +776,72 @@
         background-color: #be9393;
     }
 
+    .carrito_counter {
+        display: flex;
+        font-size: 14px;
+        font-weight: 600;
+        color: #06C;
+        align-items: center;
+    }
+
+    @media only screen and (min-width: 1000px) and (max-width: 1200px) {
+        .carrito_counter {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile_photo {
+            height: 2rem;
+        }
+
+        .btn-mi-carrito {
+            width: 2rem;
+        }
+
+        #carrito_de_compra {
+            width: 5rem;
+        }
+
+        .btn-mi-carrito {
+            height: 28px;
+            margin: 0;
+        }
+
+        .txt_carrito {
+            font-size: 0.75rem;
+        }
+
+        #carrito_de_compra {
+            padding-left: 0.5rem;
+        }
+
+        .text-nombre_cuenta > span {
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        #carrito_de_compra > a:nth-child(1) > img:nth-child(1) {
+            padding-bottom: 0.25rem;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        .carrito_counter {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile_photo {
+            height: 2rem;
+        }
+
+        .btn-mi-carrito {
+            width: 2rem;
+        }
+    }
+
     @media only screen and (max-width:3000px) {
 
         #txt_buscadorProducto {
@@ -795,6 +861,12 @@
             margin-bottom: 10vh;
             flex-wrap: wrap;
             justify-content: center;
+        }
+
+        /* Separadores en barra de menús*/
+        #content-menu-incom-outlet, #menuProductos, #content-menu-incom-biblioteca {
+            border-right: 1px solid #B7B7B7;
+            padding: 0rem 2rem 0rem 0rem;
         }
     }
 
@@ -881,6 +953,10 @@
 
         .carrito_productos_movil {
             margin-right: 1rem;
+        }
+
+        .categorias_container {
+            margin-left: 20px;
         }
     }
 

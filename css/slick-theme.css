@@ -70,7 +70,7 @@
 }
 
 .slick-prev {
-    left: -10px;
+    left: -6px;
     z-index: 99;
 }
 [dir='rtl'] .slick-prev

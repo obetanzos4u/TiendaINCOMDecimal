@@ -29,6 +29,14 @@ body {
     background-position-y: 10%;
   }
 
+  .bg-success-3 {
+    fill: green;
+  }
+
+  .bg-success-4 {
+    color: green;
+  }
+
 .is-family-ms {
     font-family: "Montserrat";
 }
@@ -1282,18 +1290,59 @@ body {
         font-size: 12px !important;
     }
 
-    #top_contenido_ucProductos_cont_moneda {
-        display: none;
+    .producto-main_wrap > div > h3 {
+        font-size: 12px;
     }
 
-    #top_contenido_ucProductos_cont_filtros {
-        margin-right: 3rem;
+    .contentResultados-sidedar {
+        width: 110%;
     }
 
-    #top_contenido_ucProductos_ddl_filtroMarcas {
-        margin-bottom: 2rem;
+    .contentResultados-sidedar > #top_contenido_ucProductos_cont_moneda {
+        width: 18%;
     }
-}
+
+    .contentResultados-sidedar > .fixInput {
+        width: 30%;
+        margin: 8px;
+    }
+
+    .contentResultados-sidedar > div > select {
+        font-size: 9px;
+    }
+
+    #ddl_filtroCategorias {
+        height: 2rem !important;
+        width: 90% !important;
+    }
+
+    .contentResultados-sidedar > #top_contenido_ucProductos_cont_categorias > label:nth-child(1) {
+        font-size: 9px !important;
+    }
+
+
+    .contentResultados-sidedar > #top_contenido_ucProductos_cont_filtros {
+        width: 25%;
+    }
+
+    .contentResultados-sidedar > #top_contenido_ucProductos_cont_filtros > label:nth-child(1) {
+        font-size: 9px !important;
+    }
+
+    #top_contenido_ucProductos_cont_moneda > .label-filtro_producto {
+        font-size: 9px !important;
+    }
+
+    #ddl_filtroCategorias {
+        font-size: 70%;
+    }
+
+    .contentResultados-sidedar .select-wrapper input.select-dropdown {
+        width: 90% !important;
+        height: 2rem !important;
+        line-height: 2rem !important;
+    }
+} 
 
 @media (max-width: 768px) {
     .is-w-1_2 {
@@ -1303,6 +1352,10 @@ body {
     .is-col-2 {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
+
+    #btn_agregar_productoCarrito {
+        font-size: 10px;
+    }
 }
 
 @media (min-width: 700px) and (max-width: 1600px) { 
@@ -1310,12 +1363,20 @@ body {
     #nav_categorias_breadcrumb > .nav-wrapper {
         padding-left: 4rem;
     }
+
+    #top_contenido_ucProductos_cont_moneda > .select-wrapper .caret {
+        right: 1.5rem;
+    }
 }
 
 @media (min-width: 700px) and (max-width: 1000px) {
 
     .product-card-list_wrapper {
         width: 160px;
+    }
+
+    #btn_agregar_productoCarrito {
+        font-size: 10px;
     }
 }
 
@@ -1341,25 +1402,6 @@ body {
         margin-left: 0em;
         margin-top: 4px;
     }
-
-    /* .container-descripcion {
-        width: 70%;
-    } */
-
-    #btn_agregar_productoCarrito {
-        font-size: 10px;
-    }
-
-    /* .agregar_carrito-out {
-        font-size: 9px !important;
-    }
-
-    .agregar_carrito {
-        width: 127px;
-        height: 24px !important;
-        line-height: 24px !important;
-        padding: 0 9px;
-    } */
 
     input.select-dropdown {
         width: 80%;
@@ -1413,6 +1455,10 @@ body {
     .is-w-full-xl {
         width: 100%;
     }
+
+    #btn_agregar_productoCarrito {
+        font-size: 12px;
+    }
 }
 
 @media (min-width: 1600px) {
@@ -1461,6 +1507,9 @@ body {
         max-height: 440px;
     }
 
+    #top_contenido_ucProductos_cont_moneda > .select-wrapper .caret {
+        right: 1.5rem;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
