@@ -72,6 +72,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         lt_usuario_cliente.Text = pedidos_datos.usuario_cliente;
         hf_id_pedido.Value = route_id_operacion;
         hf_pedido_tipo_envio.Value = pedido_montos.metodoEnvio;
+        hf_moneda_pedido.Value = pedido_montos.monedaPedido;
 
         lbl_envio.Text = pedido_montos.envio.ToString("C2", myNumberFormatInfo) + " " + pedido_montos.monedaPedido;
         lbl_subtotal.Text = pedido_montos.subtotal.ToString("C2", myNumberFormatInfo) + " " + pedido_montos.monedaPedido;
@@ -263,7 +264,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         lt_precio_unitario.Text = producto.productos.precio_unitario.ToString("C2", myNumberFormatInfo);
 
         Literal lt_precio_total = (Literal)e.Item.FindControl("lt_precio_total");
-        lt_precio_total.Text = producto.productos.precio_total.ToString("C2", myNumberFormatInfo);
+        lt_precio_total.Text = producto.productos.precio_total.ToString("C2", myNumberFormatInfo) + " " + hf_moneda_pedido.Value;
 
 
         Literal lt_cantidad = (Literal)e.Item.FindControl("lt_cantidad");
@@ -289,22 +290,22 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
     }
     protected void EstablecerNavegacion()
     {
-        btn_cambiar_metodo_envio.NavigateUrl = GetRouteUrl("cliente-pedido-envio", new System.Web.Routing.RouteValueDictionary 
+        btn_cambiar_metodo_envio.NavigateUrl = GetRouteUrl("cliente-pedido-envio", new System.Web.Routing.RouteValueDictionary
         {
             { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
         });
 
-        link_cambiar_contacto.NavigateUrl = GetRouteUrl("cliente-pedido-datos", new System.Web.Routing.RouteValueDictionary 
+        link_cambiar_contacto.NavigateUrl = GetRouteUrl("cliente-pedido-datos", new System.Web.Routing.RouteValueDictionary
         {
             { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
         });
 
-        link_cambiar_direcc_facturacion.NavigateUrl = GetRouteUrl("cliente-pedido-facturacion", new System.Web.Routing.RouteValueDictionary 
+        link_cambiar_direcc_facturacion.NavigateUrl = GetRouteUrl("cliente-pedido-facturacion", new System.Web.Routing.RouteValueDictionary
         {
             { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
         });
 
-        link_pago_santander.NavigateUrl = GetRouteUrl("cliente-pedido-pago-santander", new System.Web.Routing.RouteValueDictionary 
+        link_pago_santander.NavigateUrl = GetRouteUrl("cliente-pedido-pago-santander", new System.Web.Routing.RouteValueDictionary
         {
             { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
         });

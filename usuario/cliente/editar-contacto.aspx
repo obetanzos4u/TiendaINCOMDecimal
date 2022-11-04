@@ -8,7 +8,7 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col col-8">
-                <div class="is-flex is-flex-col is-justify-center is-items-start" style="border: 2px solid red">
+                <div class="is-flex is-flex-col is-justify-center is-items-start">
                     <div class="row">
                         <div class="col">
                             <p>Editar un contacto</p>

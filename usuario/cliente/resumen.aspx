@@ -14,6 +14,7 @@
     <asp:HiddenField ID="hf_id_pedido" runat="server" />
     <asp:HiddenField ID="hf_pedido_tipo_envio" runat="server" />
     <asp:HiddenField ID="hf_id_pedido_direccion_envio" runat="server" />
+    <asp:HiddenField ID="hf_moneda_pedido" runat="server" />
     <uc:progreso runat="server"></uc:progreso>
     <div class="is-container is-px-4">
         <div class="is-py-2">
@@ -41,7 +42,7 @@
                         <div class="is-px-8 is-py-2">
                             <h6 id="contacto_title" runat="server"></h6>
                             <p id="contacto_desc" runat="server"></p>
-                             <asp:HyperLink runat="server" ID="link_cambiar_contacto" style="text-decoration: none;">
+                            <asp:HyperLink runat="server" ID="link_cambiar_contacto" Style="text-decoration: none;">
                                Editar quien recibe
                             </asp:HyperLink>
                         </div>
@@ -72,7 +73,7 @@
                             <div class="is-flex is-justify-between is-items-center">
                                 <%--<div class="Conteng_msg_envioNota"></div>--%>
                                 <div class="dropdown">
-                                    <asp:HyperLink runat="server" ID="btn_cambiar_metodo_envio" style="text-decoration: none;">
+                                    <asp:HyperLink runat="server" ID="btn_cambiar_metodo_envio" Style="text-decoration: none;">
                                 Cambiar método de envío
                                     </asp:HyperLink>
                                 </div>
@@ -103,7 +104,7 @@
                                 <!-- <asp:LinkButton runat="server" ID="btn_sin_factura" OnClick="btn_sin_factura_Click"
                                     class="">
                              Sin factura </asp:LinkButton> -->
-                                <asp:HyperLink runat="server" ID="link_cambiar_direcc_facturacion" style="text-decoration: none;">
+                                <asp:HyperLink runat="server" ID="link_cambiar_direcc_facturacion" Style="text-decoration: none;">
                                 Agregar datos de facturación
                                 </asp:HyperLink>
                             </div>
@@ -138,27 +139,29 @@
                 <div class="row">
                     <div class="is-w-auto">
                         <div id="content_msg_cancelar_pedido"></div>
-                            <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
-                        class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
+                        <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
+                            class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
                     </div>
                 </div>
                 <asp:Panel ID="Pago_Pendiente" Visible="false" CssClass="mt-4 col col-12 col-xs-12 col-sm-12 col-md-12 col-xl-12" runat="server">
-                <div class="is-flex">
-                    <figure>
-                        <figcaption style="float: left; width: fit-content;">Paga de manera segura por alguno de nuestros medios.</figcaption>
-                        <br>
-                        <img class="icono-formas_pago" alt="Formas de pago; Visa, Mastercard, American Express, Paypal, Transferencia Bancaria y Mercado Pago" title="Formas de pago" src="/img/webUI/newdesign/Formas_de_pago.png"/>
-                    </figure>
-                </div>
-                <div style="float: left; width: fit-content;">
-                    <p>Elige el método de pago:</p> 
-                    <asp:HyperLink ID="link_pago_santander" runat="server"><div class="is-btn-gray">Tarjeta crédito/débito</div></asp:HyperLink>
-                    <asp:HyperLink ID="link_pago_paypal" class="is-text-white is-decoration-none" runat="server"><div class="is-btn-gray"><p id="text-paypal" style="color: white;">PayPal</p></div></asp:HyperLink>
-                    <a data-bs-toggle="modal" data-bs-target="#modal_deposito_trans"><div class="is-btn-gray">Transferencia o depósito</div></a>          
-                    <div class="alert alert-warning mt-4" role="alert">
-                        <strong>Aviso</strong>  No sé ha confirmado un pago aún.
+                    <div class="is-flex">
+                        <figure>
+                            <figcaption style="float: left; width: fit-content;">Paga de manera segura por alguno de nuestros medios.</figcaption>
+                            <br>
+                            <img class="icono-formas_pago" alt="Formas de pago; Visa, Mastercard, American Express, Paypal, Transferencia Bancaria y Mercado Pago" title="Formas de pago" src="/img/webUI/newdesign/Formas_de_pago.png" />
+                        </figure>
                     </div>
-                </div>
+                    <div style="float: left; width: fit-content;">
+                        <p>Elige el método de pago:</p>
+                        <asp:HyperLink ID="link_pago_santander" runat="server"><div class="is-btn-gray">Tarjeta crédito/débito</div></asp:HyperLink>
+                        <asp:HyperLink ID="link_pago_paypal" class="is-text-white is-decoration-none" runat="server"><div class="is-btn-gray"><p id="text-paypal" style="color: white;">PayPal</p></div></asp:HyperLink>
+                        <a data-bs-toggle="modal" data-bs-target="#modal_deposito_trans">
+                            <div class="is-btn-gray">Transferencia o depósito</div>
+                        </a>
+                        <div class="alert alert-warning mt-4" role="alert">
+                            <strong>Aviso</strong>  No sé ha confirmado un pago aún.
+                        </div>
+                    </div>
                 </asp:Panel>
                 <asp:Panel ID="Pago_Confirmado" Visible="false" CssClass="mt-4 col col-12 col-xs-12 col-sm-12 col-md-12 col-xl-12" runat="server">
                     <p class="h5">
@@ -195,7 +198,7 @@
                                 </div>
                                 <span class="text-muted" style="float: right;">
                                     <strong>
-                                        <asp:Literal ID="lt_precio_total" Text='<%#Eval("productos.precio_total") %>' runat="server"></asp:Literal>
+                                        <asp:Literal ID="lt_precio_total" Text='<%#Eval("productos.precio_total")%>' runat="server"></asp:Literal>
                                     </strong>
                                 </span>
                             </div>
@@ -249,14 +252,17 @@
                         </tbody>
                     </table>
                 </div>
+                <div>
+                    <asp:HyperLink ID="btn_continuarMetodoPago" runat="server">Continuar con la compra</asp:HyperLink>
+                </div>
 
-                <div class="row is-top-2">
+                <%--<div class="row is-top-2">
                     <div class="is-m-auto is-w-auto">
                         <div id="content_msg_cancelar_pedido"></div>
                             <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
                         class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
                     </div>
-                </div>
+                </div>--%>
             </div>
         </div>
     </div>
@@ -267,8 +273,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">
-                        <strong>
-                            Cancelar pedido:
+                        <strong>Cancelar pedido:
                         </strong>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -422,40 +427,38 @@
 
 
     <style>
-
-    .wrapp-product_list {
-        margin-top: 0.5rem;
-        height: 32px;
-        padding-left: 2rem;
-        display: flex;
-        align-items: center;
-    }
-
-    .btn-cancelar_pedido {
-        border: 1px solid red;
-        width: 150px;
-        height: 38px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
-        border-radius: 8px;
-        position: relative;
-        float: left;
-    }
-
-    .btn-cancelar_pedido > p {
-        text-decoration: none;
-        color: red;
-        margin: auto;
-    }
-
-    @media only screen and (min-width: 1600px) {
-        .icono-formas_pago {
-            width: 450px;
+        .wrapp-product_list {
+            margin-top: 0.5rem;
+            height: 32px;
+            padding-left: 2rem;
+            display: flex;
+            align-items: center;
         }
-    }
 
+        .btn-cancelar_pedido {
+            border: 1px solid red;
+            width: 150px;
+            height: 38px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            border-radius: 8px;
+            position: relative;
+            float: left;
+        }
+
+            .btn-cancelar_pedido > p {
+                text-decoration: none;
+                color: red;
+                margin: auto;
+            }
+
+        @media only screen and (min-width: 1600px) {
+            .icono-formas_pago {
+                width: 450px;
+            }
+        }
     </style>
 </asp:Content>
