@@ -574,7 +574,7 @@
 
     .cuenta_container {
         width: 8.5rem;
-        border-right: 1px solid #787878;
+        border-right: 1px solid #B7B7B7;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -682,7 +682,7 @@
         width: 12rem;
         padding-top: 10px;
         padding-left: 1rem;
-        border-left: 1px solid #787878;
+        border-left: 1px solid #B7B7B7;
     }
 
     .right_position {

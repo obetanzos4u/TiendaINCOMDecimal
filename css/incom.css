@@ -175,6 +175,11 @@ margin-left: 1rem;
     margin-top: 3rem;
 }
 
+.mi-carrito-consideraciones-lg > span {
+    width: 100%;
+    float: right;
+}
+
 .products_counter {
     height: 2rem !important;
 }
@@ -355,7 +360,7 @@ margin-left: 1rem;
 
 .title-total_pedido {
     font-size: 1.25rem;
-    line-height: 1.75rem;
+    line-height: 3rem;
 }
 
 .section-ticket-1, .section-ticket-2 {
@@ -364,7 +369,7 @@ margin-left: 1rem;
 
 .text-ticket_envio{
     font-size: 0.875rem;
-    line-height: 1.25rem;
+    line-height: 3rem;
 }
 
 .title-product_list {
@@ -373,20 +378,9 @@ margin-left: 1rem;
     border-bottom: 1px solid rgb(196, 196, 196);
 }
 
-.mi-carrito-consideraciones-lg {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-}
-
 .arrow-doble-down {
     height: 450px;
     width: fit-content;
-}
-
-#top_contenido_moreArrow { 
-    display: flex;
 }
 
 div.arrow-doble-down #svg-arrow-down {
@@ -722,15 +716,14 @@ div.arrow-doble-down #svg-arrow-down {
 
         .mi-carrito-boton-compra {
             width: 100%;
+            text-align: center;
+            margin-top: 3rem;
+            order: 4;
         }
 
         .title-product_list {
             font-size: 1rem;
             line-height: 3.25rem;
-        }
-
-        .product-table {
-            font-size: 8px !important;
         }
 
         .mi-carrito-ticket {
@@ -753,7 +746,6 @@ div.arrow-doble-down #svg-arrow-down {
 
         .text-ticket_envio{
             font-size: 10px;
-            line-height: 1rem;
         }
 
         .moneda-ticket {
@@ -778,14 +770,10 @@ div.arrow-doble-down #svg-arrow-down {
             order: 3;
         }
 
-        .mi-carrito-boton-compra {
-            margin-top: 24px;
-            order: 4;
-        }
-
         #top_contenido_moreArrow {
-            order: 3;
+            display: flex;
             justify-content: end;
+            order: 3;
         }
 
         div.arrow-doble-down #svg-arrow-down {
@@ -800,8 +788,12 @@ div.arrow-doble-down #svg-arrow-down {
             height: 22px;
         }
 
+        .mi-carrito-boton-compra > #btn_comprar > .is-btn-green {
+            font-size: 10px !important;
+        }
+
         .mi-carrito-consideraciones-lg {
-            font-size: 12px;
+            font-size: 10px;
             margin-top: 5rem;
             display: flex;
             justify-content: center;
@@ -1252,19 +1244,6 @@ div.arrow-doble-down #svg-arrow-down {
             font-size: 12px !important;
         }
 
-        /* .tabs {
-            padding: 0 !important;
-        }
-
-        .tabs > ul {
-            display: flex !important;
-            flex-direction: column !important;
-        }
-
-        .tabs ul li {
-            width: 100% !important;
-        } */
-
         .container-descripcion > div:nth-child(1) {
             flex-direction: column;
           }
@@ -1444,6 +1423,10 @@ div.arrow-doble-down #svg-arrow-down {
     }
 
     @media only screen and (min-width: 1000px) {
+        #top_contenido_up_carrito {
+            margin-bottom: 15vh;
+        }
+
         .productos_descripciones {
             height: 8.0rem;
         }
@@ -1515,13 +1498,12 @@ div.arrow-doble-down #svg-arrow-down {
         /*Mi carrito de compras*/
 
         .mi-carrito-contain {
-            margin: 0 3% 20vh 3%;
-            width: 100%;
-        }
-        
-        .mi-carrito-list {
-            width: 60% !important;
-            float: left;
+            margin: 0 auto 20vh auto;
+            width: 96%;
+            max-width: 1600px;
+            display: grid;
+            grid-auto-columns: 9fr 0.5fr 5fr;
+            grid-auto-rows: 300px 80px 120px;
         }
 
         .overflow-productos {
@@ -1531,7 +1513,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         .title-product_list {
-            line-height: 4rem;
+            padding-bottom: 3rem;
         }
 
         .product-list-precio_cantidad {
@@ -1546,14 +1528,25 @@ div.arrow-doble-down #svg-arrow-down {
             height: 1.25rem;
         }
 
+        #top_contenido_moreArrow {
+            display: grid;
+            grid-column: 2/3;
+        }
+
         .mi-carrito-ticket {
-            width: 30%;
-            display: flex;
-            flex-direction: column;
+            display: block;
+            grid-column: 3/4;
+            margin-top: 34px;
         }
 
         .mi-carrito-ticket > div:nth-child(2) {
             margin-bottom: 3rem;
+        }
+
+        .mi-carrito-boton-compra {
+            display: grid;
+            grid-column: 3/4;
+            grid-row: 2/3;
         }
 
         #top_contenido_ctn_details .select-wrapper > .caret {
@@ -1567,18 +1560,11 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         .mi-carrito-consideraciones-lg {
-            width: 30%;
-            margin-top: 5rem;
             font-size: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-            order: 5;
-        }
-
-        .mi-carrito-boton-compra {
-            width: 30%;
+            display: grid;
+            grid-column: 3/4;
+            grid-row: 3/4;
+            margin-top: 5rem;
         }
 
         .icon-carrito_vacio {
@@ -1675,9 +1661,13 @@ div.arrow-doble-down #svg-arrow-down {
         .product-list-precio_cantidad > div:nth-child(1) {
             justify-content: center;
         }
-        
-        tr.table-product_description > td > div> p:nth-child(1l) {
-            margin: 0.5rem 0rem 0rem 0rem;
+
+        tr.table-product_description > td > div> p:nth-child(1) {
+            margin: 0rem 0.5rem 0rem 0rem;
+        }
+
+        .btn-products_counter {
+            margin: auto auto 0.5rem auto;
         }
 
         tr.table-product_description > td > div> p:nth-child(2) {
@@ -1802,11 +1792,6 @@ div.arrow-doble-down #svg-arrow-down {
     .dropdown-content li > a, .dropdown-content li > span {
         color: #2b2c2b !important;
     }
-
-    /* .container .row {
-    margin-left: 1.25rem !important;
-    margin-right: 1.25rem !important;
-} */
 
     .container {
         padding-top: 0.01rem !important;
@@ -1986,7 +1971,6 @@ div.arrow-doble-down #svg-arrow-down {
         content: 'A cotización';
     }
 
-
     .btn-s {
         height: 30px;
         line-height: 30px;
@@ -2106,6 +2090,69 @@ div.arrow-doble-down #svg-arrow-down {
 
     #top_contenido_ctn_details .select-wrapper {
         margin-top: 0.5rem; 
+    }
+
+    .table-product_description > td:nth-child(2) {
+        padding: 1rem;
+    }
+}
+
+
+/* Lista de productos en Carrito de compra */
+@media only screen and (max-width: 500px) {
+    td, th {
+        padding: 0 !important;
+        display: flow-root !important;
+    }
+
+    .overflow-productos {
+        max-height: 480px;
+    }
+
+    .table-product_description > td:nth-child(2) {
+        width: 100% !important;
+    }
+
+    .table-product_description > td:nth-child(1) {
+        width: 28% !important;
+        margin: 1rem auto;
+        border: 1px solid #B7B7B74a;
+    }
+
+    tr.table-product_description > td > div:nth-child(2) {
+        flex-direction: row !important;
+    }
+
+    .table-product_description > td:nth-child(2) .is-select-all{
+        font-weight: bold;
+    }
+
+    .product-list-precio_cantidad > div:nth-child(1) {
+        justify-content: space-between !important;
+    }
+
+    .btn-products_counter {
+        margin: 0;
+    }
+
+    input.products_counter {
+        height: 1.5rem !important;
+        margin: 0 !important;
+    }
+
+    .product-table {
+        font-size: 10px !important;
+    }
+
+    .mi-carrito-product_options {
+        margin-top: 1rem;
+        height: 2rem;
+    }
+
+    #up_stock {
+        width: 200px;
+        margin: auto;
+        text-align: center;
     }
 }
 
@@ -2247,6 +2294,26 @@ div.arrow-doble-down #svg-arrow-down {
 
         #txt_email, #txt_password {
             width: 80%;
+        }
+
+        tr.table-product_description > td > div:nth-child(2) {
+            flex-direction: column;
+        }
+
+        .product-list-precio_cantidad > div:nth-child(1) {
+            justify-content: center;
+        }
+
+        tr.table-product_description > td > div> p:nth-child(1) {
+            margin: 0rem 0.5rem 0rem 0rem;
+        }
+
+        .btn-products_counter {
+            margin: auto auto 0.5rem auto;
+        }
+
+        tr.table-product_description > td > div> p:nth-child(2) {
+            margin-right: 0.5rem;
         }
     }
 
@@ -2484,7 +2551,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         .mi-carrito-consideraciones-lg {
-            font-size: 12px;
+            font-size: 14px;
             margin-top: 5rem;
         }
     }

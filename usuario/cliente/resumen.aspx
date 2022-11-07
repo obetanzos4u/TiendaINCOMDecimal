@@ -250,13 +250,6 @@
                     </table>
                 </div>
 
-                <div class="row is-top-2">
-                    <div class="is-m-auto is-w-auto">
-                        <div id="content_msg_cancelar_pedido"></div>
-                            <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
-                        class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
