@@ -32,7 +32,6 @@ public partial class usuario_cliente_editar_contacto : System.Web.UI.Page
             //txt_add_apellido_materno.Text = Contacto.apellido_materno;
             txt_add_telefono.Text = Contacto.telefono;
             txt_add_celular.Text = Contacto.celular;
-
         }
         else
         {
@@ -58,8 +57,6 @@ public partial class usuario_cliente_editar_contacto : System.Web.UI.Page
             //apellido_materno = apellido_materno,
             telefono = telefono,
             celular = celular
-
-
         };
 
         ValidationContext context = new ValidationContext(contactoModel, null, null);
