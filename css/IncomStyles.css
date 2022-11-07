@@ -1178,7 +1178,7 @@ body {
     -webkit-tap-highlight-color: transparent;
     text-decoration: none;
     color: #fff;
-    background-color: #7a7a7a;
+    background-color: #B7B7B7;
     text-align: center;
     font-weight: bold;
     /* letter-spacing: .5px; */
@@ -1512,12 +1512,6 @@ body {
 
     .cantidad-label {
         font-size: 15px;
-    }
-
-    .list-group-resumen {
-        overflow-y: auto;
-        height: fit-content;
-        max-height: 440px;
     }
 
     #top_contenido_ucProductos_cont_moneda > .select-wrapper .caret {
