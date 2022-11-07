@@ -320,8 +320,12 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
 
             if (disponibleEnvio == "1")
             {
-                lbl_envioGratuito.Visible = true;
-                lbl_envioGratuito.Text = "Promoción envio gratuito";
+                lbl_envioGratuito.Attributes.Add("class", "is-text-xs is-text-white is-font-semibold");
+                lbl_envioGratuito.Text = "Envio gratis &star;";
+            }
+            else
+            {
+                lbl_envioGratuito.Attributes.Add("style", "height: 22.5px");
             }
 
             btn_VerDisponibilidad.Attributes.Add("onclick", $"openModalProductoDisponibilidad('{numero_parte}');");
@@ -482,13 +486,41 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
                 if (rowView["puntajeBusqueda"] != DBNull.Value)
                 {
                     Label lbl_puntajeBusqueda = (Label)e.Item.FindControl("lbl_puntajeBusqueda");
-                    //Label lbl_aviso = (Label)e.Item.FindControl("lbl_aviso");
-                    lbl_puntajeBusqueda.Visible = true;
+                    Label lbl_aviso = (Label)e.Item.FindControl("lbl_aviso");
+                    lbl_puntajeBusqueda.Visible = false;
 
                     string puntaje = rowView["puntajeBusqueda"].ToString();
                     lbl_puntajeBusqueda.Text = "Puntaje: " + puntaje;
-                    string aviso = rowView["avisos"].ToString();
-                    //lbl_aviso.Text = aviso;
+                    string aviso = rowView["avisos"].ToString().ToUpper();
+                    switch (aviso)
+                    {
+                        case "OFERTA":
+                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-offer");
+                            break;
+                        case "LIQUIDACIÓN":
+                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-liquidation");
+                            break;
+                        case "ULTIMAS":
+                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-lastItems");
+                            aviso = "ÚLTIMAS PIEZAS";
+                            break;
+                        case "PERSONALIZADO":
+                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-customized");
+                            break;
+                        case "PEDIDO":
+                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-onRequest");
+                            aviso = "SOBRE PEDIDO";
+                            break;
+                        case "RENTA":
+                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-rent");
+                            aviso = "VENTA Y RENTA";
+                            break;
+                        default:
+                            lbl_aviso.Attributes.Add("style", "height: 22px");
+                            break;
+                    }
+
+                    lbl_aviso.Text = aviso;
                 }
 
             }

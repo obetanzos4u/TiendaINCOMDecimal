@@ -213,12 +213,12 @@
                                         <asp:HyperLink ID="link_producto" class="is-text-black hoverLinkTituloProducto" Target="_blank" runat="server">   <%# Eval("numero_parte") %> -  <%# Eval("titulo") %> </asp:HyperLink>
                                         <asp:Literal ID="lt_numero_parte" Text='<%# Eval("numero_parte") %>' Visible="false" runat="server"></asp:Literal>
                                     </h2>
-                                    <p class="space-marca" style="line-height: 20px; text-align: center;">
-<%--                                        <asp:Label runat="server" Visible="false" ID="lbl_envioGratuito" class="is-text-xsm is-bg-green-500 is-text-white is-font-semibold is-block is-w-full"></asp:Label>--%>
-                                        <asp:Literal ID="lt_descripcion_corta" Visible="false" runat="server"></asp:Literal>
-                                        <p class="is-text-xs is-m-0">Marca: </p>
-                                        <asp:Label ID="lbl_marca" class="tooltipped is-text-xs" runat="server" Text=""></asp:Label>
-                                    </p>
+                                    <asp:Label ID="lbl_aviso" runat="server"></asp:Label>
+                                    <asp:Literal ID="lt_descripcion_corta" Visible="false" runat="server"></asp:Literal>
+                                    <div class="is-flex is-flex-col is-justify-center is-items-center is-py-1">
+                                        <strong class="is-text-xs is-m-0">Marca:</strong>
+                                        <asp:Label ID="lbl_marca" class="is-text-xs is-font-bold" runat="server" Text=""></asp:Label>
+                                    </div>
                                     <div style="font-size: 11px; text-align: center;"><%# Eval("unidad_venta") %> (<%# Eval("cantidad") %>  <%# Eval("unidad") %>)</div>
                                     <!-- <div>
                                         <span style="inline-size: -webkit-fill-available; white-space: nowrap; overflow: hidden;"
@@ -229,11 +229,10 @@
                                         <span class="producto_precio">$</span>
                                         <asp:Label ID="lbl_producto_precio" CssClass="producto_precio" runat="server" Text=""></asp:Label>
                                         <asp:Label ID="lbl_producto_moneda" CssClass="producto_moneda" runat="server" Text=""></asp:Label>
-                                        <asp:Label runat="server" ID="lbl_aviso"></asp:Label>
-                                        <div class="is-bg-green-500 is-w-full is-select-none">
-                                            <asp:Label runat="server" Visible="false" ID="lbl_envioGratuito" class="is-text-xs is-text-white is-font-semibold"></asp:Label>
-                                        </div>
                                     </p>
+                                    <div class="is-w-full is-bg-black is-tag is-select-none">
+                                        <asp:Label runat="server" ID="lbl_envioGratuito"></asp:Label>
+                                    </div>
                                     <div class="boton-agregar-carrito-resultados">
                                         <uc_addCarrito:add ID="AddCarrito" numero_parte='<%# Eval("numero_parte") %>' runat="server"></uc_addCarrito:add>
                                         <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>

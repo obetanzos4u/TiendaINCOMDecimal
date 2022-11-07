@@ -18,8 +18,8 @@ public class SantanderLigaCobro
     private string KeyCifradoSANDBOX = "5DCC67393750523CD165F17E1EFADD21";
     private string data0SANDBOX = "SNDBX123";
     //public string UrlSANDBOX = "https://wppsandbox.mit.com.mx/";
-    public string UrlSANDBOX = "https://sandbox.mit.com.mx/";
-    private readonly string _ResourceSANDBOX = "gen";
+    public string UrlSANDBOX = "https://sandboxpol.mit.com.mx/";
+    private readonly string _ResourceSANDBOX = "i";
 
     /***     Productivo MXN // AFILIACION - 8487094 MXN  ***/
     private string id_companyPRODUCTIVO = "01HA";

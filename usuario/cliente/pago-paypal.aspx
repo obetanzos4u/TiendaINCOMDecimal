@@ -15,17 +15,23 @@
                 #<asp:Literal ID="lt_numero_operacion" runat="server"></asp:Literal>
                    </p>
             </div>
+
         </div>
+
+
         <div class="row">
             <div class="col col-12 col-xs-12 col-sm-12 col-md-5 col-xl-5">
+               
                 <p class="h3 ">
                  Desglose
+                              
                 </p>
                 <table class="table table-sm">
                     <thead>
                         <tr>
                             <th scope="col">Concepto</th>
-                            <th class="text-end" scope="col">Total
+                            <th class="text-end" scope="col">Total 
+                                
                                 <asp:Label ID="lbl_moneda" runat="server"></asp:Label>
                             </th>
                         </tr>
@@ -51,6 +57,8 @@
                             <td class="text-end"><strong>
                                 <asp:Label ID="lbl_descuento_porcentaje" runat="server"></asp:Label>%</strong></td>
                         </tr>
+
+
                         <tr>
                             <td>Subtotal</td>
                             <td class="text-end"><strong>
@@ -69,8 +77,11 @@
                     </tbody>
                 </table>
                   <div class="d-grid gap-2 mt-3">
+
                       <asp:HyperLink ID="link_regresar_resumen"
                           class="btn btn-success" runat="server">Regresar al pedido </asp:HyperLink>
+
+
                   </div>
             </div>
             <div class="col col-12 col-xs-12 col-sm-12 col-md-7 col-xl-7">
@@ -98,6 +109,7 @@
                                     <asp:Label ID="lbl_paypal_intento" runat="server"></asp:Label>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>Estado del pago</td>
                                 <td>
@@ -117,6 +129,7 @@
                                     <asp:Label ID="lbl_paypal_fecha_primerIntento" runat="server"></asp:Label>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>Última actualización</td>
                                 <td>
@@ -126,6 +139,9 @@
                         </table>
 
                         <asp:LinkButton ID="linkActualizarUP" CssClass="d-none" runat="server" OnClick="linkActualizarUP_Click">Actualizar</asp:LinkButton>
+
+
+
 
                     </ContentTemplate>
                     <Triggers>

@@ -5,37 +5,37 @@
 /* Font family */
 body {
     font-family: "Montserrat";
-} 
+}
 
 /* Display section */
 
-  :root {
+:root {
     --img: url(/img/webUI/newdesign/check-green.png);
-  }
+}
 
-  .bg-success-1 {
+.bg-success-1 {
     background-image: var(--img);
     background-size: 26px;
     background-repeat: no-repeat;
     background-position-x: 90%;
     background-position-y: 10%;
-  }
+}
 
-  .bg-success-2 {
+.bg-success-2 {
     background-image: var(--img);
     background-size: 26px;
     background-repeat: no-repeat;
     background-position-x: 90%;
     background-position-y: 10%;
-  }
+}
 
-  .bg-success-3 {
+.bg-success-3 {
     fill: green;
-  }
+}
 
-  .bg-success-4 {
+.bg-success-4 {
     color: green;
-  }
+}
 
 .is-family-ms {
     font-family: "Montserrat";
@@ -231,7 +231,7 @@ body {
     background-color: #0C3766;
 }
 
-.is-bg-gray-light{
+.is-bg-gray-light {
     background-color: #f5f5f5;
 }
 
@@ -353,6 +353,30 @@ body {
 
 .is-bg-rubyRed {
     background-color: #9B2226;
+}
+
+.is-bg-offer {
+    background-color: #F16636;
+}
+
+.is-bg-liquidation {
+    background-color: #ED3237;
+}
+
+.is-bg-lastItems {
+    background-color: #449C7E;
+}
+
+.is-bg-customized {
+    background-color: #57BBC4;
+}
+
+.is-bg-onRequest {
+    background-color: #C8A2CB;
+}
+
+.is-bg-rent {
+    background-color: #899E6D;
 }
 
 .is-opacity-0 {
@@ -625,9 +649,11 @@ body {
 .list-none {
     list-style-type: none;
 }
+
 .list-disc {
     list-style-type: disc;
 }
+
 .list-decimal {
     list-style-type: decimal;
 }
@@ -992,13 +1018,13 @@ body {
         background-color: #D9D9D9;
     }
 
-    .text-nombre_cuenta {
-        font-size: 0.75rem;
-    }
+.text-nombre_cuenta {
+    font-size: 0.75rem;
+}
 
-    .text-sesion {
-        font-size: 0.75rem;
-    }
+.text-sesion {
+    font-size: 0.75rem;
+}
 
 /* Scrollbar */
 /* Firefox */
@@ -1099,7 +1125,7 @@ body {
     padding: 0.25rem;
     border-right: 1px solid #00000047;
     border-bottom: 1px solid #00000047;
-    border-left: 1px solid #00000047 ;
+    border-left: 1px solid #00000047;
     margin: 0;
 }
 
@@ -1111,9 +1137,9 @@ body {
     border: 1px solid #00000057
 }
 
-.is-productGallery_thumb img:active {
-    border-color: 3px solid #004eea;
-}
+    .is-productGallery_thumb img:active {
+        border: 3px solid #004eea;
+    }
 
     .is-productGallery_thumb img {
         background-color: #F5F5F5;
@@ -1132,12 +1158,15 @@ body {
     width: 80% !important;
 }
 
+.is-tag {
+    clip-path: polygon(100% 0%, 95% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+}
+
 /* Botones */
 
 /*Se usa para indicar opciones y el estado active indica elección*/
 
 .is-btn-gray {
-
     border: none;
     border-radius: 6px;
     display: inline-block;
@@ -1147,35 +1176,31 @@ body {
     text-transform: none;
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
-
     text-decoration: none;
     color: #fff;
-    background-color: #B7B7B7;
+    background-color: #7a7a7a;
     text-align: center;
     font-weight: bold;
     /* letter-spacing: .5px; */
     -webkit-transition: background-color .2s ease-out;
     transition: background-color .2s ease-out;
     cursor: pointer;
-
     font-size: 12px;
     outline: 0;
-
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
-.is-btn-gray:hover {
-    background: #9b9b9b;
-    color: #FFFFFF;
-}
+    .is-btn-gray:hover {
+        background: #9b9b9b;
+        color: #FFFFFF;
+    }
 
-.is-btn-gray:active {
-    background: #06C;
-    color: #FFFFFF;
-}
+    .is-btn-gray:active {
+        background: #06C;
+        color: #FFFFFF;
+    }
 
 .is-btn-gray-light {
-
     border: none;
     border-radius: 6px;
     display: inline-block;
@@ -1185,7 +1210,6 @@ body {
     text-transform: none;
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
-
     text-decoration: none;
     color: #fff;
     background-color: rgb(160, 166, 175);
@@ -1195,24 +1219,20 @@ body {
     -webkit-transition: background-color .2s ease-out;
     transition: background-color .2s ease-out;
     cursor: pointer;
-
     font-size: 12px;
     outline: 0;
-
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
-.is-btn-gray-light:hover {
-    background: #a7b0be;
-    color: #FFFFFF;
-}
+    .is-btn-gray-light:hover {
+        background: #a7b0be;
+        color: #FFFFFF;
+    }
 
 /*Se usa para avanzar en procesos del sitio como formularios*/
 
 .is-btn-blue {
-
     width: fit-content;
-
     border: none;
     border-radius: 6px;
     height: 36px;
@@ -1221,7 +1241,6 @@ body {
     text-transform: none;
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
-
     text-decoration: none;
     color: #fff;
     background-color: #0066cc;
@@ -1231,22 +1250,19 @@ body {
     -webkit-transition: background-color .2s ease-out;
     transition: background-color .2s ease-out;
     cursor: pointer;
-
     font-size: 12px;
     outline: 0;
-
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
-.is-btn-blue:hover {
-    background: #1c74f8;
-    color: #FFFFFF;
-}
+    .is-btn-blue:hover {
+        background: #1c74f8;
+        color: #FFFFFF;
+    }
 
 /*Esta serie de botones son indicativos de compra"*/
 
 .is-btn-green {
-
     border: none;
     border-radius: 6px;
     display: inline-block;
@@ -1256,7 +1272,6 @@ body {
     text-transform: none;
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
-
     text-decoration: none;
     color: #fff;
     /* background-color: #108A00; */
@@ -1267,17 +1282,15 @@ body {
     -webkit-transition: background-color .2s ease-out;
     transition: background-color .2s ease-out;
     cursor: pointer;
-
     font-size: 12px;
     outline: 0;
-
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
-.is-btn-green:hover {
-    background: #169e04;
-    color: #FFFFFF;
-}
+    .is-btn-green:hover {
+        background: #169e04;
+        color: #FFFFFF;
+    }
 
 /* Responsive */
 
@@ -1298,18 +1311,18 @@ body {
         width: 110%;
     }
 
-    .contentResultados-sidedar > #top_contenido_ucProductos_cont_moneda {
-        width: 18%;
-    }
+        .contentResultados-sidedar > #top_contenido_ucProductos_cont_moneda {
+            width: 18%;
+        }
 
-    .contentResultados-sidedar > .fixInput {
-        width: 30%;
-        margin: 8px;
-    }
+        .contentResultados-sidedar > .fixInput {
+            width: 30%;
+            margin: 8px;
+        }
 
-    .contentResultados-sidedar > div > select {
-        font-size: 9px;
-    }
+        .contentResultados-sidedar > div > select {
+            font-size: 9px;
+        }
 
     #ddl_filtroCategorias {
         height: 2rem !important;
@@ -1325,9 +1338,9 @@ body {
         width: 25%;
     }
 
-    .contentResultados-sidedar > #top_contenido_ucProductos_cont_filtros > label:nth-child(1) {
-        font-size: 9px !important;
-    }
+        .contentResultados-sidedar > #top_contenido_ucProductos_cont_filtros > label:nth-child(1) {
+            font-size: 9px !important;
+        }
 
     #top_contenido_ucProductos_cont_moneda > .label-filtro_producto {
         font-size: 9px !important;
@@ -1342,7 +1355,7 @@ body {
         height: 2rem !important;
         line-height: 2rem !important;
     }
-} 
+}
 
 @media (max-width: 768px) {
     .is-w-1_2 {
@@ -1358,7 +1371,7 @@ body {
     }
 }
 
-@media (min-width: 700px) and (max-width: 1600px) { 
+@media (min-width: 700px) and (max-width: 1600px) {
 
     #nav_categorias_breadcrumb > .nav-wrapper {
         padding-left: 4rem;
@@ -1494,11 +1507,17 @@ body {
     }
 
     .agregar_carrito {
-    padding: 0 19px;
+        padding: 0 19px;
     }
 
     .cantidad-label {
         font-size: 15px;
+    }
+
+    .list-group-resumen {
+        overflow-y: auto;
+        height: fit-content;
+        max-height: 440px;
     }
 
     #top_contenido_ucProductos_cont_moneda > .select-wrapper .caret {
