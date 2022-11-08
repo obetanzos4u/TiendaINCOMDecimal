@@ -349,11 +349,6 @@ margin-left: 1rem;
     vertical-align: middle;
 }
 
-.center-carrito_vacio {
-    width: 100%;
-    float: right;
-}
-
 #top_contenido_up_carrito {
     display: flex;
 }
@@ -415,11 +410,6 @@ div.arrow-doble-down #svg-arrow-down {
 
     @media only screen and (min-width: 400px) and (max-width: 600px) {
 
-        .center-carrito_vacio {
-            width: 100%;
-            margin-left: 200px;
-        }
-
         .icon-carrito_vacio {
             width: 220px;
             margin: 5rem auto;
@@ -467,20 +457,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
     }
 
-    @media only screen and (min-width: 600px) and (max-width: 800px) {
-
-        .center-carrito_vacio {
-            width: 100%;
-            margin-left: 500px;
-        }
-    }
-
     @media only screen and (min-width: 800px) and (max-width: 1000px) {
-
-        .center-carrito_vacio {
-            width: 100%;
-            margin-left: 600px;
-        }
 
         #top_contenido_up_carrito {
             display: flex;
@@ -778,7 +755,6 @@ div.arrow-doble-down #svg-arrow-down {
 
         div.arrow-doble-down #svg-arrow-down {
             width: 26px;
-            height: 80px;
             margin: auto 0 0 auto;
             text-align: center;
         }
@@ -1513,7 +1489,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         .title-product_list {
-            padding-bottom: 3rem;
+            padding-bottom: 1rem;
         }
 
         .product-list-precio_cantidad {
@@ -1570,7 +1546,7 @@ div.arrow-doble-down #svg-arrow-down {
         .icon-carrito_vacio {
             width: 270px;
             height: auto;
-            margin: auto 6rem 6rem auto;
+            margin: 6rem auto;
             display: block;
             padding-left: 2rem;
         }
@@ -1584,17 +1560,15 @@ div.arrow-doble-down #svg-arrow-down {
 
         .center-btn-carrito_vacio {
             width: 270px;
-            margin: auto 6rem 6rem auto;
-            padding-left: 2rem;
+            margin: 6rem auto;
         }
 
         .center-carrito_vacio > h2 {
-            text-align: end;
+            text-align: center;
         }
 
         .center-carrito_vacio > h3 {
-            text-align: end;
-            padding-right: 2rem;
+            text-align: center;
         }
     }
 
@@ -2538,16 +2512,15 @@ div.arrow-doble-down #svg-arrow-down {
 
         .icon-carrito_vacio {
             width: 290px;
-            margin: auto 6rem 6rem auto;
+            margin: auto;
             display: block;
             padding-left: 2rem;
         }
 
         .center-btn-carrito_vacio {
             width: 290px;
-            margin: auto 6rem 6rem auto;
+            margin: 6rem auto;
             display: block;
-            padding-left: 2rem;
         }
 
         .mi-carrito-consideraciones-lg {
