@@ -8,6 +8,10 @@ using System.Web.Routing;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.Data.Entity;
+using Org.BouncyCastle.Crypto;
+using System.Web.UI.HtmlControls;
+using System.Text;
+using DocumentFormat.OpenXml.Drawing.Charts;
 
 public partial class usuario_cliente_pago : System.Web.UI.Page
 {
@@ -15,6 +19,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
     int diasVigenciaPedidoUSD = 30;
     int diasVigenciaPedidoMXN = 5;
     decimal limiteDiferenciaTipoDeCambio = (decimal)0.5;
+    decimal montoMinimoPedidoEnvioGratuito = 3000;
     protected async void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -26,28 +31,56 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                 string route_id_operacion = Page.RouteData.Values["id_operacion"].ToString();
                 route_id_operacion = seguridad.DesEncriptar(route_id_operacion);
                 lbl_numero_pedido.Text = PedidosEF.ObtenerNumeroOperacion(int.Parse(route_id_operacion));
-
             }
         }
     }
     #region Botones para activar los páneles
-    protected void btn_tarjeta_Click(Object sender, EventArgs e)
+    protected async void btn_tarjeta_Click(Object sender, EventArgs e)
     {
         pnl_tarjeta.Visible = true;
         pnl_paypal.Visible = false;
         pnl_transferencia.Visible = false;
+
+        btn_paypal.Enabled = false;
+        btn_transferencia.Enabled = false;
+
+        string route_id_operacion = Page.RouteData.Values["id_operacion"].ToString();
+        route_id_operacion = seguridad.DesEncriptar(Page.RouteData.Values["id_operacion"].ToString());
+        int idSQL = int.Parse(route_id_operacion);
+
+        pedidos_datos pedidosDatos = null;
+        pedidos_datosNumericos pedidosDatosNumericos = null;
+
+        using (var db = new tiendaEntities())
+        {
+            pedidosDatos = db.pedidos_datos.Where(p => p.id == idSQL).FirstOrDefault();
+            pedidosDatosNumericos = db.pedidos_datosNumericos.Where(p => p.id == idSQL).FirstOrDefault();
+        }
+
+        bool resultadoPagoBloqueado = bloquearPago(pedidosDatos, pedidosDatosNumericos);
+        if (!resultadoPagoBloqueado)
+        {
+            await generarLinkDePagoAsync(pedidosDatos, pedidosDatosNumericos);
+        }
+
     }
     protected void btn_paypal_Click(Object sender, EventArgs es)
     {
         pnl_tarjeta.Visible = false;
         pnl_paypal.Visible = true;
         pnl_transferencia.Visible = false;
+
+        btn_tarjeta.Enabled = false;
+        btn_transferencia.Enabled = false;
     }
     protected void btn_transferencia_Click(Object sender, EventArgs e)
     {
         pnl_tarjeta.Visible = false;
         pnl_paypal.Visible = false;
         pnl_transferencia.Visible = true;
+
+        btn_tarjeta.Enabled = false;
+        btn_paypal.Enabled = false;
     }
     #endregion
     private async Task CargarDatosPedidoAsync()
@@ -87,7 +120,6 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                 Response.Redirect(HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority));
             }
 
-
             string numeroOperacion = pedidosDatos.numero_operacion;
             string moneda = pedidosDatosNumericos.monedaPedido;
             string metodoEnvio = pedidosDatosNumericos.metodoEnvio;
@@ -110,12 +142,6 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
             lbl_total.Text = pedidosDatosNumericos.total.ToString("C2", numberFormatInfo) + " " + moneda;
             hf_id_operacion.Value = numeroOperacion;
             hf_moneda.Value = moneda;
-
-            bool resultadoPagoBloqueado = bloquearPago(pedidosDatos, pedidosDatosNumericos);
-            if (!resultadoPagoBloqueado)
-            {
-                await generarLinkDePagoAsync(pedidosDatos, pedidosDatosNumericos);
-            }
         }
         catch (Exception ex)
         {
@@ -125,6 +151,8 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
             return;
         }
     }
+
+    #region Funciones para pagar a través de la pasarela de pagos de Santander (Centro de pagos)
     protected bool bloquearPago(pedidos_datos pedidosDatos, pedidos_datosNumericos pedidosDatosNumericos)
     {
         string numeroOperacion = hf_id_operacion.Value;
@@ -321,4 +349,432 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         frm_pagoTarjeta.Visible = true;
         up_pasarelaPago.Update();
     }
+    #endregion
+
+    #region Funciones para pagar a través de PayPal
+    protected void cargarScriptPayPal(string monedaPedido)
+    {
+        var scriptTag = new HtmlGenericControl { TagName = "script" };
+        string cliendID = "";
+        string host = HttpContext.Current.Request.Url.Host;
+        if (host == "localhost" || host == "test1.incom.mx")
+        {
+            cliendID = PayPalClient.client_id_Sandbox;
+        }
+        else
+        {
+            cliendID = PayPalClient.client_id_Productivo;
+        }
+        scriptTag.Attributes["src"] = "https://www.paypal.com/sdk/js?client-id=" + cliendID + "&currency=" + monedaPedido;
+        this.Page.Header.Controls.Add(scriptTag);
+    }
+    protected void generarBotonPagoPayPal(pedidos_datos datos, pedidos_datosNumericos datosNumericos, List<pedidos_productos> productos)
+    {
+        string numero_operacion = hf_numero_operacion.Value;
+        var direccionEnvio = PedidosEF.ObtenerDireccionEnvio(numero_operacion);
+
+        StringBuilder json = new StringBuilder();
+
+        string scriptInit = @" paypal.Buttons({ 
+                                createOrder: function (data, actions) { 
+                                    return actions.order.create ({ 
+                                        'intent': 'CAPTURE', 
+                                        'application_context': { 
+                                            'shipping_preference': 'tipo_envio' 
+                                        }, 
+                                        'purchase_units': [{";
+
+        switch (datosNumericos.metodoEnvio.ToUpper())
+        {
+            case "EN TIENDA":
+                json.Append(scriptInit.Replace("{tipo_envio}", "NO_SHIPPING"));
+                break;
+            case "GRATUITO":
+            case "ESTÁNDAR":
+                json.Append(scriptInit.Replace("{tipo_envio}", "SET_PROVIDED_ADDRESS"));
+                json.Append(procesarDireccionEnvio(direccionEnvio.response, datos.cliente_nombre + " " + datos.cliente_apellido_paterno));
+                break;
+            case "NINGUNO":
+                json.Append(scriptInit.Replace("{tipo_envio}", "NO_SHIPPING"));
+                break;
+        }
+
+        json.Append(@" 'amount': { 
+                            'currency_code': '" + datosNumericos.monedaPedido + @"',
+                            'value': '" + Math.Round((datosNumericos.subtotal - datosNumericos.envio) + datosNumericos.impuestos + datosNumericos.envio, 2) + @"',
+                            'breakdown': {
+                                'item_total': {
+                                    'currency_code': '" + datosNumericos.monedaPedido + @"',
+                                    'value': '" + decimal.Round((datosNumericos.subtotal - datosNumericos.envio), 2) + @"',
+                                },
+                            'shipping': {
+                                'currency_code': '" + datosNumericos.monedaPedido + @"',
+                                'value': '" + decimal.Round(datosNumericos.envio, 2) + @"'
+                            },
+                            'tax_total': {
+                                'currency_code': '" + datosNumericos.monedaPedido + @"',
+                                'value': '" + decimal.Round(datosNumericos.impuestos, 2) + @"'
+                            },
+                        }
+                    },");
+
+        json.Append(@" 'items': [ ");
+
+        foreach (var producto in productos)
+        {
+            string sku = producto.numero_parte;
+            string name = producto.descripcion;
+            name = name.Replace("'", "ft").Replace("\"", "in");
+            string description = "";
+            string unit_amount = decimal.Round(producto.precio_unitario, 2).ToString();
+            string quantity = decimal.Round(producto.cantidad, 0).ToString();
+
+            if (name.Length >= 127)
+            {
+                name = name.Substring(0, 127);
+            }
+
+            description = name;
+
+            json.Append(@"{ 
+                            'name': '" + name + @"',
+                            'sku': '" + sku + @"',
+                            'description': '" + description + @"',
+                            'unit_amount: {
+                                'currency_code': '" + datosNumericos.monedaPedido + @"',
+                                'value': '" + unit_amount + @"'
+                            },
+                            'quantity': '" + quantity + @"',
+                            'category': 'PHYSICAL_GOODS'
+                        },");
+        }
+
+        json.Append(@" ], ");
+        json.Append(@"'invoice_id' : '" + numero_operacion + @"', ");
+        json.Append(@"'description': '" + datos.nombre_pedido + @"', ");
+        json.Append(@"'soft_descriptor' : 'PD " + numero_operacion + @"' ");
+        json.Append(@" }]
+                        });
+                        },
+                        onClick: function() {},
+                        onCancel: function (data) {},
+                        onApprove: function(data, actions) {
+                            return actions.order.capture().then(function(details) {
+                            //console.log(data.orderID);
+                            //console.log(data);
+                            //console.log(details);
+                            // Call your server to save the transaction
+                        }
+
+                        fetch('/usuario/mi-cuenta/procesar-pago.ashx', {
+                            method: 'post',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            credentials: 'same-origin'  ,
+                            body: JSON.stringify({
+                                idTransacciónPayPal: data.orderID,
+                                numero_operacion: '" + numero_operacion + @"' 
+                            })
+                        });
+                        document.querySelector('#texto_cargando_informacion').classList.remove('d-none');
+                        Notiflix.Message(this, Notiflix.MessageType.success, 'Pago realizado con éxito');
+                        //BootstrapAlert('#content_msg_bootstrap', 'success', 'Pago realizado', 'Pago realizado con éxito');
+                        setTimeout(function(){
+                            document.getElementById('" + linkActualizarUP.ClientID + @"').click();
+                        }, 5000);
+                    });
+                }
+            }).render('.paypal_button_container'); ");
+        cargarScriptPayPal(datosNumericos.monedaPedido);
+        ClientScriptManager cs = Page.ClientScript;
+        Type csType = this.GetType();
+        cs.RegisterStartupScript(csType, "PayPalButton", json.ToString(), true);
+
+        btn_paypal_container.Visible = true;
+        up_paypal.Update();
+    }
+    protected void limpiarCamposPagoPaypal()
+    {
+        lbl_paypal_intento.Text = "";
+        lbl_paypal_estado.Text = "";
+        lbl_paypal_monto.Text = "";
+        lbl_paypal_moneda.Text = "";
+        lbl_paypal_fecha_primerIntento.Text = "";
+        lbl_paypal_fecha_actualizacion.Text = "";
+    }
+    protected void btn_renovarPedidoPayPal_Click(object sender, EventArgs e)
+    {
+        Tuple<bool, List<string>> resultado = pedidosProductos.renovarPedido(hf_numero_operacion.Value);
+
+        if (resultado.Item1)
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Pedido actualizado con éxito");
+            string script = @" setTimeout(() => { location.reload(); }, 1000)";
+            ScriptManager.RegisterStartupScript(up_paypal, typeof(Page), "redirección", script, true);
+        }
+        else
+        {
+            NotiflixJS.Message(up_paypal, NotiflixJS.MessageType.failure, "Error al actualizar algunos productos: " + resultado.Item2);
+        }
+    }
+    protected void mostrarEstadoPayPal(List<pedidos_pagos_paypal> historialPagos)
+    {
+        btn_paypal_container.Visible = true;
+        dt_desglose_paypal.Visible = true;
+        lbl_paypal_intento.Text = historialPagos[0].intento;
+        lbl_paypal_estado.Text = historialPagos[0].estado;
+        lbl_paypal_monto.Text = decimal.Parse(historialPagos[0].monto).ToString("C2", numberFormatInfo);
+        lbl_paypal_moneda.Text = historialPagos[0].moneda;
+        lbl_paypal_fecha_primerIntento.Text = String.Format("{0:F}", historialPagos[0].fecha_primerIntento);
+        lbl_paypal_fecha_actualizacion.Text = String.Format("{0:F}", historialPagos[0].fecha_actualización);
+
+        up_paypal.Update();
+    }
+    protected string procesarDireccionEnvio(pedidos_direccionEnvio direccionEnvio, string nombreCompleto)
+    {
+        string addressLine1 = direccionEnvio.calle + ", " + direccionEnvio.numero + ", " + direccionEnvio.colonia;
+        string addressLine2 = direccionEnvio.numero;
+        string adminArea1 = direccionEnvio.delegacion_municipio;
+        string adminArea2 = direccionEnvio.estado;
+        string postalCode = direccionEnvio.codigo_postal;
+        string countryCode = paises.obtenerCódigoPais(direccionEnvio.pais);
+        if (addressLine1.Length > 300)
+        {
+            addressLine1 = addressLine1.Substring(0, 300);
+        }
+        string envio = (@"'shipping': {
+            'name': {
+                'full_name': '" + nombreCompleto + @"'
+                            },
+                            'address': {
+                                'address_line_1': '" + addressLine1 + @"',
+                                'address_line_2': '" + addressLine2 + @"',
+                                'admin_area_2': '" + adminArea2 + @"',
+                                'admin_area_1': '" + adminArea1 + @"',
+                                'postal_code': '" + postalCode + @"',
+                                'country_code': '" + countryCode + @"'
+                            },
+                        },");
+
+        return envio;
+    }
+    protected bool validarBloqueoPago(List<pedidos_productos> productos, pedidos_datos datos, pedidos_datosNumericos datosNumericos)
+    {
+        bool pedidoAprobadoPorAsesor = false;
+        bool pagoRealizado = false;
+        bool montoSuperiorParaEnvioGratuito = false;
+        bool fechaPermitidaPago = false;
+        bool precioEnvioEstablecido = false;
+        bool pedidoElegibleParaEnvioGratuito = true;
+        bool direccionEnvioCompleta = false;
+        bool diferenciaTipoDeCambio = false;
+        bool permitirPago = false;
+        string numero_operacion = hf_numero_operacion.Value;
+        int idSQL = int.Parse(hf_id_operacion.Value);
+        decimal envio = Math.Round(datosNumericos.envio, 2);
+        decimal tipoDeCambioPedido = datosNumericos.tipo_cambio;
+        string metodoEnvio = datosNumericos.metodoEnvio;
+        string monedaPedido = datosNumericos.monedaPedido;
+        decimal totalPedido = Math.Round(datosNumericos.total, 2);
+        DateTime fechaPedido = datos.fecha_creacion;
+        Decimal tipoCambioActual = operacionesConfiguraciones.obtenerTipoDeCambio();
+        string productosNoDisponiblesParaEnvioGratis = "";
+        List<pedidos_pagos_respuesta_santander> historialPagosSantander = SantanderResponse.ObtenerTodos(numero_operacion);
+
+        historialPagosSantander = historialPagosSantander.Where(p => p.estatus == "approved").ToList();
+        if (historialPagosSantander.Count >= 1)
+        {
+            motivosNoDisponiblePago.Visible = true;
+            pnl_noDisponiblePago.Visible = true;
+            motivosNoDisponiblePago.InnerHtml += " Se encuentra un pago por medio de tarjeta";
+            return false;
+        }
+
+        List<pedidos_pagos_paypal> historialPagosPayPal = PayPalTienda.obtenerPagos(numero_operacion);
+        limpiarCamposPagoPaypal();
+
+        if (historialPagosPayPal == null || historialPagosPayPal.Count < 1)
+        {
+            pagoRealizado = false;
+            dt_desglose_paypal.Visible = false;
+        }
+        else
+        {
+            dt_desglose_paypal.Visible = true;
+            pagoRealizado = true;
+            mostrarEstadoPayPal(historialPagosPayPal);
+            return false;
+        }
+
+        if (monedaPedido == "MXN")
+        {
+            if (totalPedido > montoMinimoPedidoEnvioGratuito)
+            {
+                montoSuperiorParaEnvioGratuito = true;
+            }
+        }
+        else
+        {
+            decimal totalMXN = totalPedido * tipoCambioActual;
+            if (totalMXN > montoMinimoPedidoEnvioGratuito)
+            {
+                montoSuperiorParaEnvioGratuito = true;
+            }
+        }
+
+        if (monedaPedido == "USD")
+        {
+            fechaPermitidaPago = utilidad_fechas.calcularDiferenciaDias(fechaPedido) < diasVigenciaPedidoUSD;
+        }
+        else
+        {
+            fechaPermitidaPago = utilidad_fechas.calcularDiferenciaDias(fechaPedido) < diasVigenciaPedidoUSD;
+        }
+        if (!fechaPermitidaPago)
+        {
+            btn_renovarPedidoPayPal.Visible = true;
+        }
+
+        if (tipoCambioActual > tipoDeCambioPedido)
+        {
+            decimal diferenciaTipoDeCambioPayPal = tipoCambioActual - tipoDeCambioPedido;
+            if (diferenciaTipoDeCambioPayPal > limiteDiferenciaTipoDeCambio)
+            {
+                btn_renovarPedidoPayPal.Visible = true;
+                motivosNoDisponiblePago.Visible = true;
+                motivosNoDisponiblePago.InnerHtml += " El tipo de cambio del pedido ha cambiado, renueva tu pedido";
+                return false;
+            }
+        }
+
+        if (envio > 0)
+        {
+            precioEnvioEstablecido = true;
+        }
+
+        foreach (var producto in productos)
+        {
+            string numero_parte = producto.numero_parte;
+            bool resultado = productosTienda.productoDisponibleEnvio(numero_parte);
+            if (resultado == false)
+            {
+                productosNoDisponiblesParaEnvioGratis += numero_parte + ", ";
+                pedidoElegibleParaEnvioGratuito = false;
+            }
+        }
+        productosNoDisponiblesParaEnvioGratis = productosNoDisponiblesParaEnvioGratis.TrimEnd(' ');
+        productosNoDisponiblesParaEnvioGratis = productosNoDisponiblesParaEnvioGratis.TrimEnd(',');
+
+        bool validarEnvio = false;
+
+        switch (metodoEnvio)
+        {
+            case "En Tienda":
+                permitirPago = true;
+                pedidoElegibleParaEnvioGratuito = true;
+                break;
+            case "Gratuito":
+                validarEnvio = true;
+                pedidoElegibleParaEnvioGratuito = true;
+                break;
+            case "Estándar":
+                validarEnvio = true; 
+                break;
+            case "Ninguno":
+                motivosNoDisponiblePago.Visible = true;
+                pnl_noDisponiblePago.Visible = true;
+                motivosNoDisponiblePago.InnerHtml += "- No se ha establecido ninguna condición de envío. <br>";
+                return false;
+        }
+
+        if (validarEnvio)
+        {
+            model_direccionesEnvio direccionEnvio = pedidosDatos.obtenerPedidoDireccionEnvioStatic(numero_operacion);
+            Tuple<bool, string> resultadoValidacion = validarCampos.direccionEnvioCompleta(direccionEnvio);
+
+            if (resultadoValidacion.Item1)
+            {
+                permitirPago = true;
+                direccionEnvioCompleta = true;
+            }
+            else
+            {
+                permitirPago = false;
+                motivosNoDisponiblePago.Visible = true;
+                pnl_noDisponiblePago.Visible = true;
+                motivosNoDisponiblePago.InnerHtml += " La dirección de envio no está completa, faltan los siguientes datos: " + resultadoValidacion.Item2 + "<br/>";
+                direccionEnvioCompleta = false;
+            }
+        }
+
+        if (validarEnvio)
+        {
+            if (montoSuperiorParaEnvioGratuito == false && precioEnvioEstablecido == false && pedidoElegibleParaEnvioGratuito == false && direccionEnvioCompleta)
+            {
+                motivosNoDisponiblePago.Visible = true;
+                pnl_noDisponiblePago.Visible = true;
+                motivosNoDisponiblePago.InnerHtml += " El pedido no supera la cantidad de $" + montoMinimoPedidoEnvioGratuito + " para el envio gratuito. <br/>";
+                motivosNoDisponiblePago.InnerHtml += "El asesor aún no establece el precio de envio. <br/>";
+                permitirPago = false;
+            }
+        }
+        if (fechaPermitidaPago == false)
+        {
+            motivosNoDisponiblePago.Visible = true;
+            pnl_noDisponiblePago.Visible = true;
+            motivosNoDisponiblePago.InnerHtml += " La vigencia de los precios y fecha de pago ha vencido. <br/>";
+            permitirPago = false;
+        }
+        if (validarEnvio)
+        {
+            if (pedidoElegibleParaEnvioGratuito == false && montoSuperiorParaEnvioGratuito == true &&  precioEnvioEstablecido == false && direccionEnvioCompleta)
+            {
+                motivosNoDisponiblePago.Visible = true;
+                pnl_noDisponiblePago.Visible = true;
+                motivosNoDisponiblePago.InnerHtml += " Contiene los siguientes productos que no aplican al envio gratuito: " + productosNoDisponiblesParaEnvioGratis + "<br/>";
+                motivosNoDisponiblePago.InnerHtml += " El asesor aún no establece el precio de envio.<br/>";
+                permitirPago = false;
+            }
+        }
+        if (validarEnvio)
+        {
+            if (montoSuperiorParaEnvioGratuito && fechaPermitidaPago && pedidoElegibleParaEnvioGratuito && direccionEnvioCompleta)
+            {
+                permitirPago = true;
+                return permitirPago;
+            }
+        }
+        if (validarEnvio == true)
+        {
+            if (precioEnvioEstablecido && fechaPermitidaPago && direccionEnvioCompleta)
+            {
+                permitirPago = true;
+                return permitirPago;
+            }
+        }
+        else
+        {
+            if (fechaPermitidaPago)
+            {
+                permitirPago = true;
+                return permitirPago;
+            }
+        }
+
+        return permitirPago;
+    }
+    protected void linkActualizarUP_Click(object sender, EventArgs e)
+    {
+        string numero_operacion = hf_numero_operacion.Value;
+        var pedidoDatos = PedidosEF.ObtenerDatos(numero_operacion);
+        var pedidoDatosNumericos = PedidosEF.ObtenerNumeros(numero_operacion);
+        var pedidoProductos = PedidosEF.ObtenerProductos(numero_operacion);
+
+        if (validarBloqueoPago(pedidoProductos, pedidoDatos, pedidoDatosNumericos))
+        {
+            generarBotonPagoPayPal(pedidoDatos, pedidoDatosNumericos, pedidoProductos);
+        }
+    }
+    #endregion
 }
