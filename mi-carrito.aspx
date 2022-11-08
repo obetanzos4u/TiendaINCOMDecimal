@@ -34,7 +34,7 @@
                                     <td style="width: 10%">
                                         <asp:Image ID="imgProducto" CssClass="responsive-img" runat="server" />
                                     </td>
-                                    <td style="width: 60%; padding: 15px;">
+                                    <td style="width: 54%;">
                                         <asp:HiddenField ID="hf_idProductoCarrito" Value='<%#Eval("id") %>' runat="server" />
                                         <div class="is-select-all">
                                             <asp:Literal ID="lt_numeroParte" Text='<%#Eval("numero_parte") %>' runat="server"></asp:Literal>
@@ -125,7 +125,7 @@
                         <i>Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</i>
                     </div>--%>
                 </div>
-                <div id="moreArrow" visible="false" style="float: left; margin-right: 1rem;" runat="server">
+                <div id="moreArrow" visible="false" runat="server">
                     <div class="arrow-doble-down is-text-blue is-flex" style="width: fit-content;">
                         <svg xmlns="http://www.w3.org/2000/svg" id="svg-arrow-down" width="288" height="288" viewBox="0 0 24 24">
                             <path class="arrow" fill="#2d6cdf" d="M12 12a1 1 0 0 1-.71-.29l-4-4A1 1 0 0 1 8.71 6.29L12 9.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 12zM12 18a1 1 0 0 1-.71-.29l-4-4a1 1 0 0 1 1.41-1.41L12 15.59l3.29-3.29a1 1 0 0 1 1.41 1.41l-4 4A1 1 0 0 1 12 18z" class="color000 svgShape" />
@@ -185,7 +185,7 @@
                         <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
                     </div>
                 </div>--%>
-                <div id="btn_continuarCompra" class="mi-carrito-boton-compra is-flex is-flex-col is-justify-center is-items-center" runat="server">
+                <div id="btn_continuarCompra" class="mi-carrito-boton-compra is-flex-col is-justify-center is-items-center" runat="server">
                     <asp:LinkButton ID="btn_comprar" ClientIDMode="Static" OnClick="btn_comprar_Click" CssClass="is-text-white" runat="server">
                         <div class="is-btn-green">Continuar con la compra</div>
                     </asp:LinkButton>
@@ -193,10 +193,12 @@
                     <!-- <a href="#">Descargar cotización</a> -->
                 </div>
                 <div id="lbl_consideraciones" visible="true" class="mi-carrito-consideraciones-lg" runat="server">
-                    <span class="is-font-semibold">Consideraciones:</span>
-                    <div class="is-text-justify">
-                        <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
-                        <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
+                    <div class="right-mi_carrito_consideraciones">
+                        <span class="is-font-semibold">Consideraciones:</span>
+                        <div class="is-text-justify">
+                            <p>Debido a la alta demanda nuestro inventario y entregas pueden verse afectados. Gracias por su comprensión.</p>
+                            <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
+                        </div>
                     </div>
                 </div>
             </div>

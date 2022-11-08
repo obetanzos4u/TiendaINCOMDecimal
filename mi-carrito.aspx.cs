@@ -90,16 +90,16 @@ public partial class mi_carrito : System.Web.UI.Page
             {
 
 
-                string script = @" 
-                    document.addEventListener('DOMContentLoaded', () => { 
-                          console.log('sasfa');
-                         setTimeout(function () { 
-                                                     M.Modal.getInstance(document.querySelector('#modal_NumerosContacto')).open(); 
-                                                }, 3500);  
-                    });";
+               string script = @" 
+                   document.addEventListener('DOMContentLoaded', () => { 
+                         console.log('sasfa');
+                        setTimeout(function () { 
+                                                    M.Modal.getInstance(document.querySelector('#modal_NumerosContacto')).open(); 
+                                               }, 3500);  
+                   });";
 
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "ModalContacto", script, true);
+               ScriptManager.RegisterStartupScript(this, this.GetType(), "ModalContacto", script, true);
             }
             #endregion
 
