@@ -78,7 +78,13 @@
             break;
     }
 }
-
-const NotiflixLoading = () => {
-    console.log("Debe cargar boton de carga");
+const NotiflixLoading = (type) => {
+    if (type == "loading") {
+        Notiflix.Loading.custom({
+            customSvgUrl: 'https://www.incom.mx/img/webUI/newdesign/icono_de_carga.svg'
+        });
+    }
+    else {
+        Notiflix.Loading.remove();
+    }
 }

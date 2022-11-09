@@ -85,10 +85,20 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         {
             NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Completa la información de contacto");
             contacto_desc.InnerHtml = $"<ul class='list-none'><li class='is-text-red is-font-semibold'>Teléfono*: {pedidos_datos.celular}</li>" + $"<li class='is-text-red is-font-semibold'>Teléfono alternativo: {pedidos_datos.telefono}</li></ul>" + $"<p class='is-text-red'>*Campos obligatorios</p>";
+            btn_continuarMetodoPago.ToolTip = "Debes ingresar un teléfono de contacto";
+            btn_continuarMetodoPago.Attributes.Add("style", "cursor: not-allowed;");
+            btn_continuarMetodoPago.Enabled = false;
+        }
+        else if (!string.IsNullOrEmpty(pedidos_datos.celular) && string.IsNullOrEmpty(pedidos_datos.telefono))
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Te recomendamos agregar el teléfono alternativo.");
+            contacto_desc.InnerHtml = $"<ul class='list-none'><li>Teléfono: {pedidos_datos.celular}</li>" + $"<li>Teléfono alternativo: {pedidos_datos.telefono}</li></ul>";
+            btn_continuarMetodoPago.Enabled = true;
         }
         else
         {
             contacto_desc.InnerHtml = $"<ul class='list-none'><li>Teléfono: {pedidos_datos.celular}</li>" + $"<li>Teléfono alternativo: {pedidos_datos.telefono}</li></ul>";
+            btn_continuarMetodoPago.Enabled = true;
         }
         #endregion
 
@@ -110,9 +120,8 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         if (pedido_montos.metodoEnvio == "En Tienda")
         {
             metodo_envio_title.InnerText = pedido_montos.metodoEnvio;
-            metodo_envio_desc.InnerText = "Te esperamos en nuestra sucursal.";
+            metodo_envio_desc.InnerText = "Te esperamos en nuestra sucursal: ";
             localizacionTienda.Visible = true;
-
         }
         else if (pedido_montos.metodoEnvio == "Ninguno")
         {
@@ -315,10 +324,10 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
         });
 
-        btn_continuarMetodoPago.NavigateUrl = GetRouteUrl("cliente-pedido-pago", new System.Web.Routing.RouteValueDictionary
-        {
-            { "id_operacion", seguridad.Encriptar(hf_id_pedido.Value) }
-        });
+        //btn_continuarMetodoPago.NavigateUrl = GetRouteUrl("cliente-pedido-pago", new System.Web.Routing.RouteValueDictionary
+        //{
+        //    { "id_operacion", seguridad.Encriptar(hf_id_pedido.Value) }
+        //});
     }
 
 
@@ -453,7 +462,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
 
         mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
 
-        emailTienda email = new emailTienda(asunto, $"iamado@2rent.mx, tpavia@incom.mx, jhernandez@incom.mx, pjuarez@incom.mx,  {pedidoDatos.usuario_cliente}", mensaje, "retail@incom.mx");
+        emailTienda email = new emailTienda(asunto, $"tpavia@incom.mx, jhernandez@incom.mx, pjuarez@incom.mx,  {pedidoDatos.usuario_cliente}", mensaje, "retail@incom.mx");
         email.general();
 
 
@@ -595,5 +604,15 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
 
 
         }
+    }
+    protected void btn_continuarMetodoPago_Click(object sender, EventArgs e)
+    {
+        string redireccionUrl = GetRouteUrl("cliente-pedido-pago", new System.Web.Routing.RouteValueDictionary
+        {
+            { "id_operacion", seguridad.Encriptar(hf_id_pedido.Value) }
+        });
+        //string script = @"setTimeout(() => { window.location.replace(" + redireccionUrl + ")}, 3500);";
+        string script = @"console.log(" + redireccionUrl + ");";
+        ScriptManager.RegisterStartupScript(this, typeof(Page), "console", script, true);
     }
 }

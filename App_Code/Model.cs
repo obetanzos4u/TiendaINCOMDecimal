@@ -177,6 +177,7 @@ public partial class direcciones_facturacion
     public int id_cliente { get; set; }
     public string nombre_direccion { get; set; }
     public string razon_social { get; set; }
+    public string regimen_fiscal { get; set; }
     public string rfc { get; set; }
     public string calle { get; set; }
     public string numero { get; set; }

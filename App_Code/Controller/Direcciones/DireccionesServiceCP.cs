@@ -14,14 +14,17 @@ public class DireccionesServiceCP
     {
         var client = new RestClient("https://apiweb.incom.mx");
         var request = new RestRequest($"/api/CodigoPostals/cp/{CP}", Method.GET);
-        var response = await client.ExecuteAsync(request);
-      
+        Task<IRestResponse> t = client.ExecuteGetAsync(request);
+        t.Wait();
+        //var response = await client.ExecuteAsync(request);
+        var response = await t;
 
-       switch(response.StatusCode) { 
 
+        switch (response.StatusCode)
+        {
             case System.Net.HttpStatusCode.NotFound:
                 return new json_respuestas(false, "No se encontró tu código postal, favor de verificar", false, null);
-          
+
             case System.Net.HttpStatusCode.BadRequest:
                 return new json_respuestas(false, "Ocurrio un error, intenta en unos momentos.", true, null);
 
@@ -30,9 +33,9 @@ public class DireccionesServiceCP
 
             default:
                 return new json_respuestas(false, "Ocurrio un error, intenta en unos momentos.", true, null);
-                
+
         }
-        
+
     }
 
     public static async Task<json_respuestas> GetCodigoPostal(string CP)

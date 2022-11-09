@@ -6,6 +6,7 @@
 <asp:Content runat="server" ContentPlaceHolderID="body">
     <asp:HiddenField ID="hf_id_operacion" runat="server" />
     <asp:HiddenField ID="hf_moneda" runat="server" />
+    <asp:HiddenField ID="hf_numero_operacion" runat="server" />
     <hdr:menu runat="server" />
     <uc:progreso runat="server" />
     <div class="container-pago container-md is-top-3">
@@ -40,11 +41,56 @@
                                     <asp:Button ID="btn_transferencia" class="is-btn-gray" OnClick="btn_transferencia_Click" Text="Transferencia o deposito" UseSubmitBehavior="false" runat="server" />
                                 </div>
                                 <asp:Panel ID="pnl_tarjeta" Visible="false" runat="server">
-                                    <p>Información de pago</p>
                                     <iframe id="frm_pagoTarjeta" visible="true" style="width: 100%; height: 680px; border: 0;" runat="server"></iframe>
                                 </asp:Panel>
                                 <asp:Panel ID="pnl_paypal" Visible="false" runat="server">
                                     <p>Pago con PayPal</p>
+                                    <asp:UpdatePanel ID="up_paypal" UpdateMode="Conditional" RenderMode="Block" runat="server">
+                                        <ContentTemplate>
+                                            <div id="btn_paypal_container" runat="server"></div>
+                                            <asp:Panel ID="pnl_noDisponiblePago" Visible="false" runat="server">
+                                                <strong>El pago no está disponible por los siguientes motivos: </strong>
+                                                <p id="motivosNoDisponiblePago" visible="false" runat="server"></p>
+                                            </asp:Panel>
+                                            <asp:LinkButton ID="btn_renovarPedidoPayPal" Visible="false" OnClick="btn_renovarPedidoPayPal_Click" runat="server"></asp:LinkButton>
+                                            <div id="txt_cargando">Cargando información de pago en PayPal...</div>
+                                            <div id="content_msg_bootstrap"></div>
+                                            <table id="dt_desglose_paypal" class="table" runat="server">
+                                                <tr>
+                                                    <td>Tipo de intento</td>
+                                                    <td>
+                                                        <asp:Label ID="lbl_paypal_intento" runat="server"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Estado del pago</td>
+                                                    <td>
+                                                        <asp:Label ID="lbl_paypal_estado" runat="server"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Monto pagado en PayPal</td>
+                                                    <td>
+                                                        <asp:Label ID="lbl_paypal_monto" runat="server"></asp:Label>
+                                                        <asp:Label ID="lbl_paypal_moneda" runat="server"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fecha del primer intento</td>
+                                                    <td>
+                                                        <asp:Label ID="lbl_paypal_fecha_primerIntento" runat="server"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Última actualización</td>
+                                                    <td>
+                                                        <asp:Label ID="lbl_paypal_fecha_actualizacion" runat="server"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <asp:LinkButton ID="linkActualizarUP" runat="server" OnClick="linkActualizarUP_Click">Actualizar</asp:LinkButton>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
                                 </asp:Panel>
                                 <asp:Panel ID="pnl_transferencia" Visible="false" runat="server">
                                     <p>Pago con transferencia</p>
