@@ -14,9 +14,19 @@
     <div class="container-md is-top-3">
         <div class="row">
             <div class="col">
-                <h1 class="h4">Facturación del pedido:
-                    <asp:Literal ID="lt_numero_pedido" runat="server"></asp:Literal>
-                </h1>
+                <div class="is-flex">
+                    <h1 class="h5"><strong>Facturación del pedido:
+                        <asp:Literal ID="lt_numero_pedido" runat="server"></asp:Literal>
+                    </h1></strong>
+                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Pedido')">
+                        <span class="is-text-gray is-inline-block">
+                            <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                <title id="Clipcopy">Copiar elemento</title>
+                            </svg>
+                        </span>
+                    </button> 
+                </div>
                 <p class="text-facturaion-sub">Establece el tipo de facturación, elige una entrada guardada o agrega una nueva.</p>
             </div>
             <asp:Label ID="msg_alert" Visible="false" class="alert alert-warning" role="alert" runat="server"> 

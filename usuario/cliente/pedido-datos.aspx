@@ -9,8 +9,8 @@
     <div class="container-md is-top-3">
         <div class="is-flex is-flex-col is-justify-center is-items-start">
             <div class="is-flex is-justify-start is-items-center">
-                <h4>Contacto del pedido:
-                    <asp:Label ID="lt_numero_pedido" class="is-select-all" runat="server"></asp:Label></h4>
+                <h1 class="h5"><strong>Contacto del pedido:
+                    <asp:Label ID="lt_numero_pedido" class="is-select-all" runat="server"></asp:Label></h1></strong>
                 <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Pedido')">
                     <span class="is-text-gray">
                         <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -20,12 +20,12 @@
                     </span>
                 </button>
             </div>
-            <p>Establece el contacto de quién recibe el pedido</p>
+            <p>Establece el contacto de quién recibe el pedido.</p>
         </div>
         <div class="row ">
-            <div class="col  col-xs-12  col-sm-6   col-md-6  col-lg-6">
+            <div class="col  col-xs-12  col-sm-6   col-md-6  col-lg-6 is-w-fit">
                 <div class="col">
-                    <p>Contactos guardados</p>
+                    <p><strong>Contactos guardados:</strong></p>
                     <asp:ListView ID="lv_contactos" OnItemCanceling="OnItemCanceling" OnItemUpdating="OnItemUpdating" OnItemEditing="OnItemEditing" runat="server">
                         <LayoutTemplate>
                             <div class="row">
@@ -34,8 +34,8 @@
                         </LayoutTemplate>
                         <ItemTemplate>
                             <asp:HiddenField ID="hf_id_contacto" Value='<%#Eval("id") %>' runat="server" />
-                            <div class="col col-sm-12 col-md-12 col-lg-12">
-                                <div id='contentCard_DireccEnvio' class="card " runat="server">
+                            <div class="col col-sm-12 col-md-12 col-lg-12 is-bt-3" style="width: fit-content;">
+                                <div id='contentCard_DireccEnvio' class="card is-p-4" runat="server">
                                     <div class="card-body">
                                         <h5 class="card-title"><%# Eval("nombre") %> <%# Eval("apellido_paterno") %> <%# Eval("apellido_materno") %></h5>
                                         <p class="card-text">
@@ -43,11 +43,14 @@
                                             <br />
                                             Tel. Alt.: <%# Eval("telefono")%>
                                         </p>
-                                        <asp:LinkButton class="btn btn-sm   btn-outline-danger" OnClientClick="return confirm('¿Eliminar?');" OnClick="btn_eliminarContacto_Click" ID="btn_eliminarContacto" runat="server">
-                                              <i class="fas fa-trash-alt"></i>
-                                        </asp:LinkButton>
-                                        <a class="btn btn-outline-secondary  text-dark bg-light" href='/usuario/cliente/editar/contacto/<%#Eval("id") %>?ref=<%= seguridad.Encriptar(hf_id_pedido.Value)%>'>Editar</a>
-                                        <asp:LinkButton ID="btn_usarDatos" OnClick="btn_usarDatos_Click" class="btn btn-primary" runat="server">Usar estos datos</asp:LinkButton>
+                                        <div class="is-top-2">
+                                            <asp:LinkButton class="is-btn-gray-light is-space-r-6" OnClientClick="return confirm('¿Eliminar?');" OnClick="btn_eliminarContacto_Click" ID="btn_eliminarContacto" runat="server">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </asp:LinkButton>
+                                            <a class="is-btn-gray-light is-space-r-6" href='/usuario/cliente/editar/contacto/<%#Eval("id") %>?ref=<%= seguridad.Encriptar(hf_id_pedido.Value)%>'>Editar</a>
+                                            <asp:LinkButton ID="btn_usarDatos" OnClick="btn_usarDatos_Click" runat="server">
+                                                <div class="is-btn-blue is-inline-block seleccionar-contacto">Seleccionar</div></asp:LinkButton>                                           
+                                        </div>
                                         <%--<div id="msg_sucess" runat="server" visible="false" class="alert alert-success mt-2" role="alert"></div>--%>
                                     </div>
                                 </div>
@@ -84,18 +87,16 @@
 
                                             <div id='content_alert_actualizar_contacto_<%#Eval("id") %>' class="mt-0 "></div>
                                             <div class="col-md-6">
-
                                                 <asp:LinkButton ID="btn_Cancelar"
                                                     class="btn btn-sm  " CommandName="Cancel" runat="server">Cancelar</asp:LinkButton>
 
                                                 <asp:LinkButton ID="btn_Actualizar"
-                                                    class="btn btn-sm btn-primary" CommandName="Update" runat="server">Guardar</asp:LinkButton>
+                                                    class="is-btn-blue" CommandName="Update" runat="server">Guardar</asp:LinkButton>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </EditItemTemplate>
                         <EmptyDataTemplate>
                             No hay datos de contacto guardados
@@ -103,23 +104,23 @@
                     </asp:ListView>
                 </div>
             </div>
-            <div class="col  col-xs-12  col-sm-6   col-md-6  col-lg-6">
+            <div class="col  col-xs-12  col-sm-6   col-md-6  col-lg-6 is-p-8 is-bg-gray-light is-rounded-lg" style="margin: 2rem auto; max-width: 400px;">
                 <div class="d-grid gap-2 ">
                     <div class="col">
                         <div class="row">
                             <div class="col">
-                                <p>Agregar un contacto nuevo:</p>
+                                <p><strong>Agregar un contacto nuevo:</strong></p>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group">
+                            <div class="form-group is-bt-1">
                                 <label for="<%=txt_add_nombre.ClientID %>">Nombre(s)*:</label>
                                 <asp:TextBox ID="txt_add_nombre" ClientIDMode="Static" class="form-control" data-length="20" MaxLength="40" runat="server"></asp:TextBox>
                                 <%--<small id="emailHelp" class="form-text text-muted">Nombres</small>--%>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group">
+                            <div class="form-group is-bt-1">
                                 <label for="<%=txt_add_apellido_paterno.ClientID %>">Apellido(s)*:</label>
                                 <asp:TextBox ID="txt_add_apellido_paterno" ClientIDMode="Static" class="form-control" data-length="50" MaxLength="50" runat="server"></asp:TextBox>
                             </div>
@@ -129,7 +130,7 @@
                                 <label for="<%= txt_add_apellido_materno.ClientID %>">Apellido Materno</label>
                                 <asp:TextBox ID="txt_add_apellido_materno" ClientIDMode="Static" class="form-control" data-length="35" MaxLength="35" runat="server"></asp:TextBox
                             </div>--%>
-                            <div class="form-group">
+                            <div class="form-group is-bt-1">
                                 <label for="txt_add_celular">Teléfono*:</label>
                                 <asp:TextBox ID="txt_add_celular" ClientIDMode="Static" class="form-control" runat="server"></asp:TextBox>
                             </div>
@@ -138,10 +139,9 @@
                                 <asp:TextBox ID="txt_add_telefono" ClientIDMode="Static" class="form-control" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
                             </div>
                         </div>
-
                         <div id="content_alert_crear_contacto" class="mt-0 "></div>
-                        <div class="form-group is-flex is-justify-center is-items-center is-py-4">
-                            <asp:Button ID="btn_crear_contacto" class="btn btn-lg btn-primary" OnClick="btn_crear_contacto_Click" Text="Agregar" runat="server" />
+                        <div class="form-group is-flex is-justify-center is-items-center is-top-1 is-py-4">
+                            <asp:Button ID="btn_crear_contacto" class="is-btn-blue" OnClick="btn_crear_contacto_Click" Text="Guardar" runat="server" />
                         </div>
                     </div>
                 </div>
