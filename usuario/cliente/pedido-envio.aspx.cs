@@ -261,7 +261,6 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
             {
                 HtmlGenericControl contentCard_DireccEnvio = (HtmlGenericControl)e.Item.FindControl("contentCard_DireccEnvio");
                 contentCard_DireccEnvio.Attributes["class"] += " bg-success-2";
-
             }
         }
     }

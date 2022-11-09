@@ -74,7 +74,7 @@
                                             <%# Eval("razon_social") %><br />
                                             <%# Eval("calle") %> <%# Eval("numero") %>, <%# Eval("colonia") %>,  <%# Eval("delegacion_municipio") %>,  <%# Eval("estado") %>   <%# Eval("codigo_postal") %>
                                         </p>
-                                        <section class="is-m-auto is-text-center options-factura">
+                                        <section class="is-m-auto is-flex is-justify-between options-factura">
                                             <asp:LinkButton class="is-btn-gray-light" OnClientClick="return confirm('Confirma que deseas ELIMINAR?');"
                                                 OnClick="btn_eliminarDireccion_Click" ID="btn_eliminarDireccion" runat="server">
                                                 <i class="fas fa-trash-alt"></i>
@@ -82,7 +82,7 @@
                                             <a class="is-btn-gray-light"
                                                 href='/usuario/cliente/editar/facturacion/<%#Eval("id") %>?ref=<%= seguridad.Encriptar(hf_id_pedido.Value)%>&numero_operacion=<%= lt_numero_pedido.Text%>'>Editar
                                             </a>
-                                            <div class="gap-2 mt-2 is-inline-block">
+                                            <div class="gap-2 is-inline-block">
                                                 <asp:LinkButton ID="btn_usarDirección" OnClick="btn_usarDirección_Click"
                                                     class="is-decoration-none" runat="server">
                                                 <div class="is-btn-blue">Seleccionar</div>

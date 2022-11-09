@@ -39,7 +39,7 @@
                         <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
                             <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Datos de quien recibe</h4>
                         </section>
-                        <div class="is-px-8 is-py-2">
+                        <div class="is-px-8 is-py-2 is-top-1 text-datos_quien_recibe">
                             <h6 id="contacto_title" runat="server"></h6>
                             <p id="contacto_desc" runat="server"></p>
                             <asp:HyperLink runat="server" ID="link_cambiar_contacto" Style="text-decoration: none;">
@@ -53,9 +53,9 @@
                         <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
                             <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Envío</h4>
                         </section>
-                        <div class="is-px-8 is-py-2">
+                        <div class="is-px-8 is-py-2 is-top-1">
                             <h6 id="metodo_envio_title" class="card-subtitle" runat="server"></h6>
-                            <div class="is-flex is-justify-between is-items-start">
+                            <div class="is-flex is-items-start">
                                 <p id="metodo_envio_desc" class="is-select-all" runat="server"></p>
                                 <a id="localizacionTienda" visible="false" href="https://g.page/Incom_CDMX?share" target="_blank" rel="noreferrer noopener" class="is-decoration-none is-text-black" runat="server">
                                     <span>
@@ -70,7 +70,7 @@
                             <%--<asp:LinkButton ID="btn_Borrar_msg_alert_envio" CssClass="mb-2" Visible="false" OnClick="btn_Borrar_msg_alert_envio_Click" runat="server">
                             Borrar mensaje de error envío
                             </asp:LinkButton>--%>
-                            <div class="is-flex is-justify-between is-items-center">
+                            <div class="is-flex is-justify-between is-items-center is-top-1">
                                 <%--<div class="Conteng_msg_envioNota"></div>--%>
                                 <div class="dropdown">
                                     <asp:HyperLink runat="server" ID="btn_cambiar_metodo_envio" Style="text-decoration: none;">
@@ -88,7 +88,7 @@
                         <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
                             <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Facturación</h4>
                         </section>
-                        <div class="is-px-8 is-py-2">
+                        <div class="is-px-8 is-py-2 is-top-1">
                             <h6 id="facturacion_title" runat="server" class="card-subtitle"></h6>
                             <p id="facturacion_desc" runat="server" class="card-text"></p>
                             <p id="ContentFacturacionUsoCFDI" runat="server">
@@ -100,7 +100,7 @@
                                     OnSelectedIndexChanged="ddl_UsoCFDI_SelectedIndexChanged" AutoPostBack="true" runat="server">
                                 </asp:DropDownList>
                             </p>
-                            <div class="is-flex is-justify-between is-items-center">
+                            <div class="is-flex is-justify-between is-items-center is-top-1">
                                 <!-- <asp:LinkButton runat="server" ID="btn_sin_factura" OnClick="btn_sin_factura_Click"
                                     class="">
                              Sin factura </asp:LinkButton> -->
@@ -248,7 +248,7 @@
                 </div>
                 <div class="row is-top-2">
                     <div class="is-m-auto is-w-auto">
-                        <asp:LinkButton runat="server" ID="btn_continuarMetodoPago" OnClick="btn_continuarMetodoPago_Click" CssClass="is-select-none">Continuar a método de pago</asp:LinkButton>
+                        <asp:LinkButton runat="server" ID="btn_continuarMetodoPago" OnClick="btn_continuarMetodoPago_Click" CssClass="is-decoration-none is-btn-green">Continuar a método de pago</asp:LinkButton>
                         <%--<asp:HyperLink runat="server" ID="btn_continuarMetodoPago" class="is-decoration-none is-btn-green">Continuar a método de pago</asp:HyperLink>--%>
                 </div>
             </div>
@@ -453,5 +453,10 @@
         height: fit-content;
         max-height: 320px;
     }
+
+    .text-datos_quien_recibe> ul {
+        padding: 0px;
+    }
+
     </style>
 </asp:Content>

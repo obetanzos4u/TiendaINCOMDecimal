@@ -220,6 +220,7 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
     {
         string numero_operacion = lt_numero_pedido.Text;
         string id_operacion = hf_id_pedido.Value;
+
         PedidosEF.ActualizarFacturacion(lt_numero_pedido.Text, false);
         PedidosEF.EliminarDireccionDeFacturacion(lt_numero_pedido.Text);
 
