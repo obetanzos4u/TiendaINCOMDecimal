@@ -160,14 +160,9 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
         LinkButton btn = (LinkButton)sender;
         // Obtenemos el contenedor del objeto que creo el evento
         ListViewItem lvItem = (ListViewItem)btn.NamingContainer;
-
         HiddenField hf_id_direccion = (HiddenField)lvItem.FindControl("hf_id_direccion");
-
         int idDireccion = int.Parse(hf_id_direccion.Value);
         string numero_operacion = lt_numero_pedido.Text;
-
-
-
         direcciones_facturacion direccion = direcciones_facturacion_EF.Obtener(idDireccion);
         var pedidoDireccionFact = new pedidos_direccionFacturacion();
 
@@ -187,26 +182,27 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
         PedidosEF.ActualizarFacturacion(lt_numero_pedido.Text, true);
         var result = PedidosEF.GuardarDireccionFacturacion(lt_numero_pedido.Text, pedidoDireccionFact);
 
-        string redirectUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary {
+        if (result.result)
+        {
+            string redirectUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary {
                         { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
                     });
+            NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Datos de facturación guardados");
+            BootstrapCSS.RedirectJs(this, redirectUrl, 1500);
+        }
+        else
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No fue posible establecer los datos de facturación");
+        }
+        //msg_succes.Text = "Estableciendo <strong>Dirección de facturación</strong>, redireccionando en 3,2,1....";
+        //msg_succes.Visible = true;
 
-
-        msg_succes.Text = "Estableciendo <strong>Dirección de facturación</strong>, redireccionando en 3,2,1....";
-        msg_succes.Visible = true;
-
-        BootstrapCSS.RedirectJs(this, redirectUrl, 2000);
 
         //    Response.Redirect(redirect);
         CargarDatosPedido();
         CargarDireccionFacturacion();
         cargarDirecciones();
-
     }
-
-
-
-
     protected void lv_direcciones_ItemDataBound(object sender, ListViewItemEventArgs e)
     {
         string id_pedido_direccion_facturacion = hf_id_pedido_direccion_facturacion.Value;
@@ -230,11 +226,11 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
         string redirectUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary {
                         { "id_operacion", seguridad.Encriptar(id_operacion )}
                     });
+        NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Pedido sin factura");
+        //msg_succes.Text = "Estableciendo, <strong>redireccionando en 3,2,1.... </strong>";
+        //msg_succes.Visible = true;
 
-        msg_succes.Text = "Estableciendo, <strong>redireccionando en 3,2,1.... </strong>";
-        msg_succes.Visible = true;
-
-        BootstrapCSS.RedirectJs(this, redirectUrl, 2500);
+        BootstrapCSS.RedirectJs(this, redirectUrl, 1500);
 
         CargarDatosPedido();
         CargarDireccionFacturacion();
@@ -323,28 +319,17 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
     }
     protected void btn_eliminarDireccion_Click(object sender, EventArgs e)
     {
-
         LinkButton btnEliminar = (LinkButton)sender;
         // Obtenemos el contenedor del objeto que creo el evento
         ListViewItem lvItem = (ListViewItem)btnEliminar.NamingContainer;
-
         HiddenField hf_id_direccion = (HiddenField)lvItem.FindControl("hf_id_direccion");
 
         int IdDireccion = int.Parse(hf_id_direccion.Value);
-
-
         var result = direcciones_facturacion_EF.eliminar(IdDireccion);
 
         if (result.result)
         {
-
             cargarDirecciones();
-
         }
-        else
-        {
-
-        }
-
     }
 }

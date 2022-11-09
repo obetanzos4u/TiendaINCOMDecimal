@@ -28,7 +28,7 @@
         <div class="direcciones_guardadas">
             <p class="is-text-center">Direcciones guardadas:</p>
         </div>
-        <div class="row" style="border: 2px solid red">
+        <div class="row">
             <div class="col form-direcciones is-w-1_2">
                 <div class="row row-cols-1 row-cols-sm-1  row-cols-md-2  row-cols-lg-2  row-cols-xl-2">
                     <div class="col mb-4">
