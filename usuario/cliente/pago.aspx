@@ -8,11 +8,11 @@
     <asp:HiddenField ID="hf_moneda" runat="server" />
     <hdr:menu runat="server" />
     <uc:progreso runat="server" />
-    <div class="container-md is-top-3">
+    <div class="container-pago container-md is-top-3">
         <div class="is-flex is-flex-col is-justify-center is-items-center">
             <div class="is-w-full is-flex is-justify-between is-items-center">
                 <div class="is-flex is-justify-center is-items-center">
-                    <h5><strong>Método de pago del pedido:
+                    <h1 class="h5 text-metodo_pago"><strong>Método de pago del pedido:
                     <asp:Label ID="lbl_numero_pedido" class="is-select-all" runat="server"></asp:Label></strong></h5>
                     <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Pedido')">
                         <span class="is-text-gray">
@@ -23,13 +23,13 @@
                         </span>
                     </button>
                 </div>
-                <div class="is-flex">
+                <div class="is-flex container-formas_pago">
                     <p class="text-aceptamos_formas_pago"><strong>Aceptamos:</strong></p>
                     <img title="Formas de pago" class="icono-formas_pago" src="/img/webUI/newdesign/formaspago.jpg" alt="Métodos de pago bancario" />
                 </div>
             </div>
-            <div class="is-container">
-                <div class="is-flex is-justify-between is-items-center">
+            <div class="is-container container-metodo_pago">
+                <div class="is-flex is-justify-between">
                     <div>
                         <p><strong>Elige el método de pago:  </strong></p>
                         <asp:UpdatePanel ID="up_pasarelaPago" UpdateMode="Conditional" RenderMode="Block" runat="server">
@@ -113,23 +113,178 @@
 
     <style>
 
-    .text-aceptamos_formas_pago {
-        line-height: 50px;
-        margin-right: 1rem;
-    }
-
-    @media only screen and (min-width: 1000px) {
+    @media only screen and (min-width: 1200px) {
     .icono-formas_pago {
         width: 450px;
         height: 50px;
         }
+
+    .container-metodo_pago {
+        margin-top: 5rem;
+        }
+
+    .text-aceptamos_formas_pago {
+        margin-right: 1rem;
+        margin: 1rem;
     }
 
-    @media only screen and (max-width: 1000px) {
+    }
+
+    @media only screen and (max-width: 1200px) {
+
+        .container-pago {
+            margin-left: 2rem;
+        }
+
         .icono-formas_pago {
             width: 360px;
         }
+
+        .text-metodo_pago {
+            font-size: 1rem;
+        }
+
+        .text-aceptamos_formas_pago > strong:nth-child(1) {
+            font-size: 1rem;
+        }
+
+        .icono-formas_pago {
+            width: 350px;
+            height: 40px;
+        }
+
+        .container-metodo_pago {
+        margin-top: 0rem;
+        }
+
+        .text-aceptamos_formas_pago {
+        margin: 0.25rem;
+        }
+
+        #body_up_pasarelaPago .is-btn-gray  {
+        margin-right: 1rem;
+        }
+
+        .container-metodo_pago > div:nth-child(1) > div:nth-child(2) {
+        width: 360px;
+        margin: 2rem auto 2rem 0;
+        }
+
+        .container-pago > div > div {
+            flex-direction: column;
+            align-items: first baseline;
+        }
+
+        .container-metodo_pago > div:nth-child(1) {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        }
+
+        .container-metodo_pago > div:nth-child(1) > div:nth-child(1) {
+        margin: auto auto auto 0;
+        }
+
+        .container-pago > div > div > div:nth-child(1) {
+        margin-bottom: 2rem;
+        }
     }
 
+    @media only screen and (min-width:500px) and (max-width: 700px) {
+
+        .container-metodo_pago > div:nth-child(1) > div:nth-child(2) {
+            width: 380px;
+        }
+
+        .text-resumen {
+            font-size: 0.8rem;
+        }
+
+        .container-metodo_pago table {
+            font-size: 12px;
+        }
+
+        .text-aceptamos_formas_pago > strong:nth-child(1) {
+            font-size: 0.75rem;
+        }
+
+        .text-aceptamos_formas_pago {
+            margin: 0.5rem 0.5rem 0.5rem 0rem;
+        }
+
+        .is-w-full > div:nth-child(1) {
+            margin-bottom: 1rem;
+        }
+
+        .container-pago {
+            margin-left: 1rem;
+        }
+
+        .container-metodo_pago p:nth-child(1) > strong:nth-child(1) {
+            font-size: 0.75rem;
+        }
+
+        #body_up_pasarelaPago .is-btn-gray {
+            height: 26px;
+            line-height: 26px;
+            font-size: 10px;
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+
+        .container-metodo_pago > div:nth-child(1) > div:nth-child(2) {
+            width: 300px !important;
+        }
+
+        .text-resumen {
+            font-size: 0.5rem;
+        }
+
+        .icono-formas_pago {
+            width: 320px;
+            height: 36px;
+        }
+
+        .text-metodo_pago {
+            font-size: 0.75rem;
+        }
+
+        .container-metodo_pago table {
+            font-size: 10px;
+        }
+
+        .container-formas_pago {
+            flex-direction: column;
+        }
+
+        .text-aceptamos_formas_pago > strong:nth-child(1) {
+            font-size: 10px;
+        }
+
+        .container-metodo_pago p:nth-child(1) > strong:nth-child(1) {
+            font-size: 10px;
+        }
+
+        .text-aceptamos_formas_pago {
+            margin: 0.5rem 0.5rem 0.5rem 0rem;
+        }
+
+        .container-pago > div > div > div:nth-child(1) {
+            margin-bottom: 1rem;
+        }
+
+        .container-pago {
+            margin-left: 0.5rem;
+        }
+
+        #body_up_pasarelaPago .is-btn-gray {
+            font-size: 8px;
+            height: 26px;
+            line-height: 26px;
+            padding: 0px 12px !important;
+            margin-right: 0.5rem !important;
+        }
+    }
     </style>
 </asp:Content>
