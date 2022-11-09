@@ -13,7 +13,6 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (!IsPostBack)
         {
             Title = "Facturación";
@@ -23,25 +22,18 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
                 CargarDireccionFacturacion();
                 cargarDirecciones();
                 EstablecerNavegacion();
+                EnabledCampos(false);
             }
- 
-           
-
-
-
         }
-        
     }
-
-
     protected void EstablecerNavegacion()
     {
 
-      /*  link_envio.NavigateUrl = GetRouteUrl("cliente-pedido-envio", new System.Web.Routing.RouteValueDictionary {
-                        { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
-                    });
+        /*  link_envio.NavigateUrl = GetRouteUrl("cliente-pedido-envio", new System.Web.Routing.RouteValueDictionary {
+                          { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
+                      });
 
-   */
+     */
     }
     protected void CargarDatosPedido()
     {
@@ -51,68 +43,79 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
         int idPedido = int.Parse(route_id_operacion);
 
         var pedidos_datos = PedidosEF.ObtenerDatos(idPedido);
- 
+
 
         lt_numero_pedido.Text = pedidos_datos.numero_operacion;
 
         hf_id_pedido.Value = route_id_operacion;
- 
-    
+
+
     }
-    
-        protected void CargarDireccionFacturacion() {
-        
+
+    protected void CargarDireccionFacturacion()
+    {
+
 
         int idDireccion = int.Parse(hf_id_pedido.Value);
 
         var result = PedidosEF.ObtenerDireccionFacturacion(lt_numero_pedido.Text);
-         
-            if (result.result) {
+
+        if (result.result)
+        {
 
             pedidos_direccionFacturacion direccionFacturacion = result.response;
 
-            if(direccionFacturacion != null)
+            if (direccionFacturacion != null)
             {
                 hf_id_pedido_direccion_facturacion.Value = direccionFacturacion.idDireccionFacturacion.ToString();
             }
 
-        
-            
+
+
         }
         else
         {
             BootstrapCSS.Message(this, "#", BootstrapCSS.MessageType.danger, "Error", result.message);
 
         }
-            }
+    }
     protected void cargarDirecciones()
     {
-
         usuarios user = usuarios.modoAsesor();
-
-         
         lv_direcciones.DataSource = direcciones_facturacion_EF.ObtenerTodas(user.id);
         lv_direcciones.DataBind();
-
-        
     }
     //text-white bg-success
     protected void btn_crear_direccion_Click(object sender, EventArgs e)
     {
         string estado;
         string colonia = "";
+        string regimenFiscal = ddl_regimen_fiscal.SelectedValue;
 
-        if (ddl_pais.SelectedText == "México")    estado = ddl_estado.SelectedText;
-        else  estado = txt_estado.Text;
-        
-        if (ddl_colonia.Visible)  colonia = ddl_colonia.SelectedValue;
-        else  colonia = txt_colonia.Text;
-        
-        var direccionModel = new ModelDireccionFacturacionValidador {
+        if (ddl_pais.SelectedText == "México")
+        {
+            estado = ddl_estado.SelectedText;
+        }
+        else
+        {
+            estado = txt_estado.Text;
+        }
 
+        if (ddl_colonia.Visible)
+        {
+            colonia = ddl_colonia.SelectedValue;
+        }
+        else
+        {
+            colonia = txt_colonia.Text;
+        }
+
+        var direccionModel = new ModelDireccionFacturacionValidador
+        {
             nombre_direccion = txt_nombre_direccion.Text,
             rfc = txt_rfc.Text,
             razon_social = txt_razon_social.Text,
+            regimenFiscal = regimenFiscal,
             calle = txt_calle.Text,
             numero = txt_numero.Text,
             colonia = txt_colonia.Text,
@@ -121,7 +124,6 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
             estado = estado,
             codigo_postal = txt_codigo_postal.Text,
             pais = ddl_pais.SelectedText,
-           
         };
 
         ValidationContext context = new ValidationContext(direccionModel, null, null);
@@ -131,38 +133,31 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
         if (!valid)
         {
             string resultmsg = string.Empty;
-            validationResults.ForEach(n => resultmsg += $"- {n.ErrorMessage } <br>");
-            BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.danger, "Error al crear dirección", resultmsg);
+            validationResults.ForEach(n => resultmsg += $"- {n.ErrorMessage} <br>");
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al agregar los datos de facturación.");
+            //BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.danger, "Error al crear dirección", resultmsg);
             return;
         }
-
         var mapper = new AutoMapper.Mapper(Mapeos.getDireccionFacturacion);
         direcciones_facturacion direccion = mapper.Map<direcciones_facturacion>(direccionModel);
         direccion.id_cliente = usuarios.modoAsesor().id;
+        var guardar = direcciones_facturacion_EF.GuardarDireccion(direccion);
 
-
-                 var guardar = direcciones_facturacion_EF.GuardarDireccion(direccion);
-
-            if (guardar.result)
-            {
-                BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.success, "Creada con éxito", guardar.message);
-
-                cargarDirecciones();
-            }
-            else
-            {
-                BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.danger, "Error al crear dirección", guardar.message);
- 
-            }
-
-
-
+        if (guardar.result)
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Datos agregados");
+            //BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.success, "Creada con éxito", guardar.message);
+            cargarDirecciones();
+        }
+        else
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al agregar los datos de facturación");
+            //BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.danger, "Error al crear dirección", guardar.message);
+        }
     }
-
-
     protected void btn_usarDirección_Click(object sender, EventArgs e)
     {
-        LinkButton btn  = (LinkButton)sender;
+        LinkButton btn = (LinkButton)sender;
         // Obtenemos el contenedor del objeto que creo el evento
         ListViewItem lvItem = (ListViewItem)btn.NamingContainer;
 
@@ -190,7 +185,7 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
         pedidoDireccionFact.rfc = direccion.rfc;
 
         PedidosEF.ActualizarFacturacion(lt_numero_pedido.Text, true);
-               var result = PedidosEF.GuardarDireccionFacturacion(lt_numero_pedido.Text, pedidoDireccionFact);
+        var result = PedidosEF.GuardarDireccionFacturacion(lt_numero_pedido.Text, pedidoDireccionFact);
 
         string redirectUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary {
                         { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
@@ -200,13 +195,13 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
         msg_succes.Text = "Estableciendo <strong>Dirección de facturación</strong>, redireccionando en 3,2,1....";
         msg_succes.Visible = true;
 
-        BootstrapCSS.RedirectJs(this, redirectUrl,2000);
+        BootstrapCSS.RedirectJs(this, redirectUrl, 2000);
 
         //    Response.Redirect(redirect);
         CargarDatosPedido();
         CargarDireccionFacturacion();
         cargarDirecciones();
- 
+
     }
 
 
@@ -214,28 +209,19 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
 
     protected void lv_direcciones_ItemDataBound(object sender, ListViewItemEventArgs e)
     {
-
         string id_pedido_direccion_facturacion = hf_id_pedido_direccion_facturacion.Value;
-        if (!string.IsNullOrWhiteSpace(id_pedido_direccion_facturacion) )
+        if (!string.IsNullOrWhiteSpace(id_pedido_direccion_facturacion))
         {
- 
             HiddenField hf_id_direccion = (HiddenField)e.Item.FindControl("hf_id_direccion");
-
-            if(hf_id_direccion.Value== id_pedido_direccion_facturacion)
+            if (hf_id_direccion.Value == id_pedido_direccion_facturacion)
             {
                 HtmlGenericControl contentCard_DireccFact = (HtmlGenericControl)e.Item.FindControl("contentCard_DireccFact");
                 contentCard_DireccFact.Attributes["class"] += "bg-success-1";
             }
-           
-
         }
-       
     }
- 
-
     protected void btn_Sin_Factura_Click(object sender, EventArgs e)
     {
-
         string numero_operacion = lt_numero_pedido.Text;
         string id_operacion = hf_id_pedido.Value;
         PedidosEF.ActualizarFacturacion(lt_numero_pedido.Text, false);
@@ -245,23 +231,19 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
                         { "id_operacion", seguridad.Encriptar(id_operacion )}
                     });
 
-
-
         msg_succes.Text = "Estableciendo, <strong>redireccionando en 3,2,1.... </strong>";
         msg_succes.Visible = true;
 
-        BootstrapCSS.RedirectJs(this, redirectUrl,2500);
-
+        BootstrapCSS.RedirectJs(this, redirectUrl, 2500);
 
         CargarDatosPedido();
-      
         CargarDireccionFacturacion();
         cargarDirecciones();
     }
 
     protected async void txt_codigo_postal_TextChanged(object sender, EventArgs e)
     {
-
+        NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
         string cp = textTools.lineSimple(txt_codigo_postal.Text);
         if (!string.IsNullOrWhiteSpace(cp))
         {
@@ -286,17 +268,14 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
                     ddl_colonia.Items.Add(new ListItem(Asentamiento, Asentamiento));
                 }
                 ddl_colonia.DataBind();
-
-
-
-
                 cont_ddl_estado.Visible = true;
                 cont_txt_estado.Visible = false;
 
-                EnabledCampos(false);
+                EnabledCampos(false, result.result);
 
                 ddl_colonia.Visible = true;
                 txt_colonia.Visible = false;
+                NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
             }
             else
             {
@@ -305,8 +284,9 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
                 txt_colonia.Visible = true;
 
                 EnabledCampos(true);
-
-                materializeCSS.crear_toast(this, result.message, false);
+                NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
+                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, result.message);
+                //materializeCSS.crear_toast(this, result.message, false);
             }
 
         }
@@ -321,16 +301,26 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
     }
     protected void EnabledCampos(bool status)
     {
+        txt_calle.Enabled = status;
+        txt_numero.Enabled = status;
         txt_colonia.Enabled = status;
         txt_delegacion_municipio.Enabled = status;
         txt_ciudad.Enabled = status;
         txt_estado.Enabled = status;
         ddl_pais.Enabled = status;
         ddl_estado.Enabled = status;
-
-     
     }
-
+    protected void EnabledCampos(bool status, bool response)
+    {
+        txt_calle.Enabled = response;
+        txt_numero.Enabled = response;
+        txt_colonia.Enabled = status;
+        txt_delegacion_municipio.Enabled = status;
+        txt_ciudad.Enabled = status;
+        txt_estado.Enabled = status;
+        ddl_pais.Enabled = status;
+        ddl_estado.Enabled = status;
+    }
     protected void btn_eliminarDireccion_Click(object sender, EventArgs e)
     {
 
@@ -347,7 +337,7 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
 
         if (result.result)
         {
-            
+
             cargarDirecciones();
 
         }

@@ -10,7 +10,6 @@ using System.Web;
 public class ModelDireccionFacturacionValidador
 {
     public int id { get; set; }
-
     [Display(Name = "Nombre")]
     [Required(ErrorMessage = "{0} es requerido")]
     [StringLength(20, MinimumLength = 3,
@@ -31,6 +30,7 @@ public class ModelDireccionFacturacionValidador
    ErrorMessage = "El RFC debe ser mínimo 3 y máximo 15 caracteres.")]
 
     public string rfc { get; set; }
+    public string regimenFiscal { get; set; }
     public string calle { get; set; }
     public string numero { get; set; }
     public string colonia { get; set; }
@@ -39,6 +39,4 @@ public class ModelDireccionFacturacionValidador
     public string codigo_postal { get; set; }
     public string pais { get; set; }
     public string ciudad { get; set; }
- 
-     
 }

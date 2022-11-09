@@ -248,7 +248,8 @@
                 </div>
                 <div class="row is-top-2">
                     <div class="is-m-auto is-w-auto">
-                        <asp:HyperLink runat="server" ID="btn_continuarMetodoPago" class="is-decoration-none is-btn-green">Continuar a método de pago</asp:HyperLink>
+                        <asp:LinkButton runat="server" ID="btn_continuarMetodoPago" OnClick="btn_continuarMetodoPago_Click" CssClass="is-select-none">Continuar a método de pago</asp:LinkButton>
+                        <%--<asp:HyperLink runat="server" ID="btn_continuarMetodoPago" class="is-decoration-none is-btn-green">Continuar a método de pago</asp:HyperLink>--%>
                 </div>
             </div>
         </div>

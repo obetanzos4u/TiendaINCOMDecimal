@@ -98,11 +98,8 @@ public class direcciones_facturacion_EF
     /// </summary>
     public static json_respuestas GuardarDireccion(direcciones_facturacion direccion)
     {
-
-
         try
         {
-
             using (var db = new tiendaEntities())
             {
                 var  DireccionFacturacion= db.direcciones_facturacion
@@ -125,10 +122,8 @@ public class direcciones_facturacion_EF
                     DireccionFacturacion.pais = direccion.pais;
                     DireccionFacturacion.razon_social = direccion.razon_social;
                     DireccionFacturacion.rfc = direccion.rfc;
-
-
+                    DireccionFacturacion.regimen_fiscal = direccion.regimen_fiscal;
                 }
-
                 db.SaveChanges();
             }
             return new json_respuestas(true, "Dirección de facturación guardada con éxito", false);
