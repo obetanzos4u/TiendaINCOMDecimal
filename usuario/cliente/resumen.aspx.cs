@@ -611,8 +611,8 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         {
             { "id_operacion", seguridad.Encriptar(hf_id_pedido.Value) }
         });
-        //string script = @"setTimeout(() => { window.location.replace(" + redireccionUrl + ")}, 3500);";
-        string script = @"console.log(" + redireccionUrl + ");";
+        string script = @"setTimeout(() => { window.location.replace(" + redireccionUrl + ")}, 1500);";
+        // string script = @"console.log(" + redireccionUrl + ");";
         ScriptManager.RegisterStartupScript(this, typeof(Page), "console", script, true);
     }
 }

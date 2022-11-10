@@ -159,6 +159,10 @@
 
     <style>
 
+    input .is-btn-gray:focus {
+        background-color: #06C;
+    }
+
     @media only screen and (min-width: 1200px) {
     .icono-formas_pago {
         width: 450px;

@@ -55,9 +55,9 @@
                         </section>
                         <div class="is-px-8 is-py-2 is-top-1">
                             <h6 id="metodo_envio_title" class="card-subtitle" runat="server"></h6>
-                            <div class="is-flex is-items-start">
+                            <div class="is-block">
                                 <p id="metodo_envio_desc" class="is-select-all" runat="server"></p>
-                                <a id="localizacionTienda" visible="false" href="https://g.page/Incom_CDMX?share" target="_blank" rel="noreferrer noopener" class="is-decoration-none is-text-black" runat="server">
+                                <a id="localizacionTienda" visible="false" href="https://g.page/Incom_CDMX?share" target="_blank" rel="noreferrer noopener" class="is-decoration-none is-text-black is-space-x-6" runat="server">
                                     <span>
                                         <svg class="is-w-6 is-h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
