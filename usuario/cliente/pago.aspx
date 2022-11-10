@@ -159,8 +159,43 @@
 
     <style>
 
-    input .is-btn-gray:focus {
-        background-color: #06C;
+    #body_btn_tarjeta.aspNetDisabled, #body_btn_paypal.aspNetDisabled, #body_btn_transferencia.aspNetDisabled {
+        border: none;
+        border-radius: 6px;
+        display: inline-block;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 16px;
+        text-transform: none;
+        vertical-align: middle;
+        -webkit-tap-highlight-color: transparent;
+        text-decoration: none;
+        color: #9f9f9f;
+        background-color: #f4f4f6;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: .5px;
+        -webkit-transition: background-color .2s ease-out;
+        transition: background-color .2s ease-out;
+        cursor: default;
+        font-size: 12px;
+        outline: 0;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+        margin-right: 2rem;
+    }
+
+    @media only screen and (min-width: 1600px) {
+    .container-pay-process {
+        width: 40%;
+        margin: 1rem auto;
+        }
+    }
+
+    @media only screen and (min-width: 1000px) {
+    .container-pay-process {
+        width: 60%;
+        margin: 1rem auto;
+        }
     }
 
     @media only screen and (min-width: 1200px) {
@@ -177,7 +212,6 @@
         margin-right: 1rem;
         margin: 1rem;
     }
-
     }
 
     @media only screen and (max-width: 1200px) {
@@ -279,6 +313,13 @@
             line-height: 26px;
             font-size: 10px;
         }
+
+        .svg_resumen, .svg_pago,
+        .svg_finalizar, .svg_resumen_puntos,
+        .svg_pago_puntos {
+            width: 2rem;
+            height: 2rem;
+        }
     }
 
     @media only screen and (max-width: 500px) {
@@ -334,6 +375,13 @@
             line-height: 26px;
             padding: 0px 12px !important;
             margin-right: 0.5rem !important;
+        }
+
+        .svg_resumen, .svg_pago,
+        .svg_finalizar, .svg_resumen_puntos,
+        .svg_pago_puntos {
+            width: 1.5rem;
+            height: 1.5rem;
         }
     }
     </style>

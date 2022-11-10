@@ -1178,7 +1178,7 @@ body {
     -webkit-tap-highlight-color: transparent;
     text-decoration: none;
     color: #fff;
-    background-color: #B7B7B7;
+    background-color: #878787;
     text-align: center;
     font-weight: bold;
     /* letter-spacing: .5px; */
@@ -1198,6 +1198,8 @@ body {
     .is-btn-gray:active {
         background: #06C;
         color: #FFFFFF;
+        transition-duration: 500ms;
+        transition-property: background-color;
     }
 
 .is-btn-gray-light {
