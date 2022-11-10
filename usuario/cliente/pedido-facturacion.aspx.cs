@@ -148,6 +148,7 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
             NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Datos agregados");
             //BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.success, "Creada con éxito", guardar.message);
             cargarDirecciones();
+            up_datos_facturacion.Update();
         }
         else
         {

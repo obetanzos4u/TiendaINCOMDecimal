@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
- 
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,16 +10,13 @@ using System.Web.UI.WebControls;
 
 public partial class usuario_cliente_editar_direccion_facturacion : System.Web.UI.Page
 {
-
- 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack) {
-            if (Page.RouteData.Values["id_direccion"] != null) {
-
+        if (!IsPostBack)
+        {
+            if (Page.RouteData.Values["id_direccion"] != null)
+            {
                 obtenerDireccion();
-
-               
             }
             else
             {
@@ -41,23 +37,23 @@ public partial class usuario_cliente_editar_direccion_facturacion : System.Web.U
                 cont_txt_estado.Visible = true;
             }
         }
-     
+
     }
 
     protected async void obtenerDireccion()
     {
         int idDirección = int.Parse(Page.RouteData.Values["id_direccion"].ToString());
-        direcciones_facturacion direccion =  direcciones_facturacion_EF.Obtener(idDirección);
+        direcciones_facturacion direccion = direcciones_facturacion_EF.Obtener(idDirección);
 
         txt_nombre_direccion.Text = direccion.nombre_direccion;
         txt_rfc.Text = direccion.rfc;
         txt_razon_social.Text = direccion.razon_social;
         txt_calle.Text = direccion.calle;
-         txt_numero.Text = direccion.numero;
+        txt_numero.Text = direccion.numero;
         txt_colonia.Text = direccion.colonia;
         txt_delegacion_municipio.Text = direccion.delegacion_municipio;
         txt_codigo_postal.Text = direccion.codigo_postal;
-       
+        ddl_regimen_fiscal.SelectedValue = direccion.regimen_fiscal;
 
         if (direccion.pais == "México")
         {
@@ -65,18 +61,12 @@ public partial class usuario_cliente_editar_direccion_facturacion : System.Web.U
             cont_txt_estado.Visible = false;
             cont_ddl_estado.Visible = true;
             ddl_estado.SelectedText = direccion.estado;
-
-
         }
         else
         {
             cont_ddl_estado.Visible = false;
             cont_txt_estado.Visible = true;
         }
-
-
-
-
 
         // Sección llenado Código Postal
         string cp = textTools.lineSimple(txt_codigo_postal.Text);
@@ -110,13 +100,13 @@ public partial class usuario_cliente_editar_direccion_facturacion : System.Web.U
                 cont_ddl_estado.Visible = true;
                 cont_txt_estado.Visible = false;
 
-                EnabledCampos( false);
+                EnabledCampos(false);
             }
             else
             {
-                EnabledCampos( true);
+                EnabledCampos(true);
 
-     
+
             }
 
         }
@@ -158,7 +148,7 @@ public partial class usuario_cliente_editar_direccion_facturacion : System.Web.U
         if (!valid)
         {
             string resultmsg = string.Empty;
-            validationResults.ForEach(n => resultmsg += $"- {n.ErrorMessage } <br>");
+            validationResults.ForEach(n => resultmsg += $"- {n.ErrorMessage} <br>");
             BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.danger, "Error al crear dirección", resultmsg);
             return;
         }
@@ -177,7 +167,8 @@ public partial class usuario_cliente_editar_direccion_facturacion : System.Web.U
 
 
         }
-        else {
+        else
+        {
             BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.danger, "Error al actualizar dirección", guardar.message);
 
         }
@@ -187,7 +178,7 @@ public partial class usuario_cliente_editar_direccion_facturacion : System.Web.U
     protected void ValidarReferenciaPedido(direcciones_facturacion direccion)
     {
 
-       if(Request.QueryString["ref"] != null && Request.QueryString["numero_operacion"] != null)
+        if (Request.QueryString["ref"] != null && Request.QueryString["numero_operacion"] != null)
         {
             string idPedido = Request.QueryString["ref"].ToString();
             string numero_operacion = Request.QueryString["numero_operacion"].ToString();
