@@ -6,7 +6,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
     <asp:HiddenField ID="hf_UserLogin" runat="server" />
     <div id="pantallaCarga" visible="false" runat="server">
-        <div style="width: 100%; height: 100vh; background-color: red"></div>
+        <div class="is-flex is-w-full is-h-full">
+            <img class="is-m-auto" src="/img/webUI/newdesign/Icono_de_carga.svg" alt="Cargando la página" style="width: 140px;"/>
+        </div>
     </div>
     <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="is-container" Visible="false" runat="server">
         <ContentTemplate>

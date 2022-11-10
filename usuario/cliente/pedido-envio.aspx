@@ -12,7 +12,7 @@
     <div class="container-md is-top-3">
         <div class="is-flex is-flex-col is-justify-center is-items-start">
             <div class="is-flex is-justify-start is-items-center">
-                <h4>Método de envío:<asp:Label ID="lt_numero_pedido" class="is-px-2 is-select-all" runat="server"></asp:Label></h4>
+                <h4>Método de envío del pedido:<asp:Label ID="lt_numero_pedido" class="is-px-2 is-select-all" runat="server"></asp:Label></h4>
                 <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Número de pedido')">
                     <span class="is-text-gray">
                         <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -349,11 +349,6 @@ margin-left: 1rem;
     vertical-align: middle;
 }
 
-.center-carrito_vacio {
-    width: 100%;
-    float: right;
-}
-
 #top_contenido_up_carrito {
     display: flex;
 }
@@ -374,7 +369,7 @@ margin-left: 1rem;
 
 .title-product_list {
     font-size: 1.25rem;
-    line-height: 1.75rem;
+    line-height: 2rem;
     border-bottom: 1px solid rgb(196, 196, 196);
 }
 
@@ -414,11 +409,6 @@ div.arrow-doble-down #svg-arrow-down {
     }
 
     @media only screen and (min-width: 400px) and (max-width: 600px) {
-
-        .center-carrito_vacio {
-            width: 100%;
-            margin-left: 200px;
-        }
 
         .icon-carrito_vacio {
             width: 220px;
@@ -467,24 +457,37 @@ div.arrow-doble-down #svg-arrow-down {
         }
     }
 
-    @media only screen and (min-width: 600px) and (max-width: 800px) {
+    @media only screen and (min-width: 700px) and (max-width: 1000px) {
 
-        .center-carrito_vacio {
-            width: 100%;
-            margin-left: 500px;
+        .product-list-precio_cantidad {
+            padding: 7px 0px 0px 12px;
         }
     }
 
     @media only screen and (min-width: 800px) and (max-width: 1000px) {
 
-        .center-carrito_vacio {
-            width: 100%;
-            margin-left: 600px;
-        }
-
         #top_contenido_up_carrito {
             display: flex;
             flex-direction: column;
+        }
+    }
+
+    @media only screen and (min-width: 700px) and (max-width: 1400px) {
+
+        .table-product_description > td:nth-child(1) {
+            width: 20% !important;
+            vertical-align: top;
+            padding: 20px 8px 0px 0px;
+        }
+
+        .table-product_description > td:nth-child(2) {
+            width: 46% !important;
+            vertical-align: top;
+            padding: 20px 0px 0px 0px;
+        }
+
+        .product-list-precio_cantidad {
+            vertical-align: top;
         }
     }
 
@@ -778,7 +781,6 @@ div.arrow-doble-down #svg-arrow-down {
 
         div.arrow-doble-down #svg-arrow-down {
             width: 26px;
-            height: 80px;
             margin: auto 0 0 auto;
             text-align: center;
         }
@@ -915,7 +917,7 @@ div.arrow-doble-down #svg-arrow-down {
     }
 
     .wrapper-descripcion {
-        padding:1em;
+        padding:1em 2rem;
     }
 
     #relacionados_splide-list > li > a > img {
@@ -1513,7 +1515,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         .title-product_list {
-            padding-bottom: 3rem;
+            padding-bottom: 1rem;
         }
 
         .product-list-precio_cantidad {
@@ -1570,7 +1572,7 @@ div.arrow-doble-down #svg-arrow-down {
         .icon-carrito_vacio {
             width: 270px;
             height: auto;
-            margin: auto 6rem 6rem auto;
+            margin: 6rem auto;
             display: block;
             padding-left: 2rem;
         }
@@ -1584,17 +1586,15 @@ div.arrow-doble-down #svg-arrow-down {
 
         .center-btn-carrito_vacio {
             width: 270px;
-            margin: auto 6rem 6rem auto;
-            padding-left: 2rem;
+            margin: 6rem auto;
         }
 
         .center-carrito_vacio > h2 {
-            text-align: end;
+            text-align: center;
         }
 
         .center-carrito_vacio > h3 {
-            text-align: end;
-            padding-right: 2rem;
+            text-align: center;
         }
     }
 
@@ -1660,14 +1660,11 @@ div.arrow-doble-down #svg-arrow-down {
 
         .product-list-precio_cantidad > div:nth-child(1) {
             justify-content: center;
+            margin-bottom: 0.5rem;
         }
 
         tr.table-product_description > td > div> p:nth-child(1) {
             margin: 0rem 0.5rem 0rem 0rem;
-        }
-
-        .btn-products_counter {
-            margin: auto auto 0.5rem auto;
         }
 
         tr.table-product_description > td > div> p:nth-child(2) {
@@ -2093,7 +2090,7 @@ div.arrow-doble-down #svg-arrow-down {
     }
 
     .table-product_description > td:nth-child(2) {
-        padding: 1rem;
+        padding: 1rem 1rem 1rem 4rem;
     }
 }
 
@@ -2153,6 +2150,11 @@ div.arrow-doble-down #svg-arrow-down {
         width: 200px;
         margin: auto;
         text-align: center;
+    }
+
+    .mi-carrito-boton-compra > #btn_comprar > .is-btn-green {
+        height: 28px !important;
+        line-height: 28px !important;
     }
 }
 
@@ -2342,6 +2344,30 @@ div.arrow-doble-down #svg-arrow-down {
         }
     }
 
+    @media only screen and (min-width: 500px) and (max-width: 700px) {
+
+        tr.table-product_description > td > div:nth-child(2) {
+            flex-direction: column;
+        }
+
+        .table-product_description > td:nth-child(1) {
+            width: 20% !important;
+            vertical-align: top;
+            padding: 20px 8px 0px 0px;
+        }
+
+        .table-product_description > td:nth-child(2) {
+            width: 46% !important;
+            vertical-align: top;
+            padding: 20px 0px 0px 0px;
+        }
+
+        .product-list-precio_cantidad {
+            vertical-align: top;
+            padding: 10px 0px 0px 12px;
+        }
+    }
+
     @media only screen and (min-width: 450px) and (max-width: 700px) {
         #txt_email, #txt_password {
             width: 80%;
@@ -2360,6 +2386,17 @@ div.arrow-doble-down #svg-arrow-down {
 
         .wrapper-descripcion {
             padding-left: 1em;
+        }
+    }
+
+    @media only screen and (min-width: 500px) and (max-width: 1000px) {
+        .mi-carrito-list {
+            font-size: 0.75rem;
+        }
+
+        .mi-carrito-boton-compra > #btn_comprar > .is-btn-green {
+            height: 30px !important;
+            line-height: 30px !important;
         }
     }
 
@@ -2538,16 +2575,15 @@ div.arrow-doble-down #svg-arrow-down {
 
         .icon-carrito_vacio {
             width: 290px;
-            margin: auto 6rem 6rem auto;
+            margin: auto;
             display: block;
             padding-left: 2rem;
         }
 
         .center-btn-carrito_vacio {
             width: 290px;
-            margin: auto 6rem 6rem auto;
+            margin: 6rem auto;
             display: block;
-            padding-left: 2rem;
         }
 
         .mi-carrito-consideraciones-lg {
