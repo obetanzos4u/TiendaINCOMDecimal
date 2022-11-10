@@ -198,8 +198,8 @@
                                 <div class="user-menu">
                                     <div class="is-flex is-flex-col is-justify-center is-items-center is-px-2">
                                         <%--<img  class="icon_cuenta" src="https://ui-avatars.com/api/?name=Hugo+Carre%C3%B1o&background=000&color=fff&rounded=true&format=svg" />--%>
-                                        <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="text-nombre_cuenta is-text-black is-flex is-flex-col-reverse is-justify-center is-items-center" Style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 7.5rem; text-transform: capitalize;" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx" runat="server">
-                                            <span id="miCuentaNombre" runat="server"></span>
+                                        <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="text-nombre_cuenta is-text-black is-flex is-flex-col-reverse is-justify-center is-items-center" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx" runat="server">
+                                            <span id="miCuentaNombre" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 7.5rem; text-transform: capitalize;" runat="server"></span>
                                             <%--<asp:Image ID="profile_photo" class="image-cuenta" Style="width: 2rem;" runat="server" />--%>
                                         </asp:HyperLink>
                                     </div>

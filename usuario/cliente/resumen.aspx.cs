@@ -37,7 +37,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
     protected void CargarProductos()
     {
         var productos = PedidosEF.ObtenerProductosWithData(lt_numero_pedido.Text);
-        lbl_total_productos.Text = productos.Sum(t => t.productos.precio_total).ToString("C2", myNumberFormatInfo);
+        lbl_total_productos.Text = productos.Sum(t => t.productos.precio_total).ToString("C2", myNumberFormatInfo) + hf_moneda_pedido.Value;
         lv_productos.DataSource = productos;
         lv_productos.DataBind();
     }
@@ -57,6 +57,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
 
         var pedidos_datos = PedidosEF.ObtenerDatos(idPedido);
         var pedido_montos = PedidosEF.ObtenerNumeros(pedidos_datos.numero_operacion);
+        direcciones_envio direccionEnvio = direcciones_envio_EF.Obtener(idPedido);
 
         #region Validación de permiso de privacidad
         if (usuarios.userLogin().tipo_de_usuario == "cliente" && usuarios.userLogin().email != pedidos_datos.usuario_cliente)
@@ -125,6 +126,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         }
         else if (pedido_montos.metodoEnvio == "Ninguno")
         {
+            nombreEnvio.InnerText = direccionEnvio.nombre_direccion;
             metodo_envio_title.InnerText = "Método de envío no seleccionado.";
         }
         else
@@ -471,7 +473,6 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         if (resultadoCancelacion.result)
         {
             CargarDatosPedido();
-
             CargarProductos();
             EstablecerNavegacion();
             BootstrapCSS.Message(this, "#content_msg_cancelar_pedido", BootstrapCSS.MessageType.success, "Solicitud enviada", resultadoCancelacion.message);
@@ -591,28 +592,20 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             string script = @"setTimeout(function () { window.location.replace(window.location.href)}, 3500);";
             ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
 
-
-
             BootstrapCSS.Message(this, ".Conteng_msg_envioNota", BootstrapCSS.MessageType.success, "Actualizado con éxito", "Nota eliminada con éxito");
-
-
-
         }
         else
         {
             BootstrapCSS.Message(this, ".Conteng_msg_envioNota", BootstrapCSS.MessageType.danger, "Error", "Error al eliminar nota método de envío");
-
-
         }
     }
     protected void btn_continuarMetodoPago_Click(object sender, EventArgs e)
     {
+
         string redireccionUrl = GetRouteUrl("cliente-pedido-pago", new System.Web.Routing.RouteValueDictionary
         {
             { "id_operacion", seguridad.Encriptar(hf_id_pedido.Value) }
         });
-        //string script = @"setTimeout(() => { window.location.replace(" + redireccionUrl + ")}, 3500);";
-        string script = @"console.log(" + redireccionUrl + ");";
-        ScriptManager.RegisterStartupScript(this, typeof(Page), "console", script, true);
+        BootstrapCSS.RedirectJs(this, redireccionUrl, 100);
     }
 }

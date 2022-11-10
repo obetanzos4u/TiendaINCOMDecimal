@@ -56,6 +56,7 @@
                         <div class="is-px-8 is-py-2">
                             <h6 id="metodo_envio_title" class="card-subtitle" runat="server"></h6>
                             <div class="is-flex is-justify-between is-items-start">
+                                <p id="nombreEnvio" runat="server"></p>
                                 <p id="metodo_envio_desc" class="is-select-all" runat="server"></p>
                                 <a id="localizacionTienda" visible="false" href="https://g.page/Incom_CDMX?share" target="_blank" rel="noreferrer noopener" class="is-decoration-none is-text-black" runat="server">
                                     <span>

@@ -1,40 +1,57 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/bootstrap/basic.master" CodeFile="editar-direccion-facturacion.aspx.cs"
-    Inherits="usuario_cliente_editar_direccion_facturacion" %>
-<%@ Register Src="~/usuario/cliente/cliente-header.ascx" TagPrefix="header" TagName="menuGeneral" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Async="true" MasterPageFile="~/bootstrap/basic.master" CodeFile="editar-direccion-facturacion.aspx.cs" Inherits="usuario_cliente_editar_direccion_facturacion" %>
 
-<%@ Register TagPrefix="uc" TagName="ddlPaises"  Src="~/userControls/ddl_paises.ascx" %>
-<%@ Register TagPrefix="uc" TagName="ddlEstados"  Src="~/userControls/ddl_estados.ascx" %>
+<%@ Register Src="~/usuario/cliente/cliente-header.ascx" TagPrefix="header" TagName="menuGeneral" %>
+<%@ Register TagPrefix="uc" TagName="ddlPaises" Src="~/userControls/ddl_paises.ascx" %>
+<%@ Register TagPrefix="uc" TagName="ddlEstados" Src="~/userControls/ddl_estados.ascx" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="body">
     <header:menuGeneral ID="menuGeneral" runat="server" />
-
     <div class="container mt-4">
         <div class="row">
             <div class="col col-8">
-                <h1 class="h2">Editar Dirección de facturación</h1>
-                  <h1 class="h2" id="titulo_nombre_direccion"  runat="server"></h1>
-
-
-
-
+                <h1 class="h2">Editar datos de facturación</h1>
+                <h1 class="h2" id="titulo_nombre_direccion" runat="server"></h1>
                 <asp:HiddenField ID="hd_id_direccion" Value='<%#Eval("id") %>' runat="server" />
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="<%= txt_nombre_direccion.ClientID %>">Asigna un nombre a esta dirección </label>
 
                         <asp:TextBox ID="txt_nombre_direccion" ClientIDMode="Static" class="form-control" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
-                        <small id="emailHelp" class="form-text text-muted">Ejemplo: Casa, Trabajo, Bodega</small>
+                        <small id="emailHelp" class="form-text text-muted">Ejemplo: Casa, trabajo, bodega.</small>
                     </div>
-                                  <div class="form-group col-md-6">
-                  <label for="<%= txt_razon_social.ClientID %>">Razón social</label>
-                  <asp:TextBox ID="txt_razon_social" ClientIDMode="Static" class="form-control" data-length="150" MaxLength="150" runat="server"></asp:TextBox>
+                    <div class="form-group col-md-6">
+                        <label for="<%= txt_razon_social.ClientID %>">Razón social</label>
+                        <asp:TextBox ID="txt_razon_social" ClientIDMode="Static" class="form-control" data-length="150" MaxLength="150" runat="server"></asp:TextBox>
 
-              </div>
-              <div class="form-group col-md-6">
-                  <label for="<%= txt_rfc.ClientID %>">Régimen fiscal/RFC</label>
-                  <asp:TextBox ID="txt_rfc" ClientIDMode="Static" class="form-control" data-length="15" MaxLength="15" runat="server"></asp:TextBox>
-
-              </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="<%= txt_rfc.ClientID %>">RFC</label>
+                        <asp:TextBox ID="txt_rfc" ClientIDMode="Static" class="form-control" data-length="15" MaxLength="15" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="<%= ddl_regimen_fiscal %>">Régimen fiscal: </label>
+                        <asp:DropDownList ID="ddl_regimen_fiscal" AutoPostBack="false" class="is-w-full" runat="server">
+                            <asp:ListItem Selected="True" Value="601">601 - General de Ley Personas Morales</asp:ListItem>
+                            <asp:ListItem Value="603">603 - Personas Morales con Fines no Lucrativos</asp:ListItem>
+                            <asp:ListItem Value="605">605 - Sueldos y Salarios e Ingresos Asimilados a Salarios</asp:ListItem>
+                            <asp:ListItem Value="606">606 - Arrendamiento</asp:ListItem>
+                            <asp:ListItem Value="607">607 - Régimen de Enajenación o Adquisición de Bienes</asp:ListItem>
+                            <asp:ListItem Value="608">608 - Demás ingresos</asp:ListItem>
+                            <asp:ListItem Value="610">610 - Residentes en el Extranjero sin Establecimiento Permanente en México</asp:ListItem>
+                            <asp:ListItem Value="611">611 - Ingresos por Dividendos (socios y accionistas)</asp:ListItem>
+                            <asp:ListItem Value="612">612 - Personas Físicas con Actividades Empresariales y Profesionales</asp:ListItem>
+                            <asp:ListItem Value="614">614 - Ingresos por intereses</asp:ListItem>
+                            <asp:ListItem Value="615">615 - Régimen de los ingresos por obtención de premios</asp:ListItem>
+                            <asp:ListItem Value="616">616 - Sin obligaciones fiscales</asp:ListItem>
+                            <asp:ListItem Value="620">620 - Sociedades Cooperativas de Producción que optan por diferir sus ingresos</asp:ListItem>
+                            <asp:ListItem Value="621">621 - Incorporación Fiscal</asp:ListItem>
+                            <asp:ListItem Value="622">622 - Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</asp:ListItem>
+                            <asp:ListItem Value="623">623 - Opcional para Grupos de Sociedades</asp:ListItem>
+                            <asp:ListItem Value="624">624 - Coordinados</asp:ListItem>
+                            <asp:ListItem Value="625">625 - Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas</asp:ListItem>
+                            <asp:ListItem Value="626">626 - Régimen Simplificado de Confianza</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
                     <div class="form-group col-md-2">
                         <label for="txt_codigo_postal">Código Postal</label>
                         <asp:TextBox ID="txt_codigo_postal" AutoPostBack="true" OnTextChanged="txt_codigo_postal_TextChanged"

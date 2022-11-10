@@ -64,6 +64,7 @@
                                             <%# Eval("razon_social") %><br />
                                             <%# Eval("calle") %> <%# Eval("numero") %>, <%# Eval("colonia") %>,  <%# Eval("delegacion_municipio") %>,  <%# Eval("estado") %>   <%# Eval("codigo_postal") %>
                                         </p>
+                                        <p class="card-text">Régimen fiscal: <%# Eval("regimen_fiscal") %></p>
                                         <section class="is-m-auto is-text-center options-factura">
                                             <asp:LinkButton class="is-btn-gray-light" OnClientClick="return confirm('Confirma que deseas ELIMINAR?');"
                                                 OnClick="btn_eliminarDireccion_Click" ID="btn_eliminarDireccion" runat="server">
@@ -89,7 +90,7 @@
                     </asp:ListView>
                 </div>
             </div>
-            <asp:UpdatePanel runat="server" class="is-w-1_2">
+            <asp:UpdatePanel ID="up_datos_facturacion" RenderMode="Block" UpdateMode="Conditional" runat="server" class="is-w-1_2">
                 <ContentTemplate>
                     <asp:Panel runat="server">
                         <div class="col form-datos_facturacion">
@@ -193,10 +194,6 @@
                 </Triggers>
             </asp:UpdatePanel>
         </div>
-
-        <%--<script type="text/javascript">
-            Notiflix.Loading.standard();
-        </script>--%>
 
         <style>
             .direcciones_guardadas {
