@@ -103,7 +103,7 @@
                             </Triggers>
                         </asp:UpdatePanel>
                     </div>
-                    <div style="border: 1px solid #b7b7b7; border-radius: 8px; width: 420px;">
+                    <div style="border: 1px solid #b7b7b7; border-radius: 8px; width: 420px; height: fit-content;">
                         <table style="width: 100%;">
                             <thead style="border-bottom: 1px solid #b7b7b7;">
                                 <tr>
@@ -383,6 +383,11 @@
             width: 1.5rem;
             height: 1.5rem;
         }
+
+        /* .descripcion_de_producto > h6, .text-resumen_compra,
+        .ticket_resumen, .card-subtitle {
+            font-size: 12px !important;
+        } */
     }
     </style>
 </asp:Content>

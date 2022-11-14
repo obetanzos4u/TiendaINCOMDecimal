@@ -188,9 +188,9 @@
                         <div class="is-flex is-justify-center is-items-center is-py-4">
                             <asp:DataPager ID="dp_2" class="" Visible="true" runat="server" PagedControlID="lv_productos" PageSize="50" QueryStringField="PageId">
                                 <Fields>
-                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="is-px-2" PreviousPageText="Anterior" FirstPageText="&#10092;&#10092; Primera;" ShowFirstPageButton="False" ShowNextPageButton="False" />
+                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="is-px-2 text-pagina_anterior" PreviousPageText="&#60; Anterior" FirstPageText="&#10092;&#10092; Primera;" ShowFirstPageButton="False" ShowNextPageButton="False" />
                                     <asp:NumericPagerField CurrentPageLabelCssClass="pagerButtonCurrentPage" RenderNonBreakingSpacesBetweenControls="false" NextPreviousButtonCssClass="pagerButton" NumericButtonCssClass="pagerButton" />
-                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="is-px-2" LastPageText=" Última »" NextPageText="Siguiente &#10093;&#10093;" ShowLastPageButton="False" ShowPreviousPageButton="False" />
+                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="is-px-2 text-pagina_siguiente" LastPageText=" Última »" NextPageText="Siguiente &#62;" ShowLastPageButton="False" ShowPreviousPageButton="False" />
                                 </Fields>
                             </asp:DataPager>
                         </div>

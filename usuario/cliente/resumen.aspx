@@ -55,7 +55,8 @@
                         </section>
                         <div class="is-px-8 is-py-2">
                             <h6 id="metodo_envio_title" class="card-subtitle" runat="server"></h6>
-                            <div class="is-flex is-justify-between is-items-start">
+                            <!-- <div class="is-flex is-justify-between is-items-start"> -->
+                                <div class="is-block">
                                 <p id="nombreEnvio" runat="server"></p>
                                 <p id="metodo_envio_desc" class="is-select-all" runat="server"></p>
                                 <a id="localizacionTienda" visible="false" href="https://g.page/Incom_CDMX?share" target="_blank" rel="noreferrer noopener" class="is-decoration-none is-text-black is-space-x-6" runat="server">
@@ -483,6 +484,14 @@
         }
     }
 
+    @media only screen and (min-width: 500px) and (max-width: 1000px){
+
+        .descripcion_de_producto > h6, .text-resumen_compra,
+        .ticket_resumen, .card-subtitle, #body_contacto_title {
+            font-size: 14px !important;
+        }
+    }
+
     @media only screen and (max-width: 500px) {
 
         .svg_resumen, .svg_pago,
@@ -516,6 +525,11 @@
         .wrapp-product_list > p {
             font-size: 14px;
         }
+
+        .descripcion_de_producto > h6, .text-resumen_compra,
+        .ticket_resumen, .card-subtitle, #body_contacto_title{
+            font-size: 12px !important;
+        }
     }
 
     @media only screen and  (max-width: 1000px ) {
@@ -532,10 +546,6 @@
         .precio_por_producto {
             width: 40%;
             font-size: 12px;
-        }
-
-        .descripcion_de_producto > h6, .text-resumen_compra, .ticket_resumen, .card-subtitle {
-            font-size: 14px !important;
         }
 
         .list-group-item {
@@ -557,6 +567,7 @@
             width: 40%;
         }
     }
+
     @media only screen and  (min-width: 1600px ) {
 
         .precio_por_producto {

@@ -559,6 +559,10 @@ div.arrow-doble-down #svg-arrow-down {
             padding-left: 2rem;
             padding-right: 2rem;
         }
+
+        .input-login_modal {
+            width: 70% !important;
+        }
     }
 
     /*Contenedor de ficha de productos */
@@ -1740,9 +1744,25 @@ div.arrow-doble-down #svg-arrow-down {
         display: inline-block;
     }
 
+    .pagerButton {
+        color: #3483fa !important;
+        font-size: 1.25rem;
+        font-weight: 800;
+        margin: auto 0.5rem;
+    }
+
     .pagerButtonCurrentPage {
         background: rgba(98, 123, 140, 0.79);
         color: #fff;
+        font-size: 1.25rem;
+        font-weight: 800;
+        padding: 0.25rem;
+        border-radius: .25rem;
+    }
+
+    .text-pagina_anterior, .text-pagina_siguiente {
+        color: #3483fa !important;
+        font-size: 1rem;
     }
 
     .dataPager_productos > a, .dataPager_productos > span {
@@ -2320,6 +2340,10 @@ div.arrow-doble-down #svg-arrow-down {
         tr.table-product_description > td > div> p:nth-child(2) {
             margin-right: 0.5rem;
         }
+
+        .input-login_modal {
+            width: 100% !important;
+        }
     }
 
     /* M */
@@ -2374,6 +2398,10 @@ div.arrow-doble-down #svg-arrow-down {
     @media only screen and (min-width: 450px) and (max-width: 700px) {
         #txt_email, #txt_password {
             width: 80%;
+        }
+
+        .input-login_modal {
+            width: 70% !important;
         }
     }
 
@@ -2851,15 +2879,14 @@ div.arrow-doble-down #svg-arrow-down {
         border-radius: 6px;
   }
 
-      #ajax-login-btn:active{
-            background: #1161b6;
-            width: 160px;
-            height: 36px;
-            line-height: 3;
+      #ajax-login-btn:active {
+        background: #1161b6;
+        width: 160px;
+        height: 36px;
+        line-height: 3;
       }
 
       .input-login_modal {
-        width: 70% !important;
         display: inline-block !important;
         height: 30px !important;
         margin-top: 10px !important;
