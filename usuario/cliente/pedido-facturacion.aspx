@@ -83,7 +83,7 @@
                                             <a class="is-btn-gray-light"
                                                 href='/usuario/cliente/editar/facturacion/<%#Eval("id") %>?ref=<%= seguridad.Encriptar(hf_id_pedido.Value)%>&numero_operacion=<%= lt_numero_pedido.Text%>'>Editar
                                             </a>
-                                            <div class="gap-2 mt-2 is-inline-block">
+                                            <div class="gap-2 is-inline-block">
                                                 <asp:LinkButton ID="btn_usarDirección" OnClick="btn_usarDirección_Click"
                                                     class="is-decoration-none" runat="server">
                                                 <div class="is-btn-blue">Seleccionar</div>

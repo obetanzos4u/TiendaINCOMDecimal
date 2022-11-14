@@ -16,7 +16,7 @@
     <asp:HiddenField ID="hf_id_pedido_direccion_envio" runat="server" />
     <asp:HiddenField ID="hf_moneda_pedido" runat="server" />
     <uc:progreso runat="server"></uc:progreso>
-    <div class="is-container is-px-4" style="padding: 4rem;">
+    <div class="is-container container-resumen_pedido is-px-4">
         <div class="is-py-2">
             <h2 class="is-text-xl is-font-bold is-select-none">Resumen de pedido<asp:Literal ID="lt_nombre_operacion" runat="server" Visible="false"></asp:Literal></h2>
         </div>
@@ -24,7 +24,7 @@
             <div class="col  col-12 col-xs-12 col-sm-12 col-md-5 col-xl-6">
                 <div id="Content_AsesorSeguimiento" runat="server" visible="false" class="is-rounded-lg is-border-soft is-my-4">
                     <div class="is-flex is-flex-col">
-                        <h4 class="is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Seguimiento</h4>
+                        <h4 class="text-resumen_compra is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Seguimiento</h4>
                         <div class="is-px-8 is-py-2">
                             <h6 id="H1" runat="server" class="card-subtitle text-muted"></h6>
                             <p id="P1" runat="server" class="card-text"></p>
@@ -35,11 +35,11 @@
                     </div>
                 </div>
                 <div class="is-rounded-lg is-border-soft is-my-4">
-                    <div class="is-flex is-flex-col">
+                    <div class="text-resumen_compra is-flex is-flex-col">
                         <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
-                            <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Datos de quien recibe</h4>
+                            <h4 class="text-resumen_compra is-text-lg is-font-semibold" style="margin: 0 auto;">Datos de quien recibe</h4>
                         </section>
-                        <div class="is-px-8 is-py-2">
+                        <div class="is-px-8 is-py-2 is-top-1 text-datos_quien_recibe">
                             <h6 id="contacto_title" runat="server"></h6>
                             <p id="contacto_desc" runat="server"></p>
                             <asp:HyperLink runat="server" ID="link_cambiar_contacto" Style="text-decoration: none;">
@@ -49,16 +49,17 @@
                     </div>
                 </div>
                 <div class="is-rounded-lg is-border-soft is-my-4">
-                    <div class="is-flex is-flex-col">
+                    <div class="text-resumen_compra is-flex is-flex-col">
                         <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
-                            <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Envío</h4>
+                            <h4 class="text-resumen_compra is-text-lg is-font-semibold" style="margin: 0 auto;">Envío</h4>
                         </section>
                         <div class="is-px-8 is-py-2">
                             <h6 id="metodo_envio_title" class="card-subtitle" runat="server"></h6>
-                            <div class="is-flex is-justify-between is-items-start">
+                            <!-- <div class="is-flex is-justify-between is-items-start"> -->
+                                <div class="is-block">
                                 <p id="nombreEnvio" runat="server"></p>
                                 <p id="metodo_envio_desc" class="is-select-all" runat="server"></p>
-                                <a id="localizacionTienda" visible="false" href="https://g.page/Incom_CDMX?share" target="_blank" rel="noreferrer noopener" class="is-decoration-none is-text-black" runat="server">
+                                <a id="localizacionTienda" visible="false" href="https://g.page/Incom_CDMX?share" target="_blank" rel="noreferrer noopener" class="is-decoration-none is-text-black is-space-x-6" runat="server">
                                     <span>
                                         <svg class="is-w-6 is-h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
@@ -71,7 +72,7 @@
                             <%--<asp:LinkButton ID="btn_Borrar_msg_alert_envio" CssClass="mb-2" Visible="false" OnClick="btn_Borrar_msg_alert_envio_Click" runat="server">
                             Borrar mensaje de error envío
                             </asp:LinkButton>--%>
-                            <div class="is-flex is-justify-between is-items-center">
+                            <div class="is-flex is-justify-between is-items-center is-top-1">
                                 <%--<div class="Conteng_msg_envioNota"></div>--%>
                                 <div class="dropdown">
                                     <asp:HyperLink runat="server" ID="btn_cambiar_metodo_envio" Style="text-decoration: none;">
@@ -85,11 +86,11 @@
                     </div>
                 </div>
                 <div class="is-rounded-lg is-border-soft is-my-4">
-                    <div class="is-flex is-flex-col">
+                    <div class="text-resumen_compra is-flex is-flex-col">
                         <section class="is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">
-                            <h4 class="is-text-lg is-font-semibold" style="margin: 0 auto;">Facturación</h4>
+                            <h4 class="text-resumen_compra is-text-lg is-font-semibold" style="margin: 0 auto;">Facturación</h4>
                         </section>
-                        <div class="is-px-8 is-py-2">
+                        <div class="text-resumen_compra is-px-8 is-py-2 is-top-1">
                             <h6 id="facturacion_title" runat="server" class="card-subtitle"></h6>
                             <p id="facturacion_desc" runat="server" class="card-text"></p>
                             <p id="ContentFacturacionUsoCFDI" runat="server">
@@ -101,7 +102,7 @@
                                     OnSelectedIndexChanged="ddl_UsoCFDI_SelectedIndexChanged" AutoPostBack="true" runat="server">
                                 </asp:DropDownList>
                             </p>
-                            <div class="is-flex is-justify-between is-items-center">
+                            <div class="is-flex is-justify-between is-items-center is-top-1">
                                 <!-- <asp:LinkButton runat="server" ID="btn_sin_factura" OnClick="btn_sin_factura_Click"
                                     class="">
                              Sin factura </asp:LinkButton> -->
@@ -129,7 +130,7 @@
                     </div>
                 </div>
                 <div class="d-grid gap-2 mt-3 is-text-xs">
-                    <h5><strong>Aviso:</strong></h5>
+                    <h5 class="text-resumen_compra"><strong>Aviso:</strong></h5>
                     <ul class="is-p-0" style="text-decoration: none; list-style-type: none;">
                         <li>Los <strong>costos de envío</strong> podrían ser recalculados y resultar mayores o menores a lo mostrado.</li>
                         <li>Por seguridad, algunos productos requieren un <strong>seguro de envío</strong>  con costo adicional. De ser el caso, su asesor de ventas le informará.</li>
@@ -141,9 +142,9 @@
                     <div class="is-w-auto">
                         <div id="content_msg_cancelar_pedido">
                         </div>
-                        <div>
+                        <div class="text-cancelar_pedido">
                             <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
-                            class="cancelar_pedido is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
+                            class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
                         </div>
                     </div>
                 </div>
@@ -165,7 +166,7 @@
                     </p>
                 </asp:Panel>
             </div>
-            <div class="col col-12  col-xs-12 col-sm-12 col-md-7 col-xl-6">
+            <div class="lista_productos-precio col col-12  col-xs-12 col-sm-12 col-md-7 col-xl-6">
                 <div class="is-bg-gray-300 is-rounded-t wrapp-product_list">
                     <p class="h6" style="font-weight: 600; margin: 0;">Productos</p>
                 </div>
@@ -179,9 +180,9 @@
                     </LayoutTemplate>
                     <ItemTemplate>
                         <li class="list-group-item d-flex lh-sm is-border-soft">
-                            <asp:Image ID="img_producto" class="img-fluid" Style="width: 100px;" runat="server" />
-                            <div style="justify-content: space-between; display: flex; width: 100%; margin: 1rem">
-                                <div>
+                            <asp:Image ID="img_producto" class="img-fluid" runat="server" />
+                            <div style="justify-content: space-between; display: flex; width: 100%; padding: 1rem">
+                                <div class="descripcion_de_producto">
                                     <h6 class="my-0"><%#Eval("productos.numero_parte") %></h6>
                                     <small class="text-muted"><%#Eval("productos.descripcion") %>
                                         <br />
@@ -191,11 +192,13 @@
                                             <asp:Literal ID="lt_precio_unitario" Text=' <%#Eval("productos.precio_unitario") %>' runat="server"></asp:Literal>
                                     </small>
                                 </div>
-                                <span class="text-muted" style="float: right;">
-                                    <strong>
-                                        <asp:Literal ID="lt_precio_total" Text='<%#Eval("productos.precio_total")%>' runat="server"></asp:Literal>
-                                    </strong>
-                                </span>
+                                <div class="precio_por_producto is-flex is-justify-cnter is-text-center">
+                                    <span class="text-muted is-m-auto">
+                                        <strong>
+                                            <asp:Literal ID="lt_precio_total" Text='<%#Eval("productos.precio_total")%>' runat="server"></asp:Literal>
+                                        </strong>
+                                    </span>
+                                </div>
                             </div>
                         </li>
                     </ItemTemplate>
@@ -205,7 +208,7 @@
                         </div>
                     </EmptyDataTemplate>
                 </asp:ListView>
-                <div class="is-border-soft" style="padding: 1rem; border-radius: 8px;">
+                <div class="ticket_resumen is-border-soft" style="padding: 1rem; border-radius: 8px;">
                     <table class="table table-sm">
                         <thead>
                             <tr>
@@ -249,7 +252,7 @@
                 </div>
                 <div class="row is-top-2">
                     <div class="is-m-auto is-w-auto">
-                        <asp:LinkButton runat="server" ID="btn_continuarMetodoPago" OnClick="btn_continuarMetodoPago_Click" CssClass="is-select-none">Continuar a método de pago</asp:LinkButton>
+                        <asp:LinkButton runat="server" ID="btn_continuarMetodoPago" OnClick="btn_continuarMetodoPago_Click" CssClass="is-decoration-none is-btn-green">Continuar a método de pago</asp:LinkButton>
                         <%--<asp:HyperLink runat="server" ID="btn_continuarMetodoPago" class="is-decoration-none is-btn-green">Continuar a método de pago</asp:HyperLink>--%>
                 </div>
             </div>
@@ -445,7 +448,7 @@
         margin: auto;
     }
 
-    .cancelar_pedido:hover {
+    .text-cancelar_pedido > a:hover {
         color: red;
     }
 
@@ -454,5 +457,132 @@
         height: fit-content;
         max-height: 320px;
     }
+
+    .text-datos_quien_recibe> ul {
+        padding: 0px;
+    }
+
+    .img-fluid {
+        width: 100px;
+    }
+
+    .lista_productos-precio {
+        margin: 0.5rem 0rem 0rem 0rem;
+    }
+
+    @media only screen and (min-width:500px) and (max-width: 700px) {
+
+        .svg_resumen, .svg_pago,
+        .svg_finalizar, .svg_resumen_puntos,
+        .svg_pago_puntos {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .text-resumen {
+            font-size: 0.8rem;
+        }
+    }
+
+    @media only screen and (min-width: 500px) and (max-width: 1000px){
+
+        .descripcion_de_producto > h6, .text-resumen_compra,
+        .ticket_resumen, .card-subtitle, #body_contacto_title {
+            font-size: 14px !important;
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+
+        .svg_resumen, .svg_pago,
+        .svg_finalizar, .svg_resumen_puntos,
+        .svg_pago_puntos {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .text-resumen {
+            font-size: 0.5rem;
+        }
+
+        .img-fluid {
+            width: 70px;
+            margin: 0px auto;
+        }
+
+        .list-group-item {
+            flex-direction: column;
+        }
+
+        .precio_por_producto, .descripcion_de_producto  {
+            width: 50%;
+        }
+
+        .text-cancelar_pedido {
+            font-size: 12px;
+        }
+
+        .wrapp-product_list > p {
+            font-size: 14px;
+        }
+
+        .descripcion_de_producto > h6, .text-resumen_compra,
+        .ticket_resumen, .card-subtitle, #body_contacto_title{
+            font-size: 12px !important;
+        }
+    }
+
+    @media only screen and  (max-width: 1000px ) {
+        .container-resumen_pedido {
+            padding: 1.5rem;
+            margin: auto auto 6rem auto;
+        }
+
+        .descripcion_de_producto {
+            width: 60%;
+            font-size: 0.75rem;
+        }
+
+        .precio_por_producto {
+            width: 40%;
+            font-size: 12px;
+        }
+
+        .list-group-item {
+            padding: .5rem 1rem;
+        }
+    }
+
+    @media only screen and  (min-width: 1000px ) {
+        .container-resumen_pedido {
+            padding: 4rem;
+            margin: auto auto 6rem auto;
+        }
+
+        .descripcion_de_producto {
+            width: 60%;
+        }
+
+        .precio_por_producto {
+            width: 40%;
+        }
+    }
+
+    @media only screen and  (min-width: 1600px ) {
+
+        .precio_por_producto {
+            width: 30%;
+        }
+
+        .descripcion_de_producto {
+            width: 70%;
+        }
+
+        .container-resumen_pedido {
+            max-width: 2000px;
+            margin: auto auto 6rem auto;
+        }
+    }
+
     </style>
 </asp:Content>

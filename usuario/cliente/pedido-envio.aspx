@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="card-domicilio card is-rounded-xl is-space-x-6" runat="server">
                                     <div class="card-body is-rounded-lg is-bg-gray-light is-border-gray-soft">
-                                        <div style="height: 30px"></div>
+                                        <div id="entrega_domicilio" class="" style="height: 30px" runat="server"></div>
                                         <h6 class="card-title is-text-center">Entrega a domicilio</h6>
                                         <svg version="1.1" class="icon-entrega_domicilio" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                             viewBox="0 0 180 180" style="enable-background: new 0 0 180 180;" xml:space="preserve">

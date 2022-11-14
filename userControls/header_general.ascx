@@ -694,7 +694,7 @@
         color: black;
         width: 2.5rem;
         height: auto;
-        margin-left: 0.25rem;
+        margin-left: 0.5rem;
     }
 
     .title_categorias {
@@ -803,10 +803,10 @@
             width: 5rem;
         }
 
-        .btn-mi-carrito {
+        <!-- .btn-mi-carrito {
             height: 28px;
             margin: 0;
-        }
+        } -->
 
         .txt_carrito {
             font-size: 0.75rem;
@@ -821,9 +821,9 @@
             margin-top: 0.5rem;
         }
 
-        #carrito_de_compra > a:nth-child(1) > img:nth-child(1) {
+        <!-- #carrito_de_compra > a:nth-child(1) > img:nth-child(1) {
             padding-bottom: 0.25rem;
-        }
+        } -->
     }
 
     @media only screen and (min-width: 1200px) {
@@ -838,7 +838,7 @@
         }
 
         .btn-mi-carrito {
-            width: 2rem;
+            width: 2.25rem;
         }
     }
 

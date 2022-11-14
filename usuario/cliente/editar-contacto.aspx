@@ -10,7 +10,7 @@
             <div class="col col-8 is-m-auto">
                 <div class="is-flex is-flex-col is-justify-center is-items-start">
                     <div class="row">
-                        <div class="col">
+                        <div class="col is-top-1">
                             <p><strong>Editar un contacto:</strong></p>
                         </div>
                     </div>
