@@ -37,7 +37,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
     protected void CargarProductos()
     {
         var productos = PedidosEF.ObtenerProductosWithData(lt_numero_pedido.Text);
-        lbl_total_productos.Text = productos.Sum(t => t.productos.precio_total).ToString("C2", myNumberFormatInfo) + hf_moneda_pedido.Value;
+        lbl_total_productos.Text = productos.Sum(t => t.productos.precio_total).ToString("C2", myNumberFormatInfo) + " " + hf_moneda_pedido.Value;
         lv_productos.DataSource = productos;
         lv_productos.DataBind();
     }
@@ -86,7 +86,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         {
             NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Completa la información de contacto");
             contacto_desc.InnerHtml = $"<ul class='list-none'><li class='is-text-red is-font-semibold'>Teléfono*: {pedidos_datos.celular}</li>" + $"<li class='is-text-red is-font-semibold'>Teléfono alternativo: {pedidos_datos.telefono}</li></ul>" + $"<p class='is-text-red'>*Campos obligatorios</p>";
-            btn_continuarMetodoPago.ToolTip = "Debes ingresar un teléfono de contacto";
+            btn_continuarMetodoPago.ToolTip += "Debes ingresar un teléfono de contacto";
             btn_continuarMetodoPago.Attributes.Add("style", "cursor: not-allowed;");
             btn_continuarMetodoPago.Enabled = false;
         }
@@ -126,8 +126,12 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         }
         else if (pedido_montos.metodoEnvio == "Ninguno")
         {
-            nombreEnvio.InnerText = direccionEnvio.nombre_direccion;
+            //nombreEnvio.InnerText = direccionEnvio.nombre_direccion;
             metodo_envio_title.InnerText = "Método de envío no seleccionado.";
+            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "Método de envio no seleccionado");
+            btn_continuarMetodoPago.Enabled = false;
+            btn_continuarMetodoPago.ToolTip += "Asignar un método de envío";
+            btn_continuarMetodoPago.Attributes["style"] = "cursor: not-allowed";
         }
         else
         {
@@ -601,11 +605,11 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
     }
     protected void btn_continuarMetodoPago_Click(object sender, EventArgs e)
     {
-
+        NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
         string redireccionUrl = GetRouteUrl("cliente-pedido-pago", new System.Web.Routing.RouteValueDictionary
         {
             { "id_operacion", seguridad.Encriptar(hf_id_pedido.Value) }
         });
-        BootstrapCSS.RedirectJs(this, redireccionUrl, 100);
+        BootstrapCSS.RedirectJs(this, redireccionUrl, 1000);
     }
 }
