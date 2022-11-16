@@ -3,29 +3,29 @@
 <!-- Dropdown Structure -->
 <div class="user-menu">
     <%--<button type="button" id="btn-asesor" class="is-text-white is-bg-blue is-px-2 is-rounded-2xl" style="outline-width: 0; border: 0; cursor: pointer;" data-target="advisorDropdown">Asesor</button>--%>
-    <asp:Label ID="lbl_modalidad_asesores" class="is-bg-blue is-text-white is-px-2 is-rounded is-cursor-pointer" runat="server">
+    <asp:Label ID="lbl_modalidad_asesores" class="is-bg-blue-darky is-text-white is-p-2 is-rounded is-cursor-pointer" runat="server">
         <asp:CheckBox ID="chk_modalidad_asesores" AutoPostBack="true" Text="Modo asesor" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
     </asp:Label>
 <%--    <label class="is-text-white is-bg-blue is-px-4 is-rounded-2xl">
     </label>--%>
-    <ul id="modoAsesorUl" style="list-style: none;" runat="server">
-        <li>
-            <asp:HyperLink ID="myBtnCambiarAsesorModal" ClientIDMode="Static" Style="cursor: pointer;" runat="server">Cambiar</asp:HyperLink>
+    <ul id="modoAsesorUl" class="is-absolute is-text-black" style="list-style: none;" runat="server">
+        <li class="is-text-black">
+            <asp:HyperLink ID="myBtnCambiarAsesorModal" ClientIDMode="Static" class="is-text-black" Style="cursor: pointer;" runat="server">Cambiar</asp:HyperLink>
         </li>
         <li>
-            <asp:HyperLink ID="link_" NavigateUrl="~/usuario/mi-cuenta/cotizaciones-busqueda.aspx" runat="server">Buscar operaciones asesores</asp:HyperLink>
+            <asp:HyperLink ID="link_" NavigateUrl="~/usuario/mi-cuenta/cotizaciones-busqueda.aspx" class="is-text-black" runat="server">Buscar operaciones</asp:HyperLink>
         </li>
         <li>
-            <asp:HyperLink ID="btn_agregar_usuario" NavigateUrl="~/usuario/mi-cuenta/registro-de-usuario-asesor.aspx" runat="server">Registrar Cliente</asp:HyperLink>
+            <asp:HyperLink ID="btn_agregar_usuario" NavigateUrl="~/usuario/mi-cuenta/registro-de-usuario-asesor.aspx" class="is-text-black" runat="server">Registrar cliente</asp:HyperLink>
         </li>
         <li>
-            <asp:CheckBox ID="chk_salir_modalidad_asesores" AutoPostBack="true" Text="Salir" CssClass="is-text-white" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
+            <asp:CheckBox ID="chk_salir_modalidad_asesores" AutoPostBack="true" Text="Salir" class="is-text-black" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
         </li>
     </ul>
 </div>
 <%--<ul id="advisorDropdown" class='dropdown-content'>
     <li>
-        <asp:HyperLink ID="btn_agregar_usuario" NavigateUrl="~/usuario/mi-cuenta/registro-de-usuario-asesor.aspx" runat="server">Registrar Cliente</asp:HyperLink>
+        <asp:HyperLink ID="btn_agregar_usuario" NavigateUrl="~/usuario/mi-cuenta/registro-de-usuario-asesor.aspx" runat="server">Registrar cliente</asp:HyperLink>
     </li>
     <li>
         <asp:HyperLink ID="link_" NavigateUrl="~/usuario/mi-cuenta/cotizaciones-busqueda.aspx" runat="server">Buscar operaciones asesores</asp:HyperLink>
@@ -158,6 +158,19 @@
         width: 80%;
         overflow: auto;
         color: black !important;
+    }
+
+    #top_menuPricipal_barraAsesores_lbl_modalidad_asesores > label:nth-child(2) {
+        color: #FFFFFF;
+    }
+
+    .user-menu span.is-text-black:nth-child(1) > label:nth-child(2) {
+        color: #000000;
+        font-size: 1rem;
+    }
+
+    #body_1 {
+        fill: #01568D;
     }
 
     /* The Close Button */

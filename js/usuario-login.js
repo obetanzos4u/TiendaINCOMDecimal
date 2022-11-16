@@ -160,7 +160,7 @@ async function LoginAjaxOpenModal() {
                 <span class="separator">O</span>
             </div>
             <div
-                class="is-flex is-flex-col is-justify-center is-items-center is-mx-4 is-px-4">
+                class="is-flex is-flex-col is-justify-center is-items-center form-sesion_margin">
                 <p class="is-select-none is-font-regular">
                 Continúa con tu correo electrónico
                 </p>

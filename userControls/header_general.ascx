@@ -725,7 +725,7 @@
     .main_container {
         display: grid;
         grid-auto-columns: 1fr;
-        grid-template-columns: 1fr 0.9fr 1.3fr 0.8fr;
+        grid-template-columns: 0.5fr 1fr 1.3fr 0.8fr;
         grid-template-rows: 1.9fr 0.7fr 0.7fr 0.7fr;
         gap: 1em 1em;
         grid-template-areas:

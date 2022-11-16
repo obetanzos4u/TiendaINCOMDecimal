@@ -100,7 +100,7 @@
                     </asp:ListView>
                 </div>
             </div>
-            <asp:UpdatePanel ID="up_datos_facturacion" RenderMode="Block" UpdateMode="Conditional" runat="server" class="is-w-1_2">
+            <asp:UpdatePanel ID="up_datos_facturacion" RenderMode="Block" UpdateMode="Conditional" runat="server" class="is-w-2_5">
                 <ContentTemplate>
                     <asp:Panel runat="server">
                         <div class="col form-datos_facturacion">
@@ -156,23 +156,23 @@
                                     </div>
                                     <div class="form-group is-top-1">
                                         <label for="<%= txt_calle.ClientID %>">Calle:</label>
-                                        <asp:TextBox ID="txt_calle" ClientIDMode="Static" class="form-control" data-length="50" MaxLength="50" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txt_calle" ClientIDMode="Static" class="form-control is-w-full" data-length="50" MaxLength="50" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="form-group is-top-1">
                                         <label for="<%= txt_numero.ClientID %>">Número:</label>
-                                        <asp:TextBox ID="txt_numero" ClientIDMode="Static" class="form-control" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txt_numero" ClientIDMode="Static" class="form-control is-w-full" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group is-top-1">
                                         <label for="<%= txt_colonia.ClientID %>">Colonia:</label>
-                                        <asp:DropDownList ID="ddl_colonia" Visible="false" class="form-select" runat="server"></asp:DropDownList>
+                                        <asp:DropDownList ID="ddl_colonia" Visible="false" class="form-select is-w-full" runat="server"></asp:DropDownList>
 
-                                        <asp:TextBox ID="txt_colonia" ClientIDMode="Static" class="form-control" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txt_colonia" ClientIDMode="Static" class="form-control is-w-full" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="form-group is-top-1">
                                         <label for="txt_delegacion_municipio">Delegación/Municipio:</label>
-                                        <asp:TextBox ID="txt_delegacion_municipio" ClientIDMode="Static" class="form-control" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txt_delegacion_municipio" ClientIDMode="Static" class="form-control is-w-full" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="form-group is-top-1">
                                         <label for="txt_ciudad">Ciudad:</label>
@@ -182,11 +182,11 @@
                                 <div class="form-row">
                                     <div class="form-group is-top-1">
                                         <label for="ddl_pais">País:</label>
-                                        <uc:ddlPaises ID="ddl_pais" class="form-control" runat="server" />
+                                        <uc:ddlPaises ID="ddl_pais" class="form-control is-w-full" runat="server" />
                                     </div>
                                     <div id="cont_ddl_estado" class="form-group is-top-1" runat="server">
                                         <label for="ddl_municipio_estado">Estado:</label>
-                                        <uc:ddlEstados ID="ddl_estado" runat="server" />
+                                        <uc:ddlEstados ID="ddl_estado" class="is-w-full" runat="server" />
                                     </div>
                                     <!-- <div id="cont_txt_estado" class="form-group col-md-4" runat="server">
                     <label for="txt_estado">Estado:</label>
@@ -217,6 +217,10 @@
                 padding: 30px;
                 border-radius: 8px;
                 margin: auto auto 4rem 2rem;
+            }
+
+            #txt_calle {
+                width: 100%;
             }
 
             @media only screen and (max-width: 450px) {

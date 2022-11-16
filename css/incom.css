@@ -184,6 +184,11 @@ margin-left: 1rem;
     height: 2rem !important;
 }
 
+.form-sesion_margin {
+    margin: auto 1rem;
+    padding: 0rem 1rem;
+}
+
 /*Documentación tamáño móvi mediano*/
 
 @media only screen and (min-width: 600px) and (max-width: 820px) {
@@ -1223,6 +1228,15 @@ div.arrow-doble-down #svg-arrow-down {
         .fixInput {
             width: 98%;
         }
+
+        .form-sesion_margin {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .modal-content .btn-1 {
+            margin: 1rem auto;
+        }
     }
 
     @media only screen and (min-width: 200px) {
@@ -1324,11 +1338,15 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         .separator {
-            font-size: 12px;
+            font-size: 10px !important;
         }
 
         .separator::after, .separator::before {
             width: 44%;
+        }
+
+        p.is-font-regular {
+            font-size: 10px;
         }
 
         #productZoom {

@@ -2,7 +2,7 @@
 
 <style>
     .modal {
-        width: 80% !important;
+        width: 90% !important;
     }
 </style>
 
