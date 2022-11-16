@@ -35,4 +35,5 @@ public class NotiflixJS : System.Web.UI.Page
         string script = "NotiflixLoading(\"" + LoadingType + "\");";
         ScriptManager.RegisterStartupScript(t, typeof(Control), "NotiflixLoading_" + n, script, true);
     }
+
 }

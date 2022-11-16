@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.UI;
 
 /// <summary>
 /// Clase para manipular los productos a agregar a el carrito, cotización o pedido.
@@ -37,7 +38,6 @@ public class operacionesProductos
         moneda = _moneda;
         procesarPrecios = new preciosTienda();
     }
-
     public decimal obtenerPrecioUnitario() { return precio; }
     public decimal obtenerCantidad() { return cantidadF; }
     public model_productosTienda obtenerProducto() { return productoTienda; }
@@ -55,7 +55,6 @@ public class operacionesProductos
 
         var ValidarCantidad = await ProductosBloqueoCantidades.ValidarCantidadAsync(numero_parte, cantidadF);
 
-
         if (ValidarCantidad.result == false)
         {
             mensaje_ResultadoOperacion = ValidarCantidad.message;
@@ -66,18 +65,14 @@ public class operacionesProductos
 
         productosTienda obtener = new productosTienda();
         DataTable dt_Producto = obtener.obtenerProducto(numero_parte);
-
         preciosTienda procesar = new preciosTienda();
         procesar.monedaTienda = moneda;
-
         //Procesamos precios, visibilidad etc.
         dt_Producto = procesar.procesarProductos(dt_Producto);
-
 
         // Si paso los filtros procedemos a realizar otras acciones
         if (dt_Producto != null && dt_Producto.Rows.Count >= 1)
         {
-
             // ***** Validación de existencia en operación y para realizar insert o update con su actualización de cantidad si fuera este último caso (update).
             bool productoEnOperacion = false;
             bool resultado = false;
@@ -85,7 +80,6 @@ public class operacionesProductos
 
             switch (tipoOperacion)
             {
-
                 case "carrito":
                     carrito add = new carrito();
                     dtProductosEnOperacion = add.obtenerCarritoProducto(datosUsuario.email, numero_parte);
@@ -223,7 +217,6 @@ public class operacionesProductos
             mensaje_ResultadoOperacion = "Error: El producto no puede ser agregado";
         }
     }
-
     private decimal precioTabulado(model_productosTienda producto)
     {
         decimal precio = decimal.MinusOne;

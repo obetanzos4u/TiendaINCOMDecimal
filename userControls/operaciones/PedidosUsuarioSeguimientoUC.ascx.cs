@@ -27,7 +27,7 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
 
         if (pedidoDatos.idUsuarioSeguimiento == null)
         {
-            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "No se ha asignado un asesor.");
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "No se ha asignado un asesor.");
             return;
         }
         else

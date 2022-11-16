@@ -39,10 +39,10 @@
             </div>--%>
 
         <uc1:sliderHome ID="uc_SliderHome" runat="server"></uc1:sliderHome>
-        <section class="anuncios" id="anunciosSlider" runat="server"></section>
-        <section class="USP1" id="sliderUSP1" runat="server"></section>
-        <section class="USP2" id="sliderUSP2" runat="server"></section>
-        <section class="USP3" id="sliderUSP3" runat="server"></section>
+        <section class="anuncios" id="anunciosSlider" loading="lazy" runat="server"></section>
+        <section class="USP1" id="sliderUSP1" loading="lazy" runat="server"></section>
+        <section class="USP2" id="sliderUSP2" loading="lazy" runat="server"></section>
+        <section class="USP3" id="sliderUSP3" loading="lazy" runat="server"></section>
     </div>
 
     <section class="title_productos-destacados">

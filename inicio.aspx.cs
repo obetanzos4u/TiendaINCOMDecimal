@@ -121,7 +121,7 @@ public partial class inicio : System.Web.UI.Page
                     HtmlGenericControl divControl = new HtmlGenericControl("div");
                     HyperLink link = new HyperLink();
                     Image img = new Image();
-                    img.ImageUrl = "https://via.placeholder.com/" + nombreArchivo;
+                    img.ImageUrl = Request.Url.GetLeftPart(UriPartial.Authority) + "/img/webUI/sliderHome/" + nombreArchivo;
                     img.AlternateText = titulo;
                     link.NavigateUrl = linkAnuncio;
                     link.Controls.Add(img);
@@ -153,7 +153,7 @@ public partial class inicio : System.Web.UI.Page
                     HtmlGenericControl divControl = new HtmlGenericControl("div");
                     HyperLink link = new HyperLink();
                     Image img = new Image();
-                    img.ImageUrl = "https://via.placeholder.com/" + nombreArchivo;
+                    img.ImageUrl = Request.Url.GetLeftPart(UriPartial.Authority) + "/img/webUI/sliderHome/" + nombreArchivo;
                     img.AlternateText = titulo;
                     link.NavigateUrl = linkUSP;
                     link.ToolTip = descripcion;

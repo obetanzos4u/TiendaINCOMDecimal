@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -186,10 +187,18 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 lbl_envioIncluido.InnerHtml = "Envío gratis";
             }
 
+            if (string.IsNullOrEmpty(especificaciones))
+            {
+                lbl_especificaciones.Text = "Puedes comunicarte con nuestra área de soporte técnico para más información: <a href='mailto:soportetecnico@incom.mx'>soportetecnico@incom.mx</a>";
+            }
+            else
+            {
+                lbl_especificaciones.Text = especificaciones;
+            }
+
             lt_numero_parte.Text = numero_parte;
             lt_titulo.Text = titulo;
             lbl_descripcion_corta.Text = descripcion_corta;
-            lbl_especificaciones.Text = especificaciones;
             productoAddOperacion.numero_parte = numero_parte;
             productoAddOperacion.descripcion_corta = descripcion_corta;
             sap_producto_disponibilidad.numero_parte = noParte_Sap;
@@ -343,33 +352,42 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             {
                 devNotificaciones.error("Error en la documentación PDF en producto: " + numero_parte, ex.Message);
             }
-            tbody_dimensiones_empaque.InnerHtml += @"
+
+            if (string.IsNullOrEmpty(peso) || string.IsNullOrEmpty(alto) || string.IsNullOrEmpty(ancho) || string.IsNullOrEmpty(profundidad) || string.IsNullOrEmpty(upc))
+            {
+                divEspecificaciones.Visible = false;
+                divEspecificacionesVacias.Visible = true;
+                divEspecificacionesVacias.InnerHtml = "<p>Puedes comunicarte con nuestra área de soporte técnico para más información: <a href='mailto:soportetecnico@incom.mx'>soportetecnico@incom.mx</a></p>";
+            }
+            else
+            {
+                divEspecificaciones.Visible = true;
+                tbody_dimensiones_empaque.InnerHtml += @"
             <tr>" +
-                "<td style='white-space: nowrap; padding-right:4px;'><strong>Peso</strong>:</td>" +
-                "<td style='white-space: nowrap; width:100%;'>" + productos.Rows[0]["peso"].ToString() + " kg</td>" +
-            "</tr>" +
-             "<tr>" +
-                "<td style='white-space: nowrap; padding-right:4px;'><strong>Alto </strong>:</td>" +
-                "<td style='white-space: nowrap; width:100%;'>" + productos.Rows[0]["alto"].ToString() + " cm</td>" +
-            "</tr>" +
-            "<tr>" +
-                "<td style='white-space: nowrap; padding-right:4px;'><strong>Ancho</strong>:</td>" +
-                "<td style='white-space: nowrap; width:100%;'>" + productos.Rows[0]["ancho"].ToString() + " cm</td>" +
-            "</tr>" +
-            "<tr>" +
-                "<td style='white-space: nowrap; padding-right:4px;'><strong>Largo/Profundidad </strong>:</td>" +
-                "<td style='white-space: nowrap; width:100%;'>" + productos.Rows[0]["profundidad"].ToString() + " cm</td>" +
-            "</tr>";
+                    "<td style='white-space: nowrap; padding-right:4px;'><strong>Peso</strong>:</td>" +
+                    "<td style='white-space: nowrap; width:100%;'>" + peso + " kg</td>" +
+                "</tr>" +
+                 "<tr>" +
+                    "<td style='white-space: nowrap; padding-right:4px;'><strong>Alto </strong>:</td>" +
+                    "<td style='white-space: nowrap; width:100%;'>" + alto + " cm</td>" +
+                "</tr>" +
+                "<tr>" +
+                    "<td style='white-space: nowrap; padding-right:4px;'><strong>Ancho</strong>:</td>" +
+                    "<td style='white-space: nowrap; width:100%;'>" + ancho + " cm</td>" +
+                "</tr>" +
+                "<tr>" +
+                    "<td style='white-space: nowrap; padding-right:4px;'><strong>Largo/Profundidad </strong>:</td>" +
+                    "<td style='white-space: nowrap; width:100%;'>" + profundidad + " cm</td>" +
+                "</tr>";
 
-            string htmlUPC = @"
+                string htmlUPC = @"
             <tr >" +
-                     "<td class='is-bg-white is-top-75'><strong>Código EAN/UPC/GTIN</strong>:</td>" +
-                     "<td class='is-bg-white is-p-0'>" + upc + "</td>" +
-                 "</tr>";
+                         "<td class='is-bg-white is-top-75'><strong>Código EAN/UPC/GTIN</strong>:</td>" +
+                         "<td class='is-bg-white is-p-0'>" + upc + "</td>" +
+                     "</tr>";
 
-
-
-            tbody_caracteristicas.InnerHtml += htmlUPC;
+                tbody_caracteristicas.InnerHtml += htmlUPC;
+            }
 
 
             // INICIO SEO TAGS - 
@@ -658,7 +676,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
         HtmlGenericControl ul = new HtmlGenericControl("ul");
         HtmlGenericControl li = new HtmlGenericControl("li");
         HyperLink link = new HyperLink();
-        Image image = new Image();
+        System.Web.UI.WebControls.Image image = new System.Web.UI.WebControls.Image();
         //ul.Attributes.Add("class", "product_gallery");
         string imgHTML = "";
 
