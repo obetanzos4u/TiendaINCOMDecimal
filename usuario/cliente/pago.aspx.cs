@@ -31,6 +31,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                 string route_id_operacion = Page.RouteData.Values["id_operacion"].ToString();
                 route_id_operacion = seguridad.DesEncriptar(route_id_operacion);
                 lbl_numero_pedido.Text = PedidosEF.ObtenerNumeroOperacion(int.Parse(route_id_operacion));
+                hf_numero_operacion.Value = route_id_operacion;
             }
         }
     }
@@ -62,7 +63,6 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         {
             await generarLinkDePagoAsync(pedidosDatos, pedidosDatosNumericos);
         }
-
     }
     protected void btn_paypal_Click(Object sender, EventArgs es)
     {
@@ -72,6 +72,52 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
 
         btn_tarjeta.Enabled = false;
         btn_transferencia.Enabled = false;
+
+        try
+        {
+            string route_id_operacion = Page.RouteData.Values["id_operacion"].ToString();
+
+            if (string.IsNullOrEmpty(route_id_operacion))
+            {
+                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se ha recibido una operación válida");
+                return;
+            }
+            route_id_operacion = seguridad.DesEncriptar(route_id_operacion);
+
+            int idSQL = int.Parse(route_id_operacion);
+            pedidos_datos pedidoDatos = null;
+            pedidos_datosNumericos pedidoDatoNumericos = null;
+            using (var db = new tiendaEntities())
+            {
+                pedidoDatos = db.pedidos_datos.Where(p => p.id == idSQL).FirstOrDefault();
+                pedidoDatoNumericos = db.pedidos_datosNumericos.Where(p => p.id == idSQL).FirstOrDefault();
+            }
+
+            if (pedidoDatos == null)
+            {
+                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se ha encontrado una operación");
+                return;
+            }
+
+            string usuarioCliente = pedidoDatos.usuario_cliente;
+            bool permisoVisualizar = privacidadAsesores.validarOperacion(usuarioCliente);
+
+            if (!permisoVisualizar)
+            {
+                Response.Redirect(Request.Url.GetLeftPart(UriPartial.Authority));
+            }
+            string numero_operacion = pedidoDatos.numero_operacion;
+            var pedidoProductos = PedidosEF.ObtenerProductos(numero_operacion);
+
+            if (validarBloqueoPago(pedidoProductos, pedidoDatos, pedidoDatoNumericos))
+            {
+                generarBotonPagoPayPal(pedidoDatos, pedidoDatoNumericos, pedidoProductos);
+            }
+        }
+        catch (Exception ex)
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al generar el pago de PayPal, intentar más tarde");
+        }
     }
     protected void btn_transferencia_Click(Object sender, EventArgs e)
     {
@@ -347,6 +393,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
     {
         frm_pagoTarjeta.Attributes.Add("src", URL);
         frm_pagoTarjeta.Visible = true;
+        pnl_tarjeta.Visible = true;
         up_pasarelaPago.Update();
     }
     #endregion
@@ -367,10 +414,11 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         }
         scriptTag.Attributes["src"] = "https://www.paypal.com/sdk/js?client-id=" + cliendID + "&currency=" + monedaPedido;
         this.Page.Header.Controls.Add(scriptTag);
+        up_paypal.Update();
     }
     protected void generarBotonPagoPayPal(pedidos_datos datos, pedidos_datosNumericos datosNumericos, List<pedidos_productos> productos)
     {
-        string numero_operacion = hf_numero_operacion.Value;
+        string numero_operacion = lbl_numero_pedido.Text;
         var direccionEnvio = PedidosEF.ObtenerDireccionEnvio(numero_operacion);
 
         StringBuilder json = new StringBuilder();
@@ -570,8 +618,8 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         bool direccionEnvioCompleta = false;
         bool diferenciaTipoDeCambio = false;
         bool permitirPago = false;
-        string numero_operacion = hf_numero_operacion.Value;
-        int idSQL = int.Parse(hf_id_operacion.Value);
+        string numero_operacion = lbl_numero_pedido.Text;
+        int idSQL = int.Parse(hf_numero_operacion.Value);
         decimal envio = Math.Round(datosNumericos.envio, 2);
         decimal tipoDeCambioPedido = datosNumericos.tipo_cambio;
         string metodoEnvio = datosNumericos.metodoEnvio;
@@ -679,7 +727,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                 pedidoElegibleParaEnvioGratuito = true;
                 break;
             case "Estándar":
-                validarEnvio = true; 
+                validarEnvio = true;
                 break;
             case "Ninguno":
                 motivosNoDisponiblePago.Visible = true;
@@ -728,7 +776,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         }
         if (validarEnvio)
         {
-            if (pedidoElegibleParaEnvioGratuito == false && montoSuperiorParaEnvioGratuito == true &&  precioEnvioEstablecido == false && direccionEnvioCompleta)
+            if (pedidoElegibleParaEnvioGratuito == false && montoSuperiorParaEnvioGratuito == true && precioEnvioEstablecido == false && direccionEnvioCompleta)
             {
                 motivosNoDisponiblePago.Visible = true;
                 pnl_noDisponiblePago.Visible = true;

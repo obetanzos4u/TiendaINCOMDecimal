@@ -14,7 +14,7 @@
             <div class="is-w-full is-flex is-justify-between is-items-center">
                 <div class="is-flex is-justify-center is-items-center">
                     <h1 class="h5 text-metodo_pago"><strong>Método de pago del pedido:
-                    <asp:Label ID="lbl_numero_pedido" class="is-select-all" runat="server"></asp:Label></strong></h5>
+                    <asp:Label ID="lbl_numero_pedido" class="is-select-all" runat="server"></asp:Label></strong></h1>
                     <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Pedido')">
                         <span class="is-text-gray">
                             <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
