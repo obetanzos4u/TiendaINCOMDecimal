@@ -91,7 +91,14 @@
                                     </asp:UpdatePanel>
                                 </asp:Panel>
                                 <asp:Panel ID="pnl_transferencia" Visible="false" runat="server">
-                                    <p>Pago con transferencia</p>
+                                    <p>Datos de la cuenta</p>
+                                    <div>info</div>
+                                    <p>Importante</p>
+                                    <p>
+                                        Número de pedido:
+                                        <asp:Label ID="lbl_numero_pedido_bottom" class="is-select-all" runat="server"></asp:Label>
+                                    </p>
+                                    <asp:HyperLink ID="btn_finalizar_compra" Visible="false" runat="server" Text="Ya realicé el pago"></asp:HyperLink>
                                 </asp:Panel>
                             </ContentTemplate>
                             <Triggers>
@@ -101,290 +108,292 @@
                             </Triggers>
                         </asp:UpdatePanel>
                     </div>
-                    <div style="border: 1px solid #b7b7b7; border-radius: 8px; width: 420px; height: fit-content;">
-                        <table style="width: 100%;">
-                            <thead style="border-bottom: 1px solid #b7b7b7;">
-                                <tr>
-                                    <td colspan="2" style="padding: 0.75rem 0.75rem 0.75rem 1.5rem;"><strong>Desglose</strong></td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="padding: 0.75rem 0rem 0.25rem 1.5rem;">Productos:</td>
-                                    <td style="padding: 0.75rem 1.5rem 0.5rem 0; text-align: end;">
-                                        <asp:Label ID="lbl_productos" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 0.25rem 1.5rem;">Descuentos:</td>
-                                    <td style="padding: 0.25rem 1.5rem; text-align: end;">
-                                        <asp:Label ID="lbl_descuento" runat="server"></asp:Label>
-                                    </td style="padding: 1rem;">
-                                </tr>
-                                <tr>
-                                    <td style="padding: 0.25rem 1.5rem;">Envío (estándar):</td>
-                                    <td style="padding: 0.25rem 1.5rem; text-align: end;">
-                                        <asp:Label ID="lbl_envio" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 0.25rem 1.5rem;">Subtotal:</td>
-                                    <td style="padding: 0.25rem 1.5rem; text-align: end;">
-                                        <asp:Label ID="lbl_subtotal" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 0.25rem 0rem 0.75rem 1.5rem;">Impuestos:</td>
-                                    <td style="padding: 0.25rem 1.5rem 0.75rem 0rem; text-align: end;">
-                                        <asp:Label ID="lbl_impuestos" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tfoot style="border-top: 1px solid #b7b7b7;">
-                                <tr>
-                                    <td style="padding: 0.75rem 0rem 0.75rem 1.5rem;">Total:</td>
-                                    <td style="padding: 0.75rem 1.5rem 0.75rem 0rem; text-align: end;">
-                                        <asp:Label ID="lbl_total" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                    <div class="is-flex is-flex-col is-justify-start is-items-center">
+                        <div style="border: 1px solid #b7b7b7; border-radius: 8px; width: 420px; height: fit-content;">
+                            <table style="width: 100%;">
+                                <thead style="border-bottom: 1px solid #b7b7b7;">
+                                    <tr>
+                                        <td colspan="2" style="padding: 0.75rem 0.75rem 0.75rem 1.5rem;"><strong>Desglose</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding: 0.75rem 0rem 0.25rem 1.5rem;">Productos:</td>
+                                        <td style="padding: 0.75rem 1.5rem 0.5rem 0; text-align: end;">
+                                            <asp:Label ID="lbl_productos" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0.25rem 1.5rem;">Descuentos:</td>
+                                        <td style="padding: 0.25rem 1.5rem; text-align: end;">
+                                            <asp:Label ID="lbl_descuento" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0.25rem 1.5rem;">Envío (estándar):</td>
+                                        <td style="padding: 0.25rem 1.5rem; text-align: end;">
+                                            <asp:Label ID="lbl_envio" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0.25rem 1.5rem;">Subtotal:</td>
+                                        <td style="padding: 0.25rem 1.5rem; text-align: end;">
+                                            <asp:Label ID="lbl_subtotal" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0.25rem 0rem 0.75rem 1.5rem;">Impuestos:</td>
+                                        <td style="padding: 0.25rem 1.5rem 0.75rem 0rem; text-align: end;">
+                                            <asp:Label ID="lbl_impuestos" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot style="border-top: 1px solid #b7b7b7;">
+                                    <tr>
+                                        <td style="padding: 0.75rem 0rem 0.75rem 1.5rem;">Total:</td>
+                                        <td style="padding: 0.75rem 1.5rem 0.75rem 0rem; text-align: end;">
+                                            <asp:Label ID="lbl_total" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <asp:HyperLink ID="btn_regresar" Visible="false" runat="server" Text="Regresar al resumen"></asp:HyperLink>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <style>
-
-    #body_btn_tarjeta.aspNetDisabled, #body_btn_paypal.aspNetDisabled, #body_btn_transferencia.aspNetDisabled {
-        border: none;
-        border-radius: 6px;
-        display: inline-block;
-        height: 36px;
-        line-height: 36px;
-        padding: 0 16px;
-        text-transform: none;
-        vertical-align: middle;
-        -webkit-tap-highlight-color: transparent;
-        text-decoration: none;
-        color: #9f9f9f;
-        background-color: #f4f4f6;
-        text-align: center;
-        font-weight: bold;
-        letter-spacing: .5px;
-        -webkit-transition: background-color .2s ease-out;
-        transition: background-color .2s ease-out;
-        cursor: default;
-        font-size: 12px;
-        outline: 0;
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
-        margin-right: 2rem;
-    }
-
-    @media only screen and (min-width: 1600px) {
-    .container-pay-process {
-        width: 40%;
-        margin: 1rem auto;
-        }
-    }
-
-    @media only screen and (min-width: 1000px) {
-    .container-pay-process {
-        width: 60%;
-        margin: 1rem auto;
-        }
-    }
-
-    @media only screen and (min-width: 1200px) {
-    .icono-formas_pago {
-        width: 450px;
-        height: 50px;
-        }
-
-    .container-metodo_pago {
-        margin-top: 5rem;
-        }
-
-    .text-aceptamos_formas_pago {
-        margin-right: 1rem;
-        margin: 1rem;
-    }
-    }
-
-    @media only screen and (max-width: 1200px) {
-
-        .container-pago {
-            margin-left: 2rem;
-        }
-
-        .icono-formas_pago {
-            width: 360px;
-        }
-
-        .text-metodo_pago {
-            font-size: 1rem;
-        }
-
-        .text-aceptamos_formas_pago > strong:nth-child(1) {
-            font-size: 1rem;
-        }
-
-        .icono-formas_pago {
-            width: 350px;
-            height: 40px;
-        }
-
-        .container-metodo_pago {
-        margin-top: 0rem;
-        }
-
-        .text-aceptamos_formas_pago {
-        margin: 0.25rem;
-        }
-
-        #body_up_pasarelaPago .is-btn-gray  {
-        margin-right: 1rem;
-        }
-
-        .container-metodo_pago > div:nth-child(1) > div:nth-child(2) {
-        width: 360px;
-        margin: 2rem auto 2rem 0;
-        }
-
-        .container-pago > div > div {
-            flex-direction: column;
-            align-items: first baseline;
-        }
-
-        .container-metodo_pago > div:nth-child(1) {
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: center;
-        }
-
-        .container-metodo_pago > div:nth-child(1) > div:nth-child(1) {
-        margin: auto auto auto 0;
-        }
-
-        .container-pago > div > div > div:nth-child(1) {
-        margin-bottom: 2rem;
-        }
-    }
-
-    @media only screen and (min-width:500px) and (max-width: 700px) {
-
-        .container-metodo_pago > div:nth-child(1) > div:nth-child(2) {
-            width: 380px;
-        }
-
-        .text-resumen {
-            font-size: 0.8rem;
-        }
-
-        .container-metodo_pago table {
-            font-size: 12px;
-        }
-
-        .text-aceptamos_formas_pago > strong:nth-child(1) {
-            font-size: 0.75rem;
-        }
-
-        .text-aceptamos_formas_pago {
-            margin: 0.5rem 0.5rem 0.5rem 0rem;
-        }
-
-        .is-w-full > div:nth-child(1) {
-            margin-bottom: 1rem;
-        }
-
-        .container-pago {
-            margin-left: 1rem;
-        }
-
-        .container-metodo_pago p:nth-child(1) > strong:nth-child(1) {
-            font-size: 0.75rem;
-        }
-
-        #body_up_pasarelaPago .is-btn-gray {
-            height: 26px;
-            line-height: 26px;
-            font-size: 10px;
-        }
-
-        .svg_resumen, .svg_pago,
-        .svg_finalizar, .svg_resumen_puntos,
-        .svg_pago_puntos {
-            width: 2rem;
-            height: 2rem;
-        }
-    }
-
-    @media only screen and (max-width: 500px) {
-
-        .container-metodo_pago > div:nth-child(1) > div:nth-child(2) {
-            width: 300px !important;
-        }
-
-        .text-resumen {
-            font-size: 0.5rem;
-        }
-
-        .icono-formas_pago {
-            width: 320px;
+        #body_btn_tarjeta.aspNetDisabled, #body_btn_paypal.aspNetDisabled, #body_btn_transferencia.aspNetDisabled {
+            border: none;
+            border-radius: 6px;
+            display: inline-block;
             height: 36px;
+            line-height: 36px;
+            padding: 0 16px;
+            text-transform: none;
+            vertical-align: middle;
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+            color: #9f9f9f;
+            background-color: #f4f4f6;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: .5px;
+            -webkit-transition: background-color .2s ease-out;
+            transition: background-color .2s ease-out;
+            cursor: default;
+            font-size: 12px;
+            outline: 0;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+            margin-right: 2rem;
         }
 
-        .text-metodo_pago {
-            font-size: 0.75rem;
+        @media only screen and (min-width: 1600px) {
+            .container-pay-process {
+                width: 40%;
+                margin: 1rem auto;
+            }
         }
 
-        .container-metodo_pago table {
-            font-size: 10px;
+        @media only screen and (min-width: 1000px) {
+            .container-pay-process {
+                width: 60%;
+                margin: 1rem auto;
+            }
         }
 
-        .container-formas_pago {
-            flex-direction: column;
+        @media only screen and (min-width: 1200px) {
+            .icono-formas_pago {
+                width: 450px;
+                height: 50px;
+            }
+
+            .container-metodo_pago {
+                margin-top: 5rem;
+            }
+
+            .text-aceptamos_formas_pago {
+                margin-right: 1rem;
+                margin: 1rem;
+            }
         }
 
-        .text-aceptamos_formas_pago > strong:nth-child(1) {
-            font-size: 10px;
+        @media only screen and (max-width: 1200px) {
+
+            .container-pago {
+                margin-left: 2rem;
+            }
+
+            .icono-formas_pago {
+                width: 360px;
+            }
+
+            .text-metodo_pago {
+                font-size: 1rem;
+            }
+
+            .text-aceptamos_formas_pago > strong:nth-child(1) {
+                font-size: 1rem;
+            }
+
+            .icono-formas_pago {
+                width: 350px;
+                height: 40px;
+            }
+
+            .container-metodo_pago {
+                margin-top: 0rem;
+            }
+
+            .text-aceptamos_formas_pago {
+                margin: 0.25rem;
+            }
+
+            #body_up_pasarelaPago .is-btn-gray {
+                margin-right: 1rem;
+            }
+
+            .container-metodo_pago > div:nth-child(1) > div:nth-child(2) {
+                width: 360px;
+                margin: 2rem auto 2rem 0;
+            }
+
+            .container-pago > div > div {
+                flex-direction: column;
+                align-items: first baseline;
+            }
+
+            .container-metodo_pago > div:nth-child(1) {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: center;
+            }
+
+                .container-metodo_pago > div:nth-child(1) > div:nth-child(1) {
+                    margin: auto auto auto 0;
+                }
+
+            .container-pago > div > div > div:nth-child(1) {
+                margin-bottom: 2rem;
+            }
         }
 
-        .container-metodo_pago p:nth-child(1) > strong:nth-child(1) {
-            font-size: 10px;
+        @media only screen and (min-width:500px) and (max-width: 700px) {
+
+            .container-metodo_pago > div:nth-child(1) > div:nth-child(2) {
+                width: 380px;
+            }
+
+            .text-resumen {
+                font-size: 0.8rem;
+            }
+
+            .container-metodo_pago table {
+                font-size: 12px;
+            }
+
+            .text-aceptamos_formas_pago > strong:nth-child(1) {
+                font-size: 0.75rem;
+            }
+
+            .text-aceptamos_formas_pago {
+                margin: 0.5rem 0.5rem 0.5rem 0rem;
+            }
+
+            .is-w-full > div:nth-child(1) {
+                margin-bottom: 1rem;
+            }
+
+            .container-pago {
+                margin-left: 1rem;
+            }
+
+            .container-metodo_pago p:nth-child(1) > strong:nth-child(1) {
+                font-size: 0.75rem;
+            }
+
+            #body_up_pasarelaPago .is-btn-gray {
+                height: 26px;
+                line-height: 26px;
+                font-size: 10px;
+            }
+
+            .svg_resumen, .svg_pago,
+            .svg_finalizar, .svg_resumen_puntos,
+            .svg_pago_puntos {
+                width: 2rem;
+                height: 2rem;
+            }
         }
 
-        .text-aceptamos_formas_pago {
-            margin: 0.5rem 0.5rem 0.5rem 0rem;
-        }
+        @media only screen and (max-width: 500px) {
 
-        .container-pago > div > div > div:nth-child(1) {
-            margin-bottom: 1rem;
-        }
+            .container-metodo_pago > div:nth-child(1) > div:nth-child(2) {
+                width: 300px !important;
+            }
 
-        .container-pago {
-            margin-left: 0.5rem;
-        }
+            .text-resumen {
+                font-size: 0.5rem;
+            }
 
-        #body_up_pasarelaPago .is-btn-gray {
-            font-size: 8px;
-            height: 26px;
-            line-height: 26px;
-            padding: 0px 12px !important;
-            margin-right: 0.5rem !important;
-        }
+            .icono-formas_pago {
+                width: 320px;
+                height: 36px;
+            }
 
-        .svg_resumen, .svg_pago,
-        .svg_finalizar, .svg_resumen_puntos,
-        .svg_pago_puntos {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
+            .text-metodo_pago {
+                font-size: 0.75rem;
+            }
 
-        /* .descripcion_de_producto > h6, .text-resumen_compra,
+            .container-metodo_pago table {
+                font-size: 10px;
+            }
+
+            .container-formas_pago {
+                flex-direction: column;
+            }
+
+            .text-aceptamos_formas_pago > strong:nth-child(1) {
+                font-size: 10px;
+            }
+
+            .container-metodo_pago p:nth-child(1) > strong:nth-child(1) {
+                font-size: 10px;
+            }
+
+            .text-aceptamos_formas_pago {
+                margin: 0.5rem 0.5rem 0.5rem 0rem;
+            }
+
+            .container-pago > div > div > div:nth-child(1) {
+                margin-bottom: 1rem;
+            }
+
+            .container-pago {
+                margin-left: 0.5rem;
+            }
+
+            #body_up_pasarelaPago .is-btn-gray {
+                font-size: 8px;
+                height: 26px;
+                line-height: 26px;
+                padding: 0px 12px !important;
+                margin-right: 0.5rem !important;
+            }
+
+            .svg_resumen, .svg_pago,
+            .svg_finalizar, .svg_resumen_puntos,
+            .svg_pago_puntos {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            /* .descripcion_de_producto > h6, .text-resumen_compra,
         .ticket_resumen, .card-subtitle {
             font-size: 12px !important;
         } */
-    }
+        }
     </style>
 </asp:Content>

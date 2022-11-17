@@ -31,6 +31,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                 string route_id_operacion = Page.RouteData.Values["id_operacion"].ToString();
                 route_id_operacion = seguridad.DesEncriptar(route_id_operacion);
                 lbl_numero_pedido.Text = PedidosEF.ObtenerNumeroOperacion(int.Parse(route_id_operacion));
+                lbl_numero_pedido_bottom.Text = lbl_numero_pedido.Text;
                 hf_numero_operacion.Value = route_id_operacion;
             }
         }
@@ -129,6 +130,11 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
 
         btn_tarjeta.Enabled = false;
         btn_paypal.Enabled = false;
+        btn_finalizar_compra.Visible = true;
+        btn_finalizar_compra.NavigateUrl = GetRouteUrl("cliente-pedido-finalizado", new System.Web.Routing.RouteValueDictionary
+        {
+            { "id_operacion", seguridad.Encriptar(hf_id_operacion.Value) }
+        });
     }
     #endregion
     private async Task CargarDatosPedidoAsync()

@@ -112,6 +112,7 @@
         RouteTable.Routes.MapPageRoute("cliente-pedido-envio", "usuario/cliente/mi-cuenta/pedidos/envio/{id_operacion}", "~/usuario/cliente/pedido-envio.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-facturacion", "usuario/cliente/mi-cuenta/pedidos/facturacion/{id_operacion}", "~/usuario/cliente/pedido-facturacion.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-pago", "usuario/cliente/mi-cuenta/pedidos/pago/{id_operacion}", "~/usuario/cliente/pago.aspx");
+        RouteTable.Routes.MapPageRoute("cliente-pedido-finalizado", "usuario/cliente/mi-cuenta/pedidos/finalizado/{id_operacion}", "~/usuario/cliente/finalizado.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-pago-santander", "usuario/cliente/mi-cuenta/pedidos/pago/santander/{id_operacion}", "~/usuario/cliente/pago-santander.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-pago-paypal", "usuario/cliente/mi-cuenta/pedidos/pago/paypal/{id_operacion}", "~/usuario/cliente/pago-paypal.aspx");
         RouteTable.Routes.MapPageRoute("cliente-pedido-resumen", "usuario/cliente/mi-cuenta/pedidos/resumen/{id_operacion}", "~/usuario/cliente/resumen.aspx");

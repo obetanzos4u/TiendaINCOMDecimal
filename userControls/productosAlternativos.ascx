@@ -28,6 +28,7 @@
 </div>
 
 <script>
+    const alternativosSection = document.querySelector("#alternativos_splide");
     document.addEventListener('DOMContentLoaded', () => {
         const splide = new Splide('#alternativos_splide', {
             type: 'loop',
@@ -50,5 +51,13 @@
             updateOnMove: true
         });
         splide.mount();
+        splide.on("drag", () => {
+            alternativosSection.classList.remove("is-cursor-grab");
+            alternativosSection.classList.add("is-cursor-grabbing");
+        });
+        splide.on("dragged", () => {
+            alternativosSection.classList.remove("is-cursor-grabbing");
+            alternativosSection.classList.add("is-cursor-grab");
+        });
     });
 </script>

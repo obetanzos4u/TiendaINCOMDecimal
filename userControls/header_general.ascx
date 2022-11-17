@@ -438,11 +438,12 @@
         }
 
     .btn_buscador {
-        height: 2.4rem;
+        /*min-height: 2.4rem;*/
+        height: 3rem !important;
         width: 3.5rem;
         margin-top: 2rem;
         border-radius: 0px 6px 6px 0px;
-        /*        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);*/
+        /*box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.38039);*/
         background: #01568D;
     }
 
@@ -456,9 +457,9 @@
 
     .icon_busqueda {
         width: 24px;
-        height: auto;
+        height: 24px;
+        /*min-height: 24px;*/
         margin: 0.4rem 0.25rem 0.25rem 1rem;
-        justify-content: center;
     }
 
     .content_header_logo {
@@ -803,11 +804,10 @@
             width: 5rem;
         }
 
-        <!-- .btn-mi-carrito {
+        /*.btn-mi-carrito {
             height: 28px;
             margin: 0;
-        }
-        -->
+        }*/
 
         .txt_carrito {
             font-size: 0.75rem;
@@ -822,10 +822,9 @@
             margin-top: 0.5rem;
         }
 
-        <!-- #carrito_de_compra > a:nth-child(1) > img:nth-child(1) {
+        /*#carrito_de_compra > a:nth-child(1) > img:nth-child(1) {
             padding-bottom: 0.25rem;
-        }
-        -->
+        }*/
     }
 
     @media only screen and (min-width: 1200px) {
@@ -1042,6 +1041,11 @@
 
     @media only screen and (max-width:1320px) {
 
+        .btn_buscador {
+            height: 2rem !important;
+            margin-top: 0rem;
+        }
+
         .main_container {
             display: grid;
             grid-auto-columns: 1fr;
@@ -1152,6 +1156,11 @@
             padding-top: 5px;
             margin-bottom: 3px;
         }
+
+        .btn_buscador {
+            height: 2.4rem;
+            margin-top: 2rem;
+        }
     }
 
     @media only screen and (max-width:999px) {
@@ -1166,7 +1175,7 @@
         }
 
         .btn_buscador {
-            height: 2.45rem;
+            height: 2.4rem;
             margin-top: 0rem;
         }
 

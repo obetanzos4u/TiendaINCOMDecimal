@@ -33,6 +33,7 @@
 </div>
 
 <script>
+    const relacionadosSection = document.querySelector("#relacionados_splide");
     document.addEventListener("DOMContentLoaded", () => {
         const splide = new Splide("#relacionados_splide", {
             type: 'loop',
@@ -56,5 +57,13 @@
             pauseOnHover: true
         });
         splide.mount();
+        splide.on("drag", () => {
+            relacionadosSection.classList.remove("is-cursor-grab");
+            relacionadosSection.classList.add("is-cursor-grabbing");
+        });
+        splide.on("dragged", () => {
+            relacionadosSection.classList.remove("is-cursor-grabbing");
+            relacionadosSection.classList.add("is-cursor-grab");
+        });
     });
 </script>

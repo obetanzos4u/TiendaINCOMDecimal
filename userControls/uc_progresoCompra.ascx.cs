@@ -10,6 +10,7 @@ public partial class uc_progresoCompra : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
         string currentStep = obtenerPasoActual();
+        NotiflixJS.Message(this, NotiflixJS.MessageType.success, currentStep);
         switch (currentStep)
         {
             case "RESUMEN":
@@ -18,7 +19,7 @@ public partial class uc_progresoCompra : System.Web.UI.UserControl
             case "PAGO":
                 paymentStep();
                 break;
-            case "FINALIZA":
+            case "FINALIZADO":
                 finalStep();
                 break;
             default:
@@ -55,7 +56,7 @@ public partial class uc_progresoCompra : System.Web.UI.UserControl
         spn_resumen_puntos.Attributes["style"] = "color: #10b981;";
         spn_pago.Attributes["style"] = "color: #10b981;";
         spn_pago_puntos.Attributes["style"] = "color: #10b981;";
-        spn_finalizar.Attributes["style"] = "color: #71717a;";
+        spn_finalizar.Attributes["style"] = "color: #10b981;";
     }
     protected void defaultStep()
     {
