@@ -718,7 +718,6 @@
     }
 
     .main_container {
-        height: 600px;
         width: 100%;
         margin: 5em auto;
     }
@@ -855,7 +854,7 @@
         }
     }
 
-    @media only screen and (max-width:3000px) {
+    @media only screen and (max-width:2700px) {
 
         #txt_buscadorProducto {
             margin-left: 2rem;
@@ -1244,15 +1243,50 @@
         .main_container {
             margin: 0em 0em 3em 0em;
         }
+    }
 
-        @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 600px) {
 
-            .title_productos-destacados {
-                font-size: 0.8rem;
-            }
-
-            .title_categorias {
-                font-size: 0.8rem;
-            }
+        .title_productos-destacados {
+            font-size: 0.8rem;
         }
+
+        .title_categorias {
+            font-size: 0.8rem;
+        }
+    }
+
+        @media only screen and (min-width: 2700px) {
+
+        .header_toolbar {
+            max-width: 2000px;
+            margin: auto auto 1.25rem auto;
+        }
+
+        .main_container {
+            margin-top: 8rem;
+            max-width: 2100px;
+        }
+
+        .slider-container {
+            max-width: 2000px;
+            margin: auto auto 5rem auto;
+        }
+
+        .categorias_container {
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 2000px;
+            margin: auto auto 6vh auto;
+        }
+
+        .is-col-footer {
+            max-width: 2000px;
+            margin: auto;
+        }
+    }
+
 </style>
