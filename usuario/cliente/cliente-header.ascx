@@ -2,7 +2,7 @@
 
 <div class="is-flex is-flex-col is-justify-center is-items-center is-m-0 is-p-2 is-shadow">
     <a href="/">
-        <img alt="INCOM La ferretera de las telecomunicaciones" src="https://www.incom.mx/img/webUI/newdesign/Incom_nuevo.png" class="logotipo_pedido">
+        <img alt="INCOM La ferretera de las telecomunicaciones" src="https://www.incom.mx/img/webUI/newdesign/Incom_nuevo.png" class="logotipo_pedido" />
     </a>
     <div id="barraProgreso" runat="server"></div>
 </div>

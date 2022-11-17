@@ -16,15 +16,14 @@ public class ValidarCalculoEnvioOperacion
     /// </summary>
     string TipoOperacion { get; set; }
 
-    public bool OperacionValida { get {return _OperacionValida; } }
+    public bool OperacionValida { get { return _OperacionValida; } }
     private bool _OperacionValida { get; set; }
     public string Message { get { return _Message; } }
     private string _Message { get; set; }
- 
-
-    public ValidarCalculoEnvioOperacion(string _Numero_Operacion, string _TipoOperacion) { 
 
 
+    public ValidarCalculoEnvioOperacion(string _Numero_Operacion, string _TipoOperacion)
+    {
         Numero_Operacion = _Numero_Operacion;
         TipoOperacion = _TipoOperacion;
 
@@ -32,13 +31,12 @@ public class ValidarCalculoEnvioOperacion
         {
             case "cotizacion": validarCotizacion(); break;
             case "pedido": validarPedido(); break;
-        
         }
-     
     }
 
     // "Ninguno" "Estándar"  "En Tienda"  "Gratuito" 
-    private void validarCotizacion() {
+    private void validarCotizacion()
+    {
 
         bool ApiCalculoFletectivado = operacionesConfiguraciones.obtenerEstatusApiFlete();
         string MetodoDeEnvio = cotizaciones.obtenerMetodoDeEnvio(Numero_Operacion);
@@ -96,13 +94,14 @@ public class ValidarCalculoEnvioOperacion
 
 
         if (ApiCalculoFletectivado == true && Calculo_Costo_Envio == true && MetodoDeEnvio == "Estándar")
-            {
+        {
 
 
             cotizaciones_direccionEnvio DireccionEnvio = new cotizaciones_direccionEnvio();
             var ProductosEnvio = cotizacionesProductos.ObtenerProductosCalculoEnvio(Numero_Operacion);
 
-            using (var db = new tiendaEntities()) {
+            using (var db = new tiendaEntities())
+            {
                 DireccionEnvio = db.cotizaciones_direccionEnvio
                   .Where(c => c.numero_operacion == Numero_Operacion)
                   .AsNoTracking()
@@ -110,7 +109,7 @@ public class ValidarCalculoEnvioOperacion
             }
 
 
-            try 
+            try
             {
                 CalcularEnvioOperacion Envio = new CalcularEnvioOperacion("operacion", Numero_Operacion, DireccionEnvio);
 
@@ -122,7 +121,7 @@ public class ValidarCalculoEnvioOperacion
 
                 Envio.CalcularEnvio();
 
-               
+
 
                 if (Envio.IsValidCalculo)
                 {
@@ -135,7 +134,7 @@ public class ValidarCalculoEnvioOperacion
                     if (monedaCotizacion == "USD") envio = (decimal)(envio / tipoDeCambio.obtenerTipoDeCambio());
 
 
-                  
+
                     string resultado = cotizaciones.actualizarEnvio(envio, "Estándar", Numero_Operacion);
                     bool resultadoTotales = cotizacionesProductos.actualizarTotalStatic(Numero_Operacion);
 
@@ -148,19 +147,20 @@ public class ValidarCalculoEnvioOperacion
                     string resultado = cotizaciones.actualizarEnvio(0, "Ninguno", Numero_Operacion);
                     bool resultadoTotales = cotizacionesProductos.actualizarTotalStatic(Numero_Operacion);
                 }
-            
+
 
                 _Message = Envio.MessageCalculo;
                 _OperacionValida = Envio.IsValidCalculo;
 
-                
+
                 return;
             }
 
 
 
-            
-            catch (Exception ex) {
+
+            catch (Exception ex)
+            {
                 // Si ocurre un error al calcularse el envio, lo establecemos en ninguno.
                 _Message = ex.Message;
                 _OperacionValida = false;
@@ -173,13 +173,13 @@ public class ValidarCalculoEnvioOperacion
 
 
 
-    }
+        }
 
 
-        
 
 
-    
+
+
 
     }
 
@@ -187,7 +187,6 @@ public class ValidarCalculoEnvioOperacion
     // "Ninguno" "Estándar"  "En Tienda"  "Gratuito" 
     private async void validarPedido()
     {
-
         bool ApiCalculoFletectivado = operacionesConfiguraciones.obtenerEstatusApiFlete();
         string MetodoDeEnvio = pedidosDatos.obtenerMetodoDeEnvio(Numero_Operacion);
         bool Calculo_Costo_Envio = pedidosDatos.obtenerEstatusCalculo_Costo_Envio(Numero_Operacion);
@@ -232,7 +231,7 @@ public class ValidarCalculoEnvioOperacion
             _Message = "El cálculo del flete mediante API esta deshabilitado, ingreselo manualmente.";
             _OperacionValida = false;
 
-            string resultado = pedidosDatos.actualizarEnvio(0, "Ninguno", Numero_Operacion,"El costo de envío no ha podido ser calculado, en unos momentos un asesor lo resolverá.");
+            string resultado = pedidosDatos.actualizarEnvio(0, "Ninguno", Numero_Operacion, "El costo de envío no ha podido ser calculado, en unos momentos un asesor lo resolverá.");
             bool resultadoTotales = pedidosProductos.actualizarTotalStatic(Numero_Operacion);
 
             return;
@@ -245,18 +244,16 @@ public class ValidarCalculoEnvioOperacion
 
         if (ApiCalculoFletectivado == true && Calculo_Costo_Envio == true && MetodoDeEnvio == "Estándar")
         {
-
-
             pedidos_direccionEnvio DireccionEnvio = new pedidos_direccionEnvio();
             var ProductosEnvio = pedidosProductos.ObtenerProductosCalculoEnvio(Numero_Operacion);
 
-            using (var db = new tiendaEntities()) {
+            using (var db = new tiendaEntities())
+            {
                 DireccionEnvio = db.pedidos_direccionEnvio
                   .Where(c => c.numero_operacion == Numero_Operacion)
                   .AsNoTracking()
                   .FirstOrDefault();
             }
-
 
             try
             {
@@ -264,74 +261,52 @@ public class ValidarCalculoEnvioOperacion
 
                 foreach (ProductoEnvioCalculoModel p in ProductosEnvio)
                 {
-
+                    if (p.Alto == null || p.Ancho == null || p.Largo == null || p.PesoKg == null || p.RotacionHorizontal == null || p.RotacionVertical == null)
+                    {
+                        continue;
+                    }
                     Envio.AgregarProducto(p.Numero_Parte, p.PesoKg, p.Largo, p.Ancho, p.Alto, p.Cantidad, p.RotacionVertical, p.RotacionHorizontal);
                 }
-
-                await Envio.CalcularEnvio();
-
-
-
-                if (Envio.IsValidCalculo)
+                if (Envio.Productos.Count() > 0)
                 {
-                    // Él envío se calcula en MXN desde el API 
-                    decimal envio = (decimal)Envio.CostoEnvio;
+                    await Envio.CalcularEnvio();
+                    if (Envio.IsValidCalculo)
+                    {
+                        // Él envío se calcula en MXN desde el API 
+                        decimal envio = (decimal)Envio.CostoEnvio;
 
-                    var pedidoDatosNumericos = PedidosEF.ObtenerNumeros(Numero_Operacion);
+                        var pedidoDatosNumericos = PedidosEF.ObtenerNumeros(Numero_Operacion);
 
-                    // Validamos la moneda del pedido, si es en USD, lo convertimos al tipo de cambio
-                    if (pedidoDatosNumericos.monedaPedido == "USD") envio = (decimal)(envio / tipoDeCambio.obtenerTipoDeCambio());
-
-
-                    string resultado = pedidosDatos.actualizarEnvio(envio, "Estándar", Numero_Operacion,"");
-                    bool resultadoTotales = pedidosProductos.actualizarTotalStatic(Numero_Operacion);
-
-                    EnviosIncomReglas AplicarPromo = new EnviosIncomReglas(Numero_Operacion, "pedido",  ProductosEnvio);
-                   
+                        // Validamos la moneda del pedido, si es en USD, lo convertimos al tipo de cambio
+                        if (pedidoDatosNumericos.monedaPedido == "USD") envio = (decimal)(envio / tipoDeCambio.obtenerTipoDeCambio());
 
 
+                        string resultado = pedidosDatos.actualizarEnvio(envio, "Estándar", Numero_Operacion, "");
+                        bool resultadoTotales = pedidosProductos.actualizarTotalStatic(Numero_Operacion);
+
+                        EnviosIncomReglas AplicarPromo = new EnviosIncomReglas(Numero_Operacion, "pedido", ProductosEnvio);
+                    }
+                    else
+                    {
+                        string resultado = pedidosDatos.actualizarEnvio(0, "Ninguno", Numero_Operacion, "Un asesor se pondrá en contacto contigo");
+                        bool resultadoTotales = pedidosProductos.actualizarTotalStatic(Numero_Operacion);
+                    }
                 }
-                else
-                {
-                    string resultado = pedidosDatos.actualizarEnvio(0, "Ninguno", Numero_Operacion, "Un asesor se pondrá en contacto contigo");
-                    bool resultadoTotales = pedidosProductos.actualizarTotalStatic(Numero_Operacion);
-                }
-
-
                 _Message = Envio.MessageCalculo;
                 _OperacionValida = Envio.IsValidCalculo;
-
-
                 return;
             }
-
-
-
-
             catch (Exception ex)
             {
                 // Si ocurre un error al calcularse el envio, lo establecemos en ninguno.
                 _Message = ex.ToString();
                 _OperacionValida = false;
 
-                string resultado = pedidosDatos.actualizarEnvio(0, "Ninguno", Numero_Operacion,"Un asesor se pondrá en contacto contigo");
+                //string resultado = pedidosDatos.actualizarEnvio(0, "Ninguno", Numero_Operacion, "Un asesor se pondrá en contacto contigo");
                 bool resultadoTotales = pedidosProductos.actualizarTotalStatic(Numero_Operacion);
 
                 return;
             }
-
-
-
         }
-
-
-
-
-
-
-
     }
-
-   
-
 }

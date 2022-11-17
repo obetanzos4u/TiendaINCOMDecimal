@@ -44,18 +44,16 @@
                                     <iframe id="frm_pagoTarjeta" visible="true" style="width: 100%; height: 680px; border: 0;" runat="server"></iframe>
                                 </asp:Panel>
                                 <asp:Panel ID="pnl_paypal" Visible="false" runat="server">
-                                    <p>Pago con PayPal</p>
                                     <asp:UpdatePanel ID="up_paypal" UpdateMode="Conditional" RenderMode="Block" runat="server">
                                         <ContentTemplate>
-                                            <div id="btn_paypal_container" runat="server"></div>
+                                            <div id="btn_paypal_container" runat="server" style="border: 2px solid red"></div>
                                             <asp:Panel ID="pnl_noDisponiblePago" Visible="false" runat="server">
                                                 <strong>El pago no está disponible por los siguientes motivos: </strong>
                                                 <p id="motivosNoDisponiblePago" visible="false" runat="server"></p>
                                             </asp:Panel>
                                             <asp:LinkButton ID="btn_renovarPedidoPayPal" Visible="false" OnClick="btn_renovarPedidoPayPal_Click" runat="server"></asp:LinkButton>
-                                            <div id="txt_cargando">Cargando información de pago en PayPal...</div>
                                             <div id="content_msg_bootstrap"></div>
-                                            <table id="dt_desglose_paypal" class="table" runat="server">
+                                            <table id="dt_desglose_paypal" visible="false" class="table" runat="server">
                                                 <tr>
                                                     <td>Tipo de intento</td>
                                                     <td>
@@ -156,7 +154,6 @@
             </div>
         </div>
     </div>
-
     <style>
 
     #body_btn_tarjeta.aspNetDisabled, #body_btn_paypal.aspNetDisabled, #body_btn_transferencia.aspNetDisabled {

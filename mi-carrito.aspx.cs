@@ -781,6 +781,7 @@ public partial class mi_carrito : System.Web.UI.Page
 
     protected void btn_comprar_Click(object sender, EventArgs e)
     {
+        NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
         usuarios usuario = usuarios.modoAsesor();
         usuarios usuarioLogin = usuarios.userLogin();
 

@@ -44,10 +44,8 @@ public class DireccionesServiceCP
         var request = new RestRequest($"/api/CodigoPostals/cp/{CP}", Method.GET);
         var response = await client.ExecuteAsync(request);
 
-
         switch (response.StatusCode)
         {
-
             case System.Net.HttpStatusCode.NotFound:
                 return new json_respuestas(false, "No se encontró tu código postal, favor de verificar", false, null);
 
@@ -59,7 +57,6 @@ public class DireccionesServiceCP
 
             default:
                 return new json_respuestas(false, "Ocurrio un error, intenta en unos momentos.", true, null);
-
         }
     }
 }

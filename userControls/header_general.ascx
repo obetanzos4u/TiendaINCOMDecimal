@@ -154,14 +154,14 @@
             <a title="Incom Retail" class="content_mobile_logo" href="<%=Request.Url.GetLeftPart(UriPartial.Authority) %>">
                 <img src="https://www.incom.mx/img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="mobile_logo" />
             </a>
-            <%--            <a title="Incom Retail" class="content_header_logo" href='<%= HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) %>'>
+            <%--<a title="Incom Retail" class="content_header_logo" href='<%= HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) %>'>
                 <img src='<%=ResolveUrl("~/img/webUI/incom_logo_mini.png") %>'
                     alt="Logo Incom" title="Incom,  La ferretera de las telecomunicaciones" class="responsive-img header_logo_img" />
             </a>--%>
             <%--<a title="Carrito de productos" class="black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">--%>
-            <a title="Carrito de productos" class="carrito_productos_movil show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">
+            <a title="Carrito de productos" class="carrito_productos_movil show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx" onclick="Notiflix.Loading.custom('Estamos alistando tu carrito',{customSvgUrl: 'https://www.incom.mx/img/webUI/newdesign/icono_de_carga.svg'});">
                 <img class="btn-mi-carrito" title="Carrito de productos" src="https://www.incom.mx/img/webUI/newdesign/Carrito.svg" />
-                <%--                <p class="text_carrito_compra">Carrito</p>--%>
+                <%--<p class="text_carrito_compra">Carrito</p>--%>
             </a>
         </div>
         <div class="menu_right_contenedor">
@@ -223,7 +223,7 @@
 
                     <div>
                         <div id="carrito_de_compra">
-                            <a title="Carrito de productos" href="/mi-carrito.aspx" style="display: flex; flex-direction: column;">
+                            <a title="Carrito de productos" href="/mi-carrito.aspx" onclick="Notiflix.Loading.custom('Estamos alistando tu carrito',{customSvgUrl: 'https://www.incom.mx/img/webUI/newdesign/icono_de_carga.svg'});" style="display: flex; flex-direction: column;">
                                 <img class="btn-mi-carrito" title="Carrito de productos" src="https://www.incom.mx/img/webUI/newdesign/Carrito.svg" />
                                 <span class="txt_carrito is-text-black">Carrito</span>
                             </a>
@@ -818,7 +818,8 @@
         <!-- .btn-mi-carrito {
             height: 28px;
             margin: 0;
-        } -->
+        }
+        -->
 
         .txt_carrito {
             font-size: 0.75rem;
@@ -835,7 +836,8 @@
 
         <!-- #carrito_de_compra > a:nth-child(1) > img:nth-child(1) {
             padding-bottom: 0.25rem;
-        } -->
+        }
+        -->
     }
 
     @media only screen and (min-width: 1200px) {

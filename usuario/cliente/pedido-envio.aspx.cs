@@ -173,6 +173,7 @@ public partial class usuario_cliente_basic : System.Web.UI.Page
 
     protected void btn_usarDirección_Click(object sender, EventArgs e)
     {
+        NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
         LinkButton btnEliminar = (LinkButton)sender;
         // Obtenemos el contenedor del objeto que creo el evento
         ListViewItem lvItem = (ListViewItem)btnEliminar.NamingContainer;

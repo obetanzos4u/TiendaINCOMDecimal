@@ -19,6 +19,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             Title = "Resumen de pedido";
             if (Page.RouteData.Values["id_operacion"] != null)
             {
+                NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
                 ObtenerCFDI();
                 CargarDatosPedido();
                 CargarProductos();
@@ -26,6 +27,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
                 AsignarUsuarioAsesor.numero_operacion = lt_numero_pedido.Text;
                 uc_EdicionDetallesDeEnvioPedido.numero_operacion = lt_numero_pedido.Text;
                 ValidarModoAsesor();
+                NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
             }
             else
             {
@@ -215,36 +217,32 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             {
                 hf_id_pedido_direccion_envio.Value = direccionEnvio.idDireccionEnvio.ToString();
                 metodo_envio_desc.InnerHtml = $"<p class='is-select-all is-m-0 is-text-justify'>{direccionEnvio.calle} {direccionEnvio.numero}, {direccionEnvio.colonia}, {direccionEnvio.codigo_postal} {direccionEnvio.delegacion_municipio}, {direccionEnvio.estado}.</p><p class='is-m-0'>Referencias: {direccionEnvio.referencias}</p>";
-                //  metodo_envio_desc.InnerHtml = $"" +
-                // $"<span class='text-secondary'>Calle:</span> {direccionEnvio.calle} " +
-                // $"<span class='text-secondary'>Número:</span>  {direccionEnvio.numero} " +
-                // $"<span class='text-secondary'>Colonia:</span> {direccionEnvio.colonia}, " +
-                // $"<span class='text-secondary'>C.P.</span>  {direccionEnvio.codigo_postal}, " +
-                // $"<span class='text-secondary'>Municipio: </span>{direccionEnvio.delegacion_municipio}, " +
-                // $"<span class='text-secondary'>Estado:</span> {direccionEnvio.estado}," +
-                // $" {direccionEnvio.pais} " +
-                //$"<br><span class='text-secondary'>Referencias:</span> {direccionEnvio.referencias} ";
+                metodo_envio_desc.InnerHtml = $"" +
+               $"<span class='text-secondary'>Calle:</span> {direccionEnvio.calle} " +
+               $"<span class='text-secondary'>Número:</span>  {direccionEnvio.numero} " +
+               $"<span class='text-secondary'>Colonia:</span> {direccionEnvio.colonia}, " +
+               $"<span class='text-secondary'>C.P.</span>  {direccionEnvio.codigo_postal}, " +
+               $"<span class='text-secondary'>Municipio: </span>{direccionEnvio.delegacion_municipio}, " +
+               $"<span class='text-secondary'>Estado:</span> {direccionEnvio.estado}," +
+               $" {direccionEnvio.pais} " +
+              $"<br><span class='text-secondary'>Referencias:</span> {direccionEnvio.referencias} ";
             }
         }
         else
         {
-            BootstrapCSS.Message(this, "#", BootstrapCSS.MessageType.danger, "Error", result.message);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se ha podido cargar la dirección de envío");
+            //BootstrapCSS.Message(this, "#", BootstrapCSS.MessageType.danger, "Error", result.message);
         }
     }
     protected void CargarDireccionFacturacion()
     {
-
-
         var result = PedidosEF.ObtenerDireccionFacturacion(lt_numero_pedido.Text);
 
         if (result.result)
         {
-
             pedidos_direccionFacturacion direccion = result.response;
-
             if (direccion != null)
             {
-
                 facturacion_desc.InnerHtml = $"<span class='text-secondary'>Razón social</span>: {direccion.razon_social} - RFC: {direccion.rfc} <br>" +
                     $"<span class='text-secondary'>Calle:</span> {direccion.calle}, " +
                     $"<span class='text-secondary'>Número:</span> {direccion.numero}, " +
@@ -259,32 +257,21 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
                     ddl_UsoCFDI.SelectedIndex = 0;
                 }
             }
-
-
-
-
         }
         else
         {
             BootstrapCSS.Message(this, "#", BootstrapCSS.MessageType.danger, "Error", result.message);
-
         }
     }
     protected void lv_productos_ItemDataBound(object sender, ListViewItemEventArgs e)
     {
         PedidosProductosDatos producto = e.Item.DataItem as PedidosProductosDatos;
-
-
         Literal lt_precio_unitario = (Literal)e.Item.FindControl("lt_precio_unitario");
         lt_precio_unitario.Text = producto.productos.precio_unitario.ToString("C2", myNumberFormatInfo);
-
         Literal lt_precio_total = (Literal)e.Item.FindControl("lt_precio_total");
         lt_precio_total.Text = producto.productos.precio_total.ToString("C2", myNumberFormatInfo) + " " + hf_moneda_pedido.Value;
-
-
         Literal lt_cantidad = (Literal)e.Item.FindControl("lt_cantidad");
         lt_cantidad.Text = Decimal.ToInt32(producto.productos.cantidad).ToString();
-
         Image img_producto = (Image)e.Item.FindControl("img_producto");
 
         if (producto.datos != null)
@@ -293,15 +280,8 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             if (!string.IsNullOrWhiteSpace(imagenes))
 
                 img_producto.ImageUrl = archivosManejador.imagenProducto(imagenes.Split(',')[0]);
-
         }
         else img_producto.ImageUrl = archivosManejador.imagenProducto(null);
-
-
-
-
-
-
     }
     protected void EstablecerNavegacion()
     {
@@ -343,8 +323,6 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         PedidosEF.EliminarDireccionDeFacturacion(lt_numero_pedido.Text);
         CargarDatosPedido();
     }
-
-
     protected void BloquearBotones()
     {
         btn_cambiar_metodo_envio.Enabled = false;

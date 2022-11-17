@@ -56,7 +56,7 @@
                         <div class="is-px-8 is-py-2">
                             <h6 id="metodo_envio_title" class="card-subtitle" runat="server"></h6>
                             <!-- <div class="is-flex is-justify-between is-items-start"> -->
-                                <div class="is-block">
+                            <div class="is-block">
                                 <p id="nombreEnvio" runat="server"></p>
                                 <p id="metodo_envio_desc" class="is-select-all" runat="server"></p>
                                 <a id="localizacionTienda" visible="false" href="https://g.page/Incom_CDMX?share" target="_blank" rel="noreferrer noopener" class="is-decoration-none is-text-black is-space-x-6" runat="server">
@@ -144,7 +144,7 @@
                         </div>
                         <div class="text-cancelar_pedido">
                             <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
-                            class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
+                                class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
                         </div>
                     </div>
                 </div>
@@ -254,6 +254,7 @@
                     <div class="is-m-auto is-w-auto">
                         <asp:LinkButton runat="server" ID="btn_continuarMetodoPago" OnClick="btn_continuarMetodoPago_Click" CssClass="is-decoration-none is-btn-green">Continuar a método de pago</asp:LinkButton>
                         <%--<asp:HyperLink runat="server" ID="btn_continuarMetodoPago" class="is-decoration-none is-btn-green">Continuar a método de pago</asp:HyperLink>--%>
+                    </div>
                 </div>
             </div>
         </div>
@@ -419,170 +420,168 @@
 
 
     <style>
-
-    .wrapp-product_list {
-        margin-top: 0.5rem;
-        height: 32px;
-        padding-left: 2rem;
-        display: flex;
-        align-items: center;
-    }
-
-    .btn-cancelar_pedido {
-        border: 1px solid red;
-        width: 150px;
-        height: 38px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
-        border-radius: 8px;
-        position: relative;
-        float: left;
-    }
-
-    .btn-cancelar_pedido > p {
-        text-decoration: none;
-        color: red;
-        margin: auto;
-    }
-
-    .text-cancelar_pedido > a:hover {
-        color: red;
-    }
-
-    .list-group-resumen {
-        overflow-y: auto;
-        height: fit-content;
-        max-height: 320px;
-    }
-
-    .text-datos_quien_recibe> ul {
-        padding: 0px;
-    }
-
-    .img-fluid {
-        width: 100px;
-    }
-
-    .lista_productos-precio {
-        margin: 0.5rem 0rem 0rem 0rem;
-    }
-
-    @media only screen and (min-width:500px) and (max-width: 700px) {
-
-        .svg_resumen, .svg_pago,
-        .svg_finalizar, .svg_resumen_puntos,
-        .svg_pago_puntos {
-            width: 2rem;
-            height: 2rem;
+        .wrapp-product_list {
+            margin-top: 0.5rem;
+            height: 32px;
+            padding-left: 2rem;
+            display: flex;
+            align-items: center;
         }
 
-        .text-resumen {
-            font-size: 0.8rem;
-        }
-    }
-
-    @media only screen and (min-width: 500px) and (max-width: 1000px){
-
-        .descripcion_de_producto > h6, .text-resumen_compra,
-        .ticket_resumen, .card-subtitle, #body_contacto_title {
-            font-size: 14px !important;
-        }
-    }
-
-    @media only screen and (max-width: 500px) {
-
-        .svg_resumen, .svg_pago,
-        .svg_finalizar, .svg_resumen_puntos,
-        .svg_pago_puntos {
-            width: 1.5rem;
-            height: 1.5rem;
+        .btn-cancelar_pedido {
+            border: 1px solid red;
+            width: 150px;
+            height: 38px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            border-radius: 8px;
+            position: relative;
+            float: left;
         }
 
-        .text-resumen {
-            font-size: 0.5rem;
+            .btn-cancelar_pedido > p {
+                text-decoration: none;
+                color: red;
+                margin: auto;
+            }
+
+        .text-cancelar_pedido > a:hover {
+            color: red;
+        }
+
+        .list-group-resumen {
+            overflow-y: auto;
+            height: fit-content;
+            max-height: 320px;
+        }
+
+        .text-datos_quien_recibe > ul {
+            padding: 0px;
         }
 
         .img-fluid {
-            width: 70px;
-            margin: 0px auto;
+            width: 100px;
         }
 
-        .list-group-item {
-            flex-direction: column;
+        .lista_productos-precio {
+            margin: 0.5rem 0rem 0rem 0rem;
         }
 
-        .precio_por_producto, .descripcion_de_producto  {
-            width: 50%;
+        @media only screen and (min-width:500px) and (max-width: 700px) {
+
+            .svg_resumen, .svg_pago,
+            .svg_finalizar, .svg_resumen_puntos,
+            .svg_pago_puntos {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            .text-resumen {
+                font-size: 0.8rem;
+            }
         }
 
-        .text-cancelar_pedido {
-            font-size: 12px;
+        @media only screen and (min-width: 500px) and (max-width: 1000px) {
+
+            .descripcion_de_producto > h6, .text-resumen_compra,
+            .ticket_resumen, .card-subtitle, #body_contacto_title {
+                font-size: 14px !important;
+            }
         }
 
-        .wrapp-product_list > p {
-            font-size: 14px;
+        @media only screen and (max-width: 500px) {
+
+            .svg_resumen, .svg_pago,
+            .svg_finalizar, .svg_resumen_puntos,
+            .svg_pago_puntos {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            .text-resumen {
+                font-size: 0.5rem;
+            }
+
+            .img-fluid {
+                width: 70px;
+                margin: 0px auto;
+            }
+
+            .list-group-item {
+                flex-direction: column;
+            }
+
+            .precio_por_producto, .descripcion_de_producto {
+                width: 50%;
+            }
+
+            .text-cancelar_pedido {
+                font-size: 12px;
+            }
+
+            .wrapp-product_list > p {
+                font-size: 14px;
+            }
+
+            .descripcion_de_producto > h6, .text-resumen_compra,
+            .ticket_resumen, .card-subtitle, #body_contacto_title {
+                font-size: 12px !important;
+            }
         }
 
-        .descripcion_de_producto > h6, .text-resumen_compra,
-        .ticket_resumen, .card-subtitle, #body_contacto_title{
-            font-size: 12px !important;
-        }
-    }
+        @media only screen and (max-width: 1000px ) {
+            .container-resumen_pedido {
+                padding: 1.5rem;
+                margin: auto auto 6rem auto;
+            }
 
-    @media only screen and  (max-width: 1000px ) {
-        .container-resumen_pedido {
-            padding: 1.5rem;
-            margin: auto auto 6rem auto;
-        }
+            .descripcion_de_producto {
+                width: 60%;
+                font-size: 0.75rem;
+            }
 
-        .descripcion_de_producto {
-            width: 60%;
-            font-size: 0.75rem;
-        }
+            .precio_por_producto {
+                width: 40%;
+                font-size: 12px;
+            }
 
-        .precio_por_producto {
-            width: 40%;
-            font-size: 12px;
-        }
-
-        .list-group-item {
-            padding: .5rem 1rem;
-        }
-    }
-
-    @media only screen and  (min-width: 1000px ) {
-        .container-resumen_pedido {
-            padding: 4rem;
-            margin: auto auto 6rem auto;
+            .list-group-item {
+                padding: .5rem 1rem;
+            }
         }
 
-        .descripcion_de_producto {
-            width: 60%;
+        @media only screen and (min-width: 1000px ) {
+            .container-resumen_pedido {
+                padding: 4rem;
+                margin: auto auto 6rem auto;
+            }
+
+            .descripcion_de_producto {
+                width: 60%;
+            }
+
+            .precio_por_producto {
+                width: 40%;
+            }
         }
 
-        .precio_por_producto {
-            width: 40%;
+        @media only screen and (min-width: 1600px ) {
+
+            .precio_por_producto {
+                width: 30%;
+            }
+
+            .descripcion_de_producto {
+                width: 70%;
+            }
+
+            .container-resumen_pedido {
+                max-width: 2000px;
+                margin: auto auto 6rem auto;
+            }
         }
-    }
-
-    @media only screen and  (min-width: 1600px ) {
-
-        .precio_por_producto {
-            width: 30%;
-        }
-
-        .descripcion_de_producto {
-            width: 70%;
-        }
-
-        .container-resumen_pedido {
-            max-width: 2000px;
-            margin: auto auto 6rem auto;
-        }
-    }
-
     </style>
 </asp:Content>

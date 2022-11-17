@@ -16,17 +16,16 @@
         </div> -->
         <%-- OnClientClick="btnLoading(this);" --%>
         <asp:LinkButton ID="btn_agregar_productoCarrito" runat="server"
-            class="waves-effect waves-light is-btn-green btn-full-text is-m-auto" OnClick="btn_agregar_productoCarrito_Click">
+            class="waves-effect waves-light is-btn-green btn-full-text is-m-auto" OnClick="btn_agregar_productoCarrito_Click" ToolTip="Agregar al carrito">
             <img class="carrito-white_btn" alt="Botón para añadir a carrito" src="https://www.incom.mx/img/webUI/newdesign/Carrito-white.svg">
-            Agregar al carrito
         </asp:LinkButton>
-        <a id="agregar_productoCarrito_logoOut" runat="server" visible="false" style="color: #ffffff!important;" class="waves-effect waves-light is-btn-green  btn-full-text is-m-auto">
+        <asp:LinkButton ID="agregar_productoCarrito_logoOut" runat="server" Visible="false" style="color: #ffffff!important;" ToolTip="Inicia sesión para agregar al carrito" class="waves-effect waves-light is-btn-green btn-full-text is-m-auto">
             <img class="carrito-white_btn" alt="Botón para añadir a carrito" src="https://www.incom.mx/img/webUI/newdesign/Carrito-white.svg">
-            Agregar al carrito
-        </a>
+        </asp:LinkButton>
     </ContentTemplate>
     <Triggers>
-        <asp:AsyncPostBackTrigger ControlID="btn_agregar_productoCarrito" EventName="Click" />
+        <asp:PostBackTrigger ControlID="btn_agregar_productoCarrito" />
+        <%--<asp:AsyncPostBackTrigger ControlID="btn_agregar_productoCarrito" EventName="Click" />--%>
     </Triggers>
 </asp:UpdatePanel>
 

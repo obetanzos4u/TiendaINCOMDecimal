@@ -52,7 +52,8 @@
             keyboard: false,
             wheel: false,
             trimSpace: true,
-            updateOnMove: true
+            updateOnMove: true,
+            pauseOnHover: true
         });
         splide.mount();
     });

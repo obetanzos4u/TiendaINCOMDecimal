@@ -15,6 +15,8 @@ public partial class uc_btn_agregar_carrito : System.Web.UI.UserControl
     {
         if (!IsPostBack)
         {
+            txt_cantidadCarrito.Attributes.Add("min", "1");
+            txt_cantidadCarrito.Attributes.Add("step", "1");
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 btn_agregar_productoCarrito.Visible = false;
@@ -44,19 +46,17 @@ public partial class uc_btn_agregar_carrito : System.Web.UI.UserControl
             Literal lt_numero_parte = Parent.FindControl("lt_numero_parte") as Literal;
             string numero_parte = lt_numero_parte.Text;
             string cantidad = txt_cantidadCarrito.Text;
-
             decimal tipoCambio = operacionesConfiguraciones.obtenerTipoDeCambio();
             string monedaTienda = HttpContext.Current.Session["monedaTienda"].ToString();
-
             operacionesProductos agregar = new operacionesProductos("carrito", null, null, numero_parte, cantidad, monedaTienda);
             await agregar.agregarProductoAsync();
 
             bool resultado = agregar.resultado_operacion;
-
-            NotiflixJS.Message(UP_cantidadCarrito, NotiflixJS.MessageType.success, "Producto agregado al carrito");
+            if (resultado)
+            {
+                NotiflixJS.Message(UP_cantidadCarrito, NotiflixJS.MessageType.success, "Producto agregado al carrito");
+            }
             //materializeCSS.crear_toast(UP_cantidadCarrito, agregar.mensaje_ResultadoOperacion, resultado);
-
-
 
             if (usuarios.userLogin().tipo_de_usuario == "cliente")
             {
@@ -81,20 +81,13 @@ public partial class uc_btn_agregar_carrito : System.Web.UI.UserControl
                     producto.precio_total = decimal.Parse((Math.Round(agregar.obtenerPrecioUnitario(), 2) * agregar.obtenerCantidad()).ToString());
                     // producto.stock1 = usuarios.modoAsesor().email;
                     // producto.stock1_fecha = usuarios.modoAsesor().email;
-
-
-
                 }).ConfigureAwait(false);
                 // Fin - Métricas historial carrito
             }
-
         }
     }
-
     protected bool validadTXT()
     {
-
-
         if (txt_cantidadCarrito.Text != "" && txt_cantidadCarrito.Text != null)
         {
             double cantidad = 1;

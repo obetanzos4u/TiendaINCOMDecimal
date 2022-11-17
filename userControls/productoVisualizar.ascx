@@ -153,27 +153,30 @@
             <section>
                 <!-- caracteristicas -->
                 <div class="wrapper-especificaciones">
-                    <div class="left-especificaciones">
-                        <span class="detalles-producto"><strong>Detalles del producto</strong></span>
-                        <br>
-                        <table class="striped striped-tb" style="width: 100%;">
-                            <tbody id="tbody_caracteristicas" runat="server">
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="right-especificaciones">
-                        <span class="medidas-empaque"><strong>Medidas del empaque</strong></span>
-                        <br>
-                        <table class="striped striped-tb" style="width: 100%;">
-                            <tbody id="tbody_dimensiones_empaque" runat="server">
-                            </tbody>
-                        </table>
+                    <div id="divEspecificacionesVacias" visible="false" runat="server"></div>
+                    <div id="divEspecificaciones" class="is-flex is-justify-around is-items-center" visible="false" runat="server">
+                        <div class="left-especificaciones">
+                            <span class="detalles-producto"><strong>Detalles del producto</strong></span>
+                            <br>
+                            <table class="striped striped-tb" style="width: 100%;">
+                                <tbody id="tbody_caracteristicas" runat="server">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="right-especificaciones">
+                            <span class="medidas-empaque"><strong>Medidas del empaque</strong></span>
+                            <br>
+                            <table class="striped striped-tb" style="width: 100%;">
+                                <tbody id="tbody_dimensiones_empaque" runat="server">
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="bottom-especificaciones">
+                            Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando 
+                            <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
+                        </p>
                     </div>
                 </div>
-                <p class="bottom-especificaciones">
-                    Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando 
-                            <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
-                </p>
             </section>
             <section>
                 <div id="content_avisos">
@@ -199,6 +202,7 @@
     const thumbs = document.querySelectorAll(".is-productGallery_thumb");
     let selectedImg = document.getElementById("productGallery_selected");
     let selectedVid = document.getElementById("videoProductGallery_selected");
+    const srcVideo = selectedVid.src;
     const drift = new Drift(selectedImg, {
         paneContainer: document.querySelector("#productZoom"),
         inlinePane: false,
@@ -212,8 +216,9 @@
                 let src = firstChild.getAttribute("data-video");
                 selectedImg.classList.add("is-hidden");
                 selectedVid.classList.remove("is-hidden");
-                document.getElementById("videoProductGallery_selected").src += src;
+                document.getElementById("videoProductGallery_selected").src = srcVideo + src;
             } else {
+                document.getElementById("videoProductGallery_selected").src = srcVideo;
                 let src = firstChild.getAttribute("src");
                 selectedVid.classList.add("is-hidden");
                 selectedImg.classList.remove("is-hidden");
@@ -591,9 +596,9 @@
             margin-top: 20px;
         }
 
-        .tabs .content-tab section h2 {
-            display: block;
-        }
+            .tabs .content-tab section h2 {
+                display: block;
+            }
 
         .tabs input[name="tab-control"]:nth-of-type(2):checked ~ .content-tab > section:nth-child(2) {
             display: block;
@@ -617,9 +622,9 @@
             min-height: 220px;
         }
 
-        .tabs .content-tab {
-            margin: 1rem;
-        }
+            .tabs .content-tab {
+                margin: auto;
+            }
 
         .content-tab > section:nth-child(2) {
             width: 100%;
