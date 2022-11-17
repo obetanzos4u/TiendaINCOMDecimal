@@ -739,7 +739,7 @@
                 /*Slider Productos destacados*/
 
                 .splide-destacados {
-                    padding: 0em 3em 1.5em 3em;
+                    padding: 0em 1em 1.5em 1em;
                 }
 
                 .splide__pagination__page.is-active {
@@ -749,7 +749,7 @@
 
                 .splide__slide {
                     padding: 0.75rem !important;
-                    margin-right: 0.75rem !important;
+                    margin-right: 1rem !important;
                 }
 
                 .splide__list-principal > li > a > img {
@@ -793,7 +793,7 @@
                 }
 
                 #alternativos_splide-list > li .is-btn-green {
-                    margin-top: -134px;
+                    margin-top: -180px;
                     width: 34px;
                     height: 18px;
                     line-height: 14px;
@@ -840,7 +840,7 @@
             #btn_toTop {
                 display: none;
                 position: fixed;
-                bottom: 50px;
+                bottom: 140px;
                 right: 30px;
                 z-index: 99;
                 font-size: 1rem;
@@ -867,7 +867,7 @@
             }
         </style>
         <asp:ContentPlaceHolder ID="top" runat="server" />
-        <a onclick="topFunction()" id="btn_toTop" title="ir Arriba de la página">
+        <a onclick="topFunction()" id="btn_toTop" title="Desplazarse arriba de la página">
             <img id="img_toTop" alt="boton desplazarse hacia arriba en la página" src="https://www.incom.mx/img/webUI/newdesign/collapse_arrow.svg" />
         </a>
 
