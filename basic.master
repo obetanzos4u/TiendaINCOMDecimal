@@ -739,7 +739,7 @@
                 /*Slider Productos destacados*/
 
                 .splide-destacados {
-                    padding: 0em 3em 1.5em 3em;
+                    padding: 0em 1em 1.5em 1em;
                 }
 
                 .splide__pagination__page.is-active {
@@ -749,7 +749,7 @@
 
                 .splide__slide {
                     padding: 0.75rem !important;
-                    margin-right: 0.75rem !important;
+                    margin-right: 1rem !important;
                 }
 
                 .splide__list-principal > li > a > img {
@@ -793,7 +793,7 @@
                 }
 
                 #alternativos_splide-list > li .is-btn-green {
-                    margin-top: -134px;
+                    margin-top: -180px;
                     width: 34px;
                     height: 18px;
                     line-height: 14px;

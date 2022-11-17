@@ -236,7 +236,7 @@
     @import "https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400";
 
     .content-tab {
-        justify-content: center;
+        justify-content: flex-start;
         display: flex;
     }
 
@@ -435,23 +435,23 @@
     }
 
     #share-facebook > svg:nth-child(1) {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
     }
 
     #share-twitter > svg:nth-child(1) {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
     }
 
     #share-whatsapp > svg:nth-child(1) {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
     }
 
     #share-mail > svg:nth-child(1) {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
     }
 
     @media (max-width: 450px) {
@@ -618,7 +618,7 @@
         }
 
         .tabs .content-tab {
-            margin: auto;
+            margin: 1rem;
         }
 
         .content-tab > section:nth-child(2) {

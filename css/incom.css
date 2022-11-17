@@ -467,6 +467,13 @@ div.arrow-doble-down #svg-arrow-down {
         .product-list-precio_cantidad {
             padding: 7px 0px 0px 12px;
         }
+
+        .tituloProductoTienda {
+            font-size: 12px !important;
+            line-height: 16px !important;
+            padding-top: 6px;
+            margin: 1em 0em;
+        }
     }
 
     @media only screen and (min-width: 800px) and (max-width: 1000px) {
@@ -909,7 +916,7 @@ div.arrow-doble-down #svg-arrow-down {
     }
 
     .price {
-        margin: auto;
+        margin: 0rem 1rem;
         width: fit-content;
     }
 
@@ -940,6 +947,7 @@ div.arrow-doble-down #svg-arrow-down {
     #relacionados_splide-list > li {
         width: 210px;
         height: auto;
+        padding: 1rem 1rem 2rem 1rem;
     }
 
     #relacionados_splide {
@@ -963,6 +971,7 @@ div.arrow-doble-down #svg-arrow-down {
     #alternativos_splide-list > li {
         width: 210px;
         height: auto;
+        padding: 1rem 1rem 0rem 1rem;
     }
 
     #alternativos_splide {
@@ -1912,6 +1921,13 @@ div.arrow-doble-down #svg-arrow-down {
             margin-right: 3rem;
             margin-bottom: .5rem;
         }
+
+        .tituloProductoTienda {
+            font-size: 10px !important;
+            line-height: 16px !important;
+            padding-top: 6px;
+            margin: 1em 0em;
+        }
     }
 
     @media only screen and (max-width:500px) {
@@ -2201,21 +2217,18 @@ div.arrow-doble-down #svg-arrow-down {
 
 @media only screen and (max-width: 1000px) {
 
-    .tituloProductoTienda {
-        font-size: 12px !important;
-        line-height: 16px !important;
-        padding-top: 6px;
-        margin: 1em 0em;
-    }
-
     #relacionados_splide-list > li {
         width: 115px;
         height: auto;
+        padding: 1rem 1rem 2rem 1rem;
+        margin-right: 1.75rem !important;
     }
 
     #alternativos_splide-list > li {
         width: 115px;
         height: auto;
+        padding: 1rem 1rem 2rem 1rem;
+        margin-right: 1.75rem !important;
     }
 
     .txt-gallery {

@@ -722,58 +722,70 @@
         margin: 5em auto;
     }
 
+    .anuncios-UPS {
+        height: 100%;
+        grid-area: anuncios-UPS;
+    }
+
+    .anuncios-UPS-column {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+    }
+
     .main_container {
         display: grid;
-        grid-auto-columns: 1fr;
-        grid-template-columns: 0.5fr 1fr 1.3fr 0.8fr;
-        grid-template-rows: 1.9fr 0.7fr 0.7fr 0.7fr;
-        gap: 1em 1em;
+        grid-template-columns: 75% 25%;
+        grid-template-rows: 1fr;
+        grid-column-gap: 16px;
+        grid-row-gap: 0px; 
         grid-template-areas:
-            "Banner Banner Banner Anuncios"
-            "Banner Banner Banner USP1"
-            "Banner Banner Banner USP2"
-            "Banner Banner Banner USP3";
+            "Banner anuncios-UPS"
     }
 
     #slider_home_principal {
         grid-area: Banner;
     }
 
-    .anuncios {
-        grid-area: Anuncios;
-    }
-
-    .USP1 {
-        grid-area: USP1;
-    }
-
-    .USP2 {
-        grid-area: USP2;
-    }
-
-    .USP3 {
-        grid-area: USP3;
-    }
-
     #slider_home_principal {
-        height: 600px;
         background-color: #245c93;
     }
 
     .anuncios {
         background-color: #787878;
+        height: 43%;
     }
 
     .USP1 {
         background-color: #c3bb9f;
+        height: 18%
     }
 
     .USP2 {
         background-color: #89abad;
+        height: 18%
     }
 
     .USP3 {
         background-color: #be9393;
+        height: 18%;
+    }
+
+    .anuncios a, .USP1 a, .USP2 a, .USP3 a {
+        display: block;
+        height: 100%;
+    }
+
+    .anuncios > div, .USP1 > div, .USP2 > div, .USP3 > div { 
+        height: 100%;
+    }
+
+    .anuncios a > img, .USP1 a > img, .USP2 a > img, .USP3 a > img {
+        display: flex;
+        width: -webkit-fill-available;
+        width: -moz-available;
+        height: 100%;
     }
 
     .carrito_counter {
@@ -1039,44 +1051,6 @@
     }
 
     @media only screen and (max-width:1320px) {
-
-        .main_container {
-            display: grid;
-            grid-auto-columns: 1fr;
-            grid-template-columns: 74% 25% !important;
-            grid-template-rows: 1.9fr 0.7fr 0.7fr 0.7fr;
-            gap: 1em 1em;
-            grid-template-areas:
-                "Banner Anuncios"
-                "Banner USP1"
-                "Banner USP2"
-                "Banner USP3";
-        }
-
-        #slider_home_principal {
-            grid-area: Banner;
-        }
-
-        .anuncios {
-            grid-area: Anuncios;
-        }
-
-        .USP1 {
-            grid-area: USP1;
-        }
-
-        .USP2 {
-            grid-area: USP2;
-        }
-
-        .USP3 {
-            grid-area: USP3;
-        }
-
-        #top_contenido_anunciosSlider > div > a > img {
-            width: 100%;
-            height: 264px;
-        }
 
         #top_contenido_sliderUSP1 > div {
             height: 100%;
