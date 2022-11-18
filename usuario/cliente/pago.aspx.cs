@@ -33,6 +33,10 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                 lbl_numero_pedido.Text = PedidosEF.ObtenerNumeroOperacion(int.Parse(route_id_operacion));
                 lbl_numero_pedido_bottom.Text = lbl_numero_pedido.Text;
                 hf_numero_operacion.Value = route_id_operacion;
+                btn_regresar_resumen.NavigateUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary
+                {
+                    { "id_operacion", seguridad.Encriptar(hf_numero_operacion.Value) }
+                });
             }
         }
     }

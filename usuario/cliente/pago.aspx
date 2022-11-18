@@ -109,6 +109,7 @@
                         </asp:UpdatePanel>
                     </div>
                     <div class="is-flex is-flex-col is-justify-start is-items-center">
+                        <asp:HyperLink ID="btn_regresar_resumen" runat="server">Regresar al resumen</asp:HyperLink>
                         <div style="border: 1px solid #b7b7b7; border-radius: 8px; width: 420px; height: fit-content;">
                             <table style="width: 100%;">
                                 <thead style="border-bottom: 1px solid #b7b7b7;">

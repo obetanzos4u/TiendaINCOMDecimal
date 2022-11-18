@@ -10,7 +10,6 @@ public partial class uc_progresoCompra : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
         string currentStep = obtenerPasoActual();
-        NotiflixJS.Message(this, NotiflixJS.MessageType.success, currentStep);
         switch (currentStep)
         {
             case "RESUMEN":
@@ -26,7 +25,6 @@ public partial class uc_progresoCompra : System.Web.UI.UserControl
                 defaultStep();
                 break;
         }
-
     }
     protected string obtenerPasoActual()
     {
