@@ -1460,7 +1460,7 @@ div.arrow-doble-down #svg-arrow-down {
 
     @media only screen and (min-width: 1000px) {
         #top_contenido_up_carrito {
-            margin-bottom: 15vh;
+            margin-bottom: 25vh;
         }
 
         .productos_descripciones {
@@ -2651,6 +2651,15 @@ div.arrow-doble-down #svg-arrow-down {
         .mi-carrito-consideraciones-lg {
             font-size: 14px;
             margin-top: 5rem;
+        }
+
+        #top_contenido_up_carrito {
+            height: 100%;
+            min-height: 600px;
+        }
+
+        footer {
+            display: contents !important;
         }
     }
 

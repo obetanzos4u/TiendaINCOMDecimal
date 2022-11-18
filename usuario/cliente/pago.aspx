@@ -389,11 +389,6 @@
                 width: 1.5rem;
                 height: 1.5rem;
             }
-
-            /* .descripcion_de_producto > h6, .text-resumen_compra,
-        .ticket_resumen, .card-subtitle {
-            font-size: 12px !important;
-        } */
         }
     </style>
 </asp:Content>
