@@ -3,10 +3,10 @@
 <!-- Dropdown Structure -->
 <div class="user-menu">
     <%--<button type="button" id="btn-asesor" class="is-text-white is-bg-blue is-px-2 is-rounded-2xl" style="outline-width: 0; border: 0; cursor: pointer;" data-target="advisorDropdown">Asesor</button>--%>
-    <asp:Label ID="lbl_modalidad_asesores" class="is-bg-blue-darky is-text-white is-p-2 is-rounded is-cursor-pointer" runat="server">
+    <asp:Label ID="lbl_modalidad_asesores" class="is-bg-blue-darky is-text-white is-p-2 is-rounded" runat="server">
         <asp:CheckBox ID="chk_modalidad_asesores" AutoPostBack="true" Text="Modo asesor" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
     </asp:Label>
-<%--    <label class="is-text-white is-bg-blue is-px-4 is-rounded-2xl">
+    <%--    <label class="is-text-white is-bg-blue is-px-4 is-rounded-2xl">
     </label>--%>
     <ul id="modoAsesorUl" class="is-absolute is-text-black" style="list-style: none;" runat="server">
         <li class="is-text-black">
@@ -45,14 +45,12 @@
 
 <div id="myModal" class="modal-incom">
     <!-- Modal content -->
-    <div class="modal-content-incom">
+    <div class="modal-content-incom is-rounded-lg" style="height: 400px">
         <span class="close">&times;</span>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <h2>Selecciona un cliente</h2>
-                <span>Solo teclea el usuario, email o nombre.</span>
-            </div>
-            <div class="col s12 m12 l12">
+        <div class="is-flex is-flex-col is-justify-center is-items-start">
+            <h3>Selecciona el cliente</h3>
+            <div class="is-w-full is-flex is-justify-between is-items-center">
+                <span class="is-w-1_2">Puedes buscar por nombre o correo:</span>
                 <select id="ddl_clientes_asesores" style="width: 100%" class="browser-default xxx templatingSelect2" name="clientes" runat="server"></select>
             </div>
         </div>
@@ -73,23 +71,18 @@
 
         $('.xxx').on('select2:select', function (e) {
             var data = e.params.data;
-            console.log(data.id);
+            //console.log(data.id);
             __doPostBack('ddl_asesores', data.id.toString());
         });
 
-
-
-
         $('.xxx').select2({
             ajax: {
-
                 delay: 250, // wait 250 milliseconds before triggering the request
                 dataType: 'json',
                 url: '<%=HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) %>/usuario/serviceAjax/obtenerClientes.aspx',
                 data: function (params) {
                     var query = {
                         data: params.term,
-
                     }
 
                     // Query parameters will be ?search=[term]&type=public
@@ -104,7 +97,6 @@
                 minimumInputLength: 2,
                 templateResult: formatRepo,
                 templateSelection: formatRepoSelection
-
             }
         });
 
@@ -114,22 +106,17 @@
                 console.log("true");
                 return repo.text;
             }
-            console.log("false");
+            //console.log("false");
             var markup = "<div class='select2-result-repository clearfix'>" +
                 "<div class='select2-result-repository__avatar'><img src='" + repo.owner.text + "' /></div>" +
                 "<div class='select2-result-repository__meta'>" +
                 "<div class='select2-result-repository__title'>" + repo.text + "</div>";
-
-
-
-
             return markup;
         }
 
         function formatRepoSelection(repo) {
             return repo.id || repo.text;
         }
-
     });
 </script>
 

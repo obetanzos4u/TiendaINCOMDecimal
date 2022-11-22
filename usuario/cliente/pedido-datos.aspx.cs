@@ -22,6 +22,10 @@ public partial class usuario_cliente_pedido_datos : System.Web.UI.Page
                 route_id_operacion = seguridad.DesEncriptar(route_id_operacion);
                 lt_numero_pedido.Text = PedidosEF.ObtenerNumeroOperacion(int.Parse(route_id_operacion));
                 hf_id_pedido.Value = route_id_operacion;
+                btn_volver_resumen.NavigateUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary
+                {
+                    { "id_operacion", seguridad.Encriptar(hf_id_pedido.Value) }
+                });
             }
 
             CargarDatosPedido();

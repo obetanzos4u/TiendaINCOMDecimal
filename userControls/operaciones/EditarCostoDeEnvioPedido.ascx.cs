@@ -16,50 +16,41 @@ public partial class userControls_operaciones_EditarCostoDeEnvio : System.Web.UI
     {
         if (!IsPostBack)
         {
-
             var UserLogin = usuarios.userLogin();
-            if(UserLogin.tipo_de_usuario == "usuario")
+            if (UserLogin.tipo_de_usuario == "usuario")
             {
                 up_ContentDetallesEnvioPedido.Visible = true;
             }
         }
     }
-
     protected void btn_ModificarDetallesEnvio_Click(object sender, EventArgs e)
     {
         ContentDetallesEnvioPedido.Visible = true;
         Content_btn_ModificarDetallesEnvio.Visible = false;
     }
-
     protected void btn_CerrarModificarDetallesDeEnvio_Click(object sender, EventArgs e)
     {
         ContentDetallesEnvioPedido.Visible = false;
-        Content_btn_ModificarDetallesEnvio.Visible =true;;
+        Content_btn_ModificarDetallesEnvio.Visible = true; ;
     }
-
     protected void btn_guardarCostoDeEnvio_Click(object sender, EventArgs e)
     {
         decimal envio = textTools.soloNumerosD(txt_MontoCostoEnvio.Text);
         string resultado = pedidosDatos.actualizarEnvio(envio, "Estándar", hf_numero_operacion.Value);
         bool resultadoTotales = pedidosProductos.actualizarTotalStatic(hf_numero_operacion.Value);
-        if (resultado != null && resultado != "0")
+        if (resultadoTotales && resultado != null && resultado != "0")
         {
-
-
-            string script = @"setTimeout(function () { window.location.reload(1); }, 3500);";
+            NotiflixJS.Message(up_ContentDetallesEnvioPedido, NotiflixJS.MessageType.success, "Costo de envío actualizado");
+            string script = @"setTimeout(function () { window.location.reload(1); }, 1500);";
             ScriptManager.RegisterStartupScript(up_ContentDetallesEnvioPedido, typeof(UpdatePanel), "redirección", script, true);
-
-
-            BootstrapCSS.Message(up_ContentDetallesEnvioPedido, "#Conteng_msg_envio", BootstrapCSS.MessageType.success, "Actualizado con éxito", "Envío actualizado con éxito");
-
+            //BootstrapCSS.Message(up_ContentDetallesEnvioPedido, "#Conteng_msg_envio", BootstrapCSS.MessageType.success, "Actualizado con éxito", "Envío actualizado con éxito");
             up_ContentDetallesEnvioPedido.Update();
-            
         }
         else
         {
-            BootstrapCSS.Message(up_ContentDetallesEnvioPedido, "#Conteng_msg_envio", BootstrapCSS.MessageType.danger, "Error", "Error al actualizar método de envío");
+            //BootstrapCSS.Message(up_ContentDetallesEnvioPedido, "#Conteng_msg_envio", BootstrapCSS.MessageType.danger, "Error", "Error al actualizar método de envío");
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al actualizar");
             up_ContentDetallesEnvioPedido.Update();
-
         }
     }
 }

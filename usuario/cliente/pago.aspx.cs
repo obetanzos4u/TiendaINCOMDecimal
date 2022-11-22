@@ -12,6 +12,7 @@ using Org.BouncyCastle.Crypto;
 using System.Web.UI.HtmlControls;
 using System.Text;
 using DocumentFormat.OpenXml.Drawing.Charts;
+using System.EnterpriseServices;
 
 public partial class usuario_cliente_pago : System.Web.UI.Page
 {
@@ -69,10 +70,11 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         {
             await generarLinkDePagoAsync(pedidosDatos, pedidosDatosNumericos);
         }
+        NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
     }
     protected void btn_paypal_Click(Object sender, EventArgs es)
     {
-        //NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
+        NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
         pnl_tarjeta.Visible = false;
         pnl_paypal.Visible = true;
         pnl_transferencia.Visible = false;
@@ -80,7 +82,6 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         btn_tarjeta.Enabled = false;
         btn_transferencia.Enabled = false;
 
-        Page.Response.Write("<script>console.log('test')</script>");
         try
         {
             string route_id_operacion = Page.RouteData.Values["id_operacion"].ToString();
@@ -223,12 +224,14 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         if (historialPagosPaypal.Count >= 1)
         {
             NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Ya se encuentra un intento de pago en PayPal");
+            NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
             return true;
         }
 
         if (historialPagosSantander.Count >= 1)
         {
             NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Ya se encuentra un intento de pago por tarjeta");
+            NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
             return true;
         }
 
@@ -238,6 +241,8 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
             if (vigenciaSuperada)
             {
                 NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Vigencia superada");
+                NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
+                btn_renovarPedidoSantanderContenedor.Visible = true;
                 return true;
             }
         }
@@ -247,6 +252,9 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
             if (vigenciaSuperada)
             {
                 NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Vigencia superada");
+                NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
+                btn_renovarPedidoSantanderContenedor.Visible = true;
+                return true;
             }
         }
 
@@ -257,6 +265,8 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
             if (diferenciaTipoDeCambio > limiteDiferenciaTipoDeCambio)
             {
                 NotiflixJS.Message(this, NotiflixJS.MessageType.info, "El tipo de cambio se ha actualizado");
+                NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
+                btn_renovarPedidoSantanderContenedor.Visible = true;
                 return true;
             }
         }
@@ -271,14 +281,15 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                 if (envio <= 0)
                 {
                     NotiflixJS.Message(this, NotiflixJS.MessageType.info, "No se ha establecido el costo de envio");
+                    NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
                     return true;
                 }
                 break;
             case "Ninguno":
                 NotiflixJS.Message(this, NotiflixJS.MessageType.info, "No se ha establecido el costo de envio");
+                NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
                 break;
         }
-
         return false;
     }
     private async Task generarLinkDePagoAsync(pedidos_datos pedidosDatos, pedidos_datosNumericos pedidosDatosNumericos)
@@ -306,7 +317,8 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                     }
                     else
                     {
-                        NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Ocurrió un error 1");
+                        NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Ocurrió un error al generar un nuevo pago");
+                        NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
                     }
                 }
                 #endregion
@@ -343,7 +355,8 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                         }
                         else
                         {
-                            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Ocurrió un error 2");
+                            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Ocurrió un error al crear un nuevo pago");
+                            NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
                         }
                     }
                 }
@@ -359,6 +372,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                     {
                         NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Ocurrió un error 3");
                     }
+                    NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
                 }
             }
         }
@@ -367,6 +381,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
             devNotificaciones.ErrorSQL("Generar link Santander", ex, pedidosDatos.numero_operacion);
             devNotificaciones.notificacionSimple(ex.ToString());
             NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Ocurrió un error 4");
+            NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
         }
     }
     protected async Task<SantanderLigaCobro> crearLinkSantander(pedidos_datos pedidoDatos, pedidos_datosNumericos pedidoDatosNumericos, int diasVigencia)
@@ -407,6 +422,23 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         frm_pagoTarjeta.Visible = true;
         pnl_tarjeta.Visible = true;
         up_pasarelaPago.Update();
+    }
+    protected void btn_renovarPedidoSantander_Click(object sender, EventArgs e)
+    {
+        Tuple<bool, List<string>> resultado = pedidosProductos.renovarPedido(hf_id_operacion.Value);
+        if (resultado.Item1)
+        {
+            NotiflixJS.Message(up_pasarelaPago, NotiflixJS.MessageType.success, "Pedido actualizado");
+            string redireccionUrl = GetRouteUrl("cliente-pedido-pago", new System.Web.Routing.RouteValueDictionary
+        {
+            { "id_operacion", seguridad.Encriptar(hf_numero_operacion.Value) }
+        });
+            BootstrapCSS.RedirectJs(this, redireccionUrl, 2000);
+        }
+        else
+        {
+            NotiflixJS.Message(up_pasarelaPago, NotiflixJS.MessageType.failure, "Error al actualizar");
+        }
     }
     #endregion
 

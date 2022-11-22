@@ -8,17 +8,23 @@
     <asp:HiddenField ID="hf_id_pedido_direccion_envio" runat="server" />
     <div class="container-md is-top-3">
         <div class="is-flex is-flex-col is-justify-center is-items-start">
-            <div class="is-flex is-justify-start is-items-center">
-                <h1 class="h5"><strong>Contacto del pedido:
-                    <asp:Label ID="lt_numero_pedido" class="is-select-all" runat="server"></asp:Label></h1></strong>
-                <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Pedido')">
-                    <span class="is-text-gray">
-                        <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
-                            <title id="Clipcopy">Copiar elemento</title>
-                        </svg>
-                    </span>
-                </button>
+            <div class="is-w-full is-flex is-justify-between is-items-center">
+                <div class="is-flex is-justify-start is-items-center">
+                    <h1 class="h5">
+                        <strong>Contacto del pedido:
+                        <asp:Label ID="lt_numero_pedido" class="is-select-all" runat="server"></asp:Label>
+                        </strong>
+                    </h1>
+                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Pedido')">
+                        <span class="is-text-gray">
+                            <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                <title id="Clipcopy">Copiar elemento</title>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <asp:HyperLink ID="btn_volver_resumen" runat="server">Volver al resumen</asp:HyperLink>
             </div>
             <p>Establece el contacto de quién recibe el pedido.</p>
         </div>
@@ -49,7 +55,7 @@
                                             </asp:LinkButton>
                                             <a class="is-btn-gray-light is-space-r-6" href='/usuario/cliente/editar/contacto/<%#Eval("id") %>?ref=<%= seguridad.Encriptar(hf_id_pedido.Value)%>'>Editar</a>
                                             <asp:LinkButton ID="btn_usarDatos" OnClick="btn_usarDatos_Click" runat="server">
-                                                <div class="is-btn-blue is-inline-block seleccionar-contacto">Seleccionar</div></asp:LinkButton>                                           
+                                                <div class="is-btn-blue is-inline-block seleccionar-contacto">Seleccionar</div></asp:LinkButton>
                                         </div>
                                         <%--<div id="msg_sucess" runat="server" visible="false" class="alert alert-success mt-2" role="alert"></div>--%>
                                     </div>
