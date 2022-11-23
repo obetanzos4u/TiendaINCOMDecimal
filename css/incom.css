@@ -51,6 +51,14 @@
     display: block;
 }
 
+.datos_cliente_edicion {
+    padding: 0rem 0rem 0rem 1.5rem;
+}
+
+.datos_cliente_edicion > div:nth-child(1) {
+    margin-bottom: 0px;
+}
+
 /*Ruta de las categorias*/
 
 .contain-nav-wrapper_producto {
@@ -408,6 +416,11 @@ div.arrow-doble-down #svg-arrow-down {
     border-bottom: 0;
 }
 
+.input-field > #txt_celular, #txt_telefono, #txt_nombre, #txt_apellido_paterno, #txt_apellido_materno {
+    height: 2rem !important;
+    padding-left: 1rem;
+}
+
 /* Formulario de facturación*/
 .text-facturaion-sub {
     font-size: 1rem;
@@ -537,8 +550,14 @@ div.arrow-doble-down #svg-arrow-down {
     height:  2.5rem;
 }
 
-#txt_password {
+#txt_password, #txt_password_confirmacion {
     height: 2.5rem;
+    padding-left: 1rem;
+    width: 80%;
+}
+
+.container-mi_cuenta .input-field {
+    margin-bottom: 0rem !important;
 }
 
 .new-class {
@@ -574,6 +593,28 @@ div.arrow-doble-down #svg-arrow-down {
 
         .input-login_modal {
             width: 70% !important;
+        }
+
+        .btn-cerrar_edicion {
+            margin-right: 2rem;
+        }
+
+        .datos_cliente_edicion {
+            border: 1px solid #b7b7b7;
+        }
+
+        .actualizar_contrasena {
+            border: 1px solid #b7b7b7;
+            padding-left: 2rem;
+        }
+
+        .btn-cerrar-actualizar_contrasena {
+            margin-right: 2rem;
+        }
+
+        #txt_password, #txt_password_confirmacion {
+            min-width: 280px;
+            height: 2rem;
         }
     }
 
@@ -1234,6 +1275,11 @@ div.arrow-doble-down #svg-arrow-down {
 
     @media only screen and (max-width: 500px) {
 
+        .container .row {
+            margin-left: 0.1rem !important;
+            margin-right: 0.1rem !important;
+        }
+
         .fixInput {
             width: 98%;
         }
@@ -1245,6 +1291,44 @@ div.arrow-doble-down #svg-arrow-down {
 
         .modal-content .btn-1 {
             margin: 1rem auto;
+        }
+
+        /* Vista de formulario Mi cuenta*/
+        .container-mi_cuenta {
+            margin-left: 6% !important;
+            margin-right: 6% !important;
+            padding: 2rem 0rem 2rem 0rem !important;
+        }
+
+        .container-mi_cuenta > div > div > h2:nth-child(1) {
+            text-align: start;
+          }
+
+        #top_contenido_datosCliente {
+            font-size: 9px !important;
+        }
+
+        #top_contenido_btn_editarDatosBasicos, #top_contenido_btn_CambiarPassword,
+        .btn-cerrar_edicion, .btn-guardar_datos,
+        .btn-guardar_datos, .btn-cerrar-actualizar_contrasena,
+        .btn-actualizar_contrasena {
+            font-size: 9px !important;
+            padding: 0.25rem 1rem 2rem 1rem;
+            height: 26px !important;
+            line-height: 26px !important;
+            margin: 1rem 1rem 0rem 0rem !important;
+        }
+
+        .container-mi_cuenta > div > div > h2, container-mi_cuenta > div > div > h3 {
+            font-size: 16px !important;
+        }
+
+        .actualizar_contrasena > h2 {
+            font-size: 14px !important;
+        }
+
+        #top_contenido_datosCliente li.collection-item {
+            padding: 6px !important;
         }
     }
 
@@ -1529,6 +1613,15 @@ div.arrow-doble-down #svg-arrow-down {
 
         .space-form {
             margin-top: 1rem !important;
+        }
+
+        #top_contenido_btn_editarDatosBasicos, #top_contenido_btn_CambiarPassword {
+            margin: 2rem 1rem 1rem 0rem;
+        }
+
+        .container-mi_cuenta {
+            max-width: 900px;
+            margin: auto auto 3rem auto !important;
         }
 
         /*Mi carrito de compras*/
@@ -1929,15 +2022,6 @@ div.arrow-doble-down #svg-arrow-down {
             margin: 1em 0em;
         }
     }
-
-    @media only screen and (max-width:500px) {
-        .container .row {
-            margin-left: 0.1rem !important;
-            margin-right: 0.1rem !important;
-        }
-    }
-
-
 
     h1, h2, h3, h4, h5, h6 {
         font-weight: 400;
@@ -2348,9 +2432,9 @@ div.arrow-doble-down #svg-arrow-down {
             margin: 1em 0em 3em 0em !important;
         }
 
-        #txt_email, #txt_password {
-            width: 80%;
-        }
+        /* #txt_email, #txt_password, #txt_password_confirmacion {
+            width: 80% !important;
+        }  */
 
         tr.table-product_description > td > div:nth-child(2) {
             flex-direction: column;
@@ -2424,11 +2508,20 @@ div.arrow-doble-down #svg-arrow-down {
             vertical-align: top;
             padding: 10px 0px 0px 12px;
         }
+
+        .btn-cerrar_edicion, .btn-cerrar-actualizar_contrasena {
+            margin: 1rem 1rem 1rem 0rem;
+        }
+
+        #txt_password, #txt_password_confirmacion {
+            width: 260px;
+            height: 2rem !important;
+        }
     }
 
     @media only screen and (min-width: 450px) and (max-width: 700px) {
         #txt_email, #txt_password {
-            width: 80%;
+            width: 250;
         }
 
         .input-login_modal {
@@ -2459,6 +2552,16 @@ div.arrow-doble-down #svg-arrow-down {
         .mi-carrito-boton-compra > #btn_comprar > .is-btn-green {
             height: 30px !important;
             line-height: 30px !important;
+        }
+
+        /* Vista de formulario Mi cuenta*/
+        .container-mi_cuenta > div > div > h2:nth-child(1) {
+            text-align: start;
+            margin-bottom: 1rem;
+        }
+
+        #top_contenido_btn_editarDatosBasicos, #top_contenido_btn_CambiarPassword {
+            margin: 2rem 1rem 2rem 0rem;
         }
     }
 
