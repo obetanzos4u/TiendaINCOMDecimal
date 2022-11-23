@@ -1035,10 +1035,10 @@
 
 
                     if (support == false) {
-                        console.log("No hay soporte");
+                        //console.log("No hay soporte");
                         ValidadorSoporteWebp();
                     } else {
-                        console.log("Si hay soporte");
+                        //console.log("Si hay soporte");
                     }
                 });
 
