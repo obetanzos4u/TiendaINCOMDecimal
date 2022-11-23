@@ -32,7 +32,7 @@
             <div class="is-flex is-flex-col is-justify-start is-items-start">
                 <p class="is-mx-1 is-text-xl is-font-bold">Suscríbete a nuestro boletín:</p>
                 <div class="is-mx-1 is-flex is-justify-center is-items-center is-w-full-xl is-px-4">
-                    <asp:TextBox ID="txt_email_boletin" placeholder="Correo electrónico" Style="background-color: rgb(255, 255, 255); font-style: italic; color: rgb(0, 0, 0); padding-left: 0.5rem; width: 45vw; height: 2rem; margin: 0; border-radius: 0.4rem 0rem 0rem 0.4rem" required="true" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txt_email_boletin" placeholder="Correo electrónico" Style="background-color: rgb(255, 255, 255); font-style: italic; color: rgb(0, 0, 0); padding-left: 0.5rem; width: 45vw; height: 2rem; margin: 0; border-radius: 0.4rem 0rem 0rem 0.4rem" runat="server"></asp:TextBox>
                     <asp:Button ID="btn_enviar_boletin" Text="Suscribirse" OnClick="btn_enviar_boletin_Click" class="is-text-white is-rounded is-cursor-pointer" Style="background-color: #004EEA; padding: 0.5rem 1.5rem; height: 100%; border: 0; border-radius: 0rem 0.4rem 0.4rem 0rem;" runat="server" />
                     <%--<input type="email" id="newsletter_email" name="newsletter_email" placeholder="Correo electrónico" style="background-color: rgb(255, 255, 255); font-style: italic; color: rgb(0, 0, 0); padding-left: 0.5rem; width: 45vw; height: 2rem; margin: 0; border-radius: 0.4rem 0rem 0rem 0.4rem" />
                     <button type="submit" class="is-text-white is-rounded" style="background-color: #004EEA; padding: 0.5rem 1.5rem; height: 100%; border: 0; border-radius: 0rem 0.4rem 0.4rem 0rem;">Suscribirse</button>--%>
@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="is-flex is-justify-center is-items-center is-mx-5">
-            <p class="is-text-sm">Incom &reg; | Hecho en México por  IT4U Development   <%= DateTime.Now.Year %> | Todos los derechos reservados.</p>
+            <p class="is-text-sm is-select-none">Incom &reg; | Hecho en México por  IT4U Development   <%= DateTime.Now.Year %> | Todos los derechos reservados.</p>
         </div>
     </div>
 </footer>
