@@ -25,7 +25,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            Title = "Método de pago";
+            Title = "Completa tu pago";
             if (Page.RouteData.Values["id_operacion"].ToString() != null)
             {
                 await CargarDatosPedidoAsync();
@@ -38,6 +38,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                 {
                     { "id_operacion", seguridad.Encriptar(hf_numero_operacion.Value) }
                 });
+                cargarScriptPayPal();
             }
         }
     }
@@ -81,51 +82,56 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
 
         btn_tarjeta.Enabled = false;
         btn_transferencia.Enabled = false;
-
-        try
+        string redireccion = GetRouteUrl("cliente-pedido-pago-paypal", new System.Web.Routing.RouteValueDictionary
         {
-            string route_id_operacion = Page.RouteData.Values["id_operacion"].ToString();
+            { "id_operacion", seguridad.Encriptar(hf_numero_operacion.Value) }
+        });
+        BootstrapCSS.RedirectJs(this, redireccion, 1000);
 
-            if (string.IsNullOrEmpty(route_id_operacion))
-            {
-                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se ha recibido una operación válida");
-                return;
-            }
-            route_id_operacion = seguridad.DesEncriptar(route_id_operacion);
+        //try
+        //{
+        //    string route_id_operacion = Page.RouteData.Values["id_operacion"].ToString();
 
-            int idSQL = int.Parse(route_id_operacion);
-            pedidos_datos pedidoDatos = null;
-            pedidos_datosNumericos pedidoDatoNumericos = null;
-            using (var db = new tiendaEntities())
-            {
-                pedidoDatos = db.pedidos_datos.Where(p => p.id == idSQL).FirstOrDefault();
-                pedidoDatoNumericos = db.pedidos_datosNumericos.Where(p => p.id == idSQL).FirstOrDefault();
-            }
+        //    if (string.IsNullOrEmpty(route_id_operacion))
+        //    {
+        //        NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se ha recibido una operación válida");
+        //        return;
+        //    }
+        //    route_id_operacion = seguridad.DesEncriptar(route_id_operacion);
 
-            if (pedidoDatos == null)
-            {
-                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se ha encontrado una operación");
-                return;
-            }
+        //    int idSQL = int.Parse(route_id_operacion);
+        //    pedidos_datos pedidoDatos = null;
+        //    pedidos_datosNumericos pedidoDatoNumericos = null;
+        //    using (var db = new tiendaEntities())
+        //    {
+        //        pedidoDatos = db.pedidos_datos.Where(p => p.id == idSQL).FirstOrDefault();
+        //        pedidoDatoNumericos = db.pedidos_datosNumericos.Where(p => p.id == idSQL).FirstOrDefault();
+        //    }
 
-            string usuarioCliente = pedidoDatos.usuario_cliente;
-            bool permisoVisualizar = privacidadAsesores.validarOperacion(usuarioCliente);
+        //    if (pedidoDatos == null)
+        //    {
+        //        NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se ha encontrado una operación");
+        //        return;
+        //    }
 
-            if (!permisoVisualizar)
-            {
-                Response.Redirect(Request.Url.GetLeftPart(UriPartial.Authority));
-            }
-            string numero_operacion = pedidoDatos.numero_operacion;
-            var pedidoProductos = PedidosEF.ObtenerProductos(numero_operacion);
-            if (validarBloqueoPago(pedidoProductos, pedidoDatos, pedidoDatoNumericos))
-            {
-                generarBotonPagoPayPal(pedidoDatos, pedidoDatoNumericos, pedidoProductos);
-            }
-        }
-        catch (Exception ex)
-        {
-            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al generar el pago de PayPal, intentar más tarde");
-        }
+        //    string usuarioCliente = pedidoDatos.usuario_cliente;
+        //    bool permisoVisualizar = privacidadAsesores.validarOperacion(usuarioCliente);
+
+        //    if (!permisoVisualizar)
+        //    {
+        //        Response.Redirect(Request.Url.GetLeftPart(UriPartial.Authority));
+        //    }
+        //    string numero_operacion = pedidoDatos.numero_operacion;
+        //    var pedidoProductos = PedidosEF.ObtenerProductos(numero_operacion);
+        //    if (validarBloqueoPago(pedidoProductos, pedidoDatos, pedidoDatoNumericos))
+        //    {
+        //        generarBotonPagoPayPal(pedidoDatos, pedidoDatoNumericos, pedidoProductos);
+        //    }
+        //}
+        //catch (Exception ex)
+        //{
+        //    NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al generar el pago de PayPal, intentar más tarde");
+        //}
     }
     protected void btn_transferencia_Click(Object sender, EventArgs e)
     {
@@ -443,9 +449,9 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
     #endregion
 
     #region Funciones para pagar a través de PayPal
-    protected void cargarScriptPayPal(string monedaPedido)
+    protected void cargarScriptPayPal()
     {
-        var scriptTag = new HtmlGenericControl { TagName = "script" };
+        HtmlGenericControl scriptTag = new HtmlGenericControl("script");
         string cliendID = "";
         string host = HttpContext.Current.Request.Url.Host;
         if (host == "localhost" || host == "test1.incom.mx")
@@ -456,8 +462,9 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         {
             cliendID = PayPalClient.client_id_Productivo;
         }
-        scriptTag.Attributes["src"] = "https://www.paypal.com/sdk/js?client-id=" + cliendID + "&currency=" + monedaPedido;
-        this.Page.Header.Controls.Add(scriptTag);
+        scriptTag.Attributes.Add("type", "text/javascript");
+        scriptTag.Attributes.Add("src", "https://www.paypal.com/sdk/js?client-id=" + cliendID + "&currency=" + hf_moneda.Value);
+        Page.Header.Controls.Add(scriptTag);
         up_paypal.Update();
     }
     protected void generarBotonPagoPayPal(pedidos_datos datos, pedidos_datosNumericos datosNumericos, List<pedidos_productos> productos)
@@ -467,14 +474,22 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
 
         StringBuilder json = new StringBuilder();
 
-        string scriptInit = @" paypal.Buttons({ 
-                                createOrder: function (data, actions) { 
-                                    return actions.order.create ({ 
-                                        'intent': 'CAPTURE', 
-                                        'application_context': { 
-                                            'shipping_preference': 'tipo_envio' 
-                                        }, 
-                                        'purchase_units': [{";
+        //string scriptInit = @" paypal.Buttons({ 
+        //                        createOrder: function (data, actions) { 
+        //                            return actions.order.create ({ 
+        //                                'intent': 'CAPTURE', 
+        //                                'application_context': { 
+        //                                    'shipping_preference': 'tipo_envio' 
+        //                                }, 
+        //                                'purchase_units': [{";
+        string scriptInit = @"  paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    'intent': 'CAPTURE',
+                    'application_context' : {
+                    'shipping_preference': '{tipo_envio}'
+                     },
+                    'purchase_units': [{";
 
         switch (datosNumericos.metodoEnvio.ToUpper())
         {
@@ -491,94 +506,188 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                 break;
         }
 
-        json.Append(@" 'amount': { 
-                            'currency_code': '" + datosNumericos.monedaPedido + @"',
+        //json.Append(@" 'amount': { 
+        //                    'currency_code': '" + datosNumericos.monedaPedido + @"',
+        //                    'value': '" + Math.Round((datosNumericos.subtotal - datosNumericos.envio) + datosNumericos.impuestos + datosNumericos.envio, 2) + @"',
+        //                    'breakdown': {
+        //                        'item_total': {
+        //                            'currency_code': '" + datosNumericos.monedaPedido + @"',
+        //                            'value': '" + decimal.Round((datosNumericos.subtotal - datosNumericos.envio), 2) + @"',
+        //                        },
+        //                    'shipping': {
+        //                        'currency_code': '" + datosNumericos.monedaPedido + @"',
+        //                        'value': '" + decimal.Round(datosNumericos.envio, 2) + @"'
+        //                    },
+        //                    'tax_total': {
+        //                        'currency_code': '" + datosNumericos.monedaPedido + @"',
+        //                        'value': '" + decimal.Round(datosNumericos.impuestos, 2) + @"'
+        //                    },
+        //                }
+        //            },");
+        json.Append(@"
+
+                   'amount' : {
+                    'currency_code' : '" + datosNumericos.monedaPedido + @"',
                             'value': '" + Math.Round((datosNumericos.subtotal - datosNumericos.envio) + datosNumericos.impuestos + datosNumericos.envio, 2) + @"',
                             'breakdown': {
-                                'item_total': {
-                                    'currency_code': '" + datosNumericos.monedaPedido + @"',
-                                    'value': '" + decimal.Round((datosNumericos.subtotal - datosNumericos.envio), 2) + @"',
+                   'item_total': {
+                   'currency_code' : '" + datosNumericos.monedaPedido + @"',
+                                    'value':  '" + decimal.Round((datosNumericos.subtotal - datosNumericos.envio), 2) + @"',
                                 },
-                            'shipping': {
-                                'currency_code': '" + datosNumericos.monedaPedido + @"',
-                                'value': '" + decimal.Round(datosNumericos.envio, 2) + @"'
-                            },
-                            'tax_total': {
-                                'currency_code': '" + datosNumericos.monedaPedido + @"',
-                                'value': '" + decimal.Round(datosNumericos.impuestos, 2) + @"'
-                            },
-                        }
-                    },");
+                    'shipping': {
+                    'currency_code': '" + datosNumericos.monedaPedido + @"',
+                                    'value': '" + decimal.Round(datosNumericos.envio, 2) + @"'
+                                },
+                                'tax_total': {
+                    'currency_code' : '" + datosNumericos.monedaPedido + @"',
+                                    'value': '" + decimal.Round(datosNumericos.impuestos, 2) + @"'
+                                },
+                            }
 
+        },");
+
+        //json.Append(@" 'items': [ ");
         json.Append(@" 'items': [ ");
 
         foreach (var producto in productos)
         {
+            //string sku = producto.numero_parte;
+            //string name = producto.descripcion;
+            //name = name.Replace("'", "ft").Replace("\"", "in");
+            //string description = "";
+            //string unit_amount = decimal.Round(producto.precio_unitario, 2).ToString();
+            //string quantity = decimal.Round(producto.cantidad, 0).ToString();
+
+            //if (name.Length >= 127)
+            //{
+            //    name = name.Substring(0, 127);
+            //}
+
+            //description = name;
             string sku = producto.numero_parte;
             string name = producto.descripcion;
             name = name.Replace("'", "ft").Replace("\"", "in");
-            string description = "";
+
+            if (name.Length >= 127) { name = name.Substring(0, 127); }
+
+            string description = name;
             string unit_amount = decimal.Round(producto.precio_unitario, 2).ToString();
             string quantity = decimal.Round(producto.cantidad, 0).ToString();
 
-            if (name.Length >= 127)
-            {
-                name = name.Substring(0, 127);
-            }
-
-            description = name;
-
-            json.Append(@"{ 
-                            'name': '" + name + @"',
-                            'sku': '" + sku + @"',
-                            'description': '" + description + @"',
-                            'unit_amount': {
-                                'currency_code': '" + datosNumericos.monedaPedido + @"',
-                                'value': '" + unit_amount + @"'
-                            },
-                            'quantity': '" + quantity + @"',
-                            'category': 'PHYSICAL_GOODS'
-                        },");
+            //json.Append(@"{ 
+            //                'name': '" + name + @"',
+            //                'sku': '" + sku + @"',
+            //                'description': '" + description + @"',
+            //                'unit_amount': {
+            //                    'currency_code': '" + datosNumericos.monedaPedido + @"',
+            //                    'value': '" + unit_amount + @"'
+            //                },
+            //                'quantity': '" + quantity + @"',
+            //                'category': 'PHYSICAL_GOODS'
+            //            },");
+            json.Append(@"{     'name' : '" + name + @"',
+                                'sku' : '" + sku + @"',
+                                'description': '" + description + @"',
+                                'unit_amount' : {
+                                'currency_code' : '" + datosNumericos.monedaPedido + @"',
+                                    'value' : '" + unit_amount + @"'
+                                },
+                               'quantity': '" + quantity + @"',
+                                'category' : 'PHYSICAL_GOODS'
+                         },");
         }
 
-        json.Append(@" ], ");
-        json.Append(@"'invoice_id' : '" + numero_operacion + @"', ");
-        json.Append(@"'description': '" + datos.nombre_pedido + @"', ");
-        json.Append(@"'soft_descriptor' : 'PD " + numero_operacion + @"' ");
-        json.Append(@" }]
-                        });
+        //json.Append(@" ], ");
+        //json.Append(@"'invoice_id' : '" + numero_operacion + @"', ");
+        //json.Append(@"'description': '" + datos.nombre_pedido + @"', ");
+        //json.Append(@"'soft_descriptor' : 'PD " + numero_operacion + @"' ");
+        json.Append(@"     ], ");
+        json.Append(@" 'invoice_id' : '" + numero_operacion + @"', ");
+        json.Append(@"  'description': '" + datos.nombre_pedido + @"', ");
+        json.Append(@" 'soft_descriptor' : 'PD " + numero_operacion + @"' ");
+        //json.Append(@" }]
+        //                });
+        //                },
+        //                onClick: function() {},
+        //                onCancel: function (data) {},
+        //                onApprove: function(data, actions) {
+        //                    return actions.order.capture().then(function(details) {
+        //                fetch('/usuario/mi-cuenta/procesar-pago.ashx', {
+        //                    method: 'post',
+        //                    headers: {
+        //                        'content-type': 'application/json'
+        //                    },
+        //                    credentials: 'same-origin'  ,
+        //                    body: JSON.stringify({
+        //                        idTransacciónPayPal: data.orderID,
+        //                        numero_operacion: '" + numero_operacion + @"' 
+        //                    })
+        //                });
+        //                setTimeout(function(){
+        //                    document.getElementById('" + linkActualizarUP.ClientID + @"').click();
+        //                }, 1000);
+        //            });
+        //        }
+        //    }).render('.paypal_button_container');");
+        json.Append(@" 
+                    }]
+                });
+            },
+
+
+             // onClick is called when the button is clicked
+                onClick: function() {
+
+          
+                },
+
+             onCancel: function (data) {
+                
+                
+              },
+
+
+
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                  
+             
+                    console.log(data.orderID);
+                    console.log(data);
+                    console.log(details);
+                    // Call your server to save the transaction}
+ 
+                      fetch('/usuario/mi-cuenta/procesar-pago.ashx', {
+                        method: 'post',
+                        headers: {
+                            'content-type': 'application/json'
                         },
-                        onClick: function() {},
-                        onCancel: function (data) {},
-                        onApprove: function(data, actions) {
-                            return actions.order.capture().then(function(details) {
-                            console.log(data.orderID);
-                            console.log(data);
-                            console.log(details);
-                        fetch('/usuario/mi-cuenta/procesar-pago.ashx', {
-                            method: 'post',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            credentials: 'same-origin'  ,
-                            body: JSON.stringify({
-                                idTransacciónPayPal: data.orderID,
-                                numero_operacion: '" + numero_operacion + @"' 
-                            })
-                        });
-                        setTimeout(function(){
-                            document.getElementById('" + linkActualizarUP.ClientID + @"').click();
-                        }, 1000);
+                        credentials: 'same-origin'  ,
+                        body: JSON.stringify({
+                            idTransacciónPayPal: data.orderID,
+                            numero_operacion: '" + numero_operacion + @"' 
+                        })
+
+                      
+
                     });
-                }
-            }).render('.paypal_button_container');");
+                document.querySelector('#texto_cargando_informacion').classList.remove('d-none');
+                BootstrapAlert('#content_msg_bootstrap', 'success', 'Pago realizado', 'Pago realizado con éxito');
+
+
+            setTimeout(function(){     document.getElementById('" + linkActualizarUP.ClientID + @"').click();   },5000);
+ 
+                });
+            }
+        }).render('.paypal_button_container'); ");
+
         //cargarScriptPayPal(datosNumericos.monedaPedido);
-        //ClientScriptManager cs = Page.ClientScript;
-        //Type csType = this.GetType();
-        //cs.RegisterStartupScript(csType, "PayPalButton", json.ToString(), true);
-        btn_paypal_container.Visible = true;
-        string jsonBody = json.ToString();
-        ScriptManager.RegisterStartupScript(this, this.GetType(), "Prueba_consola", " console.log(" + jsonBody + ");", true);
+        //cargarScriptPayPal();
+        ClientScriptManager cs = Page.ClientScript;
+        Type csType = this.GetType();
+        cs.RegisterStartupScript(csType, "PayPalButton", json.ToString(), true);
+        paypal_button_container.Visible = true;
+
         NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
         up_paypal.Update();
     }
@@ -608,7 +717,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
     }
     protected void mostrarEstadoPayPal(List<pedidos_pagos_paypal> historialPagos)
     {
-        btn_paypal_container.Visible = true;
+        paypal_button_container.Visible = true;
         dt_desglose_paypal.Visible = true;
         lbl_paypal_intento.Text = historialPagos[0].intento;
         lbl_paypal_estado.Text = historialPagos[0].estado;
@@ -669,6 +778,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         Decimal tipoCambioActual = operacionesConfiguraciones.obtenerTipoDeCambio();
         string productosNoDisponiblesParaEnvioGratis = "";
         List<pedidos_pagos_respuesta_santander> historialPagosSantander = SantanderResponse.ObtenerTodos(numero_operacion);
+
 
         historialPagosSantander = historialPagosSantander.Where(p => p.estatus == "approved").ToList();
         if (historialPagosSantander.Count >= 1)
@@ -770,9 +880,10 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                 validarEnvio = true;
                 break;
             case "Ninguno":
-                motivosNoDisponiblePago.Visible = true;
-                pnl_noDisponiblePago.Visible = true;
-                motivosNoDisponiblePago.InnerHtml += "- No se ha establecido ninguna condición de envío. <br>";
+                //motivosNoDisponiblePago.Visible = true;
+                //pnl_noDisponiblePago.Visible = true;
+                //motivosNoDisponiblePago.InnerHtml += "- No se ha establecido ninguna condición de envío. <br>";
+                NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "No se ha establecido ninguna condición de envío");
                 return false;
         }
 
@@ -830,7 +941,6 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
             if (montoSuperiorParaEnvioGratuito && fechaPermitidaPago && pedidoElegibleParaEnvioGratuito && direccionEnvioCompleta)
             {
                 permitirPago = true;
-                return permitirPago;
             }
         }
         if (validarEnvio == true)
@@ -838,7 +948,6 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
             if (precioEnvioEstablecido && fechaPermitidaPago && direccionEnvioCompleta)
             {
                 permitirPago = true;
-                return permitirPago;
             }
         }
         else
@@ -846,7 +955,6 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
             if (fechaPermitidaPago)
             {
                 permitirPago = true;
-                return permitirPago;
             }
         }
         return permitirPago;
@@ -858,7 +966,9 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         var pedidoDatosNumericos = PedidosEF.ObtenerNumeros(numero_operacion);
         var pedidoProductos = PedidosEF.ObtenerProductos(numero_operacion);
 
-        if (validarBloqueoPago(pedidoProductos, pedidoDatos, pedidoDatosNumericos))
+        bool bloqueado = validarBloqueoPago(pedidoProductos, pedidoDatos, pedidoDatosNumericos);
+
+        if (bloqueado)
         {
             generarBotonPagoPayPal(pedidoDatos, pedidoDatosNumericos, pedidoProductos);
         }

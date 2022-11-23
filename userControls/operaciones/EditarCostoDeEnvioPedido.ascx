@@ -3,7 +3,7 @@
 <asp:HiddenField ID="hf_numero_operacion" runat="server" />
 <asp:UpdatePanel ID="up_ContentDetallesEnvioPedido" UpdateMode="Conditional" Visible="false" runat="server">
     <ContentTemplate>
-        <div id="ContentDetallesEnvioPedido" class="is-w-full is-px-8" visible="false" runat="server" style="border: 2px solid red">
+        <div id="ContentDetallesEnvioPedido" class="is-w-full is-px-8" visible="false" runat="server">
             <div class="is-flex is-flex-col is-justify-between is-items-center">
                 <label for="txt_MontoCostoEnvio" class="form-label">Nuevo costo de envío:</label>
                 <asp:TextBox ID="txt_MontoCostoEnvio" placeholder="Monto (sin impuestos)" class="form-control" ClientIDMode="Static" runat="server"></asp:TextBox>

@@ -880,7 +880,6 @@
         <a onclick="topFunction()" id="btn_toTop" title="Desplazarse arriba de la página">
             <img id="img_toTop" alt="boton desplazarse hacia arriba en la página" src="https://www.incom.mx/img/webUI/newdesign/collapse_arrow.svg" />
         </a>
-
     </form>
 
     <script>
@@ -1046,10 +1045,10 @@
 
 
                     if (support == false) {
-                        console.log("No hay soporte");
+                        //console.log("No hay soporte");
                         ValidadorSoporteWebp();
                     } else {
-                        console.log("Si hay soporte");
+                        //console.log("Si hay soporte");
                     }
                 });
 

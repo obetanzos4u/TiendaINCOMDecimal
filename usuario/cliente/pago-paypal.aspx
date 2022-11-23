@@ -1,27 +1,131 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Async="true" MasterPageFile="~/bootstrap/basic.master" CodeFile="pago-paypal.aspx.cs" 
+﻿<%@ Page Language="C#" AutoEventWireup="true" Async="true" MasterPageFile="~/bootstrap/basic.master" CodeFile="pago-paypal.aspx.cs"
     Inherits="usuario_cliente_pago_paypal" %>
+
 <%@ Register Src="~/usuario/cliente/cliente-header.ascx" TagPrefix="header" TagName="menuGeneral" %>
+<%@ Register Src="~/userControls/uc_progresoCompra.ascx" TagPrefix="uc" TagName="progreso" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="body">
     <header:menuGeneral ID="menuGeneral" runat="server" />
-        <asp:HiddenField ID="hf_id_pedido"   runat="server" />
-        <asp:HiddenField ID="hf_numero_operacion" runat="server" />
- 
-    <div class="container ">
+    <uc:progreso ID="barraProgreso" runat="server" />
+    <asp:HiddenField ID="hf_id_pedido" runat="server" />
+    <asp:HiddenField ID="hf_numero_operacion" runat="server" />
+    <asp:HiddenField ID="hf_moneda" runat="server" />
+
+    <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="h2">Pago vía PayPal</h1>
-               <p  class="h4">"<asp:Literal ID="lt_nombre_pedido" runat="server"></asp:Literal>" 
-                #<asp:Literal ID="lt_numero_operacion" runat="server"></asp:Literal>
-                   </p>
+                <h1 class="">Método de pago PayPal del pedido:
+                    <asp:Literal ID="lt_numero_operacion" runat="server"></asp:Literal></h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col col-12 col-xs-12 col-sm-12 col-md-5 col-xl-5">
-                <p class="h3 ">
-                 Desglose
-                </p>
-                <table class="table table-sm">
+        <div class="is-flex is-justify-between is-items-center">
+            <div class="is-w-1_2 is-py-4">
+                <asp:UpdatePanel ID="up_estatus_paypal" UpdateMode="Conditional" RenderMode="Block" runat="server" class="col col-12">
+                    <ContentTemplate>
+                        <div id="paypal_button_container" class="paypal_button_container" runat="server"></div>
+                        <asp:Panel ID="lbl_NoDisponiblePago" class="is-select-none is-border is-border-black is-rounded is-p-4" Visible="false" runat="server">
+                            <strong>El pago no esta disponible por los siguientes motivos:</strong>
+                            <p id="motivosNoDisponiblePago" visible="false" runat="server"></p>
+                        </asp:Panel>
+                        <div class="is-flex is-justify-center is-items-center">
+                            <asp:LinkButton ID="btn_renovarPedido" CssClass="is-decoration-none" Visible="false" OnClientClick="btnLoading(this);" OnClick="btn_renovarPedido_Click" runat="server">Renovar pedido</asp:LinkButton>
+                        </div>
+                        <div id="texto_cargando_informacion" class=" d-none"><strong>Cargando información de pago...</div>
+                        <div id="content_msg_bootstrap"></div>
+                        <table id="dt_desglose_paypal" class="table" runat="server">
+                            <tr>
+                                <td>Tipo de intento</td>
+                                <td>
+                                    <asp:Label ID="lbl_paypal_intento" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Estado del pago</td>
+                                <td>
+                                    <asp:Label ID="lbl_paypal_estado" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Monto Pagado en PayPal</td>
+                                <td>
+                                    <asp:Label ID="lbl_paypal_monto" runat="server"></asp:Label>
+                                    <asp:Label ID="lbl_paypal_moneda" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fecha del primer intento</td>
+                                <td>
+                                    <asp:Label ID="lbl_paypal_fecha_primerIntento" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Última actualización</td>
+                                <td>
+                                    <asp:Label ID="lbl_paypal_fecha_actualización" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                        <asp:LinkButton ID="linkActualizarUP" CssClass="d-none" runat="server" OnClick="linkActualizarUP_Click">Actualizar</asp:LinkButton>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="linkActualizarUP" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
+            <div>
+                <div class="is-flex is-justify-center is-items-center">
+                    <asp:HyperLink ID="link_regresar_metodos" class="is-decoration-none" runat="server">Regresar a métodos de pago</asp:HyperLink>
+                </div>
+                <div style="border: 1px solid #b7b7b7; border-radius: 8px; width: 420px; height: fit-content;">
+                    <table style="width: 100%;">
+                        <thead style="border-bottom: 1px solid #b7b7b7;">
+                            <tr>
+                                <td colspan="2" style="padding: 0.75rem 0.75rem 0.75rem 1.5rem;"><strong>Desglose</strong></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 0.75rem 0rem 0.25rem 1.5rem;">Productos:</td>
+                                <td style="padding: 0.75rem 1.5rem 0.5rem 0; text-align: end;">
+                                    <asp:Label ID="lbl_productos" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.25rem 1.5rem;">Descuentos:</td>
+                                <td style="padding: 0.25rem 1.5rem; text-align: end;">
+                                    <asp:Label ID="lbl_descuento" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.25rem 1.5rem;">Envío (estándar):</td>
+                                <td style="padding: 0.25rem 1.5rem; text-align: end;">
+                                    <asp:Label ID="lbl_envio" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.25rem 1.5rem;">Subtotal:</td>
+                                <td style="padding: 0.25rem 1.5rem; text-align: end;">
+                                    <asp:Label ID="lbl_subtotal" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.25rem 0rem 0.75rem 1.5rem;">Impuestos:</td>
+                                <td style="padding: 0.25rem 1.5rem 0.75rem 0rem; text-align: end;">
+                                    <asp:Label ID="lbl_impuestos" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot style="border-top: 1px solid #b7b7b7;">
+                            <tr>
+                                <td style="padding: 0.75rem 0rem 0.75rem 1.5rem;">Total:</td>
+                                <td style="padding: 0.75rem 1.5rem 0.75rem 0rem; text-align: end;">
+                                    <asp:Label ID="lbl_total" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <%--<table class="">
                     <thead>
                         <tr>
                             <th scope="col">Concepto</th>
@@ -67,74 +171,8 @@
                                 <asp:Label ID="lbl_total" runat="server"></asp:Label></strong></td>
                         </tr>
                     </tbody>
-                </table>
-                  <div class="d-grid gap-2 mt-3">
-                      <asp:HyperLink ID="link_regresar_resumen"
-                          class="btn btn-success" runat="server">Regresar al pedido </asp:HyperLink>
-                  </div>
-            </div>
-            <div class="col col-12 col-xs-12 col-sm-12 col-md-7 col-xl-7">
-                <asp:UpdatePanel ID="up_estatus_paypal" UpdateMode="Conditional" RenderMode="Block" runat="server" class="col col-12">
-                    <ContentTemplate>
-
-                        <h2>Información de pago</h2>
-                        <div id="paypal_button_container" class="paypal_button_container" runat="server"></div>
-                        <asp:Panel ID="lbl_NoDisponiblePago" class="alert alert-warning" Visible="false" runat="server">
-                            <strong>El pago no esta disponible por los siguientes motivos:
-                            </strong>
-                            <p id="motivosNoDisponiblePago" visible="false" runat="server"></p>
-                        </asp:Panel>
-                        <asp:LinkButton ID="btn_renovarPedido" CssClass="btn btn-primary " Visible="false" OnClientClick="btnLoading(this);" OnClick="btn_renovarPedido_Click" runat="server">Renovar pedido</asp:LinkButton>
-
-
-                        <div id="texto_cargando_informacion" class=" d-none"><strong>Cargando información de pago...</div>
-
-                        <div id="content_msg_bootstrap"></div>
-                        <table id="dt_desglose_paypal" class="table" runat="server">
-
-                            <tr>
-                                <td>Tipo de intento</td>
-                                <td>
-                                    <asp:Label ID="lbl_paypal_intento" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Estado del pago</td>
-                                <td>
-                                    <asp:Label ID="lbl_paypal_estado" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Monto Pagado en PayPal</td>
-                                <td>
-                                    <asp:Label ID="lbl_paypal_monto" runat="server"></asp:Label>
-                                    <asp:Label ID="lbl_paypal_moneda" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Fecha del primer intento</td>
-                                <td>
-                                    <asp:Label ID="lbl_paypal_fecha_primerIntento" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Última actualización</td>
-                                <td>
-                                    <asp:Label ID="lbl_paypal_fecha_actualización" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                        </table>
-
-                        <asp:LinkButton ID="linkActualizarUP" CssClass="d-none" runat="server" OnClick="linkActualizarUP_Click">Actualizar</asp:LinkButton>
-
-                    </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="linkActualizarUP" EventName="Click" />
-                    </Triggers>
-                </asp:UpdatePanel>
+                </table>--%>
             </div>
         </div>
     </div>
 </asp:Content>
-
-
