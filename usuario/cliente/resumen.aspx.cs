@@ -27,13 +27,13 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
                 AsignarUsuarioAsesor.numero_operacion = lt_numero_pedido.Text;
                 uc_EdicionDetallesDeEnvioPedido.numero_operacion = lt_numero_pedido.Text;
                 ValidarModoAsesor();
-                NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
             }
             else
             {
                 Response.Redirect(HttpContext.Current.Request.Url.Authority, true);
             }
             ValidarEstatusPago();
+            NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
         }
     }
     protected void CargarProductos()
@@ -309,6 +309,8 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         {
             { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
         });
+
+        btn_regresar_pedidos.NavigateUrl = Request.Url.GetLeftPart(UriPartial.Authority) + "/usuario/mi-cuenta/pedidos.aspx";
 
         //btn_continuarMetodoPago.NavigateUrl = GetRouteUrl("cliente-pedido-pago", new System.Web.Routing.RouteValueDictionary
         //{

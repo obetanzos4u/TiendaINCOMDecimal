@@ -34,6 +34,10 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
                       });
 
      */
+        btn_volver_resumen.NavigateUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary
+        {
+            { "id_operacion", seguridad.Encriptar(hf_id_pedido.Value) }
+        });
     }
     protected void CargarDatosPedido()
     {

@@ -9,6 +9,6 @@ public partial class usuario_cliente_finalizado : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        btn_seguir_comprando.NavigateUrl = Request.Url.GetLeftPart(UriPartial.Authority);
     }
 }

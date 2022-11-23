@@ -17,8 +17,9 @@
     <asp:HiddenField ID="hf_moneda_pedido" runat="server" />
     <uc:progreso runat="server"></uc:progreso>
     <div class="is-container container-resumen_pedido is-px-4">
-        <div class="is-py-2">
+        <div class="is-flex is-justify-between is-items-center is-py-2">
             <h2 class="is-text-xl is-font-bold is-select-none">Resumen de pedido<asp:Literal ID="lt_nombre_operacion" runat="server" Visible="false"></asp:Literal></h2>
+            <asp:HyperLink ID="btn_regresar_pedidos" runat="server">Regresar a pedidos</asp:HyperLink>
         </div>
         <div class="row">
             <div class="col  col-12 col-xs-12 col-sm-12 col-md-5 col-xl-6">

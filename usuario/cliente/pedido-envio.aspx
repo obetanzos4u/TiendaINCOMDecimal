@@ -11,16 +11,19 @@
     <asp:HiddenField ID="hf_id_pedido_direccion_envio" runat="server" />
     <div class="container-md is-top-3">
         <div class="is-flex is-flex-col is-justify-center is-items-start">
-            <div class="is-flex is-justify-start is-items-center">
-                <h4>Método de envío del pedido:<asp:Label ID="lt_numero_pedido" class="is-px-2 is-select-all" runat="server"></asp:Label></h4>
-                <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Número de pedido')">
-                    <span class="is-text-gray">
-                        <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
-                            <title id="Clipcopy">Copiar elemento</title>
-                        </svg>
-                    </span>
-                </button>
+            <div class="is-w-full is-flex is-justify-between is-items-center">
+                <div class="is-flex is-justify-start is-items-start">
+                    <h1 class="h5">Método de envío del pedido:<asp:Label ID="lt_numero_pedido" class="is-px-2 is-select-all" runat="server"></asp:Label></h1>
+                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Número de pedido')">
+                        <span class="is-text-gray">
+                            <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                <title id="Clipcopy">Copiar elemento</title>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <asp:HyperLink ID="btn_volver_resumen" runat="server">Volver al resumen</asp:HyperLink>
             </div>
             <p>Establece el método de envío.</p>
             <%--<asp:Label ID="msg_alert" Visible="false" class="alert alert-warning" role="alert" runat="server">       
@@ -64,7 +67,7 @@
                                     <div class="card-body is-rounded-lg is-bg-gray-light is-border-gray-soft">
                                         <div id="entrega_domicilio" class="" style="height: 30px" runat="server"></div>
                                         <h6 class="card-title is-text-center">Entrega a domicilio</h6>
-                                        <svg version="1.1" class="icon-entrega_domicilio" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        <svg version="1.1" id="domicilio-icon" class="icon-entrega_domicilio" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                             viewBox="0 0 180 180" style="enable-background: new 0 0 180 180;" xml:space="preserve">
                                             <path id="icon-entrega_domicilio-color" fill="#B7B7B7" d="M157.1,28.2h-69c-12.5,0-22.6,10-22.9,22.4l-7.9,1.1c-8.4,0-16.5,3.1-22.8,8.8L18.5,75
                                             C12,80.8,8.4,89.1,8.4,97.8v29.9c0,0,0,0.1,0,0.1H4.6c-2.5,0-4.6,2.1-4.6,4.6c0,2.5,2.1,4.6,4.6,4.6h12.1c0.3,0,0.7,0,1-0.1l4.1-0.1

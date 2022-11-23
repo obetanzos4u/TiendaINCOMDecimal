@@ -17,12 +17,9 @@ public partial class uc_asesores_modalidad_clientes_bar : System.Web.UI.UserCont
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (!IsPostBack)
         {
-
             modalidadAsesor();
-
         }
         else
         {
@@ -31,8 +28,6 @@ public partial class uc_asesores_modalidad_clientes_bar : System.Web.UI.UserCont
             string target = Request.Form["__EVENTTARGET"];
             if (target == "ddl_asesores") establecer(parameter);
         }
-
-
     }
 
     protected void establecer(string id)

@@ -40,8 +40,11 @@
                                     <asp:Button ID="btn_paypal" class="is-btn-gray is-space-x-9" Text="PayPal" OnClick="btn_paypal_Click" UseSubmitBehavior="false" runat="server" />
                                     <asp:Button ID="btn_transferencia" class="is-btn-gray" OnClick="btn_transferencia_Click" Text="Transferencia o deposito" UseSubmitBehavior="false" runat="server" />
                                 </div>
-                                <asp:Panel ID="pnl_tarjeta" Visible="false" runat="server">
-                                    <iframe id="frm_pagoTarjeta" visible="true" style="width: 100%; height: 680px; border: 0;" runat="server"></iframe>
+                                <asp:Panel ID="pnl_tarjeta" Visible="false" class="is-py-4" runat="server">
+                                    <div id="btn_renovarPedidoSantanderContenedor" visible="false" class="is-flex is-justify-center is-items-center" runat="server">
+                                        <asp:LinkButton ID="btn_renovarPedidoSantander" CssClass="" Style="text-decoration: none" OnClientClick="btnLoading(this);" OnClick="btn_renovarPedidoSantander_Click" runat="server">Renovar pedido</asp:LinkButton>
+                                    </div>
+                                    <iframe id="frm_pagoTarjeta" visible="true" style="width: 100%; height: 740px; border: 0;" runat="server"></iframe>
                                 </asp:Panel>
                                 <asp:Panel ID="pnl_paypal" Visible="false" runat="server">
                                     <asp:UpdatePanel ID="up_paypal" UpdateMode="Conditional" RenderMode="Block" runat="server">
@@ -109,6 +112,7 @@
                         </asp:UpdatePanel>
                     </div>
                     <div class="is-flex is-flex-col is-justify-start is-items-center">
+                        <asp:HyperLink ID="btn_regresar_resumen" runat="server">Regresar al resumen</asp:HyperLink>
                         <div style="border: 1px solid #b7b7b7; border-radius: 8px; width: 420px; height: fit-content;">
                             <table style="width: 100%;">
                                 <thead style="border-bottom: 1px solid #b7b7b7;">

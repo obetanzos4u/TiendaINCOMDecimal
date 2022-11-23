@@ -15,18 +15,23 @@
     <div class="container-md is-top-3">
         <div class="row">
             <div class="col">
-                <div class="is-flex">
-                    <h1 class="h5"><strong>Facturación del pedido:
-                        <asp:Literal ID="lt_numero_pedido" runat="server"></asp:Literal>
-                    </h1></strong>
-                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Pedido')">
-                        <span class="is-text-gray is-inline-block">
-                            <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
-                                <title id="Clipcopy">Copiar elemento</title>
-                            </svg>
-                        </span>
-                    </button> 
+                <div class="is-flex is-justify-between is-items-center">
+                    <div class="is-flex is-justify-start is-items-center">
+                        <h1 class="h5">
+                            <strong>Facturación del pedido:
+                            <asp:Literal ID="lt_numero_pedido" runat="server"></asp:Literal>
+                            </strong>
+                        </h1>
+                        <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Pedido')">
+                            <span class="is-text-gray is-inline-block">
+                                <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                    <title id="Clipcopy">Copiar elemento</title>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                    <asp:HyperLink ID="btn_volver_resumen" runat="server">Volver al resumen</asp:HyperLink>
                 </div>
                 <p class="text-facturaion-sub">Establece el tipo de facturación, elige una entrada guardada o agrega una nueva.</p>
             </div>
@@ -204,351 +209,352 @@
                 </Triggers>
             </asp:UpdatePanel>
         </div>
+    </div>
 
-        <style>
+    <style>
+        .direcciones_guardadas {
+            width: 50%;
+            font-weight: 600;
+        }
+
+        .form-container-datos_facturacion {
+            background-color: #f5f5f5;
+            /*width: 50%;*/
+            padding: 30px;
+            border-radius: 8px;
+            margin: auto auto 4rem 2rem;
+        }
+
+        #txt_calle {
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 450px) {
+            .container-md {
+                margin-top: 2rem;
+            }
+
+                .container-md h1.h4 {
+                    font-size: 14px;
+                }
+
+            .col > p.text-facturaion-sub {
+                font-size: 10px;
+            }
+
             .direcciones_guardadas {
-                width: 50%;
-                font-weight: 600;
-            }
-
-            .form-container-datos_facturacion {
-                background-color: #f5f5f5;
-                /*width: 50%;*/
-                padding: 30px;
-                border-radius: 8px;
-                margin: auto auto 4rem 2rem;
-            }
-
-            #txt_calle {
                 width: 100%;
             }
 
-            @media only screen and (max-width: 450px) {
-                .container-md {
-                    margin-top: 2rem;
-                }
+            .form-direcciones {
+                flex: auto;
+            }
 
-                    .container-md h1.h4 {
-                        font-size: 14px;
-                    }
+            .card-title {
+                font-size: 10px;
+                font-weight: 600;
+            }
 
-                .col > p.text-facturaion-sub {
-                    font-size: 10px;
-                }
+            .form-datos_facturacion {
+                display: inline;
+                margin: auto;
+            }
 
-                .direcciones_guardadas {
-                    width: 100%;
-                }
-
-                .form-direcciones {
-                    flex: auto;
-                }
-
-                .card-title {
-                    font-size: 10px;
-                    font-weight: 600;
-                }
-
-                .form-datos_facturacion {
-                    display: inline;
+                .form-datos_facturacion > div {
+                    width: 70%;
                     margin: auto;
                 }
 
-                    .form-datos_facturacion > div {
-                        width: 70%;
-                        margin: auto;
-                    }
-
-                .direcciones_guardadas > p.is-text-center {
-                    font-size: 12px;
-                }
-
-                #card_envio_recoge_en_tienda > .card-text {
-                    font-size: 9px;
-                }
-
-                #body_btn_Sin_Factura > .is-btn-blue {
-                    font-size: 8px;
-                    height: 22px;
-                    line-height: 22px;
-                }
-
-                .card-text {
-                    font-size: 9px;
-                }
-
-                .options-factura > .is-btn-gray-light {
-                    font-size: 8px;
-                    height: 22px;
-                    line-height: 22px;
-                    padding: 0 8px;
-                }
-
-                .options-factura > div > a > .is-btn-blue {
-                    height: 22px;
-                    line-height: 22px;
-                    padding: 0 8px;
-                    font-size: 8px;
-                }
-
-                .form-container-datos_facturacion {
-                    width: 100%;
-                    padding: 30px;
-                    border-radius: 8px;
-                    margin: 0;
-                }
-
-                .form-datos_facturacion {
-                    font-size: 9px;
-                    margin-bottom: 3rem;
-                }
-
-                    .form-datos_facturacion h1.h6 {
-                        font-size: 9px;
-                    }
-
-                    .form-datos_facturacion input.form-control {
-                        font-size: 9px;
-                        width: 100%;
-                        line-height: 1.5;
-                        padding: 0.125rem;
-                    }
-
-                #body_ddl_pais_ddl_pais, #body_ddl_estado_ddl_municipio_estado {
-                    font-size: 9px;
-                    line-height: 1.5;
-                    padding: 0.225rem;
-                }
-
-                .form-group {
-                    margin-top: 0.25rem;
-                }
-
-                #body_btn_crear_direccion {
-                    height: 22px;
-                    line-height: 22px;
-                    padding: 0 8px;
-                    font-size: 8px;
-                    margin-top: 1rem;
-                }
+            .direcciones_guardadas > p.is-text-center {
+                font-size: 12px;
             }
 
-            @media only screen and (min-width: 450px) and (max-width: 700px) {
+            #card_envio_recoge_en_tienda > .card-text {
+                font-size: 9px;
+            }
 
-                .container-md h1.h4 {
-                    font-size: 16px;
+            #body_btn_Sin_Factura > .is-btn-blue {
+                font-size: 8px;
+                height: 22px;
+                line-height: 22px;
+            }
+
+            .card-text {
+                font-size: 9px;
+            }
+
+            .options-factura > .is-btn-gray-light {
+                font-size: 8px;
+                height: 22px;
+                line-height: 22px;
+                padding: 0 8px;
+            }
+
+            .options-factura > div > a > .is-btn-blue {
+                height: 22px;
+                line-height: 22px;
+                padding: 0 8px;
+                font-size: 8px;
+            }
+
+            .form-container-datos_facturacion {
+                width: 100%;
+                padding: 30px;
+                border-radius: 8px;
+                margin: 0;
+            }
+
+            .form-datos_facturacion {
+                font-size: 9px;
+                margin-bottom: 3rem;
+            }
+
+                .form-datos_facturacion h1.h6 {
+                    font-size: 9px;
                 }
 
-                .col > p.text-facturaion-sub {
-                    font-size: 12px;
-                }
-
-                .direcciones_guardadas {
+                .form-datos_facturacion input.form-control {
+                    font-size: 9px;
                     width: 100%;
-                    font-size: 10px;
+                    line-height: 1.5;
+                    padding: 0.125rem;
                 }
 
-                .form-direcciones {
-                    flex: auto;
-                }
+            #body_ddl_pais_ddl_pais, #body_ddl_estado_ddl_municipio_estado {
+                font-size: 9px;
+                line-height: 1.5;
+                padding: 0.225rem;
+            }
 
-                .card-title {
-                    font-size: 12px;
-                    font-weight: 600;
-                }
+            .form-group {
+                margin-top: 0.25rem;
+            }
 
-                .form-datos_facturacion {
-                    display: inline;
+            #body_btn_crear_direccion {
+                height: 22px;
+                line-height: 22px;
+                padding: 0 8px;
+                font-size: 8px;
+                margin-top: 1rem;
+            }
+        }
+
+        @media only screen and (min-width: 450px) and (max-width: 700px) {
+
+            .container-md h1.h4 {
+                font-size: 16px;
+            }
+
+            .col > p.text-facturaion-sub {
+                font-size: 12px;
+            }
+
+            .direcciones_guardadas {
+                width: 100%;
+                font-size: 10px;
+            }
+
+            .form-direcciones {
+                flex: auto;
+            }
+
+            .card-title {
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .form-datos_facturacion {
+                display: inline;
+                margin: auto;
+            }
+
+                .form-datos_facturacion > div {
+                    width: 70%;
                     margin: auto;
                 }
 
-                    .form-datos_facturacion > div {
-                        width: 70%;
-                        margin: auto;
-                    }
-
-                .direcciones_guardadas > p.is-text-center {
-                    font-size: 14px;
-                }
-
-                #card_envio_recoge_en_tienda > .card-text {
-                    font-size: 11px;
-                }
-
-                #body_btn_Sin_Factura > .is-btn-blue {
-                    font-size: 12px;
-                    height: 26px;
-                    line-height: 26px;
-                }
-
-                .card-text {
-                    font-size: 11px;
-                }
-
-                .options-factura > .is-btn-gray-light {
-                    font-size: 12px;
-                    height: 26px;
-                    line-height: 26px;
-                    padding: 0 10px;
-                }
-
-                .options-factura > div > a > .is-btn-blue {
-                    height: 26px;
-                    line-height: 26px;
-                    padding: 0 10px;
-                    font-size: 12px;
-                }
-
-                .form-container-datos_facturacion {
-                    width: 100%;
-                    padding: 30px;
-                    border-radius: 8px;
-                    margin: 0;
-                }
-
-                .form-datos_facturacion {
-                    font-size: 11px;
-                    margin-bottom: 3rem;
-                }
-
-                    .form-datos_facturacion h1.h6 {
-                        font-size: 11px;
-                    }
-
-                    .form-datos_facturacion input.form-control {
-                        font-size: 11px;
-                        width: 100%;
-                        line-height: 1.5;
-                        padding: 0.125rem;
-                    }
-
-                #body_ddl_pais_ddl_pais, #body_ddl_estado_ddl_municipio_estado {
-                    font-size: 11px;
-                    line-height: 1.5;
-                    padding: 0.225rem;
-                }
-
-                .form-group {
-                    margin-top: 0.25rem;
-                }
-
-                #body_btn_crear_direccion {
-                    height: 26px;
-                    line-height: 26px;
-                    padding: 0 10px;
-                    font-size: 12px;
-                    margin-top: 1rem;
-                }
+            .direcciones_guardadas > p.is-text-center {
+                font-size: 14px;
             }
 
-            @media only screen and (min-width: 450px) and (max-width: 700px) {
+            #card_envio_recoge_en_tienda > .card-text {
+                font-size: 11px;
+            }
 
-                .container-md h1.h4 {
-                    font-size: 16px;
+            #body_btn_Sin_Factura > .is-btn-blue {
+                font-size: 12px;
+                height: 26px;
+                line-height: 26px;
+            }
+
+            .card-text {
+                font-size: 11px;
+            }
+
+            .options-factura > .is-btn-gray-light {
+                font-size: 12px;
+                height: 26px;
+                line-height: 26px;
+                padding: 0 10px;
+            }
+
+            .options-factura > div > a > .is-btn-blue {
+                height: 26px;
+                line-height: 26px;
+                padding: 0 10px;
+                font-size: 12px;
+            }
+
+            .form-container-datos_facturacion {
+                width: 100%;
+                padding: 30px;
+                border-radius: 8px;
+                margin: 0;
+            }
+
+            .form-datos_facturacion {
+                font-size: 11px;
+                margin-bottom: 3rem;
+            }
+
+                .form-datos_facturacion h1.h6 {
+                    font-size: 11px;
                 }
 
-                .col > p.text-facturaion-sub {
-                    font-size: 12px;
-                }
-
-                .direcciones_guardadas {
+                .form-datos_facturacion input.form-control {
+                    font-size: 11px;
                     width: 100%;
-                    font-size: 10px;
+                    line-height: 1.5;
+                    padding: 0.125rem;
                 }
 
-                .form-direcciones {
-                    flex: auto;
-                }
+            #body_ddl_pais_ddl_pais, #body_ddl_estado_ddl_municipio_estado {
+                font-size: 11px;
+                line-height: 1.5;
+                padding: 0.225rem;
+            }
 
-                .card-title {
-                    font-size: 12px;
-                    font-weight: 600;
-                }
+            .form-group {
+                margin-top: 0.25rem;
+            }
 
-                .form-datos_facturacion {
-                    display: inline;
+            #body_btn_crear_direccion {
+                height: 26px;
+                line-height: 26px;
+                padding: 0 10px;
+                font-size: 12px;
+                margin-top: 1rem;
+            }
+        }
+
+        @media only screen and (min-width: 450px) and (max-width: 700px) {
+
+            .container-md h1.h4 {
+                font-size: 16px;
+            }
+
+            .col > p.text-facturaion-sub {
+                font-size: 12px;
+            }
+
+            .direcciones_guardadas {
+                width: 100%;
+                font-size: 10px;
+            }
+
+            .form-direcciones {
+                flex: auto;
+            }
+
+            .card-title {
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .form-datos_facturacion {
+                display: inline;
+                margin: auto;
+            }
+
+                .form-datos_facturacion > div {
+                    width: 70%;
                     margin: auto;
                 }
 
-                    .form-datos_facturacion > div {
-                        width: 70%;
-                        margin: auto;
-                    }
-
-                .direcciones_guardadas > p.is-text-center {
-                    font-size: 14px;
-                }
-
-                #card_envio_recoge_en_tienda > .card-text {
-                    font-size: 11px;
-                }
-
-                #body_btn_Sin_Factura > .is-btn-blue {
-                    font-size: 12px;
-                    height: 26px;
-                    line-height: 26px;
-                }
-
-                .card-text {
-                    font-size: 11px;
-                }
-
-                .options-factura > .is-btn-gray-light {
-                    font-size: 12px;
-                    height: 26px;
-                    line-height: 26px;
-                    padding: 0 10px;
-                }
-
-                .options-factura > div > a > .is-btn-blue {
-                    height: 26px;
-                    line-height: 26px;
-                    padding: 0 10px;
-                    font-size: 12px;
-                }
-
-                .form-container-datos_facturacion {
-                    width: 100%;
-                    padding: 30px;
-                    border-radius: 8px;
-                    margin: 0;
-                }
-
-                .form-datos_facturacion {
-                    font-size: 11px;
-                    margin-bottom: 3rem;
-                }
-
-                    .form-datos_facturacion h1.h6 {
-                        font-size: 11px;
-                    }
-
-                    .form-datos_facturacion input.form-control {
-                        font-size: 11px;
-                        width: 100%;
-                        line-height: 1.5;
-                        padding: 0.125rem;
-                    }
-
-                #body_ddl_pais_ddl_pais, #body_ddl_estado_ddl_municipio_estado {
-                    font-size: 11px;
-                    line-height: 1.5;
-                    padding: 0.225rem;
-                }
-
-                .form-group {
-                    margin-top: 0.25rem;
-                }
-
-                #body_btn_crear_direccion {
-                    height: 26px;
-                    line-height: 26px;
-                    padding: 0 10px;
-                    font-size: 12px;
-                    margin-top: 1rem;
-                }
+            .direcciones_guardadas > p.is-text-center {
+                font-size: 14px;
             }
-        </style>
+
+            #card_envio_recoge_en_tienda > .card-text {
+                font-size: 11px;
+            }
+
+            #body_btn_Sin_Factura > .is-btn-blue {
+                font-size: 12px;
+                height: 26px;
+                line-height: 26px;
+            }
+
+            .card-text {
+                font-size: 11px;
+            }
+
+            .options-factura > .is-btn-gray-light {
+                font-size: 12px;
+                height: 26px;
+                line-height: 26px;
+                padding: 0 10px;
+            }
+
+            .options-factura > div > a > .is-btn-blue {
+                height: 26px;
+                line-height: 26px;
+                padding: 0 10px;
+                font-size: 12px;
+            }
+
+            .form-container-datos_facturacion {
+                width: 100%;
+                padding: 30px;
+                border-radius: 8px;
+                margin: 0;
+            }
+
+            .form-datos_facturacion {
+                font-size: 11px;
+                margin-bottom: 3rem;
+            }
+
+                .form-datos_facturacion h1.h6 {
+                    font-size: 11px;
+                }
+
+                .form-datos_facturacion input.form-control {
+                    font-size: 11px;
+                    width: 100%;
+                    line-height: 1.5;
+                    padding: 0.125rem;
+                }
+
+            #body_ddl_pais_ddl_pais, #body_ddl_estado_ddl_municipio_estado {
+                font-size: 11px;
+                line-height: 1.5;
+                padding: 0.225rem;
+            }
+
+            .form-group {
+                margin-top: 0.25rem;
+            }
+
+            #body_btn_crear_direccion {
+                height: 26px;
+                line-height: 26px;
+                padding: 0 10px;
+                font-size: 12px;
+                margin-top: 1rem;
+            }
+        }
+    </style>
 </asp:Content>
 
 
