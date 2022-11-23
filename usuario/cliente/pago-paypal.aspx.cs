@@ -19,42 +19,28 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
     decimal limiteDiferenciaTipoDeCambio = (decimal)0.5;
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (!IsPostBack)
         {
             if (Page.RouteData.Values["id_operacion"].ToString() != null)
             {
-
                 CargarDatosPedido();
-
-                link_regresar_resumen.NavigateUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary {
+                link_regresar_metodos.NavigateUrl = GetRouteUrl("cliente-pedido-pago", new System.Web.Routing.RouteValueDictionary {
                         { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
                     });
             }
-          
-
-
         }
     }
-
-
-
     protected void cargarScriptPayPal(string monedaPedido)
     {
         var scriptTag = new HtmlGenericControl { TagName = "script" };
         string client_id = "";
         string host = HttpContext.Current.Request.Url.Host;
-        if (host == "localhost") client_id = PayPalClient.client_id_Sandbox; else client_id = PayPalClient.client_id_Productivo; 
-        scriptTag.Attributes.Add("src", "https://www.paypal.com/sdk/js?client-id="+ client_id +"&currency=" + monedaPedido);
+        if (host == "localhost") client_id = PayPalClient.client_id_Sandbox; else client_id = PayPalClient.client_id_Productivo;
+        scriptTag.Attributes.Add("src", "https://www.paypal.com/sdk/js?client-id=" + client_id + "&currency=" + monedaPedido);
         this.Page.Header.Controls.Add(scriptTag);
     }
-
- 
     private void CargarDatosPedido()
     {
-  
-
-
         try
         {
             string route_id_operacion = Page.RouteData.Values["id_operacion"].ToString();
@@ -65,10 +51,7 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
                 return;
             }
             route_id_operacion = seguridad.DesEncriptar(Page.RouteData.Values["id_operacion"].ToString());
-
-
             int idSQL = int.Parse(route_id_operacion);
-
 
             pedidos_datos pedidoDatos = null;
             using (var db = new tiendaEntities())
@@ -78,11 +61,10 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
                      .FirstOrDefault();
             }
 
-
-
             if (pedidoDatos == null)
             {
-               // materializeCSS.crear_toast(this, "No se ha encontrado una operación", false);
+                NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "No se encontró alguna operación");
+                // materializeCSS.crear_toast(this, "No se ha encontrado una operación", false);
                 return;
             }
 
@@ -95,101 +77,75 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
                      .FirstOrDefault();
             }
 
-
             string usuario_cliente = pedidoDatos.usuario_cliente;
             bool permisoVisualizar = privacidadAsesores.validarOperacion(usuario_cliente);
 
-
-            if (permisoVisualizar) { }
-            else
+            if (!permisoVisualizar)
             {
                 Response.Redirect(Request.Url.GetLeftPart(UriPartial.Authority));
             }
             string numero_operacion = pedidoDatos.numero_operacion;
-
-
-
-
             string moneda = pedidoDatosNumericos.monedaPedido;
-
             string metodoEnvio = pedidoDatosNumericos.metodoEnvio;
-            string envio = Math.Round(pedidoDatosNumericos.envio, 2).ToString("C2", myNumberFormatInfo) + " " + moneda;
-
-
-
-
-
-
-            string descuento = pedidoDatosNumericos.descuento.ToString();
+            string envio = Math.Round(pedidoDatosNumericos.envio, MidpointRounding.ToEven).ToString("C2", myNumberFormatInfo) + " " + moneda;
+            double descuento = string.IsNullOrEmpty(pedidoDatosNumericos.descuento.ToString()) ? descuento = 0.0 : descuento = (double)pedidoDatosNumericos.descuento;
             string descuento_porcentaje = pedidoDatosNumericos.descuento_porcentaje.ToString();
-
-            decimal d_subtotal = Math.Round(pedidoDatosNumericos.subtotal, 2);
-
-
+            decimal d_subtotal = Math.Round(pedidoDatosNumericos.subtotal, MidpointRounding.ToEven);
 
             hf_numero_operacion.Value = numero_operacion;
             lt_numero_operacion.Text = numero_operacion;
 
             Page.Title = "Productos de pedido #" + numero_operacion;
-            lt_nombre_pedido.Text = pedidoDatos.nombre_pedido;
+            //lt_nombre_pedido.Text = pedidoDatos.nombre_pedido;
 
             hf_id_pedido.Value = pedidoDatos.id.ToString();
-            lbl_moneda.Text = moneda;
+            //lbl_moneda.Text = moneda;
 
 
             // if (subtotal == "" || string.IsNullOrEmpty(subtotal)) subtotal = "0";
 
 
             // Validamos que haya un descuento aplicado pues si este se encuentra, es necesario mostrarlo, de lo contrario no, pues ocupario mayor espacio en el desglose
-            if (!string.IsNullOrWhiteSpace(descuento) || !string.IsNullOrWhiteSpace(descuento_porcentaje))
-            {
-                content_descuento.Visible = true;
-                content_descuento_subtotal.Visible = true;
-                decimal d_descuento = decimal.Parse(descuento);
+            //if (!string.IsNullOrWhiteSpace(descuento) || !string.IsNullOrWhiteSpace(descuento_porcentaje))
+            //{
+            //    content_descuento.Visible = true;
+            //    content_descuento_subtotal.Visible = true;
+            //    decimal d_descuento = decimal.Parse(descuento);
 
-                lbl_subtotalSinDescuento.Text = Math.Round(d_subtotal + d_descuento, 2).ToString("C2", myNumberFormatInfo) + " " + moneda;
+            //    lbl_subtotalSinDescuento.Text = Math.Round(d_subtotal + d_descuento, 2).ToString("C2", myNumberFormatInfo) + " " + moneda;
 
 
 
-                lbl_descuento_porcentaje.Text = Math.Round(decimal.Parse(descuento_porcentaje), 1).ToString();
+            //    lbl_descuento_porcentaje.Text = Math.Round(decimal.Parse(descuento_porcentaje), 1).ToString();
 
-            }
-            else
-            {
-                content_descuento_subtotal.Visible = false;
-                content_descuento.Visible = false;
-            }
+            //}
+            //else
+            //{
+            //    content_descuento_subtotal.Visible = false;
+            //    content_descuento.Visible = false;
+            //}
+            lbl_productos.Text = d_subtotal.ToString("C2", myNumberFormatInfo) + " " + moneda;
+            lbl_descuento.Text = descuento.ToString("C2", myNumberFormatInfo) + " " + moneda;
             lbl_envio.Text = envio;
-            lbl_metodoEnvio.Text = metodoEnvio;
+            //lbl_metodoEnvio.Text = metodoEnvio;
             lbl_subtotal.Text = d_subtotal.ToString("C2", myNumberFormatInfo) + " " + moneda;
-
             lbl_impuestos.Text = pedidoDatosNumericos.impuestos.ToString("C2", myNumberFormatInfo) + " " + moneda;
-
             lbl_total.Text = pedidoDatosNumericos.total.ToString("C2", myNumberFormatInfo) + " " + moneda;
 
-
-
             var PedidoProductos = PedidosEF.ObtenerProductos(numero_operacion);
-
-
-
 
             if (validarBloqueoPago(PedidoProductos, pedidoDatos, pedidoDatosNumericos))
             {
                 crearBotonDePago(pedidoDatos, pedidoDatosNumericos, PedidoProductos);
             }
-
-
-
-
         }
         catch (Exception ex)
         {
-            materializeCSS.crear_toast(this, "Error al generar formulario de pago", false);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al generar el formulario de pago");
+            //materializeCSS.crear_toast(this, "Error al generar formulario de pago", false);
             Response.Write(ex.ToString());
             devNotificaciones.error("Error al generar formulario de pago Santander, id op:" + Page.RouteData.Values["id_operacion"].ToString(), ex);
             devNotificaciones.ErrorSQL("Error al generar formulario de pago Santander, id op:" + Page.RouteData.Values["id_operacion"].ToString(), ex, "");
-
             return;
         }
     }
@@ -204,24 +160,24 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
 
 
         // Validamos que haya un descuento aplicado pues si este se encuentra, es necesario mostrarlo, de lo contrario no, pues ocupario mayor espacio en el desglose
-        if (DatosNumericos.descuento != null || DatosNumericos.descuento_porcentaje != null)
-        {
-            content_descuento.Visible = true;
-            content_descuento_subtotal.Visible = true;
-          
-
-            lbl_subtotalSinDescuento.Text = decimal.Round(DatosNumericos.subtotal + (decimal)DatosNumericos.descuento, 2).ToString("C2", myNumberFormatInfo) + " " + DatosNumericos.monedaPedido;
+        //if (DatosNumericos.descuento != null || DatosNumericos.descuento_porcentaje != null)
+        //{
+        //    content_descuento.Visible = true;
+        //    content_descuento_subtotal.Visible = true;
 
 
+        //    lbl_subtotalSinDescuento.Text = decimal.Round(DatosNumericos.subtotal + (decimal)DatosNumericos.descuento, 2).ToString("C2", myNumberFormatInfo) + " " + DatosNumericos.monedaPedido;
 
-            lbl_descuento_porcentaje.Text = decimal.Round((decimal)DatosNumericos.descuento_porcentaje, 1).ToString();
 
-        }
-        else
-        {
-            content_descuento_subtotal.Visible = false;
-            content_descuento.Visible = false;
-        }
+
+        //    lbl_descuento_porcentaje.Text = decimal.Round((decimal)DatosNumericos.descuento_porcentaje, 1).ToString();
+
+        //}
+        //else
+        //{
+        //    content_descuento_subtotal.Visible = false;
+        //    content_descuento.Visible = false;
+        //}
 
 
 
@@ -283,7 +239,7 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
                                 },
                                 'tax_total': {
                     'currency_code' : '" + DatosNumericos.monedaPedido + @"',
-                                    'value': '" + decimal.Round(DatosNumericos.impuestos,2) + @"'
+                                    'value': '" + decimal.Round(DatosNumericos.impuestos, 2) + @"'
                                 },
                             }
 
@@ -308,12 +264,12 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
             string unit_amount = decimal.Round(p.precio_unitario, 2).ToString();
             string quantity = decimal.Round(p.cantidad, 0).ToString();
 
-         
 
 
-      
 
-            json.Append(@"{     'name' : '" + name+ @"',
+
+
+            json.Append(@"{     'name' : '" + name + @"',
                                 'sku' : '" + sku + @"',
                                 'description': '" + description + @"',
                                 'unit_amount' : {
@@ -386,7 +342,7 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
         ClientScriptManager cs = Page.ClientScript;
         Type cstype = this.GetType();
         cs.RegisterStartupScript(cstype, "PayPalButton", json.ToString(), true);
-      
+
         paypal_button_container.Visible = true;
 
         up_estatus_paypal.Update();
@@ -398,7 +354,8 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
 
         if (resultado.Item1)
         {
-            materializeCSS.crear_toast(up_estatus_paypal, "Pedido actualizado con éxito", true);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Pedido renovado");
+            //materializeCSS.crear_toast(up_estatus_paypal, "Pedido actualizado con éxito", true);
 
             string script = @"   setTimeout(function () {  location.reload(); }, 1000);";
             ScriptManager.RegisterStartupScript(up_estatus_paypal, typeof(Page), "redirección", script, true);
@@ -406,7 +363,8 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
         }
         else
         {
-            materializeCSS.crear_toast(up_estatus_paypal, "Error al actualizar algunos productos: " + resultado.Item2, true);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al renovar el pedido");
+            //materializeCSS.crear_toast(up_estatus_paypal, "Error al actualizar algunos productos: " + resultado.Item2, true);
         }
     }
     protected void resetearTextosInfoPago()
@@ -434,9 +392,9 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
         lbl_paypal_fecha_primerIntento.Text = String.Format("{0:F}", historialPagos[0].fecha_primerIntento);
         lbl_paypal_fecha_actualización.Text = String.Format("{0:F}", historialPagos[0].fecha_actualización);
 
- 
 
-     
+
+
 
         up_estatus_paypal.Update();
 
@@ -484,13 +442,13 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
         return envio;
 
     }
-     
+
 
     /// <summary>
     /// Verifica 7 aspectos para mostrar el boton de pago, [true] para mostrarlo, [false] para no mostrarlo
     /// 
     /// </summary>
-    protected bool validarBloqueoPago(List<pedidos_productos>  Productos, pedidos_datos Datos, pedidos_datosNumericos DatosNumericos)
+    protected bool validarBloqueoPago(List<pedidos_productos> Productos, pedidos_datos Datos, pedidos_datosNumericos DatosNumericos)
     {
         bool pedidoAprobadoPorAsesor = false;
         bool pagoYaRealizado = false;
@@ -523,7 +481,7 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
         // Guarda el número de parte de los productos que no son elegibles para envío gratuito y mostrarlos.
         string ProductosNoDisponiblesParaEnvioGratis = "";
 
-        lbl_metodoEnvio.Text = metodoEnvio;
+        //lbl_metodoEnvio.Text = metodoEnvio;
 
 
 
@@ -794,7 +752,7 @@ public partial class usuario_cliente_pago_paypal : System.Web.UI.Page
     }
     protected void linkActualizarUP_Click(object sender, EventArgs e)
     {
-       
+
         string numero_operacion = hf_numero_operacion.Value;
 
 

@@ -112,7 +112,7 @@
     }
 </style>
 
-<script>
+<%--<script>
     document.addEventListener("DOMContentLoaded", (event) => {
         BootstrapTxtAction("#txt_buscador_principal", "#btn_buscar")
         // INICIO Buscador en listado de marcas
@@ -147,4 +147,4 @@
 
         // FIN - Boton de buscar principal
     });
-</script>
+</script>--%>

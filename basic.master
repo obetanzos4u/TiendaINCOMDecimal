@@ -870,7 +870,6 @@
         <a onclick="topFunction()" id="btn_toTop" title="Desplazarse arriba de la página">
             <img id="img_toTop" alt="boton desplazarse hacia arriba en la página" src="https://www.incom.mx/img/webUI/newdesign/collapse_arrow.svg" />
         </a>
-
     </form>
 
     <script>

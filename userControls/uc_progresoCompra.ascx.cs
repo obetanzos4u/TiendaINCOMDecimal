@@ -15,6 +15,7 @@ public partial class uc_progresoCompra : System.Web.UI.UserControl
             case "RESUMEN":
                 summaryStep();
                 break;
+            case "PAYPAL":
             case "PAGO":
                 paymentStep();
                 break;

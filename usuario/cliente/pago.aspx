@@ -49,12 +49,13 @@
                                 <asp:Panel ID="pnl_paypal" Visible="false" runat="server">
                                     <asp:UpdatePanel ID="up_paypal" UpdateMode="Conditional" RenderMode="Block" runat="server">
                                         <ContentTemplate>
-                                            <div id="btn_paypal_container" runat="server" style="border: 2px solid red"></div>
+
+                                            <!--<div id="paypal_button_container" class="paypal_button_container" runat="server" style="border: 2px solid red"></div>
                                             <asp:Panel ID="pnl_noDisponiblePago" Visible="false" runat="server">
                                                 <strong>El pago no está disponible por los siguientes motivos: </strong>
                                                 <p id="motivosNoDisponiblePago" visible="false" runat="server"></p>
                                             </asp:Panel>
-                                            <asp:LinkButton ID="btn_renovarPedidoPayPal" Visible="false" OnClick="btn_renovarPedidoPayPal_Click" runat="server"></asp:LinkButton>
+                                            <asp:LinkButton ID="btn_renovarPedidoPayPal" Visible="false" OnClick="btn_renovarPedidoPayPal_Click" runat="server">Renovar pedido</asp:LinkButton>
                                             <div id="content_msg_bootstrap"></div>
                                             <table id="dt_desglose_paypal" visible="false" class="table" runat="server">
                                                 <tr>
@@ -89,7 +90,7 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <asp:LinkButton ID="linkActualizarUP" runat="server" OnClick="linkActualizarUP_Click">Actualizar</asp:LinkButton>
+                                            <asp:LinkButton ID="linkActualizarUP" runat="server" OnClick="linkActualizarUP_Click">Actualizar</asp:LinkButton>-->
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                 </asp:Panel>
