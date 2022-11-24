@@ -547,7 +547,8 @@ div.arrow-doble-down #svg-arrow-down {
 /* Fin de la corrección de activación de origen */
 
 #txt_email {
-    height:  2.5rem;
+    width: 80% !important;
+    padding-left: 1rem;
 }
 
 #txt_password, #txt_password_confirmacion {
@@ -614,6 +615,10 @@ div.arrow-doble-down #svg-arrow-down {
 
         #txt_password, #txt_password_confirmacion {
             min-width: 280px;
+            height: 2rem;
+        }
+
+        #txt_email {
             height: 2rem;
         }
     }
@@ -2297,6 +2302,12 @@ div.arrow-doble-down #svg-arrow-down {
         height: 28px !important;
         line-height: 28px !important;
     }
+
+    #txt_email {
+        height: 2.5rem;
+        width: 80% !important;
+        padding-left: 1rem;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -2516,6 +2527,11 @@ div.arrow-doble-down #svg-arrow-down {
         #txt_password, #txt_password_confirmacion {
             width: 260px;
             height: 2rem !important;
+        }
+
+        #txt_email {
+            height: 2rem;
+            padding-left: 0;
         }
     }
 

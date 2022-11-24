@@ -470,6 +470,10 @@
             margin: 0.5rem 0rem 0rem 0rem;
         }
 
+        #body_btn_regresar_pedidos {
+            text-decoration: none;
+        }
+
         @media only screen and (min-width:500px) and (max-width: 700px) {
 
             .svg_resumen, .svg_pago,

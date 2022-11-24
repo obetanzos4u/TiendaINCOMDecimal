@@ -195,6 +195,14 @@
             margin-right: 2rem;
         }
 
+        #body_btn_regresar_resumen {
+            margin-bottom: 3rem;
+            float: right;
+            width: 100%;
+            text-align: end;
+            text-decoration: none;
+        }
+
         @media only screen and (min-width: 1600px) {
             .container-pay-process {
                 width: 40%;
