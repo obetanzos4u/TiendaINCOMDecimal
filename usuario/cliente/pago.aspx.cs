@@ -135,7 +135,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         //    NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al generar el pago de PayPal, intentar más tarde");
         //}
     }
-    protected void btn_transferencia_Click(Object sender, EventArgs e)
+    protected async void btn_transferencia_Click(Object sender, EventArgs e)
     {
         pnl_tarjeta.Visible = false;
         pnl_paypal.Visible = false;
@@ -143,11 +143,6 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
 
         btn_tarjeta.Enabled = false;
         btn_paypal.Enabled = false;
-        btn_finalizar_compra.Visible = true;
-        btn_finalizar_compra.NavigateUrl = GetRouteUrl("cliente-pedido-finalizado", new System.Web.Routing.RouteValueDictionary
-        {
-            { "id_operacion", seguridad.Encriptar(hf_id_operacion.Value) }
-        });
     }
     #endregion
     private async Task CargarDatosPedidoAsync()
@@ -974,6 +969,32 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         {
             generarBotonPagoPayPal(pedidoDatos, pedidoDatosNumericos, pedidoProductos);
         }
+    }
+    #endregion
+
+    #region Funciones para pahar a través de transferencia bancaria
+    protected async void btn_transferenciaRealizada_Click(object sender, EventArgs e)
+    {
+        //NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
+        var transferencia = new pedidos_pagos_transferencia();
+        transferencia.numero_operacion = lbl_numero_pedido.Text;
+        transferencia.confirmacionAsesor = false;
+        transferencia.fecha_captura = utilidad_fechas.obtenerCentral();
+
+        var resultado = await PedidosEF.GenerarReferenciaTransferencia(transferencia);
+        if (resultado.result == false || resultado.exception == true)
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al generar la referencia. " + resultado.message);
+            //NotiflixJS.Loading(up_pasarelaPago, NotiflixJS.LoadingType.remove);
+        }
+
+        btn_finalizar_compra.Visible = true;
+        btn_finalizar_compra.NavigateUrl = GetRouteUrl("cliente-pedido-finalizado", new System.Web.Routing.RouteValueDictionary
+        {
+            { "id_operacion", seguridad.Encriptar(hf_id_operacion.Value) }
+        });
+        up_pasarelaPago.Update();
+        //NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
     }
     #endregion
 }

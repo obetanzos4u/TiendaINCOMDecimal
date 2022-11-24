@@ -303,6 +303,10 @@ body {
     background-color: #ffffff;
 }
 
+.is-bg-blue-400 {
+    background-color: #60a5fa;
+}
+
 .is-bg-blue-500 {
     background-color: #3b82f6;
 }
@@ -1061,7 +1065,7 @@ body {
     *::-webkit-scrollbar-track:hover {
         background-color: #F6F6F6;
     }
-
+     
     *::-webkit-scrollbar-thumb:hover {
         background-color: #949494;
     }

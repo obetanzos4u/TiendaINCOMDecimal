@@ -2,7 +2,7 @@
 
 <asp:UpdatePanel runat="server">
     <ContentTemplate>
-        <div class="container-pay-process is-flex is-justify-evenly is-items-center is-select-none is-py-1">
+        <div class="container-pay-process is-flex is-justify-evenly is-items-center is-select-none is-py-2">
             <div class="is-flex is-flex-col is-justify-center is-items-center">
                 <span id="spn_resumen" runat="server">
                     <svg class="svg_resumen is-w-12 is-h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

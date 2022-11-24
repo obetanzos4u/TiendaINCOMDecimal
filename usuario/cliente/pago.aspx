@@ -15,7 +15,7 @@
                 <div class="is-flex is-justify-center is-items-center">
                     <h1 class="h5 text-metodo_pago"><strong>Método de pago del pedido:
                     <asp:Label ID="lbl_numero_pedido" class="is-select-all" runat="server"></asp:Label></strong></h1>
-                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_pedido', 'Pedido')">
+                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lbl_numero_pedido', 'Número de pedido')">
                         <span class="is-text-gray">
                             <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
@@ -102,7 +102,10 @@
                                         Número de pedido:
                                         <asp:Label ID="lbl_numero_pedido_bottom" class="is-select-all" runat="server"></asp:Label>
                                     </p>
-                                    <asp:HyperLink ID="btn_finalizar_compra" Visible="false" runat="server" Text="Ya realicé el pago"></asp:HyperLink>
+                                    <div class="is-flex is-justify-between is-items-center">
+                                        <asp:LinkButton ID="btn_transferenciaRealizada" OnClick="btn_transferenciaRealizada_Click" Text="Registrar referencia" runat="server"></asp:LinkButton>
+                                        <asp:HyperLink ID="btn_finalizar_compra" Visible="false" runat="server" Text="Ya realicé el pago"></asp:HyperLink>
+                                    </div>
                                 </asp:Panel>
                             </ContentTemplate>
                             <Triggers>
