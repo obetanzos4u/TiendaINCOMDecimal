@@ -4,10 +4,10 @@
     const contentMsg = document.querySelector("#ajax-login-msg-result > p");
 
     if (res.result) {
-        let countdown = 3;
+        let countdown = 2;
         contentMsg.className = 'is-text-emerald is-text-semibold is-text-center is-select-none';
         setInterval(() => {
-            contentMsg.textContent = "Inicio de sesión con Google exitoso, serás redirigido en " + countdown + " segundos.";
+            contentMsg.textContent = "Inicio de sesión con Google exitoso, serás redirigido en breve.";
             if (countdown === 0 || countdown < 0) {
                 location.reload();
             }
@@ -250,10 +250,10 @@ const LoginAjaxTextResult = (r) => {
     contentMsg.className = '';
     if (!exception) {
         if (result) {
-            let countdown = 3;
+            let countdown = 2;
             setInterval(() => {
                 contentMsg.className = 'is-text-emerald is-text-semibold is-text-center is-select-none';
-                contentMsg.textContent = "Inicio de sesión exitoso, serás redirigido en " + countdown + " segundos."
+                contentMsg.textContent = "Inicio de sesión exitoso, serás redirigido en breve"
                 if (countdown === 0 || countdown < 0) {
                     location.reload();
                 }
