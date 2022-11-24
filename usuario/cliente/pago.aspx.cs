@@ -38,8 +38,9 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                 {
                     { "id_operacion", seguridad.Encriptar(hf_numero_operacion.Value) }
                 });
-                cargarScriptPayPal();
+                //cargarScriptPayPal();
             }
+            NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
         }
     }
     #region Botones para activar los páneles
@@ -70,6 +71,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         if (!resultadoPagoBloqueado)
         {
             await generarLinkDePagoAsync(pedidosDatos, pedidosDatosNumericos);
+            NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
         }
         NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
     }

@@ -58,7 +58,7 @@ public class UsuariosEF
             {
                 var Usuarios = await db.usuarios
                    .AsNoTracking()
-                   .Where(s => s.tipo_de_usuario == "usuario" && s.cuenta_activa!= false).ToListAsync();
+                   .Where(s => s.tipo_de_usuario == "usuario" && s.cuenta_activa != false).ToListAsync();
 
 
                 return Usuarios;
@@ -76,17 +76,14 @@ public class UsuariosEF
     /// </summary>
     public static async Task<List<usuario>> ObtenerUsuariosVendedores()
     {
-
-
         try
         {
-
             using (var db = new tiendaEntities())
             {
                 var Usuarios = await db.usuarios
                    .AsNoTracking()
                    .Where(s => s.tipo_de_usuario == "usuario" && s.cuenta_activa != false)
-                 .Where(s => s.departamento == "Telemarketing" || s.departamento == "Ventas").ToListAsync();
+                 .Where(s => s.departamento == "Telemarketing" || s.departamento == "Ventas").Distinct().ToListAsync();
                 return Usuarios;
             }
         }
@@ -96,9 +93,6 @@ public class UsuariosEF
             return null;
         }
     }
-
-
-
     /// <summary>
     /// 20210308 CM - Obtiene la información de un usuario
     /// </summary>
@@ -128,12 +122,15 @@ public class UsuariosEF
     /// <summary>
     /// 20210514 CM - Obtiene la información de un usuario
     /// </summary>
-    public static usuariosInfo ObtenerInfo(int idUsuario) {
+    public static usuariosInfo ObtenerInfo(int idUsuario)
+    {
 
 
-        try {
+        try
+        {
 
-            using (var db = new tiendaEntities()) {
+            using (var db = new tiendaEntities())
+            {
                 var Usuario = db.usuariosInfoes
                     .AsNoTracking()
                     .Where(s => s.idUsuario == idUsuario).FirstOrDefault();
@@ -142,7 +139,8 @@ public class UsuariosEF
                 return Usuario;
             }
         }
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
 
             return null;
         }
@@ -171,16 +169,20 @@ public class UsuariosEF
     /// <summary>
     /// 20210514 CM - Crea la información extra de un usuario ya registrado
     /// </summary>
-    public static async Task<json_respuestas> CrearInfo( usuariosInfo UsuarioInfo) {
-        try {
-            using (var db = new tiendaEntities()) {
+    public static async Task<json_respuestas> CrearInfo(usuariosInfo UsuarioInfo)
+    {
+        try
+        {
+            using (var db = new tiendaEntities())
+            {
                 db.usuariosInfoes.Add(UsuarioInfo);
                 await db.SaveChangesAsync();
 
                 return new json_respuestas(true, "Info creada con éxito", false, UsuarioInfo);
             }
         }
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
             return new json_respuestas(false, "Hubo un error al crear la info", true, ex);
         }
     }
@@ -234,7 +236,7 @@ public class UsuariosEF
             {
                 var Usuario = db.usuarios
                     .AsNoTracking()
-                    .Where(s => s.email == emailUsuario )
+                    .Where(s => s.email == emailUsuario)
                     .FirstOrDefault();
 
                 /*
@@ -242,7 +244,7 @@ public class UsuariosEF
                 nuevas se les asigna el valor false y es necesario activarlas
                 */
 
-                if (Usuario.cuenta_confirmada == true || Usuario.cuenta_confirmada == null   )
+                if (Usuario.cuenta_confirmada == true || Usuario.cuenta_confirmada == null)
                 {
                     return new json_respuestas(true, "La cuenta se encuentra confirmada", false);
                 }
@@ -397,33 +399,35 @@ public class UsuariosEF
 
     public static async Task<json_respuestas> EnviarEmailActivacion(usuario Usuario, string dominio)
     {
-        try { 
+        try
+        {
 
             var resultGeneracionLiga = await UsuariosEF.GenerarLigaConfirmacionDeCuenta(Usuario.email);
 
-            if (resultGeneracionLiga.result == false && resultGeneracionLiga.exception == true) {
+            if (resultGeneracionLiga.result == false && resultGeneracionLiga.exception == true)
+            {
                 return new json_respuestas(false, "Error interno, no fué posible enviar el email de activación", true);
+            }
+
+            usuarios_ligas_confirmaciones Liga = resultGeneracionLiga.response;
+
+            string filePath = "/email_templates/ui/usuario_ConfirmarCuenta.html";
+
+            Dictionary<string, string> datos = new Dictionary<string, string>();
+            datos.Add("{nombre}", Usuario.nombre + " " + Usuario.apellido_paterno);
+            datos.Add("{dominio}", dominio);
+            datos.Add("{enlaceConfirmacion}", dominio + "/usuario-confirmacion-de-cuenta.aspx?clave=" + Liga.clave);
+
+            string mensaje = archivosManejador.reemplazarEnArchivo(filePath, datos);
+            emailTienda registro = new emailTienda("Confirma tu cuenta de Incom.mx: " + Usuario.nombre + " ", Usuario.email, mensaje, null);
+            registro.general();
+
+            return new json_respuestas(false, "Email enviado con éxito", true);
         }
-
-        usuarios_ligas_confirmaciones Liga = resultGeneracionLiga.response;
-        
-        string filePath = "/email_templates/ui/usuario_ConfirmarCuenta.html";
-
-        Dictionary<string, string> datos = new Dictionary<string, string>();
-        datos.Add("{nombre}", Usuario.nombre + " " + Usuario.apellido_paterno);
-        datos.Add("{dominio}", dominio);
-        datos.Add("{enlaceConfirmacion}", dominio + "/usuario-confirmacion-de-cuenta.aspx?clave=" + Liga.clave);
-
-         string mensaje = archivosManejador.reemplazarEnArchivo(filePath, datos);
-        emailTienda registro = new emailTienda("Confirma tu cuenta de Incom.mx: " + Usuario.nombre + " ", Usuario.email, mensaje, null);
-        registro.general();
-
-        return new json_respuestas(false, "Email enviado con éxito", true);
-        }
-        catch(Exception ex)
+        catch (Exception ex)
         {
 
-            return new json_respuestas(false, "Error interno, no fué posible enviar el email de activación", true,ex);
+            return new json_respuestas(false, "Error interno, no fué posible enviar el email de activación", true, ex);
         }
     }
 
