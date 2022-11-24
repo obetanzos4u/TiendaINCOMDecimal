@@ -135,7 +135,7 @@
     </svg>
         </span>--%>
     </section>
-    <section class="pleca is-flex is-bg-blue-darky is-py-0 is-justify-center  is-h-8">
+    <section class="pleca is-flex is-bg-envioGratis is-py-0 is-justify-center  is-h-8">
         <span class="text-pleca is-flex is-text-white is-text-center is-items-center is-select-none">¡ENVÍO GRATIS! &nbsp;&nbsp; Válido en compras en línea desde $3,000 mxn</span>
     </section>
     <div id="content_header" class="col s12 m12 l12" style="padding: 5px 0px;">
