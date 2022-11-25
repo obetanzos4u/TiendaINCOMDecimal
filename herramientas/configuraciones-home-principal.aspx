@@ -1,95 +1,93 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" 
-     EnableEventValidation="false"
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true"
+    EnableEventValidation="false"
     Async="true" CodeFile="configuraciones-home-principal.aspx.cs"
     MasterPageFile="~/herramientas/_masterConfiguraciones.master" Inherits="herramientas_configuraciones_home_principal" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
-    <h1 class="center-align margin-b-2x">Configuración de Home Slider   
-         
-    </h1>
-    <h3 class="center-align margin-t-2x">Powered by Marketing development</h3>
+    <h1 class="center-align margin-b-2x">Avisos</h1>
     <div class="section">
         <div class="container">
-            <div class="row" style="border: 1px solid #4cff00">
+            <div class="row">
                 <div class="center-align col s12 l12">
-
-                    <a class="waves-effect waves-light btn btn-s blue-grey lighten-5 blue-grey-text text-darken-4 modal-trigger"
-                        href="#modal_agregar_slider"><i class="left large material-icons">slideshow</i> Agregar Slider</a>
-
+                    <a class="waves-effect waves-light modal-trigger is-btn-blue is-text-center" href="#modal_agregar_slider">Agregar slider
+                    </a>
                 </div>
-
             </div>
             <div class="row">
                 <asp:UpdatePanel ID="up_Lv_Slider" UpdateMode="Conditional" class="col s12  m12 l12 margin-t-4x" runat="server">
-                    <ContentTemplate>
-                <asp:ListView ID="lv_imagenes" OnItemDataBound="lv_imagenes_ItemDataBound" runat="server">
-                    <LayoutTemplate>
-                        <div runat="server" id="itemPlaceholder"></div>
+                    <contenttemplate>
+                        <asp:ListView ID="lv_imagenes" OnItemDataBound="lv_imagenes_ItemDataBound" runat="server">
+                            <layouttemplate>
+                                <div runat="server" id="itemPlaceholder"></div>
 
-                    </LayoutTemplate>
-                    <ItemTemplate>
-                        <asp:HiddenField ID="hf_idSlider" Value='<%#Eval("id")%>' runat="server" />
-                        <div class="col s12  m6 l6 xl4">
-                            <div class="card ">
-                                <div class="card-image">
-                                    <asp:Image ID="imgSlider" ImageUrl='<%# configuracion_sliders.directorioSliderRelativo + Eval("nombreArchivo") %>' runat="server" />
-                                    <asp:Label ID="lbl_tituloSlider" class="card-title" runat="server" Text=""></asp:Label>
+                            </layouttemplate>
+                            <itemtemplate>
+                                <asp:HiddenField ID="hf_idSlider" Value='<%#Eval("id")%>' runat="server" />
+                                <div class="col s12  m6 l6 xl4">
+                                    <div class="card ">
+                                        <div class="card-image">
+                                            <asp:Image ID="imgSlider" ImageUrl='<%# configuracion_sliders.directorioSliderRelativo + Eval("nombreArchivo") %>' runat="server" />
+                                            <asp:Label ID="lbl_tituloSlider" class="card-title" runat="server" Text=""></asp:Label>
 
-                                    <asp:LinkButton ID="btn_editSliderModal" OnClick="btn_editSliderModal_Click"
-                                        class="btn-floating halfway-fab waves-effect waves-light blue"
-                                        runat="server"><i class="material-icons">edit</i></asp:LinkButton>
-                                </div>
-                                <div class="card-content">
-                                    <h2 class="margin-b-2x margin-t-2x">
-                                        <%#  string.IsNullOrWhiteSpace(Eval("titulo").ToString()) ? "----" : Eval("titulo").ToString() %>
+                                            <asp:LinkButton ID="btn_editSliderModal" OnClick="btn_editSliderModal_Click"
+                                                class="btn-floating halfway-fab waves-effect waves-light blue"
+                                                runat="server">
+                                                <i class="material-icons">edit</i></asp:LinkButton>
+                                        </div>
+                                        <div class="card-content">
+                                            <h2 class="margin-b-2x margin-t-2x">
+                                                <%#  string.IsNullOrWhiteSpace(Eval("titulo").ToString()) ? "----" : Eval("titulo").ToString() %>
 
-                                    </h2>
-                                    <p>
-                           <%#  string.IsNullOrWhiteSpace(Eval("descripcion").ToString()) ? "----" : Eval("descripcion").ToString() %>            
-                                  
-                                    </p>
+                                            </h2>
+                                            <p>
+                                                <%#  string.IsNullOrWhiteSpace(Eval("descripcion").ToString()) ? "----" : Eval("descripcion").ToString() %>
+                                            </p>
 
-                                    <asp:Label ID="lbl_descripcion" runat="server"
-                                        Text='<%#  Eval("nombreArchivo") %>'></asp:Label>
+                                            <asp:Label ID="lbl_descripcion" runat="server"
+                                                Text='<%#  Eval("nombreArchivo") %>'></asp:Label>
 
-                                    <br />
-                                    Link: <p class="nota truncate">
-                                           <%#  string.IsNullOrWhiteSpace(Eval("link").ToString()) ? "----" : Eval("link").ToString() %>            
-                                          </p>
-                                   <br /> <asp:LinkButton ID="btn_eliminarSlider" 
-                                        OnClick="btn_eliminarSlider_Click" runat="server">Eliminar Slider</asp:LinkButton>
+                                            <br />
+                                            Link:
+                                            <p class="nota truncate">
+                                                <%#  string.IsNullOrWhiteSpace(Eval("link").ToString()) ? "----" : Eval("link").ToString() %>
+                                            </p>
+                                            <br />
+                                            <asp:LinkButton ID="btn_eliminarSlider"
+                                                OnClick="btn_eliminarSlider_Click" runat="server">
+                                                Eliminar Slider</asp:LinkButton>
 
-                                </div>
-                                <div class="card-action">
+                                        </div>
+                                        <div class="card-action">
 
-                                    <div class="switch">
-                                        <label>
-                                            Desactivado
+                                            <div class="switch">
+                                                <label>
+                                                    Desactivado
                                             <asp:CheckBox ID="chk_activo" OnCheckedChanged="chk_activo_CheckedChanged"
                                                 AutoPostBack="true" runat="server" />
-                                            <span class="lever"></span>
-                                            Activado
-                                        </label>
+                                                    <span class="lever"></span>
+                                                    Activado
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </ItemTemplate>
+                            </itemtemplate>
 
-                    <EmptyDataTemplate>
-                        <div class="row">
-                            <div class="center-align col s12 l12 xl12">
-                                <h3 class="center-align">Aún no hay Slider Activos </h3>
-                                <a class="waves-effect waves-light btn blue-grey lighten-5 blue-grey-text text-darken-4 modal-trigger"
-                                    href="#modal_agregar_slider"><i class="left large material-icons">slideshow</i> Agregar</a>
-                            </div>
-                        </div>
-                    </EmptyDataTemplate>
-                    <EditItemTemplate>
-                        <h2>No hay slideres </h2>
-                    </EditItemTemplate>
-                </asp:ListView>
-                        </ContentTemplate></asp:UpdatePanel>
+                            <emptydatatemplate>
+                                <div class="row">
+                                    <div class="center-align col s12 l12 xl12">
+                                        <h3 class="center-align">Aún no hay Slider Activos </h3>
+                                        <a class="waves-effect waves-light btn blue-grey lighten-5 blue-grey-text text-darken-4 modal-trigger"
+                                            href="#modal_agregar_slider"><i class="left large material-icons">slideshow</i> Agregar</a>
+                                    </div>
+                                </div>
+                            </emptydatatemplate>
+                            <edititemtemplate>
+                                <h2>No hay slideres </h2>
+                            </edititemtemplate>
+                        </asp:ListView>
+                    </contenttemplate>
+                </asp:UpdatePanel>
 
             </div>
         </div>
@@ -121,7 +119,8 @@
 
 
                 <asp:LinkButton CssClass="waves-effect waves-light btn blue-grey lighten-5 blue-grey-text text-darken-4"
-                    ID="btn_cargarImagenSlider" OnClick="btn_cargarImagenSlider_Click" runat="server">Subir imagen
+                    ID="btn_cargarImagenSlider" OnClick="btn_cargarImagenSlider_Click" runat="server">
+                    Subir imagen
                      <i class="left large material-icons">image</i>
                 </asp:LinkButton>
 
@@ -130,11 +129,11 @@
 
         </div>
         <div class="row">
-            <asp:ListView ID="lv_galeriaDeImagenes"  runat="server">
-                <LayoutTemplate>
+            <asp:ListView ID="lv_galeriaDeImagenes" runat="server">
+                <layouttemplate>
                     <div runat="server" id="itemPlaceholder"></div>
-                </LayoutTemplate>
-                <ItemTemplate>
+                </layouttemplate>
+                <itemtemplate>
                     <asp:HiddenField ID="hf_imgFileName" Value='<%#Eval("Value")%>' runat="server" />
                     <div class="col s12  m6 l6 xl4">
                         <div class="card">
@@ -142,7 +141,7 @@
                                 <asp:Image ID="imgSlider" ImageUrl='<%# configuracion_sliders.directorioSliderRelativo + Eval("Value") %>' runat="server" />
                                 <asp:Label ID="lbl_tituloSlider" class="card-title" runat="server" Text=""></asp:Label>
 
-                               
+
                             </div>
                             <div class="card-content">
                                 <asp:Label ID="lbl_descripcion" runat="server"
@@ -153,9 +152,9 @@
                             </div>
                         </div>
                     </div>
-                </ItemTemplate>
+                </itemtemplate>
 
-                <EmptyDataTemplate>
+                <emptydatatemplate>
                     <div class="row">
                         <div class="center-align col s12 l12 xl12">
                             <h3 class="center-align">Aún no hay Slider Activos </h3>
@@ -163,10 +162,10 @@
                                 href="#modal_agregar_slider"><i class="left large material-icons">slideshow</i> Agregar</a>
                         </div>
                     </div>
-                </EmptyDataTemplate>
-                <EditItemTemplate>
+                </emptydatatemplate>
+                <edititemtemplate>
                     <h2>No hay imagenes cargadas </h2>
-                </EditItemTemplate>
+                </edititemtemplate>
             </asp:ListView>
 
         </div>
@@ -186,7 +185,7 @@
 
                 </div>
                 <div class="input-field col s12 m12 l6">
-                    <asp:DropDownList ID="ddl_imagen" class="selectize-select browser-default "  runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddl_imagen" class="selectize-select browser-default " runat="server"></asp:DropDownList>
                     <label for="<%=ddl_imagen.ClientID %>">Imagen</label>
 
                 </div>
@@ -217,26 +216,27 @@
                 </div>
 
                 <div class="input-field col s12 m12 l12 l12">
-                          <span >Opciones usar "_blank" para enlace en nueva pestaña, dejar vacio para link en la misma pestaña.</span>
+                    <span>Opciones usar "_blank" para enlace en nueva pestaña, dejar vacio para link en la misma pestaña.</span>
                     <asp:TextBox ID="txt_opciones" CssClass="materialize-textarea" TextMode="MultiLine" runat="server"></asp:TextBox>
-              
+
                 </div>
                 <div class="col s12  m14 l4 margin-b-2x">
                     <label>
                         <asp:CheckBox ID="chk_activa" runat="server" />
                         <span for="<%=chk_activa.ClientID %>">Activo</span>
                     </label>
-                    
+
                 </div>
 
                 <asp:UpdatePanel ID="up_agregarSlider" UpdateMode="Conditional" class="col s12  m12 l12 margin-t-4x" runat="server">
-                    <ContentTemplate>
+                    <contenttemplate>
                         <asp:LinkButton ID="btn_agregarSlider" CssClass="waves-effect waves-light btn blue-grey lighten-5 blue-grey-text text-darken-4"
-                            OnClick="btn_agregarSlider_Click" runat="server">Agregar Slider</asp:LinkButton>
-                    </ContentTemplate>
-                    <Triggers>
+                            OnClick="btn_agregarSlider_Click" runat="server">
+                            Agregar Slider</asp:LinkButton>
+                    </contenttemplate>
+                    <triggers>
                         <asp:AsyncPostBackTrigger ControlID="btn_agregarSlider" EventName="Click" />
-                    </Triggers>
+                    </triggers>
                 </asp:UpdatePanel>
             </div>
 
@@ -263,7 +263,7 @@
 
                 </div>
                 <div class="input-field col s12 m12 l6">
-                    <asp:DropDownList ID="ddl_imagenEdit"  class="selectize-select browser-default " runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddl_imagenEdit" class="selectize-select browser-default " runat="server"></asp:DropDownList>
                     <label for="<%=ddl_imagenEdit.ClientID %>">Imagen</label>
 
                 </div>
@@ -293,7 +293,7 @@
                     <label for="<%=ddl_posicionEdit.ClientID %>">Posicion</label>
                 </div>
                 <div class="input-field col s12 m12 l12 l12 ">
-                     <span>Opciones usar "_blank" para enlace en nueva pestaña, dejar vacio para link en la misma pestaña.</span>
+                    <span>Opciones usar "_blank" para enlace en nueva pestaña, dejar vacio para link en la misma pestaña.</span>
 
                     <asp:TextBox ID="txt_opcionesEdit" CssClass="materialize-textarea" TextMode="MultiLine" runat="server"></asp:TextBox>
                 </div>
@@ -301,14 +301,21 @@
                     <label>
                         <asp:CheckBox ID="chk_activoEdit" runat="server" />
                         <span>Activo</span>
-                        <br /><br />
+                        <br />
+                        <br />
                     </label>
                 </div>
                 <div class="col s12  m112 l12">
-                    <asp:UpdatePanel UpdateMode="Conditional" runat="server"><ContentTemplate>
-                    <asp:LinkButton ID="btn_editarSlider" OnClientClick="  $('#modal_editar_slider').modal('close');" CssClass="waves-effect waves-light btn blue-grey lighten-5 blue-grey-text text-darken-4"
-                        OnClick="btn_editarSlider_Click" runat="server">Editar Slider</asp:LinkButton>
-                </ContentTemplate><Triggers><asp:AsyncPostBackTrigger  ControlID="btn_editarSlider" EventName="Click"/></Triggers></asp:UpdatePanel>
+                    <asp:UpdatePanel UpdateMode="Conditional" runat="server">
+                        <contenttemplate>
+                            <asp:LinkButton ID="btn_editarSlider" OnClientClick="  $('#modal_editar_slider').modal('close');" CssClass="waves-effect waves-light btn blue-grey lighten-5 blue-grey-text text-darken-4"
+                                OnClick="btn_editarSlider_Click" runat="server">
+                                Editar Slider</asp:LinkButton>
+                        </contenttemplate>
+                        <triggers>
+                            <asp:AsyncPostBackTrigger ControlID="btn_editarSlider" EventName="Click" />
+                        </triggers>
+                    </asp:UpdatePanel>
 
                 </div>
 
