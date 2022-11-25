@@ -271,6 +271,10 @@ body {
     background-color: #D9D9D9;
 }
 
+.is-bg-red-400 {
+    background-color: #f87171;
+}
+
 .is-bg-green-500 {
     background-color: #22c55e;
 }
@@ -295,8 +299,16 @@ body {
     background-color: #000000;
 }
 
+.is-bg-envioGratis {
+    background-color: #252525;
+}
+
 .is-bg-white {
     background-color: #ffffff;
+}
+
+.is-bg-blue-400 {
+    background-color: #60a5fa;
 }
 
 .is-bg-blue-500 {
@@ -1057,7 +1069,7 @@ body {
     *::-webkit-scrollbar-track:hover {
         background-color: #F6F6F6;
     }
-
+     
     *::-webkit-scrollbar-thumb:hover {
         background-color: #949494;
     }

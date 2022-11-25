@@ -69,7 +69,7 @@
                                     </span>
                                 </a>
                             </div>
-                            <div id="msg_alert_envio" visible="false" class="alert alert-warning" role="alert" runat="server"></div>
+                            <div id="msg_alert_envio" visible="false" class="" role="alert" runat="server"></div>
                             <%--<asp:LinkButton ID="btn_Borrar_msg_alert_envio" CssClass="mb-2" Visible="false" OnClick="btn_Borrar_msg_alert_envio_Click" runat="server">
                             Borrar mensaje de error envío
                             </asp:LinkButton>--%>
@@ -121,15 +121,6 @@
                     Usuario: <strong>
                         <asp:Literal ID="lt_usuario_cliente" runat="server"></asp:Literal></strong>
                 </p> -->
-
-                <div id="content_pedido_cancelado" visible="false" runat="server">
-                    <div class="alert alert-danger" role="alert">
-                        <h4 class="alert-heading">Pedido cancelado</h4>
-                        <p>Se encontró una solicitud de cancelación de pedido o bien, tu pedido ya se encuentra cancelado</p>
-                        <strong>Mensaje:</strong>
-                        <asp:Label ID="lbl_motivoCancelacion" runat="server"></asp:Label>
-                    </div>
-                </div>
                 <div class="d-grid gap-2 mt-3 is-text-xs">
                     <h5 class="text-resumen_compra"><strong>Aviso:</strong></h5>
                     <ul class="is-p-0" style="text-decoration: none; list-style-type: none;">
@@ -137,7 +128,6 @@
                         <li>Por seguridad, algunos productos requieren un <strong>seguro de envío</strong>  con costo adicional. De ser el caso, su asesor de ventas le informará.</li>
                         <li>Una vez registrado el pago, solo se podrá actualizar el método de envío con ayuda de un asesor. Los datos de facturación o contacto se pueden actualizar normalmente.</li>
                     </ul>
-                    <div class="content_msg_confirmacion_pedido" runat="server"></div>
                 </div>
                 <div class="row">
                     <div class="is-w-auto">
@@ -145,21 +135,21 @@
                         </div>
                         <div class="text-cancelar_pedido">
                             <a id="link_modal_cancelar_pedido" runat="server" data-bs-toggle="modal" data-bs-target="#modal_cancelar_pedido"
-                                class="is-text-red is-decoration-none is-text-center">Cancelar pedido</a>
+                                class="is-text-red is-decoration-none is-text-center is-cursor-pointer">Cancelar pedido</a>
                         </div>
                     </div>
                 </div>
-                 <asp:Panel ID="Pago_Pendiente" Visible="false" CssClass="mt-4 col col-12 col-xs-12 col-sm-12 col-md-12 col-xl-12" runat="server">
-                <div style="float: left; width: fit-content;">
-                    <%--<p>Elige el método de pago:</p>--%> 
-                    <!--<asp:HyperLink ID="link_pago_santander" runat="server"><div class="is-btn-gray">Tarjeta crédito/débito</div></asp:HyperLink>-->
-                    <!--<asp:HyperLink ID="link_pago_paypal" class="is-text-white is-decoration-none" runat="server"><div class="is-btn-gray"><p id="text-paypal" style="color: white;">PayPal</p></div></asp:HyperLink>-->
-<!--                    <a data-bs-toggle="modal" data-bs-target="#modal_deposito_trans"><div class="is-btn-gray">Transferencia o depósito</div></a>          
+                <asp:Panel ID="Pago_Pendiente" Visible="false" CssClass="mt-4 col col-12 col-xs-12 col-sm-12 col-md-12 col-xl-12" runat="server">
+                    <div style="float: left; width: fit-content;">
+                        <%--<p>Elige el método de pago:</p>--%>
+                        <!--<asp:HyperLink ID="link_pago_santander" runat="server"><div class="is-btn-gray">Tarjeta crédito/débito</div></asp:HyperLink>-->
+                        <!--<asp:HyperLink ID="link_pago_paypal" class="is-text-white is-decoration-none" runat="server"><div class="is-btn-gray"><p id="text-paypal" style="color: white;">PayPal</p></div></asp:HyperLink>-->
+                        <!--                    <a data-bs-toggle="modal" data-bs-target="#modal_deposito_trans"><div class="is-btn-gray">Transferencia o depósito</div></a>          
                     <div class="alert alert-warning mt-4" role="alert">
                         <strong>Aviso</strong>  No sé ha confirmado un pago aún.
                     </div>-->
-                </div>
-                </asp:Panel> 
+                    </div>
+                </asp:Panel>
                 <asp:Panel ID="Pago_Confirmado" Visible="false" CssClass="mt-4 col col-12 col-xs-12 col-sm-12 col-md-12 col-xl-12" runat="server">
                     <p class="h5">
                         Pago ya realizado vía
@@ -251,6 +241,28 @@
                         </tbody>
                     </table>
                 </div>
+                <div id="cnt_transferencia_registrada" visible="false" class="is-rounded-lg is-border-soft is-my-4" runat="server">
+                    <div class="is-flex is-flex-col">
+                        <h4 class="text-resumen_compra is-text-white is-text-lg is-font-semibold is-bg-blue-400 is-px-8 is-rounded-t-lg is-select-none">Pago por transferencia registrado</h4>
+                        <div class="is-px-8 is-py-2">
+                            <strong id="txt_transferencia_mensaje" runat="server"></strong>
+                            <p id="txt_transferencia_contacto" runat="server"></p>
+                        </div>
+                    </div>
+                    <div class="content_msg_confirmacion_pedido" runat="server"></div>
+                </div>
+                <div id="content_pedido_cancelado" visible="false" runat="server">
+                    <div class="is-rounded-lg is-border-soft is-my-4" role="alert">
+                        <div class="is-flex is-flex-col">
+                            <h4 class="text_resumen_compra is-text-lg is-text-white is-font-semibold is-bg-red-400 is-px-8 is-rounded-t-lg is-select-none">Pedido cancelado</h4>
+                            <div class="is-px-8 is-py-2">
+                                <p>Se encontró una solicitud de cancelación del pedido. Tu pedido está cancelado.</p>
+                                <strong>Motivo:</strong>
+                                <asp:Label ID="lbl_motivoCancelacion" runat="server"></asp:Label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row is-top-2">
                     <div class="is-m-auto is-w-auto">
                         <asp:LinkButton runat="server" ID="btn_continuarMetodoPago" OnClick="btn_continuarMetodoPago_Click" CssClass="is-decoration-none is-btn-green">Continuar a método de pago</asp:LinkButton>
@@ -265,19 +277,18 @@
         <div class="modal-dialog  modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">
-                        <strong>Cancelar pedido:
-                        </strong>
+                    <h5 class="modal-title is-select-none">
+                        <strong>Cancelar pedido:</strong>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>
+                    <p class="is-italic">
                         Una vez que solicites la cancelación de pedido no podras realizar cambios en este.
                     </p>
                     <div class="mb-3">
                         <label for="txt_motivo_cancelacion" class="form-label">Cuéntanos el motivo de cancelación:</label>
-                        <asp:TextBox ID="txt_motivo_cancelacion" ClientIDMode="Static" class="form-control" TextMode="MultiLine" Rows="3" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_motivo_cancelacion" ClientIDMode="Static" class="form-control" TextMode="MultiLine" Rows="3" Style="resize: none;" runat="server"></asp:TextBox>
                     </div>
                     <asp:LinkButton OnClick="btn_cancelar_pedido_Click" OnClientClick="BootstrapClickLoading(this);"
                         ID="btn_cancelar_pedido" runat="server">
@@ -304,9 +315,9 @@
                     <h5 class="modal-title" id="exampleModalLabel">Transferencia o deposito</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body is-border-soft">
+                <div class="modal-body">
                     <img src="/img/informacion/logo-banamex.svg" style="width: 200px;" class="img-thumbnail" />
-                    <h5 class="card-title mt-2">Datos de la cuenta test</h5>
+                    <h5 class="card-title mt-2">Datos de la cuenta</h5>
                     <p>
                         Número de operación
             <strong>Razón social:</strong> Insumos Comerciales de Occidente S.A. de C.V.

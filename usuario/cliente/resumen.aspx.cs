@@ -159,8 +159,8 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         }
         else
         {
-            msg_alert_envio.InnerText = pedido_montos.EnvioNota;
-            msg_alert_envio.Visible = false;
+            //msg_alert_envio.InnerText = pedido_montos.EnvioNota;
+            //msg_alert_envio.Visible = false;
             //btn_Borrar_msg_alert_envio.Visible = false;
         }
 
@@ -174,6 +174,10 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             lbl_motivoCancelacion.Text = pedidos_datos.motivoCancelacion;
             btn_cancelar_pedido.Visible = false;
             link_modal_cancelar_pedido.Visible = false;
+            btn_continuarMetodoPago.Enabled = false;
+            btn_continuarMetodoPago.CssClass = "is-decoration-none is-btn-gray is-select-none";
+            btn_continuarMetodoPago.Attributes.Add("style", "cursor: not-allowed;");
+            btn_continuarMetodoPago.ToolTip = "Pedido cancelado";
         }
         #endregion
     }
@@ -328,9 +332,17 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
     protected void BloquearBotones()
     {
         btn_cambiar_metodo_envio.Enabled = false;
+        btn_cambiar_metodo_envio.CssClass = "is-decoration-none is-select-none is-cursor-not-allowed";
+        btn_cambiar_metodo_envio.ToolTip = "Pedido cancelado";
         btn_sin_factura.Enabled = false;
+        btn_sin_factura.CssClass = "is-decoration-none is-select-none is-cursor-not-allowed";
+        btn_sin_factura.ToolTip = "Pedido cancelado";
         link_cambiar_contacto.Enabled = false;
+        link_cambiar_contacto.CssClass = "is-decoration-none is-select-none is-cursor-not-allowed";
+        link_cambiar_contacto.ToolTip = "Pedido cancelado";
         link_cambiar_direcc_facturacion.Enabled = false;
+        link_cambiar_direcc_facturacion.CssClass = "is-decoration-none is-select-none is-cursor-not-allowed";
+        link_cambiar_direcc_facturacion.ToolTip = "Pedido cancelado";
     }
 
 
@@ -368,14 +380,27 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         if (status.result && status.exception == false)
         {
 
-            BootstrapCSS.Message(this, ".content_msg_confirmacion_pedido", BootstrapCSS.MessageType.info,
-           "Pago registrado",
-           $"{status.message} Si deseas realizar algún cambio en el método/dirección de envío solicitalo a un asesor." +
-           "<br><a href=/informacion/ubicacion-y-sucursales.aspx#contacto'>Contactar a un asesor</a>");
-
+           // BootstrapCSS.Message(this, ".content_msg_confirmacion_pedido", BootstrapCSS.MessageType.info,
+           //"Pago registrado",
+           //$"{status.message} Si deseas realizar algún cambio en el método/dirección de envío solicitalo a un asesor." +
+           //"<br><a href=/informacion/ubicacion-y-sucursales.aspx#contacto'>Contactar a un asesor</a>");
+            cnt_transferencia_registrada.Visible = true;
+            txt_transferencia_mensaje.InnerText = $"{status.message}";
+            txt_transferencia_contacto.InnerHtml = "Si deseas realizar algún cambio en el método/dirección de envío solicitalo a un asesor.<br><a href=/informacion/ubicacion-y-sucursales.aspx#contacto'>Contactar a un asesor</a>";
             btn_cambiar_metodo_envio.Enabled = false;
-            btn_cambiar_metodo_envio.CssClass = "btn btn-secondary disabled";
-            btn_cambiar_metodo_envio.Text = status.message;
+            btn_cambiar_metodo_envio.CssClass = "is-select-none is-cursor-not-allowed";
+            btn_cambiar_metodo_envio.ToolTip = $"{status.message}";
+            //btn_cambiar_metodo_envio.Text = status.message;
+            link_cambiar_direcc_facturacion.Enabled = false;
+            link_cambiar_direcc_facturacion.CssClass = "is-select-none is-cursor-not-allowed";
+            link_cambiar_direcc_facturacion.ToolTip = $"{status.message}";
+            btn_continuarMetodoPago.Enabled = false;
+            btn_continuarMetodoPago.CssClass = "is-decoration-none is-btn-gray";
+            btn_continuarMetodoPago.Attributes.Add("style", "cursor: not-allowed;");
+            btn_continuarMetodoPago.ToolTip = $"{status.message}";
+            ddl_UsoCFDI.Enabled = false;
+
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, status.message);
 
             dynamic Pago = status.response;
 
