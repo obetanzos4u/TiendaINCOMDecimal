@@ -12,12 +12,23 @@
     <asp:HiddenField ID="hf_moneda" runat="server" />
 
     <div class="container">
-        <div class="row">
+        <div class="is-flex is-justify-start is-items-start">
+            <h1 class="h5">Método de envío del pedido:<asp:Label ID="lt_numero_operacion" class="is-px-2 is-select-all" runat="server"></asp:Label></h1>
+            <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lt_numero_operacion', 'Número de pedido')">
+                <span class="is-text-gray">
+                    <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                        <title id="Clipcopy">Copiar elemento</title>
+                    </svg>
+                </span>
+            </button>
+        </div>
+        <%--<div class="row">
             <div class="col">
                 <h1 class="">Método de pago PayPal del pedido:
                     <asp:Literal ID="lt_numero_operacion" runat="server"></asp:Literal></h1>
             </div>
-        </div>
+        </div>--%>
         <div class="is-flex is-justify-between is-items-center">
             <div class="is-w-1_2 is-py-4">
                 <asp:UpdatePanel ID="up_estatus_paypal" UpdateMode="Conditional" RenderMode="Block" runat="server" class="col col-12">
