@@ -54,14 +54,14 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
             .OrderBy(o => o.Text)
             .ToList();
 
+        ddl_UsuarioSeguimiento.Items.Insert(0, new ListItem("Seleccionar", ""));
         ddl_UsuarioSeguimiento.DataSource = List;
         ddl_UsuarioSeguimiento.DataTextField = "Text";
         ddl_UsuarioSeguimiento.DataValueField = "Value";
         ddl_UsuarioSeguimiento.DataBind();
         //ddl_UsuarioSeguimiento.Items.Add(new ListItem(txt_box1.Text),);
 
-        ddl_UsuarioSeguimiento.Items.Insert(0, new ListItem("Seleccionar", ""));
-        ddl_UsuarioSeguimiento.DataBind();
+        //ddl_UsuarioSeguimiento.DataBind();
 
     }
 

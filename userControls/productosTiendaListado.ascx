@@ -230,7 +230,7 @@
                                         <asp:Label ID="lbl_producto_precio" CssClass="producto_precio" runat="server" Text=""></asp:Label>
                                         <asp:Label ID="lbl_producto_moneda" CssClass="producto_moneda" runat="server" Text=""></asp:Label>
                                     </p>
-                                    <div class="is-w-full is-bg-black is-tag is-select-none">
+                                    <div class="is-w-full is-bg-envioGratis is-tag is-select-none">
                                         <asp:Label runat="server" ID="lbl_envioGratuito"></asp:Label>
                                     </div>
                                     <div class="boton-agregar-carrito-resultados">
