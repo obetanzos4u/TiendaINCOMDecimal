@@ -38,7 +38,7 @@
                                 <div class="is-flex is-items-start">
                                     <asp:Button ID="btn_tarjeta" class="is-btn-gray is-space-x-9" Text="Tarjeta de crédito/débito" OnClick="btn_tarjeta_Click" UseSubmitBehavior="false" runat="server" />
                                     <asp:Button ID="btn_paypal" class="is-btn-gray is-space-x-9" Text="PayPal" OnClick="btn_paypal_Click" UseSubmitBehavior="false" runat="server" />
-                                    <asp:Button ID="btn_transferencia" class="is-btn-gray" OnClick="btn_transferencia_Click" Text="Transferencia o depósito" UseSubmitBehavior="false" runat="server" />
+                                    <asp:Button ID="btn_transferencia" class="is-btn-gray" OnClick="btn_transferencia_Click" Text="Transferencia o deposito" UseSubmitBehavior="false" runat="server" />
                                 </div>
                                 <asp:Panel ID="pnl_tarjeta" Visible="false" class="is-py-4" runat="server">
                                     <div id="btn_renovarPedidoSantanderContenedor" visible="false" class="is-flex is-justify-center is-items-center" runat="server">
