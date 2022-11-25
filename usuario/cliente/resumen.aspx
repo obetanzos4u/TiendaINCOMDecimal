@@ -304,9 +304,9 @@
                     <h5 class="modal-title" id="exampleModalLabel">Transferencia o deposito</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body is-border-soft">
                     <img src="/img/informacion/logo-banamex.svg" style="width: 200px;" class="img-thumbnail" />
-                    <h5 class="card-title mt-2">Datos de la cuenta</h5>
+                    <h5 class="card-title mt-2">Datos de la cuenta test</h5>
                     <p>
                         Número de operación
             <strong>Razón social:</strong> Insumos Comerciales de Occidente S.A. de C.V.
