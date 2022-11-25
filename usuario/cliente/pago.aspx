@@ -9,9 +9,9 @@
     <asp:HiddenField ID="hf_numero_operacion" runat="server" />
     <hdr:menu runat="server" />
     <uc:progreso runat="server" />
-    <div class="container-pago container-md">
+    <div class="container-pago container-md is-top-3">
         <div class="is-flex is-flex-col is-justify-center is-items-center">
-            <div class="margin-metodos_pago is-flex is-justify-between is-items-center">
+            <div class="is-w-full is-flex is-justify-between is-items-center">
                 <div class="is-flex is-justify-center is-items-center">
                     <h1 class="h5 text-metodo_pago"><strong>Método de pago del pedido:
                     <asp:Label ID="lbl_numero_pedido" class="is-select-all" runat="server"></asp:Label></strong></h1>
@@ -30,15 +30,15 @@
                 </div>
             </div>
             <div class="is-container container-metodo_pago">
-                <div class="container_movil-metodo_pago is-flex is-justify-between">
+                <div class="is-flex is-justify-between">
                     <div>
                         <p><strong>Elige el método de pago:  </strong></p>
                         <asp:UpdatePanel ID="up_pasarelaPago" UpdateMode="Conditional" RenderMode="Block" runat="server">
                             <ContentTemplate>
-                                <div class="is-flex is-items-start">
+                                <div class="is-flex is-justify-evenly is-items-start">
                                     <asp:Button ID="btn_tarjeta" class="is-btn-gray is-space-x-9" Text="Tarjeta de crédito/débito" OnClick="btn_tarjeta_Click" UseSubmitBehavior="false" runat="server" />
                                     <asp:Button ID="btn_paypal" class="is-btn-gray is-space-x-9" Text="PayPal" OnClick="btn_paypal_Click" UseSubmitBehavior="false" runat="server" />
-                                    <asp:Button ID="btn_transferencia" class="is-btn-gray" OnClick="btn_transferencia_Click" Text="Transferencia o depósito" UseSubmitBehavior="false" runat="server" />
+                                    <asp:Button ID="btn_transferencia" class="is-btn-gray" OnClick="btn_transferencia_Click" Text="Transferencia o deposito" UseSubmitBehavior="false" runat="server" />
                                 </div>
                                 <asp:Panel ID="pnl_tarjeta" Visible="false" class="is-py-4" runat="server">
                                     <div id="btn_renovarPedidoSantanderContenedor" visible="false" class="is-flex is-justify-center is-items-center" runat="server">
@@ -95,101 +95,14 @@
                                     </asp:UpdatePanel>
                                 </asp:Panel>
                                 <asp:Panel ID="pnl_transferencia" Visible="false" runat="server">
-                                    <div class="border-datos_pago_transferencia">
-                                        <div class="title-datos_pago_transferencia">
-                                            <h5><strong>Datos de la cuenta</strong></h5>
-                                        </div>
-                                        <div class="datos_pago_transferencia">
-                                            <span>
-                                                <p><strong>Razón social:&nbsp;&nbsp;&nbsp;</strong>Insumos Comerciales de Occidente S.A. de C.V.</p>
-                                                <p><strong>RFC:&nbsp;&nbsp;&nbsp;</strong> ICO990224H93</p>
-                                                <p><strong>Dirección:&nbsp;&nbsp;&nbsp;</strong>Plutarco Elías Calles 276, Colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de México, México.</p>
-                                                <p><strong>Banco:&nbsp;&nbsp;&nbsp;</strong>Banamex</p>
-                                            </span>
-                                            <div class="container-datos_pago_transferencia">
-                                                <span class="column-datos_pago">
-                                                    <p><strong>Moneda</strong></p>
-                                                    <p>Moneda Nacional</p>
-                                                    <p>Dólares (USD)</p>
-                                                    <p>Dólares (USD) desde el extranjero</p>
-                                                </span>
-                                                <span class="column-datos_pago">
-                                                    <p><strong>Sucursal</strong></p>
-                                                    <p>0269</p>
-                                                    <p>414</p>
-                                                    <p>414</p>
-                                                </span>
-                                                <span class="column-datos_pago">
-                                                    <p><strong>Cuenta</strong></p>
-                                                    <p>7782861</p>
-                                                    <p>9412714</p>
-                                                    <p>9412714</p>
-                                                </span>
-                                                <span class="column-datos_pago">
-                                                    <p><strong>Clabe</strong></p>
-                                                    <p>002180026977828615</p>
-                                                    <p>002180041494127146</p>
-                                                    <p>002180041494127146</p>
-                                                </span>
-                                                <span class="column-datos_pago">
-                                                    <p><strong>Plaza</strong></p>
-                                                    <p>&nbsp;&nbsp;&nbsp;</p>
-                                                    <p>&nbsp;&nbsp;&nbsp;</p>
-                                                    <p>001</p>
-                                                </span>
-                                                <span class="column-datos_pago">
-                                                    <p><strong>Swift</strong></p>
-                                                    <p>&nbsp;&nbsp;&nbsp;</p>
-                                                    <p>&nbsp;&nbsp;&nbsp;</p>
-                                                    <p>BNMXMXMM</p>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="container_movil-datos_pago_transferencia">
-                                            <hr/>
-                                            <span class="movil-datos_pago">
-                                                <p style="width: 30%;"><strong>Moneda</strong><br/>Moneda Nacional</p>
-                                                <p style="width: 20%;"><strong>Sucursal</strong><br/>0269</p>
-                                                <p style="width: 20%;"><strong>Cuenta</strong><br/>7782861</p>
-                                                <p style="width: 30%;"><strong>Clabe</strong><br/>002180026977828615</p>
-                                            </span>
-                                            <hr/>
-                                            <span class="movil-datos_pago">
-                                                <p style="width: 30%;"><strong>Moneda</strong><br/>Dólares (USD)</p>
-                                                <p style="width: 20%;"><strong>Sucursal</strong><br/>414</p>
-                                                <p style="width: 20%;"><strong>Cuenta</strong><br/>9412714</p>
-                                                <p style="width: 30%;"><strong>Clabe</strong><br/>002180041494127146</p>                                                                             
-                                            </span>
-                                            <hr/>
-                                            <span class="movil-datos_pago">
-                                                <p style="width: 30%;"><strong>Moneda</strong><br/>Dólares (USD) desde el extranjero</p>                                               
-                                                <p style="width: 20%;"><strong>Sucursal</strong><br/>414</p>
-                                                <p style="width: 20%;"><strong>Cuenta</strong><br/>9412714</p>
-                                            </span>
-                                            <span class="movil-datos_pago">
-                                                <p style="width: 30%;"><strong>Clabe</strong><br/>002180041494127146</p>
-                                                <p style="width: 20%;"><strong>Plaza</strong><br/>001</p>
-                                                <p style="width: 20%;"><strong>Swift</strong><br/>BNMXMXMM</p>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div class="border-anuncio_realice_pago">
-                                        <span class="row-datos_pago">                                     
-                                            <p><strong>Importante:</strong></p><br/>
-                                        </span>
-                                        <span class="row-datos_pago">                                     
-                                            <p>Con el fin de agilizar la identificación de su pago, le agradeceremos indicar en el campo de referencia alfanumérica del depósito el número de pedido y/o nombre del pedido.</p>
-                                        </span>
-                                        <span class="row-datos_pago">
-                                            <p><strong>Número de pedido:&nbsp;&nbsp;&nbsp;</strong> 
-                                                <asp:Label ID="lbl_numero_pedido_bottom" class="is-select-all" runat="server"></asp:Label>
-                                            </p>                                      
-                                        </span>
-                                        <span class="container-btn_realice_pago">
-                                            <asp:HyperLink ID="btn_finalizar_compra" Visible="false" class="is-btn-green-pago is-m-auto" runat="server" Text="Ya realicé el pago"></asp:HyperLink>
-                                        </span>
-                                    </div>
+                                    <p>Datos de la cuenta</p>
+                                    <div>info</div>
+                                    <p>Importante</p>
+                                    <p>
+                                        Número de pedido:
+                                        <asp:Label ID="lbl_numero_pedido_bottom" class="is-select-all" runat="server"></asp:Label>
+                                    </p>
+                                    <asp:HyperLink ID="btn_finalizar_compra" Visible="false" runat="server" Text="Ya realicé el pago"></asp:HyperLink>
                                 </asp:Panel>
                             </ContentTemplate>
                             <Triggers>
@@ -199,9 +112,9 @@
                             </Triggers>
                         </asp:UpdatePanel>
                     </div>
-                    <div class="desgloce_ticket is-flex is-flex-col is-justify-start is-items-center">
+                    <div class="is-flex is-flex-col is-justify-start is-items-center">
                         <asp:HyperLink ID="btn_regresar_resumen" runat="server">Regresar al resumen</asp:HyperLink>
-                        <div style="border: 1px solid #b7b7b7; border-radius: 8px; height: fit-content;">
+                        <div style="border: 1px solid #b7b7b7; border-radius: 8px; width: 420px; height: fit-content;">
                             <table style="width: 100%;">
                                 <thead style="border-bottom: 1px solid #b7b7b7;">
                                     <tr>
@@ -282,209 +195,6 @@
             margin-right: 2rem;
         }
 
-        .desgloce_ticket {
-            margin-top: 2.25rem
-        }
-
-        @media only screen and (min-width: 700px) {
-
-        .container_movil-datos_pago_transferencia {
-            display: none;
-        }
-
-        .container-pago {
-            margin-top: 3rem;
-        }
-
-        .border-datos_pago_transferencia {
-            border: 1px solid #b7b7b7;
-            border-radius: 8px;
-            margin: 2rem 1rem 1rem 0rem;
-        }
-
-        .datos_pago_transferencia {
-            padding: 1rem;
-            font-size: 0.75rem;
-        }
-
-        .title-datos_pago_transferencia {
-            background-color: #d9d9d9;
-            height: 2.25rem;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .title-datos_pago_transferencia > h5 {
-            padding-left: 1rem;
-            margin-bottom: 0px;
-        }
-
-        .container-datos_pago_transferencia {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .column-datos_pago {
-            display: flex;
-            flex-direction: column;
-            float: left;
-            font-size: 0.75rem;
-        }
-
-        .border-anuncio_realice_pago {
-            margin: 1rem auto 3rem 1rem;
-            padding-right: 1rem;
-        }
-
-        .row-datos_pago {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            font-size: 0.75rem;
-        }
-
-        .container-btn_realice_pago {
-            display: flex;
-            width: 100%;
-        }
-
-        .is-btn-green-pago {
-            border: none;
-            border-radius: 6px;
-            display: inline-block;
-            height: 36px;
-            line-height: 36px;
-            padding: 0 16px;
-            text-transform: none;
-            vertical-align: middle;
-            -webkit-tap-highlight-color: transparent;
-            text-decoration: none;
-            color: #fff;
-            background-color: #119100;
-            text-align: center;
-            font-weight: bold;
-            letter-spacing: .5px;
-            -webkit-transition: background-color .2s ease-out;
-            transition: background-color .2s ease-out;
-            cursor: pointer;
-            font-size: 12px;
-            outline: 0;
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
-        }      
-    }
-
-    @media only screen and (max-width: 700px) {
-    
-    .container-metodo_pago {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .container_movil-datos_pago_transferencia {
-        display: block;
-    }
-
-    .container_movil-metodo_pago {
-        order: 1;
-    }
-
-    .container-pago {
-        margin-top: 1rem;
-    }
-
-    .border-datos_pago_transferencia {
-            border: 1px solid #b7b7b7;
-            border-radius: 8px;
-            margin: 2rem 1rem 1rem 0rem;
-        }
-
-        .datos_pago_transferencia {
-            padding: 1rem 1rem 0rem 1rem;
-            font-size: 0.75rem;
-        }
-
-        .title-datos_pago_transferencia {
-            background-color: #d9d9d9;
-            height: 3rem;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .title-datos_pago_transferencia > h5 {
-            padding-left: 1rem;
-        }
-
-        .container-datos_pago_transferencia {
-            display: none;
-        }
-
-        .column-datos_pago {
-            display: flex;
-            flex-direction: column;
-            float: left;
-            font-size: 0.75rem;
-        }
-
-        .border-anuncio_realice_pago {
-            margin: 1rem auto 3rem 1rem;
-        }
-
-        .movil-datos_pago {
-            display: inline-flex;
-            font-size: 0.75rem;
-            padding: 0rem 1rem;
-            width: 100%;
-            justify-content: space-between;
-        }
-
-        .row-datos_pago {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            font-size: 12px;
-            padding-right: 2rem;
-        }
-
-        .container-btn_realice_pago {
-            display: flex;
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .is-btn-green-pago {
-            border: none;
-            border-radius: 6px;
-            display: inline-block;
-            height: 36px;
-            line-height: 36px;
-            padding: 0 16px;
-            text-transform: none;
-            vertical-align: middle;
-            -webkit-tap-highlight-color: transparent;
-            text-decoration: none;
-            color: #fff;
-            background-color: #119100;
-            text-align: center;
-            font-weight: bold;
-            letter-spacing: .5px;
-            -webkit-transition: background-color .2s ease-out;
-            transition: background-color .2s ease-out;
-            cursor: pointer;
-            font-size: 12px;
-            outline: 0;
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
-        }
-
-        .container-metodo_pago > div:nth-child(1) {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-    }
-
         #body_btn_regresar_resumen {
             margin-bottom: 3rem;
             float: right;
@@ -500,34 +210,11 @@
             }
         }
 
-        @media only screen and (max-width: 1000px) {
-        .margin-metodos_pago {
-            width: auto;
-            margin: auto;
-        }
-        }
-
         @media only screen and (min-width: 1000px) {
             .container-pay-process {
                 width: 60%;
                 margin: 1rem auto;
             }
-
-            #body_btn_regresar_resumen {
-                margin-top: 2rem;
-                margin-bottom: 1rem;
-            }
-
-            .margin-metodos_pago {
-                width: 100%;
-            }
-        }
-
-        @media only screen and (min-width: 1000px) and (max-width: 1200px) {
-        
-        .desgloce_ticket {
-            margin: 0;
-        }
         }
 
         @media only screen and (min-width: 1200px) {
@@ -537,17 +224,12 @@
             }
 
             .container-metodo_pago {
-                margin-top: 2rem;
+                margin-top: 5rem;
             }
 
             .text-aceptamos_formas_pago {
                 margin-right: 1rem;
                 margin: 1rem;
-            }
-
-            .container-metodo_pago > div:nth-child(1) {
-                display: flex;
-                flex-direction: row;
             }
         }
 
@@ -555,7 +237,10 @@
 
             .container-pago {
                 margin-left: 2rem;
-                margin-right: 2rem;
+            }
+
+            .icono-formas_pago {
+                width: 360px;
             }
 
             .text-metodo_pago {
@@ -583,8 +268,9 @@
                 margin-right: 1rem;
             }
 
-            .desgloce_ticket {
-                margin: auto;
+            .container-metodo_pago > div:nth-child(1) > div:nth-child(2) {
+                width: 360px;
+                margin: 2rem auto 2rem 0;
             }
 
             .container-pago > div > div {
@@ -594,16 +280,13 @@
 
             .container-metodo_pago > div:nth-child(1) {
                 display: flex;
-                flex-direction: column;
+                flex-direction: column-reverse;
+                justify-content: center;
             }
 
-            .container_movil-metodo_pago {
-                order: 1;
-            }
-
-            .container-metodo_pago > div:nth-child(1) > div:nth-child(1) {
-                margin: 2rem auto 0rem auto;
-            }
+                .container-metodo_pago > div:nth-child(1) > div:nth-child(1) {
+                    margin: auto auto auto 0;
+                }
 
             .container-pago > div > div > div:nth-child(1) {
                 margin-bottom: 2rem;
@@ -624,12 +307,6 @@
                 font-size: 12px;
             }
 
-            #body_btn_regresar_resumen {
-                margin-bottom: 1rem !important;
-                margin-top: 2rem !important;
-                font-size: 12px;
-            }
-
             .text-aceptamos_formas_pago > strong:nth-child(1) {
                 font-size: 0.75rem;
             }
@@ -644,7 +321,6 @@
 
             .container-pago {
                 margin-left: 1rem;
-                margin-right: 1rem;
             }
 
             .container-metodo_pago p:nth-child(1) > strong:nth-child(1) {
@@ -652,8 +328,8 @@
             }
 
             #body_up_pasarelaPago .is-btn-gray {
-                height: 36px;
-                line-height: 36px;
+                height: 26px;
+                line-height: 26px;
                 font-size: 10px;
             }
 
@@ -667,19 +343,17 @@
 
         @media only screen and (max-width: 500px) {
 
+            .container-metodo_pago > div:nth-child(1) > div:nth-child(2) {
+                width: 300px !important;
+            }
+
             .text-resumen {
                 font-size: 0.5rem;
             }
 
             .icono-formas_pago {
-                width: 270px;
+                width: 320px;
                 height: 36px;
-            }
-
-            #body_btn_regresar_resumen {
-                margin-top: 0rem;
-                margin-bottom: 1rem;
-                font-size: 8px;
             }
 
             .text-metodo_pago {
@@ -699,15 +373,7 @@
             }
 
             .container-metodo_pago p:nth-child(1) > strong:nth-child(1) {
-                font-size: 7px;
-            }
-
-            .movil-datos_pago {
-                font-size: 7px;
-            }
-
-            span.movil-datos_pago:nth-child(2) > p:nth-child(1) {
-                font-size: 7px;
+                font-size: 10px;
             }
 
             .text-aceptamos_formas_pago {
@@ -715,48 +381,7 @@
             }
 
             .container-pago > div > div > div:nth-child(1) {
-                margin-bottom: 0px;
-            }
-
-            .border-datos_pago_transferencia {
-                margin: 0rem 1rem 1rem 0rem;
-            }
-
-            .datos_pago_transferencia {
-                font-size: 7px;
-            }
-
-            .container-metodo_pago > div:nth-child(1) > div:nth-child(1) {
-                margin: 0rem auto;
-            }
-
-            .container_movil-datos_pago_transferencia > hr {
-                margin: 0px;
-            }
-
-            .title-datos_pago_transferencia > h5:nth-child(1) {
-                font-size: 12px;
-                font-weight: bold;
-                margin-bottom: 0px;
-            }
-
-            .title-datos_pago_transferencia {
-                height: 3rem;
-                height: 2rem;
-            }
-
-            span.row-datos_pago:nth-child(2) > p:nth-child(1) {
-                font-size: 7px;
-            }
-
-            span.movil-datos_pago:nth-child(6) > p:nth-child(1) {
-                margin-bottom: 0rem;
-            }
-
-            .is-btn-green-pago {
-                font-size: 9px;
-                height: 26px;
-                line-height: 26px;
+                margin-bottom: 1rem;
             }
 
             .container-pago {
@@ -764,21 +389,10 @@
             }
 
             #body_up_pasarelaPago .is-btn-gray {
-                font-size: 7px;
+                font-size: 8px;
                 height: 26px;
                 line-height: 26px;
-                padding: 0px 6px !important;
-                margin-right: 0.5rem !important;
-                margin-bottom: 2rem;
-            }
-
-            #body_btn_tarjeta.aspNetDisabled,
-            #body_btn_paypal.aspNetDisabled,
-            #body_btn_transferencia.aspNetDisabled {
-                font-size: 7px;
-                height: 26px;
-                line-height: 26px;
-                padding: 0px 6px !important;
+                padding: 0px 12px !important;
                 margin-right: 0.5rem !important;
             }
 
