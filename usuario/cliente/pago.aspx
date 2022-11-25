@@ -3,6 +3,9 @@
 <%@ Register Src="~/usuario/cliente/cliente-header.ascx" TagPrefix="hdr" TagName="menu" %>
 <%@ Register TagPrefix="uc" TagName="progreso" Src="~/userControls/uc_progresoCompra.ascx" %>
 
+<%-- Debido a un problema con la codificación de carácteres se reemplazaron las palabras acentuadas por su código en HTML. --%>
+<%-- Problema detectado solamente en esta página 25/11/2022  --%>
+
 <asp:Content runat="server" ContentPlaceHolderID="body">
     <asp:HiddenField ID="hf_id_operacion" runat="server" />
     <asp:HiddenField ID="hf_moneda" runat="server" />
@@ -13,9 +16,9 @@
         <div class="is-flex is-flex-col is-justify-center is-items-center">
             <div class="margin-metodos_pago is-flex is-justify-between is-items-center">
                 <div class="is-flex is-justify-center is-items-center">
-                    <h1 class="h5 text-metodo_pago"><strong>Método de pago del pedido:
+                    <h1 class="h5 text-metodo_pago"><strong>M&eacute;todo de pago del pedido:
                     <asp:Label ID="lbl_numero_pedido" class="is-select-all" runat="server"></asp:Label></strong></h1>
-                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lbl_numero_pedido', 'Número de pedido')">
+                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lbl_numero_pedido', 'N&uacute;mero de pedido')">
                         <span class="is-text-gray">
                             <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
@@ -26,17 +29,17 @@
                 </div>
                 <div class="is-flex container-formas_pago">
                     <p class="text-aceptamos_formas_pago"><strong>Aceptamos:</strong></p>
-                    <img title="Formas de pago" class="icono-formas_pago" src="/img/webUI/newdesign/formaspago.jpg" alt="Métodos de pago bancario" />
+                    <img title="Formas de pago" class="icono-formas_pago" src="/img/webUI/newdesign/formaspago.jpg" alt="M&eacute;todos de pago bancario" />
                 </div>
             </div>
             <div class="is-container container-metodo_pago">
                 <div class="container_movil-metodo_pago is-flex is-justify-between">
                     <div>
-                        <p><strong>Elige el método de pago:  </strong></p>
+                        <p><strong>Elige el m&eacute;todo de pago:  </strong></p>
                         <asp:UpdatePanel ID="up_pasarelaPago" UpdateMode="Conditional" RenderMode="Block" runat="server">
                             <ContentTemplate>
                                 <div class="is-flex is-items-start">
-                                    <asp:Button ID="btn_tarjeta" class="is-btn-gray is-space-x-9" Text="Tarjeta de crédito/débito" OnClick="btn_tarjeta_Click" UseSubmitBehavior="false" runat="server" />
+                                    <asp:Button ID="btn_tarjeta" class="is-btn-gray is-space-x-9" Text="Tarjeta de cr&eacute;dito/d&eacute;bito" OnClick="btn_tarjeta_Click" UseSubmitBehavior="false" runat="server" />
                                     <asp:Button ID="btn_paypal" class="is-btn-gray is-space-x-9" Text="PayPal" OnClick="btn_paypal_Click" UseSubmitBehavior="false" runat="server" />
                                     <asp:Button ID="btn_transferencia" class="is-btn-gray" OnClick="btn_transferencia_Click" Text="Transferencia o deposito" UseSubmitBehavior="false" runat="server" />
                                 </div>
@@ -52,7 +55,7 @@
 
                                             <!--<div id="paypal_button_container" class="paypal_button_container" runat="server" style="border: 2px solid red"></div>
                                             <asp:Panel ID="pnl_noDisponiblePago" Visible="false" runat="server">
-                                                <strong>El pago no está disponible por los siguientes motivos: </strong>
+                                                <strong>El pago no est&aacute; disponible por los siguientes motivos: </strong>
                                                 <p id="motivosNoDisponiblePago" visible="false" runat="server"></p>
                                             </asp:Panel>
                                             <asp:LinkButton ID="btn_renovarPedidoPayPal" Visible="false" OnClick="btn_renovarPedidoPayPal_Click" runat="server">Renovar pedido</asp:LinkButton>
@@ -84,7 +87,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Última actualización</td>
+                                                    <td>&uacute;ltima actualizaci&oacute;n</td>
                                                     <td>
                                                         <asp:Label ID="lbl_paypal_fecha_actualizacion" runat="server"></asp:Label>
                                                     </td>
@@ -101,17 +104,50 @@
                                         </div>
                                         <div class="datos_pago_transferencia">
                                             <span>
-                                                <p><strong>Razón social:&nbsp;&nbsp;&nbsp;</strong>Insumos Comerciales de Occidente S.A. de C.V.</p>
-                                                <p><strong>RFC:&nbsp;&nbsp;&nbsp;</strong> ICO990224H93</p>
-                                                <p><strong>Dirección:&nbsp;&nbsp;&nbsp;</strong>Plutarco Elías Calles 276, Colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de México, México.</p>
+                                                <div class="is-flex is-justify-start is-items-baseline">
+                                                    <strong>Raz&oacute;n social:&nbsp;&nbsp;&nbsp;</strong>
+                                                    <p id="lbl_razonSocial_Copy" class="is-select-all">Insumos Comerciales de Occidente S.A. de C.V.</p>
+                                                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_razonSocial_Copy', 'Raz&oacute;n social')">
+                                                        <span class="is-text-gray">
+                                                            <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                                                <title id="ClipcopyRazonSocial">Copiar raz&oacute;n social</title>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div class="is-flex is-justify-start is-items-baseline">
+                                                    <strong>RFC:&nbsp;&nbsp;&nbsp;</strong>
+                                                    <p id="lbl_rfc_Copy" class="is-select-all">ICO990224H93</p>
+                                                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_rfc_Copy', 'RFC')">
+                                                        <span class="is-text-gray">
+                                                            <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                                                <title id="ClipcopyRFC">Copiar RFC</title>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div class="is-flex is-justify-start is-items-baseline">
+                                                    <strong>Direcci&oacute;n:&nbsp;&nbsp;&nbsp;</strong>
+                                                    <p id="lbl_direccion_Copy" class="is-select-all">Plutarco El&iacute;as Calles 276, Colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de M&eacute;xico, M&eacute;xico.</p>
+                                                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_direccion_Copy', 'Direcci&oacute;n')">
+                                                        <span class="is-text-gray">
+                                                            <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                                                <title id="ClipcopyDireccion">Copiar direcci&oacute;n</title>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
                                                 <p><strong>Banco:&nbsp;&nbsp;&nbsp;</strong>Banamex</p>
                                             </span>
                                             <div class="container-datos_pago_transferencia">
                                                 <span class="column-datos_pago">
                                                     <p><strong>Moneda</strong></p>
                                                     <p>Moneda Nacional</p>
-                                                    <p>Dólares (USD)</p>
-                                                    <p>Dólares (USD) desde el extranjero</p>
+                                                    <p>D&oacute;lares (USD)</p>
+                                                    <p>D&oacute;lares (USD) desde el extranjero</p>
                                                 </span>
                                                 <span class="column-datos_pago">
                                                     <p><strong>Sucursal</strong></p>
@@ -127,9 +163,39 @@
                                                 </span>
                                                 <span class="column-datos_pago">
                                                     <p><strong>Clabe</strong></p>
-                                                    <p>002180026977828615</p>
-                                                    <p>002180041494127146</p>
-                                                    <p>002180041494127146</p>
+                                                    <div class="is-flex is-justify-start is-items-baseline">
+                                                        <p id="lbl_clabeMXN_Copy" class="is-select-all">002180026977828615</p>
+                                                        <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_clabeMXN_Copy', 'CLABE MXN')">
+                                                            <span class="is-text-gray">
+                                                                <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                                                    <title id="ClipcopyMXN">Copiar CLABE MXN</title>
+                                                                </svg>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="is-flex is-justify-start is-items-baseline">
+                                                        <p id="lbl_clabeUSD_Copy" class="is-select-all">002180041494127146</p>
+                                                        <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_clabeUSD_Copy', 'CLABE USD')">
+                                                            <span class="is-text-gray">
+                                                                <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                                                    <title id="ClipcopyUSD">Copiar CLABE USD</title>
+                                                                </svg>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="is-flex is-justify-start is-items-baseline">
+                                                        <p id="lbl_clabeUSD2_Copy" class="is-select-all">002180041494127146</p>
+                                                        <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_clabeUSD2_Copy', 'CLABE USD desde el extranjero')">
+                                                            <span class="is-text-gray">
+                                                                <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                                                    <title id="ClipcopyUSD2">Copiar CLABE USD extranjero</title>
+                                                                </svg>
+                                                            </span>
+                                                        </button>
+                                                    </div>
                                                 </span>
                                                 <span class="column-datos_pago">
                                                     <p><strong>Plaza</strong></p>
@@ -146,49 +212,97 @@
                                             </div>
                                         </div>
                                         <div class="container_movil-datos_pago_transferencia">
-                                            <hr/>
+                                            <hr />
                                             <span class="movil-datos_pago">
-                                                <p style="width: 30%;"><strong>Moneda</strong><br/>Moneda Nacional</p>
-                                                <p style="width: 20%;"><strong>Sucursal</strong><br/>0269</p>
-                                                <p style="width: 20%;"><strong>Cuenta</strong><br/>7782861</p>
-                                                <p style="width: 30%;"><strong>Clabe</strong><br/>002180026977828615</p>
+                                                <p style="width: 30%;">
+                                                    <strong>Moneda</strong><br />
+                                                    Moneda Nacional
+                                                </p>
+                                                <p style="width: 20%;">
+                                                    <strong>Sucursal</strong><br />
+                                                    0269
+                                                </p>
+                                                <p style="width: 20%;">
+                                                    <strong>Cuenta</strong><br />
+                                                    7782861
+                                                </p>
+                                                <p style="width: 30%;">
+                                                    <strong>Clabe</strong><br />
+                                                    002180026977828615
+                                                </p>
                                             </span>
-                                            <hr/>
+                                            <hr />
                                             <span class="movil-datos_pago">
-                                                <p style="width: 30%;"><strong>Moneda</strong><br/>Dólares (USD)</p>
-                                                <p style="width: 20%;"><strong>Sucursal</strong><br/>414</p>
-                                                <p style="width: 20%;"><strong>Cuenta</strong><br/>9412714</p>
-                                                <p style="width: 30%;"><strong>Clabe</strong><br/>002180041494127146</p>                                                                             
+                                                <p style="width: 30%;">
+                                                    <strong>Moneda</strong><br />
+                                                    D&oacute;lares (USD)
+                                                </p>
+                                                <p style="width: 20%;">
+                                                    <strong>Sucursal</strong><br />
+                                                    414
+                                                </p>
+                                                <p style="width: 20%;">
+                                                    <strong>Cuenta</strong><br />
+                                                    9412714
+                                                </p>
+                                                <p style="width: 30%;">
+                                                    <strong>Clabe</strong><br />
+                                                    002180041494127146
+                                                </p>
                                             </span>
-                                            <hr/>
+                                            <hr />
                                             <span class="movil-datos_pago">
-                                                <p style="width: 30%;"><strong>Moneda</strong><br/>Dólares (USD) desde el extranjero</p>                                               
-                                                <p style="width: 20%;"><strong>Sucursal</strong><br/>414</p>
-                                                <p style="width: 20%;"><strong>Cuenta</strong><br/>9412714</p>
+                                                <p style="width: 30%;">
+                                                    <strong>Moneda</strong><br />
+                                                    D&oacute;lares (USD) desde el extranjero
+                                                </p>
+                                                <p style="width: 20%;">
+                                                    <strong>Sucursal</strong><br />
+                                                    414
+                                                </p>
+                                                <p style="width: 20%;">
+                                                    <strong>Cuenta</strong><br />
+                                                    9412714
+                                                </p>
                                             </span>
                                             <span class="movil-datos_pago">
-                                                <p style="width: 30%;"><strong>Clabe</strong><br/>002180041494127146</p>
-                                                <p style="width: 20%;"><strong>Plaza</strong><br/>001</p>
-                                                <p style="width: 20%;"><strong>Swift</strong><br/>BNMXMXMM</p>
+                                                <p style="width: 30%;">
+                                                    <strong>Clabe</strong><br />
+                                                    002180041494127146
+                                                </p>
+                                                <p style="width: 20%;">
+                                                    <strong>Plaza</strong><br />
+                                                    001
+                                                </p>
+                                                <p style="width: 20%;">
+                                                    <strong>Swift</strong><br />
+                                                    BNMXMXMM
+                                                </p>
                                             </span>
                                         </div>
                                     </div>
-                                    </div>
                                     <div class="border-anuncio_realice_pago">
-                                        <span class="row-datos_pago">                                     
-                                            <p><strong>Importante:</strong></p><br/>
-                                        </span>
-                                        <span class="row-datos_pago">                                     
-                                            <p>Con el fin de agilizar la identificación de su pago, le agradeceremos indicar en el campo de referencia alfanumérica del depósito el número de pedido y/o nombre del pedido.</p>
+                                        <span class="row-datos_pago">
+                                            <p><strong>Importante:</strong></p>
+                                            <br />
                                         </span>
                                         <span class="row-datos_pago">
-                                            <p><strong>Número de pedido:&nbsp;&nbsp;&nbsp;</strong> 
+                                            <p>Con el fin de agilizar la identificaci&oacute;n de su pago, le agradeceremos indicar en el campo de referencia alfanum&eacute;rica del dep&oacute;sito el n&uacute;mero de pedido y/o nombre del pedido.</p>
+                                        </span>
+                                        <span class="row-datos_pago">
+                                            <p>
+                                                <strong>N&uacute;mero de pedido:&nbsp;&nbsp;&nbsp;</strong>
                                                 <asp:Label ID="lbl_numero_pedido_bottom" class="is-select-all" runat="server"></asp:Label>
-                                            </p>                                      
+                                            </p>
                                         </span>
-                                        <span class="container-btn_realice_pago">
-                                            <asp:HyperLink ID="btn_finalizar_compra" Visible="false" class="is-btn-green-pago is-m-auto" runat="server" Text="Ya realicé el pago"></asp:HyperLink>
-                                        </span>
+                                        <div class="is-flex is-justify-evenly is-items-baseline">
+                                            <span class="container-btn_realice_pago">
+                                                <asp:LinkButton ID="btn_transferenciaRealizada" OnClick="btn_transferenciaRealizada_Click" Visible="true" class="is-btn-blue is-m-auto" Text="Registrar referencia de pago" runat="server"></asp:LinkButton>
+                                            </span>
+                                            <span class="container-btn_realice_pago">
+                                                <asp:HyperLink ID="btn_finalizar_compra" Visible="false" class="is-btn-green-pago is-m-auto" runat="server" Text="Ya realic&eacute; el pago"></asp:HyperLink>
+                                            </span>
+                                        </div>
                                     </div>
                                 </asp:Panel>
                             </ContentTemplate>
@@ -222,7 +336,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 0.25rem 1.5rem;">Envío (estándar):</td>
+                                        <td style="padding: 0.25rem 1.5rem;">Env&iacute;o (est&aacute;ndar):</td>
                                         <td style="padding: 0.25rem 1.5rem; text-align: end;">
                                             <asp:Label ID="lbl_envio" runat="server"></asp:Label>
                                         </td>
@@ -288,202 +402,207 @@
 
         @media only screen and (min-width: 700px) {
 
-        .container_movil-datos_pago_transferencia {
-            display: none;
+            .container_movil-datos_pago_transferencia {
+                display: none;
+            }
+
+            .container-pago {
+                margin-top: 3rem;
+            }
+
+            .border-datos_pago_transferencia {
+                border: 1px solid #b7b7b7;
+                border-radius: 8px;
+                margin: 2rem 1rem 1rem 0rem;
+            }
+
+            .datos_pago_transferencia {
+                padding: 1rem;
+                font-size: 0.75rem;
+            }
+
+            .title-datos_pago_transferencia {
+                background-color: #d9d9d9;
+                height: 2.25rem;
+                font-size: 1rem;
+                display: flex;
+                align-items: center;
+            }
+
+                .title-datos_pago_transferencia > h5 {
+                    padding-left: 1rem;
+                    margin-bottom: 0px;
+                }
+
+            .container-datos_pago_transferencia {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .column-datos_pago {
+                display: flex;
+                flex-direction: column;
+                float: left;
+                font-size: 0.75rem;
+            }
+
+            .border-anuncio_realice_pago {
+                margin: 1rem auto 3rem 1rem;
+                padding-right: 1rem;
+            }
+
+            .row-datos_pago {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                font-size: 0.75rem;
+            }
+
+            .container-btn_realice_pago {
+                display: flex;
+                width: 100%;
+            }
+
+            .is-btn-green-pago {
+                border: none;
+                border-radius: 6px;
+                display: inline-block;
+                height: 36px;
+                line-height: 36px;
+                padding: 0 16px;
+                text-transform: none;
+                vertical-align: middle;
+                -webkit-tap-highlight-color: transparent;
+                text-decoration: none;
+                color: #fff;
+                background-color: #119100;
+                text-align: center;
+                font-weight: bold;
+                letter-spacing: .5px;
+                -webkit-transition: background-color .2s ease-out;
+                transition: background-color .2s ease-out;
+                cursor: pointer;
+                font-size: 12px;
+                outline: 0;
+                box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+            }
+
+                .is-btn-green-pago:hover {
+                    background: #169e04;
+                    color: #FFFFFF;
+                }
         }
 
-        .container-pago {
-            margin-top: 3rem;
+        @media only screen and (max-width: 700px) {
+
+            .container-metodo_pago {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .container_movil-datos_pago_transferencia {
+                display: block;
+            }
+
+            .container_movil-metodo_pago {
+                order: 1;
+            }
+
+            .container-pago {
+                margin-top: 1rem;
+            }
+
+            .border-datos_pago_transferencia {
+                border: 1px solid #b7b7b7;
+                border-radius: 8px;
+                margin: 2rem 1rem 1rem 0rem;
+            }
+
+            .datos_pago_transferencia {
+                padding: 1rem 1rem 0rem 1rem;
+                font-size: 0.75rem;
+            }
+
+            .title-datos_pago_transferencia {
+                background-color: #d9d9d9;
+                height: 3rem;
+                font-size: 1rem;
+                display: flex;
+                align-items: center;
+            }
+
+                .title-datos_pago_transferencia > h5 {
+                    padding-left: 1rem;
+                }
+
+            .container-datos_pago_transferencia {
+                display: none;
+            }
+
+            .column-datos_pago {
+                display: flex;
+                flex-direction: column;
+                float: left;
+                font-size: 0.75rem;
+            }
+
+            .border-anuncio_realice_pago {
+                margin: 1rem auto 3rem 1rem;
+            }
+
+            .movil-datos_pago {
+                display: inline-flex;
+                font-size: 0.75rem;
+                padding: 0rem 1rem;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .row-datos_pago {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                font-size: 12px;
+                padding-right: 2rem;
+            }
+
+            .container-btn_realice_pago {
+                display: flex;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .is-btn-green-pago {
+                border: none;
+                border-radius: 6px;
+                display: inline-block;
+                height: 36px;
+                line-height: 36px;
+                padding: 0 16px;
+                text-transform: none;
+                vertical-align: middle;
+                -webkit-tap-highlight-color: transparent;
+                text-decoration: none;
+                color: #fff;
+                background-color: #119100;
+                text-align: center;
+                font-weight: bold;
+                letter-spacing: .5px;
+                -webkit-transition: background-color .2s ease-out;
+                transition: background-color .2s ease-out;
+                cursor: pointer;
+                font-size: 12px;
+                outline: 0;
+                box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+            }
+
+            .container-metodo_pago > div:nth-child(1) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
         }
-
-        .border-datos_pago_transferencia {
-            border: 1px solid #b7b7b7;
-            border-radius: 8px;
-            margin: 2rem 1rem 1rem 0rem;
-        }
-
-        .datos_pago_transferencia {
-            padding: 1rem;
-            font-size: 0.75rem;
-        }
-
-        .title-datos_pago_transferencia {
-            background-color: #d9d9d9;
-            height: 2.25rem;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .title-datos_pago_transferencia > h5 {
-            padding-left: 1rem;
-            margin-bottom: 0px;
-        }
-
-        .container-datos_pago_transferencia {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .column-datos_pago {
-            display: flex;
-            flex-direction: column;
-            float: left;
-            font-size: 0.75rem;
-        }
-
-        .border-anuncio_realice_pago {
-            margin: 1rem auto 3rem 1rem;
-            padding-right: 1rem;
-        }
-
-        .row-datos_pago {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            font-size: 0.75rem;
-        }
-
-        .container-btn_realice_pago {
-            display: flex;
-            width: 100%;
-        }
-
-        .is-btn-green-pago {
-            border: none;
-            border-radius: 6px;
-            display: inline-block;
-            height: 36px;
-            line-height: 36px;
-            padding: 0 16px;
-            text-transform: none;
-            vertical-align: middle;
-            -webkit-tap-highlight-color: transparent;
-            text-decoration: none;
-            color: #fff;
-            background-color: #119100;
-            text-align: center;
-            font-weight: bold;
-            letter-spacing: .5px;
-            -webkit-transition: background-color .2s ease-out;
-            transition: background-color .2s ease-out;
-            cursor: pointer;
-            font-size: 12px;
-            outline: 0;
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
-        }      
-    }
-
-    @media only screen and (max-width: 700px) {
-    
-    .container-metodo_pago {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .container_movil-datos_pago_transferencia {
-        display: block;
-    }
-
-    .container_movil-metodo_pago {
-        order: 1;
-    }
-
-    .container-pago {
-        margin-top: 1rem;
-    }
-
-    .border-datos_pago_transferencia {
-            border: 1px solid #b7b7b7;
-            border-radius: 8px;
-            margin: 2rem 1rem 1rem 0rem;
-        }
-
-        .datos_pago_transferencia {
-            padding: 1rem 1rem 0rem 1rem;
-            font-size: 0.75rem;
-        }
-
-        .title-datos_pago_transferencia {
-            background-color: #d9d9d9;
-            height: 3rem;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .title-datos_pago_transferencia > h5 {
-            padding-left: 1rem;
-        }
-
-        .container-datos_pago_transferencia {
-            display: none;
-        }
-
-        .column-datos_pago {
-            display: flex;
-            flex-direction: column;
-            float: left;
-            font-size: 0.75rem;
-        }
-
-        .border-anuncio_realice_pago {
-            margin: 1rem auto 3rem 1rem;
-        }
-
-        .movil-datos_pago {
-            display: inline-flex;
-            font-size: 0.75rem;
-            padding: 0rem 1rem;
-            width: 100%;
-            justify-content: space-between;
-        }
-
-        .row-datos_pago {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            font-size: 12px;
-            padding-right: 2rem;
-        }
-
-        .container-btn_realice_pago {
-            display: flex;
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .is-btn-green-pago {
-            border: none;
-            border-radius: 6px;
-            display: inline-block;
-            height: 36px;
-            line-height: 36px;
-            padding: 0 16px;
-            text-transform: none;
-            vertical-align: middle;
-            -webkit-tap-highlight-color: transparent;
-            text-decoration: none;
-            color: #fff;
-            background-color: #119100;
-            text-align: center;
-            font-weight: bold;
-            letter-spacing: .5px;
-            -webkit-transition: background-color .2s ease-out;
-            transition: background-color .2s ease-out;
-            cursor: pointer;
-            font-size: 12px;
-            outline: 0;
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
-        }
-
-        .container-metodo_pago > div:nth-child(1) {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-    }
 
         #body_btn_regresar_resumen {
             margin-bottom: 3rem;
@@ -501,10 +620,10 @@
         }
 
         @media only screen and (max-width: 1000px) {
-        .margin-metodos_pago {
-            width: auto;
-            margin: auto;
-        }
+            .margin-metodos_pago {
+                width: auto;
+                margin: auto;
+            }
         }
 
         @media only screen and (min-width: 1000px) {
@@ -524,10 +643,10 @@
         }
 
         @media only screen and (min-width: 1000px) and (max-width: 1200px) {
-        
-        .desgloce_ticket {
-            margin: 0;
-        }
+
+            .desgloce_ticket {
+                margin: 0;
+            }
         }
 
         @media only screen and (min-width: 1200px) {

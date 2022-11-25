@@ -972,7 +972,7 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
     }
     #endregion
 
-    #region Funciones para pahar a través de transferencia bancaria
+    #region Funciones para pagar a través de transferencia bancaria
     protected async void btn_transferenciaRealizada_Click(object sender, EventArgs e)
     {
         //NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
@@ -986,7 +986,12 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
         {
             NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al generar la referencia. " + resultado.message);
             //NotiflixJS.Loading(up_pasarelaPago, NotiflixJS.LoadingType.remove);
+            //string redireccion = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary
+            //{
+            //    { "id_operacion", seguridad.Encriptar(hf_id_operacion.Value) }
+            //});
         }
+        NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Referencia de pago generada");
 
         btn_finalizar_compra.Visible = true;
         btn_finalizar_compra.NavigateUrl = GetRouteUrl("cliente-pedido-finalizado", new System.Web.Routing.RouteValueDictionary

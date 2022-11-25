@@ -9,19 +9,18 @@
         <div class="container">
             <div class="row">
                 <div class="center-align col s12 l12">
-                    <a class="waves-effect waves-light modal-trigger is-btn-blue is-text-center" href="#modal_agregar_slider">Agregar slider
-                    </a>
+                    <a class="waves-effect waves-light modal-trigger is-btn-blue is-text-center" href="#modal_agregar_slider">Agregar slider</a>
                 </div>
             </div>
             <div class="row">
                 <asp:UpdatePanel ID="up_Lv_Slider" UpdateMode="Conditional" class="col s12  m12 l12 margin-t-4x" runat="server">
-                    <contenttemplate>
+                    <ContentTemplate>
                         <asp:ListView ID="lv_imagenes" OnItemDataBound="lv_imagenes_ItemDataBound" runat="server">
-                            <layouttemplate>
+                            <LayoutTemplate>
                                 <div runat="server" id="itemPlaceholder"></div>
 
-                            </layouttemplate>
-                            <itemtemplate>
+                            </LayoutTemplate>
+                            <ItemTemplate>
                                 <asp:HiddenField ID="hf_idSlider" Value='<%#Eval("id")%>' runat="server" />
                                 <div class="col s12  m6 l6 xl4">
                                     <div class="card ">
@@ -71,9 +70,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </itemtemplate>
+                            </ItemTemplate>
 
-                            <emptydatatemplate>
+                            <EmptyDataTemplate>
                                 <div class="row">
                                     <div class="center-align col s12 l12 xl12">
                                         <h3 class="center-align">Aún no hay Slider Activos </h3>
@@ -81,12 +80,12 @@
                                             href="#modal_agregar_slider"><i class="left large material-icons">slideshow</i> Agregar</a>
                                     </div>
                                 </div>
-                            </emptydatatemplate>
-                            <edititemtemplate>
+                            </EmptyDataTemplate>
+                            <EditItemTemplate>
                                 <h2>No hay slideres </h2>
-                            </edititemtemplate>
+                            </EditItemTemplate>
                         </asp:ListView>
-                    </contenttemplate>
+                    </ContentTemplate>
                 </asp:UpdatePanel>
 
             </div>
@@ -130,10 +129,10 @@
         </div>
         <div class="row">
             <asp:ListView ID="lv_galeriaDeImagenes" runat="server">
-                <layouttemplate>
+                <LayoutTemplate>
                     <div runat="server" id="itemPlaceholder"></div>
-                </layouttemplate>
-                <itemtemplate>
+                </LayoutTemplate>
+                <ItemTemplate>
                     <asp:HiddenField ID="hf_imgFileName" Value='<%#Eval("Value")%>' runat="server" />
                     <div class="col s12  m6 l6 xl4">
                         <div class="card">
@@ -152,9 +151,9 @@
                             </div>
                         </div>
                     </div>
-                </itemtemplate>
+                </ItemTemplate>
 
-                <emptydatatemplate>
+                <EmptyDataTemplate>
                     <div class="row">
                         <div class="center-align col s12 l12 xl12">
                             <h3 class="center-align">Aún no hay Slider Activos </h3>
@@ -162,87 +161,95 @@
                                 href="#modal_agregar_slider"><i class="left large material-icons">slideshow</i> Agregar</a>
                         </div>
                     </div>
-                </emptydatatemplate>
-                <edititemtemplate>
+                </EmptyDataTemplate>
+                <EditItemTemplate>
                     <h2>No hay imagenes cargadas </h2>
-                </edititemtemplate>
+                </EditItemTemplate>
             </asp:ListView>
 
         </div>
     </div>
     <!-- Modal Agregar Slider -->
-    <div id="modal_agregar_slider" class="modal">
-        <div class="modal-content">
-            <h4>Agrega nuevo Slider</h4>
+    <div id="modal_agregar_slider" class="modal is-rounded-lg">
+        <div class="modal-content is-m-0">
+            <div class="is-flex is-justify-between is-items-center">
+                <h2 class="is-text-lg is-font-semibold is-select-none">Agregar nuevo slider</h2>
+                <a href="#!" class="modal-action modal-close is-text-black">
+                    <svg class="is-w-6 is-h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </a>
+            </div>
             <div class="row">
-                <div class="input-field col s12 m12 l12 xl6">
-                    <asp:TextBox ID="txt_titulo" runat="server"></asp:TextBox>
-                    <label for="<%=txt_titulo.ClientID %>">Titulo</label>
+                <div class="is-flex is-justify-between is-items-center is-px-4">
+                    <label for="<%=txt_titulo.ClientID %>" class="is-text-base is-pr-4">Título: </label>
+                    <div class="is-w-4_5">
+                        <asp:TextBox ID="txt_titulo" placeholder="Título de la imagen" runat="server"></asp:TextBox>
+                    </div>
                 </div>
-                <div class="input-field col s12 m12 l12 xl12">
-                    <asp:TextBox ID="txt_descripcion" runat="server"></asp:TextBox>
-                    <label for="<%=txt_descripcion.ClientID %>">Descripción</label>
-
+                <div class="is-flex is-justify-between is-items-center is-px-4">
+                    <label for="<%=txt_descripcion.ClientID %>" class="is-text-base is-pr-4">Descripción: </label>
+                    <div class="is-w-4_5">
+                        <asp:TextBox ID="txt_descripcion" placeholder="Descripción de la imagen" runat="server"></asp:TextBox>
+                    </div>
                 </div>
-                <div class="input-field col s12 m12 l6">
-                    <asp:DropDownList ID="ddl_imagen" class="selectize-select browser-default " runat="server"></asp:DropDownList>
-                    <label for="<%=ddl_imagen.ClientID %>">Imagen</label>
-
+                <div class="is-flex is-justify-between is-items-center is-px-4">
+                    <label for="<%=ddl_imagen.ClientID %>" class="is-text-base is-pr-4">Imagen: </label>
+                    <div class="is-w-4_5">
+                        <asp:DropDownList ID="ddl_imagen" class="selectize-select browser-default" runat="server"></asp:DropDownList>
+                    </div>
                 </div>
-                <div class="input-field  col s12 m12 l12">
-                    <asp:TextBox ID="txt_link" runat="server"></asp:TextBox>
-                    <label for="<%=txt_link.ClientID %>">Link</label>
+                <hr class="is-w-4_5 is-my-2" />
+                <div class="is-flex is-justify-between is-items-center is-px-4">
+                    <label for="<%=txt_link.ClientID %>" class="is-text-base is-pr-4">Enlace: </label>
+                    <div class="is-w-4_5">
+                        <asp:TextBox ID="txt_link" placeholder="Enlace al que dirigirá el slider" runat="server"></asp:TextBox>
+                    </div>
                 </div>
-
-                <div class="  col s6 m4 l2">
-                    <asp:DropDownList ID="ddl_duracion" runat="server">
-                        <asp:ListItem Value="2000" Text="2 seg."></asp:ListItem>
-                        <asp:ListItem Value="3000" Text="3 seg."></asp:ListItem>
-                        <asp:ListItem Value="4000" Text="4 seg."></asp:ListItem>
-                        <asp:ListItem Value="5000" Text="5 seg."></asp:ListItem>
-
-                    </asp:DropDownList>
-                    <label for="<%=ddl_duracion.ClientID %>">Duración</label>
+                <div class="is-flex is-justify-between is-items-center is-px-4">
+                    <label for="<%=ddl_duracion.ClientID %>" class="is-text-base is-pr-4">Duración: </label>
+                    <div class="is-w-4_5">
+                        <asp:DropDownList ID="ddl_duracion" runat="server">
+                            <asp:ListItem Value="1" Text="Fijo"></asp:ListItem>
+                            <asp:ListItem Value="2000" Text="2 seg."></asp:ListItem>
+                            <asp:ListItem Value="3000" Text="3 seg."></asp:ListItem>
+                            <asp:ListItem Value="4000" Text="4 seg."></asp:ListItem>
+                            <asp:ListItem Value="5000" Text="5 seg."></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
                 </div>
-                <div class=" col s6 m3 l2">
-                    <asp:DropDownList ID="ddl_posicion" runat="server">
-                        <asp:ListItem Value="1" Text="1"></asp:ListItem>
-                        <asp:ListItem Value="2" Text="2"></asp:ListItem>
-                        <asp:ListItem Value="3" Text="3"></asp:ListItem>
-                        <asp:ListItem Value="4" Text="4"></asp:ListItem>
-                        <asp:ListItem Value="5" Text="5"></asp:ListItem>
-                    </asp:DropDownList>
-                    <label for="<%=ddl_posicion.ClientID %>">Posicion</label>
+                <div class="is-flex is-justify-between is-items-center is-px-4">
+                    <label for="<%=ddl_posicion.ClientID %>" class="is-text-base is-pr-4">Posicion: </label>
+                    <div class="is-w-4_5">
+                        <asp:DropDownList ID="ddl_posicion" runat="server">
+                            <asp:ListItem Value="1" Text="1"></asp:ListItem>
+                            <asp:ListItem Value="2" Text="2"></asp:ListItem>
+                            <asp:ListItem Value="3" Text="3"></asp:ListItem>
+                            <asp:ListItem Value="4" Text="4"></asp:ListItem>
+                            <asp:ListItem Value="5" Text="5"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
                 </div>
-
-                <div class="input-field col s12 m12 l12 l12">
-                    <span>Opciones usar "_blank" para enlace en nueva pestaña, dejar vacio para link en la misma pestaña.</span>
-                    <asp:TextBox ID="txt_opciones" CssClass="materialize-textarea" TextMode="MultiLine" runat="server"></asp:TextBox>
-
+                <hr class="is-w-4_5 is-my-2" />
+                <div class="is-flex is-flex-col is-justify-between is-items-start is-px-4">
+                    <label for="<%=txt_opciones.ClientID %>" class="is-text-base">Opcional: Ingresar "_blank" para que el enlace se abra en nueva pestaña.</label>
+                    <asp:TextBox ID="txt_opciones" TextMode="SingleLine" runat="server"></asp:TextBox>
                 </div>
-                <div class="col s12  m14 l4 margin-b-2x">
+                <div class="is-flex is-justify-center is-items-center is-py-2">
                     <label>
                         <asp:CheckBox ID="chk_activa" runat="server" />
                         <span for="<%=chk_activa.ClientID %>">Activo</span>
                     </label>
-
                 </div>
-
-                <asp:UpdatePanel ID="up_agregarSlider" UpdateMode="Conditional" class="col s12  m12 l12 margin-t-4x" runat="server">
-                    <contenttemplate>
-                        <asp:LinkButton ID="btn_agregarSlider" CssClass="waves-effect waves-light btn blue-grey lighten-5 blue-grey-text text-darken-4"
-                            OnClick="btn_agregarSlider_Click" runat="server">
-                            Agregar Slider</asp:LinkButton>
-                    </contenttemplate>
-                    <triggers>
+                <asp:UpdatePanel ID="up_agregarSlider" UpdateMode="Conditional" class="is-flex is-justify-center is-items-center is-py-2" runat="server">
+                    <ContentTemplate>
+                        <asp:LinkButton ID="btn_agregarSlider" CssClass="is-btn-blue" OnClick="btn_agregarSlider_Click" runat="server">Agregar</asp:LinkButton>
+                    </ContentTemplate>
+                    <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="btn_agregarSlider" EventName="Click" />
-                    </triggers>
+                    </Triggers>
                 </asp:UpdatePanel>
             </div>
-
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
         </div>
     </div>
 
@@ -307,14 +314,14 @@
                 </div>
                 <div class="col s12  m112 l12">
                     <asp:UpdatePanel UpdateMode="Conditional" runat="server">
-                        <contenttemplate>
+                        <ContentTemplate>
                             <asp:LinkButton ID="btn_editarSlider" OnClientClick="  $('#modal_editar_slider').modal('close');" CssClass="waves-effect waves-light btn blue-grey lighten-5 blue-grey-text text-darken-4"
                                 OnClick="btn_editarSlider_Click" runat="server">
                                 Editar Slider</asp:LinkButton>
-                        </contenttemplate>
-                        <triggers>
+                        </ContentTemplate>
+                        <Triggers>
                             <asp:AsyncPostBackTrigger ControlID="btn_editarSlider" EventName="Click" />
-                        </triggers>
+                        </Triggers>
                     </asp:UpdatePanel>
 
                 </div>
