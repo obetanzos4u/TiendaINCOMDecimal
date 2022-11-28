@@ -773,7 +773,7 @@
     }
 
     .anuncios-UPS {
-        height: 100%;
+        <!-- height: 100%; -->
         grid-area: anuncios-UPS;
     }
 
@@ -799,42 +799,90 @@
     }
 
     #slider_home_principal {
-        background-color: #245c93;
+        background-color: #FFFFFF;
     }
 
-    .anuncios {
+    /* .anuncios {
         background-color: #787878;
         height: 43%;
+    } */
+
+    .anuncios {
+        aspect-ratio: 3/2;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .anuncios img {
+        background-color: #787878;
     }
 
     .USP1 {
+        aspect-ratio: 4/1;
+        width: 100%;
+        object-fit: cover;
+        <!-- height: 18% -->
+    }
+
+    .USP1 img {
         background-color: #c3bb9f;
-        height: 18%
+    }
+
+    .USP2 {
+       /* height: 18% */
+        aspect-ratio: 4/1;
+        width: 100%;
+        object-fit: cover;
     }
 
     .USP2 {
         background-color: #89abad;
-        height: 18%
     }
 
     .USP3 {
-        background-color: #be9393;
-        height: 18%;
+       /* height: 18%; */
+        aspect-ratio: 4/1;
+        width: 100%;
+        object-fit: cover;
     }
 
-    .anuncios a, .USP1 a, .USP2 a, .USP3 a {
+    .USP3 img {
+        background-color: #be9393;
+    }
+
+    /* .anuncios a, .USP1 a, .USP2 a, .USP3 a {
         display: block;
         height: 100%;
-    }
+    } */
 
-    .anuncios > div, .USP1 > div, .USP2 > div, .USP3 > div { 
+    <!-- .anuncios > div, .USP1 > div, .USP2 > div, .USP3 > div {
         height: 100%;
-    }
+    } -->
 
-    .anuncios a > img, .USP1 a > img, .USP2 a > img, .USP3 a > img {
+
+    /* .anuncios a > img, .USP1 a > img, .USP2 a > img, .USP3 a > img {
         display: flex;
         width: -webkit-fill-available;
         width: -moz-available;
+        height: 100%;
+    } */
+
+    /* .anuncios a, .USP1 a, .USP2 a, .USP3 a {
+        aspect-ratio: 2/1;
+        width: 100%;
+        object-fit: cover;
+    } */
+
+    /* .anuncios a, .USP1 a, .USP2 a, .USP3 a {
+        aspect-ratio: 2/1;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+        height: 100%;
+    } */
+
+    .anuncios a > img, .USP1 a > img, .USP2 a > img, .USP3 a > img {
+        display: block;
         height: 100%;
     }
 

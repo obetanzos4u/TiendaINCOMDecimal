@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="homeSlider.ascx.cs" Inherits="tienda.homeSlider" %>
 
-<section class="splide" style="height: 800px" id="slider_home_principal">
+<section class="splide" id="slider_home_principal">
     <div class="splide__track splide__track-principal">
         <ul id="bxsliderHome" class="splide__list splide__list-principal" runat="server"></ul>
         <ul class="splide__pagination"></ul>
@@ -19,7 +19,7 @@
                 320: { width: '320px', height: '200px', gap: '0rem' },
                 375: { width: '375px', height: '200px' },
                 768: { width: '768px', height: '400px' },
-                1024: { width: '1024px', height: '800px' },
+                1000: { width: '1024px', height: '700px' },
             },
             autoWidth: false,
             autoHeight: false,

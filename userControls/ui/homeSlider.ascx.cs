@@ -37,7 +37,8 @@ namespace tienda
                     imgSlider.AlternateText = titulo;
                     imgSlider.ToolTip = titulo;
                     imgSlider.ImageUrl = nombreArchivo;
-                    imgSlider.CssClass = "responsive-img IncomWebpToJpg";
+                    /*imgSlider.CssClass = "responsive-img IncomWebpToJpg";*/
+                    imgSlider.CssClass = "responsive-imagen IncomWebpToJpg";
                     if (!string.IsNullOrWhiteSpace(link))
                     {
                         hpLink.NavigateUrl = link;
