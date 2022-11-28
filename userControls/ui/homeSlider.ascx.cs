@@ -38,8 +38,6 @@ namespace tienda
                     imgSlider.ToolTip = titulo;
                     imgSlider.ImageUrl = nombreArchivo;
                     imgSlider.CssClass = "responsive-img IncomWebpToJpg";
-                    imgSlider.Attributes.Add("style", "width: 1280px;");
-                    imgSlider.Attributes.Add("loading", "lazy");
                     if (!string.IsNullOrWhiteSpace(link))
                     {
                         hpLink.NavigateUrl = link;
@@ -49,7 +47,6 @@ namespace tienda
                         {
                             hpLink.Target = opciones;
                         }
-
                         control.Controls.Add(hpLink);
                     }
                     else

@@ -14,13 +14,20 @@
             drag: 'free',
             focus: 'center',
             perPage: 1,
-            autoWidth: true,
-            autoHeight: true,
+            mediaQuery: 'max',
+            breakpoints: {
+                320: { width: '320px', height: '200px', gap: '0rem' },
+                375: { width: '375px', height: '200px' },
+                768: { width: '768px', height: '400px' },
+                1024: { width: '1024px', height: '800px' },
+            },
+            autoWidth: false,
+            autoHeight: false,
             autoScroll: {
                 speed: -1,
             },
             autoplay: true,
-            speed: 700,
+            speed: 900,
             gap: '1rem',
             arrows: true,
             pauseOnHover: false,
@@ -28,7 +35,8 @@
             keyboard: false,
             wheel: false,
             trimSpace: true,
-            updateOnMove: true
+            updateOnMove: true,
+            cover: true
         });
         new Splide('.splide', {
             classes: {

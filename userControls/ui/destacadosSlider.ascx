@@ -2,11 +2,11 @@
 <%@ Register Src="~/userControls/uc_btn_agregar_carritoListado.ascx" TagName="add" TagPrefix="uc_cart" %>
 
 <section class="splide splide-destacados is-cursor-grab" id="destacados_splide">
-    <div class="splide__track splide__track-destacados" >
+    <div class="splide__track splide__track-destacados">
         <ul id="contenedorDestacados" class="splide__list splide__list-destacados" runat="server"></ul>
     </div>
     <div class="splide__progress">
-<%--        <div class="splide__progress__bar">
+        <%--<div class="splide__progress__bar">
         </div>--%>
     </div>
 </section>

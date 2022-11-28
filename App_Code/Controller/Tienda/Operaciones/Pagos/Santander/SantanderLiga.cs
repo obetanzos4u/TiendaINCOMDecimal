@@ -48,7 +48,7 @@ public class SantanderLigaCobro
         string host = HttpContext.Current.Request.Url.Host;
 
         //if (host == "localhost" || host == "test1.incom.mx")
-        if (host == "test1.incom.mx")
+        if (host == "www.incom.mx")
         //   if(true)
         {
             id_company = id_companySANDBOX;

@@ -166,15 +166,16 @@
             }
         </style>
         <style>
-        #btn-buscador_bar {
-            background: #0066CC;
-            padding: 0;
-            margin: 0;
-            border: none;
-            width: 60px;
-            height: 36px;
-            border-radius: 0px 6px 6px 0px;
-        }
+            #btn-buscador_bar {
+                background: #0066CC;
+                padding: 0;
+                margin: 0;
+                border: none;
+                width: 60px;
+                height: 36px;
+                border-radius: 0px 6px 6px 0px;
+            }
+
             .slider-container {
                 margin: auto 5rem 8vh 5rem;
             }
@@ -669,7 +670,7 @@
                     display: none !important;
                 }
 
-/*
+                /*
                 .btn_buscador {
                     height: 3rem !important;
                 }
