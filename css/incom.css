@@ -695,6 +695,10 @@ div.arrow-doble-down #svg-arrow-down {
             height: 20px;
             margin: 6px 0;
         }
+
+        .form-sesion_margin  .btn-1 {
+            margin: 1rem auto;
+        }
     }
 
     @media (max-width: 1599px) {
@@ -2777,8 +2781,8 @@ div.arrow-doble-down #svg-arrow-down {
             min-height: 600px;
         }
 
-        footer {
-            display: contents !important;
+        .form-sesion_margin .btn-1 {
+            margin: 2rem auto;
         }
     }
 
