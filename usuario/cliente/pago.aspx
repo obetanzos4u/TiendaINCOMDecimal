@@ -39,7 +39,7 @@
                         <asp:UpdatePanel ID="up_pasarelaPago" UpdateMode="Conditional" RenderMode="Block" runat="server">
                             <ContentTemplate>
                                 <div class="is-flex is-items-start">
-                                    <asp:Button ID="btn_tarjeta" class="is-btn-gray is-space-x-9" Text="Tarjeta de cr&eacute;dito/d&eacute;bito" OnClick="btn_tarjeta_Click" UseSubmitBehavior="false" runat="server" />
+                                    <asp:Button ID="btn_tarjeta" class="is-btn-gray is-space-x-9" Text="Tarjeta de cr&eacute;dito / d&eacute;bito" OnClick="btn_tarjeta_Click" UseSubmitBehavior="false" runat="server" />
                                     <asp:Button ID="btn_paypal" class="is-btn-gray is-space-x-9" Text="PayPal" OnClick="btn_paypal_Click" UseSubmitBehavior="false" runat="server" />
                                     <asp:Button ID="btn_transferencia" class="is-btn-gray" OnClick="btn_transferencia_Click" Text="Transferencia o dep&oacute;sito" UseSubmitBehavior="false" runat="server" />
                                 </div>

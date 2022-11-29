@@ -47,35 +47,33 @@ public class SantanderLigaCobro
 
         string host = HttpContext.Current.Request.Url.Host;
 
-        //if (host == "localhost" || host == "test1.incom.mx")
-        if (host == "www.incom.mx")
-        //   if(true)
+        ////if (host == "localhost" || host == "test1.incom.mx")
+        //if (host == "incom.mx")
+        ////   if(true)
+        //{
+        //    id_company = id_companySANDBOX;
+        //    id_branch = id_branchSANDBOX;
+        //    user = userSANDBOX;
+        //    pwd = pwdSANDBOX;
+        //}
+        //else
+        //{
+        id_company = id_companyPRODUCTIVO;
+
+        if (moneda == "MXN")
         {
-            id_company = id_companySANDBOX;
-            id_branch = id_branchSANDBOX;
-            user = userSANDBOX;
-            pwd = pwdSANDBOX;
+            id_branch = id_branchPRODUCTIVO_MXN;
+            user = userPRODUCTIVO_MXN;
+            pwd = pwdPRODUCTIVO_MXN;
         }
-        else
+
+        if (moneda == "USD")
         {
-            id_company = id_companyPRODUCTIVO;
-
-            if (moneda == "MXN")
-            {
-                id_branch = id_branchPRODUCTIVO_MXN;
-                user = userPRODUCTIVO_MXN;
-                pwd = pwdPRODUCTIVO_MXN;
-            }
-
-            if (moneda == "USD")
-            {
-                id_branch = id_branchPRODUCTIVO_USD;
-                user = userPRODUCTIVO_USD;
-                pwd = pwdPRODUCTIVO_USD;
-            }
-
-
+            id_branch = id_branchPRODUCTIVO_USD;
+            user = userPRODUCTIVO_USD;
+            pwd = pwdPRODUCTIVO_USD;
         }
+        //}
         cadenaXML = $@"
                             <P>
                               <business>
@@ -124,24 +122,24 @@ public class SantanderLigaCobro
         var request = new RestRequest();
 
 
-        if (host == "test1.incom.mx")
-        // if (true)
-        {
+        //if (host == "test1.incom.mx")
+        //// if (true)
+        //{
 
-            key = KeyCifradoSANDBOX;
-            data0 = data0SANDBOX;
+        //    key = KeyCifradoSANDBOX;
+        //    data0 = data0SANDBOX;
 
-            client = new RestClient(UrlSANDBOX);
-            request = new RestRequest(_ResourceSANDBOX, Method.POST);
-        }
-        else
-        {
-            key = KeyCifradoPRODUCTIVO;
-            data0 = data0PRODUCTIVO;
+        //    client = new RestClient(UrlSANDBOX);
+        //    request = new RestRequest(_ResourceSANDBOX, Method.POST);
+        //}
+        //else
+        //{
+        key = KeyCifradoPRODUCTIVO;
+        data0 = data0PRODUCTIVO;
 
-            client = new RestClient(UrlPRODUCTIVO);
-            request = new RestRequest(_ResourcePRODUCTIVO, Method.POST);
-        }
+        client = new RestClient(UrlPRODUCTIVO);
+        request = new RestRequest(_ResourcePRODUCTIVO, Method.POST);
+        //}
 
 
 

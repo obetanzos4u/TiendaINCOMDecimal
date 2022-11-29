@@ -129,7 +129,7 @@ public partial class aviso_de_privacidad : System.Web.UI.Page {
             mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
 
             
-            emailTienda email = new emailTienda(asunto, "cmiranda@it4u.com.mx", mensaje, "retail@incom.mx");
+            emailTienda email = new emailTienda(asunto, "serviciosweb@incom.mx", mensaje, "retail@incom.mx");
            email.contacto();
 
             materializeCSS.crear_toast(this, email.resultadoMensaje, email.resultado);
