@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="is-py-4 is-flex is-justify-end is-items-center">
-                                <asp:LinkButton ID="btn_enviarEmailContacto" class="is-text-white is-font-semibold is-px-4 is-py-2 is-bg-blue is-rounded" OnClick="btn_enviarEmailContacto_Click" OnClientClick="btnLoading(this);" runat="server" TabIndex="4">Enviar</asp:LinkButton>
+                                <asp:LinkButton ID="btn_enviarEmailContacto" class="is-text-white is-font-semibold is-px-4 is-py-2 is-bg-blue is-rounded" OnClick="btn_enviarEmailContacto_Click" OnClientClick="" runat="server" TabIndex="4">Enviar</asp:LinkButton>
                             </div>
                         </div>
                     </ContentTemplate>
@@ -47,6 +47,7 @@
                 <div class="is-py-4">
                     <h2 class="is-font-semibold is-m-0">Ubicaciones</h2>
                     <div class="is-flex is-justify-center is-items-center">
+
                         <div class="is-w-1_2 is-h-full is-p-8">
                             <img class="responsive-img" src="/img/informacion/fachada_plutarco_contacto.jpg" width="575" height="357" alt="Sucursal ciudad de méxico Incom">
                             <div class="is-flex is-justify-around is-items-center is-py-4">

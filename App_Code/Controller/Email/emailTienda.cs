@@ -99,9 +99,9 @@ public class emailTienda : email
             //mm.Bcc.Add("development@incom.mx");
             mm.Bcc.Add("serviciosweb@incom.mx");
             mm.Bcc.Add("fgarcia@incom.mx");
-            mm.Bcc.Add("desarrollo@incom.mx");
+            //mm.Bcc.Add("desarrollo@incom.mx");
             mm.Bcc.Add("telemarketing@incom.mx");
-            mm.Bcc.Add("jaraujo@incom.mx");
+            mm.Bcc.Add("soportetecnico@incom.mx");
 
             SmtpClient enviar = smtp();
             enviar.SendAsync(mm, null);

@@ -9,14 +9,18 @@ using RestSharp;
 using System.Dynamic;
 using RestSharp.Authenticators;
 
-public partial class aviso_de_privacidad : System.Web.UI.Page {
-    protected void Page_Load(object sender, EventArgs e) {
-        if (!IsPostBack) {
+public partial class aviso_de_privacidad : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
             Page.Title = "Ubicación, sucursales y contacto";
             Page.MetaDescription = "Sucursales, contacto y asesoria técnica en México.";
 
             #region Valida si el usuario ha iniciado sesión y rellna automáticamente ciertos datos
-            if (HttpContext.Current.User.Identity.IsAuthenticated) {
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
 
                 var user = usuarios.userLogin();
                 txt_nombre.Text = user.nombre + " " + user.apellido_paterno;
@@ -27,18 +31,20 @@ public partial class aviso_de_privacidad : System.Web.UI.Page {
         }
 
     }
-    protected void btn_enviarEmailContacto_Click(object sender, EventArgs e) {
+    protected void btn_enviarEmailContacto_Click(object sender, EventArgs e)
+    {
 
         validar_camposContacto validar = new validar_camposContacto();
 
         bool resultado = validar.contactoSimple(txt_nombre.Text, txt_email.Text, txt_telefono.Text, txt_mensaje.Text);
-        
-
-        if (resultado) {
 
 
+        if (resultado)
+        {
 
-            DateTime fechaSolicitud= utilidad_fechas.obtenerCentral();
+
+
+            DateTime fechaSolicitud = utilidad_fechas.obtenerCentral();
             string asunto = " Nombre: " + txt_nombre.Text + "";
             string mensaje = string.Empty;
             string cadenaValidacion = string.Empty;
@@ -51,7 +57,8 @@ public partial class aviso_de_privacidad : System.Web.UI.Page {
 
 
 
-            if (Request.QueryString["info"] != null) {
+            if (Request.QueryString["info"] != null)
+            {
                 infoReferencia = infoReferencia + (" ~ " + Request.QueryString["info"].ToString());
             }
             Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
@@ -64,7 +71,7 @@ public partial class aviso_de_privacidad : System.Web.UI.Page {
             datosDiccRemplazo.Add("{comentario}", comentario + " <br>" + infoReferencia);
 
             string mensajeCut = txt_mensaje.Text;
-            if(mensajeCut.Length> 400)
+            if (mensajeCut.Length > 400)
             {
                 mensajeCut = txt_mensaje.Text.Substring(0, 399);
             }
@@ -82,19 +89,20 @@ public partial class aviso_de_privacidad : System.Web.UI.Page {
             contactoSimple.email = textTools.lineSimple(txt_email.Text);
             contactoSimple.telefono = txt_telefono.Text;
             contactoSimple.fechaSolicitud = fechaSolicitud;
-            contactoSimple.comentario = txt_mensaje.Text  + infoReferencia;
-            int idContactoIncomMX =  contactoSimple.contactoSimple();
+            contactoSimple.comentario = txt_mensaje.Text + infoReferencia;
+            int idContactoIncomMX = contactoSimple.contactoSimple();
 
 
             string url = string.Format("https://quicktask.it4you.mx/herramientas/seguimiento-leads/registrar.aspx?nombreCliente={0}&email={1}&telefono={2}&idContactoIncomMX={3}&comentarios={4}",
-            contactoSimple.nombre, contactoSimple.email, txt_telefono.Text, idContactoIncomMX , mensajeCut);
+            contactoSimple.nombre, contactoSimple.email, txt_telefono.Text, idContactoIncomMX, mensajeCut);
 
             datosDiccRemplazo.Add("{seguimiento}", url);
 
 
             #region WebService Auto registrar leads
 
-            try {
+            try
+            {
                 dynamic lead = new ExpandoObject();
                 lead.idContactoIncomMX = idContactoIncomMX;
                 lead.nombreCliente = contactoSimple.nombre;
@@ -114,11 +122,13 @@ public partial class aviso_de_privacidad : System.Web.UI.Page {
                 request.AddJsonBody(lead);
 
                 var response = client.Execute(request);
-                if(response.StatusCode != System.Net.HttpStatusCode.OK)
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
                     devNotificaciones.error("Error al crear lead WebApi", "");
                 }
-            }catch(Exception ex) {
+            }
+            catch (Exception ex)
+            {
 
                 devNotificaciones.error("Error al crear lead WebApi", ex);
             }
@@ -128,21 +138,23 @@ public partial class aviso_de_privacidad : System.Web.UI.Page {
 
             mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
 
-            
+
             emailTienda email = new emailTienda(asunto, "serviciosweb@incom.mx", mensaje, "retail@incom.mx");
-           email.contacto();
+            email.contacto();
 
-            materializeCSS.crear_toast(this, email.resultadoMensaje, email.resultado);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Mensaje enviado, nos pondremos en contacto en breve");
+            //materializeCSS.crear_toast(this, email.resultadoMensaje, email.resultado);
 
-           formulario.Visible = false;
-           gracias.Visible = true;
-
-         
-            } else {
-            // Inicio de guardar registro en la base de datos
-            materializeCSS.crear_toast(this, validar.mensaje, resultado);
-            }
-       
-
+            formulario.Visible = false;
+            gracias.Visible = true;
         }
+        else
+        {
+            // Inicio de guardar registro en la base de datos
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No fue posible enviar el mensaje");
+            //materializeCSS.crear_toast(this, validar.mensaje, resultado);
+        }
+
+
     }
+}
