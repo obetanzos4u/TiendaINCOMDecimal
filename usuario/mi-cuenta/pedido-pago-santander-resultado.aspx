@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="top" runat="Server">
     <asp:Panel ID="content_msgError" class="container" Visible="false" runat="server">
         <h2 id="msgError" class="center-align" runat="server"></h2>
-        <p id="detallesError" runat="server"></p>
+        <div style="height: 96px; overflow-y: scroll">
+            <p id="detallesError" runat="server"></p>
+        </div>
     </asp:Panel>
     <div class="container">
         <div id="Content_Confirmacion" class="row" visible="false" runat="server">
@@ -28,7 +30,7 @@
             <h3 class="center-align">En breve serás redirigido</h3>
         </div>
     </div>
-    <%--    <script>
+    <%--<script>
         document.addEventListener("DOMContentLoaded", function (event) {
             // window.history.replaceState(null, null, window.location.pathname);
         });

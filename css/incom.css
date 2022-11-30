@@ -966,7 +966,7 @@ div.arrow-doble-down #svg-arrow-down {
     }
 
     .price {
-        margin: 0rem 1rem;
+        margin: 0rem auto;
         width: fit-content;
     }
 

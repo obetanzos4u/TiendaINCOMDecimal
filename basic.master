@@ -123,7 +123,15 @@
     <!-- END SHAREAHOLIC CODE -->
 </head>
 <body>
-    <form id="form1" runat="server" class="border-4 border-red-500">
+    <%--    <div style="z-index: 1000000000000000000000000000; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background-color: #fefefe; width: 100vw; height: 100vh">
+        <div style="position: static; width: 100%; height: 100%;">
+            <div class="is-flex is-justify-center is-items-center is-h-full borderTest"> 
+                Mantenimiento
+            </div>
+        </div>
+    </div>--%>
+    <form id="form1" runat="server">
+        <%--  style="display: none" --%>
         <asp:ScriptManager ID="ScriptManager1" ScriptMode="Release" runat="server">
             <Scripts>
                 <asp:ScriptReference Path="~/js/usuario-login.js?v=98" />
@@ -220,10 +228,11 @@
                 width: 100%;
                 object-fit: cover;
             }
-                .splide__slide > a {
-                    color: #000000;
-                    font-weight: 500;
-                }
+
+            .splide__slide > a {
+                color: #000000;
+                font-weight: 500;
+            }
 
             #slider_home_principal {
                 padding: 0em !important;
@@ -251,7 +260,7 @@
                     background-color: #ffffff2a;
                 }
 
-           /* .splide__list-principal > li > a > img {
+            /* .splide__list-principal > li > a > img {
                 width: 100vw;
                 height: 100%;
                 object-fit: fill;
@@ -883,7 +892,8 @@
             }
         </style>
         <asp:ContentPlaceHolder ID="top" runat="server" />
-        <a onclick="topFunction()" id="btn_toTop" title="Desplazarse arriba de la página">
+        <%--  Visible="false"  --%>
+        <a onclick="topFunction()" id="btn_toTop" title="Desplazarse arriba de la página" style="display: none">
             <img id="img_toTop" alt="boton desplazarse hacia arriba en la página" src="https://www.incom.mx/img/webUI/newdesign/collapse_arrow.svg" />
         </a>
     </form>

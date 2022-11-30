@@ -53,8 +53,8 @@ public partial class usuario_mi_cuenta_pedido_pago_santander_resultado : System.
     protected void MostrarError()
     {
         NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error");
-        msgError.InnerText = "Hubo un problema en el pago";
-        detallesError.InnerText = "Vuelte a intentar más adelante o contacta a tú asesor";
+        msgError.InnerText = "Tú pago ha sido rechazado por el banco";
+        detallesError.InnerText = "Vuelte a intentar más tarde o contacta a tú asesor";
         content_msgError.Visible = true;
         {
             detallesError.InnerHtml += "<br>" + url;
@@ -62,6 +62,7 @@ public partial class usuario_mi_cuenta_pedido_pago_santander_resultado : System.
     }
     protected void Rechazado()
     {
+        NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Pago rechazado por el banco");
         string cdResponse = Request.QueryString["cdResponse"].ToString();
         string nb_error = Request.QueryString["nb_error"].ToString();
 
@@ -92,6 +93,6 @@ public partial class usuario_mi_cuenta_pedido_pago_santander_resultado : System.
         {
             { "id_operacion", seguridad.Encriptar(referencia) }
         });
-        BootstrapCSS.RedirectJs(this, redireccion, 3000);
+        BootstrapCSS.RedirectJs(this, redireccion, 4000);
     }
 }
