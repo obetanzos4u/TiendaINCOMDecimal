@@ -197,6 +197,12 @@ margin-left: 1rem;
     padding: 0rem 1rem;
 }
 
+.card-content .is-btn-blue {
+    margin: auto;
+    display: flex;
+    font-size: 9px;
+}
+
 /*Documentación tamáño móvi mediano*/
 
 @media only screen and (min-width: 600px) and (max-width: 820px) {
@@ -3081,6 +3087,17 @@ div.arrow-doble-down #svg-arrow-down {
 
         .title-product_description {
             font-size: 2.2rem !important;
+        }
+
+        #ordenar_pedido_fecha, #ordenar_pedido_ascendente {
+            width: 12%;
+            display: block;
+        }
+
+        #ordenar_pedido_fecha .select-wrapper input.select-dropdown,
+        #ordenar_pedido_ascendente .select-wrapper input.select-dropdown {
+            height: 2rem !important;
+            width: 90% !important;
         }
     }
 

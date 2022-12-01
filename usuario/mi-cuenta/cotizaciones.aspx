@@ -167,7 +167,6 @@
                                                     data-delay="50" data-tooltip="Clic para editar"
                                                     onchange="txtLoading(this);" AutoPostBack="true" OnTextChanged="cambiarNombreCotizacion"
                                                     Text='<%#Eval("nombre_cotizacion") %>' runat="server"></asp:TextBox>
-
                                                 <div class="col no-padding-x s12 m12 l6 xl6 ">
                                                     <strong>Número de operación: </strong>
                                                     <asp:Label ID="lbl_numero_operacion" runat="server" Text='<%#Eval("numero_operacion") %>'></asp:Label>

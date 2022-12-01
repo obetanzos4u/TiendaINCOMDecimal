@@ -18,7 +18,7 @@
 
 <!-- <asp:HyperLink ID="link_VisualizarProduct" CssClass=" waves-effect waves-light btn blue  btn-full-text" runat="server">
             Ver y cotizar <i class="material-icons left">chevron_right</i></asp:HyperLink> -->
-<asp:HyperLink ID="link_VisualizarProducto" CssClass="is-btn-blue" style="padding: 0.5rem 1rem" runat="server">
+<asp:HyperLink ID="link_VisualizarProducto" CssClass="is-btn-blue" runat="server">
             Ver y cotizar</asp:HyperLink>
 <asp:HyperLink ID="link_solicitarCotización" 
     ToolTip="Solicitar cotización" 
