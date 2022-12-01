@@ -185,15 +185,6 @@
                             <div runat="server" id="itemPlaceholder"></div>
                         </div>
                         <%-- FIN Distribución de resultados de la búsqueda --%>
-                        <div class="is-flex is-justify-center is-items-center is-py-4">
-                            <asp:DataPager ID="dp_2" class="" Visible="true" runat="server" PagedControlID="lv_productos" PageSize="50" QueryStringField="PageId">
-                                <Fields>
-                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="is-px-2 text-pagina_anterior" PreviousPageText="&#60; Anterior" FirstPageText="&#10092;&#10092; Primera;" ShowFirstPageButton="False" ShowNextPageButton="False" />
-                                    <asp:NumericPagerField CurrentPageLabelCssClass="pagerButtonCurrentPage" RenderNonBreakingSpacesBetweenControls="false" NextPreviousButtonCssClass="pagerButton" NumericButtonCssClass="pagerButton" />
-                                    <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="is-px-2 text-pagina_siguiente" LastPageText=" Última »" NextPageText="Siguiente &#62;" ShowLastPageButton="False" ShowPreviousPageButton="False" />
-                                </Fields>
-                            </asp:DataPager>
-                        </div>
                     </LayoutTemplate>
                     <ItemTemplate>
                         <%-- class="cajaProductosFCO borderTest" --%>
@@ -256,6 +247,16 @@
                         </div>--%>
                     </EmptyDataTemplate>
                 </asp:ListView>
+                <div class="is-flex is-flex-col is-justify-center is-items-center is-py-4">
+                    <asp:DataPager ID="dp_2" class="is-select-none" Visible="true" runat="server" PagedControlID="lv_productos" PageSize="48" QueryStringField="PageId">
+                        <Fields>
+                            <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="true" ButtonCssClass="is-px-2 text-pagina_anterior" PreviousPageText="&#60; Anterior" FirstPageText="&#10092;&#10092; Primera" ShowFirstPageButton="false" ShowNextPageButton="False" />
+                            <asp:NumericPagerField CurrentPageLabelCssClass="pagerButtonCurrentPage" RenderNonBreakingSpacesBetweenControls="false" NextPreviousButtonCssClass="pagerButton" NumericButtonCssClass="pagerButton" ButtonCount="5" />
+                            <asp:NextPreviousPagerField RenderDisabledButtonsAsLabels="false" RenderNonBreakingSpacesBetweenControls="true" ButtonCssClass="is-px-2 text-pagina_siguiente" LastPageText="1 de 40" NextPageText="Siguiente &#62;" ShowLastPageButton="false" ShowPreviousPageButton="False" />
+                        </Fields>
+                    </asp:DataPager>
+                    <asp:Label ID="lbl_contadorPaginas" Visible="true" runat="server"></asp:Label>
+                </div>
                 <div id="no_productos" class="borderTest" runat="server" visible="false">
                     <p>No se han encontrado resultados.</p>
                     <p>Intente con otro término de búsqueda.</p>

@@ -41,7 +41,7 @@
                         <div class="is-flex is-justify-center is-items-center">
                             <asp:LinkButton ID="btn_renovarPedido" CssClass="is-decoration-none" Visible="false" OnClientClick="btnLoading(this);" OnClick="btn_renovarPedido_Click" runat="server">Renovar pedido</asp:LinkButton>
                         </div>
-                        <div id="texto_cargando_informacion" class=" d-none"><strong>Cargando información de pago...</div>
+                        <div id="texto_cargando_informacion" class=" d-none is-text-sm is-py-2">Cargando información de pago...</div>
                         <div id="content_msg_bootstrap"></div>
                         <table id="dt_desglose_paypal" class="table" runat="server">
                             <tr>

@@ -17,6 +17,7 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
     {
         if (!IsPostBack)
         {
+            NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
             cargarProductos(sender, e);
             uc_moneda.ddl_default();
             ProductosVisitados.cantidadCargar = 5;
@@ -24,7 +25,9 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
             ProductosVisitados.verticalMode = true;
             ProductosVisitados.obtenerProductos();
             //    loginForm.urlReturn = HttpContext.Current.Request.Url.AbsoluteUri;
+            NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
         }
+        NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
     }
 
     /// <summary>
@@ -102,7 +105,6 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
     }
     protected void orden(object sender, EventArgs e)
     {
-
         var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
         //   nameValues.Set("ordenTipo", ddl_ordenTipo.SelectedValue);
         // nameValues.Set("ordenBy", ddl_ordenBy.SelectedValue);
@@ -130,7 +132,6 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
         string url = Request.Url.AbsolutePath;
         Response.Redirect(url + "?" + nameValues); // ToString() is called implicitly
     }
-
     protected void cargarProductos(object sender, EventArgs e)
     {
         string monedaTienda = Session["monedaTienda"].ToString();
@@ -168,6 +169,10 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
             productos.AcceptChanges();
             procesar.monedaTienda = monedaTienda;
             productos = procesar.procesarProductos(productos);
+            double cantidadPaginas = (double)productos.Rows.Count / dp_2.PageSize;
+            decimal paginaActual = (dp_2.StartRowIndex / dp_2.MaximumRows) + 1;
+
+            lbl_contadorPaginas.Text = paginaActual + " de " + Math.Ceiling(cantidadPaginas);
 
             cargarMarcas(productos);
             obtenerCategorias(productos);
@@ -259,7 +264,6 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
 
         */
     }
-
     protected void lv_productos_OnItemDataBound(object sender, ListViewItemEventArgs e)
     {
         System.Data.DataRowView rowView = e.Item.DataItem as System.Data.DataRowView;
@@ -525,9 +529,7 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
 
             }
             #endregion
-
-
-
         }
+        NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
     }
 }
