@@ -30,7 +30,7 @@
                 <iframe id="videoProductGallery_selected" class="responsive-iframe is-hidden" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
             </div>
             <ul id="img_producto" class="is-productGallery_thumbnails" runat="server"></ul>
-            <section id="productZoom"></section>
+            <section id="productZoom" class="is-mx-xl"></section>
             <span class="txt-gallery">Posiciona el cursor sobre la imagen para obtener una vista ampliada.</span>
         </div>
 
@@ -206,7 +206,7 @@
     const drift = new Drift(selectedImg, {
         paneContainer: document.querySelector("#productZoom"),
         inlinePane: false,
-        zoomFactor: 2.5,
+        zoomFactor: 3.5,
         hoverDelay: 0
     });
     for (let i = 0; i < thumbs.length; i++) {
@@ -233,6 +233,13 @@
         document.getElementById("productGallery_selected").src = firstSrc;
         selectedImg.setAttribute("data-zoom", firstSrc);
     });
+
+    var heightzoom = document.getElementById('top_contenido_ctl00_selectedImage').offsetHeight;
+    var widthzoom = document.getElementById('top_contenido_ctl00_selectedImage').offsetWidth;
+    document.getElementById("productZoom").style.height = `${heightzoom}px`;
+    document.getElementById("productZoom").style.width = `${widthzoom}px`;
+
+    document.getElementById("productZoom").style.left = `${widthzoom}px`;
 </script>
 
 <uc1:mdl_addOperacion ID="mdl_addOperacion" runat="server"></uc1:mdl_addOperacion>
