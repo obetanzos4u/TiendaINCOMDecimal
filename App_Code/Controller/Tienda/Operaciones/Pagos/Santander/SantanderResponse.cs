@@ -22,7 +22,7 @@ public class SantanderResponse
     static public pedidos_pagos_respuesta_santander obtener(string numero_operacion)
     {
 
-        using(var db = new tiendaEntities())
+        using (var db = new tiendaEntities())
         {
             var response = db.pedidos_pagos_respuesta_santander
                 .Where(o => o.numero_operacion == numero_operacion)
@@ -33,7 +33,7 @@ public class SantanderResponse
             return response;
         }
     }
-    static public  List<pedidos_pagos_respuesta_santander> ObtenerTodos(string numero_operacion)
+    static public List<pedidos_pagos_respuesta_santander> ObtenerTodos(string numero_operacion)
     {
 
         using (var db = new tiendaEntities())
@@ -47,7 +47,7 @@ public class SantanderResponse
             return response;
         }
     }
-    public static void enviarEmail(string numero_operacion,string status, string monto)
+    public static void enviarEmail(string numero_operacion, string status, string monto)
     {
 
         DataTable dt_PedidoProductos = pedidosProductos.obtenerProductos(numero_operacion);
@@ -57,7 +57,7 @@ public class SantanderResponse
             productosEmailHTML += "<strong>" + p["numero_parte"].ToString() + "</strong> - " + p["descripcion"].ToString() + "<br><br>";
         }
 
-     
+
 
 
 
@@ -78,15 +78,15 @@ public class SantanderResponse
 
         string id_operacion_encritado = seguridad.Encriptar(pedidoDatos.id.ToString());
 
-        string url_pedido = 
+        string url_pedido =
             HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) +
 
             "/usuario/cliente/mi-cuenta/pedidos/resumen/" + id_operacion_encritado;
 
         //Inicio email para el cliente
 
-        string plantillaCliente = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, "/email_templates/operaciones/pedidos/pago_santander/santander_cliente_pago_realizado.html"); 
- 
+        string plantillaCliente = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, "/email_templates/operaciones/pedidos/pago_santander/santander_cliente_pago_realizado.html");
+
 
         Dictionary<string, string> datosDiccRemplazoCliente = new Dictionary<string, string>();
 
@@ -123,7 +123,7 @@ public class SantanderResponse
         }
 
         emailTienda emailCliente = new emailTienda("Pago realizado 3DS para el pedido: " + pedidoDatos.nombre_pedido,
-            pedidoDatos.email + ", cmiranda@it4u.com.mx, jhernandez@incom.mx, pjuarez@incom.mx, ralbert@incom.mx, fgarcia@incom.mx", mensaje, "retail@incom.mx");
+            pedidoDatos.email + ", jaraujo@incom.mx, ralbert@incom.mx, fgarcia@incom.mx", mensaje, "retail@incom.mx");
         emailCliente.general();
 
         //FIN email para el cliente

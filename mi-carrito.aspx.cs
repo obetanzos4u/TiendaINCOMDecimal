@@ -90,7 +90,7 @@ public partial class mi_carrito : System.Web.UI.Page
             {
 
 
-               string script = @" 
+                string script = @" 
                    document.addEventListener('DOMContentLoaded', () => { 
                          console.log('sasfa');
                         setTimeout(function () { 
@@ -99,7 +99,7 @@ public partial class mi_carrito : System.Web.UI.Page
                    });";
 
 
-               ScriptManager.RegisterStartupScript(this, this.GetType(), "ModalContacto", script, true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "ModalContacto", script, true);
             }
             #endregion
 
@@ -428,7 +428,7 @@ public partial class mi_carrito : System.Web.UI.Page
         System.Data.DataRowView rowView = e.Item.DataItem as System.Data.DataRowView;
 
         decimal precio_unitario = decimal.Parse(rowView["precio_unitario"].ToString());
-        decimal precio_total = decimal.Parse(rowView["precio_total"].ToString());
+        decimal precio_total = decimal.Parse(rowView["precio_total"].ToString()) * decimal.Parse(Session["impuesto"].ToString());
         decimal tipo_cambio = decimal.Parse(rowView["tipo_cambio"].ToString());
         decimal cantidad = decimal.Parse(rowView["cantidad"].ToString());
         precio_unitario = procesar.precio_a_MonedaTienda(tipo_cambio, rowView["moneda"].ToString(), precio_unitario);
