@@ -324,8 +324,8 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
 
             if (disponibleEnvio == "1")
             {
-                lbl_envioGratuito.Attributes.Add("class", "is-text-xs is-text-white is-font-semibold");
-                lbl_envioGratuito.Text = "Envio gratis &star;";
+                lbl_envioGratuito.Attributes.Add("class", "is-text-xs is-text-white is-font-semibold is-select-none");
+                lbl_envioGratuito.Text = "Envio gratis &starf;";
             }
             else
             {

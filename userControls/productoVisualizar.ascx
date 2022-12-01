@@ -79,6 +79,7 @@
                     <div class="borde-ticket_compra">
                         <div class="">
                             <div class="col s12 m5 l6 xl5" style="width: 100%; display: contents;">
+                                <div id="lbl_aviso" runat="server"></div>
                                 <section class="price">
                                     <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 1.5rem; width: 100%; display: inherit;" Visible="false" runat="server"></asp:Label>
                                     <asp:Label ID="lbl_precioLista" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
@@ -94,7 +95,7 @@
                                 <section class="text-IVA">
                                     <span class="is-text-black nota">IVA <strong>incluido</strong> </span>
                                 </section>
-                                <div id="lbl_envioIncluido" class="is-text-center is-text-white is-font-semibold is-bg-envioGratis is-line-175" runat="server"></div>
+                                <div id="lbl_envioIncluido" class="is-text-center is-text-white is-font-semibold is-bg-envioGratis is-line-175 is-select-none" runat="server"></div>
                                 <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
                             </div>
                             <div class="row" style="margin: inherit 0px;">

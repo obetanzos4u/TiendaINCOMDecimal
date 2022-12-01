@@ -491,6 +491,10 @@ body {
     padding: 1rem;
 }
 
+.is-pt-4 {
+    padding-top: 1rem;
+}
+
 .is-pl-4 {
     padding-left: 1rem;
 }

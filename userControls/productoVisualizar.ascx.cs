@@ -152,6 +152,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             string etiquetas = productos.Rows[0]["etiquetas"].ToString();
             string upc = productos.Rows[0]["upc"].ToString();
             string video = productos.Rows[0]["video"].ToString();
+            string aviso = productos.Rows[0]["avisos"].ToString();
 
             try
             {
@@ -184,7 +185,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             if (disponibleEnvio == "1")
             {
                 lbl_envioIncluido.Visible = true;
-                lbl_envioIncluido.InnerHtml = "Envío gratis";
+                lbl_envioIncluido.InnerHtml = "Envío gratis &starf;";
             }
 
             if (string.IsNullOrEmpty(especificaciones))
@@ -329,7 +330,35 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
 
 
 
+            switch (aviso)
+            {
+                case "OFERTA":
+                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-offer");
+                    break;
+                case "LIQUIDACIÓN":
+                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-liquidation");
+                    break;
+                case "ULTIMAS":
+                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-lastItems");
+                    aviso = "ÚLTIMAS PIEZAS";
+                    break;
+                case "PERSONALIZADO":
+                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-customized");
+                    break;
+                case "PEDIDO":
+                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-onRequest");
+                    aviso = "SOBRE PEDIDO";
+                    break;
+                case "RENTA":
+                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-rent");
+                    aviso = "VENTA Y RENTA";
+                    break;
+                default:
+                    lbl_aviso.Attributes.Add("style", "height: 22px");
+                    break;
+            }
 
+            lbl_aviso.InnerText = aviso;
 
 
 
