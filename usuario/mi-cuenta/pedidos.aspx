@@ -2,18 +2,18 @@
 
 <%@ Import Namespace="System.Globalization" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
-
-    <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
+<div>
+    <div id="border-mis_pedidos" class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div class="row">
             <div class="col l12">
                 <h2 class="center-align is-m-0">Mis pedidos</h2>
             </div>
         </div>
         <!-- INICIO : Filtros y orden -->
-        <div class="row is-top-3">
-            <div class="col s12 m5 l4" style="margin-right: 1rem;">
-                <label class="is-text-black">Busca por: Nombre o Número de operación</label>
-                <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de pedido o Número de operación" AutoPostBack="true" OnTextChanged="orden" style="border-radius: 8px; height: 2rem; padding-left: 1rem;" runat="server"></asp:TextBox>
+        <div id="filtro-mis_pedidos" class="row is-top-3">
+            <div class="search_bar-mis_pedidos" style="margin-right: 1rem;">
+                <label class="is-text-black">Busca por nombre o número de operación</label>
+                <asp:TextBox ID="txt_search" placeholder="Busca por nombre de pedido o número de operación" AutoPostBack="true" OnTextChanged="orden" style="border-radius: 8px; height: 2rem; padding-left: 1rem;" runat="server"></asp:TextBox>
             </div>
             <div id="ordenar_pedido_fecha" class="col">
                 <label class="is-text-black">Ordenar por</label>
@@ -36,7 +36,7 @@
         </div>
         <!-- FIN : Filtros y orden -->
         <div class="row center-align">
-            <asp:DataPager ID="dp_1" class="dataPager_productos" OnPagePropertiesChanging="OnPagePropertiesChanging" runat="server" PagedControlID="lvPedidos"
+            <!-- <asp:DataPager ID="dp_1" class="dataPager_productos" OnPagePropertiesChanging="OnPagePropertiesChanging" runat="server" PagedControlID="lvPedidos"
                 PageSize="10" QueryStringField="PageId">
                 <fields>
                     <asp:NextPreviousPagerField RenderNonBreakingSpacesBetweenControls="false" ButtonCssClass="pagerButton"
@@ -47,9 +47,9 @@
                         LastPageText=" &nbsp; &gt;&gt;" ShowLastPageButton="True" ShowPreviousPageButton="False" />
                 </fields>
             </asp:DataPager>
-        </div>
+        </div> -->
         <div class="row">
-            <div class="col l12">
+            <div class="col l12 card-mis_pedidos">
                 <asp:listview id="lvPedidos" onitemdatabound="lvPedidos_ItemDataBound" runat="server">
                     <layouttemplate>
                         <div class="col no-padding-x2 s12 m12 l12">
@@ -106,8 +106,8 @@
                                                 </div>
                                                 <table>
                                                     <tbody>
-                                                        <tr>
-                                                            <td style="width: 30%;">
+                                                        <tr class="importe_total-mis_pedidos">
+                                                            <td>
                                                                 <strong>Importe total:</strong>
                                                             </td>
                                                             <td>
@@ -178,7 +178,7 @@
             </div>
         </div>
 
-        <div class="row center-align">
+        <div id="pagination-mis_pedidos" class="row center-align">
             <asp:DataPager ID="DataPager1" class="dataPager_productos" OnPagePropertiesChanging="OnPagePropertiesChanging" runat="server" PagedControlID="lvPedidos"
                 PageSize="10" QueryStringField="PageId">
                 <fields>
@@ -192,5 +192,5 @@
             </asp:DataPager>
         </div>
     </div>
-
+</div>
 </asp:Content>

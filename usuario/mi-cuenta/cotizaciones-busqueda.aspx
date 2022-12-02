@@ -183,7 +183,6 @@
                                                 <div class="col no-padding-x s12 m12 l6 xl6 ">
                                                     <strong>Fecha de creación: </strong><%#Eval("fecha_creacion") %>
                                                 </div>
-
                                                 <asp:HiddenField ID="hf_id_cotizacionSQL" Value='<%#Eval("id") %>' runat="server" />
                                                      <uc:cotizacionEstatus ID="CotizacionEstatus" runat="server" />
                                             </div>

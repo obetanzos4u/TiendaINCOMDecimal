@@ -255,7 +255,7 @@
                             <asp:NextPreviousPagerField RenderDisabledButtonsAsLabels="false" RenderNonBreakingSpacesBetweenControls="true" ButtonCssClass="is-px-2 text-pagina_siguiente" LastPageText="1 de 40" NextPageText="Siguiente &#62;" ShowLastPageButton="false" ShowPreviousPageButton="False" />
                         </Fields>
                     </asp:DataPager>
-                    <asp:Label ID="lbl_contadorPaginas" Visible="true" runat="server"></asp:Label>
+                    <asp:Label ID="lbl_contadorPaginas" class="contador_paginas" Visible="true" runat="server"></asp:Label>
                 </div>
                 <div id="no_productos" class="borderTest" runat="server" visible="false">
                     <p>No se han encontrado resultados.</p>
@@ -274,8 +274,6 @@
     <div class="modal-content">
         <p class="center-align">
             <a id="link_productoSlideShow" class="btn blue">Ver detalles del producto   <i class="material-icons right">search</i>
-
-
             </a>
         </p>
         <div id="sliderProductosModal" class="slick "></div>

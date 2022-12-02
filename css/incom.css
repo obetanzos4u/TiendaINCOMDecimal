@@ -59,6 +59,12 @@
     margin-bottom: 0px;
 }
 
+.contador_paginas {
+    color: rgba(98, 123, 140, 0.79);
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
 /*Ruta de las categorias*/
 
 .contain-nav-wrapper_producto {
@@ -201,6 +207,13 @@ margin-left: 1rem;
     margin: auto;
     display: flex;
     font-size: 9px;
+}
+
+.search_bar-mis_pedidos {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 .75rem;
 }
 
 /*Documentación tamáño móvi mediano*/
@@ -493,6 +506,30 @@ div.arrow-doble-down #svg-arrow-down {
             padding-top: 6px;
             margin: 1em 0em;
         }
+
+        #ordenar_pedido_fecha .select-wrapper input.select-dropdown,
+        #ordenar_pedido_ascendente .select-wrapper input.select-dropdown {
+            height: 2rem !important;
+            width: 90% !important;
+        }
+
+        #ordenar_pedido_fecha {
+            width: 20%;
+            display: block;
+        }
+
+        #ordenar_pedido_ascendente {
+            width: 24%;
+            display: block;
+        }
+
+        .search_bar-mis_pedidos {
+            width: 50%;
+        }
+
+        #top_contenido_txt_search {
+            font-size: 0.75rem;
+        }
     }
 
     @media only screen and (min-width: 800px) and (max-width: 1000px) {
@@ -567,9 +604,6 @@ div.arrow-doble-down #svg-arrow-down {
     margin-bottom: 0rem !important;
 }
 
-.new-class {
-    border: 1px solid red;
-}
 /* Correción de alineación en las subcategorias */
     @media only screen and (min-width: 700px) and (max-width: 993px) {
     .truncate {
@@ -1349,6 +1383,66 @@ div.arrow-doble-down #svg-arrow-down {
         #top_contenido_datosCliente li.collection-item {
             padding: 6px !important;
         }
+
+        /* Mi cuenta - Mis pedidos */
+        #border-mis_pedidos {
+            padding: 0rem;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        #top_contenido_txt_search {
+            font-size: 12px !important;
+        }
+
+        #pagination-mis_pedidos .pagerButton {
+            font-size: 12px;
+            font-weight: 600;
+            margin: auto 0.125rem;
+        }
+
+        .importe_total-mis_pedidos {
+            display: flex;
+            margin: 2rem auto;
+        }
+
+        #border-mis_pedidos h2 {
+            margin: 2rem 1rem 0rem 1rem;
+        }
+
+        #filtro-mis_pedidos {
+            margin: auto 1rem;
+        }
+
+        #search_bar-mis_pedidos {
+            width: 100%;
+        }
+
+        #ordenar_pedido_fecha .select-wrapper input.select-dropdown,
+        #ordenar_pedido_ascendente .select-wrapper input.select-dropdown {
+            height: 2rem !important;
+            width: 90% !important;
+        }
+
+        .importe_total-mis_pedidos > td:first-child {
+            margin-right: 1rem;
+        }
+
+        .card-mis_pedidos {
+            width: 100%;
+        }
+
+        .importe_total-mis_pedidos > tr:nth-child(1) > td:nth-child(1) {
+            width: 50%;
+        }
+
+        .importe_total-mis_pedidos {
+            justify-content: center;
+        }
+
+        #top_contenido_txt_search {
+            font-size: 8px !important;
+        }
     }
 
     @media only screen and (min-width: 200px) {
@@ -1825,6 +1919,25 @@ div.arrow-doble-down #svg-arrow-down {
             height: 34px !important;
             line-height: 34px !important;
         }
+
+        #ordenar_pedido_fecha, #ordenar_pedido_ascendente {
+            width: 18%;
+            display: block;
+        }
+
+        #ordenar_pedido_fecha .select-wrapper input.select-dropdown,
+        #ordenar_pedido_ascendente .select-wrapper input.select-dropdown {
+            height: 2rem !important;
+            width: 95% !important;
+        }
+
+        .search_bar-mis_pedidos {
+            width: 40%;
+        }
+
+        #top_contenido_txt_search {
+            font-size: 0.75rem;
+        }
     }
 
     @media only screen and (min-width: 1100px) {
@@ -1861,6 +1974,10 @@ div.arrow-doble-down #svg-arrow-down {
             -webkit-columns: 1;
             -moz-columns: 1;
         }
+
+        .importe_total-mis_pedidos > tr:first-child {
+            width: 30%;
+        }
     }
 
     @media only screen and (min-width: 1700px) {
@@ -1876,8 +1993,12 @@ div.arrow-doble-down #svg-arrow-down {
     }
 
     .dataPager_productosCurrentPage {
-        background: rgba(98, 123, 140, 0.76) !important;
-        color: white !important;
+        background: rgba(98, 123, 140, 0.79);
+        color: #fff;
+        font-size: 1.25rem;
+        font-weight: 800;
+        padding: 0.25rem;
+        border-radius: .25rem;
     }
 
     .dataPager_productos {
@@ -1905,14 +2026,14 @@ div.arrow-doble-down #svg-arrow-down {
         font-size: 1rem;
     }
 
-    .dataPager_productos > a, .dataPager_productos > span {
+    /* .dataPager_productos > a, .dataPager_productos > span {
         padding: 6px;
         margin: 0px 3px;
         color: #5f686f;
         border-radius: 4px;
         line-height: 40px;
         background: rgba(98, 123, 140, 0.32);
-    }
+    } */
 
     a.aspNetDisabled {
         opacity: 0.4;
@@ -2544,9 +2665,17 @@ div.arrow-doble-down #svg-arrow-down {
             height: 2rem !important;
         }
 
+        #top_contenido_txt_search {
+            font-size: 0.75rem;
+        }
+
         #txt_email {
             height: 2rem;
             padding-left: 0;
+        }
+
+        #pagination-mis_pedidos .pagerButton {
+            font-size: 1rem;
         }
     }
 
@@ -2557,6 +2686,17 @@ div.arrow-doble-down #svg-arrow-down {
 
         .input-login_modal {
             width: 70% !important;
+        }
+
+        #ordenar_pedido_fecha, #ordenar_pedido_ascendente {
+            width: 40%;
+            display: block;
+        }
+
+        #ordenar_pedido_fecha .select-wrapper input.select-dropdown,
+        #ordenar_pedido_ascendente .select-wrapper input.select-dropdown {
+            height: 2rem !important;
+            width: 90% !important;
         }
     }
 
@@ -2795,6 +2935,15 @@ div.arrow-doble-down #svg-arrow-down {
         .form-sesion_margin .btn-1 {
             margin: 2rem auto;
         }
+
+        #border-mis_pedidos {
+            max-width: 1400px;
+            margin: auto auto 3rem auto !important;
+        }
+
+        #top_contenido_txt_search {
+            font-size: 0.75rem;
+        }
     }
 
     @media only screen and (min-width: 1700px) {
@@ -2833,6 +2982,12 @@ div.arrow-doble-down #svg-arrow-down {
         /* #productZoom {
             left: 600px;
         } */
+
+        #ordenar_pedido_fecha .select-wrapper input.select-dropdown,
+        #ordenar_pedido_ascendente .select-wrapper input.select-dropdown {
+            height: 30px !important;
+            width: 150px !important;
+        }
     }
 
     @media only screen and (min-width: 3000px) {
