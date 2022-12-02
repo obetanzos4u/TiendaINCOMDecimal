@@ -139,7 +139,6 @@
             <li title="Consideraciones">
                 <label for="tab3" role="button"><span>Consideraciones</span></label></li>
         </ul>
-
         <div class="slider-tab">
             <div class="indicator-tab"></div>
         </div>
@@ -155,7 +154,7 @@
                 <!-- caracteristicas -->
                 <div class="wrapper-especificaciones">
                     <div id="divEspecificacionesVacias" visible="false" runat="server"></div>
-                    <div id="divEspecificaciones" class="is-flex is-justify-around is-items-center" visible="false" runat="server">
+                    <div id="divEspecificaciones" class="is-flex" visible="false" runat="server">
                         <div class="left-especificaciones">
                             <span class="detalles-producto"><strong>Detalles del producto</strong></span>
                             <br>
@@ -172,11 +171,13 @@
                                 </tbody>
                             </table>
                         </div>
-                        <p class="bottom-especificaciones">
-                            Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando 
-                            <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
-                        </p>
                     </div>
+                </div>
+                <div class="container-bottom-especificaciones" >
+                    <p class="bottom-especificaciones">
+                        Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando
+                        <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
+                    </p>
                 </div>
             </section>
             <section>
@@ -188,7 +189,7 @@
         </div>
     </div>
 
-    <div class="">
+    <div>
         <productos:relacionados ID="productosRelacionados" runat="server"></productos:relacionados>
         <productos:alternativos ID="productosAlternativos" runat="server"></productos:alternativos>
     </div>
@@ -399,6 +400,8 @@
     .wrapper-especificaciones {
         display: flex;
         justify-content: center;
+        padding-right: 2rem;
+        padding-left: 1rem;
     }
 
     .right-especificaciones {
@@ -416,6 +419,13 @@
     .bottom-especificaciones {
         margin-top: 2em;
     }
+
+    /* container-bottom-especificaciones {
+        position: absolute;
+        bottom: 0;
+        margin: auto;
+        left: 30px;
+    } */
 
     .detalles-producto {
         color: #01568D;
@@ -481,11 +491,13 @@
 
         .content-tab {
             justify-content: flex-start;
+            margin-left: 1rem;
         }
 
         .bottom-especificaciones {
             padding-left: 4em;
             margin-bottom: 2rem;
+            margin-right: 2rem;
         }
 
         .content-tab > section:nth-child(1), .content-tab > section:nth-child(3) {

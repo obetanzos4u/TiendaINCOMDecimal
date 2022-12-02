@@ -123,14 +123,14 @@
                                             </div>
                                             <div class="card-action">
 
-                                                <asp:HyperLink ID="btn_editarPedido" style="width: 100%;"
+                                                <asp:HyperLink ID="btn_editarPedido" style="width: 100%; margin-right: 0px !important;"
                                                     CssClass=""
                                                     runat="server">
-                                                    <div class="is-btn-blue" style="width: 100%">Visualizar</div>
+                                                    <div class="is-btn-blue" style="width: 100%; margin-bottom: 1.5rem;"">Visualizar</div>
                                                 </asp:HyperLink>
 
                                                 <asp:HyperLink ID="btn_visualizar"
-                                                    CssClass="" style="text-transform: none; color:" runat="server">
+                                                    CssClass="" style="text-transform: none;" runat="server">
                                                     <div class="is-text-white is-btn-gray" style="width: 100%">Obtener comprobante</div></asp:HyperLink>
                                                 <a class="hide waves-effect waves-light btn  blue-grey-text text-darken-2  
                                                     activator right-align">Totales</a>

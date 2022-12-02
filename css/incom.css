@@ -440,6 +440,12 @@ div.arrow-doble-down #svg-arrow-down {
     padding-left: 1rem;
 }
 
+.wrapper-documentation {
+    display: inline-block;
+    width: fit-content;
+    margin-top: 1rem;
+}
+
 /* Formulario de facturación*/
 .text-facturaion-sub {
     font-size: 1rem;
@@ -1508,7 +1514,7 @@ div.arrow-doble-down #svg-arrow-down {
 
           .tabs {
             padding: 0 !important;
-            margin: 0 auto !important;
+            margin: 0 auto 2rem auto !important;
           }
 
           .tabs > ul {

@@ -640,7 +640,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             foreach (var atributo in D_documentacionPDF)
             {
                 HyperLink link = new HyperLink();
-                link.CssClass = "is-px-4 is-rounded is-bg-gray-100 is-p-2 is-space-r-6 txt-doc";
+                link.CssClass = "wrapper-documentation is-px-4 is-rounded is-bg-gray-100 is-p-2 is-space-r-6 txt-doc";
                 link.Text = "<img src='../../img/webUI/newdesign/documentacion-blue.svg' alt='Documentación' class='is-pr-2 icon-document'/>";
                 if (atributo.Key.ToLower() == "ft")
                 {
