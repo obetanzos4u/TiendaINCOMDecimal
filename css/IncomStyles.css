@@ -1477,6 +1477,10 @@ body {
     .producto_disponibilidad-txt {
         font-size: 12px;
     }
+
+    .title-ubicacion_sucursales {
+        font-size: 2rem;
+    }
 }
 
 @media (min-width: 1000px) {

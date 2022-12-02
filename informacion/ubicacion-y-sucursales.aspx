@@ -3,7 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
     <div class="is-container">
         <div class="is-flex is-flex-col is-justify-center is-items-center is-w-full">
-            <h1 class="is-font-bold is-select-none">Contacto y ubicación</h1>
+            <h1 class="title-ubicacion_sucursales is-font-bold is-select-none">Contacto y ubicación</h1>
             <div class="is-px-4 is-w-1_2">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
