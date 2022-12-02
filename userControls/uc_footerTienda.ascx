@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_footerTienda.ascx.cs" Inherits="uc_footerTienda" %>
 
 <footer class="is-text-white">
-    <div class="is-px-xl is-py-2-mx is-py-2 is-bg-footer is-text-white">
+    <div class="is-px-xl is-py-2-mx is-pt-3 is-bg-footer is-text-white">
         <div class="is-grid-xl is-col-footer is-gap-4 is-px-8-sm">
             <div class="is-flex-xl is-flex-col-xl is-justify-start is-items-start">
                 <a href="<%= Request.Url.GetLeftPart(UriPartial.Authority) + "/informacion/u0bicacion-y-sucursales.aspx" %>" class="is-text-xl is-font-semibold is-text-white is-decoration-none is-pt-4">Contáctanos</a>

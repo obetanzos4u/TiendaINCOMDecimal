@@ -632,7 +632,11 @@ div.arrow-doble-down #svg-arrow-down {
     }
 
     @media only screen and (min-width: 700px) {
-        
+
+        .container-no_resultados {
+            min-height: 70vh;
+        }
+
         .wrapper-descripcion {
             padding-left: 2rem;
             padding-right: 2rem;
@@ -1663,6 +1667,7 @@ div.arrow-doble-down #svg-arrow-down {
     }
 
     @media only screen and (min-width: 1000px) {
+
         #top_contenido_up_carrito {
             margin-bottom: 25vh;
         }
@@ -2806,6 +2811,7 @@ div.arrow-doble-down #svg-arrow-down {
     }
 
     @media only screen and (min-width: 1600px) {
+
         .cajaProductosFCO {
             width: 15.9%;
         }
