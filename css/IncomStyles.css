@@ -483,6 +483,11 @@ body {
     padding-bottom: 0.5rem;
 }
 
+.is-pt-3 {
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
 .is-p-3 {
     padding: 0.75rem;
 }

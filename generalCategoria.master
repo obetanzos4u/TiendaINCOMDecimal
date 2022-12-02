@@ -6,8 +6,7 @@
 
     <uc_header:headerGen ID="menuPricipal" runat="server"></uc_header:headerGen>
     <div class="container" style="width: 100%;">
-        <div class="row">
-
+        <div class="row container-no_resultados">
             <div class="col s12 m12 l12 xl12" id="general_categoria-container">
                 <asp:ContentPlaceHolder ID="contenido" runat="server" />
             </div>
