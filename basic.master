@@ -122,15 +122,25 @@
     <script cookie-consent="targeting" data-cfasync="false" async src="https://cdn.shareaholic.net/assets/pub/shareaholic.js"></script>
     <!-- END SHAREAHOLIC CODE -->
 </head>
-<body>
-    <%--    <div style="z-index: 1000000000000000000000000000; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background-color: #fefefe; width: 100vw; height: 100vh">
+<body onload="countdown('countDown')">
+    <div style="z-index: 1000000000000000000000000000; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background-color: #fefefe; width: 100vw; height: 100vh">
         <div style="position: static; width: 100%; height: 100%;">
-            <div class="is-flex is-justify-center is-items-center is-h-full borderTest"> 
-                Mantenimiento
+            <div style="position: absolute; left: 20px; top: 20px">
+                <img src="https://www.incom.mx/img/webUI/incom_logo_mini.png" alt="INCOM" />
+            </div>
+            <div class="is-flex is-flex-col is-justify-center is-items-center is-h-full">
+                <div class="is-m-4 is-px-8 is-py-4 is-text-white is-rounded-xl is-shadow" style="background-color: #004b87">
+                    <p class="is-text-lg is-text-center is-select-none">INCOM se renueva, por lo cual estará fuera de operación hasta el 5 de Diciembre</p>
+                    <p class="is-text-lg is-font-semibold is-text-center is-select-none">¡Te esperamos de vuelta!</p>
+                    <div id="countDown" class="is-select-none is-flex is-justify-around is-items-center"></div>
+                </div>
+                <div class="is-flex is-justify-center is-items-center">
+                    <img src="https://www.incom.mx/img/webUI/newdesign/waiting.png" alt="INCOM se está actualizando" class="is-w-1_2" style="filter: drop-shadow(0 0 0.3rem #004b87);" />
+                </div>
             </div>
         </div>
-    </div>--%>
-    <form id="form1" runat="server">
+    </div>
+    <form id="form1" runat="server" visible="false">
         <%--  style="display: none" --%>
         <asp:ScriptManager ID="ScriptManager1" ScriptMode="Release" runat="server">
             <Scripts>
@@ -891,13 +901,44 @@
                 margin-left: 2px;
             }
         </style>
-        <asp:ContentPlaceHolder ID="top" runat="server" />
+        <asp:ContentPlaceHolder ID="top" runat="server" Visible="false" />
         <%--  Visible="false"  --%>
         <a onclick="topFunction()" id="btn_toTop" title="Desplazarse arriba de la página" style="display: none">
             <img id="img_toTop" alt="boton desplazarse hacia arriba en la página" src="https://www.incom.mx/img/webUI/newdesign/collapse_arrow.svg" />
         </a>
     </form>
 
+    <script>
+        const countdown = (id) => {
+            const fecha = new Date('2022', '11', '05', '09', '00', '00')
+            let hoy = new Date()
+            let dias = 0
+            let horas = 0
+            let minutos = 0
+            let segundos = 0
+
+            if (fecha > hoy) {
+                let diferencia = (fecha.getTime() - hoy.getTime()) / 1000
+                dias = Math.floor(diferencia / 86400)
+                diferencia = diferencia - (86400 * dias)
+                horas = Math.floor(diferencia / 3600)
+                diferencia = diferencia - (3600 * horas)
+                minutos = Math.floor(diferencia / 60)
+                diferencia = diferencia - (60 * minutos)
+                segundos = Math.floor(diferencia)
+
+                //document.getElementById(id).innerHTML = 'Regresa en ' + dias + ' días, ' + horas + ' horas, ' + minutos + ' minutos para navegar en el nuevo INCOM'
+                document.getElementById(id).innerHTML = "<div class='is-flex is-flex-col is-justify-center is-items-center' ><span style='font-size: 4rem; font-weight: 600'>" + dias + "</span><span style='font-size: 1.5rem'>Días</span></div><span style='font-size: 2rem; text-align: center; height: 100%; font-weight: 600'>:</span><div class='is-flex is-flex-col is-justify-center is-items-center'><span style='font-size: 4rem; font-weight: 600'>" + horas + "</span><span style='font-size: 1.5rem'>Horas</span></div><span style='font-size: 2rem; text-align: center; height: 100%; font-weight: 600'>:</span><div class='is-flex is-flex-col is-justify-center is-items-center'><span style='font-size: 4rem; font-weight: 600'>" + minutos + "</span><span style='font-size: 1.5rem'>Minutos</span></div>"
+
+                if (dias > 0 || horas > 0 || minutos > 0 || segundos > 0) {
+                    setTimeout("countdown(\"" + id + "\")", 1000)
+                }
+            }
+            else {
+                document.getElementById('restante').innerHTML = 'Bienvenido al nuevo INCOM'
+            }
+        }
+    </script>
     <script>
         const copiarNumeroParte = (id, tipo) => {
             const numeroParte = document.getElementById(id).innerText;
