@@ -121,9 +121,9 @@
             <div class="is-flex is-flex-col is-justify-center is-items-center">
                 <img src="https://www.incom.mx/img/webUI/newdesign/not-found.png" alt="No encontrado" class="is-w-1_3" />
                 <h2 class="is-text-xl is-font-semibold">Ningún resultado encontrado</h2>
-                <p class="is-m-2">No pudimos encontrar nada con:
+                <p class="is-m-2">No encontramos productos con:
                     <asp:Label ID="lbl_termino_busqueda" class="is-font-semibold" runat="server"></asp:Label></p>
-                <p class="is-m-2 is-italic">Te sugerimos intentar con otro término de búsqueda o revisar la ortografía</p>
+                <p class="is-m-2"><span class="is-italic">Te sugerimos intentar con otro término de búsqueda</span> &#128556;</p>
             </div>
         </div>
         <!-- INICIO : Filtros y orden -->
