@@ -34,7 +34,7 @@ public class conexiones
         smtp.Host = "smtp.gmail.com";
         smtp.EnableSsl = true;
         smtp.UseDefaultCredentials = true;
-        NetworkCredential emailAcceso = new NetworkCredential("cmiranda@it4u.com.mx", "lydwgdtzufoshycw"); // Credenciales de Usuario ktkbvtbumplmjaov
+        NetworkCredential emailAcceso = new NetworkCredential("serviciosweb@incom.mx", "qvetsakzonfdmknn"); // Credenciales de Usuario ktkbvtbumplmjaov - lydwgdtzufoshycw
         smtp.Credentials = emailAcceso;
         smtp.Port = 587;
         return smtp;

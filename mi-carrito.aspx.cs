@@ -921,68 +921,68 @@ public partial class mi_carrito : System.Web.UI.Page
             string script = @"setTimeout(function () { window.location.replace('" + redirectUrl + "')}, 1000);";
             ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
 
-            //// INICIO - Envio de email
-            //if (usuarioLogin.tipo_de_usuario == "cliente")
-            //{
-            //    DateTime fechaSolicitud = utilidad_fechas.obtenerCentral();
-            //    string asunto = "Incom.mx, Gracias por tu compra: " + pedidoDatos.nombre_pedido + " " + pedidoDatos.usuario_cliente + " ";
-            //    string mensaje = string.Empty;
-            //    string filePathHTML = "/email_templates/operaciones/pedidos/pedido_cliente.html";
+            // INICIO - Envio de email
+            if (usuarioLogin.tipo_de_usuario == "cliente")
+            {
+                DateTime fechaSolicitud = utilidad_fechas.obtenerCentral();
+                string asunto = "incom.mx. Nuevo pedido creado: " + pedidoDatos.nombre_pedido + " por " + pedidoDatos.usuario_cliente + " ";
+                string mensaje = string.Empty;
+                string filePathHTML = "/email_templates/operaciones/pedidos/pedido_cliente.html";
 
-            //    DataTable operacionProductos = pedidosProductos.obtenerProductos(resultado);
+                DataTable operacionProductos = pedidosProductos.obtenerProductos(resultado);
 
-            //    string productosEmailHTML = "";
-            //    foreach (DataRow r in operacionProductos.Rows)
-            //    {
-            //        var precio_unitario = "$" + decimal.Parse(r["precio_unitario"].ToString()).ToString("#,#.##", myNumberFormatInfo) + " " + monedaTienda;
-            //        var cantidad = decimal.Round(decimal.Parse(r["cantidad"].ToString()), 2);
-            //        var unidad = r["unidad"].ToString();
+                string productosEmailHTML = "";
+                foreach (DataRow r in operacionProductos.Rows)
+                {
+                    var precio_unitario = "$" + decimal.Parse(r["precio_unitario"].ToString()).ToString("#,#.##", myNumberFormatInfo) + " " + monedaTienda;
+                    var cantidad = decimal.Round(decimal.Parse(r["cantidad"].ToString()), 2);
+                    var unidad = r["unidad"].ToString();
 
-            //        productosEmailHTML += "<strong>" + r["numero_parte"].ToString() + "</strong> - " + r["descripcion"].ToString() + "<br>" +
-            //           "Cantidad: <strong>" + cantidad + " x " + precio_unitario + "</strong><hr><br>";
-            //    }
+                    productosEmailHTML += "<strong>" + r["numero_parte"].ToString() + "</strong> - " + r["descripcion"].ToString() + "<br>" +
+                       "Cantidad: <strong>" + cantidad + " x " + precio_unitario + "</strong><hr><br>";
+                }
 
-            //    Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
+                Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
 
-            //    string dominio = Request.Url.GetLeftPart(UriPartial.Authority);
+                string dominio = Request.Url.GetLeftPart(UriPartial.Authority);
 
-            //    datosDiccRemplazo.Add("{dominio}", dominio);
-            //    datosDiccRemplazo.Add("{tipo_operacion}", "Pedido");
-            //    datosDiccRemplazo.Add("{nombre_cotizacion}", "Pedido");
-            //    datosDiccRemplazo.Add("{usuario_email}", usuarioLogin.email);
-            //    datosDiccRemplazo.Add("{nombre}", pedidoDatos.cliente_nombre);
-            //    datosDiccRemplazo.Add("{numero_operacion}", numero_operacion);
-            //    datosDiccRemplazo.Add("{nombre_operacion}", nombre_pedido);
-            //    datosDiccRemplazo.Add("{url_operacion}", dominio + redirectUrl);
-            //    datosDiccRemplazo.Add("{productos}", productosEmailHTML);
-            //    datosDiccRemplazo.Add("{FechaPedido}", pedidoDatos.fecha_creacion.ToString());
-            //    datosDiccRemplazo.Add("{DireccionEnvio}", strDireccionEnvio);
-            //    datosDiccRemplazo.Add("{DireccionFacturacion}", strDireccionFacturacion);
-            //    datosDiccRemplazo.Add("{InfoDeContacto}", InfoDeContacto);
-            //    datosDiccRemplazo.Add("{UrlDireccionEnvio}", dominio + UrlDireccionEnvio);
-            //    datosDiccRemplazo.Add("{UrlDireccionFacturacion}", dominio + UrlDireccionFacturacion);
-            //    datosDiccRemplazo.Add("{UrlInfoDeContacto}", dominio + UrlInfoDeContacto);
-            //    datosDiccRemplazo.Add("{MontoTotalProductos}", decimal.Parse(MontoTotalProductos.ToString()).ToString("#,#.##", myNumberFormatInfo));
+                datosDiccRemplazo.Add("{dominio}", dominio);
+                datosDiccRemplazo.Add("{tipo_operacion}", "Pedido");
+                datosDiccRemplazo.Add("{nombre_cotizacion}", "Pedido");
+                datosDiccRemplazo.Add("{usuario_email}", usuarioLogin.email);
+                datosDiccRemplazo.Add("{nombre}", pedidoDatos.cliente_nombre);
+                datosDiccRemplazo.Add("{numero_operacion}", numero_operacion);
+                datosDiccRemplazo.Add("{nombre_operacion}", nombre_pedido);
+                datosDiccRemplazo.Add("{url_operacion}", dominio + redirectUrl);
+                datosDiccRemplazo.Add("{productos}", productosEmailHTML);
+                datosDiccRemplazo.Add("{FechaPedido}", pedidoDatos.fecha_creacion.ToString());
+                datosDiccRemplazo.Add("{DireccionEnvio}", strDireccionEnvio);
+                datosDiccRemplazo.Add("{DireccionFacturacion}", strDireccionFacturacion);
+                datosDiccRemplazo.Add("{InfoDeContacto}", InfoDeContacto);
+                datosDiccRemplazo.Add("{UrlDireccionEnvio}", dominio + UrlDireccionEnvio);
+                datosDiccRemplazo.Add("{UrlDireccionFacturacion}", dominio + UrlDireccionFacturacion);
+                datosDiccRemplazo.Add("{UrlInfoDeContacto}", dominio + UrlInfoDeContacto);
+                datosDiccRemplazo.Add("{MontoTotalProductos}", decimal.Parse(MontoTotalProductos.ToString()).ToString("#,#.##", myNumberFormatInfo));
 
-            //    mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
+                mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
 
-            //    //  emailTienda email = new emailTienda(asunto, $"cmiranda@incom.mx, {usuarioLogin.email}", mensaje, "retail@incom.mx");               
+                //  emailTienda email = new emailTienda(asunto, $"cmiranda@incom.mx, {usuarioLogin.email}", mensaje, "retail@incom.mx");               
 
-            //    emailTienda email = new emailTienda(asunto, $"iamado@2rent.mx, ralbert@incom.mx, tpavia@incom.mx, jhernandez@incom.mx, pjuarez@incom.mx, fgarcia@incom.mx, {usuarioLogin.email}", mensaje, "retail@incom.mx");
+                emailTienda email = new emailTienda(asunto, $"jaraujo@incom.mx, fgarcia@incom.mx", mensaje, "serviciosweb@incom.mx"); // usuarioLogin.email
 
-            //    email.general();
+                email.general();
 
-            //    NotiflixJS.Message(this, NotiflixJS.MessageType.info, email.resultadoMensaje);
-            //    //materializeCSS.crear_toast(this, email.resultadoMensaje, email.resultado);
+                //NotiflixJS.Message(this, NotiflixJS.MessageType.info, email.resultadoMensaje);
+                //materializeCSS.crear_toast(this, email.resultadoMensaje, email.resultado);
 
-            //    // FIN - Envio de email
-            //    cargarProductoAsync();
-            //} 
-            //else
-            //{
-            //    NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se puede crear el pedido. Intentar más tarde.");
-            //    //    materializeCSS.crear_toast(this, "Error al crear pedido ", false);
-            //}
+                // FIN - Envio de email
+                cargarProductoAsync();
+            }
+            else
+            {
+                //NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No se puede crear el pedido. Intentar más tarde.");
+                //    materializeCSS.crear_toast(this, "Error al crear pedido ", false);
+            }
         }
     }
     protected void btn_guardarPlantilla_Click(object sender, EventArgs e)

@@ -165,7 +165,7 @@ public partial class herramientas_editar_producto : System.Web.UI.Page {
     protected void btn_agregar_permiso_app_Click(object sender, EventArgs e)
     {
         usuarios userLogin = usuarios.userLogin();
-        if (userLogin.email != "cmiranda@it4u.com.mx" || userLogin.email != "rpreza@incom.mx")
+        if (userLogin.email != "aruiz@it4u.com.mx") //userLogin.email != "cmiranda@it4u.com.mx" || userLogin.email != "rpreza@incom.mx"
         {
             var permiso = privacidadPaginas.validarPermisoSeccion("editar_permisos_usuario_aplicacion", usuarios.userLogin().id);
 
@@ -186,7 +186,7 @@ public partial class herramientas_editar_producto : System.Web.UI.Page {
     protected void chk_permiso_app_permitir_CheckedChanged(object sender, EventArgs e)
     {
         usuarios userLogin = usuarios.userLogin();
-       if(userLogin.email != "cmiranda@it4u.com.mx") { 
+       if(userLogin.email != "aruiz@it4u.com.mx") { //cmiranda@it4u.com.mx
         var permiso = privacidadPaginas.validarPermisoSeccion("editar_permisos_usuario_aplicacion", userLogin.id);
 
         if (permiso.result == false)
@@ -215,7 +215,7 @@ public partial class herramientas_editar_producto : System.Web.UI.Page {
         string campo = ddl_campo.ID.Replace("ddl_", "");
         string valor_campo = textTools.lineSimple(ddl_campo.SelectedValue);
 
-        if (campo == "rango" && txt_email.Text == "cmiranda@it4u.com.mx")
+        if (campo == "rango" && txt_email.Text == "aruiz@it4u.com.mx") //cmiranda@it4u.com.mx
         {
             materializeCSS.crear_toast(up_informacion_personal, "No es posible actualizar este usuario de rango", false);
 

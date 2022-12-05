@@ -30,10 +30,11 @@ public class EmailRegistroUsuario {
         Body = archivosManejador.reemplazarEnArchivo(PlantillaPath, datos);
 
         EmailRetail Email = new EmailRetail(Usuario.email, Usuario.nombre, asunto,  Body);
-        Email.AddCC("cmiranda@it4u.com.mx");
-        Email.AddCC("rpreza@incom.mx");
-        Email.AddCC("development@incom.mx");
-        Email.ReplyToList("cmiranda@it4u.com.mx,repreza@incom.mx,vcruz@incom.mx,ralbert@incom.mx");
+        Email.AddCC("serviciosweb@incom.mx");
+        // Email.AddCC("cmiranda@it4u.com.mx");
+        // Email.AddCC("rpreza@incom.mx");
+        // Email.AddCC("development@incom.mx");
+        Email.ReplyToList("serviciosweb@incom.mx,ralbert@incom.mx");
 
        
               Email.Send();

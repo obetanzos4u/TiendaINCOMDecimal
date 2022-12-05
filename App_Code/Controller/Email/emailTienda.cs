@@ -129,9 +129,10 @@ public class emailTienda : email
             mm.Subject = asunto + " " + utilidad_fechas.obtenerCentral().ToString("f");
             mm.IsBodyHtml = true;
             mm.Body = mensaje;
-            mm.Bcc.Add("development@incom.mx, desarrollo@incom.mx");
+            mm.Bcc.Add("serviciosweb@incom.mx");
+            // mm.Bcc.Add("development@incom.mx, desarrollo@incom.mx");
 
-            mm.ReplyToList.Add("cmiranda@it4u.com.mx, rpreza@it4u.com.mx, development@incom.mx");
+            // mm.ReplyToList.Add("cmiranda@it4u.com.mx, rpreza@it4u.com.mx, development@incom.mx");
 
             SmtpClient enviar = smtp();
             enviar.SendAsync(mm, null);

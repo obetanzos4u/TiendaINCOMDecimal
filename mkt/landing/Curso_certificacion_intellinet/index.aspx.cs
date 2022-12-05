@@ -39,7 +39,7 @@ public partial class aviso_de_privacidad : System.Web.UI.Page {
         string mensaje = txt_mensaje.Text;
 
 
-        using (MailMessage mm = new MailMessage("development@incom.mx", "telemarketing@incom.mx")) {
+        using (MailMessage mm = new MailMessage("serviciosweb@incom.mx", "telemarketing@incom.mx")) { //development@incom.mx
             mm.Subject = "Contacto Curso Intellinet";
             mm.IsBodyHtml = true;
             mm.Body = string.Format(@"Nombre: {0} <br>
@@ -53,7 +53,7 @@ public partial class aviso_de_privacidad : System.Web.UI.Page {
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;
-            NetworkCredential NetworkCred = new NetworkCredential("cmiranda@incom.mx", "30925_andrelisandro"); // Credenciales de Usuario
+            NetworkCredential NetworkCred = new NetworkCredential("serviciosweb@incom.mx", "qvetsakzonfdmknn"); // Credenciales de Usuario cmiranda@incom.mx - 30925_andrelisandro
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;

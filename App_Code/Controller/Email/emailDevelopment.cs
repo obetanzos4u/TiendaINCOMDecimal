@@ -79,7 +79,8 @@ public class emailDevelopment: email {
             mm.Subject = "[Reporte Facturación & Pedidos]"+asunto + " " + utilidad_fechas.obtenerCentral().ToString("f");
             mm.IsBodyHtml = true;
             mm.Body = mensaje;
-            mm.Bcc.Add("cmiranda@it4u.com.mx");
+            mm.Bcc.Add("serviciosweb@incom.mx");
+            // mm.Bcc.Add("cmiranda@it4u.com.mx");
           //  mm.Bcc.Add("telemarketing@incom.mx");
 
             SmtpClient enviar = smtpDevelopment();

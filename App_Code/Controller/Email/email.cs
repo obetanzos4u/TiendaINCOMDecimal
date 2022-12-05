@@ -20,8 +20,8 @@ public class email {
     public static string remitenteCredenciales = "retail@incom.mx";
     protected static string passwordCredenciales = "Serafincin_Retail@2021";
 
-    protected static string remitenteCredencialesDevelopment = "cmiranda@it4u.com.mx";
-    protected static string passwordCredencialesDevelopment = "lydwgdtzufoshycw"; // Credenciales de usuario ktkbvtbumplmjaov
+    protected static string remitenteCredencialesDevelopment = "serviciosweb@incom.mx"; // cmiranda@it4u.com.mx
+    protected static string passwordCredencialesDevelopment = "dyrvntbdmenuqhpx"; // Credenciales de usuario ktkbvtbumplmjaov - lydwgdtzufoshycw
 
     protected string asunto { get; set; }
     protected string destinatarios { get; set; }

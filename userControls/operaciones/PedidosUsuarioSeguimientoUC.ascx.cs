@@ -120,7 +120,7 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
 
 
             // emailTienda email = new emailTienda(asunto, $"cmiranda@it4u.com.mx", mensaje, "retail@incom.mx");
-            emailTienda email = new emailTienda(asunto, $"iamado@2rent.mx, tpavia@incom.mx, jhernandez@incom.mx,  ralbert@incom.mx, pjuarez@incom.mx, fgarcia@incom.mx, {pedidoDatos.email}", mensaje, "retail@incom.mx");
+            emailTienda email = new emailTienda(asunto, $"tpavia@incom.mx, ralbert@incom.mx, jaraujo@incom.mx, fgarcia@incom.mx, {pedidoDatos.email}", mensaje, "serviciosweb@incom.mx"); //iamado@2rent.mx, pjuarez@incom.mx ; retail@incom.mx
             email.general();
 
             //BootstrapCSS.Message(up_seguimientoUsuarioPedido, "#Content_msgUsuarioSeguimiento", BootstrapCSS.MessageType.success,

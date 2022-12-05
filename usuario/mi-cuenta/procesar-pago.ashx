@@ -147,7 +147,7 @@ public class procesar_pago : IHttpHandler, IRequiresSessionState
                 }
             }
 
-            emailTienda emailAsesor = new emailTienda(asunto, "cmiranda@it4u.com.mx, jhernandez@incom.mx, pjuarez@incom.mx, ralbert@incom.mx, fgarcia@incom.mx", mensaje, "retail@incom.mx");
+            emailTienda emailAsesor = new emailTienda(asunto, "jaraujo@incom.mx, ralbert@incom.mx, fgarcia@incom.mx", mensaje, "serviciosweb@incom.mx"); //cmiranda@it4u.com.mx, jhernandez@incom.mx, pjuarez@incom.mx ; retail@incom.mx
             emailAsesor.general();
 
             //Inicio email para el cliente

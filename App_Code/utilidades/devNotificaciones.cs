@@ -18,7 +18,7 @@ using System.Web.Hosting;
 public class devNotificaciones
 {
    
-    static string destinatarios = "cmiranda@it4u.com.mx";
+    static string destinatarios = "serviciosweb@incom.mx"; //cmiranda@it4u.com.mx
     static string appPath = HostingEnvironment.ApplicationPhysicalPath;
 
     private static SmtpClient smtp()
@@ -28,7 +28,7 @@ public class devNotificaciones
         smtp.Host = "smtp.gmail.com";
         smtp.EnableSsl = true;
         smtp.UseDefaultCredentials = true;
-        NetworkCredential emailAcceso =  new NetworkCredential("cmiranda@it4u.com.mx", "lydwgdtzufoshycw"); // Credenciales de Usuario ktkbvtbumplmjaov
+        NetworkCredential emailAcceso =  new NetworkCredential("serviciosweb@incom.mx", "qvetsakzonfdmknn"); // Credenciales de Usuario ktkbvtbumplmjaov - lydwgdtzufoshycw
         smtp.Credentials = emailAcceso;
 
         smtp.Port = 587;
@@ -198,7 +198,7 @@ public class devNotificaciones
     /// </summary>
     public static void error(string asunto, Exception ex, Dictionary<string, string> valores)
     {
-        using (MailMessage mm = new MailMessage(new MailAddress("development@incom.mx", "Tienda Incom"), new MailAddress("cmiranda@it4u.com.mx")))
+        using (MailMessage mm = new MailMessage(new MailAddress("serviciosweb@incom.mx", "Tienda Incom"), new MailAddress("serviciosweb@incom.mx"))) //new MailAddress("development@incom.mx", "Tienda Incom"), new MailAddress("cmiranda@it4u.com.mx")
         {
             mm.Subject = "[Error][Tienda] -  " + asunto;
             mm.IsBodyHtml = true;
