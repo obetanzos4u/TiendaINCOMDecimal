@@ -122,7 +122,9 @@
     <script cookie-consent="targeting" data-cfasync="false" async src="https://cdn.shareaholic.net/assets/pub/shareaholic.js"></script>
     <!-- END SHAREAHOLIC CODE -->
 </head>
-<body onload="countdown('countDown')">
+<body>
+    <!--  onload="countdown('countDown')" -->
+    <!-- 
     <div style="z-index: 1000000000000000000000000000; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background-color: #fefefe; width: 100vw; height: 100vh">
         <div style="position: static; width: 100%; height: 100%;">
             <div style="position: absolute; left: 20px; top: 20px">
@@ -140,7 +142,9 @@
             </div>
         </div>
     </div>
-    <form id="form1" runat="server" visible="false">
+        -->
+    <form id="form1" runat="server">
+        <!--  visible="false" -->
         <%--  style="display: none" --%>
         <asp:ScriptManager ID="ScriptManager1" ScriptMode="Release" runat="server">
             <Scripts>
@@ -901,9 +905,10 @@
                 margin-left: 2px;
             }
         </style>
-        <asp:ContentPlaceHolder ID="top" runat="server" Visible="false" />
+        <asp:ContentPlaceHolder ID="top" runat="server" />
+        <!--  Visible="false" -->
         <%--  Visible="false"  --%>
-        <a onclick="topFunction()" id="btn_toTop" title="Desplazarse arriba de la página" style="display: none">
+        <a onclick="topFunction()" id="btn_toTop" title="Desplazarse arriba de la página"> <!--  style="display: none" -->
             <img id="img_toTop" alt="boton desplazarse hacia arriba en la página" src="https://www.incom.mx/img/webUI/newdesign/collapse_arrow.svg" />
         </a>
     </form>

@@ -158,6 +158,11 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
                 HttpRequest request = HttpContext.Current.Request;
                 BI_historialBusqueda.guardarBusqueda(terminos, request);
             }
+            else
+            {
+                content_resultado_busqueda_vacio.Visible = true;
+                lbl_termino_busqueda.Text = terminos;
+            }
         }
 
         if (productos != null && productos.Rows.Count > 0)

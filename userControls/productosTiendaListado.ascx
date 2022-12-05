@@ -117,6 +117,15 @@
                 </span>
             </h3>
         </div>
+        <div id="content_resultado_busqueda_vacio" class="is-p-4" visible="false" runat="server">
+            <div class="is-flex is-flex-col is-justify-center is-items-center">
+                <img src="https://www.incom.mx/img/webUI/newdesign/not-found.png" alt="No encontrado" class="is-w-1_3" />
+                <h2 class="is-text-xl is-font-semibold">Ningún resultado encontrado</h2>
+                <p class="is-m-2">No pudimos encontrar nada con:
+                    <asp:Label ID="lbl_termino_busqueda" class="is-font-semibold" runat="server"></asp:Label></p>
+                <p class="is-m-2 is-italic">Te sugerimos intentar con otro término de búsqueda o revisar la ortografía</p>
+            </div>
+        </div>
         <!-- INICIO : Filtros y orden -->
         <div class="row" style="margin: auto 0px !important;" id="cont_ordenar" runat="server">
             <div class="col s12 m5 l4" visible="false" runat="server">
@@ -240,6 +249,7 @@
                         </div>
                     </ItemTemplate>
                     <EmptyDataTemplate>
+                        <p>Intenta con otro método de búsqueda</p>
                         <%--<div class="row center-align" style="height: 150px;">
                             <div class="col col s12">
                                 <h3>Intenta con otro término de búsqueda</h3>

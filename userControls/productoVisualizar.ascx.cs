@@ -683,6 +683,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 {
                     if (archivosManejador.validarExistenciaPDF(documentacionPDF[i]))
                     {
+                        cont_documentacion.Visible = true;
                         HyperLink link = new HyperLink();
                         link.CssClass = "waves -effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5";
                         link.Text = @"<i class='material-icons left'>description</i>";
