@@ -188,6 +188,7 @@
           <Property Name="codigo_postal" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="pais" Type="nvarchar" MaxLength="35" Nullable="false" />
           <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
+          <Property Name="regimen_fiscal" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="estados_mexico">
           <Key>
@@ -312,6 +313,7 @@
           <Property Name="ciudad" Type="nvarchar" MaxLength="60" />
           <Property Name="idDireccionFacturacion" Type="int" />
           <Property Name="UsoCFDI" Type="nvarchar" MaxLength="5" />
+          <Property Name="RegimenFiscal" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="pedidos_modificaciones">
           <Key>
@@ -523,6 +525,7 @@
           <Property Name="noParte_Sap" Type="nvarchar" MaxLength="100" />
           <Property Name="avisos" Type="nvarchar" MaxLength="4000" />
           <Property Name="destacado" Type="int" />
+          <Property Name="bandera" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="productos_Roles">
           <Key>
@@ -966,6 +969,7 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
           <Property Name="pais" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
           <Property Name="ciudad" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="usuario" Relationship="tiendaModel.fk_direccionesFact_usuarios" FromRole="direcciones_facturacion" ToRole="usuario" />
+          <Property Name="regimen_fiscal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="estados_mexico">
           <Key>
@@ -1001,6 +1005,7 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
           <Property Name="ciudad" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="idDireccionFacturacion" Type="Int32" />
           <Property Name="UsoCFDI" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="RegimenFiscal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="pedidos_modificaciones">
           <Key>
@@ -1199,6 +1204,7 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
           <Property Name="noParte_Sap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="avisos" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="destacado" Type="Int32" />
+          <Property Name="bandera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="pedidos_pagos_liga_santander">
           <Key>
@@ -1656,7 +1662,8 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
     <EntitySetMapping Name="direcciones_facturacion">
       <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.direcciones_facturacion)">
         <MappingFragment StoreEntitySet="direcciones_facturacion">
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="regimen_fiscal" ColumnName="regimen_fiscal" />
+                <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
           <ScalarProperty Name="nombre_direccion" ColumnName="nombre_direccion" />
           <ScalarProperty Name="razon_social" ColumnName="razon_social" />
@@ -1693,7 +1700,8 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
     <EntitySetMapping Name="pedidos_direccionFacturacion">
       <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_direccionFacturacion)">
         <MappingFragment StoreEntitySet="pedidos_direccionFacturacion">
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RegimenFiscal" ColumnName="RegimenFiscal" />
+                <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
           <ScalarProperty Name="razon_social" ColumnName="razon_social" />
           <ScalarProperty Name="rfc" ColumnName="rfc" />
@@ -1881,7 +1889,8 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
     <EntitySetMapping Name="productos_Datos">
       <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.productos_Datos)">
         <MappingFragment StoreEntitySet="productos_Datos">
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="bandera" ColumnName="bandera" />
+                <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="numero_parte" ColumnName="numero_parte" />
           <ScalarProperty Name="titulo" ColumnName="titulo" />
           <ScalarProperty Name="descripcion_corta" ColumnName="descripcion_corta" />

@@ -120,7 +120,7 @@ public class productosTienda {
                 producto.disponibleVenta,
                 producto.disponibleEnvio,
                 producto.avisos,
-
+                producto.bandera,
                 roles.rol_visibilidad,
                 roles.rol_preciosMultiplicador,
 

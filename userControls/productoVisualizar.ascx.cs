@@ -1,4 +1,5 @@
 ﻿
+using RestSharp.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -153,6 +154,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             string upc = productos.Rows[0]["upc"].ToString();
             string video = productos.Rows[0]["video"].ToString();
             string aviso = productos.Rows[0]["avisos"].ToString();
+            string bandera = productos.Rows[0]["bandera"].ToString();
 
             try
             {
@@ -328,11 +330,17 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             //#endregion Seguimiento Promociones, campañas, cupones y descuentos
 
 
-
+            if (aviso.Contains("bandera:"))
+            {
+                string[] bandera = aviso.ToUpper().Split('~');
+                int inicioBandera = bandera[bandera.Length - 1].IndexOf("\"");
+                int finBandera = bandera[bandera.Length - 1].IndexOf("\"", inicioBandera);
+                aviso = bandera[bandera.Length - 1].Substring(inicioBandera);
+            }
 
             switch (aviso)
             {
-                case "OFERTA":
+                case "\"OFERTA\"":
                     lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-offer");
                     break;
                 case "LIQUIDACIÓN":

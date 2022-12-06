@@ -177,7 +177,6 @@ public partial class direcciones_facturacion
     public int id_cliente { get; set; }
     public string nombre_direccion { get; set; }
     public string razon_social { get; set; }
-    public string regimen_fiscal { get; set; }
     public string rfc { get; set; }
     public string calle { get; set; }
     public string numero { get; set; }
@@ -187,6 +186,7 @@ public partial class direcciones_facturacion
     public string codigo_postal { get; set; }
     public string pais { get; set; }
     public string ciudad { get; set; }
+    public string regimen_fiscal { get; set; }
 
     public virtual usuario usuario { get; set; }
 }
@@ -305,6 +305,7 @@ public partial class pedidos_direccionFacturacion
     public string ciudad { get; set; }
     public Nullable<int> idDireccionFacturacion { get; set; }
     public string UsoCFDI { get; set; }
+    public string RegimenFiscal { get; set; }
 }
 
 public partial class pedidos_modificaciones
@@ -505,6 +506,7 @@ public partial class productos_Datos
     public string noParte_Sap { get; set; }
     public string avisos { get; set; }
     public Nullable<int> destacado { get; set; }
+    public string bandera { get; set; }
 }
 
 public partial class productos_Roles
