@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="productcard is-px-xl">
-        <div class="is-productGallery">
+        <div id="productGalleryContainer" class="is-productGallery">
             <div class="is-productGallery_featured container-iframe is-cursor-crosshair" id="selectedImage" runat="server">
                 <img id="productGallery_selected" src="../img/webUI/newdesign/loading.svg" alt="Fotografía de producto" style="position: relative; width: 100%" />
                 <iframe id="videoProductGallery_selected" class="responsive-iframe is-hidden" src="https://www.youtube.com/embed/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
@@ -46,7 +46,7 @@
                         <strong class="is-select-all">
                             <asp:Label ID="lbl_numero_parte" Style="margin: 0px; display: inline; padding: 2px 16px;" runat="server" Text=""></asp:Label>
                         </strong>
-                        <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none" onclick="copiarNumeroParte('top_contenido_ctl00_lbl_numero_parte', 'Número de parte');">
+                        <button type="button" title="Copiar número de parte" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none" onclick="copiarNumeroParte('top_contenido_ctl00_lbl_numero_parte', 'Número de parte');">
                             <span class="is-text-gray">
                                 <svg class="is-w-4 is-h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
@@ -71,15 +71,15 @@
                         )
                     </div>
                     <asp:Label ID="lbl_descripcion_corta" CssClass="is-my-4" runat="server" Text="descripcion_corta"></asp:Label>
-                    <uc1:metaTagColaborativo ID="metaTagColaborativo" runat="server"></uc1:metaTagColaborativo>
-                    <SAP:productoStock ID="sap_producto_disponibilidad" Visible="true" runat="server"></SAP:productoStock>
+                    <uc1:metaTagColaborativo ID="metaTagColaborativo" Visible="false" runat="server"></uc1:metaTagColaborativo>
+                    <SAP:productoStock ID="sap_producto_disponibilidad" Visible="false" runat="server"></SAP:productoStock>
                     <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>
                 </div>
                 <div class="ticket_compra">
                     <div class="borde-ticket_compra">
                         <div class="">
                             <div class="col s12 m5 l6 xl5" style="width: 100%; display: contents;">
-                                <div id="lbl_aviso" runat="server"></div>
+                                <div id="lbl_bandera" runat="server"></div>
                                 <section class="price">
                                     <asp:Label ID="lbl_preciosFantasma" Style="text-decoration: line-through; color: red; font-size: 1.5rem; width: 100%; display: inherit;" Visible="false" runat="server"></asp:Label>
                                     <asp:Label ID="lbl_precioLista" Style="display: block; font-size: 1.2rem; text-decoration: line-through;" Visible="false" runat="server"></asp:Label>
@@ -150,7 +150,7 @@
                     </p>
                 </div>
             </section>
-            <section>
+            <section class="is-w-full">
                 <!-- caracteristicas -->
                 <div class="wrapper-especificaciones">
                     <div id="divEspecificacionesVacias" visible="false" runat="server"></div>
@@ -173,16 +173,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="container-bottom-especificaciones" >
+                <div class="container-bottom-especificaciones">
                     <p class="bottom-especificaciones">
-                        Si requiere información detallada consulte la ficha técnica o solicite más información acerca del producto dando
-                        <a href="/informacion/ubicacion-y-sucursales.aspx?info=Info. técnica y/o adicional: Referencia del producto: <%= lbl_numero_parte.Text %>">clic aquí</a>
+                        En caso de requerir información detallada puedes consultar la ficha técnica o solicitar más información con un asesor en nuestro chat.
                     </p>
                 </div>
             </section>
             <section>
                 <div id="content_avisos">
-                    <ul id="ProductoAvisosListado" class="content_avisos-list" style="padding-left: 5%; !important; display: inline-block;" runat="server">
+                    <ul id="ProductoAvisosListado" class="content_avisos-list" style="padding-left: 5% !important; display: inline-block;" runat="server">
                     </ul>
                 </div>
             </section>
@@ -236,11 +235,10 @@
         selectedImg.setAttribute("data-zoom", firstSrc);
     });
 
-    var heightzoom = document.getElementById('top_contenido_ctl00_selectedImage').offsetHeight;
-    var widthzoom = document.getElementById('top_contenido_ctl00_selectedImage').offsetWidth;
+    const heightzoom = document.getElementById('top_contenido_ctl00_selectedImage').offsetHeight;
+    const widthzoom = document.getElementById('top_contenido_ctl00_selectedImage').offsetWidth;
     document.getElementById("productZoom").style.height = `${heightzoom}px`;
     document.getElementById("productZoom").style.width = `${widthzoom}px`;
-
     document.getElementById("productZoom").style.left = `${widthzoom}px`;
 </script>
 
@@ -402,6 +400,7 @@
         justify-content: center;
         padding-right: 2rem;
         padding-left: 1rem;
+        width: 100%;
     }
 
     .right-especificaciones {

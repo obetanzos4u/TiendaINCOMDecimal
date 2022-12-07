@@ -18,7 +18,7 @@
                 <div class="is-flex is-justify-center is-items-center">
                     <h1 class="h5 text-metodo_pago"><strong>M&eacute;todo de pago del pedido:
                     <asp:Label ID="lbl_numero_pedido" class="is-select-all" runat="server"></asp:Label></strong></h1>
-                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lbl_numero_pedido', 'N&uacute;mero de pedido')">
+                    <button type="button" title="Copiar número de pedido" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lbl_numero_pedido', 'N&uacute;mero de pedido')">
                         <span class="is-text-gray">
                             <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
@@ -107,7 +107,7 @@
                                                 <div class="is-flex is-justify-start is-items-baseline">
                                                     <strong>Raz&oacute;n social:&nbsp;&nbsp;&nbsp;</strong>
                                                     <p id="lbl_razonSocial_Copy" class="is-select-all">Insumos Comerciales de Occidente S.A. de C.V.</p>
-                                                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_razonSocial_Copy', 'Raz&oacute;n social')">
+                                                    <button type="button" title="Copiar razón social" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_razonSocial_Copy', 'Raz&oacute;n social')">
                                                         <span class="is-text-gray">
                                                             <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
@@ -119,7 +119,7 @@
                                                 <div class="is-flex is-justify-start is-items-baseline">
                                                     <strong>RFC:&nbsp;&nbsp;&nbsp;</strong>
                                                     <p id="lbl_rfc_Copy" class="is-select-all">ICO990224H93</p>
-                                                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_rfc_Copy', 'RFC')">
+                                                    <button type="button" title="Copiar RFC" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_rfc_Copy', 'RFC')">
                                                         <span class="is-text-gray">
                                                             <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
@@ -131,7 +131,7 @@
                                                 <div class="is-flex is-justify-start is-items-baseline">
                                                     <strong>Direcci&oacute;n:&nbsp;&nbsp;&nbsp;</strong>
                                                     <p id="lbl_direccion_Copy" class="is-select-all">Plutarco El&iacute;as Calles 276, Colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de M&eacute;xico, M&eacute;xico.</p>
-                                                    <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_direccion_Copy', 'Direcci&oacute;n')">
+                                                    <button type="button" title="Copiar dirección" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_direccion_Copy', 'Direcci&oacute;n')">
                                                         <span class="is-text-gray">
                                                             <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
@@ -165,7 +165,7 @@
                                                     <p><strong>Clabe</strong></p>
                                                     <div class="is-flex is-justify-start is-items-baseline">
                                                         <p id="lbl_clabeMXN_Copy" class="is-select-all">002180026977828615</p>
-                                                        <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_clabeMXN_Copy', 'CLABE MXN')">
+                                                        <button type="button" title="Copiar CLABE MXN" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_clabeMXN_Copy', 'CLABE MXN')">
                                                             <span class="is-text-gray">
                                                                 <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
@@ -176,7 +176,7 @@
                                                     </div>
                                                     <div class="is-flex is-justify-start is-items-baseline">
                                                         <p id="lbl_clabeUSD_Copy" class="is-select-all">002180041494127146</p>
-                                                        <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_clabeUSD_Copy', 'CLABE USD')">
+                                                        <button type="button" title="Copiar CLABE USD" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_clabeUSD_Copy', 'CLABE USD')">
                                                             <span class="is-text-gray">
                                                                 <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
@@ -187,7 +187,7 @@
                                                     </div>
                                                     <div class="is-flex is-justify-start is-items-baseline">
                                                         <p id="lbl_clabeUSD2_Copy" class="is-select-all">002180041494127146</p>
-                                                        <button type="button" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_clabeUSD2_Copy', 'CLABE USD desde el extranjero')">
+                                                        <button type="button" title="Copiar CLABE USD" class="is-cursor-pointer" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('lbl_clabeUSD2_Copy', 'CLABE USD desde el extranjero')">
                                                             <span class="is-text-gray">
                                                                 <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>

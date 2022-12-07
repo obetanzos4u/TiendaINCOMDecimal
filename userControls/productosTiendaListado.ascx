@@ -213,7 +213,7 @@
                                         <asp:HyperLink ID="link_producto" class="is-text-black hoverLinkTituloProducto" Target="_blank" runat="server">   <%# Eval("numero_parte") %> -  <%# Eval("titulo") %> </asp:HyperLink>
                                         <asp:Literal ID="lt_numero_parte" Text='<%# Eval("numero_parte") %>' Visible="false" runat="server"></asp:Literal>
                                     </h2>
-                                    <asp:Label ID="lbl_aviso" runat="server"></asp:Label>
+                                    <asp:Label ID="lbl_bandera" runat="server"></asp:Label>
                                     <asp:Literal ID="lt_descripcion_corta" Visible="false" runat="server"></asp:Literal>
                                     <div class="is-flex is-flex-col is-justify-center is-items-center is-py-1">
                                         <strong class="is-text-xs is-m-0">Marca:</strong>

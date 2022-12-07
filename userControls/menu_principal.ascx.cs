@@ -42,20 +42,20 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         catalogos.ClientIDMode = ClientIDMode.Static;
         catalogos.InnerHtml = "<a title='Catalogos'  href='#'>Catálogos<img alt ='Flecha de desplazamiento para ver menu' id='menu_icon_catalogos' src ='https://www.incom.mx/img/webUI/newdesign/Flecha.svg'></a>" +
                 "<ul>" +
+                    "<li><a href='/documents/pdf/CATALOGO_INCOM_SUBTERRANEO.pdf' target='_blank' title='Subterráneo'>Instalación subterránea</a></li>" +
+                    "<li><a href='/documents/pdf/CATALOGO_INCOM_AEREO.pdf' target='_blank' title='Aéreo'>Instalación aérea</a></li>" +
+                    "<li><a href='/documents/pdf/CATALOGO_INCOM_FIBRA_OPTICA.pdf' target='_blank' title='Fibra Óptica'>Fibra óptica</a></li>" +
+                    "<li><a href='/documents/pdf/CATALOGO_INCOM_TELEFONIA_Y_CATV.pdf' target='_blank' title='Telefonía & CATV'>Telefonía y CATV</a></li>" +
+                    "<li><a href='/documents/pdf/CATALOGO_INCOM_ESTRUCTURADO.pdf' target='_blank' title='Cableado estructurado y data center'>Estructurado</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_CANALIZACION.pdf' target='_blank' title='Canalización'>Canalización</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_ELECTRICO.pdf' target='_blank' title='Soluciones eléctricas'>Eléctrico</a></li>" +
-                    "<li><a href='/documents/pdf/CATALOGO_INCOM_ESTRUCTURADO.pdf' target='_blank' title='Cableado estructurado y data center'>Estructurado</a></li>" +
-                    "<li><a href='/documents/pdf/CATALOGO_INCOM_FERRETERIA.pdf' target='_blank' title='Ferretería'>Ferretería</a></li>" +
-                    "<li><a href='/documents/pdf/CATALOGO_INCOM_FIBRA_OPTICA.pdf' target='_blank' title='Fibra Óptica'>Fibra óptica</a></li>" +
-                    "<li><a href='/documents/pdf/ICOPTIKS_CATALOGO_SOLUCIONES_PARA_FIBRA_OPTICA.pdf' target='_blank' title='ICOPTIKS soluciones para fibra óptica'>Icoptiks</a></li>" +
-                    "<li><a href='/documents/pdf/CATALOGO_INCOM_IDENTIFICACION.pdf' target='_blank' title='Identificación'>Identificación de redes</a></li>" +
-                    "<li><a href='/documents/pdf/CATALOGO_INCOM_AEREO.pdf' target='_blank' title='Aéreo'>Instalación aérea</a></li>" +
-                    "<li><a href='/documents/pdf/CATALOGO_INCOM_SUBTERRANEO.pdf' target='_blank' title='Subterráneo'>Instalación subterránea</a></li>" +
-                    "<li><a href='/documents/promos/CATALOGO_INCOM_LIQUIDACION.pdf' target='_blank' title='Liquidación'>Liquidación</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_INCOM_BLOQUEO.pdf' target='_blank' title='Bloqueo'>Seguridad industrial</a></li>" +
+                    "<li><a href='/documents/pdf/CATALOGO_INCOM_FERRETERIA.pdf' target='_blank' title='Ferretería'>Ferretería</a></li>" +
+                    "<li><a href='/documents/pdf/ICOPTIKS_CATALOGO_SOLUCIONES_PARA_FIBRA_OPTICA.pdf' target='_blank' title='ICOPTIKS soluciones para fibra óptica'>Icoptiks fibra óptica</a></li>" +
                     "<li><a href='/documents/pdf/INCOM_CATALOGO_SOLUCION_FIBRA_SOPLADA.pdf' target='_blank' title='Solución Fibra Soplada'>Solución fibra soplada</a></li>" +
+                    "<li><a href='/documents/pdf/CATALOGO_INCOM_IDENTIFICACION.pdf' target='_blank' title='Identificación'>Identificación de redes</a></li>" +
                     "<li><a href='/documents/pdf/CATALOGO_MAQUINAS_PARA_SOPLADO_FREMCO.pdf' target='_blank' title='Fremco'>Sopladoras Fremco</a></li>" +
-                    "<li><a href='/documents/pdf/CATALOGO_INCOM_TELEFONIA_Y_CATV.pdf' target='_blank' title='Telefonía & CATV'>Telefonía y CATV</a></li>" +
+                    "<li><a href='/documents/promos/CATALOGO_INCOM_LIQUIDACION.pdf' target='_blank' title='Liquidación'>Liquidación</a></li>" +
                 "</ul>";
 
         //  HtmlGenericControl blog = new HtmlGenericControl("li");

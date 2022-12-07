@@ -159,6 +159,11 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
             NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error al agregar los datos de facturación");
             //BootstrapCSS.Message(this, "#content_alert", BootstrapCSS.MessageType.danger, "Error al crear dirección", guardar.message);
         }
+        string redirectUrl = GetRouteUrl("cliente-pedido-facturacion", new System.Web.Routing.RouteValueDictionary {
+                        { "id_operacion",seguridad.Encriptar(hf_id_pedido.Value) }
+                    });
+
+        BootstrapCSS.RedirectJs(this, redirectUrl, 2000);
     }
     protected void btn_usarDirección_Click(object sender, EventArgs e)
     {
