@@ -247,20 +247,71 @@ public class validarCampos
 
     static public bool direccionFacturacion(direccionesFacturacion direccion, Control t)
     {
-        if (direccion.nombre_direccion == "" || direccion.nombre_direccion.Length > 20) { materializeCSS.crear_toast(t, "El campo nombre de dirección no cumple con los requerimientos.", false); return false; };
-
-        if (direccion.razon_social == "" || direccion.nombre_direccion.Length > 150) { materializeCSS.crear_toast(t, "El campo razón social no cumple con los requerimientos.", false); return false; };
-        if (direccion.rfc == "" || direccion.rfc.Length > 13) { materializeCSS.crear_toast(t, "El campo RFC no cumple con los requerimientos.", false); return false; };
-
-        if (direccion.calle.Length == 0 || direccion.calle.Length > 50) { materializeCSS.crear_toast(t, "El campo calle no cumple con los requerimientos.", false); return false; };
-        if (direccion.numero.Length == 0 || direccion.numero.Length > 30) { materializeCSS.crear_toast(t, "El campo número no cumple con los requerimientos.", false); return false; };
-        if (direccion.colonia.Length > 60) { materializeCSS.crear_toast(t, "El campo colonia no cumple con los requerimientos.", false); return false; };
-        if (direccion.delegacion_municipio.Length > 60) { materializeCSS.crear_toast(t, "El campo delegación/municipio excede la cantidad de caracteres.", false); return false; };
-        if (direccion.estado.Length > 35) { materializeCSS.crear_toast(t, "El campo estado excede la cantidad de caracteres.", false); return false; };
-        if (direccion.codigo_postal.Length < 2 || direccion.codigo_postal.Length > 15) { materializeCSS.crear_toast(t, "El campo código postal es obligatorio y debe ser numérico", false); return false; };
-        if (direccion.pais == "") { materializeCSS.crear_toast(t, "El campo pais es requerido.", false); return false; };
-
-
+        if (direccion.nombre_direccion == "" || direccion.nombre_direccion.Length > 20)
+        {
+            NotiflixJS.Message(t, NotiflixJS.MessageType.warning, "El alías de la dirección es obligatorio o excede la cantidad de caracteres");
+            //materializeCSS.crear_toast(t, "El campo nombre de dirección no cumple con los requerimientos.", false); 
+            return false;
+        };
+        if (direccion.razon_social == "" || direccion.nombre_direccion.Length > 150)
+        {
+            NotiflixJS.Message(t, NotiflixJS.MessageType.warning, "La razón social es obligatoria o excede la cantidad de caracteres");
+            //materializeCSS.crear_toast(t, "El campo razón social no cumple con los requerimientos.", false); 
+            return false;
+        };
+        if (direccion.rfc == "" || direccion.rfc.Length > 13)
+        {
+            NotiflixJS.Message(t, NotiflixJS.MessageType.warning, "El RFC es obligatorio o excede la cantidad de caracteres");
+            //materializeCSS.crear_toast(t, "El campo RFC no cumple con los requerimientos.", false); 
+            return false;
+        };
+        if (direccion.calle.Length == 0 || direccion.calle.Length > 50)
+        {
+            NotiflixJS.Message(t, NotiflixJS.MessageType.warning, "La calle es obligatoria o excede la cantidad de caracteres");
+            //materializeCSS.crear_toast(t, "El campo calle no cumple con los requerimientos.", false); 
+            return false;
+        };
+        if (direccion.numero.Length == 0 || direccion.numero.Length > 30)
+        {
+            NotiflixJS.Message(t, NotiflixJS.MessageType.warning, "La dirección es obligatoria o excede la cantidad de caracteres");
+            //materializeCSS.crear_toast(t, "El campo número no cumple con los requerimientos.", false);
+            return false;
+        };
+        if (direccion.colonia.Length > 60)
+        {
+            NotiflixJS.Message(t, NotiflixJS.MessageType.warning, "La colonia excede la cantidad de caracteres");
+            //materializeCSS.crear_toast(t, "El campo colonia no cumple con los requerimientos.", false); 
+            return false;
+        };
+        if (direccion.delegacion_municipio.Length > 60)
+        {
+            NotiflixJS.Message(t, NotiflixJS.MessageType.warning, "La delegación/municipio excede la cantidad de caracteres");
+            //materializeCSS.crear_toast(t, "El campo delegación/municipio excede la cantidad de caracteres.", false); 
+            return false;
+        };
+        if (direccion.estado.Length > 35)
+        {
+            NotiflixJS.Message(t, NotiflixJS.MessageType.warning, "El campo excede la cantidad de caracteres");
+            //materializeCSS.crear_toast(t, "El campo estado excede la cantidad de caracteres.", false); 
+            return false;
+        };
+        if (direccion.codigo_postal.Length < 2 || direccion.codigo_postal.Length > 15)
+        {
+            NotiflixJS.Message(t, NotiflixJS.MessageType.warning, "El código postal es obligatorio y ´numérico");
+            //materializeCSS.crear_toast(t, "El campo código postal es obligatorio y debe ser numérico", false); 
+            return false;
+        };
+        if (direccion.pais == "")
+        {
+            NotiflixJS.Message(t, NotiflixJS.MessageType.warning, "El país es requerido");
+            //materializeCSS.crear_toast(t, "El campo pais es requerido.", false); 
+            return false;
+        };
+        if (direccion.regimen_fiscal == "")
+        {
+            NotiflixJS.Message(t, NotiflixJS.MessageType.warning, "El régimen fiscal es requerido");
+            return false;
+        }
 
         return true;
     }

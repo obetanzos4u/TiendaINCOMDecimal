@@ -17,27 +17,20 @@ public class direccionesFacturacion : model_direccionesFacturacion
     private DataSet ds { get; set; }
     private DataTable dt { get; set; }
 
-
-
     protected void dbConexion()
     {
-
         con = new SqlConnection(conexiones.conexionTienda());
         cmd = new SqlCommand();
         cmd.Connection = con;
-        
     }
     ///<summary>
     /// Devuelve un DT con las direcciones de facturación de un cliente
     ///</summary>
     public DataTable obtenerDirecciones(int id_cliente)
     {
-
-       
         dbConexion();
         using (con)
         {
-
             StringBuilder sel = new StringBuilder();
 
             sel.Append("SELECT ");
@@ -57,28 +50,22 @@ public class direccionesFacturacion : model_direccionesFacturacion
             da.Fill(ds);
             return ds.Tables[0];
         }
-           
-
-        }
-
+    }
     ///<summary>
     /// Crear una dirección de facturación para un ID Cliente
     ///</summary>
     public string crearDireccion(int id_cliente)
     {
-
         try
         {
             dbConexion();
             using (con)
             {
-
                 StringBuilder query = new StringBuilder();
 
                 query.Append("SET LANGUAGE English; INSERT INTO direcciones_facturacion ");
-                query.Append(" (id_cliente, nombre_direccion, razon_social, rfc, calle, numero, colonia, delegacion_municipio, estado, codigo_postal, pais) ");
-                query.Append(" VALUES (@id_cliente, @nombre_direccion, @razon_social, @rfc, @calle, @numero, @colonia, @delegacion_municipio, @estado, @codigo_postal, @pais)  ");
-             
+                query.Append(" (id_cliente, nombre_direccion, razon_social, rfc, calle, numero, colonia, delegacion_municipio, estado, codigo_postal, pais, regimen_fiscal) ");
+                query.Append(" VALUES (@id_cliente, @nombre_direccion, @razon_social, @rfc, @calle, @numero, @colonia, @delegacion_municipio, @estado, @codigo_postal, @pais, @regimen_fiscal)  ");
 
                 cmd.CommandText = query.ToString();
                 cmd.CommandType = CommandType.Text;
@@ -93,7 +80,7 @@ public class direccionesFacturacion : model_direccionesFacturacion
                 cmd.Parameters["@razon_social"].Value = razon_social.Trim(' ').ToUpper();
 
                 cmd.Parameters.Add("@rfc", SqlDbType.NVarChar, 15);
-                cmd.Parameters["@rfc"].Value = rfc.Trim(' ').Replace(" ","").ToUpper();
+                cmd.Parameters["@rfc"].Value = rfc.Trim(' ').Replace(" ", "").ToUpper();
 
                 cmd.Parameters.Add("@calle", SqlDbType.NVarChar, 50);
                 cmd.Parameters["@calle"].Value = calle.Trim(' ').Replace("\t", "");
@@ -116,7 +103,9 @@ public class direccionesFacturacion : model_direccionesFacturacion
                 cmd.Parameters.Add("@pais", SqlDbType.NVarChar, 35);
                 cmd.Parameters["@pais"].Value = pais;
 
-                
+                cmd.Parameters.Add("@regimen_fiscal", SqlDbType.NVarChar, 50);
+                cmd.Parameters["@regimen_fiscal"].Value = regimen_fiscal;
+
                 con.Open();
 
                 cmd.ExecuteNonQuery();
@@ -129,27 +118,24 @@ public class direccionesFacturacion : model_direccionesFacturacion
             return null;
         }
     }
-
     ///<summary>
     ///Actualiza una dirección de facturación con objeto creado
     ///</summary>
     public string actualizarDireccion()
     {
-      
-            try
+        try
+        {
+            dbConexion();
+            using (con)
             {
-                dbConexion();
-                using (con)
-                {
-
                 StringBuilder query = new StringBuilder();
 
                 query.Append("SET LANGUAGE English; UPDATE direcciones_facturacion ");
                 query.Append(" SET nombre_direccion=@nombre_direccion, razon_social=@razon_social, rfc=@rfc, calle = @calle, numero = @numero, colonia = @colonia, delegacion_municipio = @delegacion_municipio, estado = @estado, ");
 
-                query.Append("  codigo_postal=@codigo_postal, pais = @pais ");
+                query.Append("  codigo_postal=@codigo_postal, pais = @pais, regimen_fiscal = @regimen_fiscal ");
                 query.Append(" WHERE id = @id");
-             
+
                 cmd.CommandText = query.ToString();
                 cmd.CommandType = CommandType.Text;
 
@@ -187,25 +173,27 @@ public class direccionesFacturacion : model_direccionesFacturacion
                 cmd.Parameters.Add("@pais", SqlDbType.NVarChar, 35);
                 cmd.Parameters["@pais"].Value = pais;
 
+                cmd.Parameters.Add("@regimen_fiscal", SqlDbType.NVarChar, 50);
+                cmd.Parameters["@regimen_fiscal"].Value = regimen_fiscal;
+
                 con.Open();
 
-                    byte resultado = Convert.ToByte(cmd.ExecuteNonQuery());
-                    return "";
-                }
-            }
-            catch (Exception ex)
-            {
-                devNotificaciones.error("Actualizar dirección de facturación", ex);
-                return null;
+                byte resultado = Convert.ToByte(cmd.ExecuteNonQuery());
+                return "";
             }
         }
+        catch (Exception ex)
+        {
+            devNotificaciones.error("Actualizar dirección de facturación", ex);
+            return null;
+        }
+    }
 
     ///<summary>
     /// Recibe el ID de la dirección de facturación a eliminar
     ///</summary>
     public bool eliminardireccion(int id_sql_direccion)
     {
-
         try
         {
             dbConexion();
@@ -214,8 +202,6 @@ public class direccionesFacturacion : model_direccionesFacturacion
                 string query = @"SET LANGUAGE English; DELETE FROM direcciones_facturacion WHERE id=@id_sql_direccion;";
                 cmd.CommandText = query;
                 cmd.CommandType = CommandType.Text;
-
-
 
                 cmd.Parameters.Add("@id_sql_direccion", SqlDbType.Int);
                 cmd.Parameters["@id_sql_direccion"].Value = id_sql_direccion;
@@ -226,23 +212,21 @@ public class direccionesFacturacion : model_direccionesFacturacion
                 return true;
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             devNotificaciones.error("Eliminar Dirección de facturación", ex);
             return false;
         }
-           
-
     }
     ///<summary>
     /// Devuelve un tipo "direccionesEnvio" con las direcciones de envío de un cliente
     ///</summary>
-    public direccionesFacturacion obtenerDireccion(int id) {
-
+    public direccionesFacturacion obtenerDireccion(int id)
+    {
         DataTable dtDireccion = new DataTable();
         dbConexion();
-        using (con) {
-
+        using (con)
+        {
             StringBuilder sel = new StringBuilder();
 
             sel.Append("SELECT ");
@@ -261,17 +245,15 @@ public class direccionesFacturacion : model_direccionesFacturacion
             con.Open();
             da.Fill(ds);
             dtDireccion = ds.Tables[0];
-            }
+        }
 
         direccionesFacturacion direccion = new direccionesFacturacion();
 
         direccion.id = int.Parse(dtDireccion.Rows[0]["id"].ToString());
         direccion.id_cliente = int.Parse(dtDireccion.Rows[0]["id_cliente"].ToString());
         direccion.nombre_direccion = dtDireccion.Rows[0]["nombre_direccion"].ToString();
-
         direccion.razon_social = dtDireccion.Rows[0]["razon_social"].ToString();
         direccion.rfc = dtDireccion.Rows[0]["rfc"].ToString();
-
         direccion.calle = dtDireccion.Rows[0]["calle"].ToString();
         direccion.numero = dtDireccion.Rows[0]["numero"].ToString();
         direccion.colonia = dtDireccion.Rows[0]["colonia"].ToString();
@@ -279,8 +261,8 @@ public class direccionesFacturacion : model_direccionesFacturacion
         direccion.estado = dtDireccion.Rows[0]["estado"].ToString();
         direccion.codigo_postal = dtDireccion.Rows[0]["codigo_postal"].ToString();
         direccion.pais = dtDireccion.Rows[0]["pais"].ToString();
-      
-        return direccion;
-        }
+        direccion.regimen_fiscal = dtDireccion.Rows[0]["regimen_fiscal"].ToString();
 
+        return direccion;
     }
+}

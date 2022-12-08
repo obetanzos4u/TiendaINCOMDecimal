@@ -16,7 +16,6 @@ public class ModelDireccionFacturacionValidador
    ErrorMessage = "El nombre debe ser mínimo 3  y máximo 20 caracteres.")]
 
     public string nombre_direccion { get; set; }
-
     [Display(Name = "Razón Social")]
     [Required(ErrorMessage = "{0} es requerido")]
     [StringLength(150, MinimumLength = 5,
@@ -31,6 +30,9 @@ public class ModelDireccionFacturacionValidador
 
     public string rfc { get; set; }
     public string regimenFiscal { get; set; }
+    [Display(Name = "Régimen fiscal")]
+    [Required(ErrorMessage = "{0} es requerido")]
+    [StringLength(3, ErrorMessage = "El {0} debe ser de 3 caracteres.")]
     public string calle { get; set; }
     public string numero { get; set; }
     public string colonia { get; set; }
