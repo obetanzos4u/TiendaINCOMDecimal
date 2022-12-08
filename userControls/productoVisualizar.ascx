@@ -235,11 +235,25 @@
         selectedImg.setAttribute("data-zoom", firstSrc);
     });
 
-    const heightzoom = document.getElementById('top_contenido_ctl00_selectedImage').offsetHeight;
-    const widthzoom = document.getElementById('top_contenido_ctl00_selectedImage').offsetWidth;
-    document.getElementById("productZoom").style.height = `${heightzoom}px`;
-    document.getElementById("productZoom").style.width = `${widthzoom}px`;
-    document.getElementById("productZoom").style.left = `${widthzoom}px`;
+    function copyElementSize(sourceElement, targetElement) {
+    // Get the height and width of the source element
+    var height = sourceElement.offsetHeight;
+    var width = sourceElement.offsetWidth;
+
+    // Set the height and width of the target element
+    targetElement.style.height = height + "px";
+    targetElement.style.width = width + "px";
+
+    //The margin-left of the target element will now be set to be its width plus 48 pixels whenever the screen size changes.
+    targetElement.style.marginLeft = (width * 2.1) + "px";
+    }
+
+    // Listen for screen size changes and call the function
+    window.addEventListener("resize", function() {
+    copyElementSize(document.getElementById("productGallery_selected"), document.getElementById("productZoom"));
+    });
+
+    copyElementSize(document.getElementById("productGallery_selected"), document.getElementById("productZoom"));
 </script>
 
 <uc1:mdl_addOperacion ID="mdl_addOperacion" runat="server"></uc1:mdl_addOperacion>
