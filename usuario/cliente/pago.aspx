@@ -315,8 +315,8 @@
                     </div>
                     <div class="desgloce_ticket is-flex is-flex-col is-justify-start is-items-center">
                         <asp:HyperLink ID="btn_regresar_resumen" runat="server">Regresar al resumen</asp:HyperLink>
-                        <div style="border: 1px solid #b7b7b7; border-radius: 8px; height: fit-content;">
-                            <table style="width: 100%;">
+                        <div class="is-bg-gray-700 is-rounded-lg is-h-fit">
+                            <table class="is-w-full">
                                 <thead style="border-bottom: 1px solid #b7b7b7;">
                                     <tr>
                                         <td colspan="2" style="padding: 0.75rem 0.75rem 0.75rem 1.5rem;"><strong>Desglose</strong></td>

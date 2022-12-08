@@ -216,6 +216,18 @@ margin-left: 1rem;
     padding: 0 .75rem;
 }
 
+.icon_mi_cuenta-entrega {
+    width: 1.75rem;
+    margin-right: 1rem;
+    height: 1.75rem;
+    vertical-align: sub;
+}
+
+.icon_mi_cuenta-nueva_direccion {
+    height: 1.75rem;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
 /*Documentación tamáño móvi mediano*/
 
 @media only screen and (min-width: 600px) and (max-width: 820px) {
@@ -1360,12 +1372,8 @@ div.arrow-doble-down #svg-arrow-down {
         .container-mi_cuenta {
             margin-left: 6% !important;
             margin-right: 6% !important;
-            padding: 2rem 0rem 2rem 0rem !important;
+            padding: 2rem 1rem !important;
         }
-
-        .container-mi_cuenta > div > div > h2:nth-child(1) {
-            text-align: start;
-          }
 
         #top_contenido_datosCliente {
             font-size: 9px !important;
@@ -1382,7 +1390,8 @@ div.arrow-doble-down #svg-arrow-down {
             margin: 1rem 1rem 0rem 0rem !important;
         }
 
-        .container-mi_cuenta > div > div > h2, container-mi_cuenta > div > div > h3 {
+        .container-mi_cuenta > div > div > h2, 
+        .container-mi_cuenta > div > div > h3, {
             font-size: 16px !important;
         }
 
@@ -2173,6 +2182,10 @@ div.arrow-doble-down #svg-arrow-down {
             padding-top: 6px;
             margin: 1em 0em;
         }
+
+        .container-mi_cuenta > div > div > h2:nth-child(1) {
+            text-align: start;
+        }
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -2737,11 +2750,6 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         /* Vista de formulario Mi cuenta*/
-        .container-mi_cuenta > div > div > h2:nth-child(1) {
-            text-align: start;
-            margin-bottom: 1rem;
-        }
-
         #top_contenido_btn_editarDatosBasicos, #top_contenido_btn_CambiarPassword {
             margin: 2rem 1rem 2rem 0rem;
         }
@@ -2955,6 +2963,48 @@ div.arrow-doble-down #svg-arrow-down {
 
         #top_contenido_txt_search {
             font-size: 0.75rem;
+        }
+
+        .direcciones_envio-input_pais {
+            width: 210px;
+            display: inline-block;
+        }
+
+        .direcciones_envio-input_pais .select-wrapper svg.caret {
+            right: 2rem;
+        }
+
+        .direcciones_envio-input_estado {
+            width: 210px;
+        }
+
+        .direcciones_envio-input_estado .select-wrapper svg.caret {
+            right: 2rem;
+        }
+
+        .container-form_direccion_envio {
+            width: 400px;
+        }
+
+        .label-form_direccion_envio {
+            padding-left: 1rem;
+            height: 1rem;
+            line-height: 1.5rem;
+        }
+
+        .border-form_direcciones_envio {
+            border: 1px solid #b7b7b7;
+            width: fit-content;
+            margin: auto auto 3rem auto;
+            padding: 0rem 3rem;
+            border-radius: 8px;
+        }
+
+        .container-icon_mi_cuenta-pedidos {
+            width: 1.75rem;
+            margin-right: 1rem;
+            height: 1.75rem;
+            vertical-align: sub;
         }
     }
 
