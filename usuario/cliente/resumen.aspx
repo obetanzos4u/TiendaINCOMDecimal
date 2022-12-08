@@ -108,7 +108,7 @@
                                     class="">
                              Sin factura </asp:LinkButton> -->
                                 <asp:HyperLink runat="server" ID="link_cambiar_direcc_facturacion" Style="text-decoration: none;">
-                                Agregar datos de facturación
+                                Cambiar datos de facturación
                                 </asp:HyperLink>
                             </div>
                         </div>

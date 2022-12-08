@@ -338,6 +338,39 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
             }
 
             btn_VerDisponibilidad.Attributes.Add("onclick", $"openModalProductoDisponibilidad('{numero_parte}');");
+
+            Label lbl_bandera = (Label)e.Item.FindControl("lbl_bandera");
+            string bandera = rowView["bandera"].ToString().ToUpper();
+
+            switch (bandera)
+            {
+                case "OFERTA":
+                    lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-offer");
+                    break;
+                case "LIQUIDACIÓN":
+                    lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-liquidation");
+                    break;
+                case "ULTIMAS":
+                    lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-lastItems");
+                    bandera = "ÚLTIMAS PIEZAS";
+                    break;
+                case "PERSONALIZADO":
+                    lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-customized");
+                    break;
+                case "PEDIDO":
+                    lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-onRequest");
+                    bandera = "SOBRE PEDIDO";
+                    break;
+                case "RENTA":
+                    lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-rent");
+                    bandera = "VENTA Y RENTA";
+                    break;
+                default:
+                    lbl_bandera.Attributes.Add("style", "height: 22px; display: block");
+                    break;
+            }
+
+            lbl_bandera.Text = bandera;
             if (!solo_para_Visualizar)
             {
                 //  var DisponibilidadStockSAP = SAP_productos_oData.ObtenerStockMensaje(noParte_Sap, numero_parte);
@@ -495,43 +528,10 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
                 if (rowView["puntajeBusqueda"] != DBNull.Value)
                 {
                     Label lbl_puntajeBusqueda = (Label)e.Item.FindControl("lbl_puntajeBusqueda");
-                    Label lbl_aviso = (Label)e.Item.FindControl("lbl_aviso");
-                    lbl_puntajeBusqueda.Visible = false;
-
                     string puntaje = rowView["puntajeBusqueda"].ToString();
+                    lbl_puntajeBusqueda.Visible = false;
                     lbl_puntajeBusqueda.Text = "Puntaje: " + puntaje;
-                    string aviso = rowView["avisos"].ToString().ToUpper();
-                    switch (aviso)
-                    {
-                        case "OFERTA":
-                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-offer");
-                            break;
-                        case "LIQUIDACIÓN":
-                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-liquidation");
-                            break;
-                        case "ULTIMAS":
-                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-lastItems");
-                            aviso = "ÚLTIMAS PIEZAS";
-                            break;
-                        case "PERSONALIZADO":
-                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-customized");
-                            break;
-                        case "PEDIDO":
-                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-onRequest");
-                            aviso = "SOBRE PEDIDO";
-                            break;
-                        case "RENTA":
-                            lbl_aviso.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-rent");
-                            aviso = "VENTA Y RENTA";
-                            break;
-                        default:
-                            lbl_aviso.Attributes.Add("style", "height: 22px");
-                            break;
-                    }
-
-                    lbl_aviso.Text = aviso;
                 }
-
             }
             #endregion
         }

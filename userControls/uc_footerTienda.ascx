@@ -4,7 +4,7 @@
     <div class="is-px-xl is-py-2-mx is-pt-3 is-bg-footer is-text-white">
         <div class="is-grid-xl is-col-footer is-gap-4 is-px-8-sm">
             <div class="is-flex-xl is-flex-col-xl is-justify-start is-items-start">
-                <a href="<%= Request.Url.GetLeftPart(UriPartial.Authority) + "/informacion/u0bicacion-y-sucursales.aspx" %>" class="is-text-xl is-font-semibold is-text-white is-decoration-none is-pt-4">Contáctanos</a>
+                <a href="<%= Request.Url.GetLeftPart(UriPartial.Authority) + "/informacion/ubicacion-y-sucursales.aspx" %>" class="is-text-xl is-font-semibold is-text-white is-decoration-none is-pt-4">Contáctanos</a>
                 <p class="is-text-lg is-font-medium">Llámanos al <a href="tel:5552436900">(55) 5243 - 6900</a></p>
                 <div class="is-font-light is-text-sm">
                     <p class="is-m-0">Plutarco Elías Calles 276, colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de México.</p>
@@ -32,8 +32,8 @@
             <div class="is-flex is-flex-col is-justify-start is-items-start">
                 <p class="is-mx-1 is-text-xl is-font-bold">Suscríbete a nuestro boletín:</p>
                 <div class="is-mx-1 is-flex is-justify-center is-items-center is-w-full-xl is-px-4">
-                    <asp:TextBox ID="txt_email_boletin" placeholder="Correo electrónico" Style="background-color: rgb(255, 255, 255); font-style: italic; color: rgb(0, 0, 0); padding-left: 0.5rem; width: 45vw; height: 2rem; margin: 0; border-radius: 0.4rem 0rem 0rem 0.4rem" runat="server"></asp:TextBox>
-                    <asp:Button ID="btn_enviar_boletin" Text="Suscribirse" OnClick="btn_enviar_boletin_Click" UseSubmitBehavior="false" class="is-text-white is-rounded is-cursor-pointer" Style="background-color: #004EEA; padding: 0.5rem 1.5rem; height: 100%; border: 0; border-radius: 0rem 0.4rem 0.4rem 0rem;" runat="server" />
+                    <asp:TextBox ID="txt_email_boletin" placeholder="Correo electrónico" Style="background-color: rgb(255, 255, 255); font-style: italic; color: rgb(0, 0, 0); padding: 0 0.5rem; width: 45vw; height: 2rem; margin: 0; border-radius: 0.4rem; margin: 0 0.5rem" runat="server"></asp:TextBox>
+                    <asp:Button ID="btn_enviar_boletin" Text="Suscribirse" OnClick="btn_enviar_boletin_Click" UseSubmitBehavior="false" class="is-text-white is-rounded is-cursor-pointer is-btn-blue" runat="server" />
                     <%--<input type="email" id="newsletter_email" name="newsletter_email" placeholder="Correo electrónico" style="background-color: rgb(255, 255, 255); font-style: italic; color: rgb(0, 0, 0); padding-left: 0.5rem; width: 45vw; height: 2rem; margin: 0; border-radius: 0.4rem 0rem 0rem 0.4rem" />
                     <button type="submit" class="is-text-white is-rounded" style="background-color: #004EEA; padding: 0.5rem 1.5rem; height: 100%; border: 0; border-radius: 0rem 0.4rem 0.4rem 0rem;">Suscribirse</button>--%>
                 </div>

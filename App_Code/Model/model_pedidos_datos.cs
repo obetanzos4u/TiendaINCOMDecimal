@@ -27,4 +27,6 @@ public class model_pedidos_datos
     public string comentarios { get; set; }
     public int preCotizacion { get; set; } // 0 No, 1 Si, indica si hubo una cotización previa.
     public string numero_operacion_cotizacion { get; set; } // 
+    public string avisos { get; set; }
+    public string bandera { get; set; }
 }

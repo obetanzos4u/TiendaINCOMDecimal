@@ -1,4 +1,5 @@
 ﻿
+using RestSharp.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -153,6 +154,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             string upc = productos.Rows[0]["upc"].ToString();
             string video = productos.Rows[0]["video"].ToString();
             string aviso = productos.Rows[0]["avisos"].ToString();
+            string bandera = productos.Rows[0]["bandera"].ToString();
 
             try
             {
@@ -327,41 +329,35 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             //}
             //#endregion Seguimiento Promociones, campañas, cupones y descuentos
 
-
-
-
-            switch (aviso)
+            switch (bandera)
             {
                 case "OFERTA":
-                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-offer");
+                    lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-offer");
                     break;
                 case "LIQUIDACIÓN":
-                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-liquidation");
+                    lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-liquidation");
                     break;
                 case "ULTIMAS":
-                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-lastItems");
-                    aviso = "ÚLTIMAS PIEZAS";
+                    lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-lastItems");
+                    bandera = "ÚLTIMAS PIEZAS";
                     break;
                 case "PERSONALIZADO":
-                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-customized");
+                    lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-customized");
                     break;
                 case "PEDIDO":
-                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-onRequest");
-                    aviso = "SOBRE PEDIDO";
+                    lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-onRequest");
+                    bandera = "SOBRE PEDIDO";
                     break;
                 case "RENTA":
-                    lbl_aviso.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-rent");
-                    aviso = "VENTA Y RENTA";
+                    lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-rent");
+                    bandera = "VENTA Y RENTA";
                     break;
                 default:
-                    lbl_aviso.Attributes.Add("style", "height: 22px");
+                    lbl_bandera.Attributes.Add("style", "height: 22px");
                     break;
             }
 
-            lbl_aviso.InnerText = aviso;
-
-
-
+            lbl_bandera.InnerText = bandera;
             lbl_marca.Text = marca;
             lbl_numero_parte.Text = numero_parte;
             lt_unidad_venta.Text = unidad_venta;
@@ -382,7 +378,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 devNotificaciones.error("Error en la documentación PDF en producto: " + numero_parte, ex.Message);
             }
 
-            if (string.IsNullOrEmpty(peso) || string.IsNullOrEmpty(alto) || string.IsNullOrEmpty(ancho) || string.IsNullOrEmpty(profundidad) || string.IsNullOrEmpty(upc))
+            if (string.IsNullOrEmpty(peso) || string.IsNullOrEmpty(alto) || string.IsNullOrEmpty(ancho) || string.IsNullOrEmpty(profundidad))
             {
                 divEspecificaciones.Visible = false;
                 divEspecificacionesVacias.Visible = true;
@@ -392,7 +388,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             {
                 divEspecificaciones.Visible = true;
                 tbody_dimensiones_empaque.InnerHtml += @"
-            <tr>" +
+                <tr>" +
                     "<td style='white-space: nowrap; padding-right:4px;'><strong>Peso</strong>:</td>" +
                     "<td style='white-space: nowrap; width:100%;'>" + peso + " kg</td>" +
                 "</tr>" +
@@ -408,16 +404,15 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                     "<td style='white-space: nowrap; padding-right:4px;'><strong>Largo/Profundidad </strong>:</td>" +
                     "<td style='white-space: nowrap; width:100%;'>" + profundidad + " cm</td>" +
                 "</tr>";
-
-                string htmlUPC = @"
-            <tr >" +
+            }
+            if (!string.IsNullOrEmpty(upc))
+            {
+                string htmlUPC = @"<tr >" +
                          "<td class='is-bg-white is-top-75'><strong>Código EAN/UPC/GTIN</strong>:</td>" +
                          "<td class='is-bg-white is-p-0'>" + upc + "</td>" +
                      "</tr>";
-
                 tbody_caracteristicas.InnerHtml += htmlUPC;
             }
-
 
             // INICIO SEO TAGS - 
             #region SEO Tags
