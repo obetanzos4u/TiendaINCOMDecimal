@@ -7,7 +7,7 @@
     <asp:HiddenField ID="hf_UserLogin" runat="server" />
     <div id="pantallaCarga" visible="false" runat="server">
         <div class="is-flex is-w-full is-h-full">
-            <img class="is-m-auto" src="/img/webUI/newdesign/Icono_de_carga.svg" alt="Cargando la página" style="width: 140px;"/>
+            <img class="is-m-auto" src="/img/webUI/newdesign/Icono_de_carga.svg" alt="Cargando la página" style="width: 140px;" />
         </div>
     </div>
     <asp:UpdatePanel ID="up_carrito" UpdateMode="Conditional" class="is-container" Visible="false" runat="server">
@@ -102,7 +102,7 @@
                                     <div class="center-btn-carrito_vacio">
                                         <a class="is-btn-blue btn-carrito_vacio is-m-auto" href="/productos">Descubrir ofertas</a>
                                     </div>
-                                    
+
                                 </div>
                             </EmptyDataTemplate>
                         </asp:ListView>
@@ -188,9 +188,10 @@
                     </div>
                 </div>--%>
                 <div id="btn_continuarCompra" class="mi-carrito-boton-compra is-flex-col is-justify-center is-items-center" runat="server">
-                    <asp:LinkButton ID="btn_comprar" ClientIDMode="Static" OnClick="btn_comprar_Click" CssClass="is-text-white" runat="server">
-                        <div class="is-btn-green">Continuar con la compra</div>
+                    <asp:LinkButton ID="btn_comprar" ClientIDMode="Static" OnClick="btn_comprar_Click" CssClass="is-text-white is-btn-green" runat="server">
+                        Continuar con la compra
                     </asp:LinkButton>
+                    <a href="mailto:telemarketing@incom.mx?cc=serviciosweb@incom.mx&subject=Consulta%20sobre%20productos%20sin%20stock" id="mail_telemarketing" visible="false" runat="server">telemarketing@incom.mx</a>
                     <!-- <a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a> -->
                     <!-- <a href="#">Descargar cotización</a> -->
                 </div>
