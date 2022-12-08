@@ -17,9 +17,12 @@ using System.Web.UI.HtmlControls;
 using DocumentFormat.OpenXml.Drawing;
 using RestSharp;
 using RestSharp.Authenticators;
+using System.Web.Configuration;
 
 public partial class mi_carrito : System.Web.UI.Page
 {
+    private readonly static string restUser = WebConfigurationManager.AppSettings["UserRestProductivoSAP"];
+    private readonly static string restPwd = WebConfigurationManager.AppSettings["PassRestProductivoSAP"];
     NumberFormatInfo myNumberFormatInfo = new CultureInfo("es-MX", true).NumberFormat;
     decimal envio = 0;
     decimal subtotal = 0;
@@ -205,7 +208,7 @@ public partial class mi_carrito : System.Web.UI.Page
                 {
                     // Consulta de stock a SAP
                     var client = new RestClient("https://my338095.sapbydesign.com");
-                    client.Authenticator = new HttpBasicAuthenticator("ARUIZ", "Incom#724!");
+                    client.Authenticator = new HttpBasicAuthenticator(restUser, restPwd);
 
                     var request = new RestRequest("/sap/byd/odata/ana_businessanalytics_analytics.svc/RPZ3CFEC590A236E733BD9701QueryResults?$inlinecount=allpages&$select=CPRODUCT_ID,CQUANTITY_UOM,TQUANTITY_UOM,KRZAC52B3549F1E886FD1FA4D,KRZ38A3122568DF31A282B12B&$filter=(" + urlNumeroParte + ")&$format=json", Method.GET);
                     // Ejecución de función asíncrona en el mismo hilo hasta que termine de obtener el stock por medio de oData. 
@@ -226,7 +229,7 @@ public partial class mi_carrito : System.Web.UI.Page
                             string medida = producto.TQUANTITY_UOM;
                             string numero_parte = obtenerNumeroParte.obtenerNumeroParteWithSAP(no_ParteSap);
                             bool actualizacion = obtener.actualizarStockCarritoProducto(usuario.email, numero_parte, stock);
-                            if (!actualizacion || stock == 0)
+                            if (!actualizacion || stock <= 0)
                             {
                                 obtener.desactivarProductoCarrito(usuario.email, numero_parte);
                             }
@@ -247,7 +250,6 @@ public partial class mi_carrito : System.Web.UI.Page
     }
 
     protected void cargarProductoAsync()
-
     {
         pantallaCarga.Visible = true;
         carrito obtener = new carrito();
@@ -299,6 +301,32 @@ public partial class mi_carrito : System.Web.UI.Page
 
             lbl_impuestos.Text = decimal.Parse(impuestos.ToString()).ToString("C2", myNumberFormatInfo) + " " + monedaTienda;
             lbl_total.Text = decimal.Parse(total.ToString()).ToString("C2", myNumberFormatInfo) + " " + monedaTienda;
+
+            try
+            {
+                DataTable stockProductos = obtener.obtenerStockCarritoSAP(usuario.email);
+                bool carritoDisponibleStock = false;
+                foreach (DataRow producto in stockProductos.Rows)
+                {
+                    if (int.Parse(producto["stock1"].ToString()) > 0)
+                    {
+                        carritoDisponibleStock = true;
+                    }
+                }
+                if (!carritoDisponibleStock)
+                {
+                    btn_comprar.Attributes["href"] = "javascript:void(0)";
+                    btn_comprar.Enabled = false;
+                    btn_comprar.ToolTip = "No tenemos stock de los productos en tu carrito";
+                    btn_comprar.Text = "Cantacta un asesor";
+                    btn_comprar.Attributes["style"] = "background-color: #878787; cursor: not-allowed";
+                }
+            }
+            catch (Exception e)
+            {
+                devNotificaciones.error(e.Message, e);
+                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Tuvimos un error al verificar la disponibilidad de tú carrito");
+            }
         }
         else
         {
@@ -437,7 +465,7 @@ public partial class mi_carrito : System.Web.UI.Page
         string titulo = rowView["titulo"].ToString();
         string marca = rowView["marca"].ToString();
         string activo = rowView["activo"].ToString();
-        string stock = rowView["stock1"].ToString();
+        int stock = int.Parse(rowView["stock1"].ToString());
 
         TextBox txt_cantidadCarrito = (TextBox)e.Item.FindControl("txt_cantidadCarrito");
         HtmlGenericControl warning_envios_medidas = (HtmlGenericControl)e.Item.FindControl("warning_envios_medidas");
@@ -501,18 +529,21 @@ public partial class mi_carrito : System.Web.UI.Page
                     });
         //link_imgProducto.NavigateUrl = link_producto.NavigateUrl;
         up_carrito.Update();
-        if (stock == "0")
+        if (stock <= 0)
         {
             lbl_stock.Visible = true;
             lbl_stock.InnerText = "Sin stock";
+            txt_cantidadCarrito.Text = "0";
             txt_cantidadCarrito.Attributes.Add("min", "0");
             txt_cantidadCarrito.Attributes.Add("max", "0");
-            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Hay productos sin stock en tu carrito, no se agregarán al pedido.");
+            mail_telemarketing.Visible = true;
+            //NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Hay productos sin stock en tu carrito, no se agregarán al pedido.");
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Hay productos sin stock en tu carrito, no se agregarán al pedido.Puedes contactarnos a través del chat para consultar proxima posibilidad de productos");
         }
         else
         {
             txt_cantidadCarrito.Attributes.Add("min", "1");
-            txt_cantidadCarrito.Attributes.Add("max", stock);
+            txt_cantidadCarrito.Attributes.Add("max", stock.ToString());
         }
 
         tienda.uc_precio_detalles detalles_precios = (tienda.uc_precio_detalles)e.Item.FindControl("detalles_precios");

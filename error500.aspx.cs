@@ -20,7 +20,6 @@ public partial class error_500 : System.Web.UI.Page
             Session.RemoveAll();
             */
             FormsAuthentication.SignOut();
-            
         }
     }
 }

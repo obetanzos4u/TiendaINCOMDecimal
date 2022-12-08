@@ -266,13 +266,13 @@ public class carrito
 	                 WHERE usuario = @usuario
                 ");
 
-            string query = sel.ToString(); ;
+            string query = sel.ToString();
             cmd.CommandText = query;
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@usuario", SqlDbType.NVarChar, 60);
             cmd.Parameters["@usuario"].Value = usuario;
             con.Open();
-            
+
             return int.Parse(cmd.ExecuteScalar().ToString());
         }
     }
@@ -321,7 +321,7 @@ public class carrito
             return cmd.ExecuteScalar().ToString();
         }
     }
-    public bool actualizarStockCarritoProducto (string usuario, string numero_parte, int stock)
+    public bool actualizarStockCarritoProducto(string usuario, string numero_parte, int stock)
     {
         StringBuilder query = new StringBuilder();
         query.Append("SET LANGUAGE English; UPDATE carrito_productos SET stock1 = @stock1, stock1_fecha = @stock1_fecha WHERE usuario = @usuario AND numero_parte = @numero_parte;");
@@ -356,7 +356,39 @@ public class carrito
             return false;
         }
     }
-    public void desactivarProductoCarrito (string usuario, string numero_parte)
+    public DataTable obtenerStockCarritoSAP(string usuario)
+    {
+        SqlCommand cmd = new SqlCommand();
+        SqlConnection con = new SqlConnection(conexiones.conexionTienda());
+        cmd.Connection = con;
+
+        using (con)
+        {
+            StringBuilder sel = new StringBuilder();
+            sel.Append("SELECT ");
+            sel.Append(@"
+                        Carrito.id,
+                        Carrito.usuario,
+                        Carrito.activo,
+                        Carrito.numero_parte,
+                        Carrito.stock1
+                    ");
+            sel.Append(" FROM carrito_productos AS Carrito WHERE usuario = @usuario;");
+            string query = sel.ToString();
+            cmd.CommandText = query;
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@usuario", SqlDbType.NVarChar, 60);
+            cmd.Parameters["@usuario"].Value = usuario;
+
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            con.Open();
+            da.Fill(ds);
+            cantidadProductosCarrito = ds.Tables[0].ToString();
+            return ds.Tables[0];
+        }
+    }
+    public void desactivarProductoCarrito(string usuario, string numero_parte)
     {
         StringBuilder query = new StringBuilder();
         query.Append("UPDATE carrito_productos SET activo = 0 WHERE usuario = @usuario AND numero_parte = @numero_parte");
