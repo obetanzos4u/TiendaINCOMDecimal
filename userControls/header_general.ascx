@@ -558,6 +558,8 @@
     .collapsible-header {
         padding: 0 28px !important;
         display: flex !important;
+        height: 5rem;
+        align-items: center;
     }
 
         .collapsible-header > p {

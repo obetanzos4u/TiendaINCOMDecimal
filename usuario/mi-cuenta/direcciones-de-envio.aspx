@@ -4,28 +4,28 @@
 
     <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div class="row">
-            <div class="col l12">
-                <h2 class="center-align is-m-0">Envíos</h2>
+            <div class="col l12 is-bt-1">
+                <h2 class="center-align is-m-0">Mis direcciones de envío</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m12 l12">
+            <!-- <div class="col s12 m12 l12">
                 <h2>Mis direcciones de envío</h2>
-            </div>
-            <div class="col s12 m12 l9">Administra tus direcciones de envío para: Cotizaciones o Pedidos</div>
-
-            <div class="col s12 m12 l3 right-align">
-                <a id="eliminar" href="<%= ResolveUrl("~/usuario/mi-cuenta/crear-direccion-de-envio.aspx") %>" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" style="text-transform: none;" data-tooltip="Agregar dirección de Envío ">
-                    <i class="material-icons right">local_shipping</i>Agregar dirección</a>
+            </div> -->
+            <!-- <div class="col s12 m12 l9" style="font-size: 1.25rem;">Administra tus direcciones de envío para realizar pedidos y cotizaciones:</div> -->
+            <div class="col" style="float: right;">
+                <a id="eliminar" href="<%= ResolveUrl("~/usuario/mi-cuenta/crear-direccion-de-envio.aspx") %>">
+                    <div class="is-text-white is-btn-gray">
+                        <img  class="icon_mi_cuenta-nueva_direccion" src="/img/webUI/newdesign/entrega.png"/>
+                        <span>Nueva dirección</span>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="row ">
-         <div class="col s12 m12 l12">
+            <div class="col s12 m12 l12">
                 <uc:dEnvio ID="dEnvio" runat="server" />
             </div>
         </div>
     </div>
-
-
-
 </asp:Content>

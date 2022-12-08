@@ -4,19 +4,22 @@
 
     <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div class="row">
-            <div class="col l12">
-                <h2 class="center-align is-m-0">Facturación</h2>
+            <div class="col l12 is-bt-1">
+                <h2 class="center-align is-m-0">Mis direcciones de facturación</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m12 l12">
+            <!-- <div class="col s12 m12 l12">
                 <h2>Mis direcciones de facturación</h2>
-            </div>
-            <div class="col s12 m12 l9">Administra tus direcciones de facturación para: Cotizaciones o Pedidos</div>
-
+            </div> -->
+            <div class="col s12 m12 l9" style="font-size: 1.25rem;">Administra tus direcciones de facturación asociadas a pedidos:</div>
             <div class="col s12 m12 l3 right-align">
-                <a id="eliminar" href="<%= ResolveUrl("~/usuario/mi-cuenta/crear-direccion-de-facturacion.aspx") %>" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" style="text-transform: none;" data-tooltip="Agregar dirección de envío ">
-                    <i class="material-icons right">playlist_add_check</i>Agregar dirección</a>
+                <a id="eliminar" href="<%= ResolveUrl("~/usuario/mi-cuenta/crear-direccion-de-facturacion.aspx") %>" class="right-align is-text-white is-btn-gray" style="text-transform: none;">
+                    <div class="is-flex" style="align-items: center;">
+                        <i class="material-icons" style="margin-right: 1rem;">playlist_add_check</i>
+                        <span>Agregar dirección</span>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="row ">

@@ -129,8 +129,8 @@ public partial class usuario_confirmacion_de_cuenta : System.Web.UI.Page
                     if (CuentaActivada)
                     {
                         Content_Error_Activar.Visible = true;
-                        Title_Error.InnerText = "Cuanta ya activada";
-                        msg_detalle_error.InnerText = "Tu usuario ya ha sido activado";
+                        Title_Error.InnerText = "Cuenta ya activada";
+                        msg_detalle_error.InnerText = "Puedes iniciar sesión, tu cuenta ya ha sido activada con anterioridad";
                     }
                 
                 }

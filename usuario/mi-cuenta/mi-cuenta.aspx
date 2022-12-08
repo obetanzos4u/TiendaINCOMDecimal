@@ -3,14 +3,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
     <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8 container-mi_cuenta">
         <div class="row">
-            <div class="col l12">
-                <h2 class="is-text-center is-m-0">Mi cuenta</h2>
+            <div class="">
+                <h2 class="is-text-center is-m-0 is-bt-1">Mi cuenta</h2>
                 <h2 class="margin-t-2x">Bienvenido,
                     <asp:Literal ID="li_h1_nombre" runat="server"></asp:Literal></h2>
-                <h3 class="margin-b-2x">Datos de la cuenta: </h3>
+                <!-- <h3 class="margin-b-2x">Datos de la cuenta: </h3> -->
             </div>
         </div>
         <div class="row " id="datosCliente" runat="server">
+            <h4 class="margin-b-2x">Datos de la cuenta: </h4>
             <div class="col s12 l12">
                 <ul class="collection ">
                     <li class="collection-item"><span class="title"><strong>Nombre: </strong></span>
@@ -31,54 +32,62 @@
                     </li>
                 </ul>
                 <asp:LinkButton ID="btn_editarDatosBasicos"
-                    class="waves-effect waves-light btn blue-grey darken-1 btn-s "
+                    class="is-text-white is-btn-gray"
                     OnClick="btn_editarDatosBasicos_Click"  style="text-transform: none;" runat="server">Editar datos</asp:LinkButton>
                 &nbsp;
                   <asp:LinkButton ID="btn_CambiarPassword" 
-                    class="waves-effect waves-light btn blue-grey darken-1 btn-s "
+                    class="is-text-white is-btn-gray"
                   OnClick="btn_CambiarPassword_Click" style="text-transform: none;" runat="server">Actualizar contraseña </asp:LinkButton>
                 <br />
                 <br />
             </div>
         </div>
-        <div id="datosClienteEdit" visible="false" class="col l12 datos_cliente_edicion" runat="server">
+        <div id="datosClienteEdit" visible="false" class="col datos_cliente_edicion is-m-auto is-w-fit" style="padding: 0rem 4rem;" runat="server">
             <div class="row margin-b-2x">
-                <h2>Cambiar datos de perfil:</h2>
+                <h2 class="is-bt-2">Cambiar datos de perfil:</h2>
                 <div class="input-field col s12 m6 l6 margin-b-2x hide">
                     <asp:TextBox ID="txt_id_cliente" AutoCompleteType="None"
                         Enabled="false" autocomplete="nope" runat="server"></asp:TextBox>
                     <label for="txt_id_cliente">ID Cliente</label>
                 </div>
-                <div class="input-field col s12 m12 l12 margin-b-2x">
+            </div>
+            <div class="row is-bt-1">
+                <div class="input-field margin-b-2x">
                     <asp:TextBox ID="txt_nombre" ClientIDMode="Static" Style="width: 250px" runat="server"></asp:TextBox>
                     <label for="txt_nombre">Nombre(s)</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field col s12 m12 l12">
+            <div class="row is-bt-1">
+                <div class="input-field">
                     <label for="txt_apellido_paterno">Apellido Paterno</label>
                     <asp:TextBox ID="txt_apellido_paterno" Style="width: 250px" ClientIDMode="Static" runat="server"></asp:TextBox>
                 </div>
-                <div class="input-field col s12 m12 l12">
+            </div>
+            <div class="row is-bt-1">
+                <div class="input-field">
                     <label for="txt_apellido_materno">Apellido Materno</label>
                     <asp:TextBox ID="txt_apellido_materno" Style="width: 250px" ClientIDMode="Static" runat="server"></asp:TextBox>
                 </div>
-                <div class="input-field col s12 m12 l12">
+            </div>
+            <div class="row is-bt-1">
+                <div class="input-field">
                     <asp:TextBox ID="txt_celular" Style="width: 250px" ClientIDMode="Static" runat="server"></asp:TextBox>
                     <label for="txt_celular">Celular</label>
                 </div>
-                <div class="input-field col s12 m12 l12">
+            </div>
+            <div class="row is-bt-1">
+                <div class="input-field">
                     <asp:TextBox ID="txt_telefono" Style="width: 250px" ClientIDMode="Static" runat="server"></asp:TextBox>
                     <label for="txt_telefono">Telefono fijo </label>
                 </div>
             </div>
-            <div class="row ">
-                <div class="col l12 ">
+            <div class="row">
+                <div class="col l12">
                     <asp:LinkButton ID="btn_cancelar_edicion" OnClick="btn_cancelar_edicion_Click"
-                        CssClass="btn-cerrar_edicion waves-effect waves-light btn btn-s  blue-grey-text text-darken-2 blue-grey lighten-5 " style="text-transform: none;" runat="server">Cerrar edición</asp:LinkButton>
+                        CssClass="btn-cerrar_edicion is-text-white is-btn-gray" style="text-transform: none;" runat="server">Cancelar</asp:LinkButton>
                     <asp:LinkButton ID="btn_cambiarDatos" OnClick="btn_cambiarDatos_Click"
-                        class="btn-guardar_datos waves-effect waves-light btn  blue-grey darken-1 btn-s" style="text-transform: none;"
-                        runat="server">Guardar Datos</asp:LinkButton>
+                        class="btn-guardar_datos is-text-white is-btn-gray" style="text-transform: none;"
+                        runat="server">Guardar</asp:LinkButton>
                 </div>
             </div>
             <div class="row "></div>
@@ -108,10 +117,10 @@
             <div class="row margin-b-2x">
                 <div class="col s12 l12 margin-t-4x">
                     <asp:LinkButton ID="LinkButton1" OnClick="btn_cancelar_edicion_Click"
-                        CssClass="btn-cerrar-actualizar_contrasena waves-effect waves-light btn  btn-s  blue-grey-text text-darken-2 blue-grey lighten-5"
-                        runat="server">Cerrar edición</asp:LinkButton>
+                        CssClass="btn-cerrar-actualizar_contrasena is-text-white is-btn-gray"
+                        runat="server">Volver a mi cuenta</asp:LinkButton>
                     <asp:LinkButton ID="btn_cambiar_password" OnClick="btn_cambiar_password_Click"
-                        class="btn-actualizar_contrasena waves-effect waves-light btn blue-grey darken-1 btn-s " runat="server">Cambiar contraseña</asp:LinkButton>
+                        class="btn-actualizar_contrasena is-text-white is-btn-gray" runat="server">Cambiar contraseña</asp:LinkButton>
                     <br />
                     <br />
                 </div>
