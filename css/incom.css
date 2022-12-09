@@ -622,6 +622,31 @@ div.arrow-doble-down #svg-arrow-down {
     margin-bottom: 0rem !important;
 }
 
+.button_boletin {
+    font-size: 14px;
+    background: #1C6FFF;
+    color: white;
+    padding: 6px 20px;
+    margin: 4px 0 7px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 4px #0052E0, 0 1px 4px 1px #151ea8, 0 0 #004BCC inset;
+    transition: box-shadow 0.15s, margin 0.15s;
+  }
+  
+  .button_boletin:hover {
+    background: #2D7AFF;
+    color: #FFFFFF;
+  }
+
+  .button_boletin:active {
+    margin: 1px 0 0;
+    box-shadow: 0 0 #0052E0, 0 0 #2f2f2f, 0 1px 2px #004FD9 inset;
+  }
+
 /* Correción de alineación en las subcategorias */
     @media only screen and (min-width: 700px) and (max-width: 993px) {
     .truncate {
