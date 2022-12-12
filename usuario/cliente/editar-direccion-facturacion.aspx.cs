@@ -117,6 +117,7 @@ public partial class usuario_cliente_editar_direccion_facturacion : System.Web.U
         int idDireccion = int.Parse(Page.RouteData.Values["id_direccion"].ToString());
         string estado;
         string colonia = "";
+        string regimen_fiscal = ddl_regimen_fiscal.SelectedValue;
         if (ddl_pais.SelectedText == "México") estado = ddl_estado.SelectedText;
         else estado = txt_estado.Text;
 
@@ -137,7 +138,7 @@ public partial class usuario_cliente_editar_direccion_facturacion : System.Web.U
             estado = estado,
             codigo_postal = txt_codigo_postal.Text,
             pais = ddl_pais.SelectedText,
-
+            regimenFiscal = regimen_fiscal,
         };
 
 
@@ -199,7 +200,7 @@ public partial class usuario_cliente_editar_direccion_facturacion : System.Web.U
             pedidoDireccionFacturacion.pais = direccion.pais;
             pedidoDireccionFacturacion.razon_social = direccion.razon_social;
             pedidoDireccionFacturacion.rfc = direccion.rfc;
-
+            pedidoDireccionFacturacion.RegimenFiscal = direccion.regimen_fiscal;
 
             var result = PedidosEF.GuardarDireccionFacturacion(numero_operacion, pedidoDireccionFacturacion);
 

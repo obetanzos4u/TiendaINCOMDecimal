@@ -495,7 +495,7 @@ public class PedidosEF
                     PedidoDireccionFacturacion.pais = direccion.pais;
                     PedidoDireccionFacturacion.razon_social = direccion.razon_social;
                     PedidoDireccionFacturacion.rfc = direccion.rfc;
-
+                    PedidoDireccionFacturacion.RegimenFiscal = direccion.RegimenFiscal;
                 }
                 db.SaveChanges();
 

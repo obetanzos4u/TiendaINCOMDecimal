@@ -350,7 +350,7 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
                 case "LIQUIDACIÓN":
                     lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-liquidation");
                     break;
-                case "ULTIMAS":
+                case "ÚLTIMAS":
                     lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-lastItems");
                     bandera = "ÚLTIMAS PIEZAS";
                     break;

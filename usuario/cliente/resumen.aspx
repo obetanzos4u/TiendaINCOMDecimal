@@ -94,7 +94,8 @@
                         <div class="text-resumen_compra is-px-8 is-py-2 is-top-1">
                             <h6 id="facturacion_title" runat="server" class="card-subtitle"></h6>
                             <p id="facturacion_desc" runat="server" class="card-text"></p>
-                            <p id="ContentFacturacionUsoCFDI" runat="server">
+                            <p id="regimen_fiscal" runat="server"></p>
+                            <p id="ContentFacturacionUsoCFDI" visible="false" runat="server">
                                 <strong>
                                     <label for="ddl_UsoCFDI" class="form-label">Uso de CFDI</label>
                                     <span class="text-danger">*</span>

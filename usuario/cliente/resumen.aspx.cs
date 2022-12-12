@@ -110,6 +110,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         {
             CargarDireccionFacturacion();
             ContentFacturacionUsoCFDI.Visible = true;
+            regimen_fiscal.Visible = true;
         }
         else
         {
@@ -260,6 +261,18 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
                 {
                     ddl_UsoCFDI.SelectedIndex = 0;
                 }
+                if (string.IsNullOrEmpty(direccion.RegimenFiscal))
+                {
+                    regimen_fiscal.InnerHtml = "<strong>Régimen fiscal: </strong><span class='is-text-red'>No registrado</span>";
+                    NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Agrega tu régimen fiscal en datos de facturación");
+                    btn_continuarMetodoPago.ToolTip += "El régimen fiscal es necesario";
+                    btn_continuarMetodoPago.Attributes.Add("style", "cursor: not-allowed;");
+                    btn_continuarMetodoPago.Enabled = false;
+                }
+                else
+                {
+                    regimen_fiscal.InnerHtml = "<strong>Régimen fiscal:</strong> " + direccion.RegimenFiscal;
+                }
             }
         }
         else
@@ -380,10 +393,10 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         if (status.result && status.exception == false)
         {
 
-           // BootstrapCSS.Message(this, ".content_msg_confirmacion_pedido", BootstrapCSS.MessageType.info,
-           //"Pago registrado",
-           //$"{status.message} Si deseas realizar algún cambio en el método/dirección de envío solicitalo a un asesor." +
-           //"<br><a href=/informacion/ubicacion-y-sucursales.aspx#contacto'>Contactar a un asesor</a>");
+            // BootstrapCSS.Message(this, ".content_msg_confirmacion_pedido", BootstrapCSS.MessageType.info,
+            //"Pago registrado",
+            //$"{status.message} Si deseas realizar algún cambio en el método/dirección de envío solicitalo a un asesor." +
+            //"<br><a href=/informacion/ubicacion-y-sucursales.aspx#contacto'>Contactar a un asesor</a>");
             cnt_transferencia_registrada.Visible = true;
             txt_transferencia_mensaje.InnerText = $"{status.message}";
             txt_transferencia_contacto.InnerHtml = "Si deseas realizar algún cambio en el método/dirección de envío solicitalo a un asesor.<br><a href=/informacion/ubicacion-y-sucursales.aspx#contacto'>Contactar a un asesor</a>";
