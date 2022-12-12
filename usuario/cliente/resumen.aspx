@@ -18,7 +18,17 @@
     <uc:progreso runat="server"></uc:progreso>
     <div class="is-container container-resumen_pedido is-px-4">
         <div class="is-flex is-justify-between is-items-center is-py-2">
-            <h2 class="is-text-xl is-font-bold is-select-none">Resumen de pedido<asp:Literal ID="lt_nombre_operacion" runat="server" Visible="false"></asp:Literal></h2>
+            <h2 class="is-text-xl is-font-bold">Resumen de pedido: 
+                <asp:Label ID="lbl_numero_operacion" runat="server"></asp:Label>
+                <button type="button" class="is-cursor-pointer" title="Copiar número de pedido" style="background-color: transparent; outline: none; border: none;" onclick="copiarNumeroParte('body_lbl_numero_operacion', 'Operación')">
+                    <span class="is-text-gray is-inline-block">
+                        <svg class="is-w-4 is-h-4" aria-labelledby="Clipcopy" title="Copiar elemento" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                            <title id="Clipcopy">Copiar elemento</title>
+                        </svg>
+                    </span>
+                </button>
+            </h2>
             <asp:HyperLink ID="btn_regresar_pedidos" runat="server">Regresar a pedidos</asp:HyperLink>
         </div>
         <div class="row">

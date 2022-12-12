@@ -69,7 +69,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         #endregion
 
         lt_numero_pedido.Text = pedidos_datos.numero_operacion;
-        lt_nombre_operacion.Text = pedidos_datos.nombre_pedido;
+        lbl_numero_operacion.Text = pedidos_datos.numero_operacion;
         lbl_fecha_creacion.Text = pedidos_datos.fecha_creacion.ToString();
 
         lt_usuario_cliente.Text = pedidos_datos.usuario_cliente;
@@ -271,7 +271,15 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
                 }
                 else
                 {
-                    regimen_fiscal.InnerHtml = "<strong>Régimen fiscal:</strong> " + direccion.RegimenFiscal;
+                    string regimenFiscalCompleto = PedidosEF.obtenerDescripcionRegimenFiscal(direccion.RegimenFiscal);
+                    if (!string.IsNullOrEmpty(regimenFiscalCompleto))
+                    {
+                        regimen_fiscal.InnerHtml = "<strong>Régimen fiscal:</strong> " + regimenFiscalCompleto;
+                    }
+                    else
+                    {
+                        regimen_fiscal.InnerHtml = "<strong>Régimen fiscal:</strong> " + direccion.RegimenFiscal;
+                    }
                 }
             }
         }
