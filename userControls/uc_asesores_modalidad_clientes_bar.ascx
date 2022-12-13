@@ -19,7 +19,7 @@
             <asp:HyperLink ID="btn_agregar_usuario" NavigateUrl="~/usuario/mi-cuenta/registro-de-usuario-asesor.aspx" class="is-text-black" runat="server">Registrar cliente</asp:HyperLink>
         </li>
         <li>
-            <asp:CheckBox ID="chk_salir_modalidad_asesores" AutoPostBack="true" Text="Salir" class="is-text-black" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
+            <asp:CheckBox ID="chk_salir_modalidad_asesores" AutoPostBack="true" Text="Salir" CssClass="is-text-black" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
         </li>
     </ul>
 </div>
