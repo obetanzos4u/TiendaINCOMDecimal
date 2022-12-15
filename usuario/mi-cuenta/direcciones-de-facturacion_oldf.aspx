@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="col s12 m12 l12">
-                <h2>Mis direcciones de facturación</h2>
+                <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft" >Mis direcciones de facturación</h2>
             </div>
             <div class="col s12 m12 l9">Administra tus direcciones de facturación para: Cotizaciones o Pedidos</div>
 
