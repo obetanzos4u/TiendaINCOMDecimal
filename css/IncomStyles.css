@@ -1016,11 +1016,11 @@ body {
 }
 
 .is-active {
-    border: 0.25rem solid #3b82f6;
+    border-bottom: 0.25rem solid #3b82f6;
 }
 
 .is-non-active {
-    border: 0.25rem solid #fff;
+    border-bottom: 0.25rem solid transparent;
 }
 
 /* User menu */

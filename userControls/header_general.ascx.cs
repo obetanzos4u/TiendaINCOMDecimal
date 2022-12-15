@@ -39,7 +39,6 @@ public partial class menuPrincipal : System.Web.UI.UserControl
             }
         }
     }
-
     protected void CrearMenuMovilCategorias()
     {
         var categorias = CategoriasEF.obtenerNivel_1();

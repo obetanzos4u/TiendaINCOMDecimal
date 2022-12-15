@@ -12,8 +12,6 @@ using System.Web;
 /// </summary>
 public class emailTienda : email
 {
-
-
     public emailTienda(string _asunto, string _destinatarios, string _mensaje, string _remitente) : base(_asunto, _destinatarios, _mensaje, _remitente)
     {
         resultado = false;
@@ -44,17 +42,13 @@ public class emailTienda : email
         }
         // fileWriter.Close();
     }
-
     public void enviarRegistroBienvenida()
     {
-
-
         mm = new MailMessage();
 
         if (validarDestinatarios())
         {
             depurarDestinatarios();
-
 
             mm.From = new MailAddress(remitenteCredenciales, "Incom Retail");
             mm.Subject = asunto + " " + utilidad_fechas.obtenerCentral().ToString("f");
@@ -74,23 +68,17 @@ public class emailTienda : email
         }
         else
         {
-
             resultado = false;
             resultadoMensaje = "Destinatario(s) no válido(s)";
         }
-
     }
-
     public void contacto()
     {
-
-
         mm = new MailMessage();
 
         if (validarDestinatarios())
         {
             depurarDestinatarios();
-
 
             mm.From = new MailAddress(remitenteCredenciales, "Incom Retail");
             mm.Subject = "[Contacto] " + asunto + " " + utilidad_fechas.obtenerCentral().ToString("f");
@@ -114,7 +102,6 @@ public class emailTienda : email
             resultado = false;
             resultadoMensaje = "Destinatario(s) no válido(s)";
         }
-
     }
     public void general()
     {
@@ -126,10 +113,11 @@ public class emailTienda : email
 
             // mm.Headers.Add("", "");
             mm.From = new MailAddress(remitenteCredenciales, "Incom");
-            mm.Subject = asunto + " " + utilidad_fechas.obtenerCentral().ToString("f");
+            mm.Subject = asunto + ", solicitado el " + utilidad_fechas.obtenerCentral().ToString("f");
             mm.IsBodyHtml = true;
             mm.Body = mensaje;
             mm.Bcc.Add("serviciosweb@incom.mx");
+            mm.ReplyToList.Add("servicioswen@incom.mx");
             // mm.Bcc.Add("development@incom.mx, desarrollo@incom.mx");
 
             // mm.ReplyToList.Add("cmiranda@it4u.com.mx, rpreza@it4u.com.mx, development@incom.mx");
@@ -139,7 +127,6 @@ public class emailTienda : email
 
             resultado = true;
             resultadoMensaje = "Solicitud procesada";
-
         }
         else
         {
@@ -161,40 +148,36 @@ public class emailTienda : email
             mm.Subject = asunto + " " + utilidad_fechas.obtenerCentral().ToString("f");
             mm.IsBodyHtml = true;
             mm.Body = mensaje;
-            mm.Bcc.Add("development@incom.mx");
-
-
+            //mm.Bcc.Add("development@incom.mx");
+            mm.Bcc.Add("serviciosweb@incom.mx");
 
             SmtpClient enviar = smtpDevelopment();
             enviar.SendAsync(mm, null);
 
             resultado = true;
             resultadoMensaje = "Solicitud procesada";
-
         }
         else
         {
             resultado = false;
             resultadoMensaje = "Destinatario(s) no válido(s)";
         }
-
     }
     public void restablecerPassword()
     {
-
-
         mm = new MailMessage();
 
         if (validarDestinatarios())
         {
             depurarDestinatarios();
 
-            mm.From = new MailAddress(remitenteCredenciales, "Incom Retail");
-            mm.Subject = asunto + " " + utilidad_fechas.obtenerCentral().ToString("f");
+            mm.From = new MailAddress(remitenteCredenciales, "INCOM.MX");
+            mm.Subject = asunto + ", solicitado el " + utilidad_fechas.obtenerCentral().ToString("f");
             mm.IsBodyHtml = true;
             mm.Body = mensaje;
-            mm.Bcc.Add("development@incom.mx");
-            mm.Bcc.Add("desarrollo@incom.mx");
+            mm.Bcc.Add("serviciosweb@incom.mx");
+            //mm.Bcc.Add("development@incom.mx");
+            //mm.Bcc.Add("desarrollo@incom.mx");
             SmtpClient enviar = smtp();
             enviar.SendAsync(mm, null);
 

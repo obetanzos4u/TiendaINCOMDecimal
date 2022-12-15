@@ -12,16 +12,17 @@ using System.Web;
 /// </summary>
 [ObsoleteAttribute("Esta clase es obsoleta ya no usar.", false)]
 
-public class email {
+public class email
+{
 
     public string resultadoMensaje;
     public bool resultado;
 
-    public static string remitenteCredenciales = "retail@incom.mx";
-    protected static string passwordCredenciales = "Serafincin_Retail@2021";
+    public static string remitenteCredenciales = "serviciosweb@incom.mx";
+    protected static string passwordCredenciales = "qvetsakzonfdmknn";
 
     protected static string remitenteCredencialesDevelopment = "serviciosweb@incom.mx"; // cmiranda@it4u.com.mx
-    protected static string passwordCredencialesDevelopment = "dyrvntbdmenuqhpx"; // Credenciales de usuario ktkbvtbumplmjaov - lydwgdtzufoshycw
+    protected static string passwordCredencialesDevelopment = "qvetsakzonfdmknn"; // Credenciales de usuario ktkbvtbumplmjaov - lydwgdtzufoshycw
 
     protected string asunto { get; set; }
     protected string destinatarios { get; set; }
@@ -30,23 +31,25 @@ public class email {
     protected List<Attachment> attachment { get; set; }
     protected MailMessage mm { get; set; }
 
-    public email(string _asunto, string _destinatarios, string _mensaje, string _remitente, List<Attachment> _attachment) {
-
+    public email(string _asunto, string _destinatarios, string _mensaje, string _remitente, List<Attachment> _attachment)
+    {
         asunto = _asunto;
-        destinatarios = destinatarios = textTools.lineSimple(_destinatarios).Trim(',');;
+        destinatarios = destinatarios = textTools.lineSimple(_destinatarios).Trim(','); ;
         mensaje = _mensaje;
         remitente = _remitente;
         attachment = _attachment;
 
     }
 
-    public email(string _asunto, string _destinatarios, string _mensaje, string _remitente ) {
+    public email(string _asunto, string _destinatarios, string _mensaje, string _remitente)
+    {
         asunto = _asunto;
         destinatarios = destinatarios = textTools.lineSimple(_destinatarios).Trim(','); ;
         mensaje = _mensaje;
         remitente = _remitente;
-        }
-    protected static SmtpClient smtp() {
+    }
+    protected static SmtpClient smtp()
+    {
 
         SmtpClient smtp = new SmtpClient();
         smtp.Host = "smtp.gmail.com";
@@ -57,9 +60,9 @@ public class email {
 
         smtp.Port = 587;
         return smtp;
-        }
-    protected static SmtpClient smtpDevelopment() {
-
+    }
+    protected static SmtpClient smtpDevelopment()
+    {
         SmtpClient smtp = new SmtpClient();
         smtp.Host = "smtp.gmail.com";
         smtp.EnableSsl = true;
@@ -70,67 +73,62 @@ public class email {
         smtp.Port = 587;
         return smtp;
     }
-
     /// <summary>
     /// Únicamente valida los destinatarios en el formato correcto
     /// </summary>
-    protected bool validarDestinatarios() {
-
-
-        if (string.IsNullOrEmpty(destinatarios)) {
+    protected bool validarDestinatarios()
+    {
+        if (string.IsNullOrEmpty(destinatarios))
+        {
             return false;
-            } 
-        else {
-
+        }
+        else
+        {
             destinatarios = destinatarios.Trim(' ').Replace("  ", "").Replace(" ", "").Replace("\t", "").TrimEnd(',');
             // si son múltiples destintarios validamos uno por uno convirtiendolo a array
-            if (destinatarios.Contains(",")) {
-
-              
+            if (destinatarios.Contains(","))
+            {
                 string[] destinatariosAR = destinatarios.Split(',');
 
-                foreach (string em in destinatariosAR) {
+                foreach (string em in destinatariosAR)
+                {
 
-                    if (!textTools.validarEmail(em)) {
-                        resultadoMensaje = "Email con formato incorrecto";
-                        return  false;
-                        }
-                    }
-
-                return true;
-                } else  if (!textTools.validarEmail(destinatarios)) {
+                    if (!textTools.validarEmail(em))
+                    {
                         resultadoMensaje = "Email con formato incorrecto";
                         return false;
-                        }
-
-                    
-           
+                    }
                 }
 
-            return true;
+                return true;
             }
-
-
-        
+            else if (!textTools.validarEmail(destinatarios))
+            {
+                resultadoMensaje = "Email con formato incorrecto";
+                return false;
+            }
+        }
+        return true;
+    }
     /// <summary>
     /// Añade los destinatarios de manera correcta, si es uno solo o si son varios (separados por coma) 
     /// </summary>
-    protected void depurarDestinatarios() {
-
+    protected void depurarDestinatarios()
+    {
         destinatarios = destinatarios.Replace("  ", "").Replace("\t", "").Replace(" ", "").TrimEnd(',');
 
-        if (destinatarios.Contains(",")) {
-            
+        if (destinatarios.Contains(","))
+        {
             string[] destinatariosAR = destinatarios.Split(',');
 
-            foreach (string email in destinatariosAR) {
+            foreach (string email in destinatariosAR)
+            {
                 mm.To.Add(email);
-                }
             }
-        else {
+        }
+        else
+        {
             mm.To.Add(destinatarios);
-            }
-
-
         }
     }
+}

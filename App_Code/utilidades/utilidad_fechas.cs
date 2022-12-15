@@ -102,6 +102,11 @@ public class utilidad_fechas
         DateTime dateTime = obtenerCentral();
         return dateTime.ToString("ddMMyy");
     }
+    public static string DDMMAAAA()
+    {
+        DateTime dateTime = obtenerCentral();
+        return dateTime.ToString("dd/MM/yyyy");
+    }
     public static string DDMMAAff()
     {
         DateTime dateTime = obtenerCentral();
