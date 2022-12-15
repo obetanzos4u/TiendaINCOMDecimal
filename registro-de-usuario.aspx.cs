@@ -22,7 +22,6 @@ public partial class registro_de_usuario : System.Web.UI.Page
             }
         }
     }
-
     protected async void btn_registrar_ClickAsync(object sender, EventArgs e)
     {
         if (FNvalidarCampos())
@@ -41,82 +40,76 @@ public partial class registro_de_usuario : System.Web.UI.Page
             usuario.fecha_registro = utilidad_fechas.obtenerCentral();
             usuario.cuenta_confirmada = false;
 
-
             seguridad cifrar = new seguridad();
             usuario.password = cifrar.passwordUser(usuario.password);
-
 
             var existenciaUsuario = UsuariosEF.ValidarExistenciaUsuario(usuario.email);
 
             if (existenciaUsuario.exception == false && existenciaUsuario.result == true)
             {
-                materializeCSS.crear_toast(this, "El usuario se encuentra registrado.", false);
+                NotiflixJS.Message(this, NotiflixJS.MessageType.info, "El usuario ya se encuentra registrado");
+                //materializeCSS.crear_toast(this, "El usuario se encuentra registrado.", false);
                 return;
             }
-
-
-
             // Si no hay registros procede a crear
 
             // Procedemos a crear el usuario
             var resultCrearUsuario = await UsuariosEF.Crear(usuario);
 
-
             if (resultCrearUsuario.result == false && resultCrearUsuario.exception == true)
             {
-                materializeCSS.crear_toast(this, resultCrearUsuario.message, false);
+                NotiflixJS.Message(this, NotiflixJS.MessageType.info, resultCrearUsuario.message);
+                //materializeCSS.crear_toast(this, resultCrearUsuario.message, false);
                 return;
             }
 
             string dominio = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
-
-
-
-
             var resultGeneracionLiga = await UsuariosEF.GenerarLigaConfirmacionDeCuenta(usuario.email);
 
             if (resultGeneracionLiga.result == false && resultGeneracionLiga.exception == true)
             {
-                materializeCSS.crear_toast(this, "Tú usuario fué creado con éxito pero no fué posible enviar el email de activación", false);
+                NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Tu cuenta fue creada pero no fue posible enviar un correo de activación");
+                //materializeCSS.crear_toast(this, "Tú usuario fué creado con éxito pero no fué posible enviar el email de activación", false);
 
                 devNotificaciones.notificacionSimple($"El email de activación de cuenta no fue enviado para el usuario {usuario.email} ");
                 return;
             }
 
-
             usuarios_ligas_confirmaciones Liga = resultGeneracionLiga.response;
             // Inicio para preparar email
             string filePath = "/email_templates/ui/usuario_ConfirmarCuenta.html";
 
-            Dictionary<string, string> datos = new Dictionary<string, string>();
-            datos.Add("{nombre}", txt_nombre.Text + " " + txt_apellido_paterno.Text);
-            datos.Add("{dominio}", dominio);
-            datos.Add("{enlaceConfirmacion}", dominio + "/usuario-confirmacion-de-cuenta.aspx?clave=" + Liga.clave + "&user=" + seguridad.Encriptar(usuario.email));
-
+            Dictionary<string, string> datos = new Dictionary<string, string>
+            {
+                { "{fecha}", utilidad_fechas.DDMMAAAA() },
+                { "{nombre}", txt_nombre.Text },
+                { "{enlaceConfirmacion}", dominio + "/usuario-confirmacion-de-cuenta.aspx?clave=" + Liga.clave + "&user=" + seguridad.Encriptar(usuario.email) }
+            };
 
             string mensaje = archivosManejador.reemplazarEnArchivo(filePath, datos);
 
-            emailTienda registro = new emailTienda("[Confirma tu cuenta] Gracias por tu registro " + txt_nombre.Text + " ", usuario.email, mensaje, null);
+            emailTienda registro = new emailTienda("Gracias por tu registro en INCOM.MX " + txt_nombre.Text + " ", usuario.email, mensaje, null);
             registro.general();
 
             // Fin preparación email 
 
-            materializeCSS.crear_toast(this, "Usuario creado con éxito", true);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Usuario registrado");
+            //materializeCSS.crear_toast(this, "Usuario creado con éxito", true);
 
-            materializeCSS.crear_toast(this, "Redireccionando en 3 segundos...", true);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "En breve serás ");
+            //materializeCSS.crear_toast(this, "Redireccionando en 3 segundos...", true);
             // Necesario para redirección
             string script = @"   setTimeout(function () {
             window.location.replace('" + dominio + "/usuario-aviso-confirmar-cuenta.aspx')}, 2500);";
             ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
         }
-
     }
-
     protected bool FNvalidarCampos()
     {
         if (chk_politica_privacidad.Checked == false)
         {
-            materializeCSS.crear_toast(this, "Debe aceptar la politicas de privacidad", false);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Debes aceptar nuestras políticas de privacidad");
+            //materializeCSS.crear_toast(this, "Debe aceptar la politicas de privacidad", false);
             return false;
         }
 

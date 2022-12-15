@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="header_general.ascx.cs" Inherits="menuPrincipal" %>
-<%@ Register Src="~/userControls/menu_principal.ascx" TagName="menuPrincipal" TagPrefix="uc_menu" %>
+<%@ Register Src="~/userControls/menu_principal.ascx" TagName="menuHeaderPrincipal" TagPrefix="uc_menu" %>
 <%@ Register Src="~/userControls/uc_asesores_modalidad_clientes_bar.ascx" TagName="modAsesor" TagPrefix="uc_bar" %>
 <%@ Register Src="~/userControls/uc_admin_bar_button.ascx" TagName="adminBar" TagPrefix="uc_bar" %>
 <%@ Register Src="~/userControls/buscador.ascx" TagName="buscador" TagPrefix="uc_buscador" %>
@@ -242,7 +242,7 @@
                     </div>
                 </div>
             </div>
-            <uc_menu:menuPrincipal ID="menuCat" runat="server"></uc_menu:menuPrincipal>
+            <uc_menu:menuHeaderPrincipal ID="menuCat" runat="server"></uc_menu:menuHeaderPrincipal>
         </div>
     </div>
     <%--    <div style="padding: 6px 5px; overflow: hidden;">

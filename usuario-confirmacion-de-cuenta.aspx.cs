@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,47 +12,37 @@ public partial class usuario_confirmacion_de_cuenta : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-
-
-           
-
             try
             {
-               
                 validarURL();
             }
             catch (Exception ex)
             {
-
                 var error = new json_respuestas(false, "Error al parsear", true, ex);
                 Content_Error_Activar.Visible = true;
                 msg_detalle_error.InnerText = "Hubo un error, contacta a un asesor.";
             }
-
         }
-
-
     }
     protected async void btn_generar_nueva_liga_Click(object sender, EventArgs e)
     {
-
         int LigasTotales = await UsuariosEF.ObtenerCantidadLigasCreadas(hf_usuario.Value).Result.response;
 
-
-        if(LigasTotales > 3)
+        if (LigasTotales > 3)
         {
             Content_Error_Activar.Visible = true;
-            msg_detalle_error.InnerText = "Haz superado el envío de ligas, por favor envia un correo a: development@incom.mx";
+            msg_detalle_error.InnerText = "Haz superado el envío de ligas, por favor envia un correo a: serviciosweb@incom.mx";
         }
         else
         {
             string dominio = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
             string usuario = hf_usuario.Value;
-            var Clave = await  UsuariosEF.GenerarLigaConfirmacionDeCuenta(usuario);
+            var Clave = await UsuariosEF.GenerarLigaConfirmacionDeCuenta(usuario);
 
             if (Clave.result == false && Clave.exception == true)
             {
-                materializeCSS.crear_toast(this, "Ocurrio un error por favor envia un correo a: development@incom.mx", false);
+                NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Ocurrió un error, enviar correo a: serviciosweb@incom.mx");
+                //materializeCSS.crear_toast(this, "Ocurrio un error por favor envia un correo a: development@incom.mx", false);
                 return;
             }
 
@@ -61,43 +51,46 @@ public partial class usuario_confirmacion_de_cuenta : System.Web.UI.Page
             // Inicio para preparar email
             string filePath = "/email_templates/ui/usuario_ConfirmarCuenta.html";
 
-            Dictionary<string, string> datos = new Dictionary<string, string>();
-            datos.Add("{nombre}", Usuario.nombre + " " + Usuario.apellido_paterno);
-            datos.Add("{dominio}", dominio);
-            datos.Add("{enlaceConfirmacion}", dominio + "/usuario-confirmacion-de-cuenta.aspx?codigo=" + Clave.response);
+            Dictionary<string, string> datos = new Dictionary<string, string>
+            {
+                { "{fecha}", utilidad_fechas.DDMMAAAA() },
+                { "{nombre}", Usuario.nombre },
+                { "{enlaceConfirmacion}", dominio + "/usuario-confirmacion-de-cuenta.aspx?codigo=" + Clave.response }
+            };
 
 
             string mensaje = archivosManejador.reemplazarEnArchivo(filePath, datos);
 
-            emailTienda registro = new emailTienda("[Confirma tu cuenta] Gracias por tu registro " + Usuario.nombre + " ", usuario, mensaje, null);
-                 registro.general();
+            emailTienda registro = new emailTienda("Gracias por tu registro " + Usuario.nombre + ", confirma tu cuenta ", usuario, mensaje, null);
+            registro.general();
 
             // Fin preparación email 
 
-            materializeCSS.crear_toast(this, "Usuario creado con éxito", true);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Usuario creado");
+            //materializeCSS.crear_toast(this, "Usuario creado con éxito", true);
 
-            materializeCSS.crear_toast(this, "Redireccionando en 4 segundos...", true);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "En breve serás redirigido");
+            //materializeCSS.crear_toast(this, "Redireccionando en 4 segundos...", true);
             // Necesario para redirección
             string script = @"   setTimeout(function () {
             window.location.replace('" + dominio + "/usuario-aviso-confirmar-cuenta.aspx')}, 3500);";
             ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
 
-            materializeCSS.crear_toast(this, "Liga enviada a tu correo enviado con éxito", true);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Se te ha enviado un enlace de confirmación");
+            //materializeCSS.crear_toast(this, "Liga enviada a tu correo enviado con éxito", true);
         }
     }
-       
-    
-        protected async void validarURL()
+    protected async void validarURL()
     {
-
         // Si no se recibió un parámetro
-        if (Request.QueryString["clave"] == null) {
+        if (Request.QueryString["clave"] == null)
+        {
             Content_Error_Activar.Visible = true;
-            msg_detalle_error.InnerText = "No se récibió una liga";
+            msg_detalle_error.InnerText = "No se récibió un enlace";
             return;
         }
 
-        string clave =  Request.QueryString["clave"].ToString().Replace(" ","+");
+        string clave = Request.QueryString["clave"].ToString().Replace(" ", "+");
 
         var LigaResult = await UsuariosEF.ObtenerLiga(clave);
 
@@ -114,7 +107,7 @@ public partial class usuario_confirmacion_de_cuenta : System.Web.UI.Page
         if (LigaResult.result == false)
         {
             Content_Error_Activar.Visible = true;
-            msg_detalle_error.InnerText = "No se encontró una liga de activación";
+            msg_detalle_error.InnerText = "No se encontró un enlace de activación";
 
             if (Request.QueryString["user"] != null)
             {
@@ -122,7 +115,7 @@ public partial class usuario_confirmacion_de_cuenta : System.Web.UI.Page
 
                 bool existenciaUsuario = UsuariosEF.ValidarExistenciaUsuario(usuario).result;
 
-                if(existenciaUsuario == true)
+                if (existenciaUsuario == true)
                 {
                     bool CuentaActivada = UsuariosEF.ValidarCuentaActiva(usuario).result;
 
@@ -132,61 +125,49 @@ public partial class usuario_confirmacion_de_cuenta : System.Web.UI.Page
                         Title_Error.InnerText = "Cuenta ya activada";
                         msg_detalle_error.InnerText = "Puedes iniciar sesión, tu cuenta ya ha sido activada con anterioridad";
                     }
-                
                 }
             }
 
-              
-
-
-                return;
+            return;
         }
         usuarios_ligas_confirmaciones Liga = LigaResult.response;
-
 
         // Si la liga ya caducó
         if (utilidad_fechas.calcularDiferenciaDias(Liga.fecha_creacion) > 2)
         {
             Content_Error_Activar.Visible = true;
-            msg_detalle_error.InnerText = "La liga ya expiró, reenvia un email con una nueva liga de activación";
+            msg_detalle_error.InnerText = "El enlace ya expiró, reenvia un email con una nueva liga de activación";
             btn_generar_nueva_liga.Visible = true;
             hf_usuario.Value = Liga.usuario;
             return;
         }
 
-
         json_respuestas LigasTotales = await UsuariosEF.ObtenerCantidadLigasCreadas(Liga.usuario);
 
-        if (utilidad_fechas.calcularDiferenciaDias(Liga.fecha_creacion) > 2 && LigasTotales.response > 3){
+        if (utilidad_fechas.calcularDiferenciaDias(Liga.fecha_creacion) > 2 && LigasTotales.response > 3)
+        {
             Content_Error_Activar.Visible = true;
-            msg_detalle_error.InnerText = "La liga ya expiró y haz superado el envío de ligas, por favor envia un correo a: development@incom.mx";
+            msg_detalle_error.InnerText = "El enlace ya expiró y haz superado el envío de ligas, por favor envia un correo a: development@incom.mx";
             return;
         }
 
-
-
-
         var resultActivacion = await UsuariosEF.ConfirmarCuenta(Liga.usuario);
 
-        if(resultActivacion.result == true)
+        if (resultActivacion.result == true)
         {
             devNotificaciones.notificacionSimple($"El usuario {Liga.usuario} ha activado correctamente su cuenta.");
 
-          await  UsuariosEF.BorrarLigas(Liga.usuario);
+            await UsuariosEF.BorrarLigas(Liga.usuario);
             Content_Activacion_Correcta.Visible = true;
 
-
             // Necesario para redirección
-           // string script = @"setTimeout(function () { window.location.replace('" + redirectUrl + "')}, 3500);";
-           // ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
-
-
+            // string script = @"setTimeout(function () { window.location.replace('" + redirectUrl + "')}, 3500);";
+            // ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
         }
         else
         {
             Content_Error_Activar.Visible = true;
-            msg_detalle_error.InnerText = "Ocurrió un error al activar tu usuario, por favor envia un email a: development@incom.mx";
-
+            msg_detalle_error.InnerText = "Ocurrió un error al activar tu usuario, por favor envia un email a: serviciosweb@incom.mx";
         }
     }
 }

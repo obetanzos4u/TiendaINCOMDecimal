@@ -29,7 +29,6 @@ public partial class uc_asesores_modalidad_clientes_bar : System.Web.UI.UserCont
             if (target == "ddl_asesores") establecer(parameter);
         }
     }
-
     protected void establecer(string id)
     {
         int id_cliente = int.Parse(id);
@@ -38,8 +37,6 @@ public partial class uc_asesores_modalidad_clientes_bar : System.Web.UI.UserCont
         modalidadAsesor();
         Response.Redirect(Request.Url.AbsoluteUri);
     }
-
-
     ///<summary>
     /// Muestra el cliente con el que se esta trabajando actualmente (modalidad asesores activada)
     ///</summary>
@@ -77,7 +74,6 @@ public partial class uc_asesores_modalidad_clientes_bar : System.Web.UI.UserCont
             modoAsesorUl.Visible = false;
         }
     }
-
     protected void chk_modalidad_asesores_CheckedChanged(object sender, EventArgs e)
     {
         bool chk_modalidad = chk_modalidad_asesores.Checked;

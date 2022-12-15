@@ -337,7 +337,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 case "LIQUIDACIÓN":
                     lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-liquidation");
                     break;
-                case "ULTIMAS":
+                case "ÚLTIMAS":
                     lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-lastItems");
                     bandera = "ÚLTIMAS PIEZAS";
                     break;

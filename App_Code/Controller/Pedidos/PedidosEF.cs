@@ -289,7 +289,7 @@ public class PedidosEF
                         pro => pro.numero_parte,
                         dat => dat.numero_parte,
                         (pro, dat) => new { pro, dat })
-                    .SelectMany(x => x.dat.DefaultIfEmpty(),(x, y) => new { pro = x.pro, dat = y })
+                    .SelectMany(x => x.dat.DefaultIfEmpty(), (x, y) => new { pro = x.pro, dat = y })
                     .Where(x => x.pro.numero_operacion == numero_operacion)
                     .GroupBy(x => new { x.pro, x.dat })
                     .Select(g => new { g.Key.pro, g.Key.dat })
@@ -408,8 +408,55 @@ public class PedidosEF
 
         }
     }
-
-
+    /// <summary>
+    /// 20221212 - Obtiene la descripción del Régimen Fiscal con base en el código
+    /// </summary>
+    public static string obtenerDescripcionRegimenFiscal(string codigo)
+    {
+        switch (codigo)
+        {
+            case "601":
+                return codigo + " - General de Ley Personas Morales";
+            case "603":
+                return codigo + " - Personas Morales con Fines no Lucrativos";
+            case "605":
+                return codigo + " - Sueldos y Salarios e Ingresos Asimilados a Salarios";
+            case "606":
+                return codigo + " - Arrendamiento";
+            case "607":
+                return codigo + " - Régimen de Enajenación o Adquisición de Bienes";
+            case "608":
+                return codigo + " - Demás ingresos";
+            case "610":
+                return codigo + " - Residentes en el Extranjero sin Establecimiento Permanente en México";
+            case "611":
+                return codigo + " - Ingresos por Dividendos (socios y accionistas)";
+            case "612":
+                return codigo + " - Personas Físicas con Actividades Empresariales y Profesionales";
+            case "614":
+                return codigo + " - Ingresos por intereses";
+            case "615":
+                return codigo + " - Régimen de los ingresos por obtención de premios";
+            case "616":
+                return codigo + " - Sin obligaciones fiscales";
+            case "620":
+                return codigo + " - Sociedades Cooperativas de Producción que optan por diferir sus ingresos";
+            case "621":
+                return codigo + " - Incorporación Fiscal";
+            case "622":
+                return codigo + " - Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras";
+            case "623":
+                return codigo + " - Opcional para Grupos de Sociedades";
+            case "624":
+                return codigo + " - Coordinados";
+            case "625":
+                return codigo + " - Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas";
+            case "626":
+                return codigo + " - Régimen Simplificado de Confianza";
+            default:
+                return null;
+        }
+    }
     /// <summary>
     /// 20210308 CM - Guarda/actualiza una dirección de envío, si no exíste: inserta
     /// </summary>
@@ -495,7 +542,7 @@ public class PedidosEF
                     PedidoDireccionFacturacion.pais = direccion.pais;
                     PedidoDireccionFacturacion.razon_social = direccion.razon_social;
                     PedidoDireccionFacturacion.rfc = direccion.rfc;
-
+                    PedidoDireccionFacturacion.RegimenFiscal = direccion.RegimenFiscal;
                 }
                 db.SaveChanges();
 

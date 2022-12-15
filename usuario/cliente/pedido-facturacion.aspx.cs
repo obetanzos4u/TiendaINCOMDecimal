@@ -119,7 +119,6 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
             nombre_direccion = txt_nombre_direccion.Text,
             rfc = txt_rfc.Text,
             razon_social = txt_razon_social.Text,
-            regimenFiscal = regimenFiscal,
             calle = txt_calle.Text,
             numero = txt_numero.Text,
             colonia = txt_colonia.Text,
@@ -128,6 +127,7 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
             estado = estado,
             codigo_postal = txt_codigo_postal.Text,
             pais = ddl_pais.SelectedText,
+            regimenFiscal = regimenFiscal
         };
 
         ValidationContext context = new ValidationContext(direccionModel, null, null);
@@ -188,6 +188,7 @@ public partial class usuario_cliente_pedido_facturacion : System.Web.UI.Page
         pedidoDireccionFact.pais = direccion.pais;
         pedidoDireccionFact.razon_social = direccion.razon_social;
         pedidoDireccionFact.rfc = direccion.rfc;
+        pedidoDireccionFact.RegimenFiscal = direccion.regimen_fiscal;
 
         PedidosEF.ActualizarFacturacion(lt_numero_pedido.Text, true);
         var result = PedidosEF.GuardarDireccionFacturacion(lt_numero_pedido.Text, pedidoDireccionFact);

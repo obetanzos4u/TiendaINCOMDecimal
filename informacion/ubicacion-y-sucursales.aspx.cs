@@ -46,8 +46,8 @@ public partial class aviso_de_privacidad : System.Web.UI.Page
 
             DateTime fechaSolicitud = utilidad_fechas.obtenerCentral();
             string asunto = " Nombre: " + txt_nombre.Text + "";
-            string mensaje = string.Empty;
-            string cadenaValidacion = string.Empty;
+            string mensaje;
+            string cadenaValidacion;
             string filePathHTML = "/email_templates/ui/usuario_contacto.html";
 
             string comentario = txt_mensaje.Text;
@@ -55,20 +55,20 @@ public partial class aviso_de_privacidad : System.Web.UI.Page
             comentario = comentario.Replace("\n", "<br/>");
             comentario = comentario.Replace("\r", " ");
 
-
-
             if (Request.QueryString["info"] != null)
             {
                 infoReferencia = infoReferencia + (" ~ " + Request.QueryString["info"].ToString());
             }
-            Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
-            datosDiccRemplazo.Add("{dominio}", HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority));
-            datosDiccRemplazo.Add("{nombre}", txt_nombre.Text);
-            datosDiccRemplazo.Add("{email}", txt_email.Text);
-            datosDiccRemplazo.Add("{telefono}", txt_telefono.Text);
-            datosDiccRemplazo.Add("{fechaSolicitud}", fechaSolicitud.ToString("D"));
-            datosDiccRemplazo.Add("{asunto}", "contacto");
-            datosDiccRemplazo.Add("{comentario}", comentario + " <br>" + infoReferencia);
+            Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>
+            {
+                { "{fecha}", utilidad_fechas.DDMMAAAA() },
+                { "{nombre}", txt_nombre.Text },
+                { "{email}", txt_email.Text },
+                { "{telefono}", txt_telefono.Text },
+                { "{fechaSolicitud}", fechaSolicitud.ToString("D") },
+                { "{asunto}", "contacto" },
+                { "{comentario}", comentario + " <br>" + infoReferencia }
+            };
 
             string mensajeCut = txt_mensaje.Text;
             if (mensajeCut.Length > 400)
@@ -154,7 +154,5 @@ public partial class aviso_de_privacidad : System.Web.UI.Page
             NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "No fue posible enviar el mensaje");
             //materializeCSS.crear_toast(this, validar.mensaje, resultado);
         }
-
-
     }
 }

@@ -121,8 +121,10 @@
             <div class="is-flex is-flex-col is-justify-center is-items-center">
                 <img src="https://www.incom.mx/img/webUI/newdesign/not-found.png" alt="No encontrado" class="is-w-1_3" />
                 <h2 class="is-text-xl is-font-semibold">Ningún resultado encontrado</h2>
-                <p class="is-m-2">No encontramos productos con:
-                    <asp:Label ID="lbl_termino_busqueda" class="is-font-semibold" runat="server"></asp:Label></p>
+                <p class="is-m-2">
+                    No encontramos productos con:
+                    <asp:Label ID="lbl_termino_busqueda" class="is-font-semibold" runat="server"></asp:Label>
+                </p>
                 <p class="is-m-2"><span class="is-italic">Te sugerimos intentar con otro término de búsqueda</span> &#128556;</p>
             </div>
         </div>
@@ -236,9 +238,7 @@
                                     <div class="boton-agregar-carrito-resultados">
                                         <uc_addCarrito:add ID="AddCarrito" numero_parte='<%# Eval("numero_parte") %>' runat="server"></uc_addCarrito:add>
                                         <uc_visualizarProducto:link ID="linkVisualizarProducto" Visible="false" runat="server"></uc_visualizarProducto:link>
-
                                         <asp:Label ID="lbl_disponibilidad_stock" runat="server"></asp:Label>
-
                                         <a id="btn_VerDisponibilidad" visible="false"
                                             runat="server" class="waves-effect waves-light btn btn-full-text blue modal-trigger" style="margin-top: 5px;"><i class="material-icons left">done</i>
                                             Ver Disponibilidad</a>

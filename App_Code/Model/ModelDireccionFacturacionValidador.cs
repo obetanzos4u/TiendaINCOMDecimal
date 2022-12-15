@@ -32,7 +32,7 @@ public class ModelDireccionFacturacionValidador
     public string regimenFiscal { get; set; }
     [Display(Name = "Régimen fiscal")]
     [Required(ErrorMessage = "{0} es requerido")]
-    [StringLength(3, ErrorMessage = "El {0} debe ser de 3 caracteres.")]
+    [StringLength(50, MinimumLength = 3, ErrorMessage = "El {0} debe ser de 3 caracteres.")]
     public string calle { get; set; }
     public string numero { get; set; }
     public string colonia { get; set; }

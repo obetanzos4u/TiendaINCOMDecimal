@@ -413,23 +413,22 @@ public class UsuariosEF
 
             string filePath = "/email_templates/ui/usuario_ConfirmarCuenta.html";
 
-            Dictionary<string, string> datos = new Dictionary<string, string>();
-            datos.Add("{nombre}", Usuario.nombre + " " + Usuario.apellido_paterno);
-            datos.Add("{dominio}", dominio);
-            datos.Add("{enlaceConfirmacion}", dominio + "/usuario-confirmacion-de-cuenta.aspx?clave=" + Liga.clave);
+            Dictionary<string, string> datos = new Dictionary<string, string>
+            {
+                { "{fecha}", utilidad_fechas.DDMMAAAA() },
+                { "{nombre}", Usuario.nombre },
+                { "{enlaceConfirmacion}", dominio + "/usuario-confirmacion-de-cuenta.aspx?clave=" + Liga.clave }
+            };
 
             string mensaje = archivosManejador.reemplazarEnArchivo(filePath, datos);
-            emailTienda registro = new emailTienda("Confirma tu cuenta de Incom.mx: " + Usuario.nombre + " ", Usuario.email, mensaje, null);
+            emailTienda registro = new emailTienda("Confirma tu cuenta de INCOM.MX: " + Usuario.nombre + " ", Usuario.email, mensaje, null);
             registro.general();
 
             return new json_respuestas(false, "Email enviado con éxito", true);
         }
         catch (Exception ex)
         {
-
             return new json_respuestas(false, "Error interno, no fué posible enviar el email de activación", true, ex);
         }
     }
-
-
 }

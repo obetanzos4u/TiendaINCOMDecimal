@@ -26,12 +26,12 @@
         </asp:LinkButton>
     </ContentTemplate>
     <Triggers>
-        <asp:PostBackTrigger ControlID="btn_agregar_productoCarrito" />
-        <%--<asp:AsyncPostBackTrigger ControlID="btn_agregar_productoCarrito" EventName="Click" />--%>
+        <%--<asp:PostBackTrigger ControlID="btn_agregar_productoCarrito" />--%>
+        <asp:AsyncPostBackTrigger ControlID="btn_agregar_productoCarrito" EventName="Click" />
     </Triggers>
 </asp:UpdatePanel>
 
-<script>
+<%--<script>
     // Script para manejar las cajas de texto se ejecute un comando al presionar enter
     var input = document.querySelector("#<%= txt_cantidadCarrito.ClientID %>");
     var btn = document.querySelector("#<%= btn_agregar_productoCarrito.ClientID %>");
@@ -44,4 +44,4 @@
     $('input[type="text"]')
         .keyup(resizeInput)
         .each(resizeInput);
-</script>
+</script>--%>
