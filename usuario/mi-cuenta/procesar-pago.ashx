@@ -106,8 +106,6 @@ public class procesar_pago : IHttpHandler, IRequiresSessionState
             string mensaje = string.Empty;
             string plantillaAsesor = "/email_templates/operaciones/pedidos/asesores_pago_realizado.html";
 
-
-
             string productosEmailHTML = string.Empty;
             foreach (DataRow p in dt_PedidoProductos.Rows)
             {
@@ -115,21 +113,13 @@ public class procesar_pago : IHttpHandler, IRequiresSessionState
             }
 
             Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
-
-            datosDiccRemplazo.Add("{dominio}", context.Request.Url.GetLeftPart(UriPartial.Authority));
-
-            datosDiccRemplazo.Add("{usuario_email}", usuario_email);
             datosDiccRemplazo.Add("{cliente_nombre}", cliente_nombre + " " + cliente_apellido_paterno);
             datosDiccRemplazo.Add("{numero_operacion}", numero_operacion);
-            datosDiccRemplazo.Add("{nombre_operacion}", nombre_operacion);
-
             datosDiccRemplazo.Add("{totalPayPal}", montoPayPal.ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " + monedaPayPal);
-            datosDiccRemplazo.Add("{totalOperacion}", decimal.Parse(total).ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " + monedaPedido);
-
+            //datosDiccRemplazo.Add("{totalOperacion}", decimal.Parse(total).ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " + monedaPedido);
             datosDiccRemplazo.Add("{url_operacion}", url_pedido);
             datosDiccRemplazo.Add("{url_paypal}", url_paypal);
             datosDiccRemplazo.Add("{productos}", productosEmailHTML);
-
 
             plantillaAsesor = Path.Combine(context.Request.PhysicalApplicationPath, plantillaAsesor);
 
@@ -155,21 +145,13 @@ public class procesar_pago : IHttpHandler, IRequiresSessionState
             string plantillaCliente = "/email_templates/operaciones/pedidos/cliente_pago_realizado.html";
 
             Dictionary<string, string> datosDiccRemplazoCliente = new Dictionary<string, string>();
-
-            datosDiccRemplazoCliente.Add("{dominio}", context.Request.Url.GetLeftPart(UriPartial.Authority));
-
-            datosDiccRemplazoCliente.Add("{nombre_operacion}", nombre_operacion);
             datosDiccRemplazoCliente.Add("{numero_operacion}", numero_operacion);
             datosDiccRemplazoCliente.Add("{cliente_nombre}", cliente_nombre + " " + cliente_apellido_paterno);
-
-            datosDiccRemplazoCliente.Add("{usuario_email}", usuario_email);
             datosDiccRemplazoCliente.Add("{totalPayPal}", montoPayPal.ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " + monedaPayPal);
-            datosDiccRemplazoCliente.Add("{totalOperacion}", decimal.Parse(total).ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " + monedaPedido);
+            //datosDiccRemplazoCliente.Add("{totalOperacion}", decimal.Parse(total).ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " + monedaPedido);
             datosDiccRemplazoCliente.Add("{estatus}", result.Status);
             datosDiccRemplazoCliente.Add("{url_operacion}", url_pedido);
-
             datosDiccRemplazoCliente.Add("{productos}", productosEmailHTML);
-
 
             plantillaCliente = Path.Combine(context.Request.PhysicalApplicationPath, plantillaCliente);
 

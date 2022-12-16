@@ -12,7 +12,6 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
         get { return hf_numero_operacion.Value; }   // get method
         set { hf_numero_operacion.Value = value; }  // set method
     }
-
     protected void Page_PreRender(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -62,14 +61,9 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
         //ddl_UsuarioSeguimiento.Items.Add(new ListItem(txt_box1.Text),);
 
         //ddl_UsuarioSeguimiento.DataBind();
-
     }
-
-
-
     protected async void btn_asignarAsesor_Click(object sender, EventArgs e)
     {
-
         try
         {
             if (ddl_UsuarioSeguimiento.SelectedValue == "")
@@ -91,30 +85,25 @@ public partial class userControls_operaciones_PedidosUsuarioSeguimiento : System
             }
 
             DateTime fechaSolicitud = utilidad_fechas.obtenerCentral();
-            string asunto = "Incom.mx, Seguimiento de tu compra: " + pedidoDatos.nombre_pedido + " " + pedidoDatos.usuario_cliente + " ";
+            string asunto = "Seguimiento de tu pedido: " + pedidoDatos.numero_operacion + " en INCOM.MX " + pedidoDatos.usuario_cliente + " ";
             string mensaje = string.Empty;
 
             string filePathHTML = "/email_templates/operaciones/pedidos/pedido_seguimiento.html";
-
-            Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
-
             string dominio = Request.Url.GetLeftPart(UriPartial.Authority);
             string id_operacion_encritado = seguridad.Encriptar(pedidoDatos.id.ToString());
             string url_operacion = dominio + "/usuario/cliente/mi-cuenta/pedidos/resumen/" + id_operacion_encritado;
 
-
-            datosDiccRemplazo.Add("{dominio}", dominio);
-            datosDiccRemplazo.Add("{nombre}", pedidoDatos.cliente_nombre);
-            datosDiccRemplazo.Add("{usuario_email}", pedidoDatos.usuario_cliente);
-            datosDiccRemplazo.Add("{numero_operacion}", numero_operacion);
-            datosDiccRemplazo.Add("{nombre_operacion}", pedidoDatos.nombre_pedido);
-            datosDiccRemplazo.Add("{FechaPedido}", pedidoDatos.fecha_creacion.ToString());
-
-
-            datosDiccRemplazo.Add("{nombreAsesor}", DatosUsuario.nombre + " " + DatosUsuario.apellido_paterno);
-            datosDiccRemplazo.Add("{emailAsesor}", DatosUsuario.email);
-            datosDiccRemplazo.Add("{asesor_img}", DatosUsuario.email.Split('@')[0]);
-            datosDiccRemplazo.Add("{url_operacion}", url_operacion);
+            Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>
+            {
+                { "{fecha}", utilidad_fechas.DDMMAAAA() },
+                { "{nombre}", pedidoDatos.cliente_nombre },
+                { "{numero_operacion}", numero_operacion },
+                { "{FechaPedido}", pedidoDatos.fecha_creacion.ToString() },
+                { "{nombreAsesor}", DatosUsuario.nombre + " " + DatosUsuario.apellido_paterno },
+                { "{emailAsesor}", DatosUsuario.email },
+                { "{asesor_img}", DatosUsuario.email.Split('@')[0] },
+                { "{url_operacion}", url_operacion }
+            };
 
             mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
 

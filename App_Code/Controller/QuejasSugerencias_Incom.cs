@@ -17,22 +17,14 @@ public class QuejasSugerencias_Incom
         // TODO: Agregar aquí la lógica del constructor
         //
     }
-
-
-
     static public void guardarComentario(quejas comentario)
     {
         SqlCommand cmd = new SqlCommand();
         SqlConnection con = new SqlConnection(conexiones.conexionTienda());
         cmd.Connection = con;
 
-
-
         using (con)
         {
-
-
-
             cmd.Parameters.Add("@idUsuario", SqlDbType.Int);
 
             if (comentario.idUsuario == null) cmd.Parameters["@idUsuario"].Value = DBNull.Value;
@@ -61,20 +53,15 @@ public class QuejasSugerencias_Incom
 
             con.Open();
             cmd.ExecuteNonQuery();
-
-
         }
-
     }
 }
-
-
 public class quejas
 {
     public int id { get; set; }
-    public int? idUsuario { get; set;}
+    public int? idUsuario { get; set; }
     public string tipoComentario { get; set; }
-    public int  modoComentario { get;set; }
+    public int modoComentario { get; set; }
     public string comentario { get; set; }
     public DateTime fecha { get; set; }
 
@@ -82,44 +69,42 @@ public class quejas
 
     public void email_quejasIncom()
     {
-        string name = null;
+        string name;
         if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
             usuarios datosUsuario = usuarios.recuperar_DatosUsuario(HttpContext.Current.User.Identity.Name);
             name = datosUsuario.nombre + "  " + datosUsuario.apellido_paterno;
         }
-
         else
         {
             name = "ANÓNIMO";
-
         }
-
 
         string filePath = "/email_templates/quejas/comentarios_quejas_incom.html";
 
-        Dictionary<string, string> datos = new Dictionary<string, string>();
-        datos.Add("{tipoComentario}", tipoComentario.ToString());
-        datos.Add("{nombre}", name.ToString());
-        datos.Add("{comentario}", comentario.ToString());
-        datos.Add("{fecha}", fecha.ToString());
-        
+        Dictionary<string, string> datos = new Dictionary<string, string>
+        {
+            { "{fecha}", utilidad_fechas.DDMMAAAA() },
+            { "{tipoComentario}", tipoComentario.ToString() },
+            { "{nombre}", name.ToString() },
+            { "{comentario}", comentario.ToString() },
+            { "{fechaComentario}", fecha.ToString() }
+        };
+
         string mensaje = archivosManejador.reemplazarEnArchivo(filePath, datos);
 
-        using (MailMessage mm = new MailMessage(new MailAddress("development@incom.mx", "Incom México [BUZÓN WEB]"), new MailAddress("fgarcia@incom.mx")))
+        using (MailMessage mm = new MailMessage(new MailAddress("serviciosweb@incom.mx", "INCOM.MX [BUZÓN WEB]"), new MailAddress("fgarcia@incom.mx")))
         {
-            mm.Subject = "[Buzón Web Incom] Comentario publicado en INCOM MX" +" " + utilidad_fechas.obtenerCentral().ToString("d");
+            mm.Subject = "Quejas y sugerencias INCOM.MX" + " " + utilidad_fechas.obtenerCentral().ToString("d");
             mm.IsBodyHtml = true;
             mm.Body = mensaje;
-           
+
             mm.Bcc.Add("fgarcia@incom.mx");
             mm.Bcc.Add("ralbert@incom.mx");
-          
-          
+            mm.Bcc.Add("serviciosweb@incom.mx");
 
             SmtpClient enviar = conexiones.smtp();
             enviar.Send(mm);
-
         }
     }
 }
