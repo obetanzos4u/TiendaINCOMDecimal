@@ -203,6 +203,10 @@ body {
     color: rgb(0, 0, 0);
 }
 
+.is-text-black-soft {
+    color: #252525
+}
+
 .is-text-gray {
     color: rgb(107, 114, 128);
 }

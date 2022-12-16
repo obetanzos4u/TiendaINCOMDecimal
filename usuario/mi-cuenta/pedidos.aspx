@@ -6,7 +6,7 @@
     <div id="border-mis_pedidos" class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div class="row">
             <div class="is-bt-1">
-                <h2 class="center-align is-m-0">Mis pedidos</h2>
+                <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft">Mis pedidos</h2>
             </div>
             <div class="col l12">
                 <h3 style="font-size: 1.25rem;">Encuentra toda la información asociada a cualquiera de tus pedidos:</h3>

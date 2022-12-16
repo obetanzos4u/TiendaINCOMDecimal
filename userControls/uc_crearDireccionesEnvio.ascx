@@ -13,14 +13,14 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <h2>Crear una dirección de envío</h2>
-            </div>     
+            </div>
         </div>
         <div class="row container-form_direccion_envio">
             <div class="col s12 m12 l12" style="margin-bottom: 1rem;">
                 <div class="input-field" style="margin-bottom: 0px !important">
                     <asp:TextBox ID="txt_nombre_direccion" ClientIDMode="Static" CssClass="validate" data-length="20" MaxLength="20" style="height: 2rem; line-height: 2.5rem;" runat="server"></asp:TextBox>
                     <label for="txt_nombre_direccion" class="label-form_direccion_envio">Asigna un nombre a esta dirección:</label>
-                   <i>(Ejemplo: Casa, Bodega, Almacén principal)</i>
+                    <i>(Ejemplo: Casa, Bodega, Almacén principal)</i>
                 </div>
             </div>
             <div class="col s12 m12 l12">
@@ -52,7 +52,11 @@
                     <asp:TextBox ID="txt_delegacion_municipio" ClientIDMode="Static" CssClass="validate" data-length="50" MaxLength="50" style="height: 2rem; line-height: 2.5rem" runat="server"></asp:TextBox>
                     <label for="txt_delegacion_municipio" class="label-form_direccion_envio">Delegación o Municipio</label>
                 </div>
-                <div class="is-flex" style="margin-bottom: 1rem;">
+                <div class="input-field">
+                    <asp:TextBox ID="txt_ciudad" ClientIDMode="Static" CssClass="validate" data-length="60" MaxLength="60" style="height: 2rem; line-height: 2.5rem" runat="server"></asp:TextBox>
+                    <label for="txt_ciudad" class="label-form_direccion_envio">Ciudad</label>
+                </div>
+                <div class="is-flex is-top-2">
                     <div class="input-field direcciones_envio-input_pais">
                         <label for="txt_pais" style="margin-top: -2rem; color: black; padding-left: 0px;" class="label-form_direccion_envio">País:</label>
                         <uc:ddlPaises ID="ddl_pais" runat="server" />
@@ -61,10 +65,6 @@
                         <label for="txt_pais" style="margin-top: -2rem; color: black">Estado:</label>
                         <uc:ddlEstados ID="ddl_estado" runat="server" />
                     </div> 
-                </div>
-                <div class="input-field">
-                    <asp:TextBox ID="txt_ciudad" ClientIDMode="Static" CssClass="validate" data-length="60" MaxLength="60" style="height: 2rem; line-height: 2.5rem" runat="server"></asp:TextBox>
-                    <label for="txt_ciudad" class="label-form_direccion_envio">Ciudad</label>
                 </div>
                 <div id="cont_txt_estado" class="input-field col s12 m12 l3" runat="server">
                     <asp:TextBox ID="txt_estado" ClientIDMode="Static" CssClass="validate" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
@@ -82,13 +82,12 @@
             <div class="col s12 m12 l12">
                 <div class="input-field col s12 m12 l12">
                     <a href="<%= ResolveUrl("~/usuario/mi-cuenta/direcciones-de-envio.aspx") %>" 
-                        class="is-text-white is-btn-gray" style="text-transform: none; margin-right: 2rem">Cerrar</a>
+                        class="is-text-white is-btn-gray btn-volver_direccion_envio is-inline-block" style="text-transform: none; margin-right: 2rem">Volver a direcciones de envío</a>
                     <asp:LinkButton ID="btn_crear_direccion"
-                  OnClick="btn_crear_direccion_Click"
-                  style="text-transform: none;"
-                        runat="server">
-                        <div class="is-text-white is-btn-gray">
-                            Crear dirección de envío
+                    OnClick="btn_crear_direccion_Click"
+                    style="text-transform: none;" runat="server">
+                        <div class="is-text-white is-btn-blue is-inline-block">
+                            Guardar
                         </div>
                     </asp:LinkButton>
                 </div>

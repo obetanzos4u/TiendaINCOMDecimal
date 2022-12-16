@@ -4,15 +4,15 @@
     
 <div id="HeaderInfoContactos" runat="server" class="row">
         <div class="col s12 m12 l12 is-bt-3">
-            <h2 class="is-text-center is-m-0">Mis contactos</h2>
+            <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft">Mis contactos</h2>
         </div>
-        <div class="col s12 m12 l9" style="font-size: 1.25rem">Administra la información de contactos para realizar tus operaciones:
+        <div class="text-mis_contactos col s12 m12 l9" style="font-size: 1.25rem">Administra la información de contactos para realizar tus operaciones:
         </div>  
         <div class="col s12 m12 l3 right-align">
-            <a ID="eliminar" OnClick="$('#modal_crearContacto').modal('open');" class="is-text-white is-btn-gray right-align" style="text-transform: none;">
-                <div class="is-flex" style="align-items: center">
-                    <i class="material-icons" style="margin-right: 1rem;">person_add</i>
-                    <span>Agregar contacto</span>
+            <a ID="eliminar" OnClick="$('#modal_crearContacto').modal('open');" class="is-text-white right-align" style="text-transform: none;">
+                <div class="is-flex is-btn-blue btn-agregar_contactos" style="align-items: center">
+                    <i class="material-icons icon-agregar_contactos">person_add</i>
+                    <span class="span-agregar_contactos">Agregar contacto</span>
                 </div>
             </a>
         </div>
@@ -46,11 +46,13 @@
                                 </ul>
                             
                                 <p>
-                                    <asp:LinkButton ID="eliminar" class="is-text-white is-btn-gray" style="border: 8px; margin-right: 2rem;"
-                                        OnClientClick="return confirm('Seguro que deseas eliminar este contacto?')" CommandName="Delete" 
-                                        runat="server">Eliminar</asp:LinkButton>
-                                    <asp:LinkButton ID="editar" class="is-text-white is-btn-gray" style="border: 8px"  CommandName="Edit" runat="server">
-                                    Editar</asp:LinkButton>
+                                    <asp:LinkButton ID="eliminar" class="btn-eliminar_direccion btn-mis_contactos is-inline-block" style="margin-right: 2rem;"
+                                        OnClientClick="return confirm('Seguro que deseas eliminar este contacto?')" CommandName="Delete" runat="server">
+                                        Eliminar
+                                    </asp:LinkButton>
+                                    <asp:LinkButton ID="editar" class="is-text-white is-btn-gray editar-mi_cuenta-contacto" style="border: 8px"  CommandName="Edit" runat="server">
+                                        Editar
+                                    </asp:LinkButton>
                                 </p>
                             </div>
                         </li>
@@ -65,7 +67,7 @@
 
                     <EditItemTemplate>
                         <li>
-                            <div class="collapsible-header">
+                            <div class="collapsible-header collapsible-header_contacto">
                                 <i class="material-icons">person</i>
                                 <span class="blue-text text-darken-2"><strong><%#Eval("nombre") %> <%#Eval("apellido_paterno") %>,</strong></span>&nbsp;<%#Eval("email") %>
                             </div>
@@ -101,8 +103,8 @@
                                     <div class="col s12">
                                         <asp:UpdatePanel ID="UpdatePanel1" class="modal-content" ClientIDMode="Static" UpdateMode="Conditional" runat="server" RenderMode="Block">
                                             <ContentTemplate>
-                                                <asp:LinkButton ID="btn_cancelar" runat="server" CommandName="Cancel" class="is-text-white is-btn-gray" style="border: 8px; margin-right: 2rem;" Text="Cerrar" />
-                                                <asp:LinkButton ID="btn_actualizar" runat="server" CommandName="Update" class="is-text-white is-btn-gray" style="border: 8px" Text="Guardar" />
+                                                <asp:LinkButton ID="btn_cancelar" runat="server" CommandName="Cancel" class="btn-cerrar_edicion edicion-mis_contactos is-inline-block" style="margin-right: 2rem;" Text="Cerrar" />
+                                                <asp:LinkButton ID="btn_actualizar" runat="server" CommandName="Update" class="btn-guardar_edicion is-btn-blue is-text-white  is-inline-block" Text="Guardar" />
                                             </ContentTemplate>
                                                 <Triggers>
                                                     <asp:AsyncPostBackTrigger ControlID="btn_cancelar" EventName="Click" />
@@ -151,8 +153,10 @@
                         <label for="txt_celular">Teléfono alternativo</label>
                     </div>
                     <div class="input-field col s12 m12 l12">
-                        <asp:LinkButton ID="btn_crearContacto" OnClick="btn_crearContacto_Click" CssClass="is-text-white is-btn-gray"
-                            runat="server">Guardar</asp:LinkButton>
+                        <asp:LinkButton ID="btn_crearContacto" OnClick="btn_crearContacto_Click"
+                            runat="server">
+                            <div class="is-text-white is-btn-blue">Guardar</div>
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>

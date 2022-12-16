@@ -35,12 +35,12 @@
             <li><a href="/usuario/mi-cuenta/contactos.aspx"><i class="material-icons left">people</i> Contactos</a></li>
         </ul>
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="/usuario/mi-cuenta/mi-cuenta.aspx" class="grey-text text-darken-3"><i class="material-icons left">cloud</i>Mi cuenta </a></li>
+            <li><a href="/usuario/mi-cuenta/mi-cuenta.aspx" class="grey-text text-darken-3"><img class="menu_movil-mi_cuenta" src="/img/webUI/newdesign/user_menu-movil.png">Mi cuenta</a></li>
             <li><a href="/usuario/mi-cuenta/cotizaciones.aspx" class="grey-text text-darken-3"><i class="material-icons left">assignment</i> Cotizaciones</a></li>
-            <li><a href="/usuario/mi-cuenta/pedidos.aspx" class="grey-text text-darken-3"><i class="material-icons left">assignment_turned_in</i> Pedidos</a></li>
+            <li><a href="/usuario/mi-cuenta/pedidos.aspx" class="grey-text text-darken-3"><img class="menu_movil-pedidos" src="/img/webUI/newdesign/shopping-bag-gray.png">Pedidos</a></li>
             <li><a href="/usuario/mi-cuenta/direcciones-de-facturacion.aspx" class="grey-text text-darken-3">
                 <i class="material-icons left">playlist_add_check</i> Direcc. de facturación</a></li>
-            <li><a href="/usuario/mi-cuenta/direcciones-de-envio.aspx" class="grey-text text-darken-3"><img src="/img/webUI/newdesign/entrega.png"/>Direcciones de envío</a></li>
+            <li><a href="/usuario/mi-cuenta/direcciones-de-envio.aspx" class="grey-text text-darken-3"><img class="menu_movil-direcciones_envio" src="/img/webUI/newdesign/entrega_rapida_gray.png"/>Direcciones de envío</a></li>
             <li><a href="/usuario/mi-cuenta/contactos.aspx" class="grey-text text-darken-3"><i class="material-icons left">people</i> Contactos</a></li>
         </ul>
     </div>
