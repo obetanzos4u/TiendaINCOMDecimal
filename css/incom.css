@@ -548,6 +548,11 @@ div.arrow-doble-down #svg-arrow-down {
     margin-right: 2rem;
 }
 
+#destacados_splide ul.splide__pagination > li > button.splide__pagination__page {
+    width: 9px;
+}
+
+
 /* Formulario de facturación*/
 .text-facturaion-sub {
     font-size: 1rem;
