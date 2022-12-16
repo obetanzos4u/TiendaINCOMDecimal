@@ -22,17 +22,10 @@ public partial class uc_footerTienda : System.Web.UI.UserControl
 
         if (!IsPostBack)
         {
-
-
-
         }
         else
         {
-
-
         }
-
-
     }
     protected bool validar()
     {
@@ -46,28 +39,41 @@ public partial class uc_footerTienda : System.Web.UI.UserControl
     }
     protected void btn_enviar_boletin_Click(object sender, EventArgs e)
     {
-        NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
-        if (validar())
+        if (string.IsNullOrEmpty(txt_email_boletin.Text))
         {
-            string email = txt_email_boletin.Text;
-            using (MailMessage mm = new MailMessage("sistemasweb@incom.mx", "comunicacion@incom.mx"))
-            {
-                mm.Subject = "Nuevo registro a boletín de noticias! INCOM.MX";
-                mm.IsBodyHtml = true;
-                mm.Body = String.Format(@"Correo: {0}", email);
-                SmtpClient smtp = conexiones.smtp("serviciosweb@incom.mx", "dyrvntbdmenuqhpx");
-                smtp.Send(mm);
-                BootstrapCSS.RedirectJs(this, Request.Url.GetLeftPart(UriPartial.Authority));
-                NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
-                NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Registrado con éxito");
-            }
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Debes ingresar un correo");
+            BootstrapCSS.RedirectJs(this, Request.Url.GetLeftPart(UriPartial.Authority));
+        }
+        else if (!validar())
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Debes ingresar un correo válido");
+            BootstrapCSS.RedirectJs(this, Request.Url.GetLeftPart(UriPartial.Authority));
         }
         else
         {
-            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "El correo no es válido");
+            NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
+            if (validar())
+            {
+                string email = txt_email_boletin.Text;
+                using (MailMessage mm = new MailMessage("sistemasweb@incom.mx", "comunicacion@incom.mx"))
+                {
+                    mm.Subject = "Nuevo registro a boletín de noticias! INCOM.MX";
+                    mm.IsBodyHtml = true;
+                    mm.Body = String.Format(@"Correo: {0}", email);
+                    SmtpClient smtp = conexiones.smtp("serviciosweb@incom.mx", "dyrvntbdmenuqhpx");
+                    smtp.Send(mm);
+                    BootstrapCSS.RedirectJs(this, Request.Url.GetLeftPart(UriPartial.Authority));
+                    NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
+                    NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Registrado con éxito");
+                }
+            }
+            else
+            {
+                NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "El correo no es válido");
+                NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
+                BootstrapCSS.RedirectJs(this, Request.Url.GetLeftPart(UriPartial.Authority));
+            }
             NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
-            BootstrapCSS.RedirectJs(this, Request.Url.GetLeftPart(UriPartial.Authority));
         }
-        NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
     }
 }
