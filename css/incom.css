@@ -548,11 +548,6 @@ div.arrow-doble-down #svg-arrow-down {
     margin-right: 2rem;
 }
 
-#destacados_splide ul.splide__pagination > li > button.splide__pagination__page {
-    width: 9px;
-}
-
-
 /* Formulario de facturación*/
 .text-facturaion-sub {
     font-size: 1rem;
@@ -672,6 +667,11 @@ div.arrow-doble-down #svg-arrow-down {
             font-size: 16px !important;
             width: 100% !important;
         }
+
+        /* Ajusta el tamaño de los indicadores de paginación en tablets*/
+        #destacados_splide ul.splide__pagination > li > button.splide__pagination__page {
+            width: 12px;
+        }      
     }
 
     @media only screen and (min-width: 800px) and (max-width: 1000px) {
@@ -1183,7 +1183,7 @@ div.arrow-doble-down #svg-arrow-down {
             font-size: 10px !important;
             height: 28px !important;
             line-height: 28px !important;
-        }
+        }  
     }
 
     /*Fin contenedor de ficha de productos */
@@ -2576,6 +2576,13 @@ div.arrow-doble-down #svg-arrow-down {
             width: 82px;
             overflow: hidden;
         }
+
+        /* Ajusta el tamaño de los indicadores de paginación en dispositivos móviles*/
+        #destacados_splide ul.splide__pagination > li > button.splide__pagination__page {
+            width: 8px;
+            border-radius: 5px;
+            height: 8px;
+        }   
     }
 
     h1, h2, h3, h4, h5, h6 {
