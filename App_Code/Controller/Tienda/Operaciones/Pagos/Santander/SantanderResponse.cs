@@ -116,7 +116,7 @@ public class SantanderResponse
             }
         }
 
-        emailTienda emailCliente = new emailTienda("Pago realizado 3DS para el pedido: " + pedidoDatos.nombre_pedido,
+        emailTienda emailCliente = new emailTienda("Pago realizado vía Santander con 3D Secure para el pedido: " + pedidoDatos.numero_operacion,
             pedidoDatos.email + ", jaraujo@incom.mx, ralbert@incom.mx, fgarcia@incom.mx", mensaje, "retail@incom.mx");
         emailCliente.general();
 

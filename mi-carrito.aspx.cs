@@ -957,8 +957,8 @@ public partial class mi_carrito : System.Web.UI.Page
             if (usuarioLogin.tipo_de_usuario == "cliente")
             {
                 DateTime fechaSolicitud = utilidad_fechas.obtenerCentral();
-                string asunto = "incom.mx. Nuevo pedido creado: " + pedidoDatos.nombre_pedido + " por " + pedidoDatos.usuario_cliente + " ";
-                string mensaje = string.Empty;
+                string asunto = "INCOM.MX - Nuevo pedido creado: " + pedidoDatos.numero_operacion + " por " + pedidoDatos.usuario_cliente + " ";
+                string mensaje;
                 string filePathHTML = "/email_templates/operaciones/pedidos/pedido_cliente.html";
 
                 DataTable operacionProductos = pedidosProductos.obtenerProductos(resultado);
