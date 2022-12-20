@@ -925,7 +925,8 @@ public partial class mi_carrito : System.Web.UI.Page
             string id_operacion_encritado = seguridad.Encriptar(operacion.Rows[0]["id"].ToString());
             string nombre_pedido = operacion.Rows[0]["nombre_pedido"].ToString();
             string numero_operacion = operacion.Rows[0]["numero_operacion"].ToString();
-            decimal? MontoTotalProductos = PedidosEF.ObtenerMontoTotalProductos(numero_operacion);
+            //decimal? MontoTotalProductos = PedidosEF.ObtenerMontoTotalProductos(numero_operacion);
+            decimal? MontoTotalProductos = PedidosEF.ObtenerNumeros(numero_operacion).total;
             string InfoDeContacto = $"{usuario.nombre} {usuario.apellido_paterno} {usuario.apellido_materno}, {usuario.email} " +
             $"Tel: {usuario.telefono}, Cel: {usuario.celular}";
             string strDireccionFacturacion = "";
@@ -956,8 +957,8 @@ public partial class mi_carrito : System.Web.UI.Page
             if (usuarioLogin.tipo_de_usuario == "cliente")
             {
                 DateTime fechaSolicitud = utilidad_fechas.obtenerCentral();
-                string asunto = "incom.mx. Nuevo pedido creado: " + pedidoDatos.nombre_pedido + " por " + pedidoDatos.usuario_cliente + " ";
-                string mensaje = string.Empty;
+                string asunto = "INCOM.MX - Nuevo pedido creado: " + pedidoDatos.numero_operacion + " por " + pedidoDatos.usuario_cliente + " ";
+                string mensaje;
                 string filePathHTML = "/email_templates/operaciones/pedidos/pedido_cliente.html";
 
                 DataTable operacionProductos = pedidosProductos.obtenerProductos(resultado);
@@ -973,27 +974,21 @@ public partial class mi_carrito : System.Web.UI.Page
                        "Cantidad: <strong>" + cantidad + " x " + precio_unitario + "</strong><hr><br>";
                 }
 
-                Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
 
                 string dominio = Request.Url.GetLeftPart(UriPartial.Authority);
 
-                datosDiccRemplazo.Add("{dominio}", dominio);
-                datosDiccRemplazo.Add("{tipo_operacion}", "Pedido");
-                datosDiccRemplazo.Add("{nombre_cotizacion}", "Pedido");
-                datosDiccRemplazo.Add("{usuario_email}", usuarioLogin.email);
-                datosDiccRemplazo.Add("{nombre}", pedidoDatos.cliente_nombre);
-                datosDiccRemplazo.Add("{numero_operacion}", numero_operacion);
-                datosDiccRemplazo.Add("{nombre_operacion}", nombre_pedido);
-                datosDiccRemplazo.Add("{url_operacion}", dominio + redirectUrl);
-                datosDiccRemplazo.Add("{productos}", productosEmailHTML);
-                datosDiccRemplazo.Add("{FechaPedido}", pedidoDatos.fecha_creacion.ToString());
-                datosDiccRemplazo.Add("{DireccionEnvio}", strDireccionEnvio);
-                datosDiccRemplazo.Add("{DireccionFacturacion}", strDireccionFacturacion);
-                datosDiccRemplazo.Add("{InfoDeContacto}", InfoDeContacto);
-                datosDiccRemplazo.Add("{UrlDireccionEnvio}", dominio + UrlDireccionEnvio);
-                datosDiccRemplazo.Add("{UrlDireccionFacturacion}", dominio + UrlDireccionFacturacion);
-                datosDiccRemplazo.Add("{UrlInfoDeContacto}", dominio + UrlInfoDeContacto);
-                datosDiccRemplazo.Add("{MontoTotalProductos}", decimal.Parse(MontoTotalProductos.ToString()).ToString("#,#.##", myNumberFormatInfo));
+                Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>
+                {
+                    { "{fecha}", utilidad_fechas.DDMMAAAA() },
+                    { "{nombre}", pedidoDatos.cliente_nombre },
+                    { "{numero_operacion}", numero_operacion },
+                    { "{url_operacion}", dominio + redirectUrl },
+                    { "{productos}", productosEmailHTML },
+                    { "{DireccionEnvio}", strDireccionEnvio },
+                    { "{DireccionFacturacion}", strDireccionFacturacion },
+                    { "{InfoDeContacto}", InfoDeContacto },
+                    { "{MontoTotalProductos}", decimal.Parse(MontoTotalProductos.ToString()).ToString("#,#.##", myNumberFormatInfo) }
+                };
 
                 mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
 

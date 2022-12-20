@@ -21,7 +21,6 @@ public class SantanderResponse
 
     static public pedidos_pagos_respuesta_santander obtener(string numero_operacion)
     {
-
         using (var db = new tiendaEntities())
         {
             var response = db.pedidos_pagos_respuesta_santander
@@ -35,7 +34,6 @@ public class SantanderResponse
     }
     static public List<pedidos_pagos_respuesta_santander> ObtenerTodos(string numero_operacion)
     {
-
         using (var db = new tiendaEntities())
         {
             var response = db.pedidos_pagos_respuesta_santander
@@ -47,6 +45,28 @@ public class SantanderResponse
             return response;
         }
     }
+    //static public List<pedidos_pagos_respuesta_santander> obtenerTodosConMonto(string numero_operacion)
+    //{
+    //    using (var db = new tiendaEntities())
+    //    {
+    //        var santanderConMonto = db.pedidos_pagos_respuesta_santander
+    //            .Join(db.pedidos_pagos_liga_santander,
+    //                pedidos_pagos_respuesta_santander => pedidos_pagos_respuesta_santander.numero_operacion,
+    //                pedidos_pagos_liga_santander => pedidos_pagos_liga_santander.numero_operacion,
+    //                (pedidos_pagos_respuesta_santander, pedidos_pagos_liga_santander) => new santanderConMonto
+    //                {
+    //                    numero_operacion = 
+    //                }
+    //            )
+    //        //var response = db.pedidos_pagos_respuesta_santander
+    //        //    .GroupJoin(db.pedidos_datosNumericos, pprs => pprs.numero_operacion, pdn => pdn.numero_operacion, (pprs, pdn) => new { pprs, pdn })
+    //        //    .GroupBy(x => new { x.pprs, x.pdn })
+    //        //    .Select(p => new { p.Key.pprs, p.Key.pdn })
+    //        //    .Where(p => p.pprs.numero_operacion == numero_operacion)
+    //        //    .AsNoTracking()
+    //        //    .ToList();
+    //    }
+    //}
     public static void enviarEmail(string numero_operacion, string status, string monto)
     {
 
@@ -57,12 +77,9 @@ public class SantanderResponse
             productosEmailHTML += "<strong>" + p["numero_parte"].ToString() + "</strong> - " + p["descripcion"].ToString() + "<br><br>";
         }
 
-
-
-
-
         pedidos_datos pedidoDatos = null;
         pedidos_datosNumericos pedidoDatosNumericos = null;
+        pedidos_direccionEnvio direccionEnvio = null;
         using (var db = new tiendaEntities())
         {
             pedidoDatos = db.pedidos_datos
@@ -74,6 +91,11 @@ public class SantanderResponse
              .Where(p => p.numero_operacion == numero_operacion)
              .AsNoTracking()
              .FirstOrDefault();
+
+            direccionEnvio = db.pedidos_direccionEnvio
+                .Where(p => p.numero_operacion == numero_operacion)
+                .AsNoTracking()
+                .FirstOrDefault();
         }
 
         string id_operacion_encritado = seguridad.Encriptar(pedidoDatos.id.ToString());
@@ -88,23 +110,17 @@ public class SantanderResponse
         string plantillaCliente = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, "/email_templates/operaciones/pedidos/pago_santander/santander_cliente_pago_realizado.html");
 
 
-        Dictionary<string, string> datosDiccRemplazoCliente = new Dictionary<string, string>();
-
-        datosDiccRemplazoCliente.Add("{urlDominio}", HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority));
-
-        datosDiccRemplazoCliente.Add("{nombre_operacion}", pedidoDatos.nombre_pedido);
-        datosDiccRemplazoCliente.Add("{numero_operacion}", numero_operacion);
-        datosDiccRemplazoCliente.Add("{cliente_nombre}", pedidoDatos.cliente_nombre + " " + pedidoDatos.cliente_apellido_paterno);
-
-        datosDiccRemplazoCliente.Add("{usuario_email}", pedidoDatos.usuario_cliente);
-
-        datosDiccRemplazoCliente.Add("{totalPagado}", decimal.Parse(monto).ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " ");
-        datosDiccRemplazoCliente.Add("{totalOperacion}", pedidoDatosNumericos.total.ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " ");
-        datosDiccRemplazoCliente.Add("{estatus}", status);
-        datosDiccRemplazoCliente.Add("{url_operacion}", url_pedido);
-
-        datosDiccRemplazoCliente.Add("{productos}", productosEmailHTML);
-
+        Dictionary<string, string> datosDiccRemplazoCliente = new Dictionary<string, string>
+        {
+            { "{fecha}", utilidad_fechas.DDMMAAAA() },
+            { "{numero_operacion}", numero_operacion },
+            { "{cliente_nombre}", pedidoDatos.cliente_nombre + " " + pedidoDatos.cliente_apellido_paterno },
+            { "{totalPagado}", decimal.Parse(monto).ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " },
+            { "{estatus}", status },
+            { "{url_operacion}", url_pedido },
+            { "{productos}", productosEmailHTML },
+            { "{direccion_envio}", direccionEnvio.calle + " " + direccionEnvio.numero + ", " + direccionEnvio.colonia + ", " + direccionEnvio.delegacion_municipio + ", " + direccionEnvio.estado + ", " + direccionEnvio.codigo_postal + ", " + direccionEnvio.pais }
+        };
 
         plantillaCliente = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, plantillaCliente);
 
@@ -122,7 +138,7 @@ public class SantanderResponse
             }
         }
 
-        emailTienda emailCliente = new emailTienda("Pago realizado 3DS para el pedido: " + pedidoDatos.nombre_pedido,
+        emailTienda emailCliente = new emailTienda("Pago realizado vía Santander con 3D Secure para el pedido: " + pedidoDatos.numero_operacion,
             pedidoDatos.email + ", jaraujo@incom.mx, ralbert@incom.mx, fgarcia@incom.mx", mensaje, "retail@incom.mx");
         emailCliente.general();
 

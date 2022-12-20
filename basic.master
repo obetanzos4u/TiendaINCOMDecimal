@@ -13,10 +13,10 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link href="/favicon.ico" rel="icon" type="image/x-icon" />
-    <link type='text/css' rel='stylesheet' href='/css/incom.css?ver=3.99' media='screen' />
-    <link type='text/css' rel='stylesheet' href='/css/menuIncom.css?ver=1.4' media='screen' />
-    <link type="text/css" rel="stylesheet" href="/css/IncomStyles.css?ver=1.11" media="screen" />
-    <link type="text/css" rel="stylesheet" href="/css/IncomAnimations.css?ver=1.1" media="screen" />
+    <link type='text/css' rel='stylesheet' href='/css/incom.css?ver=3.991' media='screen' />
+    <link type='text/css' rel='stylesheet' href='/css/menuIncom.css?ver=1.5' media='screen' />
+    <link type="text/css" rel="stylesheet" href="/css/IncomStyles.css?ver=1.12" media="screen" />
+    <link type="text/css" rel="stylesheet" href="/css/IncomAnimations.css?ver=1.11" media="screen" />
     <link type='text/css' rel='stylesheet' href='https://www.incom.mx/css/jquery.bxslider.css' />
     <link type='text/css' rel='stylesheet' href='https://www.incom.mx/css/smoothproducts.css' media='screen' />
     <link type='text/css' rel='stylesheet' href='https://www.incom.mx/css/font-awesome/font-awesome.min.css' media='screen' />
@@ -82,7 +82,7 @@
     <script cookie-consent="functionality" src="/js/Drift.min.js?ver=1.0" type="text/javascript"></script>
     <script src="https://unpkg.com/js-image-zoom@0.7.0/js-image-zoom.js?ver=1.0" type="application/javascript"></script>
     <script cookie-consent="functionality" src="/js/notiflix-aio-3.2.5.min.js?ver=1.0"></script>
-    <script src="/js/Notiflix_incom.js?ver=1.0"></script>
+    <script src="/js/Notiflix_incom.js?ver=1.01"></script>
     <!-- Login With Google -->
     <script cookie-consent="strictly-necessary">
         function init() {
@@ -123,29 +123,7 @@
     <!-- END SHAREAHOLIC CODE -->
 </head>
 <body>
-    <!--  onload="countdown('countDown')" -->
-    <!-- 
-    <div style="z-index: 1000000000000000000000000000; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background-color: #fefefe; width: 100vw; height: 100vh">
-        <div style="position: static; width: 100%; height: 100%;">
-            <div style="position: absolute; left: 20px; top: 20px">
-                <img src="https://www.incom.mx/img/webUI/incom_logo_mini.png" alt="INCOM" />
-            </div>
-            <div class="is-flex is-flex-col is-justify-center is-items-center is-h-full">
-                <div class="is-m-4 is-px-8 is-py-4 is-text-white is-rounded-xl is-shadow" style="background-color: #004b87">
-                    <p class="is-text-lg is-text-center is-select-none">INCOM se renueva, por lo cual estará fuera de operación hasta el 5 de Diciembre</p>
-                    <p class="is-text-lg is-font-semibold is-text-center is-select-none">¡Te esperamos de vuelta!</p>
-                    <div id="countDown" class="is-select-none is-flex is-justify-around is-items-center"></div>
-                </div>
-                <div class="is-flex is-justify-center is-items-center">
-                    <img src="https://www.incom.mx/img/webUI/newdesign/waiting.png" alt="INCOM se está actualizando" class="is-w-1_2" style="filter: drop-shadow(0 0 0.3rem #004b87);" />
-                </div>
-            </div>
-        </div>
-    </div>
-        -->
     <form id="form1" runat="server">
-        <!--  visible="false" -->
-        <%--  style="display: none" --%>
         <asp:ScriptManager ID="ScriptManager1" ScriptMode="Release" runat="server">
             <Scripts>
                 <asp:ScriptReference Path="~/js/usuario-login.js?v=99" />
@@ -906,9 +884,7 @@
             }
         </style>
         <asp:ContentPlaceHolder ID="top" runat="server" />
-        <!--  Visible="false" -->
-        <%--  Visible="false"  --%>
-        <a onclick="topFunction()" id="btn_toTop" title="Desplazarse arriba de la página"> <!--  style="display: none" -->
+        <a onclick="topFunction()" id="btn_toTop" title="Desplazarse arriba de la página">
             <img id="img_toTop" alt="boton desplazarse hacia arriba en la página" src="https://www.incom.mx/img/webUI/newdesign/collapse_arrow.svg" />
         </a>
     </form>

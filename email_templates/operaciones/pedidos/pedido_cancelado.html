@@ -1,56 +1,215 @@
- <div style="background:#37474f !important; text-align:center; padding:20px 20px;">
-     <img style="height: 60px;" src="{dominio}/img/webUI/incom_retail_logo_header_white.png" />
- </div>
- <table>
-     <tr>
-         <td style="width:50%;"></td>
-         <td>
-             <table style="font-family:Helvetica, Arial; color:#242d31; width:600px;">
-                 <tr>
-                     <td>
-                         <h1>Pedido cancelado </h1>
-                         <h2>Hola! {nombre} ({usuario_email}), se ha enviado la solicitud de cancelación</h2>
-                         <br>
-                         <p>Número Operación: <strong>{numero_operacion}</strong></p>
-                         <p>Nombre de Operación: <strong>{nombre_operacion}</strong></p>
-                         <p><strong>Productos:</strong></p>
-                         <p>{productos}</p><br>
+<!DOCTYPE html>
+<html lang="es" xmlns:v="urn:schemas-microsoft-com:vml" style="color-scheme: light dark;">
+<head>
+    <meta charset="utf-8">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <!--[if mso]>
+      <noscript>
+        <xml>
+          <o:OfficeDocumentSettings
+            xmlns:o="urn:schemas-microsoft-com:office:office"
+          >
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+          </o:OfficeDocumentSettings>
+        </xml>
+      </noscript>
+      <style>
+        td,
+        th,
+        div,
+        p,
+        a,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: "Segoe UI", sans-serif;
+          mso-line-height-rule: exactly;
+        }
+      </style>
+    <![endif]-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" media="screen">
+    <title>Reestablecimiento de contraseña INCOM</title>
+    <style>
+        .h-6 {
+            height: 24px !important;
+        }
 
-                         <h2>Motivo de cancelación:</h2>
-                         <p>
-                             {motivoCancelacion}
-                         </p><p>---------------------------</p>
-                         <p style="text-align:center;">Recuerda que las cancelaciones estan sujetas a los  
-                             <a title="Términos y condiciones de compra" href="{dominio}/informacion/terminos-y-condiciones-de-compra.aspx">Términos y condiciones de compra</a>
-                             y <a   title="Devoluciones y Garantía" href="{dominio}/informacion/devoluciones-y-garantias.aspx">Politica de devoluciones</a>
-                       <br>  <br> Un asesor se pondrá en contacto contigo, puedes revisar tu pedido en el siguiente enlace. <br>  <br> </p>
-                         <div style="text-align:center;">
-                             <a href="{url_operacion}" style="text-decoration:none; font-weight:bold;font-size:22px; padding:12px 20px; color:#fff; background:#039be5 ;">
-                                 Ver pedido
-                             </a>
-                         </div>
-                         <br>
-                         <p style="font-size:17px; text-align:center;">
-                             Si necesitas ayuda no dudes en contactarnos.
-                             <br> <a href="https://www.incom.mx/informacion/ubicacion-y-sucursales.aspx#contacto">Estamos para ayudarte</a>
-                         </p>
+        :root {
+            color-scheme: light dark;
+        }
 
-                     </td>
-                 </tr>
-                 <tr>
-                     <td><br></td>
-                 </tr>
+        .hover-bg-blue-700:hover {
+            background-color: #1d4ed8 !important;
+        }
 
-                 <tr>
-                     <td>
-                         <hr>
-                         <p style="text-align:center;">No olvides consultar nuestro <a href="www.incom.mx/informacion/aviso-de-privacidad.aspx">Aviso de privacidad</a> y
-                             <a href="www.incom.mx/informacion/terminos-y-condiciones-de-compra.aspx">Términos y condiciones de compra</a>.</p>
+        @media (max-width: 600px) {
+            .sm-w-full {
+                width: 100% !important;
+            }
 
-                     </td>
-                 </tr>
-             </table>
-         </td>
-         <td style="width:50%;"></td>
-     </tr>
- </table>
+            .sm-py-1 {
+                padding-top: 4px !important;
+                padding-bottom: 4px !important;
+            }
+
+            .sm-px-3 {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+
+            .sm-px-6 {
+                padding-left: 24px !important;
+                padding-right: 24px !important;
+            }
+        }
+    </style>
+</head>
+<body style="word-break: break-word; -webkit-font-smoothing: antialiased; margin: 0; width: 100%; background-color: #f8fafc; padding: 0">
+    <div style="display: none">
+        No pierdas el acceso a tu cuenta
+        &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    </div>
+    <div role="article" aria-roledescription="email" aria-label="Reestablecimiento de contraseña INCOM" lang="en">
+        <table style="width: 100%; font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+                <td align="center" style="background-color: #fff">
+                    <table class="sm-w-full" style="width: 600px" cellpadding="0" cellspacing="0" role="presentation">
+                        <tr>
+                            <td style="height: 6px; background-color: #003e82"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table style="height: 128px; width: 100%; background-image: url('https://www.incom.mx/img/webUI/background.png'); background-repeat: no-repeat" cellpadding="0" cellspacing="0" role="presentation">
+                                    <tr class="sm-py-1 sm-px-3" style="padding-left: 12px; padding-right: 12px">
+                                        <td width="50%" style="height: 128px; width: 50%; padding-left: 16px; color: #000">
+                                            <h2>Pedido cancelado</h2>
+                                            <p>Hola {nombre}</p>
+                                        </td>
+                                        <td width="50%" style="height: 128px; width: 50%; padding-left: 16px; padding-right: 16px; color: #000">
+                                            <p align="right" style="padding-top: 16px; padding-bottom: 16px; text-align: right">{fecha}</p>
+                                            <div align="right" style="text-align: right">
+                                                <a href="https://www.incom.mx" target="_blank" rel="noopener noreferer">
+                                                    <img src="https://www.incom.mx/img/webUI/incom_logo_mini.png" width="100" alt="INCOM La ferretera de las telecomunicaciones" style="border: 0; max-width: 100%; vertical-align: bottom">
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" class="sm-px-6">
+                                <table style="width: 100%" cellpadding="0" cellspacing="0" role="presentation">
+                                    <tr>
+                                        <td class="sm-px-3" style="border-radius: 4px; background-color: #fff; padding: 24px; text-align: left; font-size: 16px; line-height: 24px; color: #334155; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05)">
+                                            <table role="separator" style="width: 100%" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td style="padding-top: 4px; padding-bottom: 4px">
+                                                        <div style="height: 1px; background-color: #e2e8f0; line-height: 1px">
+                                                            &zwnj;
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <div style="text-align: justify">
+                                                <p style="margin: 0">
+                                                    Hemos recibido la solicitud de cancelación de tu pedido.
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p>
+                                                    Operación: <strong>{numero_operacion}</strong>
+                                                </p>
+                                                <p>
+                                                    <strong>Motivo de cancelación:</strong> {motivoCancelacion}
+                                                </p>
+                                            </div>
+                                            <p style="margin: 0; color: #000">
+                                                Puedes visualizar los detalles de tu pedido en el siguiente enlace:
+                                            </p>
+                                            <div align="center" style="padding-top: 12px; padding-bottom: 12px; line-height: 100%">
+                                                <a href="{url_operacion}" class="hover-bg-blue-700" style="text-decoration: none; display: inline-block; border-radius: 4px; background-color: #2563eb; padding-left: 16px; padding-right: 16px; padding-top: 14px; padding-bottom: 14px; text-align: center; font-size: 16px; font-weight: 600; color: #fff">
+                                                    <!--[if mso]>
+                                                      <i style="mso-text-raise: 30px; letter-spacing: 24px">&#8202;</i>
+                                                    <![endif]-->
+                                                    <span style="mso-text-raise: 16px">Ver pedido</span>
+                                                    <!--[if mso]>
+                                                      <i style="letter-spacing: 24px">&#8202;</i>
+                                                    <![endif]-->
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table role="separator" style="width: 100%" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td style="padding-top: 4px; padding-bottom: 4px">
+                                                        <div style="height: 1px; background-color: #e2e8f0; line-height: 1px">
+                                                            &zwnj;
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="text-align: center">
+                                            <p style="font-weight: 400; font-style: italic; color: #000">Te recordamos que las cancelaciones están sujetas los <a href="https://www.incom.mx/informacion/terminos-y-condiciones-de-compra.aspx" target="_blank" rel="noopener noreferer">Términos y condiciones de compra</a>, al igual que nuestra <a href="https://www.incom.mx/informacion/devoluciones-y-garantias.aspx" target="_blank" rel="noopener noreferer">Política de devoluciones</a>.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table role="separator" style="width: 100%" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td style="padding-top: 4px; padding-bottom: 4px">
+                                                        <div style="height: 1px; background-color: #e2e8f0; line-height: 1px">
+                                                            &zwnj;
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left: 24px; padding-right: 24px; text-align: center; font-size: 12px; color: #475569">
+                                            <p style="margin-top: 16px; font-weight: 600">
+                                                INSUMOS COMERCIALES DE OCCIDENTE S.A. DE C.V.&reg;
+                                            </p>
+                                            <p style="margin: 0">
+                                                Plutarco Elías Calles 276, colonia Tlazintla, C.P.
+                                                08710, Iztacalco, Ciudad de México
+                                            </p>
+                                            <p style="margin-bottom: 0; font-weight: 600">Horario de atención:</p>
+                                            <p style="margin: 0">
+                                                Lunes a jueves de 08:00 a 19:00 &#8226; Viernes de 08:00
+                                                a 17:00
+                                            </p>
+                                            <p>
+                                                No olvides consultar nuestro
+                                                <a href="https://www.incom.mx/informacion/aviso-de-privacidad.aspx">Aviso de privacidad</a>
+                                                y
+                                                <a href="https://www.incom.mx/informacion/terminos-y-condiciones-de-compra.aspx">Términos y condiciones de compra</a>.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

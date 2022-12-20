@@ -205,11 +205,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             HttpContext.Current.Session["datosCliente"] = usuarios.recuperar_DatosUsuario(lt_usuario_cliente.Text);
 
         }
-
-
-
         #endregion
-
     }
     protected void CargarDireccionEnvio()
     {
@@ -479,18 +475,14 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             productosEmailHTML += "<strong>" + p.numero_parte + "</strong> - " + p.descripcion + "<br><br>";
         }
 
-        Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
-
-        datosDiccRemplazo.Add("{dominio}", Request.Url.GetLeftPart(UriPartial.Authority));
-        datosDiccRemplazo.Add("{tipo_operacion}", "Pedido");
-        datosDiccRemplazo.Add("{nombre_cotizacion}", "Pedido");
-        datosDiccRemplazo.Add("{usuario_email}", pedidoDatos.usuario_cliente);
-        datosDiccRemplazo.Add("{nombre}", pedidoDatos.cliente_nombre);
-        datosDiccRemplazo.Add("{numero_operacion}", numero_operacion);
-        datosDiccRemplazo.Add("{nombre_operacion}", pedidoDatos.nombre_pedido);
-        datosDiccRemplazo.Add("{url_operacion}", HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + redirectUrl);
-        datosDiccRemplazo.Add("{productos}", productosEmailHTML);
-        datosDiccRemplazo.Add("{motivoCancelacion}", motivo);
+        Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>
+        {
+            { "{fecha}", utilidad_fechas.DDMMAAAA() },
+            { "{nombre}", pedidoDatos.cliente_nombre },
+            { "{numero_operacion}", numero_operacion },
+            { "{url_operacion}", HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + redirectUrl },
+            { "{motivoCancelacion}", motivo }
+        };
 
         mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
 
