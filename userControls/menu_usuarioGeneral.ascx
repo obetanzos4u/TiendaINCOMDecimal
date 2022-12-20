@@ -26,7 +26,7 @@
             <li><a href="/usuario/mi-cuenta/direcciones-de-facturacion.aspx"><i class="material-icons left">playlist_add_check</i> Direcciones de facturación</a></li>
             <li>
                 <a href="/usuario/mi-cuenta/direcciones-de-envio.aspx">
-                    <div class="container-icon_mi_cuenta-entrega">
+                    <div class="container-icon_mi_cuenta-entrega is-flex is-items-center">
                         <img src="/img/webUI/newdesign/entrega.png" class="icon_mi_cuenta-entrega"/>
                         <span>Direcciones de envío</span>
                     </div>

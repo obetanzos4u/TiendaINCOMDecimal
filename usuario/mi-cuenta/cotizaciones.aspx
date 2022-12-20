@@ -15,9 +15,14 @@
             </div>
         </div>
         <!-- Dropdown Trigger -->
-        <div class="row">
-            <div class="input-field right-align">
-                <a id="btn_opciones_cotizaciones" class='dropdown-trigger btn blue' href='#' style='text-transform: none;'  data-target='opciones_cotizaciones'>Opciones</a>
+        <div class="row is-w-full">
+            <div class="input-field right-align" style="float: right;">
+                <a id="btn_opciones_cotizaciones" class='dropdown-trigger' href='#' style='text-transform: none;'  data-target='opciones_cotizaciones'>
+                    <div class="is-btn-blue is-flex is-items-center">
+                        <img alt="Opciones de cotización" style="width: 1.5rem; height: auto; margin-right: 1rem;" src="/img/webUI/newdesign/opciones_cotizacion.png" />
+                        Opciones
+                    </div>
+                </a>
             </div>
         </div>
         <!-- Dropdown Structure -->
@@ -62,7 +67,7 @@
             </div>
            
             <div class="  col s12 m4 l3">
-                  <label for="<%= ddl_moneda.ClientID  %>">Moneda</label>
+                <label for="<%= ddl_moneda.ClientID  %>">Moneda</label>
                 <asp:DropDownList ID="ddl_moneda" runat="server">
                     <asp:ListItem Selected="True" Value="MXN" Text="MXN"></asp:ListItem>
                     <asp:ListItem Value="USD" Text="USD"></asp:ListItem>

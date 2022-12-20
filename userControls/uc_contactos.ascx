@@ -3,12 +3,11 @@
 
     
 <div id="HeaderInfoContactos" runat="server" class="row">
-        <div class="col s12 m12 l12 is-bt-3">
-            <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft">Mis contactos</h2>
-        </div>
-        <div class="text-mis_contactos col s12 m12 l9" style="font-size: 1.25rem">Administra la información de contactos para realizar tus operaciones:
-        </div>  
-        <div class="col s12 m12 l3 right-align">
+    <div class="col s12 m12 l12 is-bt-3">
+        <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft">Mis contactos</h2>
+    </div>
+    <div class="is-w-full">
+        <div style="float: right">
             <a ID="eliminar" OnClick="$('#modal_crearContacto').modal('open');" class="is-text-white right-align" style="text-transform: none;">
                 <div class="is-flex is-btn-blue btn-agregar_contactos" style="align-items: center">
                     <i class="material-icons icon-agregar_contactos">person_add</i>
@@ -16,6 +15,9 @@
                 </div>
             </a>
         </div>
+    </div>
+    <div class="text-mis_contactos is-w-full is-flex" style="font-size: 1.25rem; padding-top: 2rem">Administra la información de contactos para realizar tus operaciones:
+    </div>
 </div>
 <div class="row ">
     <div class="col s12 m12 l12">

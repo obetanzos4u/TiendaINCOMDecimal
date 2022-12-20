@@ -787,7 +787,7 @@ public class PedidosEF
 
                 string textEstado = (bool)referencia.confirmacionAsesor ? "Pago SI confirmado" : "Pago NO confirmado";
 
-                return new json_respuestas(true, $"Ya se encuentra un intento de pago por transfencia, el estado es: " + textEstado, false, Pago);
+                return new json_respuestas(true, $"Existe un intento de pago por transfencia, el estado es: " + textEstado, false, Pago);
             }
 
 
