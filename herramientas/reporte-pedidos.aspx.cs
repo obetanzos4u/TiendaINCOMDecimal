@@ -100,11 +100,9 @@ public partial class herramientas_reporte_pedidos : System.Web.UI.Page
                 ContentPedidoDesactivar.Visible = true;
                 ContentPedidoActivar.Visible = false;
             }
-            else {
-                lbl_OperacionCancelada.Text = "&nbsp &#65794; Cancelada";
             else
             {
-                lbl_OperacionCancelada.Text = "Cancelada";
+                lbl_OperacionCancelada.Text = "&nbsp &#65794 Cancelada";
                 lbl_OperacionCancelada.ForeColor = System.Drawing.Color.Red;
                 ContentPedidoDesactivar.Visible = false;
                 ContentPedidoActivar.Visible = true;
