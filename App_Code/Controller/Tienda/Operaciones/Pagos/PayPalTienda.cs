@@ -70,7 +70,6 @@ public class PayPalTienda
     }
     public static pedidos_pagos_paypal obtenerPago(string numero_operacion)
     {
-
         try
         {
             using (tiendaEntities db = new tiendaEntities())
@@ -87,15 +86,18 @@ public class PayPalTienda
         }
 
     }
-    public static  pedidos_pagos_paypal  obtenerPago(int idPagoPayPal) {
+    public static pedidos_pagos_paypal obtenerPago(int idPagoPayPal)
+    {
 
-        try { 
-        using (tiendaEntities db = new tiendaEntities())
+        try
         {
-            var entrada = db.pedidos_pagos_paypal.Where(x => x.id == idPagoPayPal).First();
-            return entrada;
+            using (tiendaEntities db = new tiendaEntities())
+            {
+                var entrada = db.pedidos_pagos_paypal.Where(x => x.id == idPagoPayPal).First();
+                return entrada;
+            }
         }
-        } catch(Exception ex)
+        catch (Exception ex)
         {
 
             devNotificaciones.error("Obtener historial de pagos", ex);
@@ -126,7 +128,8 @@ public class PayPalTienda
     }
 
 
-    public async Task<pedidos_pagos_paypal> actualizarPagoAsync(pedidos_pagos_paypal pago) {
+    public async Task<pedidos_pagos_paypal> actualizarPagoAsync(pedidos_pagos_paypal pago)
+    {
 
         try
         {
@@ -166,7 +169,8 @@ public class PayPalTienda
 
 
 
-    public async Task<int> guardarPagoAsync(pedidos_pagos_paypal pago) {
+    public async Task<int> guardarPagoAsync(pedidos_pagos_paypal pago)
+    {
 
 
         try
@@ -208,7 +212,7 @@ public class PayPalTienda
 
     }
 
- 
+
 
     public async Task<PayPalTokenModel> RequestPayPalToken()
     {

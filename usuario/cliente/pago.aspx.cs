@@ -403,7 +403,9 @@ public partial class usuario_cliente_pago : System.Web.UI.Page
                         fecha_creacion = utilidad_fechas.obtenerCentral(),
                         fecha_vigencia = utilidad_fechas.obtenerCentral().AddDays(diasVigencia),
                         liga = link.URL,
-                        numero_operacion = pedidoDatos.numero_operacion
+                        numero_operacion = pedidoDatos.numero_operacion,
+                        monto = pedidoDatosNumericos.total,
+                        moneda = hf_moneda.Value
                     });
                     db.SaveChanges();
                 }

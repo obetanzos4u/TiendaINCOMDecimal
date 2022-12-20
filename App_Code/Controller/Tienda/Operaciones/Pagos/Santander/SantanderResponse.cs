@@ -45,6 +45,28 @@ public class SantanderResponse
             return response;
         }
     }
+    //static public List<pedidos_pagos_respuesta_santander> obtenerTodosConMonto(string numero_operacion)
+    //{
+    //    using (var db = new tiendaEntities())
+    //    {
+    //        var santanderConMonto = db.pedidos_pagos_respuesta_santander
+    //            .Join(db.pedidos_pagos_liga_santander,
+    //                pedidos_pagos_respuesta_santander => pedidos_pagos_respuesta_santander.numero_operacion,
+    //                pedidos_pagos_liga_santander => pedidos_pagos_liga_santander.numero_operacion,
+    //                (pedidos_pagos_respuesta_santander, pedidos_pagos_liga_santander) => new santanderConMonto
+    //                {
+    //                    numero_operacion = 
+    //                }
+    //            )
+    //        //var response = db.pedidos_pagos_respuesta_santander
+    //        //    .GroupJoin(db.pedidos_datosNumericos, pprs => pprs.numero_operacion, pdn => pdn.numero_operacion, (pprs, pdn) => new { pprs, pdn })
+    //        //    .GroupBy(x => new { x.pprs, x.pdn })
+    //        //    .Select(p => new { p.Key.pprs, p.Key.pdn })
+    //        //    .Where(p => p.pprs.numero_operacion == numero_operacion)
+    //        //    .AsNoTracking()
+    //        //    .ToList();
+    //    }
+    //}
     public static void enviarEmail(string numero_operacion, string status, string monto)
     {
 

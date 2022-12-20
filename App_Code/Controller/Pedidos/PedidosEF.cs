@@ -136,31 +136,29 @@ public class PedidosEF
     }    /// <summary>
          /// 20210810 CM - Obtiene la información de los pedidos por un periodo
          /// </summary>
-    public static async Task<List<pedidos_datos>> ObtenerDatos(DateTime desde, DateTime hasta, bool OmitirCancelados)
+    public static async Task<List<pedidos_datos>> ObtenerDatos(DateTime desde, DateTime hasta, bool OmitirCancelados, bool omitirCotizaciones)
     {
-
-
         try
         {
-
             using (var db = new tiendaEntities())
             {
                 var PedidoDatos = await db.pedidos_datos
                      .AsNoTracking()
                      .Where(s => s.fecha_creacion >= desde && s.fecha_creacion <= hasta)
                      .ToListAsync();
-                if (OmitirCancelados == true)
+                if (OmitirCancelados)
                 {
                     PedidoDatos.RemoveAll(p => p.OperacionCancelada == true);
-
                 }
-
+                if (omitirCotizaciones)
+                {
+                    PedidoDatos.RemoveAll(p => p.numero_operacion.StartsWith("pc"));
+                }
                 return PedidoDatos;
             }
         }
         catch (Exception ex)
         {
-
             return null;
         }
     }
@@ -752,16 +750,14 @@ public class PedidosEF
     {
         try
         {
-
             var historialPagosPayPal = PayPalTienda.obtenerPago(numero_operacion);
 
             if (historialPagosPayPal != null && historialPagosPayPal.estado == "COMPLETED")
             {
                 dynamic Pago = new ExpandoObject();
-                Pago.tipo = "Paypal";
+                Pago.tipo = "PayPal";
                 Pago.pago = historialPagosPayPal;
-                return new json_respuestas(true, $"Ya se encuentra un pago vía Paypal y su estado es: {historialPagosPayPal.estado}.", false, Pago);
-
+                return new json_respuestas(true, $"Pagado con PayPal. Estado: <b>COMPLETADO</b>.", false, Pago);
             }
 
             List<pedidos_pagos_respuesta_santander> historialPagosSantander = SantanderResponse.ObtenerTodos(numero_operacion);
@@ -772,8 +768,7 @@ public class PedidosEF
                 dynamic Pago = new ExpandoObject();
                 Pago.tipo = "Santander";
                 Pago.pago = historialPagosSantander;
-                return new json_respuestas(true, $"Ya se encuentra un pago vía Santander.", false, Pago);
-
+                return new json_respuestas(true, $"Pagado con Santander. Estado: <b>APROVADO</b>", false, Pago);
             }
             var ReferenciaTransferencia = await ObtenerReferenciaTransferencia(numero_operacion);
 
@@ -783,25 +778,62 @@ public class PedidosEF
                 dynamic Pago = new ExpandoObject();
                 Pago.tipo = "Transferencia";
                 Pago.pago = referencia;
+                string textEstado = (bool)referencia.confirmacionAsesor ? "CONFIRMADO" : "SIN CONFIRMAR";
 
-
-                string textEstado = (bool)referencia.confirmacionAsesor ? "Pago SI confirmado" : "Pago NO confirmado";
-
-                return new json_respuestas(true, $"Ya se encuentra un intento de pago por transfencia, el estado es: " + textEstado, false, Pago);
+                return new json_respuestas(true, $"Pagado por transfencia. Estado: <b>" + textEstado + "</b>", false, Pago);
             }
-
 
             // Si llega a este punto no se ha encontrado un pago 
 
-            return new json_respuestas(false, $"No se ha encontrado un pago", false, null);
-
-
-
+            return new json_respuestas(false, $"Pago <b>no encontrado</b>", false, null);
         }
         catch (Exception ex)
         {
             return new json_respuestas(false, "Hubo un error al obtener la comprobación de pago.", true, null);
 
+        }
+    }
+    public static async Task<json_respuestas> obtenerPagoPedidoPagado(string numero_operacion)
+    {
+        try
+        {
+            var historialPagoPayPal = PayPalTienda.obtenerPago(numero_operacion);
+            if (historialPagoPayPal != null && historialPagoPayPal.estado == "COMPLETED")
+            {
+                dynamic pago = new ExpandoObject();
+                pago.tipo = "PayPal";
+                pago.pago = historialPagoPayPal;
+                return new json_respuestas(true, historialPagoPayPal.monto);
+            }
+
+            List<pedidos_pagos_respuesta_santander> historialPagoSantander = SantanderResponse.ObtenerTodos(numero_operacion);
+            historialPagoSantander = historialPagoSantander.Where(p => p.estatus == "approved").ToList();
+            if (historialPagoSantander.Count >= 1)
+            {
+                string monto = ObtenerNumeros(numero_operacion).total.ToString();
+                dynamic pago = new ExpandoObject();
+                pago.tipo = "Santander";
+                pago.pago = historialPagoSantander;
+                return new json_respuestas(true, monto);
+            }
+
+            var referenciaTransferencia = await ObtenerReferenciaTransferencia(numero_operacion);
+            if (referenciaTransferencia.result)
+            {
+                string monto = ObtenerNumeros(numero_operacion).total.ToString();
+                pedidos_pagos_transferencia referencia = referenciaTransferencia.response;
+                dynamic pago = new ExpandoObject();
+                pago.tipo = "Transferencia";
+                pago.pago = referencia;
+                return new json_respuestas(true, monto);
+            }
+
+            return new json_respuestas(true, "0");
+        }
+        catch (Exception ex)
+        {
+            devNotificaciones.error("Error al obtener el monto de pedido pagado", ex);
+            return new json_respuestas(false, "Error");
         }
     }
     /// <summary>
