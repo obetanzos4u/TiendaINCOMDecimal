@@ -95,14 +95,14 @@ public partial class herramientas_reporte_pedidos : System.Web.UI.Page
 
             if (Pedido.PedidoDatos.OperacionCancelada == null || Pedido.PedidoDatos.OperacionCancelada == false)
             {
-                lbl_OperacionCancelada.Text = "&nbsp &#9679; Activa";
+                lbl_OperacionCancelada.Text = "&#9679; Activa";
                 lbl_OperacionCancelada.ForeColor = System.Drawing.Color.Green;
                 ContentPedidoDesactivar.Visible = true;
                 ContentPedidoActivar.Visible = false;
             }
             else
             {
-                lbl_OperacionCancelada.Text = "&nbsp &#65794 Cancelada";
+                lbl_OperacionCancelada.Text = "&#65794 Cancelada";
                 lbl_OperacionCancelada.ForeColor = System.Drawing.Color.Red;
                 ContentPedidoDesactivar.Visible = false;
                 ContentPedidoActivar.Visible = true;

@@ -232,7 +232,7 @@ margin-left: 1rem;
     padding-left: 1rem;
 }
 
-.card-reporte_pedidos {
+.card-reporte_pedidos, .tabla-analisis_pedidos {
     border-radius: 12px !important;
     border: 1px solid #cfcbcbbd;
     overflow: hidden;
@@ -566,6 +566,11 @@ div.arrow-doble-down #svg-arrow-down {
     align-items: center;
 }
 
+.container-reporte_pedidos {
+    width: 96%;
+    margin: 1rem auto 10vh auto;
+}
+
 /* Formulario de facturación*/
 .text-facturaion-sub {
     font-size: 1rem;
@@ -697,6 +702,13 @@ div.arrow-doble-down #svg-arrow-down {
         #top_contenido_up_carrito {
             display: flex;
             flex-direction: column;
+        }
+    }
+
+    @media only screen and (min-width: 700px) and (max-width: 1200px) {
+        .colx50 {
+            width: 50%;
+            margin: auto;
         }
     }
 
@@ -887,6 +899,10 @@ div.arrow-doble-down #svg-arrow-down {
             height: 2rem;
         }
 
+        .tabla-analisis_pedidos {
+            width: 60%;
+        }
+
         .actualizar_contrasena {
             margin: auto;
         }
@@ -895,6 +911,12 @@ div.arrow-doble-down #svg-arrow-down {
             display: flex;
             align-items: center;
             justify-content: space-evenly;
+        }
+
+        .container-reporte_pedidos {
+            max-width: 1600px;
+            width: 70%;
+            margin: 1rem auto 10vh auto;
         }
     }
 
@@ -1756,6 +1778,27 @@ div.arrow-doble-down #svg-arrow-down {
             line-height: 2.6;
             font-size: 10px;
         }
+
+        #top_contenido_gv_desgloseMeses > tbody > tr> td {
+            display: table-cell !important;
+        }
+
+        #top_contenido_gv_desgloseMeses > tbody > tr > th {
+            display: table-cell !important;
+            padding-left: 0.75rem !important;
+        }
+
+        #top_contenido_gv_desgloseMeses td, th {
+            padding: 15px 10px !important;
+        }
+
+        .tabla-fecha_registros_pedidos {
+            font-size: 12px;
+        }
+
+        .tabla-operaciones_encontradas {
+            height: 4rem;
+        }
     }
 
     @media only screen and (min-width: 200px) {
@@ -2349,6 +2392,11 @@ div.arrow-doble-down #svg-arrow-down {
             -webkit-columns: 1;
             -moz-columns: 1;
         }
+
+        .colx33 {
+            width: 33%;
+            margin: auto;
+        }
     }
 
     @media only screen and (min-width: 1500px) {
@@ -2609,6 +2657,15 @@ div.arrow-doble-down #svg-arrow-down {
         .is-btn-gray.btn-volver_direcciones_envio {
             width: 82px;
             overflow: hidden;
+        }
+
+        .tabla-analisis_pedidos {
+            width: 96%;
+        }
+
+        .colx80 {
+            width: 100%;
+            margin: auto;
         }
 
         /* Ajusta el tamaño de los indicadores de paginación en dispositivos móviles*/
@@ -3352,6 +3409,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
     }
 
+
     @media only screen and (min-width: 1300px) {
         .cajaProductosFCO {
             width: 18.3%;
@@ -3946,10 +4004,6 @@ div.arrow-doble-down #svg-arrow-down {
         #ordenar_pedido_ascendente .select-wrapper input.select-dropdown {
             height: 2rem !important;
             width: 90% !important;
-        }
-
-        .text-estatus_pago {
-            width: 160px;
         }
     }
 
