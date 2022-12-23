@@ -533,6 +533,7 @@ public partial class mi_carrito : System.Web.UI.Page
         {
             lbl_stock.Visible = true;
             lbl_stock.InnerText = "Sin stock";
+            lbl_stock.Attributes.Add("class", "is-text-red is-font-bold is-text-sm");
             txt_cantidadCarrito.Text = "0";
             txt_cantidadCarrito.Attributes.Add("min", "0");
             txt_cantidadCarrito.Attributes.Add("max", "0");
@@ -542,6 +543,9 @@ public partial class mi_carrito : System.Web.UI.Page
         }
         else
         {
+            lbl_stock.Visible = true;
+            lbl_stock.InnerText = "En stock: " + stock.ToString();
+            lbl_stock.Attributes.Add("class", "is-text-green is-font-bold is-text-sm");
             txt_cantidadCarrito.Attributes.Add("min", "1");
             txt_cantidadCarrito.Attributes.Add("max", stock.ToString());
         }
@@ -916,7 +920,7 @@ public partial class mi_carrito : System.Web.UI.Page
             }
 
             NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Pedido creado con éxito");
-            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Redireccionando...");
+            NotiflixJS.Message(this, NotiflixJS.MessageType.info, "Serás redireccionado en breve");
             //materializeCSS.crear_toast(this, "Pedido creado con éxito", true);
 
             pedidosDatos obtener = new pedidosDatos();
@@ -994,7 +998,7 @@ public partial class mi_carrito : System.Web.UI.Page
 
                 //  emailTienda email = new emailTienda(asunto, $"cmiranda@incom.mx, {usuarioLogin.email}", mensaje, "retail@incom.mx");               
 
-                emailTienda email = new emailTienda(asunto, $"jaraujo@incom.mx, fgarcia@incom.mx", mensaje, "serviciosweb@incom.mx"); // usuarioLogin.email
+                emailTienda email = new emailTienda(asunto, $"jaraujo@incom.mx, fgarcia@incom.mx, " + usuarioLogin.email, mensaje, "serviciosweb@incom.mx"); // usuarioLogin.email
 
                 email.general();
 

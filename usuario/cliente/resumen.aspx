@@ -256,7 +256,7 @@
                     <div class="is-flex is-flex-col">
                         <h4 class="text-resumen_compra is-text-white is-text-lg is-font-semibold is-bg-blue-400 is-px-8 is-rounded-t-lg is-select-none">Pago por transferencia registrado</h4>
                         <div class="is-px-8 is-py-2">
-                            <strong id="txt_transferencia_mensaje" runat="server"></strong>
+                            <p id="txt_transferencia_mensaje" runat="server"></p>
                             <p id="txt_transferencia_contacto" runat="server"></p>
                         </div>
                     </div>
@@ -274,6 +274,36 @@
                         </div>
                     </div>
                 </div>
+                <!-- Confirmar pedido -->
+                <asp:UpdatePanel ID="up_ConfirmarDeposito" UpdateMode="Conditional" Visible="false" runat="server">
+                    <ContentTemplate>
+                        <asp:Panel ID="ContentReferenciaTransferencia" Visible="false" runat="server">
+                            <asp:Panel ID="Content_Pago_Datos_Transferencia_Asesor" Visible="false" runat="server">
+                                <div class="is-flex is-flex-col is-justify-center is-items-start is-rounded-lg is-border-soft is-my-4">
+                                    <label for="txt_TranfenciaReferenciaAsesor" class="is-w-full text-resumen_compra is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Refencia: </label>
+                                    <div class="is-w-full is-flex is-justify-center is-items-center is-pt-3">
+                                        <asp:TextBox ID="txt_TranfenciaReferenciaAsesor" ClientIDMode="Static" TextMode="SingleLine" class="is-w-3_4 is-resize-none" runat="server"></asp:TextBox>
+                                    </div>
+                                    <div class="is-w-full is-flex is-justify-around is-items-center is-py-2">
+                                        <div>
+                                            <label class="form-check-label" for="chk_TranfenciaConfirmada">
+                                                Pago confirmado: 
+                                            </label>
+                                            <asp:CheckBox ID="chk_TranfenciaConfirmadaAsesor" CssClass="form-check-input" ClientIDMode="Static" runat="server" />
+                                        </div>
+                                        <asp:LinkButton ID="btn_guardarTransferenciaDatosAsesor" OnClick="btn_guardarTransferenciaDatosAsesor_Click" CssClass="is-btn-blue" runat="server">Guardar</asp:LinkButton>
+                                    </div>
+                                </div>
+                            </asp:Panel>
+                        </asp:Panel>
+                        <div id="content_msg_transfrencia"></div>
+                    </ContentTemplate>
+                    <Triggers>
+                        <%--<asp:AsyncPostBackTrigger ControlID="btn_pago_transferencia" EventName="Click" />--%>
+                        <asp:AsyncPostBackTrigger ControlID="btn_guardarTransferenciaDatosAsesor" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+                <!-- Fin confirmación de pedido -->
                 <div class="row is-top-2">
                     <div class="is-m-auto is-w-auto">
                         <asp:LinkButton runat="server" ID="btn_continuarMetodoPago" OnClick="btn_continuarMetodoPago_Click" CssClass="is-decoration-none is-btn-green">Continuar a método de pago</asp:LinkButton>
@@ -319,7 +349,7 @@
     <!-- FIN Modal cancelar pedido -->
 
     <!-- Modal cuentas bancarias -->
-    <div class="modal  " id="modal_deposito_trans" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <%--    <div class="modal  " id="modal_deposito_trans" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -437,7 +467,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
     <!-- FIN Modal cuentas bancarias -->
 
 

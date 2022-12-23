@@ -375,7 +375,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         link_pago_paypal.Visible = false;
         link_pago_santander.Visible = false;
 
-        ContentGenerarReferenciaTransferencia.Visible = false;
+        //ContentGenerarReferenciaTransferencia.Visible = false;
         ContentReferenciaTransferencia.Visible = true;
 
         chk_TranfenciaConfirmadaAsesor.Checked = (bool)Transferencia.confirmacionAsesor;
@@ -402,8 +402,8 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             //$"{status.message} Si deseas realizar algún cambio en el método/dirección de envío solicitalo a un asesor." +
             //"<br><a href=/informacion/ubicacion-y-sucursales.aspx#contacto'>Contactar a un asesor</a>");
             cnt_transferencia_registrada.Visible = true;
-            txt_transferencia_mensaje.InnerText = $"{status.message}";
-            txt_transferencia_contacto.InnerHtml = "Si deseas realizar algún cambio en el método/dirección de envío solicitalo a un asesor.<br><a href=/informacion/ubicacion-y-sucursales.aspx#contacto'>Contactar a un asesor</a>";
+            txt_transferencia_mensaje.InnerHtml = $"{status.message}";
+            txt_transferencia_contacto.InnerHtml = "Las transferencias pueden tomar tiempo en reflejarse, un asesor comprobará y confirmará tu transferencia. Si deseas realizar algún cambio en el método/dirección de envío solicitalo a un asesor.<br><a href=/informacion/ubicacion-y-sucursales.aspx#contacto'>Contactar a un asesor</a>";
             btn_cambiar_metodo_envio.Enabled = false;
             btn_cambiar_metodo_envio.CssClass = "is-select-none is-cursor-not-allowed";
             btn_cambiar_metodo_envio.ToolTip = $"{status.message}";
@@ -421,10 +421,11 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
 
             dynamic Pago = status.response;
 
-            if (Pago.tipo == "Transferencia") ValidarPagoTransferencia(Pago.pago);
-
-
-
+            if (Pago.tipo == "Transferencia")
+            {
+                ValidarPagoTransferencia(Pago.pago);
+                up_ConfirmarDeposito.Visible = true;
+            }
         }
         else if (status.exception == true)
         {
@@ -522,7 +523,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
 
             return;
         }
-        ContentGenerarReferenciaTransferencia.Visible = false;
+        //ContentGenerarReferenciaTransferencia.Visible = false;
         ContentReferenciaTransferencia.Visible = true;
         up_ConfirmarDeposito.Update();
 
@@ -568,18 +569,24 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         if (ResultActualizacion.exception == true || ResultActualizacion.result == false)
 
         {
-            BootstrapCSS.Message(up_ConfirmarDeposito, "#content_msg_transfrencia", BootstrapCSS.MessageType.warning,
-               "Error", Result.message + " <br> Informa a un administrador.");
-
+            NotiflixJS.Message(up_ConfirmarDeposito, NotiflixJS.MessageType.failure, "Error al actualizar el pago");
+            //BootstrapCSS.Message(up_ConfirmarDeposito, "#content_msg_transfrencia", BootstrapCSS.MessageType.warning,
+            //   "Error", Result.message + " <br> Informa a un administrador.");
             return;
         }
 
-        BootstrapCSS.Message(up_ConfirmarDeposito, "#content_msg_transfrencia", BootstrapCSS.MessageType.success,
-               "Actualizado con éxito", Result.message + " <br> Informa a un administrador.");
+        NotiflixJS.Message(up_ConfirmarDeposito, NotiflixJS.MessageType.success, "Referencia registrada");
+        //BootstrapCSS.Message(up_ConfirmarDeposito, "#content_msg_transfrencia", BootstrapCSS.MessageType.success,
+        //       "Actualizado con éxito", Result.message + " <br> Informa a un administrador.");
 
-        ContentGenerarReferenciaTransferencia.Visible = false;
+        //ContentGenerarReferenciaTransferencia.Visible = false;
         ContentReferenciaTransferencia.Visible = true;
         up_ConfirmarDeposito.Update();
+        string redireccionURL = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary
+        {
+            { "id_operacion", seguridad.Encriptar(hf_id_pedido.Value) }
+        });
+        BootstrapCSS.RedirectJs(this, redireccionURL, 100);
     }
 
     protected void ddl_UsoCFDI_SelectedIndexChanged(object sender, EventArgs e)

@@ -79,8 +79,6 @@ public class procesar_pago : IHttpHandler, IRequiresSessionState
             HttpContext context = _context;
 
             DataTable dt_PedidoDatos = pedidosDatos.obtenerPedidoDatosStatic(numero_operacion);
-
-
             DataTable dt_PedidoProductos = pedidosProductos.obtenerProductos(numero_operacion);
 
             string usuario_email = dt_PedidoDatos.Rows[0]["usuario_cliente"].ToString();
@@ -89,7 +87,35 @@ public class procesar_pago : IHttpHandler, IRequiresSessionState
             string nombre_operacion = dt_PedidoDatos.Rows[0]["nombre_pedido"].ToString();
             string total = dt_PedidoDatos.Rows[0]["total"].ToString();
             string monedaPedido = dt_PedidoDatos.Rows[0]["monedaPedido"].ToString();
+            string direccion_envio = string.Empty;
+            string estatus = string.Empty;
 
+            var direccionEnvioResult = PedidosEF.ObtenerDireccionEnvio(numero_operacion);
+            if (direccionEnvioResult.result)
+            {
+                pedidos_direccionEnvio direccionEnvio = direccionEnvioResult.response;
+                if (direccionEnvio != null)
+                {
+                    direccion_envio = direccionEnvio.calle + " " + direccionEnvio.numero + ", " + direccionEnvio.colonia + ", " + direccionEnvio.delegacion_municipio + ", " + direccionEnvio.ciudad + ", " + direccionEnvio.codigo_postal + ", " + direccionEnvio.pais;
+                }
+                else
+                {
+                    direccion_envio = "Revisar dirección de envío en el pedido";
+                }
+            }
+
+            var estatusPagoPayPalResult = PayPalTienda.obtenerPago(numero_operacion);
+            if (estatusPagoPayPalResult != null)
+            {
+                if (estatusPagoPayPalResult.estado == "COMPLETED")
+                {
+                    estatus = "Completado";
+                }
+                else
+                {
+                    estatus = "No aprovado";
+                }
+            }
 
             AmountWithBreakdown amount = result.PurchaseUnits[0].AmountWithBreakdown;
             decimal montoPayPal = decimal.Parse(amount.Value);
@@ -102,7 +128,7 @@ public class procesar_pago : IHttpHandler, IRequiresSessionState
             string url_paypal = "https://www.paypal.com/cgi-bin/webscr?cmd=_view-a-trans&id=" + result.Id;
 
             DateTime fechaSolicitud = utilidad_fechas.obtenerCentral();
-            string asunto = "Pago realizado de un pedido Cliente - Nombre Pedido: " + nombre_operacion + " " + cliente_nombre + " ";
+            string asunto = "Pago realizado vía PayPal para el pedido: " + numero_operacion + ", realizado por " + cliente_nombre + " ";
             string mensaje = string.Empty;
             string plantillaAsesor = "/email_templates/operaciones/pedidos/asesores_pago_realizado.html";
 
@@ -113,15 +139,19 @@ public class procesar_pago : IHttpHandler, IRequiresSessionState
             }
 
             Dictionary<string, string> datosDiccRemplazo = new Dictionary<string, string>();
-            datosDiccRemplazo.Add("{cliente_nombre}", cliente_nombre + " " + cliente_apellido_paterno);
+            datosDiccRemplazo.Add("{fecha}", utilidad_fechas.DDMMAAAA());
+            datosDiccRemplazo.Add("{cliente_nombre}", cliente_nombre);
             datosDiccRemplazo.Add("{numero_operacion}", numero_operacion);
             datosDiccRemplazo.Add("{totalPayPal}", montoPayPal.ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " + monedaPayPal);
-            //datosDiccRemplazo.Add("{totalOperacion}", decimal.Parse(total).ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " + monedaPedido);
+            datosDiccRemplazo.Add("{direccion_envio}", direccion_envio);
             datosDiccRemplazo.Add("{url_operacion}", url_pedido);
             datosDiccRemplazo.Add("{url_paypal}", url_paypal);
             datosDiccRemplazo.Add("{productos}", productosEmailHTML);
+            datosDiccRemplazo.Add("{estatus}", estatus);
 
             plantillaAsesor = Path.Combine(context.Request.PhysicalApplicationPath, plantillaAsesor);
+
+            //datosDiccRemplazo.Add("{totalOperacion}", decimal.Parse(total).ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " + monedaPedido);
 
 
             using (StreamReader reader = new StreamReader(context.Server.MapPath("~") + plantillaAsesor))
@@ -145,12 +175,16 @@ public class procesar_pago : IHttpHandler, IRequiresSessionState
             string plantillaCliente = "/email_templates/operaciones/pedidos/cliente_pago_realizado.html";
 
             Dictionary<string, string> datosDiccRemplazoCliente = new Dictionary<string, string>();
+            datosDiccRemplazoCliente.Add("{fecha}", utilidad_fechas.DDMMAAAA());
             datosDiccRemplazoCliente.Add("{numero_operacion}", numero_operacion);
-            datosDiccRemplazoCliente.Add("{cliente_nombre}", cliente_nombre + " " + cliente_apellido_paterno);
+            datosDiccRemplazoCliente.Add("{cliente_nombre}", cliente_nombre);
             datosDiccRemplazoCliente.Add("{totalPayPal}", montoPayPal.ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " + monedaPayPal);
             //datosDiccRemplazoCliente.Add("{totalOperacion}", decimal.Parse(total).ToString("C2", new CultureInfo("es-MX", true).NumberFormat) + " " + monedaPedido);
-            datosDiccRemplazoCliente.Add("{estatus}", result.Status);
+            datosDiccRemplazoCliente.Add("{direccion_envio}", direccion_envio);
+            //datosDiccRemplazoCliente.Add("{estatus}", result.Status);
+            datosDiccRemplazoCliente.Add("{estatus}", estatus);
             datosDiccRemplazoCliente.Add("{url_operacion}", url_pedido);
+            datosDiccRemplazoCliente.Add("{url_paypal}", url_paypal);
             datosDiccRemplazoCliente.Add("{productos}", productosEmailHTML);
 
             plantillaCliente = Path.Combine(context.Request.PhysicalApplicationPath, plantillaCliente);

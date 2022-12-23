@@ -757,7 +757,7 @@ public class PedidosEF
                 dynamic Pago = new ExpandoObject();
                 Pago.tipo = "PayPal";
                 Pago.pago = historialPagosPayPal;
-                return new json_respuestas(true, $"Pagado con PayPal. Estado: <b>COMPLETADO</b>.", false, Pago);
+                return new json_respuestas(true, $"Pagado con PayPal. <br/> Estado: <b>COMPLETADO</b>.", false, Pago);
             }
 
             List<pedidos_pagos_respuesta_santander> historialPagosSantander = SantanderResponse.ObtenerTodos(numero_operacion);
@@ -768,7 +768,7 @@ public class PedidosEF
                 dynamic Pago = new ExpandoObject();
                 Pago.tipo = "Santander";
                 Pago.pago = historialPagosSantander;
-                return new json_respuestas(true, $"Pagado con Santander. Estado: <b>APROVADO</b>", false, Pago);
+                return new json_respuestas(true, $"Pagado con Santander.<br/> Estado: <b>APROVADO</b>", false, Pago);
             }
             var ReferenciaTransferencia = await ObtenerReferenciaTransferencia(numero_operacion);
 
@@ -780,7 +780,7 @@ public class PedidosEF
                 Pago.pago = referencia;
                 string textEstado = (bool)referencia.confirmacionAsesor ? "CONFIRMADO" : "SIN CONFIRMAR";
 
-                return new json_respuestas(true, $"Pagado por transfencia. Estado: <b>" + textEstado + "</b>", false, Pago);
+                return new json_respuestas(true, $"Pagado por transfencia.<br/> Estado: <b>" + textEstado + "</b>", false, Pago);
             }
 
             // Si llega a este punto no se ha encontrado un pago 

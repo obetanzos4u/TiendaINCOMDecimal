@@ -68,15 +68,15 @@
                         runat="server">
                         <columns>
                             <asp:BoundField DataField="Year" HeaderText="Año"
-                                SortExpression="Year" />
+                                SortExpression="Year" ItemStyle-CssClass="is-text-left" />
                             <asp:BoundField DataField="MesNombre" HeaderText="Mes"
-                                InsertVisible="False" ReadOnly="True" SortExpression="MesNombre" />
+                                InsertVisible="False" ReadOnly="True" SortExpression="MesNombre" ItemStyle-CssClass="is-text-left" />
                             <asp:BoundField DataField="TotalPedidosMes" HeaderText="Pedidos"
-                                SortExpression="TotalPedidosMes" />
-                            <asp:BoundField DataField="MontoTotalMesSNImpuestos" HeaderText="Monto"
-                                SortExpression="MontoTotalMesSNImpuestos" />
-                            <asp:BoundField DataField="TotalPedidosPagados" HeaderText="Pagados"
-                                SortExpression="TotalPedidosPagados" />
+                                SortExpression="TotalPedidosMes" ItemStyle-CssClass="is-text-center" HeaderStyle-CssClass="is-text-center"/>
+                            <asp:BoundField DataField="MontoTotalMesSNImpuestos" HeaderText="Monto vendido"
+                                SortExpression="MontoTotalMesSNImpuestos" ItemStyle-CssClass="is-text-center" HeaderStyle-CssClass="is-text-center" />
+                            <asp:BoundField DataField="TotalPedidosPagados" HeaderText="Pedidos pagados"
+                                SortExpression="TotalPedidosPagados" ItemStyle-CssClass="is-text-center" HeaderStyle-CssClass="is-text-center" />
                         </columns>
                     </asp:GridView>
                 </div>
@@ -105,7 +105,7 @@
                                             </asp:HyperLink>
                                     </section>
                                     <p style="padding-left: 5px;">Núm. de operación:&nbsp &nbsp  
-                                        <span class="is-font-semibold"><%# Eval("PedidoDatos.numero_operacion") %></span>
+                                        <span class="is-font-semibold is-select-all"><%# Eval("PedidoDatos.numero_operacion") %></span>
                                     </p>
                                 </div>
                                 <!-- <p style="text-transform: capitalize; font-weight: bold"><%# Eval("PedidoDatos.nombre_pedido") %></p> -->
@@ -152,7 +152,7 @@
                                             <p class="is-w-full" style="float: left; font-size: 1rem; margin: 1rem 0rem 1rem auto;">Para cancelar:</p>
                                             <asp:TextBox ID="txt_motivo_cancelacion" Text="" placeholder="Describe aquí el motivo de cancelación" style="padding-left: 1rem !important; width: 96% !important;" runat="server"></asp:TextBox>
                                             <asp:LinkButton ID="btn_desactivar_pedido"
-                                                OnClick="btn_desactivar_pedido_Click" CssClass="is-btn-gray is-flex is-justify-center is-top-1 is-bt-1" runat="server">
+                                                OnClick="btn_desactivar_pedido_Click" OnClientClick="return confirm('¿Seguro que deseas cancelar el pedido?')" CssClass="is-btn-gray is-flex is-justify-center is-top-1 is-bt-1" runat="server">
                                                     Cancelar
                                             </asp:LinkButton>
                                         </asp:Panel>

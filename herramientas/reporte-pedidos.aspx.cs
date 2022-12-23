@@ -130,11 +130,12 @@ public partial class herramientas_reporte_pedidos : System.Web.UI.Page
         string motivo = txt_motivo_cancelacion.Text;
         var resultadoCancelacion = PedidosEF.CancelarPedido(hf_numero_operacion.Value, motivo);
 
-        materializeCSS.crear_toast(this, resultadoCancelacion.message, resultadoCancelacion.result);
+        NotiflixJS.Message(this, NotiflixJS.MessageType.info, resultadoCancelacion.message);
+        //materializeCSS.crear_toast(this, resultadoCancelacion.message, resultadoCancelacion.result);
 
         if (resultadoCancelacion.result)
         {
-            lbl_OperacionCancelada.Text = "Cancelada";
+            lbl_OperacionCancelada.Text = "&#65794 Cancelada";
             lbl_OperacionCancelada.ForeColor = System.Drawing.Color.Red;
             ContentPedidoDesactivar.Visible = false;
             ContentPedidoActivar.Visible = true;
@@ -153,11 +154,12 @@ public partial class herramientas_reporte_pedidos : System.Web.UI.Page
 
         var resultadoCancelacion = PedidosEF.ReactivarPedido(hf_numero_operacion.Value);
 
-        materializeCSS.crear_toast(this, resultadoCancelacion.message, resultadoCancelacion.result);
+        NotiflixJS.Message(this, NotiflixJS.MessageType.info, resultadoCancelacion.message);
+        //materializeCSS.crear_toast(this, resultadoCancelacion.message, resultadoCancelacion.result);
 
         if (resultadoCancelacion.result)
         {
-            lbl_OperacionCancelada.Text = "Activa";
+            lbl_OperacionCancelada.Text = "&#9679; Activa";
             lbl_OperacionCancelada.ForeColor = System.Drawing.Color.Green;
             ContentPedidoDesactivar.Visible = true;
             ContentPedidoActivar.Visible = false;
