@@ -87,7 +87,7 @@
                                             </div>
                                             <asp:UpdatePanel ID="up_stock" UpdateMode="Conditional" runat="server">
                                                 <ContentTemplate>
-                                                    <div id="lbl_stock" visible="false" runat="server" class="is-text-red is-font-bold is-text-sm"></div>
+                                                    <div id="lbl_stock" visible="false" runat="server"></div>
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
                                         </div>

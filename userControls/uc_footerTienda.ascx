@@ -62,13 +62,13 @@
                         <a title="Código de ética" href="/documents/CODIGO_DE_ETICA.pdf" target="_blank" class="is-text-white">Código de ética</a>
                     </li>
                     <li>
-                        <a title="Calendario 2022" href="/documents/CALENDARIO_INCOM_2022.pdf" target="_blank" class="is-text-white">Calendario 2022</a>
+                        <a title="Calendario <%= DateTime.Now.Year %>" href="/documents/CALENDARIO_INCOM_<%= DateTime.Now.Year %>.pdf" target="_blank" class="is-text-white">Calendario <%= DateTime.Now.Year %></a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="is-flex is-justify-center is-items-center is-mx-5">
-            <p class="is-text-sm is-select-none">Incom &reg; | Hecho en México por  IT4U Development   <%= DateTime.Now.Year %> | Todos los derechos reservados.</p>
+            <p class="is-text-sm is-select-none">INCOM &reg; | Hecho en México por  IT4U Development   <%= DateTime.Now.Year %> | Todos los derechos reservados.</p>
         </div>
     </div>
     <script>
