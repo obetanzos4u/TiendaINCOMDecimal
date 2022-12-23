@@ -23,7 +23,7 @@
             <li>
                 <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="micuenta_menu" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx"
                     runat="server">
-                    <img id="user-icon" alt="icono cuenta de usuario" src="https://www.incom.mx/img/webUI/newdesign/mi_cuenta.svg"/>
+                    <!-- <img id="user-icon" alt="icono cuenta de usuario" src="https://www.incom.mx/img/webUI/newdesign/mi_cuenta.svg"/> -->
                     Mi cuenta
                 </asp:HyperLink>
             </li>
@@ -148,11 +148,11 @@
                 <!-- Dropdown Trigger -->
                 <a id="btn_menu_usuario_movil" data-target='menu_usuario_movil' href="#" class="sidenav-trigger">
                     <%--<i class="material-icons" style="font-size: 3rem;">menu</i>--%>
-                    <img class="icon_menu" src="https://www.incom.mx/img/webUI/newdesign/Menu.svg" />
+                    <img class="icon_menu" src="https://www.incom.mx/img/webUI/newdesign/Menu.svg" loading="lazy"/>
                 </a>
             </div>
             <a title="Incom Retail" class="content_mobile_logo" href="<%=Request.Url.GetLeftPart(UriPartial.Authority) %>">
-                <img src="https://www.incom.mx/img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="mobile_logo" />
+                <div class="content_header_logo-img-movil" ></div>
             </a>
             <%--<a title="Incom Retail" class="content_header_logo" href='<%= HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) %>'>
                 <img src='<%=ResolveUrl("~/img/webUI/incom_logo_mini.png") %>'
@@ -160,7 +160,7 @@
             </a>--%>
             <%--<a title="Carrito de productos" class="black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">--%>
             <a title="Carrito de productos" class="carrito_productos_movil show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx" onclick="Notiflix.Loading.custom('Estamos alistando tu carrito',{customSvgUrl: 'https://www.incom.mx/img/webUI/newdesign/icono_de_carga.svg'});">
-                <img class="btn-mi-carrito" title="Carrito de productos" src="https://www.incom.mx/img/webUI/newdesign/Carrito.svg" />
+                <img class="btn-mi-carrito" title="Carrito de productos" src="/img/webUI/newdesign/Carrito.png" loading="lazy" />
                 <%--<p class="text_carrito_compra">Carrito</p>--%>
             </a>
         </div>
@@ -186,7 +186,7 @@
             </div>
             <div class="header_toolbar is-py-xl">
                 <a title="Incom Retail" class="content_header_logo" href="<%=Request.Url.GetLeftPart(UriPartial.Authority) %>">
-                    <img src="https://www.incom.mx/img/webUI/newdesign/Incom_nuevo.png" alt="Logotipo INCOM" class="logotipo_home is-space-x-7" />
+                    <div class="content_header_logo-img" ></div> 
                 </a>
                 <div class="menu_middle">
                     <uc_buscador:buscador ID="buscador" Visible="true" runat="server"></uc_buscador:buscador>
@@ -213,7 +213,8 @@
                             <AnonymousTemplate>
                                 <%--<a title="Crear cuenta" class="login_btn " href='<%= ResolveUrl("~/registro-de-usuario.aspx") %>'>Crear cuenta</a>--%>
                                 <a class="btn_cuenta is-text-black is-flex is-flex-col is-justify-center is-items-center" href="#" onclick="LoginAjaxOpenModal();">
-                                    <img class="icon_cuenta" src="https://www.incom.mx/img/webUI/newdesign/Cuenta.svg" />
+                                    <!-- <img class="icon_cuenta" src="https://www.incom.mx/img/webUI/newdesign/Cuenta.svg" /> -->
+                                    <img class="icon_cuenta" src="/img/webUI/newdesign/Usuario.png" loading="lazy" /> 
                                     <span>Iniciar sesión</span>
                                 </a>
                                 <%--<a class="login_btn" href="#" onclick="LoginAjaxOpenModal();">Iniciar sesión</a>--%>
@@ -224,7 +225,8 @@
                     <div>
                         <div id="carrito_de_compra">
                             <a title="Carrito de productos" href="/mi-carrito.aspx" onclick="Notiflix.Loading.custom('Estamos alistando tu carrito',{customSvgUrl: 'https://www.incom.mx/img/webUI/newdesign/icono_de_carga.svg'});" style="display: flex; flex-direction: column;">
-                                <img class="btn-mi-carrito" title="Carrito de productos" src="https://www.incom.mx/img/webUI/newdesign/Carrito.svg" />
+                                <!-- <img class="btn-mi-carrito" title="Carrito de productos" src="https://www.incom.mx/img/webUI/newdesign/Carrito.svg" /> -->
+                                <img title="Carrito de productos" src="/img/webUI/newdesign/Carrito.png" style="width: 34px; height: 30px" loading="lazy" />
                                 <span class="txt_carrito is-text-black">Carrito</span>
                             </a>
                             <span id="lbl_cantidadProductosCarrito" class="carrito_counter is-select-none" runat="server"></span>
@@ -298,6 +300,17 @@
 </script>
 
 <style>
+
+    .mobile_logo {
+        display: none;
+    }
+
+    .logotipo_home {
+        height: 4.5rem;
+        width: auto;
+        margin-top: 0;
+    }
+
     .menuContainer a {
         color: #202831 !important;
     }
@@ -432,16 +445,6 @@
         flex-direction: row;
         justify-content: space-between;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2.6px;
-    }
-
-    .mobile_logo {
-        display: none;
-    }
-
-    .logotipo_home {
-        height: 4.5rem;
-        width: auto;
-        margin-top: 0;
     }
 
     /* #txt_buscadorProducto {
@@ -993,12 +996,6 @@
             padding: 0.5rem 1rem;
         }
 
-        .content_header_logo {
-            margin: 0px 2rem 0px 0px;
-            float: inherit;
-            display: none;
-        }
-
         .mobile_logo {
             display: inline;
             width: auto;
@@ -1197,9 +1194,9 @@
             font-size: 0.75rem;
         }
 
-        .icon_cuenta {
+        <!-- .icon_cuenta {
             height: 36px;
-        }
+        } -->
 
         .btn-mi-carrito {
             height: 36px;

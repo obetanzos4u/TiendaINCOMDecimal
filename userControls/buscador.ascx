@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="buscador.ascx.cs" Inherits="menuPrincipal" %>
 
 <div class="buscador_container">
-    <div id="form-buscador_bar">
+    <div id="form-buscador_bar" style="max-width: 600px;">
             <asp:TextBox ID="txt_buscadorProducto" placeholder="Buscar" name="buscador" ClientIDMode="Static" autocomplete="some-random-string" runat="server"></asp:TextBox>
             <button id="btn-buscador_bar" type="button" class="button">
                 <asp:LinkButton ID="btn_buscarProductos" CssClass="btn_buscador" ClientIDMode="Static" ToolTip="Buscar" OnClick="btn_buscarProductos_Click" runat="server">

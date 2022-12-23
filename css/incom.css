@@ -244,6 +244,45 @@ margin-left: 1rem;
     text-align: center;
 }
 
+@media only screen and (min-width:1000px) {
+
+    .content_header_logo-img {
+        background-image: url(https://www.incom.mx/img/webUI/newdesign/Incom_nuevo.png);
+        background-repeat: no-repeat;
+        display: inline-block;
+        background-size: contain;
+        height: 68px;
+        width: 169px;
+    }
+
+    .content_header_logo {
+        height: max-content;
+        width: auto;
+    }
+}
+
+@media only screen and (max-width:1000px) {
+
+    .content_header_logo {
+        float: inherit;
+        display: none;
+    }
+
+    .content_header_logo-img-movil {
+        background-image: url(https://www.incom.mx/img/webUI/newdesign/Incom_nuevo.png);
+        background-repeat: no-repeat;
+        display: inline-block;
+        background-size: contain;
+        height: 68px;
+        width: 169px;
+        margin-top: 6px;
+    }
+
+    .content_mobile_logo {
+        height: max-content;
+        width: auto;
+    }
+}
 /*Documentación tamáño móvi mediano*/
 
 @media only screen and (min-width: 600px) and (max-width: 820px) {
@@ -899,10 +938,6 @@ div.arrow-doble-down #svg-arrow-down {
             height: 2rem;
         }
 
-        .tabla-analisis_pedidos {
-            width: 60%;
-        }
-
         .actualizar_contrasena {
             margin: auto;
         }
@@ -1223,7 +1258,11 @@ div.arrow-doble-down #svg-arrow-down {
             font-size: 10px !important;
             height: 28px !important;
             line-height: 28px !important;
-        }  
+        }
+
+        .tabla-analisis_pedidos {
+            width: 96%;
+        }
     }
 
     /*Fin contenedor de ficha de productos */
@@ -2220,6 +2259,10 @@ div.arrow-doble-down #svg-arrow-down {
             width: 116px;
             display: inline-block;
         }
+
+        .tabla-analisis_pedidos {
+            width: 60%;
+        }
     }
 
     @media only screen and (min-width: 1000px) and (max-width: 1450px) {
@@ -2657,10 +2700,6 @@ div.arrow-doble-down #svg-arrow-down {
         .is-btn-gray.btn-volver_direcciones_envio {
             width: 82px;
             overflow: hidden;
-        }
-
-        .tabla-analisis_pedidos {
-            width: 96%;
         }
 
         .colx80 {
