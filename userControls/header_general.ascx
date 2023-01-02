@@ -822,10 +822,11 @@
         background-color: #787878;
     }
 
-    .USP1 {
+    .USP1, .USP2, .USP3 {
         aspect-ratio: 4/1;
         width: 100%;
         object-fit: cover;
+        width: 100%;
         <!-- height: 18% -->
     }
 
@@ -833,23 +834,23 @@
         background-color: #c3bb9f;
     }
 
-    .USP2 {
+    <!-- .USP2 {
        /* height: 18% */
         aspect-ratio: 4/1;
         width: 100%;
         object-fit: cover;
-    }
+    } -->
 
     .USP2 {
         background-color: #89abad;
     }
 
-    .USP3 {
+    <!-- .USP3 {
        /* height: 18%; */
         aspect-ratio: 4/1;
         width: 100%;
         object-fit: cover;
-    }
+    } -->
 
     .USP3 img {
         background-color: #be9393;
