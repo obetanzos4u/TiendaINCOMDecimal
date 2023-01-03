@@ -5,7 +5,7 @@
 <%@ Import Namespace="System.Globalization" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
 
-    <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
+    <div class="is-bt-5 is-mx-7 is-border-soft is-rounded-xl is-p-8">
         <div class="row">
             <div class="">
                 <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft">Mis cotizaciones </h2>
@@ -93,13 +93,13 @@
  <!-- FIN : Modal Crear cotización en blanco -->
 
         <!-- INICIO : Filtros y orden -->
-        <div class="row">
-            <div class="col s12 m5">
-                <label>Busca por: Nombre o número de operación</label>
-                <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización o número de operación" AutoPostBack="true" OnTextChanged="orden" runat="server"></asp:TextBox>
+        <div class="row container-filtro-cotizaciones">
+            <div class="col input-name-number_operation">
+                <label>Busca por nombre o número de operación</label>
+                <asp:TextBox ID="txt_search" placeholder="Nombre de cotización o número de operación" AutoPostBack="true" OnTextChanged="orden" runat="server"></asp:TextBox>
             </div>
 
-            <div class="col s6 m4 l2">
+            <div class="col input-cotizacion-filter">
                 <label>Filtro por año </label>
                 <asp:DropDownList ID="ddl_periodo" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                     <asp:ListItem Value="6" Text="Últimos 6 meses"></asp:ListItem>
@@ -110,7 +110,7 @@
                 </asp:DropDownList>
             </div>
 
-            <div class="col s6 m4 l2">
+            <div class="col input-cotizacion-filter">
                 <label>Ordenar por</label>
                 <asp:DropDownList ID="ddl_ordenBy" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                     <asp:ListItem Value="fecha_creacion" Text="Fecha"></asp:ListItem>
@@ -120,7 +120,7 @@
                 </asp:DropDownList>
             </div>
 
-            <div class="col s6 m3 l2">
+            <div class="col input-cotizacion-filter">
                 <label>Ordenar por</label>
                 <asp:DropDownList ID="ddl_ordenTipo" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                     <asp:ListItem Value="DESC" Text="Descendente"></asp:ListItem>

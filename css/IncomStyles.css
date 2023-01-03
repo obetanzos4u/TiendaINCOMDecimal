@@ -605,6 +605,11 @@ body {
     margin-right: 10%;
 }
 
+.is-mx-7 {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .is-my-4 {
     margin-top: 1rem;
     margin-bottom: 1rem;
