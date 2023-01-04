@@ -5,7 +5,7 @@
 <%@ Import Namespace="System.Globalization" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
 
-    <div class="is-bt-5 is-mx-7 is-border-soft is-rounded-xl is-p-8">
+    <div class="is-bt-5 is-border-soft is-mx-7 is-rounded-xl is-p-8 container-cotizaciones-mi_cuenta">
         <div class="row">
             <div class="">
                 <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft">Mis cotizaciones </h2>

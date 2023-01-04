@@ -23,7 +23,7 @@
             <li>
                 <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="micuenta_menu" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx"
                     runat="server">
-                    <!-- <img id="user-icon" alt="icono cuenta de usuario" src="https://www.incom.mx/img/webUI/newdesign/mi_cuenta.svg"/> -->
+                    <img id="user-icon" alt="icono cuenta de usuario" src="https://www.incom.mx/img/webUI/newdesign/mi_cuenta.svg"/>
                     Mi cuenta
                 </asp:HyperLink>
             </li>

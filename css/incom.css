@@ -1850,6 +1850,14 @@ div.arrow-doble-down #svg-arrow-down {
         .tabla-operaciones_encontradas {
             height: 4rem;
         }
+
+        .row.container-filtro-cotizaciones {
+            flex-direction: column !important;
+        }
+
+        .input-cotizacion-filter > .select-wrapper .caret {
+            right: 20%;
+        }
     }
 
     @media only screen and (min-width: 200px) {
@@ -3089,6 +3097,10 @@ div.arrow-doble-down #svg-arrow-down {
         flex-wrap: nowrap;
         margin: auto 1rem;
     }
+
+    .col.input-cotizacion-filter {
+        width: 200px;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -3448,6 +3460,27 @@ div.arrow-doble-down #svg-arrow-down {
         .direcciones_envio-input_estado .select-wrapper svg.caret {
             right: 2rem;
         }
+
+        .col.input-cotizacion-filter {
+            width: 175px;
+        }
+
+        .col.input-cotizacion-filter > .select-wrapper .caret {
+            right: 20%;
+        }
+
+        .input-name-number_operation {
+            width: 200px;
+        }
+
+        .container-filtro-cotizaciones {
+            display: inherit;
+        }
+
+        .input-name-number_operation {
+            width: 300px;
+            margin-right: 50px;
+        }
     }
 
     /* L-M */
@@ -3800,6 +3833,12 @@ div.arrow-doble-down #svg-arrow-down {
     @media only screen and (min-width: 2000px) {
         .cajaProductosFCO {
             width: 10.3%;
+        }
+
+        .container-cotizaciones-mi_cuenta {
+            max-width: 2000px;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 
