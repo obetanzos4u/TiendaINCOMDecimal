@@ -280,7 +280,7 @@
                         <asp:Panel ID="ContentReferenciaTransferencia" Visible="false" runat="server">
                             <asp:Panel ID="Content_Pago_Datos_Transferencia_Asesor" Visible="false" runat="server">
                                 <div class="is-flex is-flex-col is-justify-center is-items-start is-rounded-lg is-border-soft is-my-4">
-                                    <label for="txt_TranfenciaReferenciaAsesor" class="is-w-full text-resumen_compra is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Refencia: </label>
+                                    <label for="txt_TranfenciaReferenciaAsesor" class="is-w-full text-resumen_compra is-text-lg is-font-semibold is-bg-gray-300 is-px-8 is-rounded-t-lg is-select-none">Referencia: </label>
                                     <div class="is-w-full is-flex is-justify-center is-items-center is-pt-3">
                                         <asp:TextBox ID="txt_TranfenciaReferenciaAsesor" ClientIDMode="Static" TextMode="SingleLine" class="is-w-3_4 is-resize-none" runat="server"></asp:TextBox>
                                     </div>

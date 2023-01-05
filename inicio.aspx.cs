@@ -155,6 +155,7 @@ public partial class inicio : System.Web.UI.Page
                     Image img = new Image();
                     img.ImageUrl = Request.Url.GetLeftPart(UriPartial.Authority) + "/img/webUI/sliderHome/" + nombreArchivo;
                     img.AlternateText = titulo;
+                    img.CssClass = "is-w-full";
                     link.NavigateUrl = linkUSP;
                     link.ToolTip = descripcion;
                     link.Controls.Add(img);

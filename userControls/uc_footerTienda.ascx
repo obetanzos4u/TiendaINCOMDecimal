@@ -8,7 +8,7 @@
                 <p class="is-text-lg is-font-medium">Llámanos al <a href="tel:5552436900">(55) 5243 - 6900</a></p>
                 <div class="is-font-light is-text-sm">
                     <p class="is-m-0">Plutarco Elías Calles 276, colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de México.</p>
-                    <p class="is-m-0">Horario de atención: Lunes a Jueves de 8:00 a 19:00 hrs • Viernes de 8:00 a 17:00 hrs.</p>
+                    <p class="is-m-0">Horario de atención: Lunes a Jueves de 8:30 a 18:30 hrs • Viernes de 8:30 a 17:30 hrs.</p>
                 </div>
                 <div class="is-flex is-justify-start is-items-center is-w-1_2 is-py-4">
                     <a href="https://www.facebook.com/incommexico/" target="_blank" class="is-w-6">
