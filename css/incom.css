@@ -244,6 +244,22 @@ margin-left: 1rem;
     text-align: center;
 }
 
+.container-filtro-cotizaciones {
+    display: flex;
+    justify-content: space-between;
+}
+
+#top_contenido_txt_search {
+    font-size: 0.75rem;
+    height: 2rem !important;
+    border-radius: 6px;
+    padding-left: 1rem;
+}
+
+.input-cotizacion-filter > .select-wrapper > .select-dropdown.dropdown-trigger {
+    height: 2rem !important;
+}
+
 @media only screen and (min-width:1000px) {
 
     .content_header_logo-img {
@@ -1770,10 +1786,6 @@ div.arrow-doble-down #svg-arrow-down {
             justify-content: center;
         }
 
-        #top_contenido_txt_search {
-            font-size: 8px !important;
-        }
-
         .is-btn-gray.btn-cerrar-actualizar_contrasena {
             font-size: 9px !important;
             padding: 0.25rem 1.2rem 2rem 1.2rem;
@@ -1837,6 +1849,14 @@ div.arrow-doble-down #svg-arrow-down {
 
         .tabla-operaciones_encontradas {
             height: 4rem;
+        }
+
+        .row.container-filtro-cotizaciones {
+            flex-direction: column !important;
+        }
+
+        .input-cotizacion-filter > .select-wrapper .caret {
+            right: 20%;
         }
     }
 
@@ -2263,6 +2283,10 @@ div.arrow-doble-down #svg-arrow-down {
         .tabla-analisis_pedidos {
             width: 60%;
         }
+
+        .col.input-name-number_operation {
+            margin-right: 1rem;
+        }
     }
 
     @media only screen and (min-width: 1000px) and (max-width: 1450px) {
@@ -2410,6 +2434,19 @@ div.arrow-doble-down #svg-arrow-down {
         .direcciones_envio-input_pais .select-wrapper svg.caret,
         .direcciones_envio-input_estado .select-wrapper svg.caret  {
             right: 2rem;
+        }
+
+        .col.input-name-number_operation {
+            width: 35%;
+        }
+
+        .col.input-cotizacion-filter {
+            width: 20%;
+            margin-left: 2rem;
+        }
+
+        .input-cotizacion-filter > .select-wrapper .caret {
+            right: 16%;
         }
     }
 
@@ -3052,6 +3089,18 @@ div.arrow-doble-down #svg-arrow-down {
     .container-form_direccion_envio {
         padding: 1rem;
     }
+
+    #destacados_splide ul.splide__pagination {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        flex-wrap: nowrap;
+        margin: auto 1rem;
+    }
+
+    .col.input-cotizacion-filter {
+        width: 200px;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -3411,6 +3460,27 @@ div.arrow-doble-down #svg-arrow-down {
         .direcciones_envio-input_estado .select-wrapper svg.caret {
             right: 2rem;
         }
+
+        .col.input-cotizacion-filter {
+            width: 175px;
+        }
+
+        .col.input-cotizacion-filter > .select-wrapper .caret {
+            right: 20%;
+        }
+
+        .input-name-number_operation {
+            width: 200px;
+        }
+
+        .container-filtro-cotizaciones {
+            display: inherit;
+        }
+
+        .input-name-number_operation {
+            width: 300px;
+            margin-right: 50px;
+        }
     }
 
     /* L-M */
@@ -3620,8 +3690,16 @@ div.arrow-doble-down #svg-arrow-down {
             margin: auto auto 3rem auto !important;
         }
 
-        #top_contenido_txt_search {
-            font-size: 0.75rem;
+        .col.input-cotizacion-filter {
+            margin-left: 4rem;
+        }
+
+        .input-cotizacion-filter > .select-wrapper .caret {
+            right: 16%;
+        }
+
+        .input-cotizacion-filter {
+            width: 16%;
         }
 
         .container-mis_direcciones_envio, 
@@ -3755,6 +3833,12 @@ div.arrow-doble-down #svg-arrow-down {
     @media only screen and (min-width: 2000px) {
         .cajaProductosFCO {
             width: 10.3%;
+        }
+
+        .container-cotizaciones-mi_cuenta {
+            max-width: 2000px;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 

@@ -23,7 +23,7 @@
             <li>
                 <asp:HyperLink ID="miCuenta" ToolTip="Mi cuenta" class="micuenta_menu" NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx"
                     runat="server">
-                    <!-- <img id="user-icon" alt="icono cuenta de usuario" src="https://www.incom.mx/img/webUI/newdesign/mi_cuenta.svg"/> -->
+                    <img id="user-icon" alt="icono cuenta de usuario" src="https://www.incom.mx/img/webUI/newdesign/mi_cuenta.svg"/>
                     Mi cuenta
                 </asp:HyperLink>
             </li>
@@ -135,7 +135,7 @@
     </svg>
         </span>--%>
     </section>
-    <section class="pleca is-flex is-bg-envioGratis is-py-0 is-justify-center  is-h-8">
+    <section class="pleca is-flex is-bg-envioGratis is-py-0 is-justify-center  is-h-12">
         <span class="text-pleca is-flex is-text-white is-text-center is-items-center is-select-none">¡ENVÍO GRATIS! &nbsp;&nbsp; Válido en compras en línea desde $3,000 mxn</span>
     </section>
     <div id="content_header" class="col s12 m12 l12" style="padding: 5px 0px;">
@@ -148,7 +148,7 @@
                 <!-- Dropdown Trigger -->
                 <a id="btn_menu_usuario_movil" data-target='menu_usuario_movil' href="#" class="sidenav-trigger">
                     <%--<i class="material-icons" style="font-size: 3rem;">menu</i>--%>
-                    <img class="icon_menu" src="https://www.incom.mx/img/webUI/newdesign/Menu.svg" loading="lazy"/>
+                    <img class="icon_menu" src="/img/webUI/newdesign/Menu.png" loading="lazy"/>
                 </a>
             </div>
             <a title="Incom Retail" class="content_mobile_logo" href="<%=Request.Url.GetLeftPart(UriPartial.Authority) %>">
@@ -444,7 +444,8 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2.6px;
+        -webkit-box-shadow: 4px 10px 5px -10px rgba(0,0,0,.3);
+        box-shadow: 4px 10px 5px -10px rgba(0,0,0,.3);
     }
 
     /* #txt_buscadorProducto {
@@ -669,20 +670,13 @@
         margin-top: 0px;
         overflow: hidden;
     }
-/*
-    .menu_middle {
-        height: fit-content;
-        width: 100vw;
-        align-items: flex-start;
-    }
-*/
 
     .menu_middle {
         height: 100%;
-        width: 100vw;
+        width: 100%;
         align-items: center;
         display: flex;
-        padding-left: 2rem;
+        padding: 0.5rem 0rem 0rem 2rem;
         justify-content: start;
     }
 
@@ -724,11 +718,10 @@
             font-size: 0.75rem;
         }
 
-    .icon_menu {
-        filter: invert(18%) sepia(89%) saturate(2251%) hue-rotate(186deg) brightness(96%) contrast(99%);
+    <!-- .icon_menu {
         width: 3rem;
         height: auto;
-    }
+    } -->
 
     .cantidad_tipoDeCambio {
         font-size: 0.75rem;
@@ -748,9 +741,9 @@
 
     .btn-mi-carrito {
         color: black;
-        width: 2.5rem;
+        width: 2.75rem;
         height: auto;
-        margin-left: 0.5rem;
+        margin: 0.5rem 0rem 0rem 0.5rem;
     }
 
     .title_categorias {
@@ -826,7 +819,6 @@
         aspect-ratio: 4/1;
         width: 100%;
         object-fit: cover;
-        width: 100%;
         <!-- height: 18% -->
     }
 
@@ -988,6 +980,10 @@
 
     @media only screen and (max-width:1000px) {
 
+        .menu_middle {
+            padding-left: 0 !important;
+        }
+
         .container_mobile_header {
             text-align: center;
             height: 5rem;
@@ -1035,11 +1031,7 @@
             float: left;
             display: inline !important;
         }
-/*
-        .menu_middle {
-            margin: auto;
-        }
-*/
+
         .sesion_nav {
             display: none
         }
@@ -1051,11 +1043,7 @@
         .buscador_container {
             margin-top: 0px;
         }
-/*
-        .menu_middle {
-            width: none;
-        }
-*/
+
         .text_carrito_compra {
             margin: 0;
             color: black;
@@ -1290,6 +1278,7 @@
 
         .title_header {
             font-size: 12px;
+            height: 2rem;
         }
 
         .menu_top {
