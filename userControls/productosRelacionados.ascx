@@ -36,7 +36,7 @@
     const relacionadosSection = document.querySelector("#relacionados_splide");
     document.addEventListener("DOMContentLoaded", () => {
         const splide = new Splide("#relacionados_splide", {
-            type: 'loop',
+            type: 'slide',
             drag: 'free',
             focus: 'center',
             perPage: 1,
@@ -53,8 +53,7 @@
             keyboard: false,
             wheel: false,
             trimSpace: true,
-            updateOnMove: true,
-            pauseOnHover: true
+            updateOnMove: true
         });
         splide.mount();
         splide.on("drag", () => {

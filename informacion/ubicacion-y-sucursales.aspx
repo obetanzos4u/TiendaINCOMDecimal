@@ -71,8 +71,8 @@
                                     <p class="is-m-0 is-p-0"><a href="tel:5552437200">(55) 5243-7200</a> y <a href="tel:5552437201">(55) 5243-7201</a></p>
                                 </div>
                                 <p class="is-font-semibold is-m-0 is-py-2">Horarios de atención: </p>
-                                <p class="is-m-0">Lunes a jueves de 8:00 a 19:00 hrs.</p>
-                                <p class="is-m-0">Viernes de 8:00 a 17:00 hrs.</p>
+                                <p class="is-m-0">Lunes a jueves de 8:30 a 18:30 hrs.</p>
+                                <p class="is-m-0">Viernes de 8:30 a 17:30 hrs.</p>
                             </div>
                         </div>
                     </div>

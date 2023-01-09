@@ -31,7 +31,7 @@
     const alternativosSection = document.querySelector("#alternativos_splide");
     document.addEventListener('DOMContentLoaded', () => {
         const splide = new Splide('#alternativos_splide', {
-            type: 'loop',
+            type: 'slide',
             drag: 'free',
             focus: 'center',
             perPage: 1,
