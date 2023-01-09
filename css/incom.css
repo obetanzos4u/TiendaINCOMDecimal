@@ -51,10 +51,6 @@
     display: block;
 }
 
-/* .datos_cliente_edicion {
-    padding: 0rem 0rem 0rem 1.5rem;
-} */
-
 .datos_cliente_edicion > div:nth-child(1) {
     margin-bottom: 0px;
 }
@@ -910,6 +906,7 @@ div.arrow-doble-down #svg-arrow-down {
 
         .container-no_resultados {
             min-height: 70vh;
+            max-width: 2000px;
         }
 
         .wrapper-descripcion {
@@ -968,6 +965,10 @@ div.arrow-doble-down #svg-arrow-down {
             max-width: 1600px;
             width: 70%;
             margin: 1rem auto 10vh auto;
+        }
+
+        .grid-ta-resultados {
+            grid-template-columns: auto !important;
         }
     }
 
