@@ -7,7 +7,7 @@
         <asp:HiddenField Id="hf_usuario" runat="server"></asp:HiddenField>
         <div style="margin: 5vh auto 10vh auto;">
             <div class="row">
-                <img style="width: 10%;" src="/img/webUI/newdesign/verificado.png"/>
+                <img style="width: 10%;" alt="E-mail con palomita de confirmación" src="/img/webUI/newdesign/verificado.png"/>
             </div>
             <div class="row">
                 <h1 style="font-size: 2.5rem;">Activación correcta</h1>
@@ -26,7 +26,7 @@
     </asp:Panel>
     <asp:Panel id="Content_Error_Activar" Visible="false" class="container center-align" style="margin-top: 10vh; margin-bottom: 15vh;" runat="server">
     <div class="row">
-        <img class="" style="width: 10%" src="/img/webUI/newdesign/no_verificado.png" />
+        <img class="" style="width: 10%" alt="E-mail no verificado" src="/img/webUI/newdesign/no_verificado.png" />
     </div>
     <div class="row">
         <h1 id="Title_Error" style="font-size: 2.5rem;" runat="server">Ha ocurrio un error al activar tu cuenta</h1>

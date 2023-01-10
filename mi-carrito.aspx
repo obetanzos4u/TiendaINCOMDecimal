@@ -98,7 +98,7 @@
                                 <div class="center-carrito_vacio">
                                     <h2>Aún no tienes artículos en tu carrito.</h2>
                                     <h3>¡Navega entre más de 2,000 productos!</h3>
-                                    <img class="icon-carrito_vacio" alt="Imagen de un carrito de compras vacio" title="Carrito de compras vacio" src="https://www.incom.mx/img/webUI/newdesign/carrito-vacio.svg">
+                                    <img class="icon-carrito_vacio" alt="Carrito de compras vacio" title="Carrito de compras vacio" src="https://www.incom.mx/img/webUI/newdesign/carrito-vacio.svg">
                                     <div class="center-btn-carrito_vacio">
                                         <a class="is-btn-blue btn-carrito_vacio is-m-auto" href="/productos">Descubrir ofertas</a>
                                     </div>

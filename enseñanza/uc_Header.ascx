@@ -4,7 +4,7 @@
 <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href='<%= HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) %>'>
-            <img alt="Incom logo" src="/img/webUI/incom_retail_logo_header_big.png" />
+            <img alt="Logo de INCOM" src="/img/webUI/incom_retail_logo_header_big.png" />
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>

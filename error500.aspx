@@ -3,7 +3,7 @@
 <div style="width: 100%; margin: 0;">
     <div style="display: flex; justify-content: center; max-width: 100%; padding: 0.5rem 0;">
         <a title="INCOM" href='<%= HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) %>'>
-            <img src='<%=ResolveUrl("~/img/webUI/newdesign/Incom_nuevo.png") %>' alt="Logo Incom" title="INCOM - La ferretera de las telecomunicaciones" style="max-height: 3rem;" class="responsive-img" />
+            <img src='<%=ResolveUrl("~/img/webUI/newdesign/Incom_nuevo.png") %>' alt="Logo de Incom" title="INCOM - La ferretera de las telecomunicaciones" style="max-height: 3rem;" class="responsive-img" />
         </a>
     </div>
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem 0; margin: 2rem 0">

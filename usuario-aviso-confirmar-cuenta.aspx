@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
     <div class="container center-align" style="margin-top: 10vh; margin-bottom: 5%">
         <div class="row">
-            <img style="width: 10%;" src="/img/webUI/newdesign/por_verificar.png">
+            <img style="width: 10%;" src="/img/webUI/newdesign/por_verificar.png" alt="E-mail con alerta de mensaje">
             <h1 style="font-size: 2.5rem;">Casi terminamos, confirma y activa tu cuenta</h1>
         </div>
         <div class="row">

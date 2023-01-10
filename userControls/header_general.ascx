@@ -156,7 +156,7 @@
             </a>
             <%--<a title="Incom Retail" class="content_header_logo" href='<%= HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) %>'>
                 <img src='<%=ResolveUrl("~/img/webUI/incom_logo_mini.png") %>'
-                    alt="Logo Incom" title="Incom,  La ferretera de las telecomunicaciones" class="responsive-img header_logo_img" />
+                    alt="Logo de Incom" title="Incom,  La ferretera de las telecomunicaciones" class="responsive-img header_logo_img" />
             </a>--%>
             <%--<a title="Carrito de productos" class="black-text show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx">--%>
             <a title="Carrito de productos" class="carrito_productos_movil show-on-medium-and-down hide-on-med-and-up" href="/mi-carrito.aspx" onclick="Notiflix.Loading.custom('Estamos alistando tu carrito',{customSvgUrl: 'https://www.incom.mx/img/webUI/newdesign/icono_de_carga.svg'});">

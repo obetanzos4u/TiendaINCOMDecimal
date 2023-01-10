@@ -67,7 +67,7 @@
 
     <section class="aviso-version_movil is-m-auto is-font-medium is-w-full is-text-center is-bt-2 is-bg-gray-light is-p-4">
         <p class="is-text-center" style="margin: auto 2rem; font-size: 12px;">Te sugerimos el uso de tu dispositivo en modo horizontal para disfrutar de una experiencia más completa de tu tienda INCOM. </p>
-        <img title="Usa tu dispositivo en modo horizontal" alt="icono ilustrativo de dispositivo móvil en modo horizontal" src="/img/webUI/newdesign/screen-rotate.svg" style="height: 52px; width: auto;"/>
+        <img title="Usa tu dispositivo en modo horizontal" alt="" src="/img/webUI/newdesign/screen-rotate.svg" style="height: 52px; width: auto;"/>
     </section>
 
     <%--<div class="row ">

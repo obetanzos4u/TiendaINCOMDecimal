@@ -1891,25 +1891,25 @@ div.arrow-doble-down #svg-arrow-down {
 
         .container-descripcion > div:nth-child(1) {
             flex-direction: column;
-          }
+        }
 
-          .wrapper-descripcion {
+        .wrapper-descripcion {
             font-size: 9px;
             width: 90% !important;
             margin: 2rem;
             padding: 0 !important;
-          }
+        }
 
-          .ticket_compra {
+        .ticket_compra {
             width: 100% !important;
-          }
+        }
 
-          .agregar_carrito-out {
+        .agregar_carrito-out {
             padding: 8px 16px;
             font-size: 10px;
-          }
+        }
 
-          .agregar_carrito {
+        .agregar_carrito {
             font-size: 10px;
             width: 140px;
             height: 32px !important;
@@ -1917,26 +1917,26 @@ div.arrow-doble-down #svg-arrow-down {
             padding: 0 8px;
         }
 
-          .borde-ticket_compra {
+        .borde-ticket_compra {
             width: 80% !important;
             margin: auto;
-          }
+        }
 
-          .tabs {
+        .tabs {
             padding: 0 !important;
             margin: 0 auto 2rem auto !important;
-          }
+        }
 
-          .tabs > ul {
+        .tabs > ul {
             display: flex !important;
             flex-direction: column !important;
-          }
+        }
 
-          .tabs ul li {
+        .tabs ul li {
             width: 100% !important;
-          }
+        }
 
-          #productZoom {
+        #productZoom {
             display: none;
             position: absolute;
             float: right;
@@ -2003,7 +2003,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         .main-categorias {
-        padding-left: 3rem;
+            padding-left: 3rem;
         }
 
         .agregar_carrito {
@@ -4159,7 +4159,7 @@ div.arrow-doble-down #svg-arrow-down {
             margin-left: 0 !important;
             left: auto !important;
             right: auto;
-            border-top: 1px solid #b7b7b7
+            border-top: 1px solid #b7b7b7;
         }
 
         .productcard {
