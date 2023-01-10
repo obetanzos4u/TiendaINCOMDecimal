@@ -420,6 +420,10 @@ body {
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.5);
 }
 
+.is-shadow-soft {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
 /* Padding and margin section */
 .is-p-0 {
     padding: 0;
@@ -905,6 +909,10 @@ body {
 
 .is-border-soft {
     border-color: rgba(0, 0, 0, 0.315);
+}
+
+.is-boder-doble {
+    border: 4px double #d8d8d8;
 }
 
 .is-border-gray {
