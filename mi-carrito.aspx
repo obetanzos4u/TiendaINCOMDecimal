@@ -50,7 +50,7 @@
                                     </td>
                                     <td class="product-list-precio_cantidad">
                                         <div class="is-flex is-justify-between is-items-center">
-                                            <p>Precio unitario: </p>
+                                            <p>Precio unitario con IVA: </p>
                                             <asp:Label ID="lbl_precio_unitario" runat="server"></asp:Label>
                                         </div>
                                         <div class="is-flex is-justify-between is-items-center">

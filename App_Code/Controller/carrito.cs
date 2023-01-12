@@ -321,7 +321,7 @@ public class carrito
             return cmd.ExecuteScalar().ToString();
         }
     }
-    public bool actualizarStockCarritoProducto(string usuario, string numero_parte, int stock)
+    public bool actualizarStockCarritoProducto(string usuario, string numero_parte, decimal stock)
     {
         StringBuilder query = new StringBuilder();
         query.Append("SET LANGUAGE English; UPDATE carrito_productos SET stock1 = @stock1, stock1_fecha = @stock1_fecha WHERE usuario = @usuario AND numero_parte = @numero_parte;");
