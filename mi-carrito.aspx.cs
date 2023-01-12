@@ -532,7 +532,7 @@ public partial class mi_carrito : System.Web.UI.Page
         {
             lbl_stock.Visible = true;
             lbl_stock.InnerText = "Sin stock";
-            lbl_stock.Attributes.Add("class", "is-text-red is-font-bold is-text-sm");
+            lbl_stock.Attributes.Add("class", "txt-stock is-text-red is-font-bold is-text-sm");
             txt_cantidadCarrito.Text = "0";
             txt_cantidadCarrito.Attributes.Add("min", "0");
             txt_cantidadCarrito.Attributes.Add("max", "0");
@@ -544,7 +544,7 @@ public partial class mi_carrito : System.Web.UI.Page
         {
             lbl_stock.Visible = true;
             lbl_stock.InnerText = "En stock: " + stock.ToString();
-            lbl_stock.Attributes.Add("class", "is-text-green is-font-bold is-text-sm");
+            lbl_stock.Attributes.Add("class", "txt-stock is-text-green is-font-bold is-text-sm");
             txt_cantidadCarrito.Attributes.Add("min", "1");
             txt_cantidadCarrito.Attributes.Add("max", stock.ToString());
         }

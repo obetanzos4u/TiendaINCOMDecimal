@@ -1238,7 +1238,8 @@ div.arrow-doble-down #svg-arrow-down {
 
         .mi-carrito-product_options {
             justify-content: space-between;
-            width: 100%;
+            text-align: center;
+            width: 60%;
         }
 
         .mi-carrito-product_options > p {
@@ -3012,9 +3013,17 @@ div.arrow-doble-down #svg-arrow-down {
         font-size: 10px !important;
     }
 
-    .mi-carrito-product_options {
+    /* .mi-carrito-product_options {
         margin-top: 1rem;
         height: 2rem;
+    } */
+
+    .txt-stock {
+        font-size: 0.7rem !important;
+    }
+
+    .options-product_list {
+       margin-bottom: 1rem;
     }
 
     #up_stock {
