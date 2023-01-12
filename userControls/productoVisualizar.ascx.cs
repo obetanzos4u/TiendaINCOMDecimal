@@ -680,7 +680,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                     {
                         cont_documentacion.Visible = true;
                         HyperLink link = new HyperLink();
-                        link.CssClass = "waves -effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5";
+                        link.CssClass = "wrapper-documentation is-px-4 is-rounded is-bg-gray-100 is-p-2 is-space-r-6 txt-doc";
                         link.Text = @"<i class='material-icons left'>description</i>";
                         if (i == 0) link.Text += " Ficha Técnica"; else link.Text += " Más información";
                         link.NavigateUrl = Request.Url.GetLeftPart(UriPartial.Authority) + archivosManejador.pdfDirectorioWeb + documentacionPDF[i];
