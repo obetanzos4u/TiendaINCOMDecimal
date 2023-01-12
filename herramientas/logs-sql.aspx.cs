@@ -19,24 +19,22 @@ public partial class herramientas_logs_sql : System.Web.UI.Page
     }
     protected void cargarLogSQL()
     {
-
         try
         {
             SqlCommand cmd = new SqlCommand();
             SqlConnection con = new SqlConnection(conexiones.conexionTienda());
             cmd.Connection = con;
 
-            using (con) {
-
-
+            using (con)
+            {
                 cmd.CommandText = @"SELECT *, usuario = (SELECT email FROM usuarios WHERE id =idUsuario) FROM [_errores]  WHERE [fecha] BETWEEN @fechaDesde AND @fechaHasta ";
                 cmd.CommandType = CommandType.Text;
 
                 cmd.Parameters.Add("@fechaDesde", SqlDbType.DateTime);
                 cmd.Parameters.Add("@fechaHasta", SqlDbType.DateTime);
 
-                cmd.Parameters["@fechaDesde"].Value = txt_fecha_desde.Text+ " 00:00:00";
-                cmd.Parameters["@fechaHasta"].Value = txt_fecha_hasta.Text+ " 23:59:59";
+                cmd.Parameters["@fechaDesde"].Value = txt_fecha_desde.Text + " 00:00:00";
+                cmd.Parameters["@fechaHasta"].Value = txt_fecha_hasta.Text + " 23:59:59";
 
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -48,14 +46,10 @@ public partial class herramientas_logs_sql : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            materializeCSS.crear_toast(this, "Error: " + ex.Message, false);
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, ex.Message);
+            //materializeCSS.crear_toast(this, "Error: " + ex.Message, false);
         }
-
-
     }
-
-
-
     protected void btn_CargarLog_Click(object sender, EventArgs e)
     {
         cargarLogSQL();

@@ -53,7 +53,10 @@
             keyboard: false,
             wheel: false,
             trimSpace: true,
-            updateOnMove: true
+            updateOnMove: true,
+            rewind: true,
+            rewindByDrag: true,
+            start: Math.round(relacionadosSection.childNodes.length / 2)
         });
         splide.mount();
         splide.on("drag", () => {

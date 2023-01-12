@@ -6,10 +6,10 @@ public partial class menuPrincipal : System.Web.UI.UserControl
 {
     protected void Page_PreRender(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
+        //if (!IsPostBack)
+        //{
+        //}
             cargarMenu();
-        }
     }
     protected void cargarMenu()
     {

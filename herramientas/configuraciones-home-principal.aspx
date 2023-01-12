@@ -14,13 +14,13 @@
             </div>
             <div class="row">
                 <asp:UpdatePanel ID="up_Lv_Slider" UpdateMode="Conditional" class="col s12  m12 l12 margin-t-4x" runat="server">
-                    <ContentTemplate>
+                    <contenttemplate>
                         <asp:ListView ID="lv_imagenes" OnItemDataBound="lv_imagenes_ItemDataBound" runat="server">
-                            <LayoutTemplate>
+                            <layouttemplate>
                                 <div runat="server" id="itemPlaceholder"></div>
 
-                            </LayoutTemplate>
-                            <ItemTemplate>
+                            </layouttemplate>
+                            <itemtemplate>
                                 <asp:HiddenField ID="hf_idSlider" Value='<%#Eval("id")%>' runat="server" />
                                 <div class="col s12  m6 l6 xl4">
                                     <div class="card ">
@@ -70,9 +70,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </ItemTemplate>
+                            </itemtemplate>
 
-                            <EmptyDataTemplate>
+                            <emptydatatemplate>
                                 <div class="row">
                                     <div class="center-align col s12 l12 xl12">
                                         <h3 class="center-align">Aún no hay Slider Activos </h3>
@@ -80,12 +80,12 @@
                                             href="#modal_agregar_slider"><i class="left large material-icons">slideshow</i> Agregar</a>
                                     </div>
                                 </div>
-                            </EmptyDataTemplate>
-                            <EditItemTemplate>
+                            </emptydatatemplate>
+                            <edititemtemplate>
                                 <h2>No hay slideres </h2>
-                            </EditItemTemplate>
+                            </edititemtemplate>
                         </asp:ListView>
-                    </ContentTemplate>
+                    </contenttemplate>
                 </asp:UpdatePanel>
 
             </div>
@@ -129,10 +129,10 @@
         </div>
         <div class="row">
             <asp:ListView ID="lv_galeriaDeImagenes" runat="server">
-                <LayoutTemplate>
+                <layouttemplate>
                     <div runat="server" id="itemPlaceholder"></div>
-                </LayoutTemplate>
-                <ItemTemplate>
+                </layouttemplate>
+                <itemtemplate>
                     <asp:HiddenField ID="hf_imgFileName" Value='<%#Eval("Value")%>' runat="server" />
                     <div class="col s12  m6 l6 xl4">
                         <div class="card">
@@ -151,9 +151,9 @@
                             </div>
                         </div>
                     </div>
-                </ItemTemplate>
+                </itemtemplate>
 
-                <EmptyDataTemplate>
+                <emptydatatemplate>
                     <div class="row">
                         <div class="center-align col s12 l12 xl12">
                             <h3 class="center-align">Aún no hay Slider Activos </h3>
@@ -161,10 +161,10 @@
                                 href="#modal_agregar_slider"><i class="left large material-icons">slideshow</i> Agregar</a>
                         </div>
                     </div>
-                </EmptyDataTemplate>
-                <EditItemTemplate>
+                </emptydatatemplate>
+                <edititemtemplate>
                     <h2>No hay imagenes cargadas </h2>
-                </EditItemTemplate>
+                </edititemtemplate>
             </asp:ListView>
 
         </div>
@@ -242,12 +242,12 @@
                     </label>
                 </div>
                 <asp:UpdatePanel ID="up_agregarSlider" UpdateMode="Conditional" class="is-flex is-justify-center is-items-center is-py-2" runat="server">
-                    <ContentTemplate>
+                    <contenttemplate>
                         <asp:LinkButton ID="btn_agregarSlider" CssClass="is-btn-blue" OnClick="btn_agregarSlider_Click" runat="server">Agregar</asp:LinkButton>
-                    </ContentTemplate>
-                    <Triggers>
+                    </contenttemplate>
+                    <triggers>
                         <asp:AsyncPostBackTrigger ControlID="btn_agregarSlider" EventName="Click" />
-                    </Triggers>
+                    </triggers>
                 </asp:UpdatePanel>
             </div>
         </div>
@@ -314,14 +314,14 @@
                 </div>
                 <div class="col s12  m112 l12">
                     <asp:UpdatePanel UpdateMode="Conditional" runat="server">
-                        <ContentTemplate>
+                        <contenttemplate>
                             <asp:LinkButton ID="btn_editarSlider" OnClientClick="  $('#modal_editar_slider').modal('close');" CssClass="waves-effect waves-light btn blue-grey lighten-5 blue-grey-text text-darken-4"
                                 OnClick="btn_editarSlider_Click" runat="server">
                                 Editar Slider</asp:LinkButton>
-                        </ContentTemplate>
-                        <Triggers>
+                        </contenttemplate>
+                        <triggers>
                             <asp:AsyncPostBackTrigger ControlID="btn_editarSlider" EventName="Click" />
-                        </Triggers>
+                        </triggers>
                     </asp:UpdatePanel>
 
                 </div>
