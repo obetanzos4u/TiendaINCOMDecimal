@@ -249,7 +249,7 @@
                     </svg>
                 </div>
                 <div class="is-w-full is-px-2">
-                    <p class="is-m-0">Registros SQL</p>
+                    <p class="is-m-0">Registro de errores</p>
                 </div>
             </div>
         </asp:HyperLink>

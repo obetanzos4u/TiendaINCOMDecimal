@@ -926,7 +926,8 @@ public partial class mi_carrito : System.Web.UI.Page
             pedidosDatos obtener = new pedidosDatos();
             DataTable operacion = obtener.obtenerPedidoDatos(resultado);
 
-            string id_operacion_encritado = seguridad.Encriptar(operacion.Rows[0]["id"].ToString());
+            string idPedido = operacion.Rows[0]["id"].ToString();
+            string id_operacion_encritado = seguridad.Encriptar(idPedido);
             string nombre_pedido = operacion.Rows[0]["nombre_pedido"].ToString();
             string numero_operacion = operacion.Rows[0]["numero_operacion"].ToString();
             //decimal? MontoTotalProductos = PedidosEF.ObtenerMontoTotalProductos(numero_operacion);
@@ -944,6 +945,12 @@ public partial class mi_carrito : System.Web.UI.Page
             string UrlInfoDeContacto = GetRouteUrl("cliente-pedido-datos", new System.Web.Routing.RouteValueDictionary {
                         { "id_operacion", id_operacion_encritado }
                     });
+
+            var contacto = ContactosEF.ObtenerPorDefecto(usuario.id);
+            if (contacto != null)
+            {
+                PedidosEF.GuardarContacto(int.Parse(idPedido), contacto);
+            }
 
             if (string.IsNullOrWhiteSpace(strDireccionFacturacion)) strDireccionFacturacion = "No establecido aún.";
 

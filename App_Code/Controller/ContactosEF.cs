@@ -57,6 +57,21 @@ public class ContactosEF
 
         }
     }
+    static public contacto ObtenerPorDefecto(int idCliente)
+    {
+        try
+        {
+            using (var db = new tiendaEntities())
+            {
+                var contacto = db.contactos.AsNoTracking().Where(c => c.id_cliente == idCliente).FirstOrDefault();
+                return contacto;
+            }
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     /// <summary>
     /// 20200730 CM - Elimina un contacto
     /// </summary>
@@ -69,9 +84,9 @@ public class ContactosEF
             {
 
                 var direccion = context.contactos
-                    
+
                     .Where(s => s.id == idContacto)
-                    
+
                     .FirstOrDefault();
 
                 context.contactos.Remove(direccion);
@@ -99,7 +114,7 @@ public class ContactosEF
             using (var db = new tiendaEntities())
             {
                 var Contacto = db.contactos
-                    .Where(s => s.id == contacto.id) 
+                    .Where(s => s.id == contacto.id)
                     .FirstOrDefault();
 
 
@@ -117,7 +132,7 @@ public class ContactosEF
                     Contacto.email = contacto.email;
                     Contacto.telefono = contacto.telefono;
 
-                
+
                 }
                 db.SaveChanges();
             }
@@ -129,5 +144,5 @@ public class ContactosEF
             return new json_respuestas(false, "Ocurrio un error al guardar el contacto", true);
         }
     }
-    
+
 }

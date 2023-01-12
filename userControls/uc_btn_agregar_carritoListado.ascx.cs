@@ -55,7 +55,6 @@ public partial class uc_btn_agregar_carritoListado : System.Web.UI.UserControl
         bool resultado = agregar.resultado_operacion;
         if (resultado)
         {
-            UP_cantidadCarrito.Update();
             NotiflixJS.Message(UP_cantidadCarrito, NotiflixJS.MessageType.success, numero_parte + " agregado al carrito");
             //btn_agregar_productoCarrito.ToolTip = "Agregado";
             //materializeCSS.crear_toast(this.Page, agregar.mensaje_ResultadoOperacion, resultado);
