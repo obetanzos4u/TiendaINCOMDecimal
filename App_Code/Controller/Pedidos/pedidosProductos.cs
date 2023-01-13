@@ -23,11 +23,9 @@ public class pedidosProductos : model_pedidos_productos
 
     protected void dbConexion()
     {
-
         con = new SqlConnection(conexiones.conexionTienda());
         cmd = new SqlCommand();
         cmd.Connection = con;
-
     }
     public pedidosProductos()
     {
@@ -96,16 +94,12 @@ public class pedidosProductos : model_pedidos_productos
             da.Fill(ds);
             return ds.Tables[0];
         }
-
-
     }
-
     /// <summary>
     /// Obtiene la incedencia de productos en un pedido
     /// </summary>
     static public DataTable obtenerProducto(string numero_operacion, string producto)
     {
-
         SqlCommand cmd = new SqlCommand();
         SqlConnection con = new SqlConnection(conexiones.conexionTienda());
         cmd.Connection = con;
@@ -139,10 +133,7 @@ public class pedidosProductos : model_pedidos_productos
             da.Fill(ds);
             return ds.Tables[0];
         }
-
-
     }
-
     /// <summary>
     ///Agregar producto a una operación, si se agrega correctamente devuelve true
     /// </summary>
@@ -269,13 +260,10 @@ public class pedidosProductos : model_pedidos_productos
         }
         catch (Exception ex)
         {
-
             devNotificaciones.error("Agregar producto a pedido de la operación: " + numero_operacion, ex);
             return false;
         }
     }
-
-
     /// <summary>
     /// Retorna los productos de un pedido: id, numero_parte, descripcion, marca, cantidad, unidad
     /// </summary>
@@ -312,14 +300,10 @@ public class pedidosProductos : model_pedidos_productos
         }
         catch (Exception ex)
         {
-
             Task.Run(() => devNotificaciones.error("Obtener productos mínimos de un pedido, número de operación: " + numero_operacion, ex));
-
             return null;
         }
     }
-
-
     /// <summary>
     /// Retorna todos campos de la tabla "pedidos_productos"
     /// </summary>
@@ -355,18 +339,14 @@ public class pedidosProductos : model_pedidos_productos
         }
         catch (Exception ex)
         {
-
             devNotificaciones.error("Obtener productos de un pedido (todas las columnas), número de operación: " + numero_operacion, ex);
-
             return null;
         }
     }
-
     /// <summary>
     /// Retorna X cantidad de productos de un pedido: id, numero_parte, descripcion, marca, cantidad, unidad
     /// </summary>
     /// <param name="numeroProductos">Especifica el # de productos a retornar </param>  
-
     public DataTable obtenerProductosPedido_min(string numero_operacion, int numeroProductos)
     {
         try
@@ -374,7 +354,6 @@ public class pedidosProductos : model_pedidos_productos
             dbConexion();
             using (con)
             {
-
                 StringBuilder query = new StringBuilder();
 
                 query.Append("SET LANGUAGE English; ");
@@ -402,13 +381,44 @@ public class pedidosProductos : model_pedidos_productos
         }
         catch (Exception ex)
         {
-
             devNotificaciones.error("Obtener productos mínimos de un pedido", ex);
-
             return null;
         }
     }
+    public DataTable obtenerProductosPedidoDatosMin(string numero_operacion, int numeroProductos)
+    {
+        try
+        {
+            dbConexion();
+            using (con)
+            {
+                StringBuilder query = new StringBuilder();
+                query.Append("SET LANGUAGE English; ");
+                query.Append(@"SELECT TOP(@numeroProductos) productos.numero_parte, productos.descripcion, productos.marca, productos.cantidad, productos.unidad, datos.OperacionCancelada FROM pedidos_productos AS productos FULL OUTER JOIN pedidos_datos AS datos ON productos.numero_operacion = datos.numero_operacion WHERE productos.numero_operacion = @numero_operacion");
 
+                cmd.Parameters.Add("@numero_operacion", SqlDbType.NVarChar, 20);
+                cmd.Parameters["@numero_operacion"].Value = numero_operacion;
+
+                cmd.Parameters.Add("@numeroProductos", SqlDbType.Int);
+                cmd.Parameters["@numeroProductos"].Value = numeroProductos;
+
+                cmd.CommandText = query.ToString();
+                cmd.CommandType = CommandType.Text;
+
+                DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                con.Open();
+                da.Fill(ds);
+
+                return ds.Tables[0];
+            }
+        }
+        catch (Exception ex)
+        {
+            devNotificaciones.error("Obtener productos mínimos de un producto", ex);
+            return null;
+        }
+    }
     /// <summary>
     /// Retorna el número total de productos de un pedido, retorna 0 si se crea un error
     /// </summary>
@@ -446,8 +456,6 @@ public class pedidosProductos : model_pedidos_productos
             return 0;
         }
     }
-
-
     public void eliminarProducto(string idProductoCarrito)
     {
         StringBuilder query = new StringBuilder();
@@ -621,12 +629,10 @@ public class pedidosProductos : model_pedidos_productos
 
     public bool actualizarCantidadProducto(string numero_operacion, model_pedidos_productos producto)
     {
-
         StringBuilder query = new StringBuilder();
         query.Append("SET LANGUAGE English; UPDATE  pedidos_productos  SET ");
         query.Append("   precio_unitario = @precio_unitario, ");
         query.Append(" cantidad = @cantidad , precio_total = @precio_total ");
-
 
         dbConexion();
 
@@ -635,7 +641,6 @@ public class pedidosProductos : model_pedidos_productos
             // Si es producto de la DB se actualiza la información
             if (producto.tipo == 1)
             {
-
                 cmd.Parameters.Add("@descripcion", SqlDbType.NVarChar, 500);
                 cmd.Parameters["@descripcion"].Value = producto.descripcion;
 
@@ -649,17 +654,11 @@ public class pedidosProductos : model_pedidos_productos
 
             }
 
-
-
             cmd.Parameters.Add("@numero_operacion", SqlDbType.NVarChar, 20);
             cmd.Parameters["@numero_operacion"].Value = numero_operacion;
 
             cmd.Parameters.Add("@numero_parte", SqlDbType.NVarChar, 50);
             cmd.Parameters["@numero_parte"].Value = producto.numero_parte;
-
-
-
-
 
             cmd.Parameters.Add("@precio_unitario", SqlDbType.Money);
             cmd.Parameters["@precio_unitario"].Value = producto.precio_unitario;
@@ -669,7 +668,6 @@ public class pedidosProductos : model_pedidos_productos
 
             cmd.Parameters.Add("@precio_total", SqlDbType.Money);
             cmd.Parameters["@precio_total"].Value = producto.precio_total;
-
 
             // Es importante mantener este orden
             query.Append(" WHERE numero_operacion = @numero_operacion AND numero_parte = @numero_parte; ");
@@ -685,23 +683,13 @@ public class pedidosProductos : model_pedidos_productos
             }
             catch (Exception ex)
             {
-
                 Task.Run(() => devNotificaciones.error("Actualizar cantidad de producto en un pedido número:" + numero_operacion, ex));
                 return false;
             }
-
-
         }
-
-
-
     }
-
-
     public string crearPedidoDeCotizacion_productos(string numero_operacionPedido, string numero_operacion_cotizacion)
     {
-
-
         try
         {
             dbConexion();
@@ -770,16 +758,13 @@ public class pedidosProductos : model_pedidos_productos
             devNotificaciones.error("Crear productos de pedido y datos numéricos", ex);
             return null;
         }
-
     }
-
     /// <summary>
     /// 3/4 Crea el pedido y de vuelve un string con el número de operación, también vacía el carrito si esta fue creada con éxito.
     /// </summary>
     /// 
     public string crearPedidoDeCarrito_productos(usuarios usuario, string numero_operacion, model_impuestos impuestos, model_envios envio)
     {
-
         {
             // DECLARE @idUltimo int; SET @idUltimo = (SELECT MAX(id) FROM cotizaciones_datos);
             // numero_operacion: [ca= de carrito],[co=co directa]
@@ -913,24 +898,15 @@ public class pedidosProductos : model_pedidos_productos
                     devNotificaciones.error("Error al insertar productos y totales de carrito a pedido ", ex);
                     return null;
                 }
-
-
-
             }
-
-
-
         }
     }
-
-
     /// <summary>
     /// Actualiza el % de descuento en la tabla [pedidos_datosNumericos] [descuento] en valor decimal, ej: "5" para un 5%.
     /// </summary>
     // Creada 20200103 |  Carlos
     static public bool establecerDescuento(string numero_operacion, decimal descuento_porcentaje)
     {
-
         string query = @"UPDATE pedidos_datosNumericos SET descuento_porcentaje = @descuento_porcentaje  
                                 WHERE numero_operacion = @numero_operacion";
 
@@ -967,19 +943,14 @@ public class pedidosProductos : model_pedidos_productos
                 devNotificaciones.error("Error al aplicar descuento a pedido:" + numero_operacion, ex);
                 return false;
             }
-
         }
-
     }
-
-
     /// <summary>
     /// Actualiza los precios de los productos y totales, devuelve el resultado de la operación y los productos que no hayan sido posibles actualizar.
     /// </summary>
     /// Creada 20200309 |  Carlos
     static public Tuple<bool, List<string>> renovarPedido(string numero_operacion)
     {
-
         /* Se requiere actualizar la fecha de creación (sobre-escribe la inicial) y se guarda un registo en [pedidos_modificaciones]
          */
         // Lista que usaremos para almacenar los productos que tengan error al actualizarce.
@@ -1080,15 +1051,11 @@ public class pedidosProductos : model_pedidos_productos
 
         return Tuple.Create(resultadoMetodo, productosNOActualizados);
     }
-
-
     /// <summary>
     /// 20201105 Obtiene el número de parte y sus dimensiones y propiedades para el envio.
     /// </summary>
     static public dynamic ObtenerProductosCalculoEnvio(string numero_operacion)
     {
-
-
         using (var db = new tiendaEntities())
         {
             var ProductosEnvio = db.pedidos_productos

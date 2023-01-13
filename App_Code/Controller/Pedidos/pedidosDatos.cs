@@ -198,6 +198,7 @@ public class pedidosDatos
                                 datos.id_cliente,
                                 datos.fecha_creacion,
                                 datos.creada_por,
+                                datos.OperacionCancelada,
                                 datosNum.monedaPedido,
                                 datosNum.subtotal,
                                 datosNum.envio,

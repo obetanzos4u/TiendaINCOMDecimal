@@ -20,7 +20,6 @@ public partial class usuario_pedidos : System.Web.UI.Page
             cargarInfo(sender, e);
         }
     }
-
     protected void orden(object sender, EventArgs e)
     {
         var nameValues = HttpUtility.ParseQueryString(Request.QueryString.ToString());
@@ -50,7 +49,7 @@ public partial class usuario_pedidos : System.Web.UI.Page
 
         // INICIO - Motor de búsqueda
         if (!string.IsNullOrEmpty(txt_search.Text))
-        {
+        { 
             string find = txt_search.Text;
             string query = "nombre_pedido Like '%" + find + "%' OR  numero_operacion Like '%" + find + "%'";
             dtPedidos = buscador.filtrar(this, dtPedidos, query, find);
@@ -95,10 +94,7 @@ public partial class usuario_pedidos : System.Web.UI.Page
         {
             materializeCSS.crear_toast(this, "No cumple con la longitud requerida", false);
         }
-
-
     }
-
     protected void lvPedidos_ItemDataBound(object sender, ListViewItemEventArgs e)
     {
         Label lbl_numero_operacion = e.Item.FindControl("lbl_numero_operacion") as Label;
@@ -106,13 +102,15 @@ public partial class usuario_pedidos : System.Web.UI.Page
         HiddenField hf_id_pedidoSQL = e.Item.FindControl("hf_id_pedidoSQL") as HiddenField;
         HyperLink btn_visualizar = e.Item.FindControl("btn_visualizar") as HyperLink;
 
-        btn_editarPedido.NavigateUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary {
-                        { "id_operacion", seguridad.Encriptar(hf_id_pedidoSQL.Value) }
-                    });
+        btn_editarPedido.NavigateUrl = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary
+        {
+            { "id_operacion", seguridad.Encriptar(hf_id_pedidoSQL.Value) }
+        });
         ListView lvProductos = e.Item.FindControl("lvProductos") as ListView;
         pedidosProductos obtener = new pedidosProductos();
 
-        DataTable dt_productosCotizacionMin = obtener.obtenerProductosPedido_min(lbl_numero_operacion.Text, 5);
+        //DataTable dt_productosCotizacionMin = obtener.obtenerProductosPedido_min(lbl_numero_operacion.Text, 5);
+        DataTable dt_productosCotizacionMin = obtener.obtenerProductosPedidoDatosMin(lbl_numero_operacion.Text, 15);
 
         if (dt_productosCotizacionMin != null)
         {
@@ -120,13 +118,13 @@ public partial class usuario_pedidos : System.Web.UI.Page
             lvProductos.DataBind();
         }
 
-        btn_visualizar.NavigateUrl = GetRouteUrl("usuario-pedido-visualizar", new System.Web.Routing.RouteValueDictionary {
-                        { "id_operacion", seguridad.Encriptar(hf_id_pedidoSQL.Value) },
-                     });
+        btn_visualizar.NavigateUrl = GetRouteUrl("usuario-pedido-visualizar", new System.Web.Routing.RouteValueDictionary
+        {
+            { "id_operacion", seguridad.Encriptar(hf_id_pedidoSQL.Value) },
+        });
     }
     protected void lvProductos_ItemDataBound(object sender, ListViewItemEventArgs e)
     {
-
         Literal lt_descripcion = e.Item.FindControl("lt_descripcion") as Literal;
 
         System.Data.DataRowView rowView = e.Item.DataItem as System.Data.DataRowView;
@@ -138,9 +136,7 @@ public partial class usuario_pedidos : System.Web.UI.Page
             descripcion = descripcion.Substring(0, 40);
         }
         lt_descripcion.Text = descripcion;
-
     }
-
     protected void OnPagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
     {
         (lvPedidos.FindControl("DataPager1") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
