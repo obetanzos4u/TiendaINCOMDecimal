@@ -8,19 +8,24 @@
     <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div class="row">
             <div class="col l12">
-                <h1 class="is-text-center is-m-0">Cotizaciones por asesor </h1>
+                <h1 class="title-cotizaciones_asesor is-text-center is-m-0">Cotizaciones por asesor </h1>
             </div>
         </div>
         <!-- Dropdown Trigger -->
-        <div class="row">
+        <div class="row is-flex">
             <div class="col m6 l3 xl2 left-align">
                 <label>Usuario </label>
                 <asp:DropDownList ID="ddl_usuarios"    class="selectize-select  browser-default"
                     OnSelectedIndexChanged="ddl_usuarios_SelectedIndexChanged" runat="server">
                 </asp:DropDownList>
             </div>
-            <div class="col m6 l12 right-align">
-                <a id="btn_opciones_cotizaciones" class='dropdown-trigger btn blue' style="text-transform: none;" href='#' data-target='opciones_cotizaciones'>Opciones</a>
+            <div class="is-flex is-items-center right-align">
+                <a id="btn_opciones_cotizaciones" style="text-transform: none;" href='#' data-target='opciones_cotizaciones'>
+                    <div class='is-btn-blue is-flex is-items-center'>
+                        <img alt="Opciones de cotización" style="width: 1.5rem; height: auto; margin-right: 1rem;" src="/img/webUI/newdesign/opciones_cotizacion.png">
+                        Opciones
+                    </div>
+                </a>
             </div>
         </div>
         <!-- Dropdown Structure -->
@@ -65,7 +70,7 @@
 
             </script>
             </div>
-            <div class="  col s12 m4 l3">
+            <div class="col s12 m4 l3">
                   <label for="<%= ddl_moneda.ClientID  %>">Moneda</label>
                 <asp:DropDownList ID="ddl_moneda" runat="server">
                     <asp:ListItem Selected="True" Value="MXN" Text="MXN"></asp:ListItem>
@@ -91,13 +96,13 @@
  <!-- FIN : Modal Crear cotización en blanco -->
         
         <!-- INICIO : Filtros y orden -->
-        <div class="row">
-            <div class="col s12 m5 l4" >
-                <label>Busca por: Nombre de cotización o número de operación</label>
-                <asp:TextBox ID="txt_search" placeholder="Busca por: Nombre de cotización o número de operación"
+        <div class="container-cotizaciones_busqueda is-flex">
+            <div class="buscador_cotizacion-cotizaciones_busqueda" >
+                <label>Busca por nombre de cotización o número de operación</label>
+                <asp:TextBox ID="txt_search" placeholder="Nombre de cotización o número de operación"
                     AutoPostBack="true" OnTextChanged="orden" runat="server"></asp:TextBox>
             </div>
-            <div class="col s6 m4 l2 xl2" >
+            <div class="filtro_periodo-busqueda_cotizaciones" >
                 <label>Filtro periodo</label>
                 <asp:DropDownList ID="ddl_periodo" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                     <asp:ListItem Value="6" Text="Últimos 6 meses"></asp:ListItem>
@@ -106,9 +111,7 @@
                     <asp:ListItem Value="2019" Text="2019"></asp:ListItem>
                 </asp:DropDownList>
             </div>
-        </div>
-        <div class="row">
-            <div class="col s6 m4 l3">
+            <div class="ordenar_por_fecha-busqueda_cotizaciones">
                 <label>Ordenar por</label>
                 <asp:DropDownList ID="ddl_ordenBy" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                     <asp:ListItem Value="fecha_creacion" Text="Fecha"></asp:ListItem>
@@ -117,15 +120,15 @@
                     <asp:ListItem Value="productosTotales" Text="Cantidad de Productos"></asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div class="col s6 m3 l2">
+            <div class="ordenar_por_ascendente-busqueda_cotizaciones">
                 <label>Ordenar por</label>
                 <asp:DropDownList ID="ddl_ordenTipo" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                         <asp:ListItem Value="DESC" Text="Descendente"></asp:ListItem>
                     <asp:ListItem Value="ASC" Text="Ascendente"></asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div class="col s12 m12 l12">
-                <asp:Button OnClick="orden" Text="Buscar" CssClass="btn blue" runat="server" />
+            <div class="btn_buscar-cotizaciones_busqueda is-flex is-items-center">
+                <asp:Button OnClick="orden" Text="Buscar" CssClass="is-btn-blue is-flex is-items-center" runat="server" />
             </div>
         </div>
         <!-- FIN : Filtros y orden -->

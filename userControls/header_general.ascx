@@ -765,9 +765,14 @@
         align-items: center;
     }
 
-    .main_container {
+    <!-- .main_container {
         width: 100%;
         margin: 5em auto;
+    } -->
+
+    .main_container {
+        width: 100%;
+        margin: 4em auto;
     }
 
     .anuncios-UPS {
@@ -966,7 +971,7 @@
             display: flex;
             flex-direction: row;
             height: auto;
-            margin-bottom: 10vh;
+            margin-bottom: 8vh;
             flex-wrap: wrap;
             justify-content: center;
         }

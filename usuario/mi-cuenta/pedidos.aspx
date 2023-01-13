@@ -87,6 +87,7 @@
                                                         <asp:HiddenField ID="hf_id_pedidoSQL" Value='<%#Eval("id") %>' runat="server" />
                                                     </div>
                                                     <div class="card-content cotizacionesProductos_min" style="padding: 1rem">
+
                                                         <asp:ListView ID="lvProductos" OnItemDataBound="lvProductos_ItemDataBound" runat="server">
                                                             <LayoutTemplate>
                                                                 <table class="bordered operacionListadoProductos">
@@ -127,7 +128,7 @@
                                                         </table>
                                                     </div>
                                                     <div class="card-content " style="padding: 0 1rem;">
-                                                        <p class="is-m-0"><%# string.IsNullOrEmpty(Eval("OperacionCancelada").ToString()) ? "<strong class='is-text-black is-font-semibold'>Activa</strong>" : "<strong class='is-text-red is-font-semibold'>Cancelada</strong>" %></p>
+                                                        <div class="status-pedido_card is-m-0"><%# string.IsNullOrEmpty(Eval("OperacionCancelada").ToString()) ? "<p class='status-activar is-font-semibold'>Activo</p>" : "<p class='status-cancelar is-font-semibold'>Cancelado</p>" %></div>
                                                         <strong>Gestionada por: </strong><span class="is-text-black"><%#Eval("creada_por") %> </span>
                                                     </div>
                                                     <div class="card-action">
