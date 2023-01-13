@@ -261,6 +261,26 @@ margin-left: 1rem;
     font-weight: 700;
 }
 
+.status-pedido_card > .status-activar {
+    background: #388E3C;
+    width: fit-content;
+    padding: 0.2rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    float: right;
+    color: #fff;
+}
+
+.status-pedido_card > .status-cancelar {
+    background: #f87171;
+    width: fit-content;
+    padding: 0.2rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    float: right;
+    color: #fff;
+}
+
 @media only screen and (min-width:1000px) {
 
     .content_header_logo-img {
@@ -275,6 +295,11 @@ margin-left: 1rem;
     .content_header_logo {
         height: max-content;
         width: auto;
+    }
+
+    #mostrar_activos > .select-wrapper > input.select-dropdown.dropdown-trigger {
+        height: 2rem !important;
+        width: 90% !important;
     }
 }
 
