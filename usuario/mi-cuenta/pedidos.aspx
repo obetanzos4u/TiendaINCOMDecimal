@@ -13,27 +13,33 @@
                 </div>
             </div>
             <!-- INICIO : Filtros y orden -->
-            <div id="filtro-mis_pedidos" class="row is-top-3">
-                <div class="search_bar-mis_pedidos" style="margin-right: 1rem;">
-                    <label class="is-text-black">Busca por nombre o número de operación</label>
+            <div id="filtro-mis_pedidos" class="is-flex is-justify-evenly is-items-center is-py-2">
+                <div class="search_bar-mis_pedidos">
+                    <label class="is-text-black">Busca por número de operación: </label>
                     <asp:TextBox ID="txt_search" placeholder="Busca por nombre de pedido o número de operación" AutoPostBack="true" OnTextChanged="orden" Style="border-radius: 8px; height: 2rem; padding-left: 1rem;" runat="server"></asp:TextBox>
                 </div>
-                <div id="ordenar_pedido_fecha" class="col">
-                    <label class="is-text-black">Ordenar por</label>
+                <div id="ordenar_pedido_fecha">
+                    <label class="is-text-black">Ordenar por:</label>
                     <asp:DropDownList ID="ddl_ordenBy" AutoPostBack="true" OnSelectedIndexChanged="orden" Style="height: 2rem !important;" runat="server">
                         <asp:ListItem Value="fecha_creacion" Text="Fecha"></asp:ListItem>
-                        <asp:ListItem Value="nombre_pedido" Text="Nombre Operación"></asp:ListItem>
+                        <%--<asp:ListItem Value="nombre_pedido" Text="Nombre Operación"></asp:ListItem>--%>
                         <asp:ListItem Value="total" Text="Total"></asp:ListItem>
-                        <asp:ListItem Value="productosTotales" Text="Cantidad de Productos"></asp:ListItem>
+                        <asp:ListItem Value="productosTotales" Text="Productos"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
-                <div id="ordenar_pedido_ascendente" class="col">
-                    <label class="is-text-black">Ordenar por</label>
+                <div id="ordenar_pedido_ascendente">
+                    <label class="is-text-black">Ordenar por:</label>
                     <asp:DropDownList ID="ddl_ordenTipo" AutoPostBack="true" OnSelectedIndexChanged="orden" Style="height: 2rem !important;" runat="server">
                         <asp:ListItem Value="DESC" Text="Descendente"></asp:ListItem>
                         <asp:ListItem Value="ASC" Text="Ascendente"></asp:ListItem>
-
-
+                    </asp:DropDownList>
+                </div>
+                <div id="mostrar_activos">
+                    <label class="is-text-black">Visualizar:</label>
+                    <asp:DropDownList ID="ddl_mostrar" AutoPostBack="true" OnSelectedIndexChanged="orden" Style="height: 2rem !important;" runat="server">
+                        <asp:ListItem Value="TODOS" Text="Todos"></asp:ListItem>
+                        <asp:ListItem Value="ACTIVOS" Text="Activos"></asp:ListItem>
+                        <asp:ListItem Value="CANCELADOS" Text="Cancelados"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
             </div>
