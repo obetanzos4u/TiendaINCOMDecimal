@@ -5,13 +5,13 @@
         <div class="row">
             <div class="">
                 <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft">Mi cuenta</h2>
-                <h2 class="margin-t-2x">Bienvenido,
+                <h2 class="margin-t-2x">Bienvenido a tu cuenta INCOM,
                     <asp:Literal ID="li_h1_nombre" runat="server"></asp:Literal></h2>
                 <!-- <h3 class="margin-b-2x">Datos de la cuenta: </h3> -->
             </div>
         </div>
         <div class="row " id="datosCliente" runat="server">
-            <h4 class="margin-b-2x">Datos de la cuenta: </h4>
+            <h4 class="margin-b-2x">Estos son los datos de tu cuenta: </h4>
             <div class="col s12 l12">
                 <ul class="collection ">
                     <li class="collection-item"><span class="title"><strong>Nombre: </strong></span>

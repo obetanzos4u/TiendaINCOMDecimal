@@ -256,6 +256,11 @@ margin-left: 1rem;
     height: 2rem !important;
 }
 
+.title-cotizaciones_asesor {
+    font-size: 1.56rem;
+    font-weight: 700;
+}
+
 @media only screen and (min-width:1000px) {
 
     .content_header_logo-img {
@@ -1281,6 +1286,46 @@ div.arrow-doble-down #svg-arrow-down {
         .tabla-analisis_pedidos {
             width: 96%;
         }
+
+        .container-cotizaciones_busqueda {
+            flex-direction: column;
+        }
+
+        .buscador_cotizacion-cotizaciones_busqueda {
+            width: 80%;
+        }
+
+        .filtro_periodo-busqueda_cotizaciones > .select-wrapper > input.select-dropdown.dropdown-trigger {
+            height: 2rem !important;
+        }
+
+        .filtro_periodo-busqueda_cotizaciones > .select-wrapper > svg.caret {
+            margin-right: 18%;
+        }
+
+        .filtro_periodo-busqueda_cotizaciones, .ordenar_por_fecha-busqueda_cotizaciones, .ordenar_por_ascendente-busqueda_cotizaciones {
+            width: 50%;
+        }
+
+        .ordenar_por_fecha-busqueda_cotizaciones > .select-wrapper > input.select-dropdown.dropdown-trigger {
+            height: 2rem !important;
+        }
+
+        .ordenar_por_fecha-busqueda_cotizaciones  > .select-wrapper > svg.caret {
+            margin-right: 18%;
+        }
+
+        .ordenar_por_ascendente-busqueda_cotizaciones > .select-wrapper > input.select-dropdown.dropdown-trigger {
+            height: 2rem !important;
+        }
+
+        .ordenar_por_ascendente-busqueda_cotizaciones  > .select-wrapper > svg.caret {
+            margin-right: 18%;
+        }
+
+        .btn_buscar-cotizaciones_busqueda {
+            margin-top: 1rem;
+        }
     }
 
     /*Fin contenedor de ficha de productos */
@@ -2288,6 +2333,47 @@ div.arrow-doble-down #svg-arrow-down {
 
         .col.input-name-number_operation {
             margin-right: 1rem;
+        }
+
+        #btn_opciones_cotizaciones {
+            margin-top: 1rem;
+        }
+
+        .buscador_cotizacion-cotizaciones_busqueda {
+            width: 25%;
+            margin-right: 3rem;
+        }
+
+        .filtro_periodo-busqueda_cotizaciones > .select-wrapper > input.select-dropdown.dropdown-trigger {
+            height: 2rem !important;
+        }
+
+        .filtro_periodo-busqueda_cotizaciones > .select-wrapper > svg.caret {
+            margin-right: 2rem;
+        }
+
+        .filtro_periodo-busqueda_cotizaciones, .ordenar_por_fecha-busqueda_cotizaciones, .ordenar_por_ascendente-busqueda_cotizaciones {
+            width: 15%;
+        }
+
+        .ordenar_por_fecha-busqueda_cotizaciones > .select-wrapper > input.select-dropdown.dropdown-trigger {
+            height: 2rem !important;
+        }
+
+        .ordenar_por_fecha-busqueda_cotizaciones  > .select-wrapper > svg.caret {
+            margin-right: 2rem;
+        }
+
+        .ordenar_por_ascendente-busqueda_cotizaciones > .select-wrapper > input.select-dropdown.dropdown-trigger {
+            height: 2rem !important;
+        }
+
+        .ordenar_por_ascendente-busqueda_cotizaciones  > .select-wrapper > svg.caret {
+            margin-right: 2rem;
+        }
+
+        .btn_buscar-cotizaciones_busqueda {
+            margin-top: 1rem;
         }
     }
 

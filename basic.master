@@ -176,8 +176,14 @@
                 border-radius: 0px 6px 6px 0px;
             }
 
+            /*
             .slider-container {
                 margin: auto 5rem 5rem 5rem;
+            }
+            */
+
+            .slider-container {
+                margin: auto 5rem 4rem 5rem;
             }
 
             .splide-destacados {
