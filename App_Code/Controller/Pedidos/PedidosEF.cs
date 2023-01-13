@@ -12,21 +12,14 @@ using System.Web;
 
 public class PedidosProductosDatos
 {
-
     public pedidos_productos productos { get; set; }
     public productos_Datos datos { get; set; }
-
-
-
-
 }
 /// <summary>
 /// Descripción breve de PedidosEF
 /// </summary>
-
 public class PedidosDTOModel
 {
-
     public List<pedidos_productos> productos { get; set; }
     public pedidos_datos datos { get; set; }
     public pedidos_datosNumericos montos { get; set; }
@@ -34,8 +27,6 @@ public class PedidosDTOModel
     public pedidos_direccionEnvio direccionEnvio { get; set; }
     public pedidos_direccionFacturacion direccionFacturacion { get; set; }
 }
-
-
 public class PedidosEF
 {
     public PedidosEF()
@@ -44,7 +35,6 @@ public class PedidosEF
         // TODO: Agregar aquí la lógica del constructor
         //
     }
-
     /// <summary>
     /// Regresa con json_respuestas donde si es correcto, devuelve el tipo PedidosDTOModel en el atributo Response
     /// </summary>
@@ -113,29 +103,24 @@ public class PedidosEF
     /// </summary>
     public static pedidos_datos ObtenerDatos(string numero_operacion)
     {
-
-
         try
         {
-
             using (var db = new tiendaEntities())
             {
                 var PedidoDatos = db.pedidos_datos
                      .AsNoTracking()
                      .Where(s => s.numero_operacion == numero_operacion).FirstOrDefault();
-
-
                 return PedidoDatos;
             }
         }
         catch (Exception ex)
         {
-
             return null;
         }
-    }    /// <summary>
-         /// 20210810 CM - Obtiene la información de los pedidos por un periodo
-         /// </summary>
+    }
+    /// <summary>
+    /// 20210810 CM - Obtiene la información de los pedidos por un periodo
+    /// </summary>
     public static async Task<List<pedidos_datos>> ObtenerDatos(DateTime desde, DateTime hasta, bool OmitirCancelados, bool omitirCotizaciones)
     {
         try

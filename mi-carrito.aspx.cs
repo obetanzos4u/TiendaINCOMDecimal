@@ -77,7 +77,7 @@ public partial class mi_carrito : System.Web.UI.Page
             Page.Title = "Carrito de compras";
             Page.MetaDescription = "Carrito de compras, compra en linea, telecomunicaciones y fibra óptica";
             obtenerStockCarrito();
-            obtenerEnvio();
+            //obtenerEnvio();
             cargarProductoAsync();
             up_carrito.Update();
 
@@ -95,7 +95,6 @@ public partial class mi_carrito : System.Web.UI.Page
 
                 string script = @" 
                    document.addEventListener('DOMContentLoaded', () => { 
-                         console.log('sasfa');
                         setTimeout(function () { 
                                                     M.Modal.getInstance(document.querySelector('#modal_NumerosContacto')).open(); 
                                                }, 3500);  
@@ -224,7 +223,7 @@ public partial class mi_carrito : System.Web.UI.Page
                         foreach (dynamic producto in stockResult)
                         {
                             string no_ParteSap = producto.CPRODUCT_ID;
-                            int stock = producto.KRZ38A3122568DF31A282B12B;
+                            decimal stock = producto.KRZ38A3122568DF31A282B12B;
                             string stockSolicitado = producto.KRZAC52B3549F1E886FD1FA4D;
                             string medida = producto.TQUANTITY_UOM;
                             string numero_parte = obtenerNumeroParte.obtenerNumeroParteWithSAP(no_ParteSap);
@@ -308,7 +307,7 @@ public partial class mi_carrito : System.Web.UI.Page
                 bool carritoDisponibleStock = false;
                 foreach (DataRow producto in stockProductos.Rows)
                 {
-                    if (int.Parse(producto["stock1"].ToString()) > 0)
+                    if (decimal.Parse(producto["stock1"].ToString()) > 0)
                     {
                         carritoDisponibleStock = true;
                     }
@@ -455,7 +454,7 @@ public partial class mi_carrito : System.Web.UI.Page
 
         System.Data.DataRowView rowView = e.Item.DataItem as System.Data.DataRowView;
 
-        decimal precio_unitario = decimal.Parse(rowView["precio_unitario"].ToString());
+        decimal precio_unitario = decimal.Parse(rowView["precio_unitario"].ToString()) * decimal.Parse(Session["impuesto"].ToString());
         decimal precio_total = decimal.Parse(rowView["precio_total"].ToString()) * decimal.Parse(Session["impuesto"].ToString());
         decimal tipo_cambio = decimal.Parse(rowView["tipo_cambio"].ToString());
         decimal cantidad = decimal.Parse(rowView["cantidad"].ToString());
@@ -465,7 +464,7 @@ public partial class mi_carrito : System.Web.UI.Page
         string titulo = rowView["titulo"].ToString();
         string marca = rowView["marca"].ToString();
         string activo = rowView["activo"].ToString();
-        int stock = int.Parse(rowView["stock1"].ToString());
+        decimal stock = decimal.Parse(rowView["stock1"].ToString());
 
         TextBox txt_cantidadCarrito = (TextBox)e.Item.FindControl("txt_cantidadCarrito");
         HtmlGenericControl warning_envios_medidas = (HtmlGenericControl)e.Item.FindControl("warning_envios_medidas");

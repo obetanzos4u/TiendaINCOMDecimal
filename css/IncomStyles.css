@@ -54,6 +54,10 @@ body {
     flex-direction: row;
 }
 
+.is-flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
 .is-flex-col {
     flex-direction: column;
 }

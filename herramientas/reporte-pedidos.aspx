@@ -59,36 +59,36 @@
                 </table>
             </div>
             <div class="is-w-full">
-                <div class="tabla-fecha_registros_pedidos"  style="display: table-cell !important; width: 10%;">
+                <div class="tabla-fecha_registros_pedidos" style="display: table-cell !important; width: 10%;">
                     <asp:GridView ID="gv_desgloseMeses"
                         OnRowDataBound="gv_desgloseMeses_RowDataBound"
                         AutoGenerateColumns="False"
                         EmptyDataText="No hay datos disponibles."
                         AllowPaging="True"
                         runat="server">
-                        <columns>
+                        <Columns>
                             <asp:BoundField DataField="Year" HeaderText="Año"
                                 SortExpression="Year" ItemStyle-CssClass="is-text-left" />
                             <asp:BoundField DataField="MesNombre" HeaderText="Mes"
                                 InsertVisible="False" ReadOnly="True" SortExpression="MesNombre" ItemStyle-CssClass="is-text-left" />
                             <asp:BoundField DataField="TotalPedidosMes" HeaderText="Pedidos"
-                                SortExpression="TotalPedidosMes" ItemStyle-CssClass="is-text-center" HeaderStyle-CssClass="is-text-center"/>
+                                SortExpression="TotalPedidosMes" ItemStyle-CssClass="is-text-center" HeaderStyle-CssClass="is-text-center" />
                             <asp:BoundField DataField="MontoTotalMesSNImpuestos" HeaderText="Monto vendido"
                                 SortExpression="MontoTotalMesSNImpuestos" ItemStyle-CssClass="is-text-center" HeaderStyle-CssClass="is-text-center" />
                             <asp:BoundField DataField="TotalPedidosPagados" HeaderText="Pedidos pagados"
                                 SortExpression="TotalPedidosPagados" ItemStyle-CssClass="is-text-center" HeaderStyle-CssClass="is-text-center" />
-                        </columns>
+                        </Columns>
                     </asp:GridView>
                 </div>
             </div>
         </div>
         <div class="row">
             <asp:ListView ID="lv_desglose_pedidos" OnItemDataBound="lv_desglose_pedidos_ItemDataBound" runat="server">
-                <layouttemplate>
+                <LayoutTemplate>
                     <h2 class="title-desglose_pedidos">Desglose</h2>
                     <asp:PlaceHolder ID="itemPlaceholder" runat="server" />
-                </layouttemplate>
-                <itemtemplate>
+                </LayoutTemplate>
+                <ItemTemplate>
                     <div class="col colx80 colx50 colx33 colx25" style="margin-bottom: 10px;">
                         <div class="card card-reporte_pedidos">
                             <asp:HiddenField ID="hf_numero_operacion" Value='<%# Eval("PedidoDatos.numero_operacion") %>' runat="server" />
@@ -100,11 +100,12 @@
                                 </p>
                                 <div class="is-inline-block is-top-1 is-w-full">
                                     <section class="is-w-full is-text-center is-bt-1">
-                                            <asp:HyperLink ID="link_pedido_resumen" class="is-text-center" runat="server">
+                                        <asp:HyperLink ID="link_pedido_resumen" class="is-text-center" runat="server">
                                                 Ver resumen de pedido &nbsp<i class="tiny material-icons">open_in_new</i>
-                                            </asp:HyperLink>
+                                        </asp:HyperLink>
                                     </section>
-                                    <p style="padding-left: 5px;">Núm. de operación:&nbsp &nbsp  
+                                    <p style="padding-left: 5px;">
+                                        Núm. de operación:&nbsp &nbsp  
                                         <span class="is-font-semibold is-select-all"><%# Eval("PedidoDatos.numero_operacion") %></span>
                                     </p>
                                 </div>
@@ -112,9 +113,10 @@
 
                                 <table>
                                     <tbody>
-                                        <tr class="is-flex is-top-1" style="border-top: 1px solid #e0e0e0;" >
+                                        <tr class="is-flex is-top-1" style="border-top: 1px solid #e0e0e0;">
                                             <td class="is-flex">
-                                                <p style="height: 42px">Creado por:&nbsp 
+                                                <p style="height: 42px">
+                                                    Creado por:&nbsp 
                                                     <span class="is-font-semibold" style="text-transform: lowercase;">
                                                         <%# Eval("PedidoDatos.creada_por") %>
                                                     </span>
@@ -128,29 +130,32 @@
                                             <td class="is-font-semibold"><%#String.Format("{0:C}",   Eval("PedidoDatosNumericos.total")) %>      <%# Eval("PedidoDatosNumericos.monedaPedido") %></td>
                                         </tr>
                                         <tr class="is-flex" style="height: 80px;">
-                                            <td class="is-flex"><p class="text-estatus_pago" style="margin: auto 0px !important;">Pago:&nbsp &nbsp</p></td>
-                                            <td class="is-flex"><asp:Label ID="lbl_estatus_pago" style="margin: auto 0px !important; font-weight: 600;" runat="server"></asp:Label></td>
+                                            <td class="is-flex">
+                                                <p class="text-estatus_pago" style="margin: auto 0px !important;">Pago:&nbsp &nbsp</p>
+                                            </td>
+                                            <td class="is-flex">
+                                                <asp:Label ID="lbl_estatus_pago" Style="margin: auto 0px !important; font-weight: 600;" runat="server"></asp:Label></td>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <span class="hide"><%#Container.DataItemIndex %></span>
                                 <asp:UpdatePanel ID="up_desglose_pedido" UpdateMode="Conditional" style="height: 200px;" runat="server">
-                                    <contenttemplate>
-                                        <div class="text-estatus_reporte_pedido is-flex is-top-1" style="padding-bottom: 1rem; border-bottom: 1px solid #252525;"> 
+                                    <ContentTemplate>
+                                        <div class="text-estatus_reporte_pedido is-flex is-top-1" style="padding-bottom: 1rem; border-bottom: 1px solid #252525;">
                                             <p class="is-flex" style="padding-left: 5px;">
                                                 Estatus:&nbsp &nbsp
                                             </p>
                                             <strong>
                                                 <asp:Label ID="lbl_OperacionCancelada"
-                                                class="is-text-xl is-font-semibold is-flex is-items-center"
-                                                runat="server">
+                                                    class="is-text-xl is-font-semibold is-flex is-items-center"
+                                                    runat="server">
                                                 <%# Eval("PedidoDatos.OperacionCancelada") %>
                                                 </asp:Label>
                                             </strong>
                                         </div>
                                         <asp:Panel ID="ContentPedidoDesactivar" class="is-flex is-justify-center is-items-center is-flex-col" runat="server">
                                             <p class="is-w-full" style="float: left; font-size: 1rem; margin: 1rem 0rem 1rem auto;">Para cancelar:</p>
-                                            <asp:TextBox ID="txt_motivo_cancelacion" Text="" placeholder="Describe aquí el motivo de cancelación" style="padding-left: 1rem !important; width: 96% !important;" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txt_motivo_cancelacion" Text="" placeholder="Describe aquí el motivo de cancelación" Style="padding-left: 1rem !important; width: 96% !important;" runat="server"></asp:TextBox>
                                             <asp:LinkButton ID="btn_desactivar_pedido"
                                                 OnClick="btn_desactivar_pedido_Click" OnClientClick="return confirm('¿Seguro que deseas cancelar el pedido?')" CssClass="is-btn-gray is-flex is-justify-center is-top-1 is-bt-1" runat="server">
                                                     Cancelar
@@ -162,15 +167,15 @@
                                                 Reactivar pedido
                                             </asp:LinkButton>
                                         </asp:Panel>
-                                    </contenttemplate>
-                                    <triggers>
+                                    </ContentTemplate>
+                                    <Triggers>
                                         <asp:AsyncPostBackTrigger ControlID="btn_desactivar_pedido" EventName="Click" />
-                                    </triggers>
+                                    </Triggers>
                                 </asp:UpdatePanel>
                             </div>
                         </div>
                     </div>
-                </itemtemplate>
+                </ItemTemplate>
             </asp:ListView>
         </div>
     </div>
