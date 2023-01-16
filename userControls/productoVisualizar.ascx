@@ -112,7 +112,9 @@
                                     </section>
                                 </div>
                             </div>
-                            <uc1:btn_addOperacion ID="productoAddOperacion" runat="server"></uc1:btn_addOperacion>
+                            <div class="is-flex is-justify-center is-items-center" visible="false" runat="server">
+                                <uc1:btn_addOperacion ID="productoAddOperacion" runat="server"></uc1:btn_addOperacion>
+                            </div>
                         </div>
                     </div>
                     <uc_share_btn:share_btnGen ID="share_btn" runat="server"></uc_share_btn:share_btnGen>
@@ -236,21 +238,21 @@
     });
 
     function copyElementSize(sourceElement, targetElement) {
-    // Get the height and width of the source element
-    var height = sourceElement.offsetHeight;
-    var width = sourceElement.offsetWidth;
+        // Get the height and width of the source element
+        var height = sourceElement.offsetHeight;
+        var width = sourceElement.offsetWidth;
 
-    // Set the height and width of the target element
-    targetElement.style.height = height + "px";
-    targetElement.style.width = width + "px";
+        // Set the height and width of the target element
+        targetElement.style.height = height + "px";
+        targetElement.style.width = width + "px";
 
-    //The margin-left of the target element will now be set to be its width plus 48 pixels whenever the screen size changes.
-    targetElement.style.marginLeft = (width * 2.1) + "px";
+        //The margin-left of the target element will now be set to be its width plus 48 pixels whenever the screen size changes.
+        targetElement.style.marginLeft = (width * 2.1) + "px";
     }
 
     // Listen for screen size changes and call the function
-    window.addEventListener("resize", function() {
-    copyElementSize(document.getElementById("productGallery_selected"), document.getElementById("productZoom"));
+    window.addEventListener("resize", function () {
+        copyElementSize(document.getElementById("productGallery_selected"), document.getElementById("productZoom"));
     });
 
     copyElementSize(document.getElementById("productGallery_selected"), document.getElementById("productZoom"));

@@ -249,8 +249,8 @@
                                                 Ver Disponibilidad</a>
                                             <!-- <asp:Label runat="server" ID="lbl_puntajeBusqueda" Visible="false"></asp:Label> -->
                                         </div>
-                                        <div class="is-py-1">
-                                            <uc1:btn_addOperacion ID="productoAddOperacion" Visible="false" numero_parte='<%# Eval("numero_parte") %>' descripcion_corta='<%# Eval("descripcion_corta") %>' runat="server"></uc1:btn_addOperacion>
+                                        <div class="is-py-1" id="cnt_addOperacion" visible="false" runat="server">
+                                            <uc1:btn_addOperacion ID="productoAddOperacion" numero_parte='<%# Eval("numero_parte") %>' descripcion_corta='<%# Eval("descripcion_corta") %>' runat="server"></uc1:btn_addOperacion>
                                         </div>
                                     </div>
                                 </div>
