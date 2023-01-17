@@ -261,7 +261,7 @@ margin-left: 1rem;
     font-weight: 700;
 }
 
-.status-pedido_card > .status-activar {
+.status-pedido_card > .status-activo {
     background: #388E3C;
     width: fit-content;
     padding: 0.2rem 1.25rem;
@@ -271,7 +271,7 @@ margin-left: 1rem;
     color: #fff;
 }
 
-.status-pedido_card > .status-cancelar {
+.status-pedido_card > .status-cancelado {
     background: #f87171;
     width: fit-content;
     padding: 0.2rem 1.25rem;
@@ -279,6 +279,67 @@ margin-left: 1rem;
     font-size: 0.75rem;
     float: right;
     color: #fff;
+}
+
+.crear_cotizacion-moneda > .select-wrapper {
+    width: 15%;
+}
+
+.crear_cotizacion-moneda > .select-wrapper > input.select-dropdown.dropdown-trigger {
+    height: 2rem !important;
+}
+
+.crear_cotizacion-moneda > .select-wrapper > svg.caret {
+    margin-right: 1rem;
+}
+
+.btn-cerrar_modal {
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    margin: 6px 0;
+}
+
+.btn-cerrar_modal:hover {
+    text-decoration: underline;
+    transition: .3s ease-out;
+}
+
+.card-content.cotizaciones-agente {
+    height: 4rem;
+}
+
+.crear_facturacion-regimen_fiscal > .select-wrapper > input.select-dropdown.dropdown-trigger {
+    height: 2rem !important;
+}
+
+#txt_nombre_direccion {
+    height: 2rem;
+}
+
+.crear_facturacion-rfc > input, 
+.crear_facturacion-nombre_direccion > input,
+.crear_facturacion-codigo-postal > input,
+.crear_facturacion-numero > input,
+.crear_facturacion-calle > input,
+.crear_facturacion-colonia > input,
+.crear_facturacion-delegacion_municipio > input,
+.crear_facturacion-razon_social > input,
+.crear_facturacion-estado > input,
+.crear_facturacion-pais > .select-wrapper > input.select-dropdown.dropdown-trigger {
+    height: 2rem !important;
+}
+
+.crear_facturacion-rfc > label, 
+.crear_facturacion-nombre_direccion > label,
+.crear_facturacion-codigo-postal > label,
+.crear_facturacion-numero > label,
+.crear_facturacion-calle > label,
+.crear_facturacion-colonia > label,
+.crear_facturacion-delegacion_municipio > label,
+.crear_facturacion-razon_social > label,
+.crear_facturacion-estado > label {
+    margin-left: 1rem;
 }
 
 @media only screen and (min-width:1000px) {
@@ -997,9 +1058,9 @@ div.arrow-doble-down #svg-arrow-down {
             margin: 1rem auto 10vh auto;
         }
 
-        .grid-ta-resultados {
+        /* .grid-ta-resultados {
             grid-template-columns: auto !important;
-        }
+        } */
     }
 
     /*Contenedor de ficha de productos */

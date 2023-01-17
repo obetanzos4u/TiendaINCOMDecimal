@@ -20,7 +20,7 @@
             margin: auto 0px !important;
             display: grid;
             grid-gap: 5px;
-            grid-template-columns: 160px auto;
+            grid-template-columns: auto !important;
             grid-template-areas: 'sidebar content';
         }
 
@@ -349,7 +349,7 @@
             setTimeout(function () {
                 $('#modal_producto_disponibilidad').modal('open');
             }, 1000);
-        } 
+        }
         else {
             localStorage.setItem('disponibilidadProducto', numero_parte);
             var content = document.querySelector("#content_producto_disponibilidad");
@@ -369,36 +369,40 @@
     var toggleBtn = document.querySelector('.sidebar-toggle');
     var sidebarRes = document.querySelector('.contentResultados-sidedar');
 
-    toggleBtn.addEventListener('click', function() {
-        toggleBtn.classList.toggle('is-closed');
-        sidebarRes.classList.toggle('is-closed');
-    })
+    var divState = localStorage.getItem('divState');
 
-    function togglehideElement() {
-        const toggleBtn = document.getElementById("sidebar-toggle-res");
-        toggleBtn.addEventListener("click", toggleElement);
-
-        if (element.style.display === "none") {
-            element.style.display = "block";
-        } 
-        else {
-            element.style.display = "none";
-        }
-    }
-
-        function addClassOnLinkClick(linkId, elementId, className) {
-        // Get the link and element by their ID
+    function addClassOnLinkClick(linkId, elementId, className, divState) {
         var linkRes = document.getElementById(linkId);
         var elementRes = document.getElementById(elementId);
 
-        // Add an event listener to the link that adds the class to the element when the link is clicked
         linkRes.addEventListener('click', function(event) {
-            event.preventDefault();  // prevent the link from following its href
+            event.preventDefault();
+            if(divState === 'shown'){
             elementRes.classList.add(className);
+            }
         });
     }
 
-    addClassOnLinkClick('sidebar-toggle-res', 'res-grid', 'grid-ta-resultados');
+    if (divState == 'hidden') {
+        toggleBtn.classList.add('is-closed');
+        sidebarRes.classList.add('is-closed');
+        addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'hidden');
+    }else{
+        addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'shown');
+    }
+
+    toggleBtn.addEventListener('click', function() {
+        toggleBtn.classList.toggle('is-closed');
+        sidebarRes.classList.toggle('is-closed');
+        if (sidebarRes.classList.contains('is-closed')) {
+            localStorage.setItem('divState', 'hidden');
+            addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'hidden');
+        } else {
+            localStorage.setItem('divState', 'shown');
+            addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'shown');
+        }
+    });
+
 </script>
 
 <!-- FIN - Funcionalidades JS disponibilidad -->

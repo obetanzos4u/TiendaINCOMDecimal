@@ -11,7 +11,7 @@
                 <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft">Mis cotizaciones </h2>
             </div>
             <div class="">
-                <h3>Encuentra cualquiera de tus cotizaciones realizadas:</h3>
+                <h3>Encuentra cualquiera de tus cotizaciones realizadas.</h3>
             </div>
         </div>
         <!-- Dropdown Trigger -->
@@ -48,12 +48,12 @@
 <!-- INICIO : Modal Crear cotización en blanco -->
 <div id="modal_crear_cotizacion_en_blanco" class="modal no-autoinit">
     <div class="modal-content">
-        <h3>Crear cotización en blanco</h3>
-        <p>Crea tu cotización y agrega productos después:</p>
+        <h2 class="is-text-center is-m-0 is-bt-2 is-font-bold is-text-black-soft">Crear cotización en blanco</h2>
+        <p class="" style="margin-bottom: 3rem;">Crea tu cotización y agrega productos después.</p>
         <div class="row">
             <div class="input-field">
-                <label for="<%= txtNombreCotizacionEnBlanco.ClientID  %>">Nombre de la cotización</label>
-                <asp:TextBox ID="txtNombreCotizacionEnBlanco" ClientIDMode="Static" placeholder="Ingresa un nombre de cotización" runat="server"></asp:TextBox>
+                <label for="<%= txtNombreCotizacionEnBlanco.ClientID  %>">Nombre de la cotización:</label>
+                <asp:TextBox ID="txtNombreCotizacionEnBlanco" ClientIDMode="Static" placeholder="&nbsp;&nbsp;&nbsp;Ingresa un nombre de cotización" runat="server"></asp:TextBox>
                     <script>
                         /* Script que ayuda a crear la operación al teclear la tecla "enter"  */
                         var input = document.getElementById("txtNombreCotizacionEnBlanco");
@@ -66,8 +66,8 @@
                     </script>
             </div>
            
-            <div class="  col s12 m4 l3">
-                <label for="<%= ddl_moneda.ClientID  %>">Moneda</label>
+            <div class="crear_cotizacion-moneda">
+                <label for="<%= ddl_moneda.ClientID  %>">Moneda:</label>
                 <asp:DropDownList ID="ddl_moneda" runat="server">
                     <asp:ListItem Selected="True" Value="MXN" Text="MXN"></asp:ListItem>
                     <asp:ListItem Value="USD" Text="USD"></asp:ListItem>
@@ -86,7 +86,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        <a href="#!" class="modal-action modal-close is-text-red btn-cerrar_modal">Cerrar</a>
     </div>
 </div>
 
@@ -95,12 +95,12 @@
         <!-- INICIO : Filtros y orden -->
         <div class="row container-filtro-cotizaciones">
             <div class="col input-name-number_operation">
-                <label>Busca por nombre o número de operación</label>
+                <label>Busca por nombre o número de operación:</label>
                 <asp:TextBox ID="txt_search" placeholder="Nombre de cotización o número de operación" AutoPostBack="true" OnTextChanged="orden" runat="server"></asp:TextBox>
             </div>
 
             <div class="col input-cotizacion-filter">
-                <label>Filtro por año </label>
+                <label>Filtro por año:</label>
                 <asp:DropDownList ID="ddl_periodo" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                     <asp:ListItem Value="6" Text="Últimos 6 meses"></asp:ListItem>
                     <asp:ListItem Value="2022" Text="2022"></asp:ListItem>
@@ -111,7 +111,7 @@
             </div>
 
             <div class="col input-cotizacion-filter">
-                <label>Ordenar por</label>
+                <label>Ordenar por:</label>
                 <asp:DropDownList ID="ddl_ordenBy" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                     <asp:ListItem Value="fecha_creacion" Text="Fecha"></asp:ListItem>
                     <asp:ListItem Value="nombre_cotizacion" Text="Nombre Operación"></asp:ListItem>
@@ -121,7 +121,7 @@
             </div>
 
             <div class="col input-cotizacion-filter">
-                <label>Ordenar por</label>
+                <label>Ordenar por:</label>
                 <asp:DropDownList ID="ddl_ordenTipo" AutoPostBack="true" OnSelectedIndexChanged="orden" runat="server">
                     <asp:ListItem Value="DESC" Text="Descendente"></asp:ListItem>
                     <asp:ListItem Value="ASC" Text="Ascendente"></asp:ListItem>
@@ -163,11 +163,11 @@
                                             onchange="txtLoading(this);" AutoPostBack="true" OnTextChanged="cambiarNombreCotizacion"
                                             Text='<%#Eval("nombre_cotizacion") %>' runat="server"></asp:TextBox>
                                         <div class="col no-padding-x s12 m12 l6 xl6 ">
-                                            <strong>Número de operación: </strong>
+                                            <strong>Número de operación:</strong>
                                             <asp:Label ID="lbl_numero_operacion" runat="server" Text='<%#Eval("numero_operacion") %>'></asp:Label>
                                         </div>
                                         <div class="col no-padding-x s12 m12 l6 xl6 ">
-                                            <strong>Fecha de creación: </strong><%#Eval("fecha_creacion") %>
+                                            <strong>Fecha de creación:</strong><%#Eval("fecha_creacion") %>
                                         </div>
                                         <asp:HiddenField ID="hf_id_cotizacionSQL" Value='<%#Eval("id") %>' runat="server" />
                                         <uc:cotizacionEstatus ID="CotizacionEstatus" runat="server" />
@@ -216,7 +216,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="card-content ">
+                                    <div class="card-content">
                                         <strong>Creada por: </strong><span class="blue-text text-darken-2"><%#Eval("creada_por") %> </span>
                                         <strong>Vigencia: </strong><span class="blue-text text-darken-2"><%#Eval("vigencia") %> días.</span>
                                     </div>

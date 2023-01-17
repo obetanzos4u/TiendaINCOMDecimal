@@ -4,15 +4,15 @@
     <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8 container-mi_cuenta">
         <div class="row">
             <div class="">
-                <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft">Mi cuenta</h2>
+                <h2 class="is-text-center is-m-0 is-bt-2 is-font-bold is-text-black-soft">Mi cuenta</h2>
                 <h2 class="margin-t-2x">Bienvenido a tu cuenta INCOM,
-                    <asp:Literal ID="li_h1_nombre" runat="server"></asp:Literal></h2>
+                    <asp:Literal ID="li_h1_nombre" runat="server"></asp:Literal>.</h2>
                 <!-- <h3 class="margin-b-2x">Datos de la cuenta: </h3> -->
             </div>
         </div>
         <div class="row " id="datosCliente" runat="server">
             <h4 class="margin-b-2x">Estos son los datos de tu cuenta: </h4>
-            <div class="col s12 l12">
+            <div class="is-top-2">
                 <ul class="collection ">
                     <li class="collection-item"><span class="title"><strong>Nombre: </strong></span>
                         <asp:Literal ID="li_nombre" runat="server"></asp:Literal> 
@@ -55,31 +55,31 @@
             <div class="row is-bt-1">
                 <div class="input-field margin-b-2x">
                     <asp:TextBox ID="txt_nombre" ClientIDMode="Static" class="txt-mi_cuenta" style="width: 250px" runat="server"></asp:TextBox>
-                    <label for="txt_nombre">Nombre(s)</label>
+                    <label for="txt_nombre">Nombre(s):</label>
                 </div>
             </div>
             <div class="row is-bt-1">
                 <div class="input-field">
-                    <label for="txt_apellido_paterno">Apellido Paterno</label>
+                    <label for="txt_apellido_paterno">Apellido Paterno:</label>
                     <asp:TextBox ID="txt_apellido_paterno" class="txt-mi_cuenta" style="width: 250px" ClientIDMode="Static" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="row is-bt-1">
                 <div class="input-field">
-                    <label for="txt_apellido_materno">Apellido Materno</label>
+                    <label for="txt_apellido_materno">Apellido Materno:</label>
                     <asp:TextBox ID="txt_apellido_materno" class="txt-mi_cuenta" style="width: 250px" ClientIDMode="Static" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="row is-bt-1">
                 <div class="input-field">
                     <asp:TextBox ID="txt_celular" class="txt-mi_cuenta" style="width: 250px" ClientIDMode="Static" runat="server"></asp:TextBox>
-                    <label for="txt_celular">Celular</label>
+                    <label for="txt_celular">Celular:
                 </div>
             </div>
             <div class="row is-bt-1">
                 <div class="input-field">
                     <asp:TextBox ID="txt_telefono" class="txt-mi_cuenta" style="width: 250px" ClientIDMode="Static" runat="server"></asp:TextBox>
-                    <label for="txt_telefono">Telefono fijo </label>
+                    <label for="txt_telefono">Telefono fijo:</label>
                 </div>
             </div>
             <div class="row">
@@ -104,7 +104,7 @@
                 <div class="col   s12 m5 l4  xl3 input-field  margin-t-4x">
                     <asp:TextBox ID="txt_password" placeholder="Ingresa una nueva contraseña" ClientIDMode="Static" data-length="20"
                         autocomplete="new-password" TextMode="Password" runat="server"></asp:TextBox>
-                    <label style="min-width: 250px;">Cambiar contraseña</label>
+                    <label style="min-width: 250px;">Cambiar contraseña:</label>
                     <!-- <span toggle="#txt_password" class="field-icon toggle-password"><span class="material-icons">visibility</span></span> -->
                 </div>
                 <div class="row margin-b-2x"></div>

@@ -127,8 +127,8 @@
                                                             </tbody>
                                                         </table>
                                                     </div>
-                                                    <div class="card-content " style="padding: 0 1rem;">
-                                                        <div class="status-pedido_card is-m-0"><%# string.IsNullOrEmpty(Eval("OperacionCancelada").ToString()) ? "<p class='status-activar is-font-semibold'>Activo</p>" : "<p class='status-cancelar is-font-semibold'>Cancelado</p>" %></div>
+                                                    <div class="card-content cotizaciones-agente" style="padding: 0 1rem;">
+                                                        <div class="status-pedido_card is-m-0"><%# string.IsNullOrEmpty(Eval("OperacionCancelada").ToString()) ? "<p class='status-activo is-font-semibold' style='margin-left: 1rem'>Activo</p>" : "<p class='status-cancelado is-font-semibold' style='margin-left: 1rem'>Cancelado</p>" %></div>
                                                         <strong>Gestionada por: </strong><span class="is-text-black"><%#Eval("creada_por") %> </span>
                                                     </div>
                                                     <div class="card-action">
