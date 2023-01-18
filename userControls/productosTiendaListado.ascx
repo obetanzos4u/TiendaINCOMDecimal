@@ -20,7 +20,7 @@
             margin: auto 0px !important;
             display: grid;
             grid-gap: 5px;
-            grid-template-columns: auto !important;
+            grid-template-columns: 160px auto;
             grid-template-areas: 'sidebar content';
         }
 
@@ -352,7 +352,6 @@
                 $('#modal_producto_disponibilidad').modal('open');
             }, 1000);
         }
-        }
         else {
             localStorage.setItem('disponibilidadProducto', numero_parte);
             var content = document.querySelector("#content_producto_disponibilidad");
@@ -371,7 +370,6 @@
 
     var toggleBtn = document.querySelector('.sidebar-toggle');
     var sidebarRes = document.querySelector('.contentResultados-sidedar');
-
     var divState = localStorage.getItem('divState');
 
     function addClassOnLinkClick(linkId, elementId, className, divState) {

@@ -1058,9 +1058,9 @@ div.arrow-doble-down #svg-arrow-down {
             margin: 1rem auto 10vh auto;
         }
 
-        /* .grid-ta-resultados {
+        .grid-ta-resultados {
             grid-template-columns: auto !important;
-        } */
+        }
     }
 
     /*Contenedor de ficha de productos */
