@@ -5,7 +5,7 @@
 <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
     <div class="row">
         <div class="col l12">
-            <h2 class="is-text-center is-m-0">Facturación</h2>
+            <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft">Nueva dirección de facturación</h2>
         </div>
     </div>
     <div class="row">
@@ -15,23 +15,23 @@
     </div>
     <div class="row">
         <div class="col s12 m12 l12">
-            <div class="input-field col s12 m6 l6">
+            <div class="input-field col s12 m6 l6 crear_facturacion-nombre_direccion">
                 <asp:TextBox ID="txt_nombre_direccion" ClientIDMode="Static" CssClass="validate" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
                 <label for="txt_nombre_direccion">Asigna un alías como referencia a esta dirección </label>
                 <i class="is-text-sm">Ejemplo: Almacén, casa, oficina, etc.</i>
             </div>
-            <div class="input-field col s12 m6 l6">
+            <div class="input-field col s12 m6 l6 crear_facturacion-razon_social">
                 <asp:TextBox ID="txt_razon_social" ClientIDMode="Static" CssClass="validate" data-length="150" MaxLength="150" runat="server"></asp:TextBox>
                 <label for="txt_razon_social">Razón social</label>
                 <i class="is-text-sm">Ejemplo: Insumos Comerciales de Occidente</i>
             </div>
         </div>
         <div class="col s12 m12 l12">
-            <div class="input-field col s12 m6 l6">
+            <div class="input-field col s12 m6 l6 crear_facturacion-rfc">
                 <asp:TextBox ID="txt_rfc" ClientIDMode="Static" CssClass="validate" data-length="15" MaxLength="15" runat="server"></asp:TextBox>
                 <label for="txt_numero">RFC</label>
             </div>
-            <div class="col s12 m6 l6">
+            <div class="col s12 m6 l6 crear_facturacion-regimen_fiscal">
                 <label for="ddl_regimen_fiscal">Régimen fiscal:</label>
                 <asp:DropDownList ID="ddl_regimen_fiscal" AutoPostBack="true" ClientIDMode="Static" runat="server">
                     <asp:ListItem Selected="True" Value="">Seleccionar</asp:ListItem>
@@ -60,30 +60,30 @@
     </div>
     <div class="row">
         <div class="col s12 m12 l12">
-            <div class="input-field col s12 m12 l5">
+            <div class="input-field col s12 m12 l5 crear_facturacion-calle">
                 <asp:TextBox ID="txt_calle" ClientIDMode="Static" CssClass="validate" data-length="50" MaxLength="50" runat="server"></asp:TextBox>
                 <label for="txt_calle">Calle</label>
             </div>
-            <div class="input-field col s12 m12 l2">
+            <div class="input-field col s12 m12 l2 crear_facturacion-numero">
                 <asp:TextBox ID="txt_numero" ClientIDMode="Static" CssClass="validate" data-length="20" MaxLength="20" runat="server"></asp:TextBox>
                 <label for="txt_numero">Número</label>
             </div>
 
-            <div class="input-field col s12 m12 l5">
+            <div class="input-field col s12 m12 l5 crear_facturacion-colonia">
                 <asp:TextBox ID="txt_colonia" ClientIDMode="Static" CssClass="validate" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
                 <label for="txt_colonia">Colonia</label>
             </div>
         </div>
         <div class="col s12 m12 l12">
-            <div class="input-field col s12 m12 l4">
+            <div class="input-field col s12 m12 l4 crear_facturacion-delegacion_municipio">
                 <asp:TextBox ID="txt_delegacion_municipio" ClientIDMode="Static" CssClass="validate" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
                 <label for="txt_delegacion_municipio">Delegación/Municipio</label>
             </div>
-            <div class="input-field col s12 m12 l2">
+            <div class="input-field col s12 m12 l2 crear_facturacion-pais">
+                <label for="txt_pais" style="display: contents">Pais:</label>
                 <uc:ddlPaises ID="ddl_pais" runat="server" />
-                <label for="txt_pais">Pais</label>
             </div>
-            <div id="cont_txt_estado" class="input-field col s12 m12 l4" runat="server">
+            <div id="cont_txt_estado" class="input-field col s12 m12 l4 crear_facturacion-estado" runat="server">
                 <asp:TextBox ID="txt_estado" ClientIDMode="Static" CssClass="validate" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
                 <label for="txt_estado">Estado</label>
             </div>
@@ -91,7 +91,7 @@
                 <uc:ddlEstados ID="ddl_estado" runat="server" />
                 <label for="ddl_estado">Estado</label>
             </div>
-            <div class="input-field col s12 m12 l2">
+            <div class="input-field col s12 m12 l2 crear_facturacion-codigo-postal">
                 <asp:TextBox ID="txt_codigo_postal" ClientIDMode="Static" CssClass="validate" runat="server"></asp:TextBox>
                 <label for="txt_codigo_postal">Código Postal</label>
             </div>

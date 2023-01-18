@@ -5,14 +5,14 @@
     <div class="is-bt-5 is-mx-6 is-border-soft is-rounded-xl is-p-8">
         <div id="HeaderInfoContactos" runat="server" class="row">
             <div class="col s12 m12 l12">
-                <h2>Mis Plantillas </h2>
+                <h2 class="is-text-center is-m-0 is-bt-1 is-font-bold is-text-black-soft">Mis Plantillas</h2>
             </div>
             <div class="col s12 m12 l9">Guarda tus listados de carga rápida de productos.
                 <p>Si conoces el número de parte de tus productos, podrás agregarlos de manera rápida.</p>
             </div>
-            <div class="col s12 m12 l3 right-align">
-                <a id="eliminar" onclick="$('#modal_crearPlantilla').modal('open');" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" data-tooltip="Crear contacto">
-                    <i class="material-icons right">add_box</i>
+            <div class="" style="float: right;">
+                <a id="eliminar" onclick="$('#modal_crearPlantilla').modal('open');" class="is-btn-blue is-flex is-items-center" data-tooltip="Crear contacto">
+                    <i class="material-icons right is-mx-4">add_box</i>
                     Agregar
                 </a>
             </div>
@@ -58,8 +58,8 @@
                             </ItemTemplate>
 
                             <EmptyDataTemplate>
-                                <div class="row center-align">
-                                    <h2>Aún no tienes plantillas. Puedes añadir tu primer plantilla ahora.</h2>
+                                <div class="row">
+                                    <h3 style="padding: 0.75rem;">Aún no tienes plantillas. Puedes añadir tu primer plantilla ahora.</h3>
                                     <!-- <a id="eliminar" onclick="$('#modal_crearPlantilla').modal('open');" class="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5 right-align tooltipped" data-tooltip="Crear contacto">
                                         <i class="material-icons right">add_box</i>Agregar</a> -->
                                 </div>
@@ -114,14 +114,14 @@
                         <div class="row">
                             <div class="input-field">
                                 <asp:TextBox ID="txt_productosQuickAdd" CssClass="materialize-textarea" Height="40" style="min-height: 6rem;" TextMode="MultiLine"
-                                    placeholder="NúmeroParte Cantidad &#10;NúmeroParte Cantidad&#10;NúmeroParte Cantidad" runat="server"></asp:TextBox>
+                                    placeholder="&nbsp;&nbsp;NúmeroDeParte Cantidad &#10;&nbsp;&nbsp;NúmeroDeParte Cantidad&#10;&nbsp;&nbsp;NúmeroDeParte Cantidad" runat="server"></asp:TextBox>
                             </div>
                             <div class="input-field">
                                 <asp:TextBox ID="txt_nombre" Text='<%#Eval("nombre") %>' runat="server"></asp:TextBox>
-                                <label for="txt_nombre">Nombre de esta plantilla</label>
+                                <label for="txt_nombre" class="is-pl-4">Nombre de esta plantilla</label>
                             </div>
                             <div class="input-field">
-                                <asp:LinkButton ID="btn_crearPlantilla" OnClick="btn_crearPlantilla_Click" CssClass=""
+                                <asp:LinkButton ID="btn_crearPlantilla" OnClick="btn_crearPlantilla_Click" CssClass="is-btn-blue is-flex is-items-center"
                                     runat="server">Guardar</asp:LinkButton>
                             </div>
                         </div>

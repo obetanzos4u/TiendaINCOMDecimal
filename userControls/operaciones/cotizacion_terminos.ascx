@@ -8,16 +8,15 @@
     <ContentTemplate>
         <ol>
             <li>
-                <asp:Label ID="lbl_TerminoTiempoEntrega" runat="server"></asp:Label></li>
-
+                <asp:Label ID="lbl_TerminoTiempoEntrega" runat="server"></asp:Label>
+            </li>
             <li>
-                <asp:Label ID="lbl_TerminoFormaDePago" runat="server"></asp:Label></li>
-
+                <asp:Label ID="lbl_TerminoFormaDePago" runat="server"></asp:Label>
+            </li>
             <li>
                 <asp:Label ID="lbl_TerminoEntrega" runat="server"></asp:Label>
             </li>
         </ol>
-
         <a id="btn_cotizacionTerminos" runat="server"   class="waves-effect waves-light btn-small blue-grey-text text-darken-2 blue-grey lighten-5  modal-trigger"
           data-target="modal_editar_cotizacion_terminos"  >Editar condiciones
       <i class="material-icons right">edit</i>
@@ -33,8 +32,6 @@
                 <div class="row">
                     <h3>Tiempo de entrega</h3>
                     <asp:HiddenField ID="hf_TiempoDeEntrega" runat="server" />
-
-
                     <div class="col s12 m12 l12 xl12 input-field">
                         <asp:RadioButtonList ID="chk_FechaTiempoEntrega" OnSelectedIndexChanged="chk_FechaTiempoEntrega_SelectedIndexChanged" AutoPostBack="true" class="resetRadio"
                             RepeatLayout="Flow"
@@ -43,9 +40,7 @@
                             <asp:ListItem Value="2" Text="Por confirmar"></asp:ListItem>
                             <asp:ListItem Value="1" Text="Otro (establecer)"></asp:ListItem>
                         </asp:RadioButtonList>
-
                     </div>
-
                     <div class="col s12 m12 l7 xl4 input-field">
                         <asp:TextBox ID="txt_numeroFechaTiempoEntrega" placeholder="Ejemplo/Número: 1,2,3" Text="1" Visible="false" runat="server"></asp:TextBox>
                         <asp:DropDownList ID="ddlTipoFecha" Visible="false" runat="server">
@@ -66,7 +61,6 @@
                             <asp:ListItem Value="4" Text="Crédito a 30 días"></asp:ListItem>
                             <asp:ListItem Value="5" Text="Crédito a 90 días"></asp:ListItem>
                         </asp:DropDownList>
-
                     </div>
                 </div>
                 <div class="row">
@@ -76,7 +70,6 @@
                         <asp:DropDownList ID="ddl_Entrega" runat="server">
                             <asp:ListItem Value="1" Text="En una sola exhibición"></asp:ListItem>
                             <asp:ListItem Value="2" Text="Parcialidades"></asp:ListItem>
-
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -93,9 +86,8 @@
                     EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
-
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        <a href="#!" class="is-text-red is-p-4">Cerrar</a>
     </div>
 </div>
