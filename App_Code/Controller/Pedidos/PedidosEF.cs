@@ -753,7 +753,7 @@ public class PedidosEF
                 dynamic Pago = new ExpandoObject();
                 Pago.tipo = "Santander";
                 Pago.pago = historialPagosSantander;
-                return new json_respuestas(true, $"Pagado con Santander.<br/> Estado: <b>APROVADO</b>", false, Pago);
+                return new json_respuestas(true, $"Pagado con Santander.<br/> Estado: <b>APROBADO</b>", false, Pago);
             }
             var ReferenciaTransferencia = await ObtenerReferenciaTransferencia(numero_operacion);
 

@@ -317,6 +317,7 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
             Label lbl_preciosFantasma = (Label)e.Item.FindControl("lbl_preciosFantasma");
             Label lbl_descuento_porcentaje_fantasma = (Label)e.Item.FindControl("lbl_descuento_porcentaje_fantasma");
             Label lbl_envioGratuito = (Label)e.Item.FindControl("lbl_envioGratuito");
+            HtmlGenericControl cnt_addOperacion = (HtmlGenericControl)e.Item.FindControl("cnt_addOperacion");
 
             link.Target = "_self";
 
@@ -532,6 +533,10 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
                     lbl_puntajeBusqueda.Visible = false;
                     lbl_puntajeBusqueda.Text = "Puntaje: " + puntaje;
                 }
+            }
+            if (userLogin.rango == 3)
+            {
+                cnt_addOperacion.Visible = true;
             }
             #endregion
         }

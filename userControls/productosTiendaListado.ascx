@@ -212,11 +212,10 @@
                                         <asp:HyperLink ID="link_productoIMG" Visible="true" runat="server">
                                             <asp:Panel ID="contentSlider" runat="server"></asp:Panel>
                                         </asp:HyperLink>
-                                        <%--<uc1:btn_addOperacion ID="productoAddOperacion" numero_parte='<%# Eval("numero_parte") %>' descripcion_corta='<%# Eval("descripcion_corta") %>' runat="server"></uc1:btn_addOperacion>--%>
                                         <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false" class="red white-text" Style="padding: 2px 5px; position: absolute; top: 24px;" runat="server"></asp:Label>
                                     </div>
 
-                                    <div class="card-content descripciónProductoListado" style="padding-top: 12px; text-align: center; border-radius: 0 0 8px 8px">
+                                    <div class="card-content descripciónProductoListado" style="padding-top: 12px; text-align: center; border-radius: 0 0 8px 8px;">
                                         <h2 class="margin-b-1x margin-t-2x card-title is-justify-center tituloProductoTienda">
                                             <asp:HyperLink ID="link_producto" class="is-text-black hoverLinkTituloProducto" Target="_blank" runat="server">   <%# Eval("numero_parte") %> -  <%# Eval("titulo") %> </asp:HyperLink>
                                             <asp:Literal ID="lt_numero_parte" Text='<%# Eval("numero_parte") %>' Visible="false" runat="server"></asp:Literal>
@@ -249,6 +248,9 @@
                                                 runat="server" class="waves-effect waves-light btn btn-full-text blue modal-trigger" style="margin-top: 5px;"><i class="material-icons left">done</i>
                                                 Ver Disponibilidad</a>
                                             <!-- <asp:Label runat="server" ID="lbl_puntajeBusqueda" Visible="false"></asp:Label> -->
+                                        </div>
+                                        <div class="is-py-1" id="cnt_addOperacion" visible="false" runat="server">
+                                            <uc1:btn_addOperacion ID="productoAddOperacion" numero_parte='<%# Eval("numero_parte") %>' descripcion_corta='<%# Eval("descripcion_corta") %>' runat="server"></uc1:btn_addOperacion>
                                         </div>
                                     </div>
                                 </div>
@@ -323,21 +325,21 @@
 
 <!-- INICIO - Funcionalidades JS disponibilidad -->
 <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
-        /*
-        var disponibilidadProducto = localStorage.getItem('disponibilidadProducto');
-        console.log(disponibilidadProducto)
-        if (disponibilidadProducto  != null ) {
-            console.log("is not null LS disponibilidadProducto")
-            localStorage.removeItem('disponibilidadProducto');
-            console.log(disponibilidadProducto);
-            openModalProductoDisponibilidad(disponibilidadProducto);
-        } 
-        else {
-            console.log("is null LS disponibilidadProducto")
-            }
-            */
-        });
+    //document.addEventListener("DOMContentLoaded", function (event) {
+    /*
+    var disponibilidadProducto = localStorage.getItem('disponibilidadProducto');
+    console.log(disponibilidadProducto)
+    if (disponibilidadProducto  != null ) {
+        console.log("is not null LS disponibilidadProducto")
+        localStorage.removeItem('disponibilidadProducto');
+        console.log(disponibilidadProducto);
+        openModalProductoDisponibilidad(disponibilidadProducto);
+    } 
+    else {
+        console.log("is null LS disponibilidadProducto")
+        }
+        */
+    //});
 
     function openModalProductoDisponibilidad(numero_parte) {
         var login =  <%= HttpContext.Current.User.Identity.IsAuthenticated.ToString().ToLower() %>;
@@ -349,6 +351,7 @@
             setTimeout(function () {
                 $('#modal_producto_disponibilidad').modal('open');
             }, 1000);
+        }
         }
         else {
             localStorage.setItem('disponibilidadProducto', numero_parte);
@@ -504,46 +507,45 @@
 
 
 <style>
+    @media only screen and (min-width: 700px) {
 
-@media only screen and (min-width: 700px) {
+        .sidebar-toggle {
+            position: absolute;
+            height: 46px;
+            width: 28px;
+            background: #8B8B8Ba1;
+            transform: rotate(180deg);
+            border: 1px solid #B8B8B8;
+            box-shadow: 0 1px 0 0 #B8B8B8;
+        }
 
-    .sidebar-toggle{
-        position: absolute;
-        height: 46px;
-        width: 28px;
-        background: #8B8B8Ba1;
-        transform: rotate(180deg);
-        border: 1px solid #B8B8B8;
-        box-shadow: 0 1px 0 0 #B8B8B8;
+        .toggle-position {
+            position: relative;
+            z-index: 1;
+            outline: none;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .sidebar-toggle.is-closed {
+            transform: translateX(0.3em) rotate(0deg);
+        }
+
+        .toggle-filtro {
+            margin: 1rem 0.35rem;
+        }
+
+        .sidebar {
+            height: min-content;
+            width: min-content;
+            background-color: #fff;
+            transition: 0.7s;
+            border: 1px solid #b7b7b77a;
+            border-radius: 0px 0px 6px 6px;
+        }
+
+        .contentResultados-sidedar.is-closed {
+            display: none;
+        }
     }
-
-    .toggle-position {
-        position: relative;
-        z-index: 1;
-        outline: none;
-        cursor: pointer;
-        transition: 0.5s;
-    }
-
-    .sidebar-toggle.is-closed {
-        transform: translateX(0.3em) rotate(0deg);
-    }
-
-    .toggle-filtro {
-        margin: 1rem 0.35rem;
-    }
-
-    .sidebar {
-        height: min-content;
-        width: min-content;
-        background-color: #fff;
-        transition: 0.7s;
-        border: 1px solid #b7b7b77a;
-        border-radius: 0px 0px 6px 6px;
-    }
-
-    .contentResultados-sidedar.is-closed {
-        display: none;
-    }
-}
 </style>

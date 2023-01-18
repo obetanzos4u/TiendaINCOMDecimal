@@ -36,7 +36,6 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
     }
     protected async void guardarHit()
     {
-
         if (HttpContext.Current.User.Identity.IsAuthenticated && usuarios.userLogin().tipo_de_usuario == "cliente")
         {
 
@@ -49,11 +48,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             producto.direccion_ip = red.GetDireccionIp(request);
             BI_historialProductos.guardarHitProducto(producto);
         }
-
-
     }
-
-
     protected void Page_PreRender(object sender, EventArgs e)
     {
 
@@ -592,18 +587,11 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             productosAlternativos.obtenerProductos();
 
         }
-
-
     }
-
-
-
     protected void ProductoNoDisponible()
     {
         contenedor_producto.Visible = false;
         content_ProductoNoDisponible.Visible = true;
-
-
     }
     protected void documentacionExterna(string _documentacionPDF)
     {
@@ -616,7 +604,6 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
         link.Target = "_blank";
         cont_documentacion.Controls.Add(link);
     }
-
     protected void procesarDocumentacion(string _documentacionPDF)
     {
         // sí el documento contiene un enlace a ficha externa
@@ -691,7 +678,6 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             }
         }
     }
-
     protected void procesarImagenesYVideo(string img, string alt, string title, string video)
     {
         img = img.Replace(" ", "");
@@ -768,7 +754,6 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             //  devNotificaciones.error("Procesar características JSON", ex);
         }
     }
-
     protected void cargarNavegacion(string categoriaID)
     {
 
