@@ -16,7 +16,7 @@
             grid-template-areas: 'sidebar content';
         }
 
-        .contentResultados-1 {
+        #res-grid {
             margin: auto 0px !important;
             display: grid;
             grid-gap: 5px;
@@ -368,13 +368,18 @@
         instance.open();
     }
 
-    var toggleBtn = document.querySelector('.sidebar-toggle');
-    var sidebarRes = document.querySelector('.contentResultados-sidedar');
-    var divState = localStorage.getItem('divState');
+    let toggleBtn = document.querySelector('.sidebar-toggle');
+    let sidebarRes = document.querySelector('.contentResultados-sidedar');
+    let divState = localStorage.getItem('divState');
+
 
     function addClassOnLinkClick(linkId, elementId, className, divState) {
-        var linkRes = document.getElementById(linkId);
-        var elementRes = document.getElementById(elementId);
+        let linkRes = document.getElementById(linkId);
+        let elementRes = document.getElementById(elementId);
+
+        if (toggleBtn.classList.contains('is-closed')) {
+            document.getElementById("res-grid").classList.add("grid-ta-resultados");
+        }
 
         linkRes.addEventListener('click', function(event) {
             event.preventDefault();
