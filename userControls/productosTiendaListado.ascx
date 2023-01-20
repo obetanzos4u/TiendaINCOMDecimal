@@ -370,44 +370,26 @@
 
     let toggleBtn = document.querySelector('.sidebar-toggle');
     let sidebarRes = document.querySelector('.contentResultados-sidedar');
+    let resGrid = document.querySelector("#res-grid");
     let divState = localStorage.getItem('divState');
 
-
-    function addClassOnLinkClick(linkId, elementId, className, divState) {
-        let linkRes = document.getElementById(linkId);
-        let elementRes = document.getElementById(elementId);
-
-        if (toggleBtn.classList.contains('is-closed')) {
-            document.getElementById("res-grid").classList.add("grid-ta-resultados");
-        }
-
-        linkRes.addEventListener('click', function(event) {
-            event.preventDefault();
-            if(divState === 'shown'){
-            elementRes.classList.add(className);
-            }
-        });
-    }
-
-    if (divState == 'hidden') {
-        toggleBtn.classList.add('is-closed');
-        sidebarRes.classList.add('is-closed');
-        addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'hidden');
-    }else{
-        addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'shown');
-    }
-
-    toggleBtn.addEventListener('click', function() {
+    function toggleSidebar() {
         toggleBtn.classList.toggle('is-closed');
         sidebarRes.classList.toggle('is-closed');
         if (sidebarRes.classList.contains('is-closed')) {
             localStorage.setItem('divState', 'hidden');
-            addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'hidden');
+            resGrid.classList.add("grid-ta-resultados");
         } else {
             localStorage.setItem('divState', 'shown');
-            addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'shown');
+            resGrid.classList.remove("grid-ta-resultados");
         }
-    });
+    }
+
+    toggleBtn.addEventListener('click', toggleSidebar);
+
+    if (divState === 'hidden') {
+        toggleSidebar();
+    }
 
 </script>
 
