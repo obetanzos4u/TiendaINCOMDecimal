@@ -45,9 +45,8 @@
                 </asp:UpdatePanel>
                 <hr />
                 <div class="is-py-4">
-                    <h2 id="Ubicaciones" class="is-font-semibold is-m-0">Ubicaciones</h2>
+                    <h2 class="is-font-semibold is-m-0" style="padding-left: 2rem;">Ubicaciones</h2>
                     <div class="is-flex is-justify-center is-items-center">
-
                         <div class="is-w-1_2 is-h-full is-p-8">
                             <img class="responsive-img" src="/img/informacion/fachada_plutarco_contacto.jpg" width="575" height="357" alt="Sucursal ciudad de méxico Incom">
                             <div class="is-flex is-justify-around is-items-center is-py-4">

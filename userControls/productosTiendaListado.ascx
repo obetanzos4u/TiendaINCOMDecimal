@@ -17,11 +17,11 @@
             grid-template-areas: 'sidebar content';
         }
 
-        .contentResultados-1 {
+        #res-grid {
             margin: auto 0px !important;
             display: grid;
             grid-gap: 5px;
-            grid-template-columns: auto !important;
+            grid-template-columns: 160px auto;
             grid-template-areas: 'sidebar content';
         }
 
@@ -357,7 +357,6 @@
                 $('#modal_producto_disponibilidad').modal('open');
             }, 1000);
         }
-    }
         else {
         localStorage.setItem('disponibilidadProducto', numero_parte);
         var content = document.querySelector("#content_producto_disponibilidad");
@@ -374,42 +373,28 @@
         instance.open();
     }
 
-    var toggleBtn = document.querySelector('.sidebar-toggle');
-    var sidebarRes = document.querySelector('.contentResultados-sidedar');
+    let toggleBtn = document.querySelector('.sidebar-toggle');
+    let sidebarRes = document.querySelector('.contentResultados-sidedar');
+    let resGrid = document.querySelector("#res-grid");
+    let divState = localStorage.getItem('divState');
 
-    var divState = localStorage.getItem('divState');
-
-    function addClassOnLinkClick(linkId, elementId, className, divState) {
-        var linkRes = document.getElementById(linkId);
-        var elementRes = document.getElementById(elementId);
-
-        linkRes.addEventListener('click', function (event) {
-            event.preventDefault();
-            if (divState === 'shown') {
-                elementRes.classList.add(className);
-            }
-        });
-    }
-
-    if (divState == 'hidden') {
-        toggleBtn.classList.add('is-closed');
-        sidebarRes.classList.add('is-closed');
-        addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'hidden');
-    } else {
-        addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'shown');
-    }
-
-    toggleBtn.addEventListener('click', function () {
+    function toggleSidebar() {
         toggleBtn.classList.toggle('is-closed');
         sidebarRes.classList.toggle('is-closed');
         if (sidebarRes.classList.contains('is-closed')) {
             localStorage.setItem('divState', 'hidden');
-            addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'hidden');
+            resGrid.classList.add("grid-ta-resultados");
         } else {
             localStorage.setItem('divState', 'shown');
-            addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'shown');
+            resGrid.classList.remove("grid-ta-resultados");
         }
-    });
+    }
+
+    toggleBtn.addEventListener('click', toggleSidebar);
+
+    if (divState === 'hidden') {
+        toggleSidebar();
+    }
 
 </script>
 
