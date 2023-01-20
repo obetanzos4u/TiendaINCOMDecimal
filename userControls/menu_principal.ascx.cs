@@ -61,6 +61,11 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         //  HtmlGenericControl blog = new HtmlGenericControl("li");
         //  blog.InnerHtml = "<a title='Blog Incom' target='_blank'  href='https://blog.incom.mx'>Blog</a>";
 
+        HtmlGenericControl contacto = new HtmlGenericControl("li");
+        contacto.ID = "content-menu-incom-contacto";
+        contacto.ClientIDMode = ClientIDMode.Static;
+        contacto.InnerHtml = "<a title='Contáctanos' href='https://www.incom.mx/informacion/ubicacion-y-sucursales.aspx'>Contáctanos</a>";
+
         //contenedorMenu.Controls.Add(home);
 
         //contenedorMenu.Controls.Add(blog);
@@ -74,6 +79,8 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         contenedorMenu.Controls.Add(biblioteca);
 
         contenedorMenu.Controls.Add(catalogos);
+
+        contenedorMenu.Controls.Add(contacto);
 
         contenedorMenu.DataBind();
     }

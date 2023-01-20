@@ -45,7 +45,7 @@
                 </asp:UpdatePanel>
                 <hr />
                 <div class="is-py-4">
-                    <h2 class="is-font-semibold is-m-0">Ubicaciones</h2>
+                    <h2 id="Ubicaciones" class="is-font-semibold is-m-0">Ubicaciones</h2>
                     <div class="is-flex is-justify-center is-items-center">
 
                         <div class="is-w-1_2 is-h-full is-p-8">

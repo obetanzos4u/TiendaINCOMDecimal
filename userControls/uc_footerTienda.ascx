@@ -5,7 +5,10 @@
         <div class="is-grid-xl is-col-footer is-gap-4 is-px-8-sm">
             <div class="is-flex-xl is-flex-col-xl is-justify-start is-items-start">
                 <a href="<%= Request.Url.GetLeftPart(UriPartial.Authority) + "/informacion/ubicacion-y-sucursales.aspx" %>" class="is-text-xl is-font-semibold is-text-white is-decoration-none is-pt-4">Contáctanos</a>
-                <p class="is-text-lg is-font-medium">Llámanos al <a href="tel:5552436900">(55) 5243 - 6900</a></p>
+                <div class="is-py-4">
+                    <p class="is-text-lg is-font-medium is-m-0">Llámanos al <a href="tel:5552436900">(55) 5243 - 6900</a></p>
+                    <p class="is-text-lg is-font-medium is-m-0">O al correo <a href="mailto:telemarketing@incom.mx">telemarketing@incom.mx</a></p>
+                </div>
                 <div class="is-font-light is-text-sm">
                     <p class="is-m-0">Plutarco Elías Calles 276, colonia Tlazintla, C.P. 08710, Iztacalco, Ciudad de México.</p>
                     <p class="is-m-0">Horario de atención: Lunes a Jueves de 8:30 a 18:30 hrs • Viernes de 8:30 a 17:30 hrs.</p>

@@ -5,6 +5,7 @@
 <%@ Register Src="~/userControls/moneda.ascx" TagName="moneda" TagPrefix="uc_mon" %>
 <%@ Register Src="~/userControls/productosVisitados.ascx" TagName="visitados" TagPrefix="productos" %>
 <%@ Register Src="~/userControls/uc_producto_btn_SoloVisualizar.ascx" TagName="link" TagPrefix="uc_visualizarProducto" %>
+<%@ Register Src="~/userControls/ui/destacadosSlider.ascx" TagPrefix="uc" TagName="sliderDestacados" %>
 
 <style>
     @media (min-width: 700px) {
@@ -118,13 +119,17 @@
         </div>
         <div id="content_resultado_busqueda_vacio" class="is-p-4" runat="server" visible="false">
             <div class="is-flex is-flex-col is-justify-center is-items-center">
-                <img src="https://www.incom.mx/img/webUI/newdesign/not-found.png" alt="No encontrado" class="is-w-1_3" />
+                <img src="https://www.incom.mx/img/webUI/newdesign/not-found.png" alt="No encontrado" class="is-w-1_4" />
                 <h2 class="is-text-xl is-font-semibold">Ningún resultado encontrado</h2>
                 <p class="is-m-2">
                     No encontramos productos con:
                     <asp:Label ID="lbl_termino_busqueda" class="is-font-semibold" runat="server"></asp:Label>
                 </p>
-                <p class="is-m-2"><span class="is-italic">Te sugerimos intentar con otro término de búsqueda</span> &#128556;</p>
+                <p class="is-m-2"><span class="is-italic">Te sugerimos intentar con otro término de búsqueda</span> &#128556; </p>
+                <p class="is-m-2"><span class="is-font-semibold">También te pueden interesar alguno de estos productos</span> &#128521; </p>
+                <div class="center-align slider-container is-w-4_5">
+                    <uc:sliderDestacados ID="uc_destacados" runat="server" />
+                </div>
             </div>
         </div>
         <!-- INICIO : Filtros y orden -->
@@ -352,13 +357,13 @@
                 $('#modal_producto_disponibilidad').modal('open');
             }, 1000);
         }
-        }
+    }
         else {
-            localStorage.setItem('disponibilidadProducto', numero_parte);
-            var content = document.querySelector("#content_producto_disponibilidad");
-            content.classList.add("hide");
-            LoginAjaxOpenModal();
-        }
+        localStorage.setItem('disponibilidadProducto', numero_parte);
+        var content = document.querySelector("#content_producto_disponibilidad");
+        content.classList.add("hide");
+        LoginAjaxOpenModal();
+    }
     }
 
     function consultarDisponibilidad(btn) {
@@ -378,10 +383,10 @@
         var linkRes = document.getElementById(linkId);
         var elementRes = document.getElementById(elementId);
 
-        linkRes.addEventListener('click', function(event) {
+        linkRes.addEventListener('click', function (event) {
             event.preventDefault();
-            if(divState === 'shown'){
-            elementRes.classList.add(className);
+            if (divState === 'shown') {
+                elementRes.classList.add(className);
             }
         });
     }
@@ -390,11 +395,11 @@
         toggleBtn.classList.add('is-closed');
         sidebarRes.classList.add('is-closed');
         addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'hidden');
-    }else{
+    } else {
         addClassOnLinkClick("sidebar-toggle-res", "res-grid", "grid-ta-resultados", 'shown');
     }
 
-    toggleBtn.addEventListener('click', function() {
+    toggleBtn.addEventListener('click', function () {
         toggleBtn.classList.toggle('is-closed');
         sidebarRes.classList.toggle('is-closed');
         if (sidebarRes.classList.contains('is-closed')) {
