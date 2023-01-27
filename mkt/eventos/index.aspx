@@ -300,11 +300,11 @@
                     <div class="col col-lg-12">
                         <div class="icon-box d-flex justify-content-center align-items-center" data-aos="zoom-in" data-aos-delay="50">
                             <ul style="list-style-type: square">
-                                <li>Tipo de escaleras</li>
-                                <li>Planta Cuprum</li>
-                                <li>Normas</li>
-                                <li>Uso de las escaleras</li>
+                                <li>Planta CUPRUM</li>
+                                <li>Tipos de escaleras</li>
                                 <li>Cómo elegir una escalera</li>
+                                <li>Uso de la escalera</li>
+                                <li>Normas</li>
                             </ul>
                         </div>
                     </div>
@@ -330,15 +330,10 @@
                         </div>
                         <div class="col-md-7 pt-5 order-2 order-md-1" data-aos="fade-up">
                             <h3>ESCALERAS CUPRUM</h3>
-                            <strong class="text-justify">Grupo Cuprum es una empresa mexicana fundada en 1948 en Monterrey, México, dedicada a la transformación y comercialización de aluminio, que ha ofrecido productos de la más alta calidad por más de 70 años.
-                            </strong>
+                            <strong class="text-justify">En escaleras CUPRUM somos expertos en diseño, comercialización y fabricación de escaleras, nuestro compromiso es ofrecer soluciones para facilitar soluciones en alturas de manera cómoda y segura. Ofrecemos diversas opciones para cubrir diferentes necesidades desde domesticas hasta industriales.</strong>
                             <p class="text-justify">
-                                Escaleras Cuprum es el principal fabricante de escaleras en México y uno de los más grandes en el mundo, siendo exportador de escaleras a nivel global.
-                           
-                            </p>
-                            <p class="text-justify">
-                                Cuenta con una capacidad de producción de millones de escaleras al año, utilizando diversos materiales como el aluminio, fibra de vidrio y acero para la fabricación de escaleras en diferentes configuraciones y capacidades de carga. 
-                            </p>
+                                Actualmente tenemos presencia en más de 35 países y somos líderes en el mercado mexicano con la Marca Cuprum, actualmente nuestras plantas están ubicadas en Monterrey y Toronto, tenemos una capacidad de producción de más de 8 millones de escaleras al año. En Escaleras Cuprum somos más de 1500 colaboradores quienes estamos comprometidos en exceder las expectativas.
+                            <p>
                         </div>
                     </div>
                 </div>

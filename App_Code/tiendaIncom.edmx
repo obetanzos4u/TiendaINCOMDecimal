@@ -256,6 +256,7 @@
           <Property Name="motivoCancelacion" Type="nvarchar" MaxLength="300" />
           <Property Name="detalleCancelacionAsesor" Type="nvarchar" MaxLength="800" />
           <Property Name="idUsuarioSeguimiento" Type="int" />
+          <Property Name="idPedidoSAP" Type="nvarchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="pedidos_datosNumericos">
           <Key>
@@ -1311,6 +1312,7 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
           <Property Name="motivoCancelacion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="detalleCancelacionAsesor" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
           <Property Name="idUsuarioSeguimiento" Type="Int32" />
+          <Property Name="idPedidoSAP" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="pedidos_datosNumericos">
           <Key>
@@ -2013,7 +2015,8 @@ advertencia 6002: La tabla o vista 'tienda.dbo.productos_stock' no tiene definid
     <EntitySetMapping Name="pedidos_datos">
       <EntityTypeMapping TypeName="IsTypeOf(tiendaModel.pedidos_datos)">
         <MappingFragment StoreEntitySet="pedidos_datos">
-          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idPedidoSAP" ColumnName="idPedidoSAP" />
+                <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre_pedido" ColumnName="nombre_pedido" />
           <ScalarProperty Name="numero_operacion" ColumnName="numero_operacion" />
           <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />

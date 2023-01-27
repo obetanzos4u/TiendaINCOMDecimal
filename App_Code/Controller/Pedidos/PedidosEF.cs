@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Bcpg;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Dynamic;
@@ -77,8 +78,6 @@ public class PedidosEF
     /// </summary>
     public static pedidos_datos ObtenerDatos(int idPedido)
     {
-
-
         try
         {
 
@@ -596,6 +595,24 @@ public class PedidosEF
         {
 
             return new json_respuestas(false, "Error al actualizar", true);
+        }
+    }
+    public static json_respuestas ActualizarIDPedidoSAP (string numero_operacion, string idPedidoSAP)
+    {
+        try
+        {
+            using (var db = new tiendaEntities())
+            {
+                var pedidoDatos = db.pedidos_datos.Where(p => p.numero_operacion == numero_operacion).FirstOrDefault();
+
+                pedidoDatos.idPedidoSAP = idPedidoSAP;
+                db.SaveChanges();
+            }
+            return new json_respuestas(true, "idPedidoSAP actualizado con éxito", false);
+        }
+        catch (Exception ex)
+        {
+            return new json_respuestas(false, "Error al actualizar idPedidoSAP", true);
         }
     }
     /// <summary>

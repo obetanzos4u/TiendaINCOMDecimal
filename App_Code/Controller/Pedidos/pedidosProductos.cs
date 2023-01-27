@@ -73,8 +73,8 @@ public class pedidosProductos : model_pedidos_productos
                         stock2_fecha,
                         (SELECT top(1) imagenes from productos_Datos WHERE  numero_parte = pedidos_productos.numero_parte) as imagenes  ,
                         (SELECT top(1) titulo from productos_Datos WHERE  numero_parte = pedidos_productos.numero_parte) as titulo,
-
-   (SELECT top(1) pdf from productos_Datos WHERE  numero_parte = pedidos_productos.numero_parte) as pdf
+                        (SELECT top(1) pdf from productos_Datos WHERE  numero_parte = pedidos_productos.numero_parte) as pdf,
+                        (SELECT top(1) noParte_Sap from productos_Datos WHERE numero_parte = pedidos_productos.numero_parte) as noParteSAP
 ");
 
             sel.Append(" FROM pedidos_productos   " +

@@ -76,8 +76,6 @@ public class SendOrderPromoToSAP
 
         return new json_respuestas(true,result);
     }
-
-
     private  async  Task<string>  PedidoXML() {
 
 
