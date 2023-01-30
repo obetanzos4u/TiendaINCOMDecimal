@@ -4,10 +4,10 @@
     MasterPageFile="~/herramientas/_masterConfiguraciones.master" Inherits="herramientas_configuraciones_home_principal" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
-    <h1 class="center-align margin-b-2x">Avisos</h1>
+    <h1 class="title-banner_avisos center-align"> Gestor de Banner y Avisos</h1>
     <div class="section">
-        <div class="container">
-            <div class="row">
+        <div class="container-configuraciones_home">
+            <div class="row is-bt-4">
                 <div class="center-align col s12 l12">
                     <a class="waves-effect waves-light modal-trigger is-btn-blue is-text-center" href="#modal_agregar_slider">Agregar slider</a>
                 </div>
@@ -18,54 +18,57 @@
                         <asp:ListView ID="lv_imagenes" OnItemDataBound="lv_imagenes_ItemDataBound" runat="server">
                             <layouttemplate>
                                 <div runat="server" id="itemPlaceholder"></div>
-
                             </layouttemplate>
                             <itemtemplate>
                                 <asp:HiddenField ID="hf_idSlider" Value='<%#Eval("id")%>' runat="server" />
-                                <div class="col s12  m6 l6 xl4">
-                                    <div class="card ">
-                                        <div class="card-image">
+                                <div class="col s12  m6 l6 xl4 wrapper_card-configuraciones-home">
+                                    <div class="card card-configuraciones-home is-flex is-flex-col">
+                                        <div class="card-image configuraciones-home">
                                             <asp:Image ID="imgSlider" ImageUrl='<%# configuracion_sliders.directorioSliderRelativo + Eval("nombreArchivo") %>' runat="server" />
                                             <asp:Label ID="lbl_tituloSlider" class="card-title" runat="server" Text=""></asp:Label>
 
                                             <asp:LinkButton ID="btn_editSliderModal" OnClick="btn_editSliderModal_Click"
                                                 class="btn-floating halfway-fab waves-effect waves-light blue"
+                                                style="border-radius: 10px; padding-top: 8px; height: 38px;"
                                                 runat="server">
-                                                <i class="material-icons">edit</i></asp:LinkButton>
+                                                    <img class="icon-edit-blue" src="/img/webUI/newdesign/Edit-white.png">
+                                            </asp:LinkButton>
                                         </div>
-                                        <div class="card-content">
-                                            <h2 class="margin-b-2x margin-t-2x">
+                                        <div class="card-content is-flex is-flex-col" style="flex: 1;">
+                                            <h2 class="" style="font-size: 16px !important; font-weight: 600; margin-top: 0; margin-bottom: 1rem;">
                                                 <%#  string.IsNullOrWhiteSpace(Eval("titulo").ToString()) ? "----" : Eval("titulo").ToString() %>
-
                                             </h2>
-                                            <p>
+                                            Descripción:
+                                            <span class="is-bg-gray-100 is-bt-1">
                                                 <%#  string.IsNullOrWhiteSpace(Eval("descripcion").ToString()) ? "----" : Eval("descripcion").ToString() %>
-                                            </p>
-
-                                            <asp:Label ID="lbl_descripcion" runat="server"
+                                            </span>
+                                            <br>
+                                            <br>
+                                            Nombre del archivo:
+                                            <asp:Label ID="lbl_descripcion" class="is-bg-gray-100 is-block is-bt-1" runat="server" style="font-size: 14px; line-height: 1; word-wrap: break-word;"
                                                 Text='<%#  Eval("nombreArchivo") %>'></asp:Label>
-
-                                            <br />
                                             Link:
-                                            <p class="nota truncate">
+                                            <span class="nota truncate is-font-normal is-bg-gray-100 is-bt-1" style="margin-left: 0;">
                                                 <%#  string.IsNullOrWhiteSpace(Eval("link").ToString()) ? "----" : Eval("link").ToString() %>
-                                            </p>
-                                            <br />
-                                            <asp:LinkButton ID="btn_eliminarSlider"
-                                                OnClick="btn_eliminarSlider_Click" runat="server">
-                                                Eliminar Slider</asp:LinkButton>
-
-                                        </div>
-                                        <div class="card-action">
-
-                                            <div class="switch">
-                                                <label>
-                                                    Desactivado
-                                            <asp:CheckBox ID="chk_activo" OnCheckedChanged="chk_activo_CheckedChanged"
-                                                AutoPostBack="true" runat="server" />
-                                                    <span class="lever"></span>
-                                                    Activado
-                                                </label>
+                                            </span>
+                                            <div style="border-top: 1px solid rgba(160,160,160,0.2);
+                                            border-bottom: 1px solid rgba(160,160,160,0.2);">
+                                                <asp:LinkButton ID="btn_eliminarSlider"
+                                                    class="eliminar_slider-configuraciones_home is-top-1 is-bt-1"
+                                                    OnClick="btn_eliminarSlider_Click" runat="server">
+                                                Eliminar Slider
+                                                </asp:LinkButton>
+                                            </div>
+                                            <div class="card-action card-avisos is-flex" style="flex: 1; align-items: end; padding: 0; border-top: none">
+                                                <div class="switch">
+                                                    <label class="is-text-black">
+                                                        Desactivado
+                                                        <asp:CheckBox ID="chk_activo" OnCheckedChanged="chk_activo_CheckedChanged"
+                                                        AutoPostBack="true" runat="server" />
+                                                        <span class="lever"></span>
+                                                        Activado
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -87,47 +90,35 @@
                         </asp:ListView>
                     </contenttemplate>
                 </asp:UpdatePanel>
-
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="divider"></div>
-    </div>
-    <div class="section">
-        <div class="row">
-
-            <div class="col s12 l12">
-                <h2>Galería de imágenes</h2>
-            </div>
-            <div class="col s12 l4">
-
-                <div class="file-field input-field ">
-                    <div class="btn btn-s waves-effect waves-light blue-grey-text text-darken-2 blue-grey lighten-5 ">
+    <hr>
+    <div class="cargar_imagenes_home">
+        <div class="is-flex is-justify-center">
+            <div class="card-galeria-imagenes">
+                    <h2 class="is-text-center">Cargar imágenes a la galería</h2>
+                <div class="cargar-imagenes is-flex is-w-full is-m-auto is-justify-center is-w-fit is-items-baseline">
+                    <div class="is-btn-gray" style="margin-right: 2rem;">
                         <span>Elegir imagen</span>
-                        <asp:FileUpload ID="fu_imagenSlider" runat="server" />
                     </div>
-
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text"
-                            placeholder="Upload file" />
+                    <div class="file-field input-field" style="margin-right: 1.5rem;">
+                        <asp:FileUpload ID="fu_imagenSlider" runat="server" />
+                        <div class="file-path-wrapper" style="padding-left: 0;">
+                            <input class="file-path validate" type="text" style="width: 90%; margin-top: 1rem; padding-left: 1rem;"
+                                placeholder="Nombre del archivo" />
+                        </div>
+                    </div>
+                    <div class="is-btn-blue">
+                        <asp:LinkButton CssClass="is-text-white"
+                            ID="btn_cargarImagenSlider" OnClick="btn_cargarImagenSlider_Click" runat="server">
+                            Cargar
+                        </asp:LinkButton>
                     </div>
                 </div>
             </div>
-            <div class="col s12 l4">
-
-
-                <asp:LinkButton CssClass="waves-effect waves-light btn blue-grey lighten-5 blue-grey-text text-darken-4"
-                    ID="btn_cargarImagenSlider" OnClick="btn_cargarImagenSlider_Click" runat="server">
-                    Subir imagen
-                     <i class="left large material-icons">image</i>
-                </asp:LinkButton>
-
-
-            </div>
-
         </div>
-        <div class="row">
+        <div class="row avisos-wrapper">
             <asp:ListView ID="lv_galeriaDeImagenes" runat="server">
                 <layouttemplate>
                     <div runat="server" id="itemPlaceholder"></div>
@@ -135,19 +126,18 @@
                 <itemtemplate>
                     <asp:HiddenField ID="hf_imgFileName" Value='<%#Eval("Value")%>' runat="server" />
                     <div class="col s12  m6 l6 xl4">
-                        <div class="card">
-                            <div class="card-image">
+                        <div class="card avisos_card-borde">
+                            <div id="home-avisos_card-image" class="card-image" style="overflow: auto;">
                                 <asp:Image ID="imgSlider" ImageUrl='<%# configuracion_sliders.directorioSliderRelativo + Eval("Value") %>' runat="server" />
                                 <asp:Label ID="lbl_tituloSlider" class="card-title" runat="server" Text=""></asp:Label>
-
-
                             </div>
-                            <div class="card-content">
-                                <asp:Label ID="lbl_descripcion" runat="server"
+                            <div class="card-content" style="padding: 0rem 0rem 1rem 1rem; word-break: break-all;">
+                                <asp:Label ID="lbl_descripcion" style="font-size: 14px; height: 60px;
+                                display: flex; align-items: center;"  runat="server"
                                     Text='<%#  Eval("Value") %>'></asp:Label>
                             </div>
-                            <div class="card-action">
-                                <asp:LinkButton ID="btn_eliminar_imagenh" OnClick="btn_eliminar_imagenh_Click" runat="server">Eliminar</asp:LinkButton>
+                            <div class="card-action" style="padding: 1rem;">
+                                <asp:LinkButton ID="btn_eliminar_imagenh" class="eliminar_slider-configuraciones_home" style="color: rgb(240, 76, 76); text-transform: capitalize;" OnClick="btn_eliminar_imagenh_Click" runat="server">Eliminar Slider</asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -166,7 +156,6 @@
                     <h2>No hay imagenes cargadas </h2>
                 </edititemtemplate>
             </asp:ListView>
-
         </div>
     </div>
     <!-- Modal Agregar Slider -->
@@ -188,7 +177,7 @@
                     </div>
                 </div>
                 <div class="is-flex is-justify-between is-items-center is-px-4">
-                    <label for="<%=txt_descripcion.ClientID %>" class="is-text-base is-pr-4">Descripción: </label>
+                    <label for="<%=txt_descripcion.ClientID %>" class="is-text-base is-pr-4">Descripción:</label>
                     <div class="is-w-4_5">
                         <asp:TextBox ID="txt_descripcion" placeholder="Descripción de la imagen" runat="server"></asp:TextBox>
                     </div>
@@ -256,27 +245,26 @@
     <!-- Modal Editar Slider -->
     <div id="modal_editar_slider" class="modal bottom-sheet">
         <div class="modal-content">
-
-            <h4>Editar Slider Slider</h4>
+            <h4>Editar Slider</h4>
             <asp:HiddenField ID="hf_idSliderEdit" Value='<%#Eval("id")%>' runat="server" />
             <div class="row">
                 <div class="input-field col s12 m6 l6">
                     <asp:TextBox ID="txt_tituloEdit" runat="server"></asp:TextBox>
-                    <label for="<%=txt_tituloEdit.ClientID %>">Titulo</label>
+                    <label for="<%=txt_tituloEdit.ClientID %>">Título:</label>
                 </div>
                 <div class="input-field col s12 m6 l6">
                     <asp:TextBox ID="txt_descripcionEdit" runat="server"></asp:TextBox>
-                    <label for="<%=txt_descripcionEdit.ClientID %>">Descripción</label>
+                    <label for="<%=txt_descripcionEdit.ClientID %>">Descripción:</label>
 
                 </div>
                 <div class="input-field col s12 m12 l6">
                     <asp:DropDownList ID="ddl_imagenEdit" class="selectize-select browser-default " runat="server"></asp:DropDownList>
-                    <label for="<%=ddl_imagenEdit.ClientID %>">Imagen</label>
+                    <label for="<%=ddl_imagenEdit.ClientID %>">Imagen:</label>
 
                 </div>
                 <div class="input-field  col s12 m12 l12">
                     <asp:TextBox ID="txt_linkEdit" runat="server"></asp:TextBox>
-                    <label for="<%=txt_linkEdit.ClientID %>">Link</label>
+                    <label for="<%=txt_linkEdit.ClientID %>">Link:</label>
                 </div>
 
                 <div class="  col s6 m4 l2">
@@ -300,8 +288,7 @@
                     <label for="<%=ddl_posicionEdit.ClientID %>">Posicion</label>
                 </div>
                 <div class="input-field col s12 m12 l12 l12 ">
-                    <span>Opciones usar "_blank" para enlace en nueva pestaña, dejar vacio para link en la misma pestaña.</span>
-
+                    <span>Opciones: Usar "_blank" para enlace en nueva pestaña o dejar vacio para link en la misma pestaña.</span>
                     <asp:TextBox ID="txt_opcionesEdit" CssClass="materialize-textarea" TextMode="MultiLine" runat="server"></asp:TextBox>
                 </div>
                 <div class="col s12  m14 l4">
@@ -315,7 +302,7 @@
                 <div class="col s12  m112 l12">
                     <asp:UpdatePanel UpdateMode="Conditional" runat="server">
                         <contenttemplate>
-                            <asp:LinkButton ID="btn_editarSlider" OnClientClick="  $('#modal_editar_slider').modal('close');" CssClass="waves-effect waves-light btn blue-grey lighten-5 blue-grey-text text-darken-4"
+                            <asp:LinkButton ID="btn_editarSlider" OnClientClick="  $('#modal_editar_slider').modal('close');" CssClass="is-btn-gray"
                                 OnClick="btn_editarSlider_Click" runat="server">
                                 Editar Slider</asp:LinkButton>
                         </contenttemplate>
@@ -325,14 +312,12 @@
                     </asp:UpdatePanel>
 
                 </div>
-
             </div>
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
         </div>
     </div>
-
 </asp:Content>
 
 

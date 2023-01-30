@@ -5,8 +5,8 @@
         <div class="row">
             <div class="">
                 <h2 class="is-text-center is-m-0 is-bt-2 is-font-bold is-text-black-soft">Mi cuenta</h2>
-                <h2 class="margin-t-2x">Bienvenido a tu cuenta INCOM,
-                    <asp:Literal ID="li_h1_nombre" runat="server"></asp:Literal>.</h2>
+                <h4 class="margin-t-2x">Bienvenido a tu cuenta INCOM,
+                    <asp:Literal ID="li_h1_nombre" runat="server"></asp:Literal>.</h4>
                 <!-- <h3 class="margin-b-2x">Datos de la cuenta: </h3> -->
             </div>
         </div>

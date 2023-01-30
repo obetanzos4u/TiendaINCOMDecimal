@@ -342,6 +342,70 @@ margin-left: 1rem;
     margin-left: 1rem;
 }
 
+.icon-edit-blue {
+    width: 22px !important;
+    height: auto;
+    margin: auto;
+}
+
+.card-galeria-imagenes {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.eliminar_slider-configuraciones_home {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: none;
+    border: 1px solid rgb(240, 76, 76);
+    width: 146px;
+    color: rgb(240, 76, 76);
+    padding: 6px 1.5rem;
+    border-radius: 8px;
+    display: inline-block;
+    height: 32px;
+}
+
+.eliminar_slider-configuraciones_home:hover {
+    text-decoration: underline;
+    text-decoration-color: currentcolor;
+    text-decoration-color: rgb(240, 76, 76);
+    transform: scale(0.98);
+}
+
+.eliminar_slider-configuraciones_home:active {
+    text-decoration: underline;
+      text-decoration-color: currentcolor;
+    text-decoration-color: white;
+    color: white;
+    background-color: rgb(240, 76, 76);
+    transform: scale(0.98);
+}
+
+.card-configuraciones-home {
+    border: 1px solid #878787;
+    border-radius: 8px !important;
+    padding: 0.5rem;
+    box-shadow: 3px 3px 3px 3px rgba(161, 161, 161, 0.3) !important;
+}
+
+.card-image.configuraciones-home {
+    display: flex;
+}
+
+.card-image.configuraciones-home > img {
+    margin: auto;
+}
+
+.avisos_card-borde {
+    border: 1px solid #878787;
+    border-radius: 8px !important;
+    padding: 0.5rem;
+    box-shadow: 3px 3px 3px 3px rgba(161, 161, 161, 0.3) !important;
+}
+
 @media only screen and (min-width:1000px) {
 
     .content_header_logo-img {
@@ -361,6 +425,21 @@ margin-left: 1rem;
     #mostrar_activos > .select-wrapper > input.select-dropdown.dropdown-trigger {
         height: 2rem !important;
         width: 90% !important;
+    }
+
+    .card-galeria-imagenes {
+        border: 1px solid #252525;
+        width: 45%;
+        padding: 0rem 2rem 2rem 2rem;
+        margin: 3rem auto auto;
+    }
+
+    .card-configuraciones-home {
+        height: 540px;
+    }
+
+    .row.avisos-wrapper {
+        padding: 4rem;
     }
 }
 
@@ -836,7 +915,26 @@ div.arrow-doble-down #svg-arrow-down {
         /* Ajusta el tamaño de los indicadores de paginación en tablets*/
         #destacados_splide ul.splide__pagination > li > button.splide__pagination__page {
             width: 12px;
-        }      
+        }
+
+        .container-configuraciones_home {
+            width: 80%;
+            margin: auto;
+        }
+
+        #home-avisos_card-image {
+            max-height: 160px;
+            background: #bfbebc4a;
+            overflow: auto;
+        }
+
+        .row.avisos-wrapper {
+            padding: 4rem;
+        }
+
+        .card-galeria-imagenes {
+            margin: 2rem 4.5rem auto;
+        }
     }
 
     @media only screen and (min-width: 800px) and (max-width: 1000px) {
@@ -1060,6 +1158,12 @@ div.arrow-doble-down #svg-arrow-down {
 
         .grid-ta-resultados {
             grid-template-columns: auto !important;
+        }
+
+        .title-banner_avisos {
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            padding-top: 4rem;
         }
     }
 
@@ -1991,6 +2095,30 @@ div.arrow-doble-down #svg-arrow-down {
         .input-cotizacion-filter > .select-wrapper .caret {
             right: 20%;
         }
+
+        .card-galeria-imagenes {
+            width: 100%;
+            padding: 0rem 2rem 2rem 2rem;
+        }
+
+        .cargar-imagenes.is-flex {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cargar-imagenes.is-flex > .is-btn-gray,
+        .cargar-imagenes.is-flex > .is-btn-blue,
+        .cargar-imagenes.is-flex > .file-field {
+            width: 100%;
+        }
+
+        .cargar-imagenes.is-flex > .file-field {
+            padding-left: 0.5rem;
+        }
+
+        .wrapper_card-configuraciones-home {
+            padding: 0rem 1rem;
+        }
     }
 
     @media only screen and (min-width: 200px) {
@@ -2461,6 +2589,10 @@ div.arrow-doble-down #svg-arrow-down {
         .btn_buscar-cotizaciones_busqueda {
             margin-top: 1rem;
         }
+
+        .card-image.configuraciones-home {
+            max-height: 160px;
+        }
     }
 
     @media only screen and (min-width: 1000px) and (max-width: 1450px) {
@@ -2621,6 +2753,15 @@ div.arrow-doble-down #svg-arrow-down {
 
         .input-cotizacion-filter > .select-wrapper .caret {
             right: 16%;
+        }
+
+        #home-avisos_card-image {
+            height: 160px;
+        }
+
+        .container-configuraciones_home {
+            width: 90%;
+            margin: auto;
         }
     }
 
@@ -2923,7 +3064,16 @@ div.arrow-doble-down #svg-arrow-down {
             width: 8px;
             border-radius: 5px;
             height: 8px;
-        }   
+        }
+
+        .card-action.card-avisos {
+            margin: 1rem 0rem;
+        }
+
+        .title-banner_avisos {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+        }
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -3283,6 +3433,10 @@ div.arrow-doble-down #svg-arrow-down {
     .col.input-cotizacion-filter {
         width: 200px;
     }
+
+    .row.avisos-wrapper {
+        padding: 1rem;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -3525,6 +3679,14 @@ div.arrow-doble-down #svg-arrow-down {
             height: 33px;
             line-height: 2.5;
         }
+
+        .row.avisos-wrapper {
+            padding: 2rem;
+        }
+
+        .cargar_imagenes_home > div.is-flex.is-justify-center {
+            margin-top: 2rem;
+        } 
     }
 
     @media only screen and (min-width: 450px) and (max-width: 700px) {
@@ -3662,6 +3824,21 @@ div.arrow-doble-down #svg-arrow-down {
         .input-name-number_operation {
             width: 300px;
             margin-right: 50px;
+        }
+
+        .card-galeria-imagenes {
+            border: 1px solid #252525;
+            width: 86%;
+            padding: 0rem 2rem 2rem 2rem;
+        }
+
+        .card-image.configuraciones-home {
+            max-height: 160px;
+            display: flex;
+        }
+
+        .card.card-configuraciones-home {
+            height: 520px;
         }
     }
 
@@ -3993,6 +4170,23 @@ div.arrow-doble-down #svg-arrow-down {
             width: 116px;
             line-height: 1.2rem;
             padding: 0.6rem 1.5rem;
+        }
+
+        #home-avisos_card-image {
+            height: 200px;
+        }
+
+        .container-configuraciones_home {
+            width: 80%;
+            margin: auto;
+        }
+
+        .file-path-wrapper > .file-path.validate {
+            height: 36px;
+        }
+
+        .card-image.configuraciones-home > img {
+            max-height: 160px;
         }
     }
 
