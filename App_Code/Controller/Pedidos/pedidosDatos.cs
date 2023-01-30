@@ -751,7 +751,6 @@ public class pedidosDatos
     /// 2/4 Crea los datos del pedido y devuelve el [numero_operacion] si se realizó correctamente, si no devuelve null
     /// </summary>
     /// <param name="idOrigen">|pc|= pedido de cotización, |pd|= pedido directo, |pcc|= pedido de cotización de carrito</param>  
-
     public string crearPedido_datos(usuarios usuario, model_pedidos_datos pedidoDatos, string idOrigen)
     {
         try
@@ -855,12 +854,8 @@ public class pedidosDatos
     /// Actualiza datos de contacto de pedido: email cliente, nombre, apellido paterno, apellido materno, telefono y celular. 
     /// </summary>
     /// 
-
     public string crearPedido_datosFromCotizacion(usuarios usuario, DataTable dt_datosCotizacion, string nombre_pedido, string idOrigen)
     {
-
-
-
         model_pedidos_datos pedidoDatos = new model_pedidos_datos();
 
         pedidoDatos.id = 2;
@@ -879,7 +874,6 @@ public class pedidosDatos
         pedidoDatos.comentarios = dt_datosCotizacion.Rows[0]["comentarios"].ToString();
         pedidoDatos.preCotizacion = 1;
         pedidoDatos.numero_operacion_cotizacion = dt_datosCotizacion.Rows[0]["numero_operacion"].ToString();
-
 
         try
         {
@@ -979,7 +973,39 @@ public class pedidosDatos
             return null;
         }
     }
+    /// <sumary>
+    /// Actualiza el campo idPedidoSAP
+    /// </sumary>
+    public string actualizarPedido_idPedidoSAP (string numero_operacion, string pedido_sap)
+    {
+        try
+        {
+            dbConexion();
+            using (con)
+            {
+                StringBuilder query = new StringBuilder();
+                query.Append("SET LANGUAGE English; ");
+                query.Append("UPDATE pedido_datos SET ");
+                query.Append(" idPedidoSAP = @idPedidoSAP WHERE numero_operacion = @numero_operacion ");
+                
+                cmd.CommandText = query.ToString();
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add("@numero_operacion", SqlDbType.NVarChar, 20);
+                cmd.Parameters["@numero_operacion"].Value = numero_operacion;
+                cmd.Parameters.Add("@idPedidoSAP", SqlDbType.NVarChar, 15);
+                cmd.Parameters["@idPedidoSAP"].Value = pedido_sap;
 
+                con.Open();
+                cmd.ExecuteScalar();
+                return "";
+            }
+        }
+        catch (Exception ex)
+        {
+            devNotificaciones.error("Actualizar idPedidoSAP: " + numero_operacion, ex);
+            return null;
+        }
+    }
     /// <summary>
     /// Actualiza datos de contacto de pedido: email cliente, nombre, apellido paterno, apellido materno, telefono y celular. 
     /// </summary>
@@ -2054,12 +2080,7 @@ public class pedidosDatos
         }
         catch (Exception ex)
         {
-
             return null;
         }
     }
-
-
-
-
 }

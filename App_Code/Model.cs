@@ -251,6 +251,7 @@ public partial class pedidos_datos
     public string motivoCancelacion { get; set; }
     public string detalleCancelacionAsesor { get; set; }
     public Nullable<int> idUsuarioSeguimiento { get; set; }
+    public string idPedidoSAP { get; set; }
 }
 
 public partial class pedidos_datosNumericos

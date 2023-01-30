@@ -18,14 +18,14 @@
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css?ver=1.10" rel="stylesheet">
 </head>
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center header-transparent">
         <div class="container d-flex align-items-center justify-content-between">
             <div class="logo">
-                <a href='<%= ResolveUrl("~/mkt/landing/soplado-fremco-2022/index.aspx") %>'>
+                <a href='<%= ResolveUrl("~/mkt/eventos/index.aspx") %>'>
                     <img src="assets/img/incom.png" alt="INCOM La ferretera de las telecomunicaciones" class="img-fluid" />
                 </a>
                 <!-- Uncomment below if you prefer to use an image logo -->
@@ -75,14 +75,16 @@
                     <div data-aos="zoom-out">
                         <h1>INCOM te invita a nuestro próximo evento</h1>
                         <h2>CUPRUM llega a INCOM</h2>
-                        <h2>Viernes 27 de enero | 10:00 horas México</h2>
+                        <h4>Presencial | En línea</h4>
+                        <h2>Jueves 09 de febrero | 10:00 horas México</h2>
+                        <p>Plutarco Elías Calles 276, Col. Tlazintla, Iztacalco, CDMX</p>
                         <div class="text-center text-lg-start">
                             <a href="#contact" class="btn-get-started scrollto bg-danger">¡Inscríbete aquí!</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
-                    <img src="assets/img/INCOM_WEBINAR_FREMCO_LP1.png" class="img-fluid animated" alt="Webinar FREMCO soplado de fibra óptica">
+                    <img src="assets/img/INCOM_WEBINAR_CUPRUM_LP1.png" class="img-fluid animated" alt="Webinar FREMCO soplado de fibra óptica">
                 </div>
             </div>
         </div>
@@ -117,7 +119,7 @@
                         <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4 h-100" style="width: 320px">
                             <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
                                 <div class="d-flex justify-content-center align-items-center my-4">
-                                    <span style="background-color: rgba(1, 3, 111, 0.8); border-radius: 100%; padding: 1rem">
+                                    <span style="background-color: rgba(4, 52, 101, 1); border-radius: 100%; padding: 1rem">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
                                             <path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path>
                                             <path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path>
@@ -127,8 +129,8 @@
                                 <div class="text-center">
                                     <h4>Fecha</h4>
                                     <div class="">
-                                        <p class="my-0">Viernes 27 de Enero | 10:00 horas</p>
-                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
+                                        <p class="my-0">Jueves 09 de febrero | 10:00 horas</p>
+                                        <p class="my-0">Zona horaria: CDMX (GMT-6)</p>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +139,7 @@
                         <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4 mt-4 mt-lg-0 h-100" style="width: 320px">
                             <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
                                 <div class="d-flex justify-content-center align-items-center my-4">
-                                    <span style="background-color: rgba(1, 3, 111, 0.8); border-radius: 100%; padding: 1rem">
+                                    <span style="background-color: rgba(4, 52, 101, 1); border-radius: 100%; padding: 1rem">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
                                             <path d="M18 7c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-3.333L22 17V7l-4 3.333V7zm-1.998 10H4V7h12l.001 4.999L16 12l.001.001.001 4.999z"></path></svg>
                                     </span>
@@ -156,7 +158,7 @@
                         <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4 mt-4 mt-lg-0 h-100" style="width: 320px">
                             <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
                                 <div class="d-flex justify-content-center align-items-center my-4">
-                                    <span style="background-color: rgba(1, 3, 111, 0.8); border-radius: 100%; padding: 1rem">
+                                    <span style="background-color: rgba(4, 52, 101, 1); border-radius: 100%; padding: 1rem">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
                                             <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8 8a2 2 0 0 0 2.828 0l7.172-7.172a2 2 0 0 0 0-2.828l-8-8zM7 9a2 2 0 1 1 .001-4.001A2 2 0 0 1 7 9z"></path>
                                         </svg>
@@ -169,6 +171,26 @@
                                             Increíbles descuentos
                                             <br />
                                             para los asistentes.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4 mt-4 mt-lg-0 h-100" style="width: 320px">
+                            <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="d-flex justify-content-center align-items-center my-4">
+                                    <span style="background-color: rgba(4, 52, 101, 1); border-radius: 100%; padding: 1rem; color: #fff">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" fill="currentColor" class="bi bi-building-fill-gear" viewBox="0 0 16 16">
+                                            <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.493 4.493 0 0 0 12.5 8a4.493 4.493 0 0 0-3.59 1.787A.498.498 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.476 4.476 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1V1Zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5Zm3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z" />
+                                            <path d="M11.886 9.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="text-center">
+                                    <h4>Sector</h4>
+                                    <div class="">
+                                        <p class="my-0">
+                                            Principalmente para uso industrial, telecomunicaciones y eléctrico 
                                         </p>
                                     </div>
                                 </div>
@@ -205,6 +227,11 @@
                                 <h4>WhatsApp</h4>
                                 <a href="https://api.whatsapp.com/send?phone=525530327332" target="_blank">+52 (52) 3032-7332</a>
                             </div>
+                            <div class="phone">
+                                <i class="bi bi-geo-alt"></i>
+                                <h4>Ubicación</h4>
+                                <a href="https://www.incom.mx/informacion/ubicacion-y-sucursales.aspx#Ubicaciones" target="_blank">INCOM Ciudad de México</a>
+                            </div>
                         </div>
                     </div>
 
@@ -229,21 +256,21 @@
                                         <div class="col-md-10">
                                             <div class="form-group">
                                                 <asp:Label ID="lbl_telefono" AssociatedControlID="txt_telefono" Text="Teléfono: " runat="server"></asp:Label>
-                                                <asp:TextBox class="form-control w-75" ID="txt_telefono" required="false" runat="server"></asp:TextBox>
+                                                <asp:TextBox class="form-control w-75" ID="txt_telefono" runat="server"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-10">
                                             <div class="form-group">
                                                 <asp:Label ID="lbl_empresa" AssociatedControlID="txt_empresa" Text="Empresa: " runat="server"></asp:Label>
-                                                <asp:TextBox class="form-control w-75" ID="txt_empresa" required="false" runat="server"></asp:TextBox>
+                                                <asp:TextBox class="form-control w-75" ID="txt_empresa" runat="server"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-10">
                                             <div class="form-group">
                                                 <asp:Label ID="lbl_asistencia" AssociatedControlID="ddl_asistencia" Text="Tipo de asistencia: * " runat="server"></asp:Label>
-                                                <asp:DropDownList ID="ddl_asistencia" AutoPostBack="false" OnSelectedIndexChanged="ddl_asistencia_SelectedIndexChanged" CssClass="w-75" runat="server">
+                                                <asp:DropDownList ID="ddl_asistencia" AutoPostBack="false" CssClass="w-75" required="true" runat="server">
                                                     <asp:ListItem Selected="True" Value="">--</asp:ListItem>
-                                                    <asp:ListItem Value="Remoto">Remoto</asp:ListItem>
+                                                    <asp:ListItem Value="Presencial">Presencial</asp:ListItem>
                                                     <asp:ListItem Value="Online">En línea</asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
@@ -267,17 +294,17 @@
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>Conoce el</h2>
-                    <p>Temario del webinar</p>
+                    <p>Temario de la presentación</p>
                 </div>
                 <div class="row" data-aos="fade-left">
                     <div class="col col-lg-12">
                         <div class="icon-box d-flex justify-content-center align-items-center" data-aos="zoom-in" data-aos-delay="50">
                             <ul style="list-style-type: square">
-                                <li>Tipo de escaleras</li>
-                                <li>Planta Cuprum</li>
-                                <li>Normas</li>
-                                <li>Uso de las escaleras</li>
+                                <li>Planta CUPRUM</li>
+                                <li>Tipos de escaleras</li>
                                 <li>Cómo elegir una escalera</li>
+                                <li>Uso de la escalera</li>
+                                <li>Normas</li>
                             </ul>
                         </div>
                     </div>
@@ -299,16 +326,14 @@
                 <div class="row content">
                     <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
                         <div class="col-md-4 order-1 order-md-2 my-4" data-aos="fade-left">
-                            <img src="assets/img/INCOM_WEBINAR_FREMCO_LP2.jpg" class="img-fluid" alt="Soplado de fibra óptica">
+                            <img src="assets/img/INCOM_WEBINAR_CUPRUM_LP2.jpg" class="img-fluid" alt="Soplado de fibra óptica">
                         </div>
-                        <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
-                            <h3>SOPLADO DE FIBRA ÓPTICA</h3>
+                        <div class="col-md-7 pt-5 order-2 order-md-1" data-aos="fade-up">
+                            <h3>ESCALERAS CUPRUM</h3>
+                            <strong class="text-justify">En escaleras CUPRUM somos expertos en diseño, comercialización y fabricación de escaleras, nuestro compromiso es ofrecer soluciones para facilitar soluciones en alturas de manera cómoda y segura. Ofrecemos diversas opciones para cubrir diferentes necesidades desde domesticas hasta industriales.</strong>
                             <p class="text-justify">
-                                La técnica de soplado de fibra es eficiente, segura y relativamente nueva. Es pionera en los países nórdicos y ha sido aceptada masivamente en Europa, Estados Unidos y Latinoamérica. Consiste en introducir un caudal de aire comprimido dentro del ducto que sirva como una cama y por el cual el cable de fibra “flote”, para que de esta manera el cable vaya introduciéndose en el ducto. 
-                            </p>
-                            <p class="text-justify">
-                                Para llevar a cabo esta técnica se requiere una máquina especial que haga uso de la fuerza de tracción y fuerza de empuje para ayudar a desplazar al cable. 
-                            </p>
+                                Actualmente tenemos presencia en más de 35 países y somos líderes en el mercado mexicano con la Marca Cuprum, actualmente nuestras plantas están ubicadas en Monterrey y Toronto, tenemos una capacidad de producción de más de 8 millones de escaleras al año. En Escaleras Cuprum somos más de 1500 colaboradores quienes estamos comprometidos en exceder las expectativas.
+                            <p>
                         </div>
                     </div>
                 </div>
@@ -323,9 +348,9 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <img src="assets/img/INCOM_WEBINAR_FREMCO_LP3.png" class="" alt="">
-                                <h3>Miguel Angel Hernandez Bautista</h3>
-                                <%--<h4>Gerente de soporte técnico en INCOM</h4>--%>
+                                <img src="assets/img/INCOM_WEBINAR_CUPRUM_LP3.png" class="" alt="">
+                                <h3>Miguel Ángel Hernández Bautista</h3>
+                                <h4>Asesor comercial CUPRUM</h4>
                                 <%--<p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                     La técnica de soplado es la técnica más eficiente y segura para instalar fibra óptica y con las máquinas de soplado de FREMCO podemos aprovechar grandes ventajas. 
@@ -347,7 +372,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/yfveIxAc7Yc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/GIPZbE8f1BY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -365,7 +390,7 @@
                     <div class="col-lg-4 col-md-6">
                         <img src="assets/img/incom.png" alt="INCOM La ferretera de las telecomunicaciones" />
                     </div>
-                    <div class="col-lg-2 col-md-6 footer-links">
+                    <div class="col-lg-4 col-md-6 footer-links">
                         <h4>Redes</h4>
                         <ul>
                             <li><i class="bx bxl-facebook"></i><a href="https://www.facebook.com/incommexico/" target="_blank">Facebook</a></li>
@@ -375,7 +400,7 @@
                         </ul>
                     </div>
 
-                    <div class="col-lg-2 col-md-6 footer-links">
+                    <div class="col-lg-4 col-md-6 footer-links">
                         <h4>INCOM</h4>
                         <ul>
                             <li><i class="bx bx-chevron-right"></i><a href="https://www.incom.mx/productos?Length=15" target="_blank">Tienda</a></li>
@@ -385,7 +410,7 @@
                         </ul>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 footer-links">
+                    <%--                    <div class="col-lg-4 col-md-6 footer-links">
                         <h4>Catálogos</h4>
                         <ul>
                             <li><i class="bx bx-chevron-right"></i><a href="https://www.incom.mx/documents/pdf/INCOM_CATALOGO_SOLUCION_FIBRA_SOPLADA.pdf" target="_blank">Solución fibra soplada</a></li>
@@ -393,8 +418,7 @@
                             <li><i class="bx bx-chevron-right"></i><a href="https://www.incom.mx/documents/pdf/CATALOGO_INCOM_SUBTERRANEO.pdf" target="_blank">Instalación subterranea</a></li>
                             <li><i class="bx bx-chevron-right"></i><a href="https://www.incom.mx/documents/pdf/ICOPTIKS_CATALOGO_SOLUCIONES_PARA_FIBRA_OPTICA.pdf" target="_blank">Redes de fibra óptica</a></li>
                         </ul>
-                    </div>
-
+                    </div>--%>
                 </div>
             </div>
         </div>

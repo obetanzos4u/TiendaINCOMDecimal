@@ -5,6 +5,7 @@
 <%@ Register Src="~/userControls/moneda.ascx" TagName="moneda" TagPrefix="uc_mon" %>
 <%@ Register Src="~/userControls/productosVisitados.ascx" TagName="visitados" TagPrefix="productos" %>
 <%@ Register Src="~/userControls/uc_producto_btn_SoloVisualizar.ascx" TagName="link" TagPrefix="uc_visualizarProducto" %>
+<%@ Register Src="~/userControls/ui/destacadosSlider.ascx" TagPrefix="uc" TagName="sliderDestacados" %>
 
 <style>
     @media (min-width: 700px) {
@@ -118,13 +119,17 @@
         </div>
         <div id="content_resultado_busqueda_vacio" class="is-p-4" runat="server" visible="false">
             <div class="is-flex is-flex-col is-justify-center is-items-center">
-                <img src="https://www.incom.mx/img/webUI/newdesign/not-found.png" alt="No encontrado" class="is-w-1_3" />
+                <img src="https://www.incom.mx/img/webUI/newdesign/not-found.png" alt="No encontrado" class="is-w-1_4" />
                 <h2 class="is-text-xl is-font-semibold">Ningún resultado encontrado</h2>
                 <p class="is-m-2">
                     No encontramos productos con:
                     <asp:Label ID="lbl_termino_busqueda" class="is-font-semibold" runat="server"></asp:Label>
                 </p>
-                <p class="is-m-2"><span class="is-italic">Te sugerimos intentar con otro término de búsqueda</span> &#128556;</p>
+                <p class="is-m-2"><span class="is-italic">Te sugerimos intentar con otro término de búsqueda</span> &#128556; </p>
+                <p class="is-m-2"><span class="is-font-semibold">También te pueden interesar alguno de estos productos</span> &#128521; </p>
+                <div class="center-align slider-container is-w-4_5">
+                    <uc:sliderDestacados ID="uc_destacados" runat="server" />
+                </div>
             </div>
         </div>
         <!-- INICIO : Filtros y orden -->
@@ -353,11 +358,11 @@
             }, 1000);
         }
         else {
-            localStorage.setItem('disponibilidadProducto', numero_parte);
-            var content = document.querySelector("#content_producto_disponibilidad");
-            content.classList.add("hide");
-            LoginAjaxOpenModal();
-        }
+        localStorage.setItem('disponibilidadProducto', numero_parte);
+        var content = document.querySelector("#content_producto_disponibilidad");
+        content.classList.add("hide");
+        LoginAjaxOpenModal();
+    }
     }
 
     function consultarDisponibilidad(btn) {

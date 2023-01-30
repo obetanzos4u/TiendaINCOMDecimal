@@ -117,7 +117,7 @@ public class emailTienda : email
             mm.IsBodyHtml = true;
             mm.Body = mensaje;
             mm.Bcc.Add("serviciosweb@incom.mx");
-            mm.ReplyToList.Add("servicioswen@incom.mx");
+            mm.ReplyToList.Add("serviciosweb@incom.mx");
             // mm.Bcc.Add("development@incom.mx, desarrollo@incom.mx");
 
             // mm.ReplyToList.Add("cmiranda@it4u.com.mx, rpreza@it4u.com.mx, development@incom.mx");
