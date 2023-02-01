@@ -36,9 +36,7 @@
                         <LoggedInTemplate>
                             <asp:HyperLink ID="miCuenta" class="btn btn-primary mb-2 " NavigateUrl="~/usuario/mi-cuenta/mi-cuenta.aspx"
                                 runat="server"> Mi cuenta </asp:HyperLink>
-
                             <a href="/usuario/mi-cuenta/pedidos.aspx" class="btn btn-primary mb-2 d-lg-none">Pedidos</a>
-
                             <a href="/usuario/mi-cuenta/cotizaciones.aspx" class="btn btn-primary mb-2 d-lg-none">Cotizaciones</a>
                             <asp:LinkButton ID="btn_loggout" class="btn btn-outline-secondary mb-2 ms-2" OnClick="btn_loggout_Click" runat="server">Cerrar sesión</asp:LinkButton>
                         </LoggedInTemplate>

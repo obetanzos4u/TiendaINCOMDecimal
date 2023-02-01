@@ -316,7 +316,7 @@
                 <div class="is-flex is-justify-evenly is-items-center is-top-2">
                     <asp:UpdatePanel ID="up_cargaSAP" Visible="false" runat="server">
                         <ContentTemplate>
-                            <asp:LinkButton ID="btn_cargaSAP" OnClick="btn_cargaSAP_Click" CssClass="is-decoration-none is-btn-green" runat="server">Cargar pedido a SAP</asp:LinkButton>
+                            <asp:LinkButton ID="btn_cargaSAP" OnClientClick="BootstrapClickLoading(this);" OnClick="btn_cargaSAP_Click" CssClass="is-decoration-none is-btn-green" runat="server">Cargar pedido a SAP</asp:LinkButton>
                         </ContentTemplate>
                         <Triggers>
                             <asp:AsyncPostBackTrigger ControlID="btn_cargaSAP" EventName="Click" />

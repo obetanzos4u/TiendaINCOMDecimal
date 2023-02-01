@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿//using DocumentFormat.OpenXml.Spreadsheet; 
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.ServiceModel.Channels;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -78,16 +80,16 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         lbl_numero_operacion.Text = pedidos_datos.numero_operacion;
         lbl_fecha_creacion.Text = pedidos_datos.fecha_creacion.ToString();
 
-        if (pedidos_datos.idPedidoSAP != null)
+        if (pedidos_datos.idPedidoSAP != null && usuarios.userLogin().tipo_de_usuario == "usuario")
         {
             up_pedidoSAP.Visible = true;
             lbl_pedidoSAP.Text = pedidos_datos.idPedidoSAP;
-            //btn_cargaSAP.Enabled = false;
-            //btn_cargaSAP.ToolTip = "Pedido creado en SAP con ID: " + pedidos_datos.idPedidoSAP;
-            //btn_cargaSAP.CssClass = "is-btn-gray is-select-none";
-            //btn_cargaSAP.Attributes.Add("style", "cursor: not-allowed");
+            btn_cargaSAP.Enabled = false;
+            btn_cargaSAP.ToolTip = "Pedido creado en SAP con ID: " + pedidos_datos.idPedidoSAP;
+            btn_cargaSAP.CssClass = "is-btn-gray is-select-none";
+            btn_cargaSAP.Attributes.Add("style", "cursor: not-allowed");
         }
-        else
+        else if (pedidos_datos.idPedidoSAP == null && usuarios.userLogin().tipo_de_usuario == "usuario")
         {
             btn_cargaSAP.Enabled = true;
         }
@@ -223,6 +225,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             Content_Pago_Datos_Transferencia_Asesor.Visible = true;
             System.Web.HttpContext.Current.Session["modoAsesor"] = true;
             HttpContext.Current.Session["datosCliente"] = usuarios.recuperar_DatosUsuario(lt_usuario_cliente.Text);
+            up_cargaSAP.Visible = true;
 
         }
         #endregion
@@ -430,7 +433,11 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             btn_continuarMetodoPago.Attributes.Add("style", "cursor: not-allowed;");
             btn_continuarMetodoPago.ToolTip = $"{status.message}";
             ddl_UsoCFDI.Enabled = false;
-            up_cargaSAP.Visible = true;
+
+            if (usuarios.userLogin().tipo_de_usuario == "usuario")
+            {
+                up_pedidoSAP.Visible = true;
+            }
 
             NotiflixJS.Message(this, NotiflixJS.MessageType.info, status.message);
 
@@ -454,10 +461,10 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
             btn_cambiar_metodo_envio.CssClass = "btn btn-secondary disabled";
             btn_cambiar_metodo_envio.Text = status.message;
         }
-        else
-        {
-            MostrarMétodosDePago();
-        }
+        //else
+        //{
+        //    MostrarMétodosDePago();
+        //}
     }
     protected void btn_cancelar_pedido_Click(object sender, EventArgs e)
     {
@@ -621,10 +628,9 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         var Result = PedidosEF.ActualizarEnvioNota(lt_numero_pedido.Text, null);
         if (Result.result == true)
         {
-
             // Necesario para redirección
             string script = @"setTimeout(function () { window.location.replace(window.location.href)}, 3500);";
-            ScriptManager.RegisterStartupScript(this, typeof(Page), "redirección", script, true);
+            ScriptManager.RegisterStartupScript(this, typeof(System.Web.UI.Page), "redirección", script, true);
 
             BootstrapCSS.Message(this, ".Conteng_msg_envioNota", BootstrapCSS.MessageType.success, "Actualizado con éxito", "Nota eliminada con éxito");
         }
@@ -642,217 +648,31 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
         });
         BootstrapCSS.RedirectJs(this, redireccionUrl, 1000);
     }
-
-    protected void btn_cargaSAP_Click(object sender, EventArgs e)
+    protected async void btn_cargaSAP_Click(object sender, EventArgs e)
     {
         NotiflixJS.Loading(this, NotiflixJS.LoadingType.loading);
         try
         {
-            putOrderinSAP(lt_numero_pedido.Text);
-        }
-        catch (Exception ex)
-        {
-            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error");
-        }
-        NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
-    }
-    protected void putOrderinSAP(string id_pedido)
-    {
-        HttpWebRequest request = createSOAPWebRequest();
-        System.Net.ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(acceptAllCertifications);
-
-        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-        string productosXML = string.Empty;
-        string moneda = hf_moneda_pedido.Value;
-        string dateTime = utilidad_fechas.obtenerCentral().ToString("yyyy-MM-ddTHH:mm:ssZ");
-        decimal costoEnvio = PedidosEF.ObtenerNumeros(id_pedido).envio;
-        DataTable dtProductos = pedidosProductos.obtenerProductos(id_pedido);
-        if (dtProductos.Rows.Count > 0)
-        {
-            int posicion = 10;
-            foreach (DataRow producto in dtProductos.Rows)
+            var resultadoPedidoSAP = await SalesOrderInSAP.PutOrder(lt_numero_pedido.Text, hf_moneda_pedido.Value);
+            if (resultadoPedidoSAP.result)
             {
-                string cantidad = producto["cantidad"].ToString();
-                string precio_unitario = producto["precio_unitario"].ToString();
-                string noParteSAP = producto["noParteSAP"].ToString();
-                productosXML += $@"
-                    <Item actionCode=""04"">
-                        <!-- ID de posición, debe incrementarse de 10 en 10 -->
-                        <ID>{posicion}</ID>
-                        <!-- Liberar para ejecutar, corresponde al ATP? -->
-                        <ReleaseToExecute>true</ReleaseToExecute>
-                        <!-- Número de parte del producto pedido -->
-                        <ItemProduct actionCode=""04"">
-                            <ProductInternalID>{noParteSAP}</ProductInternalID>
-                        </ItemProduct>
-                        <!-- Línea de programación de árticulos, revisar -->
-                        <ItemScheduleLine actionCode=""04"">
-                            <ID>1</ID>
-                            <TypeCode>1</TypeCode>
-                            <!-- Cantidad de items solicitados en el pedido -->
-                            <Quantity>{cantidad}</Quantity>
-                        </ItemScheduleLine>
-                        <!--Optional:-->
-	                    <PriceAndTaxCalculationItem actionCode=""04"">
-	                        <ItemMainPrice actionCode=""04"">
-	                            <Rate>
-	                            <DecimalValue>{precio_unitario}</DecimalValue>
-	                            <CurrencyCode>{moneda}</CurrencyCode>
-	                            <BaseDecimalValue>1.0</BaseDecimalValue>
-	                            </Rate>
-	                        </ItemMainPrice>
-	                    </PriceAndTaxCalculationItem>
-                    </Item>
-                ";
-                posicion += 10;
+                NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Pedido creado en SAP con el ID: " + resultadoPedidoSAP.message);
             }
-
-            if (costoEnvio > 0)
+            else
             {
-                productosXML += $@"
-                    <Item actionCode=""04"">
-                        <!-- ID de posición, debe incrementarse de 10 en 10 -->
-                        <ID>{posicion}</ID>
-                        <!-- Liberar para ejecutar, corresponde al ATP? -->
-                        <ReleaseToExecute>false</ReleaseToExecute>
-                        <!-- Número de parte del producto pedido -->
-                        <ItemProduct actionCode=""04"">
-                            <ProductInternalID>MANEJO_DE_MATERIAL</ProductInternalID>
-                        </ItemProduct>
-                        <ItemServiceTerms actionCode=""04"">
-	                      <ResourceID>ENVIO_CDMX</ResourceID>
-	                   </ItemServiceTerms>
-                        <!-- Línea de programación de árticulos, revisar -->
-                        <ItemScheduleLine actionCode=""04"">
-                            <ID>1</ID>
-                            <TypeCode>1</TypeCode>
-                            <!-- Cantidad de items solicitados en el pedido -->
-                            <Quantity>1</Quantity>
-                        </ItemScheduleLine>
-                        <!--Optional:-->
-	                    <PriceAndTaxCalculationItem actionCode=""04"">
-	                        <ItemMainPrice actionCode=""04"">
-	                            <Rate>
-	                            <DecimalValue>{costoEnvio}</DecimalValue>
-	                            <CurrencyCode>{moneda}</CurrencyCode>
-	                            <BaseDecimalValue>1.0</BaseDecimalValue>
-	                            </Rate>
-	                        </ItemMainPrice>
-	                    </PriceAndTaxCalculationItem>
-                    </Item>
-                ";
+                NotiflixJS.Message(this, NotiflixJS.MessageType.warning, resultadoPedidoSAP.message);
             }
-
-            if (productosXML != null)
-            {
-                XmlDocument body = new XmlDocument();
-
-                body.LoadXml($@"
-                    <soap:Envelope xmlns:soap=""http://www.w3.org/2003/05/soap-envelope"" xmlns:glob=""http://sap.com/xi/SAPGlobal20/Global"" xmlns:glob1=""http://sap.com/xi/AP/Globalization"" xmlns:a0v=""http://sap.com/xi/AP/CustomerExtension/BYD/A0VKF"">
-                       <soap:Header/>
-                       <soap:Body>
-                          <glob:SalesOrderBundleMaintainRequest_sync>
-                             <BasicMessageHeader>
-                             </BasicMessageHeader>
-		                    <SalesOrder actionCode=""01"">
-                                    <!-- Referencia externa -->
-                                    <BuyerID>{id_pedido}</BuyerID>
-                                    <!-- Nodo de campaña -->
-                                    <BusinessTransactionDocumentReference actionCode=""01"">
-                                        <BusinessTransactionDocumentReference>
-                                            <!-- ID de campaña -->
-                                            <ID>81</ID>
-                                            <!-- Código interno en SAP para referirse a Campaña -->
-                                            <TypeCode>764</TypeCode>
-                                        </BusinessTransactionDocumentReference>
-                                        <BusinessTransactionDocumentRelationshipRoleCode>1</BusinessTransactionDocumentRelationshipRoleCode>
-                                        <DataProviderIndicator>true</DataProviderIndicator>
-                                    </BusinessTransactionDocumentReference>
-                                    <!-- Fin de Nodo de campaña -->
-                                    <!-- Unidad de venta, 101024 corresponde a TERCEROS -->
-                                    <SalesUnitParty actionCode=""04"">
-                                        <PartyID>101024</PartyID>
-                                    </SalesUnitParty>
-                                    <!-- Canal de distribución, Z4 corresponde a Ecommerce -->
-                                    <SalesAndServiceBusinessArea actionCode=""04"">
-                                        <DistributionChannelCode>Z4</DistributionChannelCode>
-                                    </SalesAndServiceBusinessArea>
-                                    <!-- Empleado responsable, 1000 corresponde a Francisco -->
-                                    <EmployeeResponsibleParty actionCode=""04"">
-                                        <PartyID>8065</PartyID>
-                                    </EmployeeResponsibleParty>
-                                    <!-- Nombre de cliente -->
-                                    <AccountParty actionCode=""04"">
-                                        <PartyID>1017775</PartyID>
-                                    </AccountParty>
-                                    <!-- Términos de venta -->
-                                    <PricingTerms actionCode=""04"">
-                                        <CurrencyCode>{moneda}</CurrencyCode>
-                                        <!-- Fecha y hora de operación -->
-                                        <PriceDateTime timeZoneCode=""UTC"">{dateTime}</PriceDateTime>
-                                        <!-- false indica que el desglose de impuestos lo realiza SAP, en caso de enviar monto bruto deben enviarse los nodos correspondientes -->
-                                        <GrossAmountIndicator>false</GrossAmountIndicator>
-                                    </PricingTerms>
-                                    <!-- Nodo Item en la que se indican las posiciones -->
-                                        {productosXML}
-                                </SalesOrder>
-                          </glob:SalesOrderBundleMaintainRequest_sync>
-                       </soap:Body>
-                    </soap:Envelope>
-                ");
-                using (Stream stream = request.GetRequestStream())
-                {
-                    body.Save(stream);
-                }
-                using (WebResponse service = request.GetResponse())
-                {
-                    using (StreamReader reader = new StreamReader(service.GetResponseStream()))
-                    {
-                        var serviceResult = reader.ReadToEnd();
-                        XmlDocument doc = new XmlDocument();
-                        doc.LoadXml(serviceResult);
-                        XmlNode node = doc.DocumentElement.SelectSingleNode("//SalesOrder/ID");
-                        if (node != null)
-                        {
-                            NotiflixJS.Message(this, NotiflixJS.MessageType.info, node.InnerText);
-                            //pedidosDatos pedido = new pedidosDatos();
-                            //pedido.actualizarPedido_idPedidoSAP(id_pedido, node.InnerText);
-                            var actualizarIDPedidoSAP = PedidosEF.ActualizarIDPedidoSAP(id_pedido, node.InnerText);
-                            if (actualizarIDPedidoSAP.result)
-                            {
-                                NotiflixJS.Message(this, NotiflixJS.MessageType.success, "Pedido creado en SAP con el ID: " + node.InnerText + " y almacenado");
-                            }
-                            else
-                            {
-                                NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "Pedido creado en SAP pero no almacenado");
-                            }
-                            up_pedidoSAP.Update();
-                            NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
-                        }
-                        else
-                        {
-                            NotiflixJS.Message(this, NotiflixJS.MessageType.warning, "No se ha recibido el ID de pedido en SAP");
-                        }
-                    }
-                }
-            }
+            //putOrderinSAP(lt_numero_pedido.Text);
             string redirectURL = GetRouteUrl("cliente-pedido-resumen", new System.Web.Routing.RouteValueDictionary
             {
                 { "id_operacion", seguridad.Encriptar(hf_id_pedido.Value) }
             });
-            BootstrapCSS.RedirectJs(this, redirectURL, 400);
+            BootstrapCSS.RedirectJs(this, redirectURL, 600);
         }
-    }
-    protected HttpWebRequest createSOAPWebRequest()
-    {
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://my429740.businessbydesign.cloud.sap/sap/bc/srt/scs/sap/managesalesorderin5?sap-vhost=my429740.businessbydesign.cloud.sap");
-        request.ContentType = "application/soap+xml;charset='utf-8'";
-        request.Method = "POST";
-        request.Credentials = new NetworkCredential("ASALINAS", "Pruebas00");
-        return request;
-    }
-    protected bool acceptAllCertifications(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certification, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPlicyErrors)
-    {
-        return true;
+        catch (Exception ex)
+        {
+            NotiflixJS.Message(this, NotiflixJS.MessageType.failure, "Error. " + ex.Message);
+        }
+        NotiflixJS.Loading(this, NotiflixJS.LoadingType.remove);
     }
 }
