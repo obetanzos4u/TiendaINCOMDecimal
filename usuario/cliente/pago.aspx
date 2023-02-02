@@ -98,6 +98,13 @@
                                     </asp:UpdatePanel>
                                 </asp:Panel>
                                 <asp:Panel ID="pnl_transferencia" Visible="false" runat="server">
+                                    <div class="is-text-xs is-bt-2">
+                                        <p class="is-top-2 is-font-semibold" style="color: #1d4ed8; font-weight: 600;">1. Selecciona esta opci&oacute;n.</p>
+                                        Para seleccionar esta opci&oacute;n de pago presiona: &quot;Establecer opci&oacute;n de pago&quot;.
+                                        <p class="is-top-2 is-font-semibold" style="color: #1d4ed8;">2. Realiza tu pago.</p>
+                                        Presenta los siguientes datos en cualquier sucursal de tu banco o en una sucursal de Banamex. Tambi&eacute;n puedes hacer una transferencia por medio de la aplicaci&oacute;n de tu banco.
+                                        Realiza tu pago usando los datos de nuestra cuenta y usando tu n&uacute;mero de operaci&oacute;n como referencia. <strong>Tu n&uacute;mero de operaci&oacute;n es: <asp:Label ID="lbl_numero_pedido_bottom" class="is-select-all" runat="server"></asp:Label></strong>
+                                    </div>
                                     <div class="border-datos_pago_transferencia">
                                         <div class="title-datos_pago_transferencia">
                                             <h5><strong>Datos de la cuenta</strong></h5>
@@ -282,25 +289,26 @@
                                         </div>
                                     </div>
                                     <div class="border-anuncio_realice_pago">
-                                        <span class="row-datos_pago">
-                                            <p><strong>Importante:</strong></p>
-                                            <br />
-                                        </span>
-                                        <span class="row-datos_pago">
-                                            <p>Con el fin de agilizar la identificaci&oacute;n de su pago, le agradeceremos indicar en el campo de referencia alfanum&eacute;rica del dep&oacute;sito el n&uacute;mero de pedido y/o nombre del pedido.</p>
-                                        </span>
-                                        <span class="row-datos_pago">
-                                            <p>
-                                                <strong>N&uacute;mero de pedido:&nbsp;&nbsp;&nbsp;</strong>
-                                                <asp:Label ID="lbl_numero_pedido_bottom" class="is-select-all" runat="server"></asp:Label>
-                                            </p>
-                                        </span>
-                                        <div class="is-flex is-justify-evenly is-items-baseline">
+                                    <div class="is-text-xs">
+                                        <p class="is-top-2 is-font-semibold" style="color: #1d4ed8; font-weight: 600;">3. Notifica tu pago.</p>
+                                        Cuando hayas realizado tu pago selecciona la opci&oacute;n: &quot;Ya realic&eacute; el pago&quot;. 
+                                        <ul class="is-top-1">
+                                            <li>Una vez confirmado tu pago comenzaremos a preparar tu pedido.</li>
+                                            <li>Te invitamos a estar al pendiente de tu correo, donde recibir&aacute;s notificaciones relevantes sobre tu compra.</li>
+                                            <li>Ante cualquier duda o aclaraci&oacute;n puedes comunicarte con nosotros usando el chat de la p&aacute;gina o por nuestros medios de 
+                                                <a href="https://www.incom.mx/informacion/ubicacion-y-sucursales.aspx#contacto">contacto</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                        <div class="is-flex is-top-2 is-items-baseline">
                                             <span class="container-btn_realice_pago">
-                                                <asp:LinkButton ID="btn_transferenciaRealizada" OnClick="btn_transferenciaRealizada_Click" Visible="true" class="is-btn-blue is-m-auto" Text="Registrar referencia de pago" runat="server"></asp:LinkButton>
+                                                <asp:LinkButton ID="btn_transferenciaRealizada" OnClick="btn_transferenciaRealizada_Click" Visible="true"
+                                                class="is-btn-blue is-btn-blue-pago"
+                                                Text="Establecer opci&oacute;n de pago" runat="server"></asp:LinkButton>
                                             </span>
                                             <span class="container-btn_realice_pago">
-                                                <asp:HyperLink ID="btn_finalizar_compra" Visible="false" class="is-btn-green-pago is-m-auto" runat="server" Text="Ya realic&eacute; el pago"></asp:HyperLink>
+                                                <asp:HyperLink ID="btn_finalizar_compra" Visible="false" class="is-btn-green-pago is-m-auto" runat="server"
+                                                Text="Ya realic&eacute; el pago"></asp:HyperLink>
                                             </span>
                                         </div>
                                     </div>
@@ -400,6 +408,11 @@
             margin-top: 2.25rem
         }
 
+        .is-btn-green-pago:hover {
+            background: #169e04;
+            color: #FFFFFF !important;
+        }
+
         @media only screen and (min-width: 700px) {
 
             .container_movil-datos_pago_transferencia {
@@ -487,11 +500,6 @@
                 outline: 0;
                 box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
             }
-
-                .is-btn-green-pago:hover {
-                    background: #169e04;
-                    color: #FFFFFF;
-                }
         }
 
         @media only screen and (max-width: 700px) {
@@ -601,6 +609,16 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+            }
+
+            .is-btn-blue.is-btn-blue-pago {
+                font-size: 9px;
+                height: 26px;
+                line-height: 26px;
+            }
+
+            .desgloce_ticket {
+                margin-bottom: 5rem !important;
             }
         }
 
@@ -798,7 +816,7 @@
             #body_btn_regresar_resumen {
                 margin-top: 0rem;
                 margin-bottom: 1rem;
-                font-size: 8px;
+                font-size: 12px;
             }
 
             .text-metodo_pago {
@@ -814,11 +832,11 @@
             }
 
             .text-aceptamos_formas_pago > strong:nth-child(1) {
-                font-size: 10px;
+                font-size: 12px;
             }
 
             .container-metodo_pago p:nth-child(1) > strong:nth-child(1) {
-                font-size: 7px;
+                font-size: 12px;
             }
 
             .movil-datos_pago {
@@ -883,7 +901,7 @@
             }
 
             #body_up_pasarelaPago .is-btn-gray {
-                font-size: 7px;
+                font-size: 9px;
                 height: 26px;
                 line-height: 26px;
                 padding: 0px 6px !important;
