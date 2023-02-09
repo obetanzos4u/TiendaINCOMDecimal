@@ -17,7 +17,7 @@
     <div class="is-w-full">
         <button class="button-seguir_comprando is-flex is-m-auto">
             <asp:HyperLink ID="btn_seguir_comprando" style="color: white;
-            text-decoration: none;" runat="server">
+            text-decoration: none; padding: 8px 20px 8px 24px;" runat="server">
                 <span>Seguir comprando</span>
                 <div class="cart-seguir_comprando">
                     <svg viewBox="0 0 36 26">
@@ -37,7 +37,6 @@
         position: relative;
         border: none;
         background: none;
-        padding: 8px 28px;
         border-radius: 8px;
         -webkit-appearance: none;
         -webkit-tap-highlight-color: transparent;

@@ -12,8 +12,8 @@
             <!-- <div class="col s12 m12 l12">
                 <h2>Mis direcciones de facturación</h2>
             </div> -->
-            <div class="col s12 m12 l9" style="font-size: 1.25rem;">Administra tus direcciones de facturación asociadas a pedidos.</div>
-            <div class="col s12 m12 l3 right-align">
+            <div class="col is-w-ful is-bt-1" style="font-size: 1.25rem;">Administra tus direcciones de facturación asociadas a pedidos.</div>
+            <div class="col s12 m12 l3 right-align btn-agregar_direccion" style="float: initial;">
                 <a id="eliminar" href="<%= ResolveUrl("~/usuario/mi-cuenta/crear-direccion-de-facturacion.aspx") %>" class="right-align is-text-white is-btn-gray" style="text-transform: none;">
                     <div class="is-flex" style="align-items: center;">
                         <i class="material-icons" style="margin-right: 1rem;">playlist_add_check</i>
