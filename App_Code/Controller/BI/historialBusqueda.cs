@@ -10,19 +10,20 @@ using System.Web;
 /// <summary>
 /// Guarda las busquedas de productos en la caja de texto, tanto visitantes y usuarios logeados
 /// </summary>
-public class BI_historialBusqueda {
- 
-    public BI_historialBusqueda() {
+public class BI_historialBusqueda
+{
+    public BI_historialBusqueda()
+    {
         //
         // TODO: Agregar aquí la lógica del constructor
         //
     }
-
-    static public void guardarBusqueda( string terminoBusqueda, HttpRequest Request) {
-
+    static public void guardarBusqueda(string terminoBusqueda, HttpRequest Request)
+    {
         int? idUsuario = null;
         string direccionIP = red.GetDireccionIp(Request);
-        if (HttpContext.Current.User.Identity.IsAuthenticated) {
+        if (HttpContext.Current.User.Identity.IsAuthenticated)
+        {
             idUsuario = usuarios.userLogin().id;
         }
 
@@ -34,10 +35,9 @@ public class BI_historialBusqueda {
         query.Append("SET LANGUAGE English;  INSERT INTO historialBusquedasProductos ");
         query.Append("(idUsuario, fecha, terminoBusqueda, direccionIP) ");
         query.Append("VALUES (@idUsuario, @fecha, @terminoBusqueda, @direccionIP)");
-       
 
-        using (con) {
-
+        using (con)
+        {
             cmd.CommandText = query.ToString();
             cmd.CommandType = CommandType.Text;
 
@@ -45,42 +45,25 @@ public class BI_historialBusqueda {
             cmd.Parameters["@terminoBusqueda"].Value = terminoBusqueda;
 
             cmd.Parameters.Add("@idUsuario", SqlDbType.Int);
-            if (idUsuario== null) cmd.Parameters["@idUsuario"].Value = DBNull.Value;
+            if (idUsuario == null) cmd.Parameters["@idUsuario"].Value = DBNull.Value;
             else cmd.Parameters["@idUsuario"].Value = idUsuario;
 
-            cmd.Parameters.Add("@direccionIP", SqlDbType.NVarChar,25);
+            cmd.Parameters.Add("@direccionIP", SqlDbType.NVarChar, 25);
             if (direccionIP == null) cmd.Parameters["@direccionIP"].Value = DBNull.Value;
             else cmd.Parameters["@direccionIP"].Value = direccionIP;
 
-            
             cmd.Parameters.Add("@fecha", SqlDbType.DateTime);
             cmd.Parameters["@fecha"].Value = utilidad_fechas.obtenerCentral();
 
-
-            try {
+            try
+            {
                 con.Open();
                 cmd.ExecuteNonQuery();
-           
             }
-            catch (Exception ex) {
-                 devNotificaciones.error("Guardar término de búsqueda", ex);
+            catch (Exception ex)
+            {
+                devNotificaciones.error("Guardar término de búsqueda", ex);
             }
         }
-
     }
-
-   
-
-    }
-
-
-
-
-    
-      
-    
-     
-    
-
-
-       
+}
