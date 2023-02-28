@@ -88,7 +88,7 @@
                             <div class="is-w-full">
                                 <p class="is-m-0">KM 99.5 carretera México Querétaro.</p>
                                 <p class="is-font-semibold is-m-0">Atención a clientes: </p>
-                                <p class="is-m-0 is-p-0">Móvil: <a href="tel:5559534428">(55) 5953-4428</a></p>
+                                <p class="is-m-0 is-p-0">Teléfono: <a href="tel:5552436900"> (55) 5243-6900</a></p>
                                 <%--                                <p class="is-font-semibold is-m-0">Correo: </p>
                                 <p class="is-m-0 is-p-0"><a href="mailto:mmartinez@polymeric.mx">mmartinez@polymeric.mx</a></p>--%>
                                 <p class="is-font-semibold is-m-0 is-py-2">Horarios de atención: </p>
