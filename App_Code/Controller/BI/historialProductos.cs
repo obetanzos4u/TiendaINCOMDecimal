@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -11,7 +10,7 @@ using System.Web;
 /// <summary>
 /// Descripción breve de historialProductos
 /// </summary>
-public class BI_historialProductos {
+public class BI_historialProductos { 
     private static string sql_table_name = "BI_hitsProductos";
     public bool  resultado { get; set; }
     public string mensaje { get; set; }
@@ -20,7 +19,6 @@ public class BI_historialProductos {
         // TODO: Agregar aquí la lógica del constructor
         //
     }
-
     /// <summary>
     /// Devuelve en orden Desc los productos más visitados en un determinado periodo. Columnas: [numero_parte][titulo][imagenes][descripcion_corta][total]
     /// </summary>

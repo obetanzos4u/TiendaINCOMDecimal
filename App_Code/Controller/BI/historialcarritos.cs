@@ -10,7 +10,8 @@ using System.Web;
 /// <summary>
 /// CRUD y administrador de los historiales carritos
 /// </summary>
-public class historialCarritos {
+public class historialCarritos
+{
     public int id { get; set; }
     public string usuario { get; set; }
     public string agregado_por { get; set; }
@@ -24,20 +25,19 @@ public class historialCarritos {
     public decimal precio_total { get; set; }
     public float? stock1 { get; set; }
     public DateTime? stock1_fecha { get; set; }
-
     int idAccion { get; set; }
-
     /// <summary>
     /// Obtener el historial del carrito de un usuario
     /// </summary>
-    public List<historialCarritos> obtenerHistorialCarrito(string usuario ) {
-
+    public List<historialCarritos> obtenerHistorialCarrito(string usuario)
+    {
         SqlDataReader dr;
         SqlCommand cmd = new SqlCommand();
         SqlConnection con = new SqlConnection(conexiones.conexionTienda());
         cmd.Connection = con;
 
-        using (con) {
+        using (con)
+        {
             StringBuilder sel = new StringBuilder();
             sel.Append("SELECT * FROM historial_carritos WHERE usuario=@usuario");
 
@@ -48,8 +48,6 @@ public class historialCarritos {
             cmd.Parameters.Add("@usuario", SqlDbType.NVarChar, 60);
             cmd.Parameters["@usuario"].Value = usuario;
 
-
-
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             con.Open();
@@ -57,12 +55,12 @@ public class historialCarritos {
             con.Open();
             dr = cmd.ExecuteReader();
 
-            if (dr.HasRows) {
-
+            if (dr.HasRows)
+            {
                 List<historialCarritos> listadoProductos = new List<historialCarritos>();
-               
-                while (dr.Read()) {
 
+                while (dr.Read())
+                {
                     historialCarritos carrito = new historialCarritos();
 
                     carrito.id = int.Parse(dr["id"].ToString());
@@ -77,18 +75,15 @@ public class historialCarritos {
                     carrito.precio_total = decimal.Parse(dr["precio_total"].ToString());
                     carrito.stock1 = textTools.nullableParse(dr["stock1"]);
                     carrito.stock1_fecha = textTools.nullableParse(dr["stock1_fecha"]);
-
                     carrito.idAccion = textTools.nullableParse(dr["idAccion"]);
 
                     listadoProductos.Add(carrito);
                 }
-
                 return listadoProductos;
-            } else {  return null; }
+            }
+            else { return null; }
         }
-      
     }
-    
     protected void agregarProductoHistorial(string usuario)
     {
         StringBuilder query = new StringBuilder();
@@ -104,20 +99,19 @@ public class historialCarritos {
         SqlConnection con = new SqlConnection(conexiones.conexionTienda());
         cmd.Connection = con;
 
-        using (con) {  
-
-            cmd.CommandText = query.ToString(); 
+        using (con)
+        {
+            cmd.CommandText = query.ToString();
             cmd.CommandType = CommandType.Text;
 
             cmd.Parameters.Add("@usuario", SqlDbType.NVarChar, 50);
             cmd.Parameters["@usuario"].Value = usuario;
 
-            cmd.Parameters.Add("@agregado_por", SqlDbType.NVarChar,60);
+            cmd.Parameters.Add("@agregado_por", SqlDbType.NVarChar, 60);
             cmd.Parameters["@agregado_por"].Value = agregado_por;
 
             cmd.Parameters.Add("@fecha_creacion", SqlDbType.DateTime);
             cmd.Parameters["@fecha_creacion"].Value = fecha_creacion;
-
 
             cmd.Parameters.Add("@numero_parte", SqlDbType.NVarChar, 50);
             cmd.Parameters["@numero_parte"].Value = numero_parte;
@@ -128,20 +122,17 @@ public class historialCarritos {
             cmd.Parameters.Add("@tipo_cambio", SqlDbType.Money);
             cmd.Parameters["@tipo_cambio"].Value = tipo_cambio;
 
-
             cmd.Parameters.Add("@unidad", SqlDbType.NVarChar, 25);
             cmd.Parameters["@unidad"].Value = unidad;
 
             cmd.Parameters.Add("@precio_unitario", SqlDbType.Money);
             cmd.Parameters["@precio_unitario"].Value = precio_unitario;
 
-
             cmd.Parameters.Add("@cantidad", SqlDbType.Money);
             cmd.Parameters["@cantidad"].Value = cantidad;
 
             cmd.Parameters.Add("@precio_total", SqlDbType.Money);
             cmd.Parameters["@precio_total"].Value = precio_total;
-
 
             cmd.Parameters.Add("@stock1", SqlDbType.Float);
             cmd.Parameters["@stock1"].Value = stock1;
@@ -153,8 +144,5 @@ public class historialCarritos {
 
             cmd.ExecuteNonQuery();
         }
-
     }
-
-  
-    }
+}

@@ -183,7 +183,7 @@ public class SalesOrderInSAP
                                     <!-- Nombre de cliente -->
                                     <AccountParty actionCode=""04"">
                                     <!-- ID de cliente INCOM.MX: 1001205 | CLIENTE MOSTRADOR ML: 1017775 -->
-                                        <PartyID>1001205</PartyID>
+                                        <PartyID>1017775</PartyID>
                                     </AccountParty>
                                     <!-- Términos de venta -->
                                     <PricingTerms actionCode=""04"">

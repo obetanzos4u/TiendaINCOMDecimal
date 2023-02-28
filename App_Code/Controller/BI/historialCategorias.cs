@@ -16,25 +16,14 @@ public class historialCategorias
         // TODO: Agregar aquí la lógica del constructor
         //
     }
-
-
-
-
-
-
     static public void guardarCategoriaHit(model_BI_HitCategorias categoria)
     {
-
-
-
         SqlCommand cmd = new SqlCommand();
         SqlConnection con = new SqlConnection(conexiones.conexionTienda());
         cmd.Connection = con;
 
         using (con)
         {
-
-
             cmd.Parameters.Add("@idUsuario", SqlDbType.Int);
             cmd.Parameters["@idUsuario"].Value = categoria.idUsuario;
 
@@ -50,7 +39,6 @@ public class historialCategorias
             cmd.Parameters.Add("@direccion_ip", SqlDbType.NVarChar, 30);
             cmd.Parameters["@direccion_ip"].Value = categoria.direccion_ip;
 
-
             cmd.CommandType = CommandType.Text;
 
             cmd.CommandText = @"INSERT INTO BI_hitsCategorias(nombreCategoria, identificador, idUsuario, fecha, direccion_ip) 
@@ -62,36 +50,19 @@ public class historialCategorias
 
                 cmd.ExecuteNonQuery();
             }
-
             catch (Exception ex)
             {
-
                 devNotificaciones.error("guardar hit categoria", ex);
             }
-
         }
     }
 }
-
-
-
-
 public class model_BI_HitCategorias
 {
-
     public int? id { get; set; }
-
     public string nombreCategoria { get; set; }
-
     public string identificador { get; set; }
-
     public int idUsuario { get; set; }
-
     public DateTime fecha { get; set; }
-
     public string direccion_ip { get; set; }
-
-
-
-
 }

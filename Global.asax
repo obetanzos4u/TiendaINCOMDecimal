@@ -50,6 +50,9 @@
 
         //Elimino que el sistema devuelva en XML, sólo trabajaremos con JSON
         GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+
+        // Configuración de CRON JOBS
+        QuartzScheduler.Start();
     }
 
     void Application_End(object sender, EventArgs e)
