@@ -782,7 +782,7 @@ public class PedidosEF
                 Pago.pago = referencia;
                 string textEstado = (bool)referencia.confirmacionAsesor ? "CONFIRMADO" : "SIN CONFIRMAR";
 
-                return new json_respuestas(true, $"Pagado por transfencia.<br/> Estado: <b>" + textEstado + "</b>", false, Pago);
+                return new json_respuestas(true, $"Pagado por transferencia.<br/> Estado: <b>" + textEstado + "</b>", false, Pago);
             }
 
             // Si llega a este punto no se ha encontrado un pago 

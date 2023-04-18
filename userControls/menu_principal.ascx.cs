@@ -27,6 +27,24 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         //HtmlGenericControl home = new HtmlGenericControl("li");
         //home.InnerHtml = "<a title='página principal' class='hide-on-med-and-down'  href='" + request.url.getleftpart(uripartial.authority) + "'>inicio</a>";
 
+        HtmlGenericControl marcas = new HtmlGenericControl("li");
+        marcas.ID = "content-marcas-prodcutos-incom";
+        marcas.ClientIDMode = ClientIDMode.Static;
+        marcas.InnerHtml = "<a title='Marcas'  href='#'>Marcas<img alt ='Flecha de desplazamiento para ver menu' id='menu_icon_biblioteca' src ='https://www.incom.mx/img/webUI/newdesign/Flecha.svg'></a>" +
+        "<ul>" +
+            "<li><a href='/productos/buscar?busqueda=bosch' title='BOSCH'>BOSCH</a></li>" +
+            "<li><a href='/productos/buscar?busqueda=brady' title='BRADY'>BRADY</a></li>" +
+            "<li><a href='/productos/buscar?busqueda=charofil' title='CHAROFIL'>CHAROFIL</a></li>" +
+            "<li><a href='/productos/buscar?busqueda=cuprum' title='CUPRUM'>CUPRUM</a></li>" +
+            "<li><a href='/productos/buscar?busqueda=icoptiks' title='ICOPTIKS'>ICOPTIKS</a></li>" +
+            "<li><a href='/productos/buscar?busqueda=leviton' title='LEVITON'>LEVITON</a></li>" +
+            "<li><a href='/productos/buscar?busqueda=metalico' title='METALICO'>METALICO</a></li>" +
+            "<li><a href='/productos/buscar?busqueda=panduit' title='PANDUIT'>PANDUIT</a></li>" +
+            "<li><a href='/productos/buscar?busqueda=polymerico' title='POLYMERICO'>POLYMERICO</a></li>" +
+            "<li><a href='/productos/buscar?busqueda=truper' title='TRUPER'>TRUPER</a></li>" +
+            "<li><a href='/productos/buscar?busqueda=urrea' title='URREA'>URREA</a></li>" +
+        "</ul>";
+
         HtmlGenericControl rebajas = new HtmlGenericControl("li");
         rebajas.ID = "content-menu-incom-outlet";
         rebajas.ClientIDMode = ClientIDMode.Static;
@@ -61,6 +79,11 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         //  HtmlGenericControl blog = new HtmlGenericControl("li");
         //  blog.InnerHtml = "<a title='Blog Incom' target='_blank'  href='https://blog.incom.mx'>Blog</a>";
 
+        HtmlGenericControl nosotros = new HtmlGenericControl("li");
+        nosotros.ID = "sobre-nosotros";
+        nosotros.ClientIDMode = ClientIDMode.Static;
+        nosotros.InnerHtml = "<a title='Sobre Nosotros' href='https://www.incom.mx/informacion/sobre-nosotros.aspx'>Nosotros</a>";
+
         HtmlGenericControl contacto = new HtmlGenericControl("li");
         contacto.ID = "content-menu-incom-contacto";
         contacto.ClientIDMode = ClientIDMode.Static;
@@ -71,7 +94,8 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         //contenedorMenu.Controls.Add(blog);
 
         contenedorMenu.Controls.Add(menuCat);
-        //contenedorMenu.Controls.Add(menuMarcas);
+        
+        contenedorMenu.Controls.Add(marcas);
 
         contenedorMenu.Controls.Add(rebajas);
 
@@ -79,6 +103,8 @@ public partial class menuPrincipal : System.Web.UI.UserControl
         contenedorMenu.Controls.Add(biblioteca);
 
         contenedorMenu.Controls.Add(catalogos);
+
+        // contenedorMenu.Controls.Add(nosotros);
 
         contenedorMenu.Controls.Add(contacto);
 

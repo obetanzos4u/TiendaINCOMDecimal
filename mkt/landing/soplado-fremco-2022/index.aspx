@@ -418,4 +418,49 @@
 
 </body>
 
+<style>
+    .my-button-style {
+    border-width: 1px;
+    width: 200px;
+    height: 80px;
+    border-radius: 100px !important;
+    background: #fff;
+    position: absolute;
+    border: 5px solid #6fb07f;
+    font-size: 22px;
+    color: #6fb07f;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.my-button-style:hover, .my-button-style:focus {
+    outline: none;
+    border-color: #6fb07f;
+    box-shadow: 0 0 5px 0 #6fb07f;
+}
+
+.my-button-style:focus {
+    -webkit-animation: extend 1s ease-in-out;
+    -ms-animation: extend 1s ease-in-out;
+    animation: extend 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.my-button-style:focus > span {
+    -webkit-animation: disappear 1s ease-in-out;
+    -ms-animation: disappear 1s ease-in-out;
+    animation: disappear 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.my-button-style:focus > img {
+    -webkit-animation: appear 1s ease-in-out;
+    -ms-animation: appear 1s ease-in-out;
+    animation: appear 1s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+</style>
 </html>

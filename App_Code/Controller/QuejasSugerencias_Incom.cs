@@ -101,6 +101,8 @@ public class quejas
 
             mm.Bcc.Add("fgarcia@incom.mx");
             mm.Bcc.Add("ralbert@incom.mx");
+            mm.Bcc.Add("adominguez@incom.mx");
+            mm.Bcc.Add("ppadron@iquo.mx");
             mm.Bcc.Add("serviciosweb@incom.mx");
 
             SmtpClient enviar = conexiones.smtp();

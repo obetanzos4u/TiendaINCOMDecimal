@@ -69,7 +69,7 @@ public partial class soplado_fremco_2022 : System.Web.UI.Page
                 smtp.Send(mm);
             }
             restablecerForm();
-            lbl_mensaje.Text = "Registrado con éxito, te esperamos en nuestro evento!";
+            lbl_mensaje.Text = "Registrado con éxito. !Te esperamos en nuestro evento!";
             lbl_mensaje.ForeColor = System.Drawing.Color.Green;
         }
     }

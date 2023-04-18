@@ -73,10 +73,10 @@
             <div class="row justify-content-between">
                 <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
                     <div data-aos="zoom-out">
-                        <h1>INCOM te invita a nuestro próximo evento</h1>
-                        <h2>CUPRUM llega a INCOM</h2>
+                        <h2>INCOM te invita a nuestro próximo evento</h2>
+                        <h1>Retos presentes y futuros en la Infraestructura externa de enlaces de Fibra Óptica</h1>
                         <h4>Presencial | En línea</h4>
-                        <h2>Jueves 09 de febrero | 10:00 horas México</h2>
+                        <h2>Jueves 27 de abril | 10:00 horas México</h2>
                         <p>Plutarco Elías Calles 276, Col. Tlazintla, Iztacalco, CDMX</p>
                         <div class="text-center text-lg-start">
                             <a href="#contact" class="btn-get-started scrollto bg-danger">¡Inscríbete aquí!</a>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
-                    <img src="assets/img/INCOM_WEBINAR_CUPRUM_LP1.png" class="img-fluid animated" alt="Webinar FREMCO soplado de fibra óptica">
+                    <img src="assets/img/INCOM_WEBINAR_LEVITON_LP1.png" class="img-fluid animated" alt="Webinar FREMCO soplado de fibra óptica">
                 </div>
             </div>
         </div>
@@ -129,7 +129,7 @@
                                 <div class="text-center">
                                     <h4>Fecha</h4>
                                     <div class="">
-                                        <p class="my-0">Jueves 09 de febrero | 10:00 horas</p>
+                                        <p class="my-0">Jueves 27 de abril | 10:00 horas</p>
                                         <p class="my-0">Zona horaria: CDMX (GMT-6)</p>
                                     </div>
                                 </div>
@@ -168,9 +168,6 @@
                                     <h4>Beneficios</h4>
                                     <div class="">
                                         <p class="my-0">
-                                            Increíbles descuentos
-                                            <br />
-                                            para los asistentes.
                                         </p>
                                     </div>
                                 </div>
@@ -300,11 +297,11 @@
                     <div class="col col-lg-12">
                         <div class="icon-box d-flex justify-content-center align-items-center" data-aos="zoom-in" data-aos-delay="50">
                             <ul style="list-style-type: square">
-                                <li>Planta CUPRUM</li>
-                                <li>Tipos de escaleras</li>
-                                <li>Cómo elegir una escalera</li>
-                                <li>Uso de la escalera</li>
-                                <li>Normas</li>
+                                <li>Retos y consideraciones de instalación</li>
+                                <li>Baja atenuación y limpieza en la conectividad</li>
+                                <li>Alta densidad para equipos de última generación</li>
+                                <li>5G y su infraestructura</li>
+                                <li>Conclusiones</li>
                             </ul>
                         </div>
                     </div>
@@ -326,7 +323,7 @@
                 <div class="row content">
                     <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
                         <div class="col-md-4 order-1 order-md-2 my-4" data-aos="fade-left">
-                            <img src="assets/img/INCOM_WEBINAR_CUPRUM_LP2.jpg" class="img-fluid" alt="Soplado de fibra óptica">
+                            <img src="assets/img/INCOM_WEBINAR_LEVITON_LP2.jpg" class="img-fluid" alt="Soplado de fibra óptica">
                         </div>
                         <div class="col-md-7 pt-5 order-2 order-md-1" data-aos="fade-up">
                             <h3>ESCALERAS CUPRUM</h3>
@@ -348,9 +345,9 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="testimonial-item">
-                                <img src="assets/img/INCOM_WEBINAR_CUPRUM_LP3.png" class="" alt="">
-                                <h3>Miguel Ángel Hernández Bautista</h3>
-                                <h4>Asesor comercial CUPRUM</h4>
+                                <img src="assets/img/INCOM_WEBINAR_LEVITON_LP3.png" class="" alt="">
+                                <h3>Ing. David O'Neill</h3>
+                                <h4>Gerente de marca</h4>
                                 <%--<p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                     La técnica de soplado es la técnica más eficiente y segura para instalar fibra óptica y con las máquinas de soplado de FREMCO podemos aprovechar grandes ventajas. 
@@ -372,7 +369,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/GIPZbE8f1BY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=rEJC6O-l_B8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>

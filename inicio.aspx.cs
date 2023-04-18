@@ -124,6 +124,7 @@ public partial class inicio : System.Web.UI.Page
                     img.ImageUrl = Request.Url.GetLeftPart(UriPartial.Authority) + "/img/webUI/sliderHome/" + nombreArchivo;
                     img.AlternateText = titulo;
                     link.NavigateUrl = linkAnuncio;
+                    link.Target = "_blank";
                     link.Controls.Add(img);
                     divControl.Controls.Add(link);
                     anunciosSlider.Controls.Add(divControl);
@@ -158,6 +159,7 @@ public partial class inicio : System.Web.UI.Page
                     img.CssClass = "is-w-full";
                     link.NavigateUrl = linkUSP;
                     link.ToolTip = descripcion;
+                    link.Target = "_blank";
                     link.Controls.Add(img);
                     divControl.Controls.Add(link);
                     switch (posicion)

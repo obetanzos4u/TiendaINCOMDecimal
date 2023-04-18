@@ -502,6 +502,44 @@
                 visibility: visible;
             }
 
+            /* Menu Marcas */
+
+            #content-marcas-prodcutos-incom > ul {
+                border-top: 3px solid transparent;
+                -moz-border-image: -moz-linear-gradient(right, #01568D 0%, #01568D 100%);
+                -webkit-border-image: -webkit-linear-gradient(top, #01568D 0%, #01568D 100%);
+                border-image: linear-gradient(to right, #2d8bff 0%, #1a65d6 100%);
+                border-image-slice: 1;
+                background: white;
+                color: black;
+                padding: 1rem;
+            }
+
+                #content-marcas-prodcutos-incom > ul > li {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0;
+                    justify-content: center;
+                }
+
+                    #content-marcas-prodcutos-incom > ul > li a {
+                        border-bottom: solid 1px #96969633;
+                        font-size: 1rem !important;
+                    }
+
+                #content-marcas-prodcutos-incom > ul:nth-child(2) {
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    visibility: hidden;
+                    z-index: 100;
+                    position: absolute;
+                    width: 240px;
+                }
+
+            #content-marcas-prodcutos-incom:hover ul:nth-child(2) {
+                visibility: visible;
+            }
 
             .modal, .dropdown-content {
                 z-index: 99999 !important;

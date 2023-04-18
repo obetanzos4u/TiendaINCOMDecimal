@@ -977,7 +977,7 @@
         }
 
         /* Separadores en barra de menús*/
-        #content-menu-incom-outlet, #menuProductos, #content-menu-incom-biblioteca, #content-menu-incom-catalogos {
+        #content-menu-incom-outlet, #menuProductos, #content-marcas-prodcutos-incom, #content-menu-incom-biblioteca, #content-menu-incom-catalogos {
             border-right: 1px solid #B7B7B7;
             padding: 0rem 2rem 0rem 0rem;
         }
