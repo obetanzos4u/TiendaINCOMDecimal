@@ -339,6 +339,10 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 case "PERSONALIZADO":
                     lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-customized");
                     break;
+                case "EXISTENCIAS":
+                    lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-onRequest");
+                    bandera = "Precio válido solo en existencias";
+                    break;
                 case "PEDIDO":
                     lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-onRequest");
                     bandera = "SOBRE PEDIDO";

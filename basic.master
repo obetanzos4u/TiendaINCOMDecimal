@@ -5,6 +5,8 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-signin-client_id" content="735817781293-gj8bqpplf0jt9au330hcejcp06js20di.apps.googleusercontent.com">
+    <meta name="google-site-verification" content="sYW6xqJlzbugCojbFghDvBdiO-d8bUznEyec-npXwY4" />
+
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">

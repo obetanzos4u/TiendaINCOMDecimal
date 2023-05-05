@@ -5,7 +5,7 @@
     <div>
         <div class="main_container-info_marcas">
             <div class="image-wrapper-container-info_marcas">
-                <h1 class="title-info-marcas">Conoce nuestras marcas</h1>
+                <h1 class="title-info-marcas">Descubre la gama de productos que las marcas de INCOM tienen para tus proyectos</h1>
                 <div class="container-info_marcas">
                     <div class="efect-tl-info_marcas"></div>
                     <div class="element-info_marcas">
@@ -14,12 +14,12 @@
                     <div class="element3-info_marcas">
                         <ul>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=top_polimerico">
+                                <a href="/productos/buscar?busqueda=top_polimerico" target="_blank">
                                     Registros prefabricados
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=polymerico_acc">
+                                <a href="/productos/buscar?busqueda=polymerico_acc" target="_blank">
                                     Accesorios para registros
                                 </a>
                             </li>
@@ -29,22 +29,22 @@
                 <div class="container-info_marcas">
                     <div class="efect-tl-info_marcas"></div>
                     <div class="element-info_marcas">
-                        <img src="/img/marcas/IcoPlastik_marca.png" alt="IcoPlastik" class="img-list_marca-2">
+                        <img src="/img/marcas/IcoPlastik_marca.png" alt="IcoPlastik" class="img-list_marca-2" target="_blank">
                     </div>
                     <div class="element3-info_marcas">
                         <ul>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoplastik_ducto">
+                                <a href="/productos/buscar?busqueda=icoplastik_ducto" target="_blank">
                                     Ductos
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoplastik_micro">
+                                <a href="/productos/buscar?busqueda=icoplastik_micro" target="_blank">
                                     Microductos
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoplastik_cople">
+                                <a href="/productos/buscar?busqueda=icoplastik_cople" target="_blank">
                                     Coples y tapones
                                 </a>
                             </li>
@@ -54,27 +54,27 @@
                 <div class="container-info_marcas">
                     <div class="efect-tl-info_marcas"></div>
                     <div class="element-info_marcas">
-                        <img src="/img/marcas/Metalico_marca.jpg" alt="Metalico" class="img-list_marca-3">
+                        <img src="/img/marcas/Metalico_marca.jpg" alt="Metalico" class="img-list_marca-3" target="_blank">
                     </div>
                     <div class="element3-info_marcas">
                         <ul>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=busqueda=metalico_adss">
+                                <a href="/productos/buscar?busqueda=metalico_adss" target="_blank">
                                     Herrajes para ADSS
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=metalico_tension">
+                                <a href="/productos/buscar?busqueda=metalico_tension" target="_blank">
                                     Herrajes tensión
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=metalico_suspension">
+                                <a href="/productos/buscar?busqueda=metalico_suspension" target="_blank">
                                     Herrajes suspensión
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=metalico_accesorios">
+                                <a href="/productos/buscar?busqueda=metalico_accesorios" target="_blank">
                                     Accesorios
                                 </a>
                             </li>
@@ -89,27 +89,27 @@
                     <div class="element3-info_marcas">
                         <ul>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=tuliko_fleje">
+                                <a href="/productos/buscar?busqueda=tuliko_fleje" target="_blank">
                                     Flejes y hebillas
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=tuliko_ext">
+                                <a href="/productos/buscar?busqueda=tuliko_ext" target="_blank">
                                     Planta externa
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=tuliko_herramienta">
+                                <a href="/productos/buscar?busqueda=tuliko_herramienta" target="_blank">
                                     Herramientas
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=tuliko_cinchos_acc">
+                                <a href="/productos/buscar?busqueda=tuliko_cinchos_acc" target="_blank">
                                     Cinchos y accesorios
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=tuliko_miscelaneos">
+                                <a href="/productos/buscar?busqueda=tuliko_miscelaneos" target="_blank">
                                     Misceláneos
                                 </a>
                             </li>
@@ -124,47 +124,47 @@
                     <div class="element3-info_marcas">
                         <ul>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoptiks_cable_fo">
+                                <a href="/productos/buscar?busqueda=icoptiks_cable_fo" target="_blank">
                                     Cable de fibra óptica
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoptiks_herramienta">
+                                <a href="/productos/buscar?busqueda=icoptiks_herramienta" target="_blank">
                                     Herramientas y accesorios
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoptiks_equipos">
+                                <a href="/productos/buscar?busqueda=icoptiks_equipos" target="_blank">
                                     Equipos empalme y medición
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoptiks_splitters">
+                                <a href="/productos/buscar?busqueda=icoptiks_splitters" target="_blank">
                                     Splitters
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoptiks_conectores">
+                                <a href="/productos/buscar?busqueda=icoptiks_conectores" target="_blank">
                                     Conectores y acompladores
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoptiks_atenuadores">
+                                <a href="/productos/buscar?busqueda=icoptiks_atenuadores" target="_blank">
                                     Atenuadores
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoptiks_jumper">
+                                <a href="/productos/buscar?busqueda=icoptiks_jumper" target="_blank">
                                     Jumper de fibra óptica
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoptiks_odf">
+                                <a href="/productos/buscar?busqueda=icoptiks_odf" target="_blank">
                                     Distribuidores ópticos
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.incom.mx/productos/buscar?busqueda=icoptiks_iden">
+                                <a href="/productos/buscar?busqueda=icoptiks_iden" target="_blank">
                                     Identificación
                                 </a>
                             </li>
@@ -173,133 +173,183 @@
                 </div>
             </div>
 
-        <h2 class="subtitle-info-marcas">En INCOM.MX encontraras marcas destacadas</h2>
+        <h2 class="subtitle-info-marcas">Somos distribuidores de marcas líderes en el mercado</h2>
 
         <div class="logos-container">
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Bosch_marca.png" alt="Marca Bosch" title="Bosch" class="logo-list_marca">
-                </div>                
+                <a href="/productos/buscar?busqueda=top_bosch" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Bosch_marca.png" alt="Marca Bosch" title="Bosch" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Brady_marca.png" alt="Marca Brady" title="Brady" class="logo-list_marca">
-                </div>
+                <a href="/productos/buscar?busqueda=top_brady" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Brady_marca.png" alt="Marca Brady" title="Brady" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/CalAm_marca.png" alt="Marca CalAm" title="CalAm" class="logo-list_marca">
-                </div>
+                <a href="/productos/buscar?busqueda=CAL%20AM" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/CalAm_marca.png" alt="Marca CalAm" title="CalAm" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Charofil_marca.png" alt="Marca Charofil" title="Charofil" class="logo-list_marca">
-                </div>
+                <a href="/productos/buscar?busqueda=top_charofil" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Charofil_marca.png" alt="Marca Charofil" title="Charofil" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Condumex_marca.png" alt="Marca Condumex" title="Condumex" class="logo-list_marca">
-                </div>
+                <a href="/productos/buscar?busqueda=CONDUMEX" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Condumex_marca.png" alt="Marca Condumex" title="Condumex" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/3MCorning_marca.png" alt="Marca 3M Corning" title="Corning" class="logo-list_marca">
-                </div>
+                <a href="/productos/buscar?busqueda=CORNING" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/3MCorning_marca.png" alt="Marca 3M Corning" title="Corning" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Cuprum_marca.png" alt="Marca Cuprum" title="Cuprum" class="logo-list_marca">
-                </div>
+                <a href="/productos/buscar?busqueda=cuprum" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Cuprum_marca.png" alt="Marca Cuprum" title="Cuprum" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/EJGrup_marca.png" alt="Marca EJGrup" title="EJGrup" class="logo-list_marca">
-                </div>
+                <a href="/productos/buscar?busqueda=EJ&filtroMarcas=EJ&filtroCategorias=&PageId=1" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/EJGrup_marca.png" alt="Marca EJGrup" title="EJGrup" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Fremco_marca.png" alt="Marca Fremco" title="Fremco" class="logo-list_marca">
-                </div>
+                <a href="/productos/Fibra%20%C3%B3ptica/Sopladoras%20de%20cable%20de%20fibra%20%C3%B3ptica/M%C3%A1quinas%20para%20soplado-FIBSOPMAQ3" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Fremco_marca.png" alt="Marca Fremco" title="Fremco" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/GMP_marca.png" alt="Marca GMP" title="GMP" class="logo-list_marca">
-                </div>
+                <a href="/productos/buscar?busqueda=GMP" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/GMP_marca.png" alt="Marca GMP" title="GMP" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/GoldenEagle_marca.png" alt="Marca Golden Eagle" title="Golden Eagle" class="logo-list_marca">
-                </div>              
+                <a href="/productos/buscar?busqueda=GOLDEN_EAGLE" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/GoldenEagle_marca.png" alt="Marca Golden Eagle" title="Golden Eagle" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Inno_marca.png" alt="Logo 11" title="Logo 11" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=INNO_EQUIPOS" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Inno_marca.png" alt="Marca Inno" title="Inno Equipos" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Intellinet_marca.png" alt="Marca Intellinet" title="Intellinet" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=INTELLINET" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Intellinet_marca.png" alt="Marca Intellinet" title="Intellinet" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Jonard_marca.png" alt="Marca Jonard" title="Jonard" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=JONARD" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Jonard_marca.png" alt="Marca Jonard" title="Jonard" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Leviton_marca.png" alt="Marca Leviton" title="Leviton" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=top_leviton" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Leviton_marca.png" alt="Marca Leviton" title="Leviton" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Manhattan_marca.png" alt="Marca Manhattan" title="Manhattan" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=MANHATTAN" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Manhattan_marca.png" alt="Marca Manhattan" title="Manhattan" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Jaguar_marca.png" alt="Marca Jaguar" title="Jaguar" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=NCS%20JAGUAR" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Jaguar_marca.png" alt="Marca Jaguar" title="Jaguar" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Panduit_marca.png" alt="Marca Panduit" title="Panduit" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=top_panduit" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Panduit_marca.png" alt="Marca Panduit" title="Panduit" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/PLP_marca.png" alt="Marca PLP" title="PLP" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=PLP" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/PLP_marca.png" alt="Marca PLP" title="PLP" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Radiodetection_marca.png" alt="Radio Detection" title="Marca Radio Detection" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=RADIODETECTION" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Radiodetection_marca.png" alt="Marca Radio Detection" title="Radio Detection" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Ripley_marca.png" alt="Marca Ripley" title="Ripley" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=RIPLEY" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Ripley_marca.png" alt="Marca Ripley" title="Ripley" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Surtek_marca.png" alt="Marca Surtek" title="Surtek" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=SURTEK" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Surtek_marca.png" alt="Marca Surtek" title="Surtek" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Trupper_marca.png" alt="Marca Trupper" title="Trupper" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=TRUPER" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Trupper_marca.png" alt="Marca Trupper" title="Trupper" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Urrea_marca.jpg" alt="Marca Urrea" title="Urrea" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=urrea&filtroMarcas=URREA&filtroCategorias=&PageId=1" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Urrea_marca.jpg" alt="Marca Urrea" title="Urrea" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
             <div class="marca_wrapper">
-                <div class="circle-marca-wrapper">
-                    <img src="/img/marcas/Yokogawa_marca.png" alt="Marca Yokogawa" title="Marca Yokogatitle" class="logo-list_marca">
-                </div>             
+                <a href="/productos/buscar?busqueda=YOKOGAWA" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/Yokogawa_marca.png" alt="Marca Yokogawa" title="Yokogatitle" class="logo-list_marca">
+                    </div>
+                </a>
             </div>
         </div>
     </div>

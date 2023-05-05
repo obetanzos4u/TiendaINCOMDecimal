@@ -53,6 +53,9 @@
                         <a title="Ubicación y Sucursales" href="/informacion/ubicacion-y-sucursales.aspx" class="is-text-white">Ubicación y sucursales</a>
                     </li>
                     <li>
+                        <a title="Marcas" href="/informacion/marcas.aspx" target="_blank" class="is-text-white">Marcas</a>
+                    </li>
+                    <li>
                         <a title="Quejas,sugerencias,denuncias y felicitaciones" href="/informacion/denuncias-incom.aspx" target="_blank" class="is-text-white">Quejas y sugerencias</a>
                     </li>
                     <li>

@@ -358,6 +358,10 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
                 case "PERSONALIZADO":
                     lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-customized");
                     break;
+                case "EXISTENCIAS":
+                    lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-customized");
+                    bandera = "Precio válido solo en existencias";
+                    break;
                 case "PEDIDO":
                     lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-onRequest");
                     bandera = "SOBRE PEDIDO";

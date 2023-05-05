@@ -391,6 +391,10 @@ body {
     background-color: #57BBC4;
 }
 
+.is-bg-existencias {
+    background-color: #fa6915;
+}
+
 .is-bg-onRequest {
     background-color: #C8A2CB;
 }
