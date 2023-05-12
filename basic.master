@@ -230,8 +230,8 @@
             }
 
             .splide__slide > a {
-                color: #000000;
-                font-weight: 500;
+                color: #525252;
+                font-weight: 600;
             }
 
             #slider_home_principal {
@@ -342,7 +342,7 @@
                 }
 
                 #alternativos_splide-list > li .is-btn-green {
-                    margin-top: -200px;
+                    margin-top: -230px;
                     width: 56px;
                     height: 32px;
                     line-height: 24px;

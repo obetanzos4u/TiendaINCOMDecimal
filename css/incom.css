@@ -2416,7 +2416,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         #relacionados_splide-list > li .is-btn-green {
-            margin-top: -138px;
+            margin-top: -162px;
         }
 
         .producto-main_wrap {
@@ -2610,6 +2610,12 @@ div.arrow-doble-down #svg-arrow-down {
     }
 
     @media only screen and (min-width: 1000px) and (max-width: 1450px) {
+        #content-menu-incom-biblioteca {
+            display: none;
+        }
+    }
+
+    @media only screen and (min-width: 1000px) and (max-width: 1450px) {
         #relacionados_splide-list > li {
             width: 145px;
         }
@@ -2636,7 +2642,7 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         #alternativos_splide-list > li .is-btn-green {
-            margin-top: -190px;
+            margin-top: -210px;
             width: 42px;
             height: 24px;
             line-height: 19px;
@@ -3285,8 +3291,12 @@ div.arrow-doble-down #svg-arrow-down {
     .tituloProductoTienda {
         font-size: 12px !important;
         line-height: 1.2rem !important;
-        padding-top: 1rem;
-        margin: 0px 5px;
+        padding-top: 0;
+        margin: 0;
+    }
+
+    .tituloProductoTienda-alt_and_rel {
+        margin-top: 1rem !important;
     }
 
     .agregar_carrito-out {
@@ -3531,6 +3541,7 @@ div.arrow-doble-down #svg-arrow-down {
         overflow: hidden;
         max-height: 4.8rem;
         height: 4.8rem;
+        background-color: #e5e5e55a;
     }
 
     .hoverLinkTituloProducto:hover {
@@ -4003,18 +4014,18 @@ div.arrow-doble-down #svg-arrow-down {
         }
 
         .splide__list-destacados > li > a > img {
-            width: 140px !important;
+            width: 160px !important;
         }
 
         .splide__list-destacados > li > a > p {
-            width: 140px;
-            text-align: initial;
+            width: 160px;
+            text-align: center;
             font-size: 12px;
             word-wrap: break-word;
         }
 
         .img-destacados {
-            width: 140px;
+            width: 160px;
         }
 
         .producto-main_wrap {

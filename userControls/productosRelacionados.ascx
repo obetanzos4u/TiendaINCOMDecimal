@@ -17,7 +17,7 @@
             <li class="splide__slide">
                 <asp:HyperLink ID="link_producto" runat="server" CssClass="hoverLinkTituloProducto">
                     <asp:Image ID="img_producto" class="responsive-img" runat="server" />
-                    <h2 class="tituloProductoTienda">
+                    <h2 class="tituloProductoTienda tituloProductoTienda-alt_and_rel">
                         <%#Eval("numero_parte") %> - <%#Eval("titulo") %> 
                     </h2>
                     <add:cart ID="AddCart" numero_parte='<%# Eval("numero_parte") %>' runat="server" />
