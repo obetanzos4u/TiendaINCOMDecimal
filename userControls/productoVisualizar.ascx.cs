@@ -246,7 +246,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             if (solo_para_Visualizar)
             {
                 lbl_moneda.Visible = false;
-                lbl_precio.Text = "Cotízalo por medio de un asesor al teléfono (55)5243-6900";
+                lbl_precio.Text = "Cotízalo por medio <br> de un asesor al teléfono <br> (55) 5243-6900 <br>";
 
                 linkVisualizarProducto.solicitarInforme();
                 AddCarrito.Visible = false;
@@ -350,6 +350,10 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 case "RENTA":
                     lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-rent");
                     bandera = "VENTA Y RENTA";
+                    break;
+                case "SOLORENTA":
+                    lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-onlyrent");
+                    bandera = "RENTA";
                     break;
                 default:
                     lbl_bandera.Attributes.Add("style", "height: 22px");

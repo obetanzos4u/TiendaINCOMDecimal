@@ -383,6 +383,10 @@ body {
     background-color: #ED3237;
 }
 
+.is-bg-onlyrent {
+    background-color: #58382C;
+}
+
 .is-bg-lastItems {
     background-color: #449C7E;
 }
