@@ -39,8 +39,8 @@
                         <div class="form-row">
                             <div class="form-group is-top-75">
                                 <label for="<%= txt_colonia.ClientID %>">Colonia:</label>
-                                <asp:DropDownList ID="ddl_colonia" class="form-select" runat="server"></asp:DropDownList>
-                                <asp:TextBox ID="txt_colonia" ClientIDMode="Static" Visible="false" class="form-control"   runat="server"></asp:TextBox>
+                                <asp:DropDownList ID="ddl_colonia" visible="false" class="form-control" runat="server"></asp:DropDownList>
+                                <asp:TextBox ID="txt_colonia" ClientIDMode="Static" Visible="true" class="form-control"   runat="server"></asp:TextBox>
                             </div>
                             <div class="form-group is-top-75">
                             <label for="txt_delegacion_municipio">Delegación/Municipio:</label>

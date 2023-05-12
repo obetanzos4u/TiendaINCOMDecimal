@@ -170,20 +170,20 @@
                                         <asp:TextBox ID="txt_ciudad" ClientIDMode="Static" CssClass="validate" Style="display: initial; width: 100%; border-radius: 6px; border: 1px solid #37373733;" data-length="60" MaxLength="60" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
-                                <div class="form-row">
+                                <!-- <div class="form-row">
                                     <div id="cont_txt_estado" class="form-group col-md-6 is-top-1" runat="server">
                                         <label for="txt_estado">Estado:</label>
                                         <asp:TextBox ID="txt_estado" class="form-control" Style="padding: .175rem .75rem; border-radius: 6px;" ClientIDMode="Static" data-length="35" MaxLength="35" runat="server"></asp:TextBox>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group is-top-1">
                                     <label for="ddl_pais" style="width: 15%;">País:</label>
                                     <uc:ddlPaises ID="ddl_pais" class="form-control" style="padding: .175rem .75rem; border-radius: 6px;" runat="server" />
                                 </div>
-                                <!-- <div id="cont_ddl_estado" class="form-group col-md-4" runat="server">
-                    <label for="ddl_municipio_estado">Estado:</label>
-                    <uc:ddlEstados ID="ddl_estado" runat="server" />
-                </div> -->
+                                <div id="cont_ddl_estado" class="form-group is-top-1" runat="server">
+                                    <label for="ddl_municipio_estado">Estado:</label>
+                                    <uc:ddlEstados ID="ddl_estado" runat="server" />
+                                </div>
                                 <div class="form-group is-top-1">
                                     <label for="txt_referencias">Referencias:</label>
                                     <asp:TextBox ID="txt_referencias" ClientIDMode="Static" CssClass="form-control" Style="padding: .175rem .75rem; border-radius: 6px;" runat="server"></asp:TextBox>
