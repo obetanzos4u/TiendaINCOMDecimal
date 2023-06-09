@@ -502,7 +502,7 @@ public partial class usuario_cliente_resumen : System.Web.UI.Page
 
         mensaje = archivosManejador.reemplazarEnArchivo(filePathHTML, datosDiccRemplazo);
 
-        emailTienda email = new emailTienda(asunto, $"tpavia@incom.mx, jhernandez@incom.mx, pjuarez@incom.mx,  {pedidoDatos.usuario_cliente}", mensaje, "retail@incom.mx");
+        emailTienda email = new emailTienda(asunto, $"jhernandez@incom.mx, pjuarez@incom.mx,  {pedidoDatos.usuario_cliente}", mensaje, "retail@incom.mx");
         email.general();
 
 
