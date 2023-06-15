@@ -27,7 +27,7 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <div class="logo">
-                <a href='<%= ResolveUrl("~/mkt/landing/soplado-fremco-2022/index.aspx") %>'>
+                <a href='<%= ResolveUrl("https://www.incom.mx") %>'>
                     <img src="assets/img/incom.png" alt="INCOM La ferretera de las telecomunicaciones" class="img-fluid"/>
                 </a>
                 <!-- Uncomment below if you prefer to use an image logo -->

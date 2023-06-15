@@ -387,6 +387,10 @@ body {
     background-color: #58382C;
 }
 
+.is-bg-new {
+    background-color: #cd4cdc;
+}
+
 .is-bg-lastItems {
     background-color: #449C7E;
 }

@@ -374,6 +374,10 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
                     lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-onlyrent");
                     bandera = "RENTA";
                     break;
+                case "NUEVO":
+                    lbl_bandera.Attributes.Add("class", "is-block is-tag is-text-white is-text-xs is-font-bold is-py-1 is-select-none is-bg-new");
+                    bandera = "NUEVO";
+                    break;
                 default:
                     lbl_bandera.Attributes.Add("style", "height: 22px; display: block");
                     break;

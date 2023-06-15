@@ -355,6 +355,10 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                     lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-onlyrent");
                     bandera = "RENTA";
                     break;
+                case "NUEVO":
+                    lbl_bandera.Attributes.Add("class", "is-text-center is-text-white is-font-semibold is-line-175 is-select-none is-bg-new");
+                    bandera = "NUEVO";
+                    break;
                 default:
                     lbl_bandera.Attributes.Add("style", "height: 22px");
                     break;
