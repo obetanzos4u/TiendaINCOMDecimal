@@ -45,7 +45,7 @@ public partial class soplado_fremco_2022 : System.Web.UI.Page
 
             using (MailMessage mm = new MailMessage("sistemasweb@incom.mx", "comunicacion@incom.mx"))
             {
-                mm.Subject = "Contacto webinar FREMCO soplado de fibra óptica";
+                mm.Subject = "Contacto Renta Microzanjadora";
                 mm.IsBodyHtml = true;
                 mm.Body = String.Format(@"Nombre: {0} <br/>
                                         Correo: {1} <br/>

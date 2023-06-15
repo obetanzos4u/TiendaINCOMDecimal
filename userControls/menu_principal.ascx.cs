@@ -38,7 +38,7 @@ public partial class menuPrincipal : System.Web.UI.UserControl
             "<li><a href='/productos/buscar?busqueda=cuprum' title='CUPRUM'>CUPRUM</a></li>" +
             "<li><a href='/productos/buscar?busqueda=icoptiks' title='ICOPTIKS'>ICOPTIKS</a></li>" +
             "<li><a href='/productos/buscar?busqueda=leviton' title='LEVITON'>LEVITON</a></li>" +
-            "<li><a href='/productos/buscar?busqueda=metalico' title='METALICO'>METALICO</a></li>" +
+            "<li><a href='/productos/buscar?busqueda=top_metalico' title='METALICO'>METALICO</a></li>" +
             "<li><a href='/productos/buscar?busqueda=panduit' title='PANDUIT'>PANDUIT</a></li>" +
             "<li><a href='/productos/buscar?busqueda=polymerico' title='POLYMERICO'>POLYMERICO</a></li>" +
             "<li><a href='/productos/buscar?busqueda=truper' title='TRUPER'>TRUPER</a></li>" +

@@ -37,11 +37,11 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
-                    <li><a class="nav-link scrollto" href="#team">Detalles</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Registro</a></li>
-                    <li><a class="nav-link scrollto" href="#features">Temario</a></li>
-                    <li><a class="nav-link scrollto" href="#exhibitor">Expositor</a></li>
+                    <li><a class="nav-link scrollto" href="#team">Ventajas</a></li>
+                    <li><a class="nav-link scrollto" href=" #features">Características</a></li>
+                    <li><a class="nav-link scrollto" href="#documents">Documentos</a></li>
                     <li><a class="nav-link scrollto" href="#video">Video</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
                     <%--<li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>--%>
                     <%--                    <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
@@ -79,12 +79,15 @@
                         <h1>Microzanjadora</h1>
                         <h2>Marca:  MARAIS</h2>
                         <h2>Número de parte: SC3C</h2>
+                        <div class="col-lg-5 order-1 order-lg-2 hero-img-movil" data-aos="zoom-out" data-aos-delay="300">
+                            <img src="assets/img/MARAIS_SC3C-MICROZANJADORA-removebg.png" class="img-fluid animated" alt="Webinar FREMCO soplado de fibra óptica">
+                        </div>
                         <div class="text-center text-lg-start">
                             <a href="#contact" class="btn-get-started scrollto">Cotizar ahora</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
+                <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
                     <img src="assets/img/MARAIS_SC3C-MICROZANJADORA-removebg.png" class="img-fluid animated" alt="Webinar FREMCO soplado de fibra óptica">
                 </div>
             </div>
@@ -114,31 +117,54 @@
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2></h2>
-                    <p>Detalles</p>
+                    <p class="subtitle-lp">Ventajas</p>
                 </div>
                 <div class="row" data-aos="fade-left">
                     <div class="d-flex flex-column flex-lg-row justify-content-evenly align-items-center">
-                        <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4 h-100" style="width: 320px">
+                        <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
                             <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
-                                <div class="d-flex justify-content-center align-items-center my-4">
-                                    <span style="background-color: rgba(1, 3, 111, 0.8); border-radius: 100%; padding: 1rem">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
-                                            <path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path>
-                                            <path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path>
-                                        </svg>
-                                    </span>
-                                </div>
-                                <div class="text-center">
-                                    <h4>Fecha</h4>
-                                    <div class="">
+                                <div class="text-center content-start">
+                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                    <h5>Microzanjado para redes FTTx</h5>
+                                    <!-- <div class="">
                                         <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
                                         <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
 
-                        <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4 mt-4 mt-lg-0 h-100" style="width: 320px">
+                        <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
+                            <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                </div>
+                                <div class="text-center content-start">
+                                    <h6>Mínima molestia a vecinos, automoviles y peatones</h6>
+                                    <!-- <div class="">
+                                        <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
+                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
+                            <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                </div>
+                                <div class="text-center content-start">
+                                    <h5>Mayor seguridad dentro de la obra</h5>
+                                    <!-- <div class="">
+                                        <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
+                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4 mt-4 mt-lg-0 h-100" style="width: 320px">
                             <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
                                 <div class="d-flex justify-content-center align-items-center my-4">
                                     <span style="background-color: rgba(1, 3, 111, 0.8); border-radius: 100%; padding: 1rem">
@@ -177,6 +203,55 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="row my-4" data-aos="fade-left">
+                    <div class="d-flex flex-column flex-lg-row justify-content-evenly align-items-center">
+                        <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
+                            <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                </div>
+                                <div class="text-center content-start">
+                                    <h5>Preservación de la estructura de la acera</h5>
+                                    <!-- <div class="">
+                                        <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
+                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
+                            <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                </div>
+                                <div class="text-center content-start">
+                                    <h5>Reducción de los costos de construcción</h5>
+                                    <!-- <div class="">
+                                        <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
+                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
+                            <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                </div>
+                                <div class="text-center content-start">
+                                    <h5>Rápidez de ejecución</h5>
+                                    <!-- <div class="">
+                                        <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
+                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
+                                    </div> -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -184,126 +259,30 @@
         </section>
         <!-- End Team Section -->
 
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Contáctanos</h2>
-                    <p>Regístrate</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
-                        <div class="info">
-                            <div class="email">
-                                <i class="bi bi-envelope"></i>
-                                <h4>Correo electrónico:</h4>
-                                <a href="mailto:comunicacion@incom.mx">comunicacion@incom.mx</a>
-                            </div>
-                            <div class="address">
-                                <i class="bi bi-phone"></i>
-                                <h4>Teléfono:</h4>
-                                <a href="tel:5552436900">(55) 5243-6900</a>
-                            </div>
-                            <div class="phone">
-                                <i class="bi bi-whatsapp"></i>
-                                <h4>WhatsApp</h4>
-                                <a href="https://api.whatsapp.com/send?phone=525530327332" target="_blank">+52 (52) 3032-7332</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
-                        <form runat="server" class="php-email-form">
-                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                <ContentTemplate>
-                                    <div class="d-flex flex-column justify-content-center align-items-center">
-                                        <div class="col-md-10">
-                                            <div class="form-group">
-                                                <asp:Label ID="lbl_nombre" AssociatedControlID="txt_nombre" Text="Nombre: * " runat="server"></asp:Label>
-                                                <asp:TextBox class="form-control w-75" ID="txt_nombre" required="true" runat="server"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="form-group">
-                                                <asp:Label ID="lbl_email" AssociatedControlID="txt_email" Text="Correo electrónico: * " runat="server"></asp:Label>
-                                                <asp:TextBox class="form-control w-75" ID="txt_email" required="true" runat="server"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="form-group">
-                                                <asp:Label ID="lbl_telefono" AssociatedControlID="txt_telefono" Text="Teléfono: " runat="server"></asp:Label>
-                                                <asp:TextBox class="form-control w-75" ID="txt_telefono" required="false" runat="server"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="form-group">
-                                                <asp:Label ID="lbl_empresa" AssociatedControlID="txt_empresa" Text="Empresa: " runat="server"></asp:Label>
-                                                <asp:TextBox class="form-control w-75" ID="txt_empresa" required="false" runat="server"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
-                                        <asp:Button Text="Registrarme" ID="btn_enviar" OnClientClick="btn_click(this)" class="btn btn-success rounded" runat="server" OnClick="btn_enviar_Click" />
-                                    </div>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
-                        </form>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-        <!-- End Contact Section -->
-
         <!-- ======= Features Section ======= -->
-        <section id="features" class="features">
+        <section id="features" class="features bg-alt">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
-                    <h2>Conoce el</h2>
-                    <p>Temario del webinar</p>
+                    <h2></h2>
+                    <p class="subtitle-lp">Características</p>
                 </div>
                 <div class="row" data-aos="fade-left">
-                    <div class="col col-lg-6">
-                        <div class="icon-box d-flex justify-content-center align-items-center" data-aos="zoom-in" data-aos-delay="50">
-                            <ul style="list-style-type: square">
-                                <li>Técnicas y conceptos</li>
-                                <li>Comparativas</li>
-                                <li>Ventajas y desventajas</li>
-                                <li>Ductos y cables compatibles</li>
-                                <li>Sopladoras para cada proyecto</li>
-                                <li>Complementos</li>
+                    <div class="col col-lg-6 cont-ventajas">
+                        <div class="icon-box d-flex justify-content-center align-items-center bg-icon-box" data-aos="zoom-in" data-aos-delay="50">
+                            <ul style="list-style-type: disclosure-closed">
+                                <li>Los trabajos de microzanja se realizan con máquinas de corte en seco, por lo que son más rápidas y limpias.</li>
+                                <li>La microzanja se utiliza principalmente para desplegar redes de fibra óptica, pero también se aplica en diversas áreas, como instalaciones de agua y circuitos cerrados de TV.</li>
+                                <li>La máquina ofrece un rendimiento aproximado de zanjado continua de 80m a 100m lineales por hora. Produndida mínima de 25 cm y una máxima de 45cm.</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col col-lg-6">
-                        <div class="icon-box d-flex justify-content-center align-items-center" data-aos="zoom-in" data-aos-delay="50">
-                            <ul style="list-style-type: square">
-                                <li>Llevando a cabo el soplado</li>
-                                <li>Casos de éxito</li>
-                                <li>Pruebas en planta</li>
-                                <li>Pruebas en campo</li>
-                                <li>Tiempo y costos</li>
-                                <li>Circuito de soplado</li>
+                    <div class="col col-lg-6 cont-ventajas">
+                        <div class="icon-box d-flex justify-content-center align-items-center bg-icon-box" data-aos="zoom-in" data-aos-delay="50">
+                            <ul style="list-style-type: disclosure-closed">
+                                <li>Las ventajas de la microzanja frente a las zanjas convencionales son principalmente la reducción de costes y de tiempos de instalación, la menor alteración del tráfico y el menor impacto ambiental.</li>
+                                <li>La microzanja es una solución económica en zonas industriales alejadas sin canalizaciones. Costo: 1/3 de las canalizaciones convencionales.</li>
+                                <li>Desplazamiento horizontal de disco con corte en ángulo y zanjado en curva.Ofrece manejo a control remoto y funcionamiento continuo en cambios de nivel o dirección.</li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row content">
-                    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
-                        <div class="col-md-4 order-1 order-md-2 my-4" data-aos="fade-left">
-                            <img src="assets/img/INCOM_WEBINAR_FREMCO_LP2.jpg" class="img-fluid" alt="Soplado de fibra óptica">
-                        </div>
-                        <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
-                            <h3>SOPLADO DE FIBRA ÓPTICA</h3>
-                            <p class="text-justify">
-                                La técnica de soplado de fibra es eficiente, segura y relativamente nueva. Es pionera en los países nórdicos y ha sido aceptada masivamente en Europa, Estados Unidos y Latinoamérica. Consiste en introducir un caudal de aire comprimido dentro del ducto que sirva como una cama y por el cual el cable de fibra “flote”, para que de esta manera el cable vaya introduciéndose en el ducto. 
-                            </p>
-                            <p class="text-justify">
-                                Para llevar a cabo esta técnica se requiere una máquina especial que haga uso de la fuerza de tracción y fuerza de empuje para ayudar a desplazar al cable. 
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -311,8 +290,43 @@
         </section>
         <!-- End Features Section -->
 
+        <!-- ======= Features Section ======= -->
+            <section id="documents" class="team">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2></h2>
+                        <p class="subtitle-lp">Documentos</p>
+                    </div>
+                    <div class="row content">
+                        <div class="d-flex flex-column flex-lg-row justify-content-between cont-docs">
+                            <div class="col-md-6 order-2 order-md-1 container-bg" data-aos="fade-up">
+                                <h3>Haz realidad tus proyectos de manera eficiente y económica.</h3>
+                                <h4>¡Despliega tu red sin límites!</h4>
+                                <a href="">
+                                    <div class="btn-degradate my-4">Especificaciones técnicas 
+                                        <img class="pdf-bgout" src="../Renta-equipo/assets/img/pdf-bgout.png" alt="">
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="btn-degradate">Catálogo de solución completa
+                                        <img class="pdf-bgout" src="../Renta-equipo/assets/img/pdf-bgout.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-5 order-1 order-md-2 container-bg-right is-h-fit" data-aos="fade-left">
+                                <h3 class="is-bt-2 title-tractor">Tractor y discos disponibles</h3>
+                                <h6>Modelo SC3C Carrier</h6>
+                                <img class="tractor-img" src="assets/img/tractor.png" alt="">
+                                <img src="assets/img/discos-zanjadora.png" class="img-fluid" alt="Soplado de fibra óptica">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <!-- End Features Section -->
+
         <!-- ======= Exhibitor Section ======= -->
-        <section id="exhibitor" class="testimonials">
+        <!-- <section id="exhibitor" class="testimonials">
             <div class="container">
                 <div class="testimonials-slider swiper">
                     <div class="swiper-wrapper">
@@ -329,31 +343,110 @@
                             </div>
                         </div>
                         <!-- End testimonial item -->
-                    </div>
+                    <!-- </div> -->
                     <%--<div class="swiper-pagination"></div>--%>
-                </div>
+                <!-- </div>
 
             </div>
-        </section>
+        </section> -->
         <!-- End Exhibitor Section -->
 
         <!-- ======= Video Section ======= -->
-        <section id="video" class="about">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/yfveIxAc7Yc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <section id="video" class="about bg-alt">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2></h2>
+                    <p class="subtitle-lp">Video</p>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Te92CjP6EhI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- End Video Section -->
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2></h2>
+                    <p class="subtitle-lp">Cotizar ahora</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
+                        <div class="info">
+                            <div class="email">
+                                <i class="bi bi-envelope"></i>
+                                <div>
+                                    <h6 class="contact_form-evento">Correo electrónico:</h6>
+                                    <a href="mailto:comunicacion@incom.mx" style="padding: 0;"><h4 class="contact_form-link">comunicacion@incom.mx</h4></a>                                    
+                                </div>
+                            </div>
+                            <div class="address">
+                                <i class="bi bi-phone"></i>
+                                <h6 class="contact_form-evento">Teléfono:</h6>
+                                <a href="tel:5552436900" style="padding: 0;"><h4 class="contact_form-link">(55) 5243-6900</h4></a>
+                            </div>
+                            <div class="phone">
+                                <i class="bi bi-whatsapp"></i>
+                                <h6 class="contact_form-evento">WhatsApp</h6>
+                                <a href="https://api.whatsapp.com/send?phone=525530327332" style="padding: 0;" target="_blank"><h4 class="contact_form-link">+52 (52) 3032-7332</h4></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
+                        <form runat="server" class="php-email-form">
+                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
+                                        <div class="col-md-10 cont-form" style="padding-bottom: 1rem;">
+                                            <div class="form-group">
+                                                <asp:Label ID="lbl_nombre" class="label-renta" AssociatedControlID="txt_nombre" Text="Nombre: * " runat="server"></asp:Label>
+                                                <asp:TextBox class="form-control w-75" ID="txt_nombre" required="true" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 cont-form" style="padding-bottom: 1rem;">
+                                            <div class="form-group">
+                                                <asp:Label ID="lbl_email" class="label-renta" AssociatedControlID="txt_email" Text="Correo electrónico: * " runat="server"></asp:Label>
+                                                <asp:TextBox class="form-control w-75" ID="txt_email" required="true" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 cont-form" style="padding-bottom: 1rem;">
+                                            <div class="form-group">
+                                                <asp:Label ID="lbl_telefono" class="label-renta" AssociatedControlID="txt_telefono" Text="Teléfono: " runat="server"></asp:Label>
+                                                <asp:TextBox class="form-control w-75" ID="txt_telefono" required="false" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10 cont-form" style="padding-bottom: 2rem;">
+                                            <div class="form-group">
+                                                <asp:Label ID="lbl_empresa" class="label-renta" AssociatedControlID="txt_empresa" Text="Empresa: " runat="server"></asp:Label>
+                                                <asp:TextBox class="form-control w-75" ID="txt_empresa" required="false" runat="server"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <asp:Label ID="lbl_mensaje" runat="server"></asp:Label>
+                                        <asp:Button Text="Solicitar cotización" ID="btn_enviar" OnClientClick="btn_click(this)" class="btn btn-success rounded" runat="server" OnClick="btn_enviar_Click" />
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- End Contact Section -->
 
     </main>
     <!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer">
+    <footer id="footer" style="background-color: #0C3766;">
         <div class="footer-top">
             <div class="container">
                 <div class="row">
@@ -479,5 +572,233 @@
     height: 6px;
     background-color: red;
   }
+
+  .container-bg {
+    background-color: rgb(31, 41, 55);
+    color: white;
+    padding: 3rem;
+    border-radius: 24px;
+    margin-right: 2rem;
+    height: fit-content;
+    align-self: center;
+  }
+
+  .container-bg > h3 { 
+    margin-bottom: 4rem;
+  }
+
+  .container-bg-right {
+    border-radius: 24px;
+    margin-right: 2rem;
+    height: fit-content;
+  }
+
+  .btn-degradate {
+    width: 300px;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, rgb(241, 113, 4), rgb(254, 81, 113));
+    font-weight: 600;
+    color: #fff;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0% 10%;
+    }
+
+    .pdf-bgout {
+        width: 30px;
+        margin-left: 20px;
+    }
+
+    .contact_form-evento {
+        padding: 0 0 0 60px;
+    }
+
+    .subtitle-lp {
+        font-size: 1.5rem !important;
+    }
+
+    .bg-alt {
+       background-color: rgb(241, 246, 249);
+    }
+
+    .bg-icon-box {
+        background-color: #fff !important;
+    }
+
+    .icon-box li {
+        margin-top: 2rem;
+    }
+
+    .tractor-img {
+        width: 60%;
+        padding: 0rem 2rem;
+    }
+
+    .is-bt-2 {
+        margin-bottom: 2rem;
+    }
+
+    .hero-img-movil {
+        display: none;
+    }
+
+    @media (max-width: 575px) {
+    .hero-img-movil {
+        display: block;
+        margin: auto;
+    }
+
+    .hero-img {
+        display: none;
+    }
+
+    .renta_eq-title::before {
+        bottom: -50px;
+    }
+
+    div.aos-animate:nth-child(1) > h1:nth-child(2) {
+        margin-bottom: 30px !important;
+    }
+
+    .hero-waves {
+        margin-top: 30px;
+    }
+
+    .hero-img-movil {
+        max-width: 80%;
+    }
+
+    div.aos-animate:nth-child(1) {
+        text-align: center;
+    }
+
+    #hero h2 {
+        margin-bottom: 10px;
+    }
+
+    #hero .btn-get-started {
+        margin-top: 0;
+    }
+
+    .content-start > h5, .content-start > h6 {
+        font-size: 1rem;
+    }
+
+    .flex-column.justify-content-center.align-items-center{
+        padding: 0.75rem !important;
+        margin-bottom: 6px;
+    }
+
+    .icon-box li {
+        font-size: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    div.col:nth-child(2) > div:nth-child(1) {
+        margin-top: -2rem;
+    }
+
+    .container-bg > h3 {
+        font-size: 1rem;
+    }
+
+    .cont-docs {
+        padding: 0rem 2rem;
+    }
+
+    .btn-degradate {
+        width: 80%;
+        width: 100%;
+        font-size: 0.75rem;
+    }
+
+    .container-bg > h3 {
+        margin-bottom: 2rem;
+        margin-right: 0;
+    }
+
+    .container-bg {
+        margin-top: 2rem;
+        margin-right: 0;
+        padding: 2rem;
+    }
+
+    .start-point {
+        width: 32px;
+    }
+
+    .section-title {
+        padding-bottom: 1rem;
+    }
+
+    .container-bg-right {
+        margin-right: 0px;
+    }
+
+    .title-tractor {
+        font-size: 1.25rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .tractor-img {
+        width: 100%;
+    }
+
+    .contact_form-link {
+        font-size: 16px !important;
+    }
+
+    .info {
+        padding: 1rem;
+        margin: auto;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+    }
+
+    #txt_nombre {
+        padding: 0rem;
+        width: 100%;
+    }
+
+    .form-control {
+        width: 100% !important;
+    }
+
+    .cont-form {
+        width: 100%;
+    }
+
+    .footer-top > div > div {
+        padding-left: 1.5rem;
+    }
+
+    .label-renta {
+        margin-bottom: 0.5rem;
+    }
+    
+    }
+
+    @media (min-width: 360px) and (max-width: 800px) { 
+    .cont-ventajas {
+            flex: 1 1 100%;
+        }
+    }
+
+    @media (min-width: 320px) and (max-width: 580px) { 
+    .bi.bi-envelope, .bi.bi-phone, .bi.bi-whatsapp {
+        margin-left: 1rem;
+    }
+    }
 </style>
 </html>
