@@ -22,7 +22,7 @@ public partial class soplado_fremco_2022 : System.Web.UI.Page
         string empresa = txt_empresa.Text;
 
         if (correo.Length < 2 || correo.Length > 60) { lbl_mensaje.Text = "El email no cumple con la longitud"; lbl_mensaje.ForeColor = System.Drawing.Color.Red; return false; }
-        if (empresa.Length < 2 || empresa.Length > 60) { lbl_mensaje.Text = "La empresa no cumple con la longitud"; lbl_mensaje.ForeColor = System.Drawing.Color.Red; return false; }
+        //if (empresa.Length > 1 || empresa.Length > 60) { lbl_mensaje.Text = "La empresa no cumple con la longitud"; lbl_mensaje.ForeColor = System.Drawing.Color.Red; return false; }
         if (nombre.Length < 2 || nombre.Length > 50) { lbl_mensaje.Text = "El nombre no cumple con la longitud"; lbl_mensaje.ForeColor = System.Drawing.Color.Red; return false; }
 
         return true;
@@ -43,14 +43,12 @@ public partial class soplado_fremco_2022 : System.Web.UI.Page
             string empresa = txt_empresa.Text;
             string email = txt_email.Text;
 
-            using (MailMessage mm = new MailMessage("sistemasweb@incom.mx", "comunicacion@incom.mx"))
+            using (MailMessage mm = new MailMessage("serviciosweb@incom.mx", "telemarketing@incom.mx"))
             {
-                mm.Subject = "Contacto Renta Microzanjadora";
+		mm.CC.Add("publicidad@incom.mx");
+                mm.Subject = "Cotización renta Microzanjadora";
                 mm.IsBodyHtml = true;
-                mm.Body = String.Format(@"Nombre: {0} <br/>
-                                        Correo: {1} <br/>
-                                        Teléfono: {2} <br/>
-                                        Empresa: {3}", nombre, email, telefono, empresa);
+                mm.Body = String.Format(@"Hola {0}, nuestro equipo de soporte se pondrá en contacto contigo para ofrecerte una cotización de acuerdo a tus necesidades", nombre, email, telefono, empresa);
 
                 SmtpClient smtp = new SmtpClient();
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -58,12 +56,13 @@ public partial class soplado_fremco_2022 : System.Web.UI.Page
                 smtp.EnableSsl = true;
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
-                smtp.Credentials = new NetworkCredential("serviciosweb@incom.mx", "dyrvntbdmenuqhpx");
+                smtp.Credentials = new NetworkCredential("serviciosweb@incom.mx", "zfjbphbpnyqzwjvs");
 
                 restablecerForm();
                 smtp.Send(mm);
             }
-            lbl_mensaje.Text = "Registrado con éxito";
+            restablecerForm();
+            lbl_mensaje.Text = "Solicitud enviada";
             lbl_mensaje.ForeColor = System.Drawing.Color.Green;
         }
     }

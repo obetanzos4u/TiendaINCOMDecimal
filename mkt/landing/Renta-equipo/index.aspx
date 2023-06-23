@@ -40,6 +40,7 @@
                     <li><a class="nav-link scrollto" href="#team">Ventajas</a></li>
                     <li><a class="nav-link scrollto" href=" #features">Características</a></li>
                     <li><a class="nav-link scrollto" href="#documents">Documentos</a></li>
+                    <li><a class="nav-link scrollto" href="#gallery">Galeria</a></li>
                     <li><a class="nav-link scrollto" href="#video">Video</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
                     <%--<li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>--%>
@@ -64,7 +65,6 @@
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
             <!-- .navbar -->
-
         </div>
     </header>
     <!-- End Header -->
@@ -80,7 +80,7 @@
                         <h2>Marca:  MARAIS</h2>
                         <h2>Número de parte: SC3C</h2>
                         <div class="col-lg-5 order-1 order-lg-2 hero-img-movil" data-aos="zoom-out" data-aos-delay="300">
-                            <img src="assets/img/MARAIS_SC3C-MICROZANJADORA-removebg.png" class="img-fluid animated" alt="Webinar FREMCO soplado de fibra óptica">
+                            <img src="assets/img/MARAIS_SC3C-MICROZANJADORA-removebg.png" class="img-fluid" alt="Webinar FREMCO soplado de fibra óptica">
                         </div>
                         <div class="text-center text-lg-start">
                             <a href="#contact" class="btn-get-started scrollto">Cotizar ahora</a>
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
-                    <img src="assets/img/MARAIS_SC3C-MICROZANJADORA-removebg.png" class="img-fluid animated" alt="Webinar FREMCO soplado de fibra óptica">
+                    <img src="assets/img/MARAIS_SC3C-MICROZANJADORA-removebg.png" class="img-fluid" alt="Webinar FREMCO soplado de fibra óptica">
                 </div>
             </div>
         </div>
@@ -112,9 +112,46 @@
     <!-- End Hero -->
 
     <main id="main">
-        <!-- ======= Team Section ======= -->
-        <section id="team" class="team">
+
+        <!-- ======= Intro Section ======= -->
+        <section class="features">
             <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2></h2>
+                    <p class="subtitle-lp">Microzanjadora SC3C</p>
+                </div>
+                <div class="row" data-aos="fade-left">
+                    <div class="col col-lg-6 cont-ventajas">
+                        <div class="icon-box d-flex justify-content-center align-items-center bg-icon-box" data-aos="zoom-in" data-aos-delay="50">
+                            <div class="intro-box-rent">
+                                <h2>Sabias que el microzanjado...</h2>
+                                <br>
+                                <h5>
+                                    Es un proceso que consiste en abrir una zanja estrecha (2,50 a 12 cm) de profundidad débil (10 a 80 cm) en la calzada o sobre la acera.
+                                    El microzanjado es una tendencia de instalación subterránea que ofrece una mayor optimización de la red, rapidez y ahorro de recursos.
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="icon-box d-flex justify-content-center align-items-center bg-icon-box" data-aos="zoom-in" data-aos-delay="50">
+                            <div class="intro-box-rent">
+                                <h5>
+                                    ¡Descubre nuestra oferta de alquiler completo! En INCOM, nos enorgullece ofrecerte un servicio integral que va más allá de la simple renta de equipos de alta tecnología. También proporcionamos asesoramiento técnico especializado y nos encargamos del manejo del equipo.</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-lg-6 cont-ventajas">
+                        <div class="icon-box d-flex justify-content-center align-items-center bg-icon-box" data-aos="zoom-in" data-aos-delay="50">
+                            <img src="./assets/img/IMG_7025.JPG" class="img-venta-renta" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End intro Section -->
+
+        <!-- ======= Advantage Section ======= -->
+        <section id="team" class="team bg-alt">
+            <div class="container container-box">
                 <div class="section-title" data-aos="fade-up">
                     <h2></h2>
                     <p class="subtitle-lp">Ventajas</p>
@@ -124,12 +161,8 @@
                         <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
                             <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
                                 <div class="text-center content-start">
-                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                    <img src="./assets/img/start-point.png" class="start-point" alt="">
                                     <h5>Microzanjado para redes FTTx</h5>
-                                    <!-- <div class="">
-                                        <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
-                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -137,14 +170,10 @@
                         <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
                             <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                    <img src="./assets/img/start-point.png" class="start-point" alt="">
                                 </div>
                                 <div class="text-center content-start">
-                                    <h6>Mínima molestia a vecinos, automoviles y peatones</h6>
-                                    <!-- <div class="">
-                                        <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
-                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
-                                    </div> -->
+                                    <h6>Mínima molestia a vecinos, automóviles y peatones</h6>
                                 </div>
                             </div>
                         </div>
@@ -152,58 +181,13 @@
                         <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
                             <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                    <img src="./assets/img/start-point.png" class="start-point" alt="">
                                 </div>
                                 <div class="text-center content-start">
                                     <h5>Mayor seguridad dentro de la obra</h5>
-                                    <!-- <div class="">
-                                        <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
-                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
-
-                        <!-- <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4 mt-4 mt-lg-0 h-100" style="width: 320px">
-                            <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
-                                <div class="d-flex justify-content-center align-items-center my-4">
-                                    <span style="background-color: rgba(1, 3, 111, 0.8); border-radius: 100%; padding: 1rem">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
-                                            <path d="M18 7c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-3.333L22 17V7l-4 3.333V7zm-1.998 10H4V7h12l.001 4.999L16 12l.001.001.001 4.999z"></path></svg>
-                                    </span>
-                                </div>
-                                <div class="text-center">
-                                    <h4>Acceso</h4>
-                                    <div class="">
-                                        <p class="my-0">
-                                            Al registrarte se te compartirá la<br />
-                                            invitación al evento en tu correo electrónico.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4 mt-4 mt-lg-0 h-100" style="width: 320px">
-                            <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
-                                <div class="d-flex justify-content-center align-items-center my-4">
-                                    <span style="background-color: rgba(1, 3, 111, 0.8); border-radius: 100%; padding: 1rem">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
-                                            <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8 8a2 2 0 0 0 2.828 0l7.172-7.172a2 2 0 0 0 0-2.828l-8-8zM7 9a2 2 0 1 1 .001-4.001A2 2 0 0 1 7 9z"></path>
-                                        </svg>
-                                    </span>
-                                </div>
-                                <div class="text-center">
-                                    <h4>Beneficios</h4>
-                                    <div class="">
-                                        <p class="my-0">
-                                            Increíbles descuentos
-                                            <br />
-                                            para los asistentes.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
 
@@ -212,14 +196,10 @@
                         <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
                             <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                    <img src="./assets/img/start-point.png" class="start-point" alt="">
                                 </div>
                                 <div class="text-center content-start">
                                     <h5>Preservación de la estructura de la acera</h5>
-                                    <!-- <div class="">
-                                        <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
-                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -227,40 +207,30 @@
                         <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
                             <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                    <img src="./assets/img/start-point.png" class="start-point" alt="">
                                 </div>
                                 <div class="text-center content-start">
                                     <h5>Reducción de los costos de construcción</h5>
-                                    <!-- <div class="">
-                                        <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
-                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
-
                         <div class="d-flex flex-column justify-content-center align-items-center rounded border p-4" style="width: 320px">
                             <div class="px-2" data-aos="zoom-in" data-aos-delay="100">
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <img src="../Renta-equipo/assets/img/start-point.png" class="start-point" alt="">
+                                    <img src="./assets/img/start-point.png" class="start-point" alt="">
                                 </div>
                                 <div class="text-center content-start">
-                                    <h5>Rápidez de ejecución</h5>
-                                    <!-- <div class="">
-                                        <p class="my-0">Jueves 20 de octubre | 10:00 AM</p>
-                                        <p class="my-0">Zona horaria: CDMX (GMT-5)</p>
-                                    </div> -->
+                                    <h5>Rapidez de ejecución</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
-        <!-- End Team Section -->
+        <!-- End Advantage Section -->
 
         <!-- ======= Features Section ======= -->
-        <section id="features" class="features bg-alt">
+        <section id="features" class="features">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2></h2>
@@ -272,7 +242,7 @@
                             <ul style="list-style-type: disclosure-closed">
                                 <li>Los trabajos de microzanja se realizan con máquinas de corte en seco, por lo que son más rápidas y limpias.</li>
                                 <li>La microzanja se utiliza principalmente para desplegar redes de fibra óptica, pero también se aplica en diversas áreas, como instalaciones de agua y circuitos cerrados de TV.</li>
-                                <li>La máquina ofrece un rendimiento aproximado de zanjado continua de 80m a 100m lineales por hora. Produndida mínima de 25 cm y una máxima de 45cm.</li>
+                                <li>La máquina ofrece un rendimiento aproximado de zanjado continua de 80 a 100 m lineales por hora (El rendimiento puede variar dependiendo la supercie). Profundidad mínima de 10 cm y una máxima de 80 cm.</li>
                             </ul>
                         </div>
                     </div>
@@ -281,7 +251,7 @@
                             <ul style="list-style-type: disclosure-closed">
                                 <li>Las ventajas de la microzanja frente a las zanjas convencionales son principalmente la reducción de costes y de tiempos de instalación, la menor alteración del tráfico y el menor impacto ambiental.</li>
                                 <li>La microzanja es una solución económica en zonas industriales alejadas sin canalizaciones. Costo: 1/3 de las canalizaciones convencionales.</li>
-                                <li>Desplazamiento horizontal de disco con corte en ángulo y zanjado en curva.Ofrece manejo a control remoto y funcionamiento continuo en cambios de nivel o dirección.</li>
+                                <li>Desplazamiento horizontal de disco con corte en ángulo y zanjado en curva. Ofrece manejo a control remoto y funcionamiento continuo en cambios de nivel o dirección.</li>
                             </ul>
                         </div>
                     </div>
@@ -291,7 +261,7 @@
         <!-- End Features Section -->
 
         <!-- ======= Features Section ======= -->
-            <section id="documents" class="team">
+            <section id="documents" class="team bg-alt">
                 <div class="container">
                     <div class="section-title" data-aos="fade-up">
                         <h2></h2>
@@ -302,22 +272,22 @@
                             <div class="col-md-6 order-2 order-md-1 container-bg" data-aos="fade-up">
                                 <h3>Haz realidad tus proyectos de manera eficiente y económica.</h3>
                                 <h4>¡Despliega tu red sin límites!</h4>
-                                <a href="">
+                                <a href="https://www.incom.mx/documents/pdf/MARAIS_SC3C-MICROZANJADORA.pdf" target="_blank">
                                     <div class="btn-degradate my-4">Especificaciones técnicas 
-                                        <img class="pdf-bgout" src="../Renta-equipo/assets/img/pdf-bgout.png" alt="">
+                                        <img class="pdf-bgout" src="./assets/img/pdf-bgout.png" alt="">
                                     </div>
                                 </a>
-                                <a href="">
+                                <a href="https://www.incom.mx/documents/pdf/INCOM_CATALOGO_SOLUCION_FIBRA_SOPLADA.pdf" target="_blank">
                                     <div class="btn-degradate">Catálogo de solución completa
-                                        <img class="pdf-bgout" src="../Renta-equipo/assets/img/pdf-bgout.png" alt="">
+                                        <img class="pdf-bgout" src="./assets/img/pdf-bgout.png" alt="">
                                     </div>
                                 </a>
                             </div>
                             <div class="col-md-5 order-1 order-md-2 container-bg-right is-h-fit" data-aos="fade-left">
-                                <h3 class="is-bt-2 title-tractor">Tractor y discos disponibles</h3>
-                                <h6>Modelo SC3C Carrier</h6>
-                                <img class="tractor-img" src="assets/img/tractor.png" alt="">
-                                <img src="assets/img/discos-zanjadora.png" class="img-fluid" alt="Soplado de fibra óptica">
+                                <h4 class="is-bt-2 title-tractor">Tractor y discos disponibles</h4>
+                                <div>
+                                    <img src="assets/img/detalle-zanjadora.png" class="img-fluid" alt="Soplado de fibra óptica">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -325,31 +295,27 @@
             </section>
         <!-- End Features Section -->
 
-        <!-- ======= Exhibitor Section ======= -->
-        <!-- <section id="exhibitor" class="testimonials">
+        <!-- ======= Video Section ======= -->
+        <section id="gallery" class="about about-1">
             <div class="container">
-                <div class="testimonials-slider swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="assets/img/INCOM_WEBINAR_FREMCO_LP3.png" class="" alt="">
-                                <h3>Ing. Eva Garza</h3>
-                                <h4>Gerente de soporte técnico en INCOM</h4>
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    La técnica de soplado es la técnica más eficiente y segura para instalar fibra óptica y con las máquinas de soplado de FREMCO podemos aprovechar grandes ventajas. 
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-                    <!-- </div> -->
-                    <%--<div class="swiper-pagination"></div>--%>
-                <!-- </div>
-
-            </div>
-        </section> -->
-        <!-- End Exhibitor Section -->
+                <div class="section-title" data-aos="fade-up">
+                    <h2></h2>
+                    <p class="subtitle-lp">Galería</p>
+                </div>
+                <div class="wrapper-gallery">
+                    <div class="gallery">
+                        <ul>
+                            <li><img src="./assets/img/pt1-renta-equipo.png"></li>
+                            <li><img src="./assets/img/pt3-renta-equipo.png"></li>
+                            <li><img src="./assets/img/pt5-renta-equipo.png"></li>
+                            <li><img src="./assets/img/pt6-renta-equipo.png"></li>
+                            <li><img src="./assets/img/pt7-renta-equipo.png"></li>
+                            <li><img src="./assets/img/pt9-renta-equipo.png"></li>
+                        </ul>
+                    </div>
+                </div>
+        </section>
+        <!-- End Video Section -->
 
         <!-- ======= Video Section ======= -->
         <section id="video" class="about bg-alt">
@@ -368,6 +334,7 @@
             </div>
         </section>
         <!-- End Video Section -->
+
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
             <div class="container">
@@ -382,7 +349,7 @@
                                 <i class="bi bi-envelope"></i>
                                 <div>
                                     <h6 class="contact_form-evento">Correo electrónico:</h6>
-                                    <a href="mailto:comunicacion@incom.mx" style="padding: 0;"><h4 class="contact_form-link">comunicacion@incom.mx</h4></a>                                    
+                                    <a href="mailto:telemarketing@incom.mx" style="padding: 0;"><h4 class="contact_form-link">telemarketing@incom.mx</h4></a>                                    
                                 </div>
                             </div>
                             <div class="address">
@@ -435,9 +402,7 @@
                             </asp:UpdatePanel>
                         </form>
                     </div>
-
                 </div>
-
             </div>
         </section>
         <!-- End Contact Section -->
@@ -513,100 +478,101 @@
 
 <style>
     .my-button-style {
-    border-width: 1px;
-    width: 200px;
-    height: 80px;
-    border-radius: 100px !important;
-    background: #fff;
-    position: absolute;
-    border: 5px solid #6fb07f;
-    font-size: 22px;
-    color: #6fb07f;
-    text-align: center;
-    vertical-align: middle;
-}
+        border-width: 1px;
+        width: 200px;
+        height: 80px;
+        border-radius: 100px !important;
+        background: #fff;
+        position: absolute;
+        border: 5px solid #6fb07f;
+        font-size: 22px;
+        color: #6fb07f;
+        text-align: center;
+        vertical-align: middle;
+    }
 
-.my-button-style:hover, .my-button-style:focus {
-    outline: none;
-    border-color: #6fb07f;
-    box-shadow: 0 0 5px 0 #6fb07f;
-}
+    .cont-docs {
+        background-color: rgb(31, 41, 55);
+    }
 
-.my-button-style:focus {
-    -webkit-animation: extend 1s ease-in-out;
-    -ms-animation: extend 1s ease-in-out;
-    animation: extend 1s ease-in-out;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
+    .my-button-style:hover, .my-button-style:focus {
+        outline: none;
+        border-color: #6fb07f;
+        box-shadow: 0 0 5px 0 #6fb07f;
+    }
 
-.my-button-style:focus > span {
-    -webkit-animation: disappear 1s ease-in-out;
-    -ms-animation: disappear 1s ease-in-out;
-    animation: disappear 1s ease-in-out;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
+    .my-button-style:focus {
+        -webkit-animation: extend 1s ease-in-out;
+        -ms-animation: extend 1s ease-in-out;
+        animation: extend 1s ease-in-out;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
 
-.my-button-style:focus > img {
-    -webkit-animation: appear 1s ease-in-out;
-    -ms-animation: appear 1s ease-in-out;
-    animation: appear 1s ease-in-out;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
+    .my-button-style:focus > span {
+        -webkit-animation: disappear 1s ease-in-out;
+        -ms-animation: disappear 1s ease-in-out;
+        animation: disappear 1s ease-in-out;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
 
-.renta_eq-title {
-    position: relative;
-    display: inline-block;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-  .renta_eq-title::before {
-    content: "";
-    position: absolute;
-    bottom: -90px;
-    left: 0;
-    width: 50%;
-    height: 6px;
-    background-color: red;
-  }
+    .my-button-style:focus > img {
+        -webkit-animation: appear 1s ease-in-out;
+        -ms-animation: appear 1s ease-in-out;
+        animation: appear 1s ease-in-out;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
 
-  .container-bg {
-    background-color: rgb(31, 41, 55);
-    color: white;
-    padding: 3rem;
-    border-radius: 24px;
-    margin-right: 2rem;
-    height: fit-content;
-    align-self: center;
-  }
+    .renta_eq-title {
+        position: relative;
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .renta_eq-title::before {
+        content: "";
+        position: absolute;
+        bottom: -90px;
+        left: 0;
+        width: 50%;
+        height: 6px;
+        background-color: red;
+    }
 
-  .container-bg > h3 { 
-    margin-bottom: 4rem;
-  }
+    .container-bg {
+        color: white;
+        padding: 3rem;
+        margin-right: 2rem;
+        height: fit-content;
+        align-self: center;
+    }
 
-  .container-bg-right {
-    border-radius: 24px;
-    margin-right: 2rem;
-    height: fit-content;
-  }
+    .container-bg > h3 { 
+        margin-bottom: 4rem;
+    }
 
-  .btn-degradate {
-    width: 300px;
-    height: 60px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(to right, rgb(241, 113, 4), rgb(254, 81, 113));
-    font-weight: 600;
-    color: #fff;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0% 10%;
+    .container-bg-right {
+        border-radius: 24px;
+        height: fit-content;
+    }
+
+    .btn-degradate {
+        width: 300px;
+        height: 60px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(to right, rgb(241, 113, 4), rgb(254, 81, 113));
+        font-weight: 600;
+        color: #fff;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0% 10%;
     }
 
     .pdf-bgout {
@@ -640,11 +606,160 @@
     }
 
     .is-bt-2 {
-        margin-bottom: 2rem;
+        background-image: linear-gradient(to right, rgb(241, 113, 4), rgb(254, 81, 113));
+        color: white;
+        text-align: center;
+        margin-bottom: 0;
+        line-height: 4;
     }
 
     .hero-img-movil {
         display: none;
+    }
+
+    .subtitle-intro-tr {
+        background-color: #ffffff00;
+    }
+
+    .cont-ventajas li {
+        text-align: justify;
+    }
+
+    .subtitle-intro {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: "Poppins", sans-serif;
+        color: #010483;
+    }
+
+    .container-box {
+        margin-bottom: 4rem;
+    }
+
+    .subtitle-intro {
+        margin-bottom: 2rem;
+    }
+
+    .intro-box-team {
+        margin-bottom: 4rem;
+    }
+
+    .wrapper-gallery {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    div.gallery {
+        margin-top: 0;
+    }
+
+    div.gallery ul {
+        list-style-type: none;
+        margin-left: 35px;
+    }
+
+    /* animation */
+    div.gallery ul li, div.gallery li img {
+        -webkit-transition: all 0.1s ease-in-out;
+        -moz-transition: all 0.1s ease-in-out;
+        -o-transition: all 0.1s ease-in-out;
+        transition: all 0.1s ease-in-out;
+    }
+
+    div.gallery ul li {
+        position: relative;
+        float: left;
+        width: 260px;
+        height: 260px;
+        margin: 5px;
+        padding: 5px;
+        z-index: 0;
+    }
+
+    /* Image is position nicely under li */
+    div.gallery ul li img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 1px solid #dddddd;
+        padding: 5px;
+        width: 260px;
+        height: 260px;
+        background: #f0f0f0;
+    }
+
+    .section-title.aos-init.aos-animate, .subtitle-intro {
+        text-align: center;
+    }
+
+    .intro-box-team {
+        padding: 1rem;
+    }
+
+    .about-1 {
+        padding: 40px 0 7rem 0 !important;
+    }
+
+    .intro-box-team > h5:nth-child(2) {
+        font-size: 1rem;
+    }
+
+    p.attribution {
+        font-family: 'Consolas';
+        color: #000;
+        clear: both;
+        text-align: center;
+        line-height: 25px;
+        padding-top: 30px;
+    }
+
+    p.attribution a {
+        color: #4c8d7c;
+    }
+
+    .img-venta-renta {
+        width: 100%;
+        height: auto;
+    }
+
+    section.features:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .intro-box-rent {
+        text-align: justify;
+    }
+
+    .cont-img-tractor {
+        width: 100%;
+        background-color: #fff;
+    }
+
+    .cont-img-tractor > h6 {
+        text-align: center;
+        padding-top: 1rem;
+    }
+
+    /* Responsive hack */
+    @media only screen and (min-width: 499px) and (max-width: 1212px) {
+        .wrapper {
+            width: 500px;
+        }
+    }
+
+    @media only screen and (max-width: 498px) {
+        .wrapper {
+            width: 300px;
+        }
+
+        div.gallery ul {
+            list-style-type: none;
+            margin: 0;
+        }
     }
 
     @media (max-width: 575px) {
@@ -726,6 +841,7 @@
         margin-top: 2rem;
         margin-right: 0;
         padding: 2rem;
+        margin-bottom: 4rem;
     }
 
     .start-point {
@@ -736,14 +852,9 @@
         padding-bottom: 1rem;
     }
 
-    .container-bg-right {
-        margin-right: 0px;
-    }
-
     .title-tractor {
         font-size: 1.25rem;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-top: 2rem;
     }
 
     .tractor-img {
@@ -786,19 +897,111 @@
     .label-renta {
         margin-bottom: 0.5rem;
     }
+
+    section.features:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h2:nth-child(1) {
+        font-size: 1rem;
+    }
+
+    section.features:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h5:nth-child(3) {
+        font-size: 0.75rem;
+    }
+
+    div.icon-box:nth-child(2) > div:nth-child(1) > h5:nth-child(1) {
+        font-size: 0.75rem;
+    }
+
+    div.icon-box:nth-child(2) {
+        padding-top: 0;
+        margin-bottom: 1rem;
+    }
     
     }
 
+    @media (min-width: 1200px) {
+        div.gallery ul li:nth-child(1) img:hover,
+        div.gallery ul li:nth-child(2) img:hover,
+        div.gallery ul li:nth-child(3) img:hover {
+            margin-top: -170px !important;
+        }
+
+        div.gallery ul li:nth-child(2) img:hover,
+        div.gallery ul li:nth-child(3) img:hover,
+        div.gallery ul li:nth-child(6) img:hover {
+            left: -38% !important;
+        }
+    }
+
+    @media (max-width: 800px) {
+        div.gallery ul li {
+            width: 100%;
+            height: auto;
+        }
+
+        div.gallery ul li img {
+            position: inherit;
+            width: 80%;
+            height: auto;
+        }
+
+        .wrapper-gallery {
+            width: 100%;
+        }
+
+        .cont-docs {
+            padding: 0 2rem 0 2rem;
+        }
+    }
+
+    @media (min-width: 800px) {
+        /* Make sure z-index is higher on hover */
+        /* Ensure that hover image overlapped the others */
+            div.gallery ul li:hover {
+                z-index: 5;
+        }
+
+        div.gallery ul li img:hover {
+            width: 532px;
+            height: 530px;
+            margin-top: -440px;
+            margin-left: -170px;
+            top: 65%;
+            left: 65%;
+        }
+
+        .cont-docs {
+            background-color: rgb(31, 41, 55);
+            padding-right: 0;
+            padding-left: 0 !important;
+        }
+    }
+
+    @media (min-width: 1000px) and (max-width: 1200px) { 
+        div.gallery ul li:nth-child(2) img:hover,
+        div.gallery ul li:nth-child(4) img:hover,
+        div.gallery ul li:nth-child(6) img:hover {
+            left: -38% !important;
+        }
+
+        div.gallery ul li:nth-child(1) img:hover,
+        div.gallery ul li:nth-child(2) img:hover {
+            margin-top: -170px !important;
+        }
+    }
+
     @media (min-width: 360px) and (max-width: 800px) { 
-    .cont-ventajas {
+        .cont-ventajas {
             flex: 1 1 100%;
         }
     }
 
     @media (min-width: 320px) and (max-width: 580px) { 
-    .bi.bi-envelope, .bi.bi-phone, .bi.bi-whatsapp {
-        margin-left: 1rem;
-    }
+        .bi.bi-envelope, .bi.bi-phone, .bi.bi-whatsapp {
+            margin-left: 1rem;
+        }
+
+        div.gallery ul {
+            margin-left: 0;
+        }
     }
 </style>
 </html>
