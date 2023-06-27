@@ -384,42 +384,36 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
             }
 
             lbl_bandera.Text = bandera;
-            if (!solo_para_Visualizar)
-            {
-                //  var DisponibilidadStockSAP = SAP_productos_oData.ObtenerStockMensaje(noParte_Sap, numero_parte);
-                //  lbl_disponibilidad_stock.Text = DisponibilidadStockSAP;
 
-                decimal? precio = null;
-
-
-
-                if (rowView["precio"] != DBNull.Value)
+                if (!solo_para_Visualizar)
                 {
+                    decimal? precio = null;
 
-                    precio = decimal.Parse(rowView["precio"].ToString());
-                }
-                else if (rowView["precio1"] != DBNull.Value)
-                {
-                    precio = decimal.Parse(rowView["precio1"].ToString());
-                }
-                decimal PrecioConImpuestos = Impuestos.ObterPrecioConImpuestos((decimal)precio);
-                lbl_producto_precio.Text = decimal.Parse(PrecioConImpuestos.ToString()).ToString("C2", myNumberFormatInfo);
+                    if (rowView["precio"] != DBNull.Value)
+                    {
+                        precio = decimal.Parse(rowView["precio"].ToString());
+                    }
+                    else if (rowView["precio1"] != DBNull.Value)
+                    {
+                        precio = decimal.Parse(rowView["precio1"].ToString());
+                    }
+
+                    lbl_producto_precio.Text = precio?.ToString("C2", myNumberFormatInfo);
+
+                
                 #region Precios fantasma
+
                 if (rowView["preciosFantasma"] != DBNull.Value)
                 {
-
                     decimal preciosFantasma = decimal.Parse(rowView["preciosFantasma"].ToString());
 
-
                     decimal PrecioFantasmaConImpuestos = Impuestos.ObterPrecioConImpuestos((decimal)preciosFantasma);
-
 
                     lbl_preciosFantasma.Visible = true;
                     lbl_preciosFantasma.Text = "$" + decimal.Parse(PrecioFantasmaConImpuestos.ToString()).ToString("C2", myNumberFormatInfo);
                 }
                 if (rowView["porcentajeFantasma"] != DBNull.Value)
                 {
-
                     int porcentajeFantasma = int.Parse(rowView["porcentajeFantasma"].ToString());
                     lbl_descuento_porcentaje_fantasma.Visible = true;
                     lbl_descuento_porcentaje_fantasma.Text = $"{porcentajeFantasma}% de descuento";

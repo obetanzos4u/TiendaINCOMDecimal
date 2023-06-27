@@ -207,10 +207,13 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             // Quitamos el símbolo de pesos (establecido en string vacio)
             myNumberFormatInfo.CurrencySymbol = "";
             decimal? precio = null;
+            decimal? precioSinImpuestos = null; // New variable to store price without taxes
+
             // La columna [precio] solo se habilita si el cliente tiene asignado un precio fijo, por lo tanto es el precio a mostrar
             if (productos.Rows[0]["precio"] != DBNull.Value)
             {
                 precio = decimal.Parse(productos.Rows[0]["precio"].ToString());
+                precioSinImpuestos = precio; // Assign original price to price without taxes
                 // Al ser un precio general, debemos mostrar que tiene cierto descuento siempre y cuando el precio para el cliente sea menor que el general
                 decimal? precioGeneral = procesar.obtenerPrecioGeneralProducto(numero_parte);
                 if (precioGeneral != null && precioGeneral > precio)
@@ -225,6 +228,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             else if (productos.Rows[0]["precio1"] != DBNull.Value)
             {
                 precio = decimal.Parse(productos.Rows[0]["precio1"].ToString());
+                precioSinImpuestos = precio; // Assign original price to price without taxes
                 // INICIO - Sirve para mostrar si hay precio de lista, solo NO HAY hay un precio fijo para un cliente en especial
                 DataTable dtProducoPrecioLista = preciosTienda.obtenerProductoPrecioLista(numero_parte);
                 if (dtProducoPrecioLista != null)
@@ -242,6 +246,7 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
 
                 // Fin - Sirve para mostrar si hay precio de lista, solo si NO HAY un precio fijo  para un cliente en especial
             }
+
             #region Producto solo para cotizar
             if (solo_para_Visualizar)
             {
@@ -258,9 +263,8 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
             else
             {
                 decimal PrecioConImpuestos = Impuestos.ObterPrecioConImpuestos((decimal)precio);
-                lbl_precio.Text = decimal.Parse(PrecioConImpuestos.ToString()).ToString("C2", myNumberFormatInfo);
+                lbl_precio.Text = decimal.Parse(precioSinImpuestos.ToString()).ToString("C2", myNumberFormatInfo); // Display price without taxes
                 lbl_moneda.Text = monedaTienda;
-
 
                 detalles_precios.numero_parte = numero_parte;
                 detalles_precios.moneda = monedaTienda;
@@ -270,30 +274,20 @@ public partial class userControls_productoVisualizar : System.Web.UI.UserControl
                 #region Precios fantasma
                 if (productos.Rows[0]["preciosFantasma"] != DBNull.Value)
                 {
-
                     decimal preciosFantasma = decimal.Parse(productos.Rows[0]["preciosFantasma"].ToString());
-
-
-
-
                     lbl_preciosFantasma.Visible = true;
                     decimal PrecioFantasmaConImpuestos = Impuestos.ObterPrecioConImpuestos((decimal)preciosFantasma);
                     lbl_preciosFantasma.Text = "$" + decimal.Parse(PrecioFantasmaConImpuestos.ToString()).ToString("C2", myNumberFormatInfo);
                 }
                 if (productos.Rows[0]["porcentajeFantasma"] != DBNull.Value)
                 {
-
                     int porcentajeFantasma = int.Parse(productos.Rows[0]["porcentajeFantasma"].ToString());
                     lbl_descuento_porcentaje_fantasma.Visible = true;
                     lbl_descuento_porcentaje_fantasma.Text = $"{porcentajeFantasma}% de descuento";
                 }
-
                 #endregion
-
             }
             #endregion
-
-
 
             //#region Seguimiento Promociones, campañas, cupones y descuentos
             //if (Request.QueryString["PromoCode"] != null )//|| usuarios.userLogin().tipo_de_usuario ="cliente")
