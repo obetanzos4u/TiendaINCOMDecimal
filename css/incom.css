@@ -149,13 +149,13 @@
 }
 
 .divisa-txt {
-    font-weight: 400;
+    font-weight: 600;
     color:rgba(0, 0, 0, 0.87);
 }
 
 .precio-producto {
     color: rgba(0, 0, 0, 0.87);
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .breadcrumb:before {
@@ -404,6 +404,10 @@ margin-left: 1rem;
     border-radius: 8px !important;
     padding: 0.5rem;
     box-shadow: 3px 3px 3px 3px rgba(161, 161, 161, 0.3) !important;
+}
+
+.moneda-txt {
+    font-weight: 600;
 }
 
 @media only screen and (min-width:1000px) {
@@ -790,6 +794,18 @@ div.arrow-doble-down #svg-arrow-down {
 .container-reporte_pedidos {
     width: 96%;
     margin: 1rem auto 10vh auto;
+}
+
+.is-envio-gratis {
+    width: 100%;
+    display: flex;
+    height: 22.5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.is-h-bandera {
+    height: 22.5px;
 }
 
 /* Formulario de facturación*/
@@ -3967,7 +3983,6 @@ div.arrow-doble-down #svg-arrow-down {
 
         .divisa-txt {
             font-size: 1.5rem;  
-            font-weight: 300;       
         }
 
         .precio-producto {

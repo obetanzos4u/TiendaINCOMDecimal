@@ -330,12 +330,8 @@ public partial class userControls_productosTiendaListado : System.Web.UI.UserCon
 
             if (disponibleEnvio == "1")
             {
-                lbl_envioGratuito.Attributes.Add("class", "is-text-xs is-text-white is-font-semibold is-select-none");
+                lbl_envioGratuito.Attributes.Add("class", "is-text-xs is-text-white is-bg-envioGratis is-font-semibold is-envio-gratis is-select-none");
                 lbl_envioGratuito.Text = "Envio gratis &starf;";
-            }
-            else
-            {
-                lbl_envioGratuito.Attributes.Add("style", "height: 22.5px");
             }
 
             btn_VerDisponibilidad.Attributes.Add("onclick", $"openModalProductoDisponibilidad('{numero_parte}');");

@@ -241,8 +241,11 @@
                                             <span class="producto_precio">$</span>
                                             <asp:Label ID="lbl_producto_precio" CssClass="producto_precio" runat="server" Text=""></asp:Label>
                                             <asp:Label ID="lbl_producto_moneda" CssClass="producto_moneda" runat="server" Text=""></asp:Label>
+                                            <section class="text-IVA">
+                                                <span class="is-text-black nota">Sin IVA incluido</span>
+                                            </section>
                                         </p>
-                                        <div class="is-w-full is-bg-envioGratis is-tag is-select-none">
+                                        <div class="is-w-full is-h-bandera is-tag is-select-none">
                                             <asp:Label runat="server" ID="lbl_envioGratuito"></asp:Label>
                                         </div>
                                         <div class="boton-agregar-carrito-resultados">
