@@ -454,6 +454,7 @@ public partial class mi_carrito : System.Web.UI.Page
 
         System.Data.DataRowView rowView = e.Item.DataItem as System.Data.DataRowView;
 
+        decimal precio_sin_impuesto = decimal.Parse(rowView["precio_unitario"].ToString());
         decimal precio_unitario = decimal.Parse(rowView["precio_unitario"].ToString()) * decimal.Parse(Session["impuesto"].ToString());
         decimal precio_total = decimal.Parse(rowView["precio_total"].ToString()) * decimal.Parse(Session["impuesto"].ToString());
         decimal tipo_cambio = decimal.Parse(rowView["tipo_cambio"].ToString());
@@ -513,6 +514,9 @@ public partial class mi_carrito : System.Web.UI.Page
 
         Label lbl_precio_unitario = (Label)e.Item.FindControl("lbl_precio_unitario");
         lbl_precio_unitario.Text = precio_unitario.ToString("#,#.##", myNumberFormatInfo) + " " + monedaTienda;
+
+        Label lbl_precio_sin_impuesto = (Label)e.Item.FindControl("lbl_precio_sin_impuesto");
+        lbl_precio_sin_impuesto.Text = precio_sin_impuesto.ToString("#,#.##", myNumberFormatInfo) + " " + monedaTienda;
 
         Label lbl_precio_total = (Label)e.Item.FindControl("lbl_precio_total");
         lbl_precio_total.Text = decimal.Parse(precio_total.ToString()).ToString("#,#.##", myNumberFormatInfo) + " " + monedaTienda;
@@ -1004,7 +1008,7 @@ public partial class mi_carrito : System.Web.UI.Page
 
                 //  emailTienda email = new emailTienda(asunto, $"cmiranda@incom.mx, {usuarioLogin.email}", mensaje, "retail@incom.mx");               
 
-                emailTienda email = new emailTienda(asunto, $"jaraujo@incom.mx, fgarcia@incom.mx, " + usuarioLogin.email, mensaje, "serviciosweb@incom.mx"); // usuarioLogin.email
+                emailTienda email = new emailTienda(asunto, $"jaraujo@incom.mx, fgarcia@incom.mx, umartinez@incom.mx, " + usuarioLogin.email, mensaje, "serviciosweb@incom.mx"); // usuarioLogin.email
 
                 email.general();
 

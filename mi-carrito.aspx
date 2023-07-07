@@ -14,7 +14,7 @@
         <ContentTemplate>
             <div class="mi-carrito-contain">
                 <div class="col l8 xl8 mi-carrito-list">
-                    <div style="display: flex; justify-content: center; align-items: center">
+                    <div class="head-carrito_list">
                         <asp:Label ID="lbl_shoppingCartTitle" class="title-product_list is-w-full is-font-semibold is-select-none" runat="server"></asp:Label>
                         <%--<asp:LinkButton ID="btn_guardarPlantilla" data-tooltip="Guarda este listado de productos para cotizaciones" OnClick="btn_guardarPlantilla_Click" CssClass="tooltipped" runat="server">
                             <i class="material-icons">save</i>
@@ -23,6 +23,7 @@
                     <div class="is-w-full wrapp-mi_carrito">
                         <asp:ListView ID="lv_productosCarritos" OnItemDataBound="lv_productos_OnItemDataBound" runat="server">
                             <LayoutTemplate>
+                                <!-- <div class="is-w-full overflow-productos" style="overflow-y: auto;"> -->
                                 <div class="is-w-full overflow-productos" style="overflow-y: auto;">
                                     <table class="product-table">
                                         <tbody>
@@ -33,10 +34,10 @@
                             </LayoutTemplate>
                             <ItemTemplate>
                                 <tr class="table-product_description">
-                                    <td style="width: 10%">
+                                    <td>
                                         <asp:Image ID="imgProducto" CssClass="responsive-img" runat="server" />
                                     </td>
-                                    <td style="width: 54%;">
+                                    <td>
                                         <asp:HiddenField ID="hf_idProductoCarrito" Value='<%#Eval("id") %>' runat="server" />
                                         <div class="is-select-all">
                                             <asp:Literal ID="lt_numeroParte" Text='<%#Eval("numero_parte") %>' runat="server"></asp:Literal>
@@ -49,11 +50,15 @@
                                         <div id="warning_envios_medidas" class="is-text-xs is-text-red" runat="server" visible="false"></div>
                                     </td>
                                     <td class="product-list-precio_cantidad">
-                                        <div class="is-flex is-justify-between is-items-center">
-                                            <p>Precio unitario con IVA: </p>
+                                        <div class="is-flex is-justify-between pricenet">
+                                            <p>Precio sin IVA: </p>
+                                            <asp:Label ID="lbl_precio_sin_impuesto" runat="server"></asp:Label>
+                                        </div>
+                                        <div class="is-flex is-justify-between priceiva">
+                                            <p>Precio con IVA: </p>
                                             <asp:Label ID="lbl_precio_unitario" runat="server"></asp:Label>
                                         </div>
-                                        <div class="is-flex is-justify-between is-items-center">
+                                        <div class="is-flex is-justify-between countproducts">
                                             <p>Cantidad: </p>
                                             <asp:UpdatePanel UpdateMode="Always" runat="server">
                                                 <ContentTemplate>
@@ -136,6 +141,8 @@
                 </div>
 
                 <!-- <div id="cover"></div> -->
+                <div class="scrollable-container">
+                    <div class="sticky-container">
                 <div id="ctn_details" class="col s12 l4 xl4 right-align mi-carrito-ticket" runat="server">
                     <div class="is-flex moneda-ticket">
                         <p class="is-select-none">Moneda:</p>
@@ -170,7 +177,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="is-text-center">
+                        <div class="is-text-center container-ticket_envio">
                             <span class="text-ticket_envio is-select-none">El costo de envío se calcula con tu dirección</span>
                         </div>
                     </div>
@@ -187,13 +194,15 @@
                         <p>Los tiempos de entrega pueden cambiar sin previo aviso. Un asesor se comunicará contigo al realizar tu operación para confirmar la disponibilidad.</p>
                     </div>
                 </div>--%>
-                <div id="btn_continuarCompra" class="mi-carrito-boton-compra is-flex-col is-justify-center is-items-center" runat="server">
+                <div id="btn_continuarCompra" class="mi-carrito-boton-compra is-flex is-flex-col is-justify-center is-items-center" runat="server">
                     <asp:LinkButton ID="btn_comprar" ClientIDMode="Static" OnClick="btn_comprar_Click" CssClass="is-text-white is-btn-green" runat="server">
                         Continuar con la compra
                     </asp:LinkButton>
-                    <a href="mailto:telemarketing@incom.mx?cc=serviciosweb@incom.mx&subject=Consulta%20sobre%20productos%20sin%20stock" id="mail_telemarketing" visible="false" runat="server">telemarketing@incom.mx</a>
                     <!-- <a class="modal-trigger" href="#modalPedido" runat="server">Continuar con la compra</a> -->
                     <!-- <a href="#">Descargar cotización</a> -->
+                </div>
+                <div class="email-carrito">
+                    <a href="mailto:telemarketing@incom.mx?cc=serviciosweb@incom.mx&subject=Consulta%20sobre%20productos%20sin%20stock" id="mail_telemarketing" visible="false" runat="server"><p>Comunicación a través de telemarketing@incom.mx</a>
                 </div>
                 <div id="lbl_consideraciones" visible="true" class="mi-carrito-consideraciones-lg" runat="server">
                     <div class="right-mi_carrito_consideraciones">
@@ -204,6 +213,8 @@
                         </div>
                     </div>
                 </div>
+                </div>
+            </div>
             </div>
             <%--<div id="content_msg_exito_operacion" visible="false" class="row center-align" runat="server">
                 <h1 class="blue-text" id="">Tu 

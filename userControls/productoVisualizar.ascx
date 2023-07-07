@@ -88,12 +88,13 @@
                                     <span class="divisa-txt">$</span>
                                     <asp:Label ID="lbl_precio" class="precio-producto" runat="server"></asp:Label>
                                     <asp:Label ID="lbl_moneda" class="moneda-txt" runat="server"></asp:Label>
+                                    <br>
                                     <asp:Label ID="lbl_descuento_porcentaje_fantasma" Visible="false"
                                         class="red white-text" Style="padding: 2px 5px" runat="server"></asp:Label>
                                 </section>
-                                <br>
+
                                 <section class="text-IVA">
-                                    <span class="is-text-black nota"><strong>Precio neto. </strong>Sin IVA incluido.</span>
+                                    <span class="is-text-black nota"><strong>Precio sin IVA incluido</strong></span>
                                 </section>
                                 <div id="lbl_envioIncluido" class="is-text-center is-text-white is-font-semibold is-bg-envioGratis is-line-175 is-select-none" runat="server"></div>
                                 <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
