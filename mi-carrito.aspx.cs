@@ -460,6 +460,7 @@ public partial class mi_carrito : System.Web.UI.Page
         decimal tipo_cambio = decimal.Parse(rowView["tipo_cambio"].ToString());
         decimal cantidad = decimal.Parse(rowView["cantidad"].ToString());
         precio_unitario = procesar.precio_a_MonedaTienda(tipo_cambio, rowView["moneda"].ToString(), precio_unitario);
+        precio_sin_impuesto = procesar.precio_a_MonedaTienda(tipo_cambio, rowView["moneda"].ToString(), precio_sin_impuesto);
         precio_total = procesar.precio_a_MonedaTienda(tipo_cambio, rowView["moneda"].ToString(), precio_total);
         string numero_parte = rowView["numero_parte"].ToString();
         string titulo = rowView["titulo"].ToString();
