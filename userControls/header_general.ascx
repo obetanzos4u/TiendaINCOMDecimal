@@ -135,10 +135,10 @@
     </svg>
         </span>--%>
     </section>
-    <section class="pleca is-flex is-bg-envioGratis is-py-0 is-justify-center  is-h-12">
+    <section class="pleca is-flex is-bg-envioGratis is-py-0 is-justify-center" style="height: 36px;">
         <span class="text-pleca is-flex is-text-white is-text-center is-items-center is-select-none">¡ENVÍO GRATIS! &nbsp;&nbsp; Válido en compras en línea desde $3,000 mxn &starf;</span>
     </section>
-    <div id="content_header" class="col s12 m12 l12" style="padding: 5px 0px;">
+    <div id="content_header" class="col s12 m12 l12">
         <section class="title_container">
             <p class="title_header is-select-none">INCOM&reg; La ferretera de las telecomunicaciones&reg;</p>
         </section>
@@ -236,12 +236,12 @@
                             </div>--%>
                         </div>
                     </div>
-
-                    <div class="content_tipoDeCambio">
+                    <div class="separe_border-sesion_nav"> </div>
+                    <!-- <div class="content_tipoDeCambio">
                         <span class="title_tipoDeCambio">Tipo de cambio</span>
                         <span id="txt_tipoDeCambio"></span>
                         <strong><span class="cantidad_tipoDeCambio"><%= operacionesConfiguraciones.obtenerTipoDeCambio() %> MXN </span></strong>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <uc_menu:menuHeaderPrincipal ID="menuCat" runat="server"></uc_menu:menuHeaderPrincipal>
@@ -416,19 +416,20 @@
     }
 
     .title_container {
-        font-size: 2rem;
+        height: 36px;
         margin: 0;
-        background-color: #F9F7F7;
+        background-color: #DEDEDE;
     }
 
     .title_header {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 400;
         width: fit-content;
         margin: auto;
         display: flex;
         align-items: center;
-        color: #0C3766;
+        color: #06C;
+        height: inherit;
     }
 
     .header {
@@ -439,7 +440,7 @@
     }
 
     .header_toolbar {
-        height: 6rem;
+        height: 9rem;
         margin: auto 0rem 1.25rem 0rem;
         display: flex;
         flex-direction: row;
@@ -613,7 +614,7 @@
 
     .sesion_nav {
         height: 3rem;
-        margin-top: 1rem;
+        margin-top: 3rem;
         display: flex;
         flex-direction: row;
     }
@@ -707,6 +708,10 @@
         height: 1rem;
         text-align: start;
         display: block;
+    }
+
+    .separe_border-sesion_nav {
+        width: 2rem;
     }
 
     #txt_tipoDeCambio {
@@ -906,7 +911,7 @@
 
         .text-nombre_cuenta > span {
             font-size: 0.75rem;
-            margin-top: 0.5rem;
+            margin-top: 0.25rem;
         }
 
         /*#carrito_de_compra > a:nth-child(1) > img:nth-child(1) {
@@ -922,7 +927,7 @@
         }
 
         .profile_photo {
-            height: 2rem;
+            height: 2.25rem;
         }
 
         .btn-mi-carrito {
@@ -946,7 +951,7 @@
             display: flex;
             flex-direction: row;
             height: auto;
-            margin-bottom: 8vh;
+            margin-bottom: 12vh;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -1063,7 +1068,7 @@
         }*/
 
         .categorias_container {
-            margin-bottom: 2vh;
+            margin-bottom: 4vh;
         }
     }
 
@@ -1079,7 +1084,7 @@
         }
 
         .content_header_logo {
-            padding-top: 0.5rem;
+            padding-top: 2rem;
         }
 
 /*        #txt_buscadorProducto {

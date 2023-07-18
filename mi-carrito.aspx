@@ -145,8 +145,8 @@
                     <div class="sticky-container">
                 <div id="ctn_details" class="col s12 l4 xl4 right-align mi-carrito-ticket" runat="server">
                     <div class="is-flex moneda-ticket">
-                        <p class="is-select-none">Moneda:</p>
-                        <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
+                        <!-- <p class="is-select-none">Moneda:</p>
+                        <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda> -->
                     </div>
                     <div style="text-align: left; padding: 1rem;" class="is-border-soft is-border-collapse is-rounded-lg">
                         <div class="is-rounded-t-lg section-ticket-1">

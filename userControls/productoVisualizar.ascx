@@ -19,7 +19,7 @@
 <div id="contenedor_producto" class="is-container" runat="server">
     <asp:Literal ID="lt_microdataProducto" runat="server"></asp:Literal>
     <div class="nav-wrapper">
-        <div id="navegacion" runat="server" style="height: 42px;" class="container-breadcrumb is-bg-blue-darky">
+        <div id="navegacion" runat="server" style="height: 36px" class="container-breadcrumb is-bg-blue-darky">
             <asp:HyperLink ID="link_todas_categorias" CssClass="breadcrumb" runat="server">Productos</asp:HyperLink>
         </div>
     </div>
@@ -96,18 +96,18 @@
                                 <section class="text-IVA">
                                     <span class="is-text-black nota"><strong>Precio sin IVA incluido</strong></span>
                                 </section>
-                                <div id="lbl_envioIncluido" class="is-text-center is-text-white is-font-semibold is-bg-envioGratis is-line-175 is-select-none" runat="server"></div>
+                                <div id="lbl_envioIncluido" class="is-text-center is-text-white is-font-semibold is-bg-envioGratis is-line-175 is-select-none is-bt-2" runat="server"></div>
                                 <uc1:preciosDetalles ID="detalles_precios" runat="server"></uc1:preciosDetalles>
                             </div>
                             <div class="row" style="margin: inherit 0px;">
                                 <div class="s12 m12 l12 xl12">
                                     <asp:Label ID="lbl_msg_maximo_compra" Visible="false" runat="server"></asp:Label>
-                                    <section class="wrapper-moneda">
+                                    <!-- <section class="wrapper-moneda">
                                         <div class="input-field moneda-input" style="z-index: 0 !important;">
                                             Moneda:
                                         <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
                                         </div>
-                                    </section>
+                                    </section> -->
                                     <section class="wrapper-cantidad">
                                         <uc_addCarrito:add ID="AddCarrito" runat="server"></uc_addCarrito:add>
                                     </section>

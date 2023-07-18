@@ -171,10 +171,10 @@
                                 <asp:ListItem Value="DESC" Text="Descendente"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
-                        <div id="cont_moneda" class="input-field fixInput" runat="server" visible="false">
+                        <!-- <div id="cont_moneda" class="input-field fixInput" runat="server" visible="false">
                             <label class="label-filtro_producto" style="position: initial;">Moneda</label>
                             <uc_mon:moneda ID="uc_moneda" runat="server"></uc_mon:moneda>
-                        </div>
+                        </div> -->
                         <div class="fixInput hide-on-small-only hide-on-med-only">
                             <productos:visitados ID="ProductosVisitados" runat="server"></productos:visitados>
                         </div>

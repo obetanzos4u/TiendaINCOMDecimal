@@ -439,6 +439,11 @@ margin-left: 1rem;
     margin: 0.5rem 0rem;
 }
 
+.container-breadcrumb {
+    display: flex;
+    align-items: center;
+}
+
 @media only screen and (min-width:1000px) {
 
     .content_header_logo-img {
@@ -1457,7 +1462,7 @@ div.arrow-doble-down #svg-arrow-down {
         .mi-carrito-boton-compra {
             width: 100%;
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .title-product_list {
@@ -1727,7 +1732,7 @@ div.arrow-doble-down #svg-arrow-down {
 
     .text-IVA {
         text-align: center;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
     }
 
     .wrapper-cantidad {
@@ -2762,6 +2767,10 @@ div.arrow-doble-down #svg-arrow-down {
         .card-image.configuraciones-home {
             max-height: 160px;
         }
+
+        .moneda-ticket {
+            height: 2rem;
+        }
     }
 
     @media only screen and (min-width: 1000px) and (max-width: 1450px) {
@@ -3703,6 +3712,10 @@ div.arrow-doble-down #svg-arrow-down {
     .mi-carrito-list {
         width: 100%;
     }
+
+    .moneda-ticket {
+        height: 1rem;
+    }
 }
 
     .tituloProductoTienda {
@@ -4143,16 +4156,22 @@ div.arrow-doble-down #svg-arrow-down {
 
         .price {
             margin-top: 2rem;
+            padding: 1rem;
         }
 
         .counter_carrito {
             width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .btn-center {
+            margin-top: 4rem;
         }
 
         input.select-dropdown {
             height: 1.5rem !important;
             padding-left: 1rem !important;
-            }
+        }
 
         .divisa-txt {
             font-size: 1.5rem;  
@@ -4176,9 +4195,16 @@ div.arrow-doble-down #svg-arrow-down {
         }
         
         .borde-ticket_compra {
-            width: 60%;
+            /* width: 60%; */
+            width: 50%;
             min-width: 280px;
             margin: auto;
+            border: 1px solid #B2B2B2;
+            border-radius: 0px 0px 8px 8px;
+        }
+
+        .wrapper-cantidad {
+            margin-bottom: 2rem;
         }
 
         .wrapper-btn-share {
@@ -4400,6 +4426,10 @@ div.arrow-doble-down #svg-arrow-down {
 
         .card-image.configuraciones-home > img {
             max-height: 160px;
+        }
+
+        .moneda-ticket {
+            height: 2rem;
         }
     }
 

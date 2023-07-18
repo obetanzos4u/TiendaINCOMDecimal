@@ -291,7 +291,7 @@
 
                 .container-breadcrumb {
                     padding-left: 8em;
-                    margin: 4.25em 0em 1em 0em;
+                    margin: 4.25em 0em 3em 0em;
                     padding-top: 0.25rem;
                 }
             }
@@ -594,7 +594,7 @@
                 width: 100%;
                 display: flex;
                 justify-content: center;
-                margin-bottom: 3rem;
+                margin-bottom: 2rem;
             }
 
                 .menuContainer i {
