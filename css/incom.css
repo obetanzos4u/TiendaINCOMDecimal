@@ -203,6 +203,10 @@ margin-left: 1rem;
     margin: auto;
     display: flex;
     font-size: 9px;
+    line-height: 22px;
+    height: 22px;
+    margin-top: 1rem;
+    padding: 0 24px;
 }
 
 .search_bar-mis_pedidos {

@@ -112,13 +112,15 @@
 <%--<uc_bar:adminBar ID="botonAsesores" runat="server"></uc_bar:adminBar>--%>
 <%--<div class="row z-depth-1 header white" style="margin-bottom: 0px;">--%>
 <div>
-    <section class="is-w-full is-flex is-justify-between is-items-center is-px-2 is-py-2">
-        <div class="is-flex is-justify-center is-items-center">
-            <uc_bar:adminBar ID="botonAsesores" runat="server"></uc_bar:adminBar>
-        </div>
-        <div class="is-flex is-justify-center is-items-center">
-            <uc_bar:modAsesor ID="barraAsesores" Visible="false" runat="server"></uc_bar:modAsesor>
-        </div>
+    <section>
+        <div class="is-w-full is-flex is-justify-between is-items-center is-px-2 is-py-2 is-bg-gray-600 is-text-white">
+            <div class="is-flex is-justify-center is-items-center">
+                <uc_bar:adminBar ID="botonAsesores" runat="server"></uc_bar:adminBar>
+            </div>
+            <div>Te encuentras en la modalidad asesor</div>
+            <div class="is-flex is-justify-center is-items-center">
+                <uc_bar:modAsesor ID="barraAsesores" Visible="false" runat="server"></uc_bar:modAsesor>
+            </div>
         <%--        <a class="btn_tuerca">
             <img class="icon_tuerca" src="../img/webUI/newdesign/Tuerca.svg" alt="boton de tuerca o ajustes" />
         </a>--%>
