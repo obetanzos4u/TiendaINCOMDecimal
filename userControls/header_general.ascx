@@ -112,13 +112,11 @@
 <%--<uc_bar:adminBar ID="botonAsesores" runat="server"></uc_bar:adminBar>--%>
 <%--<div class="row z-depth-1 header white" style="margin-bottom: 0px;">--%>
 <div>
-    <section>
-        <div class="is-w-full is-flex is-justify-between is-items-center is-px-2 is-py-2 is-bg-gray-600 is-text-white">
-            <div class="is-flex is-justify-center is-items-center">
+    <section class="is-w-full is-flex is-justify-between" style="line-height: 1; background: #6a6a6a;">
+            <div>
                 <uc_bar:adminBar ID="botonAsesores" runat="server"></uc_bar:adminBar>
             </div>
-            <div>Te encuentras en la modalidad asesor</div>
-            <div class="is-flex is-justify-center is-items-center">
+            <div>
                 <uc_bar:modAsesor ID="barraAsesores" Visible="false" runat="server"></uc_bar:modAsesor>
             </div>
         <%--        <a class="btn_tuerca">
@@ -134,7 +132,7 @@
                 <path
                     d="M14.6 2.9c.8.2 1.6.5 2.3 1l2-1.2 2.7 2.7-1.2 2c.4.7.7 1.5 1 2.3l2.3.5v3.9l-2.3.5c-.2.8-.5 1.6-1 2.3l1.2 2-2.7 2.7-2-1.2c-.7.4-1.5.7-2.3 1l-.5 2.3h-3.9l-.5-2.3c-.8-.2-1.6-.5-2.3-1l-2 1.2-2.7-2.7 1.2-2c-.4-.7-.7-1.5-1-2.3L.7 14v-3.9L3 9.6c.2-.8.5-1.6 1-2.3l-1.2-2 2.7-2.7 2 1.2c.7-.4 1.5-.7 2.3-1l.5-2.3h3.9l.4 2.4zm-2.3 5c-2.3 0-4.2 1.9-4.2 4.2 0 2.3 1.9 4.2 4.2 4.2 2.3 0 4.2-1.9 4.2-4.2 0-2.3-1.9-4.2-4.2-4.2z" />
                 </symbol>        
-    </svg>
+                </svg>
         </span>--%>
     </section>
     <section class="pleca is-flex is-bg-envioGratis is-py-0 is-justify-center" style="height: 36px;">

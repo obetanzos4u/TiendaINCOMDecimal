@@ -3,12 +3,12 @@
 <!-- Dropdown Structure -->
 <div class="user-menu">
     <%--<button type="button" id="btn-asesor" class="is-text-white is-bg-blue is-px-2 is-rounded-2xl" style="outline-width: 0; border: 0; cursor: pointer;" data-target="advisorDropdown">Asesor</button>--%>
-    <asp:Label ID="lbl_modalidad_asesores" class="is-bg-blue-darky is-text-white is-rounded-lg" style="padding: 0.25rem 1rem 0.5rem 1rem;" runat="server">
-        <asp:CheckBox ID="chk_modalidad_asesores" AutoPostBack="true" Text="Modo asesor" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
+    <asp:Label ID="lbl_modalidad_asesores" class="is-bg-blue-darky is-text-white is-rounded-lg" style="padding: 0.25rem 1.5rem 0.5rem 1rem; margin-right: 2rem;" runat="server">
+        <asp:CheckBox ID="chk_modalidad_asesores" class="checkbox_modalidad_asesores" AutoPostBack="true" Text="Modo asesor" OnCheckedChanged="chk_modalidad_asesores_CheckedChanged" runat="server" />
     </asp:Label>
     <%--    <label class="is-text-white is-bg-blue is-px-4 is-rounded-2xl">
     </label>--%>
-    <ul id="modoAsesorUl" class="is-absolute is-text-black" style="list-style: none; padding: 0.5rem 1rem;" runat="server">
+    <ul id="modoAsesorUl" class="is-absolute is-text-black" style="list-style: none; padding: 0.5rem 1rem; line-height: 1.5;" runat="server">
         <li class="is-text-black">
             <asp:HyperLink ID="myBtnCambiarAsesorModal" ClientIDMode="Static" class="is-text-black" Style="cursor: pointer;" runat="server">Cambiar</asp:HyperLink>
         </li>
@@ -147,6 +147,11 @@
         color: black !important;
     }
 
+    .checkbox_modalidad_asesores > input {
+        position: relative !important;
+        margin-top: 1rem;
+    }
+
     #top_menuPricipal_barraAsesores_lbl_modalidad_asesores > label:nth-child(2) {
         color: #FFFFFF;
     }
@@ -154,6 +159,14 @@
     .user-menu span.is-text-black:nth-child(1) > label:nth-child(2) {
         color: #000000;
         font-size: 1rem;
+    }
+
+    .checkbox_modalidad_asesores {
+        margin-top: 1rem;
+    }
+
+    .checkbox_modalidad_asesores > label:nth-child(2) { 
+        color: #FFF;
     }
 
     #body_1 {

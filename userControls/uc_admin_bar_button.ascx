@@ -276,7 +276,7 @@
     </li>
 </ul>
 
-<div id="content_btn_admin" class="content-btn_admin" runat="server" visible="false">
+<div id="content_btn_admin" class="content-btn_admin" style="margin-top: 0.5rem; margin-left: 2rem;" runat="server" visible="false">
     <a id="btn_admin" href="#!" data-target='<%=adminBar.ClientID %>' class="sidenav-trigger ">
         <span class="is-flex">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="body_1" width="24" height="18">
@@ -306,7 +306,7 @@
 
     .content-btn_admin {
         border-radius: 0.5rem;
-        padding: 8px 10px;
+        padding: 6px 10px;
         float: left;
         z-index: 0;
         background: #01568d;
