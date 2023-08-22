@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class soplado_fremco_2022 : System.Web.UI.Page
 {
@@ -27,6 +23,7 @@ public partial class soplado_fremco_2022 : System.Web.UI.Page
 
         return true;
     }
+
     protected void restablecerForm()
     {
         txt_nombre.Text = "";
@@ -34,6 +31,7 @@ public partial class soplado_fremco_2022 : System.Web.UI.Page
         txt_telefono.Text = "";
         txt_empresa.Text = "";
     }
+
     protected void btn_enviar_Click(object sender, EventArgs e)
     {
         if (validar())
@@ -45,10 +43,16 @@ public partial class soplado_fremco_2022 : System.Web.UI.Page
 
             using (MailMessage mm = new MailMessage("serviciosweb@incom.mx", "telemarketing@incom.mx"))
             {
-		mm.CC.Add("publicidad@incom.mx");
+                // Agregar dirección de correo CC
+                mm.CC.Add("publicidad@incom.mx");
+
                 mm.Subject = "Cotización renta Microzanjadora";
                 mm.IsBodyHtml = true;
-                mm.Body = String.Format(@"Hola {0}, nuestro equipo de soporte se pondrá en contacto contigo para ofrecerte una cotización de acuerdo a tus necesidades", nombre, email, telefono, empresa);
+                mm.Body = $@"Hola {nombre}, nuestro equipo de soporte se pondrá en contacto contigo para ofrecerte una cotización de acuerdo a tus necesidades.<br />
+                            Datos de contacto:<br />
+                            Email: {email}<br />
+                            Teléfono: {telefono}<br />
+                            Empresa: {empresa}";
 
                 SmtpClient smtp = new SmtpClient();
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -61,9 +65,9 @@ public partial class soplado_fremco_2022 : System.Web.UI.Page
                 restablecerForm();
                 smtp.Send(mm);
             }
-            restablecerForm();
             lbl_mensaje.Text = "Solicitud enviada";
             lbl_mensaje.ForeColor = System.Drawing.Color.Green;
         }
     }
 }
+y
