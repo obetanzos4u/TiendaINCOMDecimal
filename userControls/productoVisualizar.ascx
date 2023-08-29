@@ -479,8 +479,9 @@
     }
 
     #share-twitter > svg:nth-child(1) {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
+        padding-top: 2px;
     }
 
     #share-whatsapp > svg:nth-child(1) {

@@ -5,7 +5,6 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
   <div class="container">
     <div class="row">
-      <div class="row">
         <div class="container-nosotros">
           <div class="sipnosis-nosotros">
             <img src="../img/webUI/newdesign/Incom_mediano.png" alt="">
@@ -34,7 +33,7 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
                 auditorio, sala de exhibición y punto de venta. <br>
                 Brindamos soporte técnico y asesoría gratuita personal, vía telefónica y medios electrónicos a fin de satisfacer cualquier duda.
                 Somos: La Ferretera de las Telecomunicaciones® <br>
-                Contamos líneas de financiamiento por medio de un tercero, para apoyar a nuestros clientes</p>
+                Contamos líneas de financiamiento por medio de un tercero, para apoyar a nuestros clientes.</p>
         </div>
         <div class="img-visitanos">
             <img src="../img/informacion/CAMION.jpg" alt="">
@@ -43,20 +42,28 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
         </div>
         <p class="title-nosotros">Nuestras marcas</p>
         <div class="nuestras_marcas-nosotros">
+          <a href="">
             <img src="../img/informacion/ICOPTIKS-INFO.jpg" alt="">
+          </a>
+          <a href="./icoplastik.aspx">
             <img src="../img/informacion/ICOPLASTIK-INFO.jpg" alt="">
+          </a>
+          <a href="">
             <img src="../img/informacion/METALICO-INFO.jpg" alt="">
+          </a>
+          <a href="">
             <img src="../img/informacion/TULIKO-INFO.jpg" alt="">
+          </a>
+          <a href="">
             <img src="../img/informacion/POLYMERICO-INFO.jpg" alt="">
+          </a>
         </div>
-      </div>
     </div>
   </div>
 
   <style>
     .container-nosotros {
-      display: flex;
-      flex-direction: row;
+      display: inline-flex;
       padding-top: 2rem;
       margin-bottom: 3rem;
     }
@@ -121,13 +128,20 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
     .nuestras_marcas-nosotros {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin: 4rem;
     }
 
-    .nuestras_marcas-nosotros img {
-      width: 16%;
-      height: auto;
+    .nuestras_marcas-nosotros a {
+        flex: 0 0 18%;
+        margin: 0;
     }
+
+    .nuestras_marcas-nosotros img {
+        width: 100%;
+        height: auto;
+    }
+
 
     @media only screen and (max-width: 650px) {
     .container-nosotros {

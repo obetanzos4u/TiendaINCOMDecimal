@@ -56,7 +56,7 @@
                         <a title="Marcas" href="/informacion/marcas.aspx" target="_blank" class="is-text-white">Marcas</a>
                     </li>
                     <li>
-                        <a title="Quejas,sugerencias,denuncias y felicitaciones" href="/informacion/acerca-de-nosotros.aspx" target="_blank" class="is-text-white">Acerca de INCOM</a>
+                        <a title="Información sobre INCOM" href="/informacion/acerca-de-nosotros.aspx" target="_blank" class="is-text-white">Acerca de INCOM</a>
                     </li>
                     <li>
                         <a title="Aviso de Privacidad" href="/informacion/aviso-de-privacidad.aspx" target="_blank" class="is-text-white">Aviso de privacidad</a>
