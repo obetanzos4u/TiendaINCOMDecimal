@@ -3,7 +3,7 @@ CodeFile="acerca-de-nosotros.aspx.cs"
 MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
-  <div class="container">
+  <div class="main-acerca-nosotros">
     <div class="row">
         <div class="container-nosotros">
           <div class="sipnosis-nosotros">
@@ -62,6 +62,12 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
   </div>
 
   <style>
+    .main-acerca-nosotros {
+      width: 80%;
+      max-width: 1600px;
+      margin: auto;
+    }
+
     .container-nosotros {
       display: inline-flex;
       padding-top: 2rem;
@@ -69,19 +75,14 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
     }
 
     .sipnosis-nosotros {
-      width: 49%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .sipnosis-nosotros img {
-      width: 480px;
-      margin-bottom: 3rem;
-    }
-
     .portada-nosotros {
-      width: 49%;
+      width: 75%;
       margin: auto;
       display: flex;
       justify-content: center;
@@ -121,27 +122,57 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
 
     .img-visitanos {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       margin-bottom: 4rem;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+
+    .sipnosis-nosotros img {
+      width: 100%;
+      max-width: 450px;
+      margin-bottom: 3rem;
     }
 
     .nuestras_marcas-nosotros {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 4rem;
+      margin-left: 1rem;
+      margin-bottom: 6rem;
     }
 
     .nuestras_marcas-nosotros a {
-        flex: 0 0 18%;
-        margin: 0;
+      /* flex: 0 0 18%;
+      margin: 0; */
+      display: flex;
+      margin: auto;
     }
 
     .nuestras_marcas-nosotros img {
-        width: 100%;
-        height: auto;
+      width: 85%;
+      height: auto;
+      margin: auto;
     }
 
+    .portada-nosotros > img:nth-child(1) {
+      width: 100%;
+      max-width: 450px;
+    }
+    
+    @media only screen and (max-width: 500px) {
+      .nuestras_marcas-nosotros a {
+        object-fit: contain;
+        height: 100px;
+      }
+    }
+
+    @media only screen and (min-width: 500px) and (max-width: 650px) {
+      .nuestras_marcas-nosotros a {
+        object-fit: contain;
+        height: 130px;
+      }
+    }
 
     @media only screen and (max-width: 650px) {
     .container-nosotros {
@@ -149,9 +180,9 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
       margin-bottom: 1rem;
     }
 
-    .sipnosis-nosotros {
+    /* .sipnosis-nosotros {
       width: 100%;
-    }
+    } */
 
     .sipnosis-nosotros img {
       width: 90%;
@@ -180,12 +211,12 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
     }
 
     .cualidades-nosotros img {
-      width: 50%;
+      width: 40%;
       margin: auto;
     }
 
     .img-visitanos {
-      width: 90%;
+      width: 60%;
       flex-direction: column;
       margin: auto;
       margin-bottom: 2rem;
@@ -199,10 +230,6 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
     .nuestras_marcas-nosotros img {
       width: 50%;
       margin: auto;
-    }
-
-    .portada-nosotros > img:nth-child(1) {
-      width: 100%;
     }
 
     .sipnosis-nosotros > img:nth-child(1) {
@@ -227,17 +254,20 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
     }
     }
 
+    @media only screen and (min-width: 650px) { 
+      .img-visitanos > img {
+        width: 30%;
+        height: auto;
+      }
+    }
+
     @media only screen and (min-width: 650px) and (max-width: 1000px) {
       .container-nosotros {
         flex-direction: column;
       }
 
-      .sipnosis-nosotros {
-        width: 100%;
-      }
-
       .sipnosis-nosotros img {
-        width: 320px;
+        width: 100%;
       }
 
       .cualidades-nosotros img {
@@ -261,15 +291,15 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
         flex-direction: row;
       }
 
-      .nuestras_marcas-nosotros img {
+      /* .nuestras_marcas-nosotros img {
         width: 20%;
-      }
+      } */
 
       .nuestras_marcas-nosotros {
         margin: 1rem;
       }
 
-      .img-visitanos > img:nth-child(1) {
+      .img-visitanos > img {
         width: 30%;
         height: auto;
       }
@@ -282,6 +312,13 @@ MasterPageFile="~/general.master" Inherits="acerca_de_nosotros" %>
       .img-visitanos > img:nth-child(3) {
         width: 30%;
         height: auto;
+      }
+    }
+
+    @media only screen and (max-width: 1600px) {
+      .sipnosis-nosotros img {
+        width: 100%;
+        margin-bottom: 3rem;
       }
     }
 </style>
