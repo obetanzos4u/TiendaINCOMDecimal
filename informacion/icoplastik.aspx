@@ -180,6 +180,11 @@
               <img src="../img/informacion/ICOPLASTIK_INYECCION_ETIQUETA-F15.png" alt="">                  
             </div>
           </div>
+        </div>
+        <section class="sec-btn-marcauno">
+          <a href="./marcas.aspx">Ir a men&uacute; de marcas</a>
+          <a href="/productos/buscar?busqueda=Icoplastik">Ir a productos Icoplastik</a>
+        </section>
       </div>
     </div>
   </div>
@@ -338,6 +343,26 @@
     width: 100%;
   }
 
+  .sec-btn-marcauno {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  .sec-btn-marcauno a {
+    width: fit-content;
+    color: #0c3766;
+    font-size: 1.25rem;
+    text-decoration-line: underline;
+    text-decoration-color: #0c3766;
+    text-decoration-thickness: 1px;
+  }
+
+  .sec-btn-marcauno a:hover {
+    color: #0c3c98;
+    text-decoration-line: none;
+  }
+
   @media only screen and (max-width: 1600px) {
     .container-marcauno > div > div {
       width: 90%;
@@ -483,6 +508,14 @@
 
     .bg-marcauno > div:nth-child(1) > div:nth-child(3) {
       margin-top: 3rem;
+    }
+
+    .sec-btn-marcauno {
+      flex-direction: column;
+    }
+
+    .sec-btn-marcauno > a:nth-child(1) {
+      margin-bottom: 0.5rem;
     }
   }
 
