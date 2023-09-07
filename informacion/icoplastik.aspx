@@ -3,6 +3,13 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="Server">
+  <meta property="og:title" content="ICOPLASTIK" />
+  <meta property="og:description" content="Soluciones en canalizaci&oacute;n subterr&aacute;nea." />
+  <meta property="og:image" content="../img/informacion/ICOPLASTIK.png" />
+  <meta property="og:image:secure_url" content="../img/informacion/ICOPLASTIK.png" />
+  <meta property="og:image:width" content="400" />
+  <meta property="og:image:height" content="300" />
+
   <div class="container-marcauno">
     <div class="bg-marcauno">
       <div>
@@ -154,16 +161,16 @@
           </div>
         </div>
         <div>
-          <p class="subtitle-marca">INYECCI&Oacute;N DE PL&Aacute;STICO</p>
-          <p>
-            En Icoplastik contamos con m&aacute;quinas inyectoras para desarrollos personalizados con alta capacidad de producci&oacute;n.
-          </p>
           <div class="contenedor-img-marcauno">
+            <div class="contenedor-span-marcauno">
+              <p class="subtitle-marca">INYECCI&Oacute;N DE PL&Aacute;STICO</p>
+              <span>
+                En Icoplastik contamos con m&aacute;quinas inyectoras para desarrollos personalizados con alta capacidad de producci&oacute;n.
+                Una inyectora de pl&aacute;stico, tambi&eacute;n conocida como m&aacute;quina de moldeo por inyecci&oacute;n, es una maquinaria industrial utilizada en la creaci&oacute;n de piezas. Este proceso implica calentar un pol&iacute;mero, hacerlo fluir bajo alta presi&oacute;n dentro de la cavidad de un molde y luego permitir que solidifique. Con esta maquinaria, fabricamos diversos productos de nuestras l&iacute;neas de fibra &oacute;ptica e identificaci&oacute;n.
+              </span>
+            </div>
             <div class="img-marcauno">
               <img src="../img/informacion/ICOPLASTIK_INYECCION-F10.png" alt="">
-            </div>
-            <div class="contenedor-span-marcauno">
-              <span>Una inyectora de pl&aacute;stico, o m&aacute;quina de moldeo por inyecci&oacute;n, es la maquinaria industrial que se utiliza para la creaci&oacute;n de piezas la cual consiste en calentar un pol&iacute;mero y hacerlo fluir bajo alta presi&oacute;n dentro de la cavidad de un molde donde posteriormente solidifica. Aqu&iacute; maquilamos varios productos de nuestras l&iacute;neas de fibra &oacute;ptica e identificaci&oacute;n.</span>
             </div>
           </div>                  
         </div>
@@ -236,7 +243,7 @@
     font-size: 2rem;
     color: black;
     font-weight: bold;
-    margin: 0;
+    margin: 0 0 1.5rem 0;
   }
 
   .container-marca {
@@ -292,28 +299,17 @@
   .contenedor-img-marcauno {
     width: 100%;
     margin: 1.5rem auto; /* Centra el contenedor horizontalmente */
-  }
-
-  .img-marcauno {
-    width: 100%;
-    margin: 0 auto; /* Centra la imagen horizontalmente dentro del contenedor */
-    display: flex; /* Utiliza flexbox para alinear la imagen en la parte superior */
-    align-items: flex-start;
-  }
-
-  .contenedor-img-marcauno img {
-    width: 100%; /* Ocupa todo el ancho disponible dentro del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    display: block; /* Elimina el espacio en blanco debajo de la imagen */
-    margin: auto;
+    display: flex;
+    justify-content: space-between;
   }
 
   .contenedor-span-marcauno {
-    margin-top: 1.5rem;
+    width: 40%;
   }
 
   .foot-marcauno {
     display: flex;
+    justify-content: space-between;
   }
 
   .text-foot-marcauno {
@@ -331,12 +327,12 @@
     margin-top: 4rem;
   }
 
-  .imgs-foot-marcauno {
-    text-align: right;
+  .imgs-foot-marcauno > img {
+    width: 19%;
   }
 
-  .imgs-foot-marcauno img {
-    width: 19%;
+  .imgs-foot-marcauno {
+    text-align: right;
   }
 
   .imlo-foot-marcauno img {
@@ -379,6 +375,10 @@
       width: 160px;
       margin-top: 1rem;
     }
+
+    /* .contenedor-span-marcauno {
+      width: 50%;
+    } */
   }
 
   @media only screen and (min-width: 800px) {
@@ -465,6 +465,26 @@
     .intro-marcauno {
       margin-top: 0;
     }
+
+    .contenedor-img-marcauno {
+      margin: 0 auto;
+      flex-direction: column;
+    }
+
+    .contenedor-span-marcauno {
+      width: 100%;
+    }
+
+    .img-marcauno {
+      width: 100%;
+      margin: auto;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .img-marcauno > img:nth-child(1) {
+      width: 100%;
+    }
   }
 
   @media only screen and (max-width: 600px) {
@@ -519,9 +539,56 @@
     }
   }
 
+  @media only screen and (min-width: 800px) and (max-width: 1060px) {
+    .contenedor-img-marcauno img {
+      width: 90%; /* Ocupa todo el ancho disponible dentro del contenedor */
+      height: auto; /* Mantiene la proporción de la imagen */
+      display: block; /* Elimina el espacio en blanco debajo de la imagen */
+      margin: auto;
+    }
+
+    .img-marcauno {
+      align-items: center;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .img-marcauno > img:nth-child(1) {
+      width: 80%;
+    }
+  }
+
+  @media only screen and (min-width: 1060px) {
+    .contenedor-img-marcauno img {
+      width: 90%; /* Ocupa todo el ancho disponible dentro del contenedor */
+      height: auto; /* Mantiene la proporción de la imagen */
+      display: block; /* Elimina el espacio en blanco debajo de la imagen */
+      margin: auto;
+    }
+
+    .img-marcauno {
+      align-items: center;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
   @media only screen and (min-width: 1325px) {
     div.mood-marca:nth-child(3) {
       float: right;
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+    .imgs-foot-marcauno {
+      justify-content: space-between;
+      display: flex;
+    }
+
+    .imgs-foot-marcauno img {
+      width: 17%;
     }
   }
 </style>
