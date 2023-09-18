@@ -338,6 +338,13 @@
                 </a>
             </div>
             <div class="marca_wrapper">
+                <a href="" target="_blank">
+                    <div class="circle-marca-wrapper">
+                        <img src="/img/marcas/TUK_marca.png" alt="Marca TUK" title="TUK" class="logo-list_marca">
+                    </div>
+                </a>
+            </div>
+            <div class="marca_wrapper">
                 <a href="/productos/buscar?busqueda=urrea&filtroMarcas=URREA&filtroCategorias=&PageId=1" target="_blank">
                     <div class="circle-marca-wrapper">
                         <img src="/img/marcas/Urrea_marca.jpg" alt="Marca Urrea" title="Urrea" class="logo-list_marca">
