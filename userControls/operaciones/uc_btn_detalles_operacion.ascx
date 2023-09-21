@@ -40,7 +40,7 @@
     </div>
 
     <asp:Panel ID="cont_operacion_status" CssClass="col s12 m6 l6 xl6" runat="server">
-        <div class="row ">
+        <div class="row" style="margin-left: 0;">
             <div class="m12 l12">
                 <asp:Literal ID="lt_tipo_peracion" runat="server"></asp:Literal>Creada el
                 <strong>
@@ -55,10 +55,14 @@
 
     </asp:Panel>
     <div id="Div1" class="col s12 m6 l6 xl6 right-align " visible="true" runat="server">
-        <div class="m12 l12 ">
+        <div class="m12 l12" style="float: right">
             <!-- Dropdown Trigger -->
-            <a class='dropdown-trigger btnOpcionesCotizacion btn waves-effect waves-light  blue-grey darken-1 ' href='#' data-target='OpcionesCotizacion'>
-                <i class="left material-icons">build</i> Opciones</a>
+            <a class='dropdown-trigger btnOpcionesCotizacion' href='#' data-target='OpcionesCotizacion'>
+                <div class="is-btn-blue" style="display: flex; flex-direction: row; line-height: 16px">
+                    <img alt="Opciones de cotización" style="width: 1.5rem; height: fit-content; margin: 6px 10px 0px 0px;" src="/img/webUI/newdesign/opciones_cotizacion.png">
+                    <p style="line-height: 10px">Opciones</p>
+                </div>
+            </a>
 
             <!-- Dropdown Structure -->
             <ul id="OpcionesCotizacion" class='dropdown-content'>
@@ -84,8 +88,8 @@
         </div>
     </div>
 
-    <div class="col l12">
-        <span class=" blue-grey lighten-5 nota">Nota: Las cotizaciones en moneda nacional <strong>(MXN)</strong> tienen una vigencia de  1 día.</span>
+    <div class="col l12" style="padding-bottom: 1rem;">
+        <span class=" blue-grey lighten-5 nota" style="margin-left: 0;">Nota: Las cotizaciones en moneda nacional <strong>(MXN)</strong> tienen una vigencia de  1 día.</span>
         <span class=" blue-grey lighten-5 nota">Nota: Las cotizaciones en moneda extranjera  <strong>(USD)</strong> tienen una vigencia de  30 días.</span>
     </div>
  </ContentTemplate></asp:UpdatePanel>

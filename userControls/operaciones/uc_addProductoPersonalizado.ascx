@@ -5,7 +5,28 @@
 <asp:HiddenField ID="hf_idSQL" runat="server" />
 <asp:HiddenField ID="hf_tipo_operacion" runat="server" />
 
-<a class="waves-effect waves-light btn modal-trigger" href="#modal_agregar_producto_personalizado">Agregar Producto Personalizado</a>
+<a style="border: none;
+  border-radius: 6px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 16px;
+  margin-left: 3rem;
+  text-transform: none;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: #fff;
+  background-color: #878787;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: .5px;
+  -webkit-transition: background-color .2s ease-out;
+  transition: background-color .2s ease-out;
+  cursor: pointer;
+  font-size: 12px;
+  outline: 0;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);" href="#modal_agregar_producto_personalizado">Agregar producto personalizado</a>
 
 <!-- Modal Structure -->
 <div id="modal_agregar_producto_personalizado" class="modal no-autoinit">
