@@ -89,8 +89,8 @@
     </div>
 
     <div class="col l12" style="padding-bottom: 1rem;">
-        <span class=" blue-grey lighten-5 nota" style="margin-left: 0;">Nota: Las cotizaciones en moneda nacional <strong>(MXN)</strong> tienen una vigencia de  1 día.</span>
-        <span class=" blue-grey lighten-5 nota">Nota: Las cotizaciones en moneda extranjera  <strong>(USD)</strong> tienen una vigencia de  30 días.</span>
+        <span class=" blue-grey lighten-5 nota" style="margin-left: 0; padding: 2px 10px;">Nota: Las cotizaciones en moneda nacional <strong>(MXN)</strong> tienen una vigencia de  1 día.</span>
+        <span class=" blue-grey lighten-5 nota" style="margin-left: 0; padding: 2px 10px;">Nota: Las cotizaciones en moneda extranjera  <strong>(USD)</strong> tienen una vigencia de  30 días.</span>
     </div>
  </ContentTemplate></asp:UpdatePanel>
 <!-- Modal Structure -->

@@ -74,11 +74,11 @@
                 </asp:DropDownList>
             </div>
 
-            <div class="col s12 m12 l12">
+            <div class="container-btn-crear_cotizacion col s12 m12 l12">
                 <asp:UpdatePanel runat="server">
                     <ContentTemplate>
                         <asp:LinkButton ID="btn_crear_cotizacion_en_blanco" OnClientClick="btnLoading(this);"
-                            CssClass="waves-effect waves-light btn blue-grey-text text-darken-2 blue-grey lighten-5" ClientIDMode="Static" OnClick="btn_crear_cotizacion_en_blanco_Click"
+                            CssClass="btn-crear_cotizacion" ClientIDMode="Static" OnClick="btn_crear_cotizacion_en_blanco_Click"
                             runat="server">Crear cotización en blanco</asp:LinkButton>
                     </ContentTemplate><Triggers><asp:PostBackTrigger ControlID="btn_crear_cotizacion_en_blanco" /></Triggers>
                 </asp:UpdatePanel>
@@ -210,7 +210,7 @@
                                                         <span class="blue-text text-darken-2">
                                                         <%#(Convert.ToDouble(Eval("total"))).ToString("C2",new CultureInfo("es-MX"))+ " " + Eval("monedaCotizacion") %>
                                                         </span>
-                                                        <span class=" blue-grey lighten-5 nota">Impuestos <strong>Incluidos</strong> </span><br />
+                                                        <span class=" blue-grey lighten-5 nota">Impuestos: <strong>Incluidos</strong> </span><br />
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -289,6 +289,32 @@
         </div>
     </div>
 
+    <style>
+
+        .container-btn-crear_cotizacion > div {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn-crear_cotizacion {
+            color: #fff;
+            background-color: #06c;
+            border-radius: 4px;
+            text-transform: none;
+            padding: 8px 18px;
+        }
+
+        #modal_crear_cotizacion_en_blanco > .modal-footer > .modal-action {
+            color: red;
+            font-weight: 600;
+            border: 1px solid red;
+            margin-right: 1rem;
+            padding: 6px 26px;
+            border-radius: 4px;
+        }
+
+    </style>
     <script>
 
     $('.ddl_cotizacionOpciones').dropdown({

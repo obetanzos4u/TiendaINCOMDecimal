@@ -631,7 +631,7 @@ public partial class usuario_cotizacionDatos : System.Web.UI.Page
         }
     protected void btn_converPedido_disabled() {
         btn_converPedido.Enabled = false;
-        btn_converPedido.CssClass = " btn green blue-grey-text text-lighten-5 disabled";
+        btn_converPedido.CssClass = "btn_convertir_pedido disabled";
         }
 
     protected void ddl_metodo_envio_SelectedIndexChanged(object sender, EventArgs e) {

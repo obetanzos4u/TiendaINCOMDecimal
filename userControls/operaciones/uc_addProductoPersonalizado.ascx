@@ -5,7 +5,7 @@
 <asp:HiddenField ID="hf_idSQL" runat="server" />
 <asp:HiddenField ID="hf_tipo_operacion" runat="server" />
 
-<a style="border: none;
+<a class="waves-effect waves-light btn modal-trigger" style="border: none;
   border-radius: 6px;
   display: inline-block;
   height: 36px;
